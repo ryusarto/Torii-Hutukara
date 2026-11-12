@@ -21,3 +21,7 @@ A máscara usa tecido marfim costurado, costura central aparente, treze pontas r
 ## Integração
 
 As colisões das fachadas do Distrito seguem a área visível dos prédios, com correção específica do setor noroeste. As placas foram ancoradas junto às entradas. Nuvens usam bordas contextuais para evitar aparência de fotografia plana. A cena de aquisição da máscara troca o retrato somente depois do momento em que ela se prende ao rosto.
+
+## Progressão mecânica e narrativa
+
+O Capítulo 3 agora apresenta um encadeamento explícito: O Silêncio foge do capítulo anterior e divide a música da cidade em harmonia e pulso. A Usina recupera a harmonia; o Canal recupera o pulso; os dois novos integrantes transformam essas partes numa frase no Contratempo. A frase abre o Elevador, a Flauta dá forma ao ar e o Tambor ancora as plataformas. O Metrônomo testa se o grupo consegue variar sem repetir, e O Silêncio tenta impedir que a frase seja concluída. Assim, cada missão entrega uma ferramenta mecânica e uma consequência narrativa usada na etapa seguinte.

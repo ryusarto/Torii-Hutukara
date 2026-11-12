@@ -12,27 +12,27 @@
         {
           "id": "C3_001.01",
           "speaker": "Ryuchi",
-          "text": "Essa cidade não desliga?"
+          "text": "A máscara puxou a gente antes daquele Silêncio desaparecer. Ele veio parar aqui."
         },
         {
           "id": "C3_001.02",
           "speaker": "Franco",
-          "text": "Tem luz até em lugar que ninguém tá usando."
+          "text": "E a cidade inteira está repetindo o último segundo, como se tivesse medo de terminar."
         },
         {
           "id": "C3_001.03",
           "speaker": "Maia",
-          "text": "Se vieram pelo trem, o último já foi. Se vieram por outro jeito... prefiro ouvir depois."
+          "text": "Então foi vocês que a máscara escolheu. O Silêncio chegou primeiro e dividiu o pulso da cidade em dois."
         },
         {
           "id": "C3_001.04",
           "speaker": "Ryuchi",
-          "text": "A gente tá procurando um lugar."
+          "text": "A gente está procurando ele."
         },
         {
           "id": "C3_001.05",
           "speaker": "Maia",
-          "text": "Todo mundo aqui tá. Vão no Contratempo. É a porta que ainda abre sem pedir cadastro."
+          "text": "Vão ao Contratempo. Se recuperarem o pulso e a harmonia da cidade, o palco consegue abrir o caminho até ele."
         }
       ],
       "onComplete": [],
@@ -77,27 +77,27 @@
         {
           "id": "C3_003.01",
           "speaker": "Maia",
-          "text": "O palco tem luz. A mesa tem som. Mas o grave da rua sumiu e tem gente presa no canal."
+          "text": "O Silêncio separou a música da cidade: a Usina ficou presa numa harmonia que reinicia, e o Canal perdeu o próprio pulso."
         },
         {
           "id": "C3_003.02",
           "speaker": "Franco",
-          "text": "Você quer salvar o show ou buscar o pessoal?"
+          "text": "Então não são dois favores. São as duas partes da mesma chave."
         },
         {
           "id": "C3_003.03",
           "speaker": "Maia",
-          "text": "Quero que amanhã ainda tenha gente pra fazer show aqui."
+          "text": "Isso. Sem harmonia e pulso, o Contratempo não compõe a frequência que reabre o Elevador do Céu. E tem gente presa no meio disso."
         },
         {
           "id": "C3_003.04",
           "speaker": "Ryuchi",
-          "text": "A gente vai ver o canal e a usina. Qual aperto tá pior?"
+          "text": "A gente resolve os dois. Por onde começamos?"
         },
         {
           "id": "C3_003.05",
           "speaker": "Maia",
-          "text": "O que vocês conseguirem resolver primeiro. Eu fico segurando a porta."
+          "text": "Escolham a primeira metade. Quando as duas voltarem, tragam quem estiver sustentando cada uma até este palco."
         }
       ],
       "onComplete": [
@@ -424,17 +424,17 @@
         {
           "id": "C3_012.01",
           "speaker": "Maia",
-          "text": "O grave voltou na minha caneca antes de vocês virarem a esquina."
+          "text": "A harmonia voltou na rua. O teclado que vocês trouxeram é a primeira metade da chave."
         },
         {
           "id": "C3_012.02",
           "speaker": "Franco sintetista",
-          "text": "A prensa ainda tá fazendo barulho."
+          "text": "A Usina não precisa ficar muda. Só precisava parar de obrigar todo som a recomeçar."
         },
         {
           "id": "C3_012.03",
           "speaker": "Maia",
-          "text": "Que faça. Agora é ela que vai ter que acompanhar a rua."
+          "text": "Agora falta o pulso do Canal. Sem ele, o palco sabe a nota, mas não sabe quando abrir o caminho."
         }
       ],
       "onComplete": [],
@@ -452,17 +452,17 @@
         {
           "id": "C3_013.01",
           "speaker": "Maia",
-          "text": "A Nara passou aqui correndo. Nem deu tempo de cobrar o copo que ela me deve."
+          "text": "O pulso voltou. A Nara trouxe os nomes de todo mundo que saiu da comporta."
         },
         {
           "id": "C3_013.02",
           "speaker": "Ryuchi percussionista",
-          "text": "Ela falou do pessoal da comporta?"
+          "text": "Falou de cada pessoa. E essa batida que veio com a gente é a primeira metade da chave."
         },
         {
           "id": "C3_013.03",
           "speaker": "Maia",
-          "text": "Falou os nomes de um por um. Senta. Eu sirvo alguma coisa enquanto vocês pensam no próximo passo."
+          "text": "Agora falta libertar a harmonia presa na Usina. Sem ela, o palco marca o tempo, mas não encontra a nota que abre o céu."
         }
       ],
       "onComplete": [],
@@ -477,12 +477,12 @@
         {
           "id": "C3_014.01",
           "speaker": "Vega",
-          "text": "Agora tem grave. Tem gente. Acabaram as minhas desculpas."
+          "text": "Agora temos harmonia e pulso. Acabaram as desculpas — e o Elevador ainda espera a intenção de vocês."
         },
         {
           "id": "C3_014.02",
           "speaker": "Franco",
-          "text": "A gente pode começar com você."
+          "text": "A gente transforma as duas metades numa frase."
         },
         {
           "id": "C3_014.03",
@@ -492,7 +492,7 @@
         {
           "id": "C3_014.04",
           "speaker": "Ryuchi",
-          "text": "Pode ser uma que ainda não existe."
+          "text": "Uma que carregue tudo que trouxe a gente até aqui, sem copiar o passado."
         },
         {
           "id": "C3_014.05",
@@ -512,27 +512,27 @@
         {
           "id": "C3_015.01",
           "speaker": "Vega",
-          "text": "Essa virada você já tinha pensado?"
+          "text": "A frase entrou no sistema. O Elevador respondeu."
         },
         {
           "id": "C3_015.02",
           "speaker": "Ryuchi percussionista",
-          "text": "Não."
+          "text": "A virada não estava pronta. Eu ouvi o espaço e entrei."
         },
         {
           "id": "C3_015.03",
           "speaker": "Franco sintetista",
-          "text": "Eu quase cortei o retorno."
+          "text": "Eu quase cortei o retorno. Se cortasse, a chave perdia a memória dos outros capítulos."
         },
         {
           "id": "C3_015.04",
           "speaker": "Franco",
-          "text": "Ainda bem que não cortou."
+          "text": "O Baixo moveu a Usina, o Violino separou o Canal, a Flauta vai dar forma ao ar. Nossa frase diz para onde tudo isso quer ir."
         },
         {
           "id": "C3_015.05",
           "speaker": "Maia",
-          "text": "A rua inteira ouviu. Ninguém foi embora."
+          "text": "A rua inteira ouviu. O Elevador do Céu está aberto — e o Silêncio também ouviu vocês chegando."
         }
       ],
       "onComplete": [
@@ -549,7 +549,7 @@
         {
           "id": "C3_016.01",
           "speaker": "Ryuchi percussionista",
-          "text": "Esse tambor segurava as plataformas de carga. Eu trouxe comigo quando a parte alta fechou."
+          "text": "Esse Tambor do Horizonte ancorava as plataformas de carga. A frase abre o Elevador; ele impede que o caminho de nuvens se desfaça."
         },
         {
           "id": "C3_016.02",
@@ -612,7 +612,7 @@
         {
           "id": "C3_018.01",
           "speaker": "Nara",
-          "text": "A nuvem escura é a sombra. Procura onde a borda clareia."
+          "text": "A Flauta revela onde o ar sustenta peso. O Tambor ancora cada passo. A borda clara mostra a próxima nota do caminho."
         },
         {
           "id": "C3_018.02",
@@ -637,7 +637,7 @@
         {
           "id": "C3_019.01",
           "speaker": "O Metrônomo",
-          "text": "ENTRADA FORA DO COMPASSO. RECOMEÇAR."
+          "text": "ENTRADA FORA DO COMPASSO. APAGAR VARIAÇÃO. RECOMEÇAR."
         },
         {
           "id": "C3_019.02",
@@ -647,7 +647,7 @@
         {
           "id": "C3_019.03",
           "speaker": "Ryuchi percussionista",
-          "text": "Então não entrega a mesma abertura."
+          "text": "Ele quer transformar nossa jornada numa repetição segura. Então cada um entra diferente — como a cidade ensinou."
         }
       ],
       "onComplete": [],
@@ -745,17 +745,17 @@
         {
           "id": "C3_023.01",
           "speaker": "O Silêncio",
-          "text": "Espera."
+          "text": "Espera. Se terminarem a frase, este lugar deixa de poder repetir vocês."
         },
         {
           "id": "C3_023.02",
           "speaker": "Franco",
-          "text": "A gente já esperou bastante."
+          "text": "Você fugiu das Ruínas, atravessou a Cidade das Vozes e tentou construir um mundo onde nada precisa terminar."
         },
         {
           "id": "C3_023.03",
           "speaker": "O Silêncio",
-          "text": "Ainda não está pronto. Eles vão perceber."
+          "text": "Ainda não está pronto. Quando ouvirem o que vocês realmente são, vão embora."
         },
         {
           "id": "C3_023.04",
@@ -775,12 +775,12 @@
         {
           "id": "C3_023.07",
           "speaker": "Ryuchi",
-          "text": "A gente escutou tanta gente pra chegar aqui."
+          "text": "A gente escutou tanta gente pra chegar aqui. Cada capítulo deixou uma parte desta frase."
         },
         {
           "id": "C3_023.08",
           "speaker": "Franco",
-          "text": "Agora vai ter que deixar a gente tocar."
+          "text": "Agora a gente termina sem apagar os erros. Essa é a última frequência."
         }
       ],
       "onComplete": [],
@@ -869,12 +869,12 @@
         {
           "id": "C3_026.03",
           "speaker": "Ryuchi",
-          "text": "Ela não trouxe uma música pronta."
+          "text": "Ela trouxe as ferramentas e as pessoas de cada mundo até a mesma frase."
         },
         {
           "id": "C3_026.04",
           "speaker": "Franco",
-          "text": "Trouxe a gente até conseguir fazer a próxima."
+          "text": "E a última nota não fechou Hutukara. Abriu espaço para a próxima música existir sem repetir a anterior."
         },
         {
           "id": "C3_026.05",

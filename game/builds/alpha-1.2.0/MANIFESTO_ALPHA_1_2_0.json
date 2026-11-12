@@ -2,11 +2,11 @@
   "game": "TORII & HUTUKARA",
   "build": "ALPHA 1.2.0 · PRÉ-BETA",
   "schema": 13,
-  "created_at": "2026-11-12T19:37:15-03:00",
+  "created_at": "2026-11-12T19:47:55-03:00",
   "output": {
     "file": "TORII_HUTUKARA_ALPHA_1_2_0_PREBETA.html",
-    "bytes": 93880690,
-    "sha256": "0a013be2dde6b0abd649d55a04c6b5fa662c40b191465799e93b580aecb101ee"
+    "bytes": 93882119,
+    "sha256": "b11466a946e0d07a7b8764db24f15390574ce9d10f24cbd9141ee10cd201363e"
   },
   "chapter_3": {
     "title": "O Som que Ainda Não Existe",
@@ -161,8 +161,8 @@
       "sha256": "ed90634bdec7c2cd8c690751c293593c0c9a037dc32a5e3a2227aee04a1d2031"
     },
     "DIALOGOS_CAPITULO_03.json": {
-      "bytes": 31625,
-      "sha256": "9490c3415960f8820fcea71c433b7518f0360a8030f80e71467cbd0887b4a33d"
+      "bytes": 33054,
+      "sha256": "6c591ad48d97a4a63c8e136cd88385c0308581b3423187dc284f85f206a5619f"
     }
   }
 }

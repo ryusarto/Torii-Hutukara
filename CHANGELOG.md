@@ -33,8 +33,8 @@ Todas as alterações relevantes do projeto são registradas aqui.
 ### Verificação
 
 - 81 de 81 verificações estáticas aprovadas.
-- Build final com 93.880.690 bytes.
-- SHA-256: `0a013be2dde6b0abd649d55a04c6b5fa662c40b191465799e93b580aecb101ee`.
+- Build final com 93.882.119 bytes.
+- SHA-256: `b11466a946e0d07a7b8764db24f15390574ce9d10f24cbd9141ee10cd201363e`.
 
 ## [Alpha 1.1.2] — 2026-11-12
 
