@@ -11,8 +11,8 @@ ROOT = File.expand_path(__dir__)
 REPO_ROOT = File.expand_path('../../..', ROOT)
 BASE = File.join(REPO_ROOT, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
 RUNTIME = File.join(ROOT, 'chapter3_runtime.js')
-OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.1.1')
-OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_1_1_COMPLETO.html')
+OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.1.2')
+OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_1_2_COMPLETO.html')
 
 ASSETS = File.join(REPO_ROOT, 'assets', 'chapter-03')
 RUNTIME_ASSETS = File.join(ASSETS, 'runtime')
@@ -78,16 +78,16 @@ replace_once!(html,
 
 replace_once!(html,
   "version:10,created:new Date().toISOString(),progress:exportState",
-  "version:11,created:new Date().toISOString(),progress:exportState",
+  "version:12,created:new Date().toISOString(),progress:exportState",
   'versão do export')
 replace_once!(html,
   "a.download='torii-hutukara-salvamento.json'",
-  "a.download='torii-hutukara-alpha-1-1-1-salvamento.json'",
+  "a.download='torii-hutukara-alpha-1-1-2-salvamento.json'",
   'nome do export')
 
 replace_once!(html,
   'if(!original||Number(original.version)>10)return null;',
-  'if(!original||Number(original.version)>11)return null;',
+  'if(!original||Number(original.version)>12)return null;',
   'limite do schema')
 
 replace_once!(html,
@@ -132,8 +132,8 @@ File.binwrite(OUTPUT, html)
 sources = FILES.values + [BASE, RUNTIME, DIALOGUES]
 manifest = {
   game: 'TORII & HUTUKARA',
-  build: 'ALPHA 1.1.1',
-  schema: 11,
+  build: 'ALPHA 1.1.2',
+  schema: 12,
   created_at: Time.now.iso8601,
   output: {
     file: File.basename(OUTPUT),
@@ -153,11 +153,11 @@ manifest = {
   end
 }
 
-manifest_path = File.join(OUTPUT_DIR, 'MANIFESTO_ALPHA_1_1_1.json')
+manifest_path = File.join(OUTPUT_DIR, 'MANIFESTO_ALPHA_1_1_2.json')
 File.write(manifest_path, JSON.pretty_generate(manifest) + "\n")
-File.write(File.join(OUTPUT_DIR, 'SHA256_ALPHA_1_1_1.txt'), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
-File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_1_1.txt'), <<~README)
-  TORII & HUTUKARA — ALPHA 1.1.1
+File.write(File.join(OUTPUT_DIR, 'SHA256_ALPHA_1_1_2.txt'), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
+File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_1_2.txt'), <<~README)
+  TORII & HUTUKARA — ALPHA 1.1.2
   =================================
 
   Build jogável completa, do Capítulo 01 ao Capítulo 03.
@@ -183,6 +183,9 @@ File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_1_1.txt'), <<~README)
   - Transição do Capítulo 02 ao Capítulo 03 sem voltar ao menu.
   - Entrada do Elevador do Céu acessível depois da frase do Contratempo.
   - Ryuchi percussionista com corrida, rolamento e golpes rítmicos próprios.
+  - Franco sintetizador com combo de oscilador, pads persistentes e filtro de corte.
+  - Recrutamentos acontecem somente depois das apresentações específicas de cada rota.
+  - Passarela de entrada do Núcleo do Silêncio reconstruída e caminhável.
   - NPCs do Capítulo 03 com movimento ambiente e reação à aproximação.
   - Pisos do distrito, interiores, canal e nuvens usam texturas detalhadas.
   - Placas próprias para Contratempo, Oficina, Usina, Canal e Elevador.

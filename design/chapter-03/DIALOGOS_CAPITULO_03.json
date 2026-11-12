@@ -237,26 +237,36 @@
       "lines": [
         {
           "id": "C3_007.01",
-          "speaker": "Franco sintetista",
-          "text": "Eu nunca teria deixado essa nota entrar."
+          "speaker": "Narrador",
+          "text": "O sequenciador apaga. No escuro, uma última tecla permanece acesa — e alguém a sustenta com a mão, como se segurasse uma porta."
         },
         {
           "id": "C3_007.02",
-          "speaker": "Franco",
-          "text": "Ela já tava querendo entrar fazia tempo."
+          "speaker": "Franco sintetista",
+          "text": "Eu passei horas impedindo essa nota de entrar. Vocês chegaram e perguntaram por que ela estava do lado de fora."
         },
         {
           "id": "C3_007.03",
+          "speaker": "Franco",
+          "text": "Eu ia dizer alguma coisa inteligente, mas estou olhando pra mim mesmo com um teclado."
+        },
+        {
+          "id": "C3_007.04",
+          "speaker": "Franco sintetista",
+          "text": "E eu estou olhando pra uma versão minha que abre espaço antes de saber o que vai caber. Talvez seja disso que esta cidade precisa."
+        },
+        {
+          "id": "C3_007.05",
           "speaker": "Franco sintetista",
           "text": "Vocês vão voltar pro clube?"
         },
         {
-          "id": "C3_007.04",
+          "id": "C3_007.06",
           "speaker": "Ryuchi",
           "text": "Tem um palco esperando."
         },
         {
-          "id": "C3_007.05",
+          "id": "C3_007.07",
           "speaker": "Franco sintetista",
           "text": "Então eu levo o teclado. O que não estiver pronto... vai assim mesmo."
         }
@@ -1031,16 +1041,36 @@
       "lines": [
         {
           "id": "C3_S04.01",
+          "speaker": "Narrador",
+          "text": "Quando o último eco cai, Ryuchi Percussionista não segue para a saída. Ele escuta três notas escapando de uma sala de controle que deveria estar vazia."
+        },
+        {
+          "id": "C3_S04.02",
+          "speaker": "Ryuchi percussionista",
+          "text": "Tem alguém improvisando atrás dessa porta. Isso não é retorno da máquina."
+        },
+        {
+          "id": "C3_S04.03",
+          "speaker": "Franco",
+          "text": "Então abre. Se for outro Ryuchi, dessa vez eu vou me preparar emocionalmente."
+        },
+        {
+          "id": "C3_S04.04",
+          "speaker": "Franco sintetista",
+          "text": "Não abre. Eu ainda não decidi se essa sequência termina."
+        },
+        {
+          "id": "C3_S04.05",
           "speaker": "Ryuchi percussionista",
           "text": "O teclado tá te esperando ou você tá esperando ele?"
         },
         {
-          "id": "C3_S04.02",
+          "id": "C3_S04.06",
           "speaker": "Franco sintetista",
           "text": "Você fala isso como se fosse fácil."
         },
         {
-          "id": "C3_S04.03",
+          "id": "C3_S04.07",
           "speaker": "Ryuchi percussionista",
           "text": "Não é. Por isso eu trouxe mais gente."
         }
@@ -1059,18 +1089,43 @@
       "lines": [
         {
           "id": "C3_S05.01",
-          "speaker": "Franco sintetista",
-          "text": "Posso segurar um pulso com o sequenciador."
+          "speaker": "Narrador",
+          "text": "O sintetizador portátil capta uma batida impossível: ela continua mesmo quando a água cobre a passarela. Franco vira o visor para o grupo."
         },
         {
           "id": "C3_S05.02",
+          "speaker": "Franco sintetista",
+          "text": "Isso não é ruído. Alguém está marcando o caminho para as pessoas presas."
+        },
+        {
+          "id": "C3_S05.03",
+          "speaker": "Ryuchi",
+          "text": "Eu conheço esse jeito de bater como se parar fosse fazer o chão desaparecer."
+        },
+        {
+          "id": "C3_S05.04",
+          "speaker": "Franco",
+          "text": "Se ele tiver a sua cara, ninguém age como se isso fosse normal. Combinado?"
+        },
+        {
+          "id": "C3_S05.05",
+          "speaker": "Ryuchi percussionista",
+          "text": "Quem estiver aí: pisa no três. Um... dois..."
+        },
+        {
+          "id": "C3_S05.06",
+          "speaker": "Franco sintetista",
+          "text": "Posso segurar seu pulso com o sequenciador."
+        },
+        {
+          "id": "C3_S05.07",
           "speaker": "Ryuchi percussionista",
           "text": "Aguenta quando a ponte balança?"
         },
         {
-          "id": "C3_S05.03",
+          "id": "C3_S05.08",
           "speaker": "Franco sintetista",
-          "text": "A gente ajusta na hora."
+          "text": "Não sei. A gente ajusta na hora."
         }
       ],
       "onComplete": [],

@@ -2,7 +2,7 @@
 
 ## Validação automática atual
 
-A Alpha 1.1.1 possui 62 verificações estáticas cobrindo:
+A Alpha 1.1.2 possui 65 verificações estáticas cobrindo:
 
 - presença dos arquivos essenciais;
 - onze mapas do Capítulo 3;
@@ -25,6 +25,9 @@ A Alpha 1.1.1 possui 62 verificações estáticas cobrindo:
 - golpes exclusivos de Ryuchi percussionista;
 - animação ambiente dos NPCs.
 - nível individual e experiência de reserva na equipe.
+- kit territorial próprio do Franco Sintetizador;
+- ordem correta entre apresentação e recrutamento;
+- passarela caminhável na entrada do Núcleo do Silêncio.
 
 ## Matriz de playtest obrigatória
 

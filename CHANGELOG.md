@@ -6,11 +6,31 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ### Planejado
 
-- Playtest completo da Alpha 1.1.1 em desktop e celular.
+- Playtest completo da Alpha 1.1.2 em desktop e celular.
 - Ajustes finos de escala, colisão e ordenação dos novos objetos.
 - Animação visível da saída de Nara da oficina e chegada ao canal.
 - Mais reações de grupo ao encontro das versões de Franco e Ryuchi.
 - Balanceamento dos dois chefes finais a partir de tentativas reais.
+
+## [Alpha 1.1.2] — 2026-11-12
+
+### Adicionado
+
+- Encontros diferentes para a segunda rota, com reações cruzadas entre as versões de Franco e Ryuchi.
+- Kit autoral do Franco Sintetizador: combo Oscilador, Pads Harmônicos persistentes e Filtro de Corte.
+- Estudo técnico das estruturas de combate de Moonlighter e registro dos limites de adaptação autoral.
+
+### Corrigido
+
+- Entrada lateral do Núcleo do Silêncio nascendo sobre vazio bloqueado.
+- Franco Sintetizador e Ryuchi Percussionista entrando na formação antes da própria apresentação.
+- Golpes do Franco Sintetizador reutilizando o comportamento do Franco Arqueiro.
+
+### Verificação
+
+- 65 de 65 verificações estáticas aprovadas.
+- Build final com 86.333.596 bytes.
+- SHA-256: `4e283861ec3caf460aa35dcb79f35aee7c9bdcdcfcb73e9428d96ea31993ae40`.
 
 ## [Alpha 1.1.1] — 2026-11-12
 

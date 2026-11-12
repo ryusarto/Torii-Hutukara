@@ -7,7 +7,7 @@ require 'json'
 root = File.expand_path(__dir__)
 repo_root = File.expand_path('../../..', root)
 base = File.join(repo_root, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
-alpha = File.join(repo_root, 'game', 'builds', 'alpha-1.1.1', 'TORII_HUTUKARA_ALPHA_1_1_1_COMPLETO.html')
+alpha = File.join(repo_root, 'game', 'builds', 'alpha-1.1.2', 'TORII_HUTUKARA_ALPHA_1_1_2_COMPLETO.html')
 runtime = File.join(root, 'chapter3_runtime.js')
 dialogues = File.join(repo_root, 'design', 'chapter-03', 'DIALOGOS_CAPITULO_03.json')
 
@@ -43,7 +43,7 @@ audio_keys.each { |id| check.call("trilha #{id}", built.include?(id)) }
   check.call("função #{name}", source.include?("#{name}=function"))
 end
 
-check.call('schema 11', built.include?("VERSION:11") && built.include?("version:11,created"))
+check.call('schema 12', built.include?("VERSION:12") && built.include?("version:12,created"))
 check.call('autosave Alpha separado', built.include?("KEY='torii_hutukara_alpha_v1'"))
 check.call('migração da 1.1.2', built.include?("'torii_hutukara_piloto_v04'"))
 check.call('seis assinaturas', built.include?("synth:{name:'Camadas vivas'") && built.include?("percussion:{name:'Pulso comum'"))
@@ -59,6 +59,34 @@ check.call('Nara apresentada no canal', source.include?('canalIntro') && source.
 check.call('transição contínua do capítulo 02', source.include?('ATRAVESSAR · CAPÍTULO 03') && source.include?('não é necessário voltar ao menu'))
 check.call('entrada do elevador sem ciclo impossível', source.include?("need:()=>G.c3.clubPhraseDone,blocked:'O ELEVADOR AINDA ESPERA A FRASE DO CONTRATEMPO'"))
 check.call('Ryuchi percussionista com golpes próprios', %w[drumBeat drumCounter drumBreak CONTRATEMPO].all? { |term| source.include?(term) })
+check.call('Franco sintetizador sem flechas recicladas', source.include?('C3.synthLine') && source.include?('C3.placeSynthZone') && source.include?('FILTRO DE CORTE'))
+check.call('recrutamento somente após apresentação', source.index("C3.scene('C3_007'") < source.index("C3.recruit('synth')") && source.index("C3.scene('C3_010'") < source.index("C3.recruit('percussion')"))
+core_open = Array.new(26) { Array.new(34, false) }
+(2...24).each do |y|
+  (2...32).each { |x| core_open[y][x] = Math.hypot((x - 17) / 1.15, y - 13) <= 11 }
+end
+(19...23).each { |y| (3...18).each { |x| core_open[y][x] = true } }
+# A própria função path abre uma faixa de largura 2 entre estes pontos.
+[[5, 21], [11, 21], [17, 18]].each_cons(2) do |(x0, y0), (x1, y1)|
+  steps = [(x1 - x0).abs, (y1 - y0).abs, 1].max
+  (0..steps).each do |i|
+    x = (x0 + (x1 - x0) * i.fdiv(steps)).round
+    y = (y0 + (y1 - y0) * i.fdiv(steps)).round
+    (-1..1).each { |dy| (-1..1).each { |dx| core_open[y + dy][x + dx] = true } }
+  end
+end
+queue = [[5, 21]]
+seen = { [5, 21] => true }
+until queue.empty?
+  x, y = queue.shift
+  [[1, 0], [-1, 0], [0, 1], [0, -1]].each do |dx, dy|
+    p = [x + dx, y + dy]
+    next if seen[p] || !core_open.dig(p[1], p[0])
+    seen[p] = true
+    queue << p
+  end
+end
+check.call('entrada caminhável do Núcleo', seen[[17, 10]] && source.include?("fill(a,3,19,15,4,'c3_voidfloor')"))
 check.call('NPCs com animação ambiente', source.include?('function c3NpcPose') && source.include?('pose.frame'))
 check.call('equipe com níveis e experiência de reserva', source.include?("C3.roles=") && source.include?('Math.floor(amount*.75)') && source.include?('C3.ensureProgression'))
 check.call('nenhum placeholder', built.scan(/__C3_[A-Z0-9_]+__/).empty?)
@@ -71,7 +99,7 @@ check.call('base 1.1.2 preservada', Digest::SHA256.file(base).hexdigest == expec
 passed = checks.count { |(_, ok, _)| ok }
 failed = checks.reject { |(_, ok, _)| ok }
 lines = [
-  'TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.1.1',
+  'TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.1.2',
   '=' * 53,
   "Resultado: #{passed}/#{checks.length} verificações aprovadas",
   "HTML: #{File.size(alpha)} bytes",
@@ -86,10 +114,10 @@ lines += [
   'Playtest visual e funcional desta versão: PENDENTE',
   '- a validação acima comprova estrutura, referências e integridade da build;',
   '- a jornada completa ainda deve ser jogada em navegador desktop e móvel;',
-  '- resultados manuais devem ser registrados em qa/alpha-1.1.1/PLAYTEST.md.'
+  '- resultados manuais devem ser registrados em qa/alpha-1.1.2/PLAYTEST.md.'
 ]
 
 report = lines.join("\n") + "\n"
-File.write(File.join(repo_root, 'game', 'builds', 'alpha-1.1.1', 'VALIDACAO_ALPHA_1_1_1.txt'), report)
+File.write(File.join(repo_root, 'game', 'builds', 'alpha-1.1.2', 'VALIDACAO_ALPHA_1_1_2.txt'), report)
 puts report
 exit(failed.empty? ? 0 : 1)

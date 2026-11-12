@@ -4,7 +4,7 @@ Atualizado em 12 de novembro de 2026.
 
 ## Versão jogável atual
 
-**Alpha 1.1.1** — os três capítulos estão reunidos em um único HTML portátil. A build passou por 62 verificações estáticas e preserva a base 1.1.2 sem modificá-la.
+**Alpha 1.1.2** — os três capítulos estão reunidos em um único HTML portátil. A build passou por 65 verificações estáticas e preserva a base 1.1.2 sem modificá-la.
 
 ## Implementado
 
@@ -22,6 +22,9 @@ Atualizado em 12 de novembro de 2026.
 - Ryuchi percussionista com movimentação e repertório de combate próprios.
 - NPCs do Capítulo 3 com animação ambiente e reação à proximidade.
 - Tela de equipe com função, nível, XP, experiência parcial para reservas e recuperação para aliados tardios.
+- Entrada caminhável no Núcleo do Silêncio, inclusive pelo retorno do checkpoint final.
+- Recrutamento posterior às cenas e apresentações diferentes conforme a ordem das rotas.
+- Franco Sintetizador com combate territorial próprio: oscilador, pads e filtro.
 
 ## Precisa de playtest antes da Beta
 
@@ -35,7 +38,7 @@ Atualizado em 12 de novembro de 2026.
 
 ## Próximo ciclo
 
-1. Executar e registrar o playtest da Alpha 1.1.1.
+1. Executar e registrar o playtest da Alpha 1.1.2.
 2. Corrigir apenas falhas comprovadas, preservando a build publicada.
 3. Produzir Alpha 1.2 com gerenciamento de equipe, níveis, técnicas combinadas e reações adicionais do grupo.
 4. Congelar conteúdo e iniciar a fase Beta.
