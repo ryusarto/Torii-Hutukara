@@ -12,6 +12,30 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - Mais reações de grupo ao encontro das versões de Franco e Ryuchi.
 - Balanceamento dos dois chefes finais a partir de tentativas reais.
 
+## [Alpha 1.2.0 · Pré-beta] — 2026-11-12
+
+### Adicionado
+
+- Retratos autorais consistentes para Franco, Ryuchi e suas variações, incluindo expressões dramáticas.
+- Máscara Torii canônica baseada na peça física: tecido marfim, costura central, treze pontas, lentes circulares e abertura inferior transparente.
+- Rolamento em seis etapas para os seis personagens jogáveis.
+- Corrida própria para Franco Sintetizador e Ryuchi Percussionista.
+- Atlas de nuvens volumétricas em 16 bits, pilares, placa, postes e mobiliário cyberpunk.
+- Seis fundos cinematográficos próprios para estúdio, câmara, cidades, ruínas e nuvens.
+
+### Alterado
+
+- Franco foi redesenhado a partir das referências faciais do artista para manter cabelo, sobrancelhas, rosto, boca e barba curta entre cenas.
+- A máscara cobre testa e linha frontal do cabelo, mas revela boca, parte inferior das bochechas, barba e queixo.
+- Placas do Distrito foram aproximadas das fachadas e as colisões passaram a acompanhar o volume visível dos prédios.
+- A aquisição das máscaras foi dividida em antes e depois de equipá-las, sincronizando retrato e narrativa.
+
+### Verificação
+
+- 81 de 81 verificações estáticas aprovadas.
+- Build final com 93.880.690 bytes.
+- SHA-256: `0a013be2dde6b0abd649d55a04c6b5fa662c40b191465799e93b580aecb101ee`.
+
 ## [Alpha 1.1.2] — 2026-11-12
 
 ### Adicionado

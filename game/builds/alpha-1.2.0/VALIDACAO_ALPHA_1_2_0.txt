@@ -1,0 +1,92 @@
+TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.2.0
+=====================================================
+Resultado: 81/81 verificações aprovadas
+HTML: 93880690 bytes
+SHA-256: 0a013be2dde6b0abd649d55a04c6b5fa662c40b191465799e93b580aecb101ee
+
+OK · arquivo TORII_HUTUKARA_1_1_2_TRILHAS.html
+OK · arquivo TORII_HUTUKARA_ALPHA_1_2_0_PREBETA.html
+OK · arquivo chapter3_runtime.js
+OK · arquivo DIALOGOS_CAPITULO_03.json
+OK · mapa sky_terminal
+OK · mapa distortion_district
+OK · mapa contratempo
+OK · mapa power_plant
+OK · mapa sky_canal
+OK · mapa ciro_workshop
+OK · mapa sky_lift
+OK · mapa cloud_sea
+OK · mapa cloud_terrace
+OK · mapa last_torii
+OK · mapa silence_core
+OK · referências de diálogo
+OK · trilha c3_100_adsense
+OK · trilha c3_type_shit
+OK · trilha c3_ak_cruzada
+OK · trilha c3_chico_buarque
+OK · trilha c3_passaros_exoticos
+OK · trilha c3_nervos
+OK · função C3.startMetronome
+OK · função C3.startSilence
+OK · função C3.resolveSilence
+OK · função C3.finishMetronome
+OK · função C3.finishSilence
+OK · função C3.returnStudio
+OK · schema 13
+OK · autosave Alpha separado
+OK · migração da 1.1.2
+OK · seis assinaturas
+OK · sete padrões finais
+OK · cinco padrões por tentativa
+OK · frase final
+OK · epílogo
+OK · asset district_materials
+OK · asset sprite_maia
+OK · asset sprite_nara
+OK · asset sprite_ciro
+OK · asset sprite_vega
+OK · asset sprite_dimas
+OK · asset sprite_resident_a
+OK · asset sprite_resident_b
+OK · asset sprite_canal_worker
+OK · asset sprite_plant_operator
+OK · asset atlas_lamps
+OK · asset atlas_urban
+OK · asset atlas_workshop
+OK · asset atlas_canal
+OK · asset atlas_lift
+OK · asset prebeta_roll
+OK · asset prebeta_run
+OK · asset prebeta_portraits
+OK · asset prebeta_mask
+OK · asset prebeta_props
+OK · asset prebeta_clouds
+OK · asset prebeta_cinema
+OK · rosto autoral do Franco nos diálogos
+OK · máscara canônica com rosto visível
+OK · máscara passa a aparecer depois da aquisição
+OK · rolamento dos seis personagens
+OK · corrida própria da dupla do capítulo 3
+OK · nuvens volumétricas
+OK · placa e pilares detalhados
+OK · colisões alinhadas às fachadas
+OK · fundos cinematográficos próprios
+OK · objetivo do canal por estado
+OK · Nara apresentada no canal
+OK · transição contínua do capítulo 02
+OK · entrada do elevador sem ciclo impossível
+OK · Ryuchi percussionista com golpes próprios
+OK · Franco sintetizador sem flechas recicladas
+OK · recrutamento somente após apresentação
+OK · entrada caminhável do Núcleo
+OK · NPCs com animação ambiente
+OK · equipe com níveis e experiência de reserva
+OK · nenhum placeholder
+OK · um init final
+OK · um bloco script
+OK · base 1.1.2 preservada
+
+Playtest visual e funcional desta versão: PENDENTE
+- a validação acima comprova estrutura, referências e integridade da build;
+- a jornada completa ainda deve ser jogada em navegador desktop e móvel;
+- resultados manuais devem ser registrados em qa/alpha-1.2.0/PLAYTEST.md.

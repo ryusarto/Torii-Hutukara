@@ -1,5 +1,12 @@
 # Origem dos assets
 
+## Referências autorais privadas — Alpha 1.2.0
+
+- `assets/prebeta/source/TORII_MASK_PHYSICAL_REFERENCE.png`: fotografia da máscara física criada pela equipe; referência canônica para toda representação da máscara Torii.
+- `assets/prebeta/source/FRANCO_THE_SIR_FACE_REFERENCE.png` e `FRANCO_THE_SIR_FACE_REFERENCE_FRONT.png`: referências fornecidas pelo próprio usuário para a identidade visual de Franco, The Sir.
+- As referências faciais são material de produção sensível à identidade. Elas não devem ser reutilizadas fora do projeto nem tratadas como material genérico.
+- Os atlas em `assets/prebeta/originals/` são originais de alta resolução. As cópias em `assets/prebeta/runtime/` foram reduzidas somente para manter o HTML portátil abaixo do limite de distribuição.
+
 ## Escopo
 
 Este documento registra a função e a origem operacional dos arquivos. A confirmação jurídica de licenças, contratos e créditos deve acontecer antes de qualquer lançamento público.

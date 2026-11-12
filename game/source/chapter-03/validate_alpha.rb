@@ -7,7 +7,7 @@ require 'json'
 root = File.expand_path(__dir__)
 repo_root = File.expand_path('../../..', root)
 base = File.join(repo_root, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
-alpha = File.join(repo_root, 'game', 'builds', 'alpha-1.1.2', 'TORII_HUTUKARA_ALPHA_1_1_2_COMPLETO.html')
+alpha = File.join(repo_root, 'game', 'builds', 'alpha-1.2.0', 'TORII_HUTUKARA_ALPHA_1_2_0_PREBETA.html')
 runtime = File.join(root, 'chapter3_runtime.js')
 dialogues = File.join(repo_root, 'design', 'chapter-03', 'DIALOGOS_CAPITULO_03.json')
 
@@ -43,7 +43,7 @@ audio_keys.each { |id| check.call("trilha #{id}", built.include?(id)) }
   check.call("função #{name}", source.include?("#{name}=function"))
 end
 
-check.call('schema 12', built.include?("VERSION:12") && built.include?("version:12,created"))
+check.call('schema 13', built.include?("VERSION:13") && built.include?("version:13,created"))
 check.call('autosave Alpha separado', built.include?("KEY='torii_hutukara_alpha_v1'"))
 check.call('migração da 1.1.2', built.include?("'torii_hutukara_piloto_v04'"))
 check.call('seis assinaturas', built.include?("synth:{name:'Camadas vivas'") && built.include?("percussion:{name:'Pulso comum'"))
@@ -54,6 +54,18 @@ check.call('epílogo', source.include?("C3.scene('C3_027'"))
 %w[district_materials sprite_maia sprite_nara sprite_ciro sprite_vega sprite_dimas sprite_resident_a sprite_resident_b sprite_canal_worker sprite_plant_operator atlas_lamps atlas_urban atlas_workshop atlas_canal atlas_lift].each do |asset|
   check.call("asset #{asset}", source.include?("#{asset}:") && built.include?("#{asset}:"))
 end
+%w[prebeta_roll prebeta_run prebeta_portraits prebeta_mask prebeta_props prebeta_clouds prebeta_cinema].each do |asset|
+  check.call("asset #{asset}", source.include?("#{asset}:") && built.include?("#{asset}:"))
+end
+check.call('rosto autoral do Franco nos diálogos', source.include?('prebeta_portraits') && source.include?("who.includes('franco')"))
+check.call('máscara canônica com rosto visível', source.include?('PB.drawCanonicalMask') && source.include?('Eu ainda vejo pelas lentes'))
+check.call('máscara passa a aparecer depois da aquisição', source.include?('PB.repairMaps') && source.include?('G.flags.masks=true;updateHUD()'))
+check.call('rolamento dos seis personagens', source.include?('PLAYABLE_ROLL') || source.include?('prebeta_roll'))
+check.call('corrida própria da dupla do capítulo 3', source.include?('prebeta_run') && source.include?("style==='synth'||style==='percussion'"))
+check.call('nuvens volumétricas', source.include?('PB.cloudTile') && source.include?('prebeta_clouds'))
+check.call('placa e pilares detalhados', source.include?("p.type==='signpost'") && source.include?("p.type==='ruinColumn'"))
+check.call('colisões alinhadas às fachadas', source.include?('districtHouses') && source.include?('rectBlock(a,hx-3,hy-5,7,5)'))
+check.call('fundos cinematográficos próprios', source.include?('PB.cinemaPanel') && source.include?("showCinema('distortion')"))
 check.call('objetivo do canal por estado', source.include?("!c.canalPath?") && source.include?('Atravesse e liberte a comporta'))
 check.call('Nara apresentada no canal', source.include?('canalIntro') && source.include?('Eu disse para irem na frente'))
 check.call('transição contínua do capítulo 02', source.include?('ATRAVESSAR · CAPÍTULO 03') && source.include?('não é necessário voltar ao menu'))
@@ -99,7 +111,7 @@ check.call('base 1.1.2 preservada', Digest::SHA256.file(base).hexdigest == expec
 passed = checks.count { |(_, ok, _)| ok }
 failed = checks.reject { |(_, ok, _)| ok }
 lines = [
-  'TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.1.2',
+  'TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.2.0',
   '=' * 53,
   "Resultado: #{passed}/#{checks.length} verificações aprovadas",
   "HTML: #{File.size(alpha)} bytes",
@@ -114,10 +126,10 @@ lines += [
   'Playtest visual e funcional desta versão: PENDENTE',
   '- a validação acima comprova estrutura, referências e integridade da build;',
   '- a jornada completa ainda deve ser jogada em navegador desktop e móvel;',
-  '- resultados manuais devem ser registrados em qa/alpha-1.1.2/PLAYTEST.md.'
+  '- resultados manuais devem ser registrados em qa/alpha-1.2.0/PLAYTEST.md.'
 ]
 
 report = lines.join("\n") + "\n"
-File.write(File.join(repo_root, 'game', 'builds', 'alpha-1.1.2', 'VALIDACAO_ALPHA_1_1_2.txt'), report)
+File.write(File.join(repo_root, 'game', 'builds', 'alpha-1.2.0', 'VALIDACAO_ALPHA_1_2_0.txt'), report)
 puts report
 exit(failed.empty? ? 0 : 1)

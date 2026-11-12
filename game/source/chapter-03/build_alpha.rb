@@ -11,12 +11,13 @@ ROOT = File.expand_path(__dir__)
 REPO_ROOT = File.expand_path('../../..', ROOT)
 BASE = File.join(REPO_ROOT, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
 RUNTIME = File.join(ROOT, 'chapter3_runtime.js')
-OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.1.2')
-OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_1_2_COMPLETO.html')
+OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.2.0')
+OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_2_0_PREBETA.html')
 
 ASSETS = File.join(REPO_ROOT, 'assets', 'chapter-03')
 RUNTIME_ASSETS = File.join(ASSETS, 'runtime')
 AUTHORING = File.join(REPO_ROOT, 'design', 'chapter-03')
+PREBETA = File.join(REPO_ROOT, 'assets', 'prebeta', 'runtime')
 
 FILES = {
   '__C3_AUDIO_1__' => File.join(ASSETS, 'audio', '01-100adsense.mp3'),
@@ -43,7 +44,14 @@ FILES = {
   '__C3_ATLAS_URBAN__' => File.join(RUNTIME_ASSETS, 'ambiente', 'MOBILIARIO_URBANO_ATLAS.png'),
   '__C3_ATLAS_WORKSHOP__' => File.join(RUNTIME_ASSETS, 'ambiente', 'OFICINA_CIRO_PROPS_ATLAS.png'),
   '__C3_ATLAS_CANAL__' => File.join(RUNTIME_ASSETS, 'ambiente', 'CANAL_INTERFERENCIA_PROPS_ATLAS.png'),
-  '__C3_ATLAS_LIFT__' => File.join(RUNTIME_ASSETS, 'ambiente', 'ELEVADOR_CEU_PROPS_ATLAS.png')
+  '__C3_ATLAS_LIFT__' => File.join(RUNTIME_ASSETS, 'ambiente', 'ELEVADOR_CEU_PROPS_ATLAS.png'),
+  '__PREBETA_ROLL__' => File.join(PREBETA, 'characters', 'PLAYABLE_ROLL_6X6.png'),
+  '__PREBETA_RUN__' => File.join(PREBETA, 'characters', 'SYNTH_PERCUSSION_RUN.png'),
+  '__PREBETA_PORTRAITS__' => File.join(PREBETA, 'dialogue', 'PLAYABLE_PORTRAITS_MASK_CANON.png'),
+  '__PREBETA_MASK__' => File.join(PREBETA, 'dialogue', 'TORII_MASK_CANON_4X2.png'),
+  '__PREBETA_PROPS__' => File.join(PREBETA, 'environment', 'ENVIRONMENT_PROPS_4X2.png'),
+  '__PREBETA_CLOUDS__' => File.join(PREBETA, 'environment', 'VOLUMETRIC_CLOUDS_4X2.png'),
+  '__PREBETA_CINEMA__' => File.join(PREBETA, 'dialogue', 'CINEMATIC_BACKGROUNDS_3X2.png')
 }.freeze
 
 DIALOGUES = File.join(AUTHORING, 'DIALOGOS_CAPITULO_03.json')
@@ -78,16 +86,16 @@ replace_once!(html,
 
 replace_once!(html,
   "version:10,created:new Date().toISOString(),progress:exportState",
-  "version:12,created:new Date().toISOString(),progress:exportState",
+  "version:13,created:new Date().toISOString(),progress:exportState",
   'versão do export')
 replace_once!(html,
   "a.download='torii-hutukara-salvamento.json'",
-  "a.download='torii-hutukara-alpha-1-1-2-salvamento.json'",
+  "a.download='torii-hutukara-alpha-1-2-0-salvamento.json'",
   'nome do export')
 
 replace_once!(html,
   'if(!original||Number(original.version)>10)return null;',
-  'if(!original||Number(original.version)>12)return null;',
+  'if(!original||Number(original.version)>13)return null;',
   'limite do schema')
 
 replace_once!(html,
@@ -132,8 +140,8 @@ File.binwrite(OUTPUT, html)
 sources = FILES.values + [BASE, RUNTIME, DIALOGUES]
 manifest = {
   game: 'TORII & HUTUKARA',
-  build: 'ALPHA 1.1.2',
-  schema: 12,
+  build: 'ALPHA 1.2.0 · PRÉ-BETA',
+  schema: 13,
   created_at: Time.now.iso8601,
   output: {
     file: File.basename(OUTPUT),
@@ -153,11 +161,11 @@ manifest = {
   end
 }
 
-manifest_path = File.join(OUTPUT_DIR, 'MANIFESTO_ALPHA_1_1_2.json')
+manifest_path = File.join(OUTPUT_DIR, 'MANIFESTO_ALPHA_1_2_0.json')
 File.write(manifest_path, JSON.pretty_generate(manifest) + "\n")
-File.write(File.join(OUTPUT_DIR, 'SHA256_ALPHA_1_1_2.txt'), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
-File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_1_2.txt'), <<~README)
-  TORII & HUTUKARA — ALPHA 1.1.2
+File.write(File.join(OUTPUT_DIR, 'SHA256_ALPHA_1_2_0.txt'), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
+File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_0.txt'), <<~README)
+  TORII & HUTUKARA — ALPHA 1.2.0 · PRÉ-BETA
   =================================
 
   Build jogável completa, do Capítulo 01 ao Capítulo 03.
@@ -188,6 +196,13 @@ File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_1_2.txt'), <<~README)
   - Passarela de entrada do Núcleo do Silêncio reconstruída e caminhável.
   - NPCs do Capítulo 03 com movimento ambiente e reação à aproximação.
   - Pisos do distrito, interiores, canal e nuvens usam texturas detalhadas.
+  - Rosto do Franco refeito com referências autorais e identidade consistente nos diálogos.
+  - Máscara Torii canônica ampliada sobre testa e cabelo, mantendo a parte inferior do rosto visível.
+  - Rolamento em seis etapas para os seis personagens jogáveis.
+  - Corrida fluida própria para Franco sintetizador e Ryuchi percussionista.
+  - Nuvens volumétricas em 16 bits e fundos cinematográficos próprios por região.
+  - Placas, postes e pilares substituídos por sprites detalhados.
+  - Colisões do Distrito da Distorção alinhadas às fachadas, inclusive no setor noroeste.
   - Placas próprias para Contratempo, Oficina, Usina, Canal e Elevador.
   - Pós-jogo com revisita e criação de uma nova frase musical.
 
