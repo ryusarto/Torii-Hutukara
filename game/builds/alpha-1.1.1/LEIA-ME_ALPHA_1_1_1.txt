@@ -1,0 +1,33 @@
+TORII & HUTUKARA — ALPHA 1.1.1
+=================================
+
+Build jogável completa, do Capítulo 01 ao Capítulo 03.
+Arquivo principal: TORII_HUTUKARA_ALPHA_1_1_1_COMPLETO.html
+
+COMO JOGAR
+- Abra o HTML em um navegador moderno.
+- A jornada normal começa no estúdio.
+- Em OUTRAS OPÇÕES há previews dos Capítulos 02 e 03 para teste.
+- WASD/setas: mover · Shift: correr · E: interagir.
+- J/Espaço: atacar · Z/X: técnicas · Q: dash · K: especial.
+- 1–3: trocar o integrante ativo.
+
+CONTEÚDO DA ALPHA
+- Três capítulos conectados e salvamento migrável da build 1.1.2.
+- Seis personagens jogáveis, formação de até três.
+- Duas ordens possíveis de recrutamento no Capítulo 03.
+- Metrônomo, O Silêncio, retries e epílogo no estúdio.
+- Seis faixas novas incorporadas no próprio HTML.
+- Sprites próprios para Maia, Nara, Ciro, Vega, Dimas e NPCs do distrito.
+- Postes, mobiliário, oficina, canal e elevador redesenhados.
+- Objetivos do canal e da usina reagem ao estado real da missão.
+- Transição do Capítulo 02 ao Capítulo 03 sem voltar ao menu.
+- Entrada do Elevador do Céu acessível depois da frase do Contratempo.
+- Ryuchi percussionista com corrida, rolamento e golpes rítmicos próprios.
+- NPCs do Capítulo 03 com movimento ambiente e reação à aproximação.
+- Pisos do distrito, interiores, canal e nuvens usam texturas detalhadas.
+- Placas próprias para Contratempo, Oficina, Usina, Canal e Elevador.
+- Pós-jogo com revisita e criação de uma nova frase musical.
+
+O arquivo original TORII_HUTUKARA_1_1_2_TRILHAS.html não é alterado.
+Esta é uma Alpha: use o menu para exportar o progresso periodicamente.

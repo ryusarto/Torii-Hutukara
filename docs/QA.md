@@ -2,7 +2,7 @@
 
 ## Validação automática atual
 
-A Alpha 1.1.0 possui 57 verificações estáticas cobrindo:
+A Alpha 1.1.1 possui 62 verificações estáticas cobrindo:
 
 - presença dos arquivos essenciais;
 - onze mapas do Capítulo 3;
@@ -20,6 +20,11 @@ A Alpha 1.1.0 possui 57 verificações estáticas cobrindo:
 - ausência de placeholders;
 - integridade estrutural do HTML;
 - hash da base 1.1.2.
+- presença dos materiais detalhados do Distrito;
+- ausência da dependência circular do Elevador do Céu;
+- golpes exclusivos de Ryuchi percussionista;
+- animação ambiente dos NPCs.
+- nível individual e experiência de reserva na equipe.
 
 ## Matriz de playtest obrigatória
 

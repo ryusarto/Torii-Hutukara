@@ -4,7 +4,7 @@ Atualizado em 12 de novembro de 2026.
 
 ## Versão jogável atual
 
-**Alpha 1.1.0** — os três capítulos estão reunidos em um único HTML portátil. A build passou por 57 verificações estáticas e preserva a base 1.1.2 sem modificá-la.
+**Alpha 1.1.1** — os três capítulos estão reunidos em um único HTML portátil. A build passou por 62 verificações estáticas e preserva a base 1.1.2 sem modificá-la.
 
 ## Implementado
 
@@ -17,6 +17,11 @@ Atualizado em 12 de novembro de 2026.
 - Cinco atlas ambientais para postes, mobiliário urbano, oficina, canal e elevador.
 - Progressão do canal e da usina reagindo às ações concluídas.
 - Passagem narrativa direta do fim do Capítulo 2 para o Capítulo 3.
+- Passagem do Clube Contratempo ao Elevador do Céu sem bloqueio circular.
+- Piso detalhado, placas e marcos visuais no Distrito da Distorção.
+- Ryuchi percussionista com movimentação e repertório de combate próprios.
+- NPCs do Capítulo 3 com animação ambiente e reação à proximidade.
+- Tela de equipe com função, nível, XP, experiência parcial para reservas e recuperação para aliados tardios.
 
 ## Precisa de playtest antes da Beta
 
@@ -30,11 +35,10 @@ Atualizado em 12 de novembro de 2026.
 
 ## Próximo ciclo
 
-1. Executar e registrar o playtest da Alpha 1.1.0.
+1. Executar e registrar o playtest da Alpha 1.1.1.
 2. Corrigir apenas falhas comprovadas, preservando a build publicada.
-3. Criar Alpha 1.1.1 com correções de progressão, colisão e apresentação.
-4. Produzir Alpha 1.2 com animações de cena e reações adicionais do grupo.
-5. Congelar conteúdo e iniciar a fase Beta.
+3. Produzir Alpha 1.2 com gerenciamento de equipe, níveis, técnicas combinadas e reações adicionais do grupo.
+4. Congelar conteúdo e iniciar a fase Beta.
 
 ## Critério de pronto
 

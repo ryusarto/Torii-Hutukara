@@ -7,7 +7,7 @@ require 'json'
 root = File.expand_path(__dir__)
 repo_root = File.expand_path('../../..', root)
 base = File.join(repo_root, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
-alpha = File.join(repo_root, 'game', 'builds', 'alpha-1.1.0', 'TORII_HUTUKARA_ALPHA_1_1_0_COMPLETO.html')
+alpha = File.join(repo_root, 'game', 'builds', 'alpha-1.1.1', 'TORII_HUTUKARA_ALPHA_1_1_1_COMPLETO.html')
 runtime = File.join(root, 'chapter3_runtime.js')
 dialogues = File.join(repo_root, 'design', 'chapter-03', 'DIALOGOS_CAPITULO_03.json')
 
@@ -51,12 +51,16 @@ check.call('sete padrões finais', %w[ring cross fan rain chase pulse orbit].all
 check.call('cinco padrões por tentativa', source.include?('Array.from({length:5}'))
 check.call('frase final', source.include?("C3.openPhrase('final')") && source.include?('C3.resolveSilence()'))
 check.call('epílogo', source.include?("C3.scene('C3_027'"))
-%w[sprite_maia sprite_nara sprite_ciro sprite_vega sprite_dimas sprite_resident_a sprite_resident_b sprite_canal_worker sprite_plant_operator atlas_lamps atlas_urban atlas_workshop atlas_canal atlas_lift].each do |asset|
+%w[district_materials sprite_maia sprite_nara sprite_ciro sprite_vega sprite_dimas sprite_resident_a sprite_resident_b sprite_canal_worker sprite_plant_operator atlas_lamps atlas_urban atlas_workshop atlas_canal atlas_lift].each do |asset|
   check.call("asset #{asset}", source.include?("#{asset}:") && built.include?("#{asset}:"))
 end
 check.call('objetivo do canal por estado', source.include?("!c.canalPath?") && source.include?('Atravesse e liberte a comporta'))
 check.call('Nara apresentada no canal', source.include?('canalIntro') && source.include?('Eu disse para irem na frente'))
 check.call('transição contínua do capítulo 02', source.include?('ATRAVESSAR · CAPÍTULO 03') && source.include?('não é necessário voltar ao menu'))
+check.call('entrada do elevador sem ciclo impossível', source.include?("need:()=>G.c3.clubPhraseDone,blocked:'O ELEVADOR AINDA ESPERA A FRASE DO CONTRATEMPO'"))
+check.call('Ryuchi percussionista com golpes próprios', %w[drumBeat drumCounter drumBreak CONTRATEMPO].all? { |term| source.include?(term) })
+check.call('NPCs com animação ambiente', source.include?('function c3NpcPose') && source.include?('pose.frame'))
+check.call('equipe com níveis e experiência de reserva', source.include?("C3.roles=") && source.include?('Math.floor(amount*.75)') && source.include?('C3.ensureProgression'))
 check.call('nenhum placeholder', built.scan(/__C3_[A-Z0-9_]+__/).empty?)
 check.call('um init final', built.scan(/\binit\(\);/).length == 1)
 check.call('um bloco script', built.scan(/<script\b/).length == 1 && built.scan(%r{</script>}).length == 1)
@@ -67,7 +71,7 @@ check.call('base 1.1.2 preservada', Digest::SHA256.file(base).hexdigest == expec
 passed = checks.count { |(_, ok, _)| ok }
 failed = checks.reject { |(_, ok, _)| ok }
 lines = [
-  'TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.1.0',
+  'TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.1.1',
   '=' * 53,
   "Resultado: #{passed}/#{checks.length} verificações aprovadas",
   "HTML: #{File.size(alpha)} bytes",
@@ -82,10 +86,10 @@ lines += [
   'Playtest visual e funcional desta versão: PENDENTE',
   '- a validação acima comprova estrutura, referências e integridade da build;',
   '- a jornada completa ainda deve ser jogada em navegador desktop e móvel;',
-  '- resultados manuais devem ser registrados em qa/alpha-1.1.0/PLAYTEST.md.'
+  '- resultados manuais devem ser registrados em qa/alpha-1.1.1/PLAYTEST.md.'
 ]
 
 report = lines.join("\n") + "\n"
-File.write(File.join(repo_root, 'game', 'builds', 'alpha-1.1.0', 'VALIDACAO_ALPHA_1_1_0.txt'), report)
+File.write(File.join(repo_root, 'game', 'builds', 'alpha-1.1.1', 'VALIDACAO_ALPHA_1_1_1.txt'), report)
 puts report
 exit(failed.empty? ? 0 : 1)

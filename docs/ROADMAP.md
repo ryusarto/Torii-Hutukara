@@ -7,6 +7,10 @@
 - [x] Corrigir objetivo persistente do Canal Suspenso.
 - [x] Corrigir presença e falas de Nara e Ciro.
 - [x] Manter passagem do Capítulo 2 para o 3 dentro do jogo.
+- [x] Corrigir a passagem do Clube Contratempo ao Elevador do Céu.
+- [x] Diferenciar visualmente e mecanicamente Ryuchi percussionista.
+- [x] Aplicar pisos detalhados, placas e marcos visuais ao Distrito.
+- [x] Adicionar animação ambiente aos NPCs do Capítulo 3.
 - [ ] Testar os três capítulos numa jornada contínua sem ferramentas de QA.
 - [ ] Testar Usina primeiro e Canal primeiro.
 - [ ] Validar saves novos, migrados, exportados e reimportados.
@@ -25,6 +29,11 @@
 - Atalhos e marcos visuais mais fortes no Distrito.
 - Revisão de colisões e corredores com os novos objetos.
 - Balanceamento de duração e dano de O Metrônomo e O Silêncio.
+- Tela de equipe com três integrantes ativos e reservas, sem perder a identidade atual do combate.
+- Nível, experiência e progressão legíveis por personagem.
+- Experiência parcial para reservas e mecanismo de recuperação para personagens atrasados.
+- Funções de combate claras e técnicas combinadas entre personagens compatíveis.
+- Seguidores com trilha de movimento e NPCs com pequenas rotas e agendas locais.
 
 ## Beta narrativa
 

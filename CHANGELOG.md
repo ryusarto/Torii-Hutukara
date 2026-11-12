@@ -6,11 +6,36 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ### Planejado
 
-- Playtest completo da Alpha 1.1.0 em desktop e celular.
+- Playtest completo da Alpha 1.1.1 em desktop e celular.
 - Ajustes finos de escala, colisão e ordenação dos novos objetos.
 - Animação visível da saída de Nara da oficina e chegada ao canal.
 - Mais reações de grupo ao encontro das versões de Franco e Ryuchi.
 - Balanceamento dos dois chefes finais a partir de tentativas reais.
+
+## [Alpha 1.1.1] — 2026-11-12
+
+### Adicionado
+
+- Materiais detalhados do Distrito derivados da arte-fonte aprovada.
+- Placas e marcos visuais para Clube Contratempo, Oficina de Ciro, Usina de Retorno, Canal Suspenso e Elevador do Céu.
+- Animação ambiente dos NPCs, com alternância de pose e reação à proximidade.
+- Corrida, rolamento e poses de ataque em tempo real para Ryuchi percussionista.
+- Golpes exclusivos de percussão: combo de três batidas, Contratempo, Quebra-pulso e Pulso Comum.
+- Estudo documentado dos sistemas da ROM de Chrono Trigger e do projeto ChronoRET.
+- Função, nível e experiência individual para os seis personagens na tela de equipe.
+- Experiência de reserva em 75% e recuperação de nível para aliados recrutados mais tarde.
+
+### Corrigido
+
+- Dependência circular que exigia o elevador aberto para entrar na própria sala que o abria.
+- Seta de missão que desaparecia após a apresentação no Clube Contratempo.
+- Passagem para o Elevador do Céu permanecendo bloqueada apesar da frase musical concluída.
+
+### Verificação
+
+- 62 de 62 verificações estáticas aprovadas.
+- Build final com 86.329.154 bytes.
+- SHA-256: `93f291f4d68778968e14f48f7ded71e93f9a62937da5529f9e0ec4e94a96b268`.
 
 ## [Alpha 1.1.0] — 2026-11-12
 
