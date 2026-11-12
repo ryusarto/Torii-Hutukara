@@ -1,0 +1,39 @@
+TORII HUTUKARA — CAPÍTULO 3
+BIBLIOTECA DE SPRITES ALPHA 1.2
+
+Esta biblioteca resolve os principais vazios visuais apontados na revisão:
+- Maia agora possui sprite próprio;
+- Nara pode caminhar até o canal e aparecer lá antes do jogador;
+- Ciro, Vega e Dimas possuem movimentação completa;
+- moradores do distrito e trabalhadores deixam de usar figuras genéricas;
+- postes, mobiliário, oficina, canal e elevador possuem objetos detalhados;
+- estados bloqueado, perigoso, reparado e liberado podem ser mostrados no mapa.
+
+PERSONAGENS
+Cada folha mede 2176 × 724 px e contém oito quadros de 272 × 724 px.
+Ordem dos quadros:
+1. frente — passo A
+2. frente — passo B
+3. esquerda — passo A
+4. esquerda — passo B
+5. costas — passo A
+6. costas — passo B
+7. direita — passo A
+8. direita — passo B
+
+Todos os PNGs possuem transparência real.
+
+AMBIENTE
+Os atlas medem 1536 × 1024 px e possuem transparência real.
+- POSTES_LUMINARIAS_ATLAS: 6 variações.
+- MOBILIARIO_URBANO_ATLAS: 9 objetos urbanos.
+- OFICINA_CIRO_PROPS_ATLAS: 9 objetos da oficina.
+- CANAL_INTERFERENCIA_PROPS_ATLAS: 9 objetos e estados da missão.
+- ELEVADOR_CEU_PROPS_ATLAS: 9 objetos e estados da subida às nuvens.
+
+Abra INDICE_VISUAL.html em qualquer navegador para ver todo o catálogo.
+
+Observação narrativa: o novo ciclo de Nara permite executar a cena combinada —
+ela diz “vai na frente”, sai do local e já está esperando no canal quando o
+jogador chega. Isso corrige a sensação de que ela surge do nada.
+

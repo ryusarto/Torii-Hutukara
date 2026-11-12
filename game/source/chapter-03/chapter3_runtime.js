@@ -1,0 +1,407 @@
+/* TORII & HUTUKARA — ALPHA 1.1.0 · CAPÍTULO 03
+   Módulo aditivo carregado após a 1.1.2 e antes do init(). */
+'use strict';
+
+const C3={
+  VERSION:11,
+  AREAS:['sky_terminal','distortion_district','contratempo','power_plant','sky_canal','ciro_workshop','sky_lift','cloud_sea','cloud_terrace','last_torii','silence_core'],
+  COMBAT_AREAS:['power_plant','sky_canal','cloud_sea','cloud_terrace','silence_core'],
+  labels:{
+    sky_terminal:['TERMINAL DO CÉU','CAPÍTULO 03 · O SOM QUE AINDA NÃO EXISTE'],
+    distortion_district:['DISTRITO DA DISTORÇÃO','LADO B · CIDADE ACIMA DAS NUVENS'],
+    contratempo:['CLUBE CONTRATEMPO','UMA PORTA QUE AINDA ABRE'],
+    power_plant:['USINA DE RETORNO','A SEQUÊNCIA QUE NÃO TERMINA'],
+    sky_canal:['CANAL SUSPENSO','SEGURE O PULSO'],
+    ciro_workshop:['OFICINA DE CIRO','DAR FORMA AO AR'],
+    sky_lift:['ELEVADOR DO CÉU','DESSA VEZ, PARA SUBIR'],
+    cloud_sea:['MAR DE NUVENS','ONDE A BORDA CLAREIA'],
+    cloud_terrace:['TERRAÇO DO COMPASSO','FORA DO COMPASSO'],
+    last_torii:['ÚLTIMO TORII','A GENTE VOLTOU'],
+    silence_core:['NÚCLEO DO SILÊNCIO','A ÚLTIMA FREQUÊNCIA']
+  },
+  names:{synth:'Franco · sintetizador',percussion:'Ryuchi · percussão'},
+  skills:{synth:['Onda quadrada','Sequência viva','Sincronizar'],percussion:['Batida','Contratempo','Quebra-pulso']},
+  defaults:()=>({
+    started:false,metMaia:false,twoRoutesOpen:false,firstDestination:null,
+    usinaGate:false,usinaDone:false,canalPath:false,canalDone:false,
+    synthUnlocked:false,percussionUnlocked:false,windFlute:false,horizonDrum:false,
+    clubPhrase:[],clubPhraseDone:false,liftOpen:false,cloudPathA:false,
+    cloudPathB:false,cloudPlatform:false,metronomeDone:false,silenceDone:false,
+    complete:false,returnHome:false,bossAttempts:0,cassetteQuest:false,
+    cassetteFound:false,cassetteChoice:null,keptFirstShow:false,smallLight:false,
+    cloudWindow:false,arrivalSeen:false,canalIntro:false,cloudIntro:false,toriiSeen:false,
+    metronomeSeen:false,liftSeen:false,endingPending:false,finalPhrase:[]
+  }),
+  music:{
+    c3_100_adsense:'__C3_AUDIO_1__',
+    c3_type_shit:'__C3_AUDIO_2__',
+    c3_ak_cruzada:'__C3_AUDIO_3__',
+    c3_chico_buarque:'__C3_AUDIO_4__',
+    c3_passaros_exoticos:'__C3_AUDIO_5__',
+    c3_nervos:'__C3_AUDIO_6__'
+  },
+  dialogue:__C3_DIALOGUES__,
+  assetData:{
+    actors:'data:image/png;base64,__C3_ACTORS__',
+    props:'data:image/png;base64,__C3_PROPS__',
+    cast:'data:image/png;base64,__C3_CAST__',
+    street:'data:image/png;base64,__C3_STREET__',
+    sprite_maia:'data:image/png;base64,__C3_SPRITE_MAIA__',
+    sprite_nara:'data:image/png;base64,__C3_SPRITE_NARA__',
+    sprite_ciro:'data:image/png;base64,__C3_SPRITE_CIRO__',
+    sprite_vega:'data:image/png;base64,__C3_SPRITE_VEGA__',
+    sprite_dimas:'data:image/png;base64,__C3_SPRITE_DIMAS__',
+    sprite_resident_a:'data:image/png;base64,__C3_SPRITE_RESIDENT_A__',
+    sprite_resident_b:'data:image/png;base64,__C3_SPRITE_RESIDENT_B__',
+    sprite_canal_worker:'data:image/png;base64,__C3_SPRITE_CANAL_WORKER__',
+    sprite_plant_operator:'data:image/png;base64,__C3_SPRITE_PLANT_OPERATOR__',
+    atlas_lamps:'data:image/png;base64,__C3_ATLAS_LAMPS__',
+    atlas_urban:'data:image/png;base64,__C3_ATLAS_URBAN__',
+    atlas_workshop:'data:image/png;base64,__C3_ATLAS_WORKSHOP__',
+    atlas_canal:'data:image/png;base64,__C3_ATLAS_CANAL__',
+    atlas_lift:'data:image/png;base64,__C3_ATLAS_LIFT__'
+  },
+  images:{},
+  hazards:[],
+  bossPattern:[],
+  bossPatternIndex:0,
+  attackMemory:[],
+  phraseInput:[],
+  phraseOrigin:null
+};
+
+function c3ChromaImage(src){
+  const raw=new Image(),out=new Image();
+  raw.onload=()=>{try{const c=document.createElement('canvas');c.width=raw.naturalWidth;c.height=raw.naturalHeight;const q=c.getContext('2d',{willReadFrequently:true});q.drawImage(raw,0,0);const im=q.getImageData(0,0,c.width,c.height),d=im.data,w=c.width,h=c.height,count=w*h,mask=new Uint8Array(count),queue=new Int32Array(count);let head=0,tail=0;const green=p=>{const i=p*4,r=d[i],g=d[i+1],b=d[i+2];return g>118&&g>r*1.24&&g>b*1.24};const add=p=>{if(!mask[p]&&green(p)){mask[p]=1;queue[tail++]=p}};for(let x=0;x<w;x++){add(x);add((h-1)*w+x)}for(let y=0;y<h;y++){add(y*w);add(y*w+w-1)}while(head<tail){const p=queue[head++],x=p%w;if(p>=w)add(p-w);if(p<count-w)add(p+w);if(x)add(p-1);if(x<w-1)add(p+1)}for(let p=0;p<count;p++){const i=p*4;if(mask[p]){d[i+3]=0;continue}const r=d[i],g=d[i+1],b=d[i+2];if(g>Math.max(r,b)*1.06){const x=p%w,edge=(p>=w&&mask[p-w])||(p<count-w&&mask[p+w])||(x&&mask[p-1])||(x<w-1&&mask[p+1]);if(edge){const spill=Math.min(1,(g-Math.max(r,b))/96);d[i+3]=Math.round(d[i+3]*(1-spill*.82));d[i+1]=Math.round(g-(g-Math.max(r,b))*.72)}}}q.putImageData(im,0,0);out.src=c.toDataURL('image/png')}catch(e){out.src=src}};
+  raw.src=src;return out;
+}
+for(const [id,src] of Object.entries(C3.assetData))C3.images[id]=(id==='street'||id.startsWith('sprite_')||id.startsWith('atlas_'))?Object.assign(new Image(),{src}):c3ChromaImage(src);
+Object.assign(ALBUM11,C3.music);
+Object.assign(names09,C3.names);
+Object.assign(labels10,C3.names);
+Object.assign(skillNames10,C3.skills);
+BASE_HP.synth=44;BASE_HP.percussion=46;
+for(const id of C3.COMBAT_AREAS)combatAreas10.add(id);
+enemyInfo.c3_echo={name:'Eco de Distorção',hp:76,power:10};
+enemyInfo.c3_drone={name:'Drone de Retorno',hp:92,power:12};
+
+const C3_freshBase=fresh;
+fresh=function(){const g=C3_freshBase();g.version=11;g.chapter=1;g.c3=C3.defaults();g.hp.synth=44;g.hp.percussion=46;g.maxhp.synth=44;g.maxhp.percussion=46;return g};
+
+const C3_normalizeBase=normalizeSave;
+normalizeSave=function(raw){
+  const original=raw?.progress||raw;if(!original||Number(original.version)>C3.VERSION)return null;const compat=copy(raw),compatProgress=compat?.progress||compat;if(Number(compatProgress.version)===C3.VERSION)compatProgress.version=10;const g=C3_normalizeBase(compat);if(!g)return g;
+  g.version=11;g.c3={...C3.defaults(),...(original?.c3||g.c3||{})};
+  if(!Array.isArray(g.c3.clubPhrase))g.c3.clubPhrase=[];
+  if(!Array.isArray(g.c3.finalPhrase))g.c3.finalPhrase=[];
+  for(const [id,fallback] of [['synth',44],['percussion',46]]){g.maxhp[id]=Math.max(1,Math.min(999,Number(original?.maxhp?.[id]??g.maxhp?.[id])||fallback));g.hp[id]=clamp(Number(original?.hp?.[id]??g.hp?.[id]??g.maxhp[id]),0,g.maxhp[id])}
+  const unlocked=['franco','ryuchi',...(g.flags.reveal?['alt']:[]),...(g.flags.voicesKatana?['katana']:[]),...(g.c3.synthUnlocked?['synth']:[]),...(g.c3.percussionUnlocked?['percussion']:[])];
+  let team=[...new Set(original?.formation||g.formation||['franco','ryuchi'])].filter(id=>unlocked.includes(id)).slice(0,3);if(!team.length)team=['franco'];
+  if(!team.some(id=>g.hp[id]>0)){const alive=unlocked.find(id=>g.hp[id]>0)||'franco';g.hp[alive]=Math.max(1,g.hp[alive]||g.maxhp[alive]);team=[alive]}
+  g.formation=team;if(!team.includes(g.active)||g.hp[g.active]<=0)g.active=team.find(id=>g.hp[id]>0)||team[0];
+  if(g.c3.started&&!C3.AREAS.includes(g.area)&&g.chapter===3&&g.area!=='studio'){g.area='sky_terminal';g.x=6.5;g.y=12.5}
+  return g;
+};
+
+const C3_checkpointBase=setCheckpoint;
+setCheckpoint=function(...args){C3_checkpointBase(...args);if(G?.checkpoint?.snapshot){G.checkpoint.snapshot.version=11;G.checkpoint.snapshot.c3=copy(G.c3);G.checkpoint.snapshot.hp.synth=G.maxhp.synth;G.checkpoint.snapshot.hp.percussion=G.maxhp.percussion;G.checkpoint.snapshot.maxhp.synth=G.maxhp.synth;G.checkpoint.snapshot.maxhp.percussion=G.maxhp.percussion;G.checkpoint.snapshot.formation=[...partyMembers()]}};
+
+const C3_checkpointNameBase=checkpointName;
+checkpointName=function(id){return ({c3_terminal:'TERMINAL DO CÉU',c3_district:'CLUBE CONTRATEMPO',c3_clouds:'MAR DE NUVENS',c3_final:'ÚLTIMO TORII',c3_complete:'NOVA SESSÃO'})[id]||C3_checkpointNameBase(id)};
+
+const C3_restoreBase=restoreCheckpoint;
+restoreCheckpoint=function(options={}){const id=G?.checkpoint?.id,isC3=!!G?.c3?.started,rest=!!options.c3Rest;if(isC3&&options.toCity)options={c3Rest:rest};const result=C3_restoreBase(options);if(G){for(const hero of ['synth','percussion'])if(G.maxhp[hero])G.hp[hero]=G.maxhp[hero];C3.hazards.length=0;C3.finalPending=false;C3.applyWorld();if(!rest&&id==='c3_clouds'&&!G.c3.metronomeDone)setTimeout(()=>C3.startMetronome(true),100);if(!rest&&id==='c3_final'&&!G.c3.silenceDone)setTimeout(()=>{setArea('silence_core',7.5,20.5,false);C3.startSilence(true)},100)}return result};
+
+C3.scene=function(id,end){const s=C3.dialogue.scenes.find(x=>x.id===id);if(!s){if(end)end();return}const aliases={'Franco':'franco','Ryuchi':'ryuchi','Franco arqueiro':'alt','Ryuchi espadachim':'katana','Franco sintetista':'synth','Ryuchi percussionista':'percussion','O Silêncio':'silence','O Metrônomo':'metronome'};talk(s.lines.map(l=>({who:aliases[l.speaker]||l.speaker.toLocaleLowerCase('pt-BR').replace(/[^a-z0-9áàâãéêíóôõúç]+/g,'_'),t:l.text})),end)};
+
+const C3_dialogueBase=advanceDialogue;
+advanceDialogue=function(){C3_dialogueBase();if(mode!=='dialogue')return;const who=($('speaker')?.textContent||'').toLowerCase();let box=null;if(who.includes('sintet'))box=[0,0,1];else if(who.includes('percuss'))box=[0,1,1];else if(who.includes('nara'))box=[0,0,0];else if(who.includes('ciro'))box=[1,0,0];else if(who.includes('vega'))box=[2,0,0];else if(who.includes('metrônomo'))box=[1,1,0];else if(who.includes('silêncio'))box=[2,1,0];if(!box)return;const source=box[2]?C3.images.actors:C3.images.cast;if(!source?.complete||!source.naturalWidth)return;const c=document.createElement('canvas');c.width=96;c.height=96;const q=c.getContext('2d');q.imageSmoothingEnabled=false;if(box[2]){const fw=source.naturalWidth/8,fh=source.naturalHeight/2;q.drawImage(source,0,box[1]*fh,fw,fh,8,0,80,96)}else{const fw=source.naturalWidth/3,fh=source.naturalHeight/2;q.drawImage(source,box[0]*fw,box[1]*fh,fw,fh,0,0,96,96)}$('portrait').src=c.toDataURL()};
+
+C3.boundary=function(a){for(let x=0;x<a.w;x++){solid(a,x,0);solid(a,x,a.h-1)}for(let y=0;y<a.h;y++){solid(a,0,y);solid(a,a.w-1,y)}return a};
+C3.room=function(id,w,h,tile='c3_indoor'){return C3.boundary(mk(id,w,h,tile))};
+C3.allDefeated=function(prefix){return current.enemies.filter(e=>e.id.startsWith(prefix)).every(e=>G.defeated.includes(e.id)||e.hp<=0)};
+
+C3.buildMaps=function(){
+  let a=C3.room('sky_terminal',26,18,'c3_metal');
+  fill(a,2,5,22,10,'c3_platform');prop(a,'c3_elevator',13,4);prop(a,'c3_lamp',5,9);prop(a,'c3_lamp',20,9);prop(a,'c3_sign',13,7,{text:'ÚLTIMA LINHA'});
+  evt(a,'c3_terminal_signal',8,10,'TRANSMISSÃO INTERROMPIDA',()=>talk([{who:'narrator',t:'Uma voz repete: “Contratempo aberto. Último trem encerrado.”'}]));
+  link(a,23,12,'distortion_district',5.5,37.5); 
+
+  a=C3.boundary(mk('distortion_district',64,44,'c3_asphalt'));
+  fill(a,3,3,58,38,'c3_asphalt');path(a,[[4,37],[18,35],[31,28],[35,19],[35,7]],3,'c3_street');path(a,[[17,35],[17,19],[11,15]],3,'c3_street');path(a,[[31,28],[49,27],[56,13]],3,'c3_street');path(a,[[31,28],[48,35],[57,34]],3,'c3_street');
+  for(let x=8;x<60;x+=8)prop(a,'c3_lamp',x,38);for(const p of [[9,9],[21,8],[44,8],[54,22],[7,27],[45,39]])prop(a,'c3_house',p[0],p[1],{w:7,h:5});
+  rectBlock(a,7,7,12,8);rectBlock(a,21,5,9,6);rectBlock(a,32,2,7,4);rectBlock(a,51,5,9,6);prop(a,'c3_club',13,15,{w:10,h:7});prop(a,'c3_workshop',25,11,{w:9,h:6});prop(a,'c3_elevator',35,7);prop(a,'c3_machine',55,11);prop(a,'c3_sign',13,20,{text:'CONTRATEMPO'});prop(a,'c3_sign',27,16,{text:'OFICINA'});
+  prop(a,'c3_bench',39,31);prop(a,'c3_planter',20,25);prop(a,'c3_vending',50,24);prop(a,'c3_kiosk',31,33);prop(a,'c3_crates',53,31);
+  link(a,4,37,'sky_terminal',22.5,12.5);link(a,15,20,'contratempo',13.5,16.5);link(a,56,14,'power_plant',4.5,20.5,{need:()=>G.c3.twoRoutesOpen,blocked:'CONVERSE COM MAIA NO CONTRATEMPO'});link(a,57,34,'sky_canal',4.5,12.5,{need:()=>G.c3.twoRoutesOpen,blocked:'CONVERSE COM MAIA NO CONTRATEMPO'});link(a,28,16,'ciro_workshop',13.5,15.5);link(a,35,7,'sky_lift',10.5,20.5,{need:()=>G.c3.liftOpen,blocked:'O ELEVADOR AINDA NÃO RESPONDE'});
+  npc(a,'c3_dimas',24,31,'Dimas · Banca de Discos',()=>C3.dimas(),'merchant');
+  npc(a,'c3_resident',42,18,'Moradora do Distrito',()=>C3.sideLight(),'citizen');
+  npc(a,'c3_resident_b',47,31,'Morador do Distrito',()=>talk([{who:'morador',t:'O elevador ficou mudo, mas o Contratempo continuou acendendo a rua. Aqui a gente aprendeu a reconhecer passagem pelo som.'}]),'citizen');
+
+  a=C3.room('contratempo',28,20,'c3_clubfloor');fill(a,3,3,22,13,'c3_clubfloor');prop(a,'c3_stage',14,4);prop(a,'c3_speakers',5,5);prop(a,'c3_speakers',23,5);prop(a,'c3_bar',22,12);prop(a,'c3_table',7,12);prop(a,'c3_table',12,13);
+  npc(a,'c3_maia',8,9,'Maia · Contratempo',()=>C3.maia(),'citizen');npc(a,'c3_vega',18,8,'Vega · Voz do Contratempo',()=>C3.vega(),'citizen');
+  evt(a,'c3_phrase_stage',14,7,'PALCO · CRIAR UMA FRASE',()=>C3.openPhrase('club'));
+  link(a,13,17,'distortion_district',15.5,21.5);
+
+  a=C3.boundary(mk('power_plant',38,25,'c3_factory'));
+  fill(a,2,3,34,19,'c3_factory');path(a,[[3,20],[10,20],[14,15],[20,15],[28,11],[34,11]],2,'c3_metal');for(const p of [[8,6],[18,6],[28,6],[31,17]])prop(a,'c3_machine',p[0],p[1]);prop(a,'c3_speakers',33,10);
+  for(let y=1;y<a.h-1;y++)solid(a,17,y);evt(a,'c3_usina_gate',15,17,'TRAVA GRAVE · BAIXO DE RAIZ',()=>C3.openPlantGate());
+  prop(a,'c3_valve_station',29,19);prop(a,'c3_pressure_switch',14,17);
+  enemy(a,'c3_plant_echo_1',23,14,'c3_echo');enemy(a,'c3_plant_echo_2',28,15,'c3_drone');enemy(a,'c3_plant_echo_3',31,10,'c3_echo');
+  npc(a,'c3_synth_npc',32,9,'Franco · Sintetizador',()=>C3.synthTalk(),'citizen');
+  npc(a,'c3_plant_operator',8,18,'Operador da Usina',()=>C3.plantOperatorTalk(),'citizen');
+  evt(a,'c3_plant_console',33,12,'SEQUENCIADOR DA USINA',()=>C3.completePlant());
+  link(a,3,21,'distortion_district',55.5,15.5);
+
+  a=C3.boundary(mk('sky_canal',42,25,'c3_asphalt'));
+  fill(a,2,2,38,21,'c3_asphalt');for(let y=1;y<24;y++)for(let x=17;x<=23;x++){a.tiles[y][x]='c3_water';solid(a,x,y)}
+  path(a,[[3,12],[13,12]],3,'c3_street');path(a,[[27,12],[38,12]],3,'c3_street');prop(a,'c3_speakers',29,8);prop(a,'c3_machine',36,17);evt(a,'c3_violin_path',14,12,'INTERFERÊNCIA · VIOLINO DAS VOZES',()=>C3.openCanal());
+  prop(a,'c3_interference',14,10);prop(a,'c3_canal_gate',37,10);prop(a,'c3_broken_pipe',35,18);prop(a,'c3_rescue_barrier',38,15);
+  enemy(a,'c3_canal_echo_1',29,13,'c3_echo');enemy(a,'c3_canal_echo_2',33,10,'c3_drone');
+  npc(a,'c3_percussion_npc',34,14,'Ryuchi · Percussão',()=>C3.percussionTalk(),'citizen');npc(a,'c3_nara_canal',30,17,'Nara · Técnica de Ventos',()=>C3.scene('C3_008'),'citizen');
+  npc(a,'c3_canal_worker',38,17,'Trabalhadora do Canal',()=>C3.canalWorkerTalk(),'citizen');
+  evt(a,'c3_first_tape',11,18,'CAIXA SEM RÓTULO · PRIMEIRO SHOW',()=>C3.findCassette());
+  evt(a,'c3_canal_rescue',37,12,'COMPORTA · CONCLUIR RESGATE',()=>C3.completeCanal());
+  link(a,3,12,'distortion_district',56.5,34.5);
+
+  a=C3.room('ciro_workshop',28,19,'c3_indoor');prop(a,'c3_workbench',14,5);prop(a,'c3_wind_console',7,8);prop(a,'c3_flute_rack',21,7);prop(a,'c3_tuning_machine',14,11);npc(a,'c3_ciro',7,13,'Ciro · Mecânico',()=>C3.scene('C3_004'),'citizen');npc(a,'c3_nara',18,12,'Nara · Técnica de Ventos',()=>C3.nara(),'citizen');evt(a,'c3_wind_test',14,9,'DUTO DE TESTE · FLAUTA',()=>C3.getFlute());link(a,13,16,'distortion_district',28.5,17.5);
+
+  a=C3.room('sky_lift',22,24,'c3_platform');fill(a,5,3,12,18,'c3_platform');prop(a,'c3_elevator',11,5);prop(a,'c3_lift_console',11,13);prop(a,'c3_wind_receiver',7,17);prop(a,'c3_bass_lock',15,17);evt(a,'c3_lift_control',11,12,'ELEVADOR · TAMBOR E FLAUTA',()=>C3.activateLift());link(a,10,21,'distortion_district',35.5,8.5);link(a,11,4,'cloud_sea',5.5,26.5,{need:()=>G.c3.liftOpen,blocked:'O ELEVADOR PRECISA DE DUAS FREQUÊNCIAS'});
+
+  a=C3.boundary(mk('cloud_sea',58,34,'c3_cloud'));
+  fill(a,2,2,54,30,'c3_sky',true);path(a,[[4,27],[14,27],[18,23]],2,'c3_cloud');path(a,[[25,22],[31,17]],2,'c3_cloud');path(a,[[38,16],[44,11]],2,'c3_cloud');path(a,[[50,10],[54,7]],2,'c3_cloud');
+  for(let y=18;y<=26;y++)for(let x=18;x<=24;x++){a.tiles[y][x]='c3_sky';solid(a,x,y)}for(let y=12;y<=20;y++)for(let x=32;x<=38;x++){a.tiles[y][x]='c3_sky';solid(a,x,y)}for(let y=6;y<=13;y++)for(let x=45;x<=50;x++){a.tiles[y][x]='c3_sky';solid(a,x,y)}
+  evt(a,'c3_cloud_a',17,23,'BORDA CLARA · FLAUTA',()=>C3.cloudPath('A'));evt(a,'c3_cloud_platform',31,17,'PLATAFORMA · TAMBOR',()=>C3.cloudPlatform());evt(a,'c3_cloud_b',44,11,'CONDENSAÇÃO · FLAUTA',()=>C3.cloudPath('B'));
+  evt(a,'c3_cloud_window',12,24,'BORDA LATERAL · JANELA PARA A CIDADE',()=>C3.secretWindow());
+  enemy(a,'c3_cloud_echo_1',27,20,'c3_echo');enemy(a,'c3_cloud_echo_2',41,13,'c3_drone');
+  link(a,4,28,'sky_lift',11.5,5.5);link(a,54,7,'cloud_terrace',5.5,17.5,{need:()=>G.c3.cloudPathA&&G.c3.cloudPathB&&G.c3.cloudPlatform,blocked:'AS TRÊS PASSAGENS AINDA NÃO RESPONDEM'});
+
+  a=C3.boundary(mk('cloud_terrace',30,22,'c3_sanctuary'));fill(a,3,3,24,16,'c3_sanctuary');prop(a,'c3_sanctuary',15,4);evt(a,'c3_metronome_start',15,9,'O METRÔNOMO · ENFRENTAR',()=>C3.startMetronome(false));link(a,4,18,'cloud_sea',53.5,7.5);link(a,25,18,'last_torii',5.5,13.5,{need:()=>G.c3.metronomeDone,blocked:'O METRÔNOMO AINDA REINICIA O CAMINHO'});
+
+  a=C3.room('last_torii',26,19,'c3_sanctuary');prop(a,'c3_sanctuary',13,3);prop(a,'maskStand',13,8);npc(a,'c3_alt_final',7,11,'Franco · Arqueiro',()=>C3.scene('C3_021'),'citizen');npc(a,'c3_katana_final',19,11,'Ryuchi · Katana',()=>C3.scene('C3_022'),'citizen');evt(a,'c3_final_checkpoint',13,12,'GRAVADOR · ÚLTIMO TORII',()=>setCheckpoint('c3_final','last_torii',13.5,13.5));link(a,4,14,'cloud_terrace',25.5,18.5);link(a,22,14,'silence_core',5.5,20.5);
+
+  a=C3.boundary(mk('silence_core',34,26,'c3_voidfloor'));for(let y=2;y<24;y++)for(let x=2;x<32;x++){const d=Math.hypot((x-17)/1.15,y-13);if(d>11){a.tiles[y][x]='void';solid(a,x,y)}else a.tiles[y][x]='c3_voidfloor'}prop(a,'c3_sanctuary',17,5);evt(a,'c3_silence_start',17,10,'O SILÊNCIO · COMEÇAR',()=>C3.startSilence(false));link(a,5,21,'last_torii',21.5,14.5);
+};
+
+C3.applyWorld=function(){if(!G?.c3)return;let a=areas.power_plant;if(a){if(G.c3.usinaGate)for(let y=9;y<=19;y++)for(let x=16;x<=18;x++){a.tiles[y][x]='c3_metal';unsolid(a,x,y)}if(G.c3.synthUnlocked)a.npcs=a.npcs.filter(n=>n.id!=='c3_synth_npc')}a=areas.sky_canal;if(a){if(G.c3.canalPath)fill(a,17,10,7,5,'c3_bridge');if(G.c3.percussionUnlocked)a.npcs=a.npcs.filter(n=>n.id!=='c3_percussion_npc');if(G.c3.canalDone)a.npcs=a.npcs.filter(n=>n.id!=='c3_nara_canal')}a=areas.ciro_workshop;if(a){a.npcs=a.npcs.filter(n=>n.id!=='c3_nara');if(G.c3.canalDone)npc(a,'c3_nara',18,12,'Nara · Técnica de Ventos',()=>C3.nara(),'citizen')}a=areas.cloud_sea;if(a){if(G.c3.cloudPathA)fill(a,18,20,7,6,'c3_cloud');if(G.c3.cloudPlatform)fill(a,32,14,7,5,'c3_platform');if(G.c3.cloudPathB)fill(a,45,8,6,6,'c3_cloud')}routeCache.key=''};
+
+const C3_buildMapsBase=buildMaps;
+buildMaps=function(){C3_buildMapsBase();C3.buildMaps();C3.applyWorld()};
+
+const C3_setAreaBase=setArea;
+setArea=function(id,x,y,story=true){const result=C3_setAreaBase(id,x,y,C3.AREAS.includes(id)?false:story);C3.applyWorld();C3.hazards.length=0;if(C3.AREAS.includes(id)&&story)C3.areaStory(id);return result};
+
+C3.start=function(preview=false){
+  if(preview){G=fresh();Object.assign(G.flags,{console:true,masks:true,arrived:true,ema:true,forestGuide:true,bass:true,bridge:true,ruinA:true,ruinB:true,boss:true,reveal:true,ending:true,voicesArrived:true,voicesIris:true,voicesTape:true,voicesCoupler:true,voicesTech:true,violin11:true,fogCleared11:true,bassBridge11:true,relayPlaza:true,relayMarket:true,relayRoof:true,voicesTower:true,voicesBoss:true,voicesDone:true,voicesKatana:true});G.party3=true;G.thirdSlot='alt';G.formation=['franco','ryuchi','katana'];G.hp.alt=G.maxhp.alt=48;G.hp.katana=G.maxhp.katana=49;G.xp.franco=G.xp.ryuchi=350;G.levels.franco=G.levels.ryuchi=5}
+  if(!G.flags.voicesDone){toast('CONCLUA A CIDADE DAS VOZES');return}
+  G.c3={...C3.defaults(),...(G.c3||{}),started:true};G.chapter=3;buildMaps();$('start').classList.add('hidden');$('hud').style.display='block';closeOverlay();setArea('sky_terminal',6.5,12.5,false);setCheckpoint('c3_terminal','sky_terminal',6.5,12.5,true);enableAudio();showCinema('city');$('cinema').style.backgroundImage=`linear-gradient(#15102444,#0a091b52),url("${C3.assetData.street}")`;$('cinema').style.backgroundSize='cover';$('cinemaTitle').innerHTML='<small>CAPÍTULO 03 · LADO B</small>O SOM QUE AINDA NÃO EXISTE';C3.scene('C3_001',()=>{save(true);updateHUD()})
+};
+
+C3.areaStory=function(id){if(id==='sky_terminal'&&!G.c3.arrivalSeen){G.c3.arrivalSeen=true;C3.scene('C3_001',()=>save(true))}if(id==='sky_canal'&&!G.c3.canalIntro){G.c3.canalIntro=true;talk([{who:'narrator',t:'Antes que o grupo alcance a primeira placa da passarela, uma luz amarela responde do outro lado.'},{who:'nara',t:'Eu disse para irem na frente. Não disse que chegaria depois.'}],()=>C3.scene('C3_008',()=>save(true)))}if(id==='cloud_sea'&&!G.c3.cloudIntro){G.c3.cloudIntro=true;C3.scene('C3_018',()=>save(true))}if(id==='last_torii'&&!G.c3.toriiSeen){G.c3.toriiSeen=true;setCheckpoint('c3_final','last_torii',13.5,13.5,true);talk([{who:'narrator',t:'As seis máscaras respondem à mesma frequência. A porta final não exige coragem sem medo — apenas que ninguém atravesse sozinho.'}],()=>save(true))}};
+
+C3.maia=function(){if(!G.c3.metMaia){C3.scene('C3_003',()=>{openOverlay(`<div class="eyebrow">CAPÍTULO 03 · ESCOLHA DE ROTA</div><h2>Qual aperto vem primeiro?</h2><p>As duas frentes continuarão abertas.</p><div class="menu-grid10"><button class="menu-entry10" id="c3FirstPlant"><b>USINA</b><small>O grave da rua desapareceu.</small></button><button class="menu-entry10" id="c3FirstCanal"><b>CANAL</b><small>Há pessoas presas na comporta.</small></button></div>`);$('c3FirstPlant').onclick=()=>C3.chooseRoute('usina');$('c3FirstCanal').onclick=()=>C3.chooseRoute('canal')});return}if(G.c3.usinaDone&&G.c3.canalDone&&!G.c3.clubPhraseDone)return C3.scene('C3_014');if(G.c3.usinaDone&&!G.c3.canalDone)return C3.scene('C3_012');if(G.c3.canalDone&&!G.c3.usinaDone)return C3.scene('C3_013');talk([{who:'maia',t:G.c3.clubPhraseDone?'O bairro voltou a respirar. O elevador respondeu à música de vocês.':'A porta fica aberta. Voltem quando precisarem ouvir a cidade.'}])};
+C3.chooseRoute=function(route){G.c3.metMaia=true;G.c3.twoRoutesOpen=true;G.c3.firstDestination=route;closeOverlay();setCheckpoint('c3_district','distortion_district',15.5,21.5,true);save(true);toast(route==='usina'?'OBJETIVO · USINA':'OBJETIVO · CANAL');updateHUD()};
+
+C3.openPlantGate=function(){if(!G.flags.bass)return talk([{who:'narrator',t:'A trava pede uma frequência grave. O Baixo de Raiz consegue mover o peso por dentro da máquina.'}]);if(G.c3.usinaGate)return toast('PASSARELA GRAVE · ABERTA');G.c3.usinaGate=true;C3.applyWorld();emitMusic(17*T,15*T,28,'gold');playTone(73.42,.7,'triangle',.08);C3.scene('C3_006',()=>{save(true);toast('A NOTA ENTROU NO VÃO')})};
+C3.synthTalk=function(){if(G.c3.synthUnlocked)return talk([{who:'synth',t:'Eu deixei dois canais sem quantizar. Ainda me incomoda. Também ficou melhor.'}]);if(!G.c3.usinaGate)return C3.scene('C3_005');talk([{who:'synth',t:'A sequência continua reiniciando. Se afastarmos os ecos, eu consigo desligar o retorno.'}])};
+C3.plantOperatorTalk=function(){if(G.c3.usinaDone)return talk([{who:'operador',t:'O ciclo parou. Pela primeira vez a usina está esperando uma decisão humana antes de recomeçar.'}]);if(G.c3.usinaGate)return talk([{who:'operador',t:'A trava abriu. O sequenciador fica no outro lado; derrubem os ecos e eu mantenho a pressão estável.'}]);talk([{who:'operador',t:'A nota grave move a trava. Depois disso, não sigam a luz que pisca igual — é o retorno tentando levar vocês de volta ao início.'}])};
+C3.completePlant=function(){if(G.c3.usinaDone)return toast('USINA · CICLO INTERROMPIDO');if(!G.c3.usinaGate)return C3.openPlantGate();if(!C3.allDefeated('c3_plant_')){engage();toast('A MÁQUINA AINDA ESTÁ CERCADA POR ECOS');return}const percussionFirst=G.c3.percussionUnlocked;G.c3.usinaDone=true;G.c3.synthUnlocked=true;G.hp.synth=G.maxhp.synth;const team=partyMembers().slice();if(team.length<3)team.push('synth');G.formation=[...new Set(team)].slice(0,3);gainXP(70);C3.applyWorld();C3.scene('C3_007',()=>{const done=()=>{save(true);setCheckpoint('c3_district','distortion_district',55.5,15.5,true);updateHUD()};percussionFirst?C3.scene('C3_S04',done):done()})};
+
+C3.openCanal=function(){if(!G.flags.violin11)return talk([{who:'narrator',t:'A passarela existe em várias camadas ao mesmo tempo. O Violino das Vozes poderia separá-las.'}]);if(G.c3.canalPath)return toast('PASSARELA · VISÍVEL');G.c3.canalPath=true;C3.applyWorld();emitMusic(20*T,12*T,26,'green');playTone(440,.65,'triangle',.065);C3.scene('C3_009',()=>save(true))};
+C3.percussionTalk=function(){if(G.c3.percussionUnlocked)return talk([{who:'percussion',t:'Eu consigo parar agora. O pulso não some só porque a gente respira.'}]);if(!G.c3.canalPath)return C3.scene('C3_008');talk([{who:'percussion',t:'A passagem está legível. Falta afastar os ecos da comporta.'}])};
+C3.canalWorkerTalk=function(){if(G.c3.canalDone)return talk([{who:'trabalhadora',t:'Todo mundo atravessou. A Nara voltou para a oficina e deixou a comporta respirando no tempo certo.'}]);if(!G.c3.canalPath)return talk([{who:'trabalhadora',t:'A ponte existe, mas a interferência está desenhando ela em lugares diferentes. Sigam a marca da Nara.'}]);if(!C3.allDefeated('c3_canal_'))return talk([{who:'trabalhadora',t:'A comporta está logo atrás dos ecos. Quando o último cair, usem o controle ao lado da grade.'}]);C3.completeCanal()};
+C3.completeCanal=function(){if(G.c3.canalDone)return toast('CANAL · PESSOAS RESGATADAS');if(!G.c3.canalPath)return C3.openCanal();if(!C3.allDefeated('c3_canal_')){engage();toast('A COMPORTA AINDA ESTÁ CERCADA');return}const synthFirst=G.c3.synthUnlocked;G.c3.canalDone=true;G.c3.percussionUnlocked=true;G.hp.percussion=G.maxhp.percussion;const team=partyMembers().slice();if(team.length<3)team.push('percussion');G.formation=[...new Set(team)].slice(0,3);gainXP(70);C3.applyWorld();C3.scene('C3_010',()=>{const done=()=>{save(true);setCheckpoint('c3_district','distortion_district',56.5,34.5,true);updateHUD()};synthFirst?C3.scene('C3_S05',done):done()})};
+
+C3.nara=function(){if(!G.c3.canalDone)return talk([{who:'nara',t:'A ventilação do elevador está falhando. Eu preciso terminar uma coisa no canal antes de testar a flauta.'}]);if(!G.c3.windFlute)return C3.scene('C3_011');talk([{who:'nara',t:'A borda clara mostra onde o ar consegue sustentar peso. Não tente formar uma ponte em qualquer nuvem.'}])};
+C3.getFlute=function(){if(!G.c3.canalDone)return talk([{who:'ciro',t:'A Nara ainda está no canal. Sem ela eu não sei calibrar o bocal.'}]);if(G.c3.windFlute)return toast('FLAUTA DOS VENTOS · EQUIPADA');G.c3.windFlute=true;emitMusic(G.x*T,G.y*T,30,'green');C3.scene('C3_011',()=>{save(true);toast('RELÍQUIA · FLAUTA DOS VENTOS');updateHUD()})};
+
+C3.vega=function(){if(G.c3.cassetteFound&&!G.c3.cassetteChoice)return C3.scene('C3_S02',()=>C3.chooseCassette());if(!G.c3.usinaDone||!G.c3.canalDone)return C3.scene('C3_002');if(!G.c3.clubPhraseDone)return C3.scene('C3_014',()=>C3.openPhrase('club'));if(G.c3.complete)return C3.openPhrase('post');talk([{who:'vega',t:G.c3.cassetteChoice==='ask_vega'?'Eu escolhi um trecho da primeira noite para abrir o show. Dessa vez eu ouvi a banda inteira.':'A primeira nota já aconteceu. Agora a cidade quer saber qual vem depois.'}])};
+C3.openPhrase=function(origin){if(origin==='club'&&(!G.c3.usinaDone||!G.c3.canalDone)){toast('RESOLVA A USINA E O CANAL');return}C3.phraseOrigin=origin;C3.phraseInput=[];const old=origin==='final'?(G.c3.clubPhrase||[]):(G.c3.clubPhrase||[]);openOverlay(`<div class="eyebrow">${origin==='final'?'ÚLTIMA FASE · CRIAÇÃO':'CONTRATEMPO · FRASE LIVRE'}</div><h2>${origin==='final'?'Começar':'Uma música que ainda não existe'}</h2><p>${origin==='final'?'Toque quatro notas. Você pode repetir ou transformar a frase do clube.':'Não existe sequência correta. Escolha quatro notas e deixe a cidade responder.'}</p><div class="notes"><button class="note" data-c3note="0">♪<small>GRAVE</small></button><button class="note" data-c3note="1">♫<small>MÉDIA</small></button><button class="note" data-c3note="2">♬<small>AGUDA</small></button><button class="note" data-c3note="3">✦<small>ABERTA</small></button></div><p id="c3PhraseProgress" class="feedback">${old.length?'FRASE ANTERIOR · '+old.map(n=>['♪','♫','♬','✦'][n]).join(' '):'0 / 4 NOTAS'}</p><div class="row"><button class="action" id="c3PhraseCancel">VOLTAR</button></div>`);document.querySelectorAll('[data-c3note]').forEach(b=>b.onclick=()=>C3.pushPhrase(Number(b.dataset.c3note)));$('c3PhraseCancel').onclick=()=>{if(origin==='final')return toast('A ÚLTIMA FREQUÊNCIA PRECISA COMEÇAR');closeOverlay()}};
+C3.pushPhrase=function(n){enableAudio();C3.phraseInput.push(n);playTone([110,164.81,220,329.63][n],.32,'triangle',.11);$('c3PhraseProgress').textContent=C3.phraseInput.map(v=>['♪','♫','♬','✦'][v]).join('   ')+' · '+C3.phraseInput.length+'/4';if(C3.phraseInput.length<4)return;const phrase=[...C3.phraseInput];if(C3.phraseOrigin==='final'){G.c3.finalPhrase=phrase;closeOverlay();C3.resolveSilence();return}if(C3.phraseOrigin==='post'){G.c3.finalPhrase=phrase;closeOverlay();C3.playPhrase(phrase);save(true);toast('NOVA FRASE · SESSÃO ATUALIZADA');return}G.c3.clubPhrase=phrase;G.c3.clubPhraseDone=true;closeOverlay();emitMusic(G.x*T,G.y*T,42,'gold');C3.scene('C3_015',()=>{save(true);setCheckpoint('c3_district','distortion_district',15.5,21.5,true);updateHUD()})};
+
+C3.activateLift=function(){if(G.c3.liftOpen)return toast('ELEVADOR DO CÉU · ABERTO');if(!G.c3.clubPhraseDone)return talk([{who:'narrator',t:'O mecanismo recebe energia, mas não encontra uma frase para seguir. O palco do Contratempo ainda espera.'}]);if(!G.c3.windFlute)return talk([{who:'nara',t:'O tambor consegue mover a plataforma, mas sem vento ela não sustenta a subida.'}]);if(!G.c3.percussionUnlocked)return talk([{who:'narrator',t:'O mecanismo pede um pulso capaz de sustentar plataformas de carga.'}]);G.c3.horizonDrum=true;G.c3.liftOpen=true;G.c3.liftSeen=true;emitMusic(G.x*T,G.y*T,40,'gold');C3.scene('C3_016',()=>C3.scene('C3_017',()=>{save(true);updateHUD();toast('RELÍQUIA · TAMBOR DO HORIZONTE')}))};
+C3.cloudPath=function(which){const key=which==='A'?'cloudPathA':'cloudPathB';if(G.c3[key])return toast('PASSARELA DE NUVEM · ESTÁVEL');if(!G.c3.windFlute)return toast('A FLAUTA DOS VENTOS PODE DAR FORMA À BORDA CLARA');G.c3[key]=true;C3.applyWorld();emitMusic(G.x*T,G.y*T,24,'green');save(true);toast('PASSARELA DE NUVEM · FORMADA')};
+C3.cloudPlatform=function(){if(G.c3.cloudPlatform)return toast('PLATAFORMA · ALTURA SUPERIOR');if(!G.c3.horizonDrum)return toast('O MECANISMO ESPERA O TAMBOR DO HORIZONTE');G.c3.cloudPlatform=true;C3.applyWorld();screenShake=.28;emitMusic(G.x*T,G.y*T,26,'gold');save(true);toast('PLATAFORMA · MOVIMENTO CONCLUÍDO')};
+C3.dimas=function(){if(!G.c3.cassetteQuest){C3.scene('C3_S01',()=>{G.c3.cassetteQuest=true;save(true);toast('MISSÃO OPCIONAL · A PRIMEIRA NOITE')});return}if(G.c3.cassetteChoice)return talk([{who:'dimas',t:G.c3.cassetteChoice==='archive'?'A fita está no arquivo. Memória não precisa virar espetáculo para continuar viva.':'A Vega escolheu o trecho. Agora eu lembro da banda inteira entrando junto.'}]);if(G.c3.cassetteFound)return talk([{who:'dimas',t:'Leva a fita para a Vega. A decisão de tocar ou guardar precisa ser dela.'}]);talk([{who:'dimas',t:'A caixa sem rótulo caiu perto do canal. Se ainda estiver inteira, o primeiro show continua lá.'}])};
+C3.findCassette=function(){if(!G.c3.cassetteQuest)return talk([{who:'narrator',t:'Uma caixa vazia sem rótulo. Talvez alguém no distrito saiba a que gravação pertence.'}]);if(G.c3.cassetteFound)return toast('FITA DO PRIMEIRO SHOW · RECUPERADA');G.c3.cassetteFound=true;emitMusic(G.x*T,G.y*T,18,'green');save(true);toast('ITEM OPCIONAL · FITA DO PRIMEIRO SHOW')};
+C3.chooseCassette=function(){openOverlay(`<div class="eyebrow">MISSÃO OPCIONAL · A PRIMEIRA NOITE</div><h2>O que fazer com a gravação?</h2><p>A fita pertence à memória de Vega. As duas escolhas preservam sua decisão.</p><div class="menu-grid10"><button class="menu-entry10" id="c3ArchiveTape"><b>GUARDAR NO ARQUIVO</b><small>A memória fica no clube, sem tocar em público.</small></button><button class="menu-entry10" id="c3AskVega"><b>PERGUNTAR À VEGA</b><small>Ela escolhe se quer tocar um trecho no show.</small></button></div>`);const finish=choice=>{G.c3.cassetteChoice=choice;G.c3.keptFirstShow=true;G.shards+=12;closeOverlay();save(true);toast('A PRIMEIRA NOITE · +12 ECOS')};$('c3ArchiveTape').onclick=()=>finish('archive');$('c3AskVega').onclick=()=>finish('ask_vega')};
+C3.secretWindow=function(){if(G.c3.cloudWindow)return talk([{who:'ryuchi',t:'Lá embaixo a porta do clube parece pequena. Ainda foi grande o bastante para todo mundo entrar.'}]);if(!G.c3.windFlute)return toast('UMA BORDA CLARA RESPONDE À FLAUTA DOS VENTOS');G.c3.cloudWindow=true;G.shards+=10;emitMusic(G.x*T,G.y*T,22,'green');talk([{who:'franco',t:'Daqui a cidade parece uma faixa já mixada. Mas cada janela ainda tá decidindo alguma coisa.'},{who:'ryuchi',t:'E o clube continua com a porta aberta.'},{who:'synth',t:'Sem grade, sem clique. Só dá para ajustar na hora.'},{who:'percussion',t:'Então respira. A vista não vai reiniciar.'}],()=>{save(true);toast('MEMÓRIA · UMA JANELA PARA A CIDADE')})};
+C3.sideLight=function(){if(G.c3.smallLight)return talk([{who:'moradora',t:'Agora a janela fica escura e a rua continua mostrando o caminho de volta.'}]);C3.scene('C3_S03',()=>{G.c3.smallLight=true;G.shards+=5;save(true);toast('UMA LUZ MENOR · FACHADA ALTERADA')})};
+
+C3.objective=function(){const c=G.c3;
+  if(!c.metMaia)return {text:'Encontre Maia no Clube Contratempo.',hint:'A porta magenta fica na margem oeste do distrito.',area:'contratempo',x:8,y:9,name:'Maia'};
+  if(!c.usinaDone&&!c.canalDone&&c.firstDestination==='canal')return !c.canalPath?{text:'Separe a interferência do canal.',hint:'Use o Violino das Vozes na marca deixada por Nara.',area:'sky_canal',x:14,y:12,name:'Interferência'}:{text:'Atravesse e liberte a comporta.',hint:'Afaste os ecos; depois fale com a trabalhadora ou use o controle da grade.',area:'sky_canal',x:37,y:12,name:'Comporta'};
+  if(!c.usinaDone&&!c.canalDone)return !c.usinaGate?{text:'Abra a trava grave da Usina.',hint:'O Baixo de Raiz movimenta o peso por dentro da máquina.',area:'power_plant',x:15,y:17,name:'Trava grave'}:{text:'Interrompa o ciclo da Usina.',hint:'Afaste os ecos e alcance o sequenciador.',area:'power_plant',x:33,y:12,name:'Sequenciador'};
+  if(!c.usinaDone)return !c.usinaGate?{text:'Abra a trava grave da Usina.',hint:'Use o Baixo de Raiz na entrada da passarela.',area:'power_plant',x:15,y:17,name:'Trava grave'}:{text:'Interrompa o ciclo da Usina.',hint:'Afaste os ecos e alcance o sequenciador.',area:'power_plant',x:33,y:12,name:'Sequenciador'};
+  if(!c.canalDone)return !c.canalPath?{text:'Separe a interferência do canal.',hint:'Use o Violino das Vozes na marca deixada por Nara.',area:'sky_canal',x:14,y:12,name:'Interferência'}:{text:'Resgate os trabalhadores do canal.',hint:'Afaste os ecos; depois fale com a trabalhadora ou use a comporta.',area:'sky_canal',x:37,y:12,name:'Comporta'};
+  if(!c.windFlute)return {text:'Encontre Nara na Oficina de Ciro.',hint:'Ela preparou um instrumento capaz de dar forma ao ar.',area:'ciro_workshop',x:14,y:9,name:'Flauta dos Ventos'};
+  if(!c.clubPhraseDone)return {text:'Volte ao Contratempo e comece uma música.',hint:'Crie uma frase de quatro notas. Não há resposta correta.',area:'contratempo',x:14,y:7,name:'Palco'};
+  if(!c.liftOpen)return {text:'Reabra o Elevador do Céu.',hint:'Una o Tambor do Horizonte à Flauta dos Ventos.',area:'sky_lift',x:11,y:12,name:'Elevador'};
+  if(!c.cloudPathA)return {text:'Forme a primeira passarela de nuvem.',hint:'Procure a borda clara e use a flauta.',area:'cloud_sea',x:17,y:23,name:'Borda clara'};
+  if(!c.cloudPlatform)return {text:'Mova a plataforma com o Tambor do Horizonte.',hint:'O mecanismo pode ser acionado das duas margens.',area:'cloud_sea',x:31,y:17,name:'Plataforma'};
+  if(!c.cloudPathB)return {text:'Forme a última passarela de nuvem.',hint:'A condensação acima do terraço responde à flauta.',area:'cloud_sea',x:44,y:11,name:'Condensação'};
+  if(!c.metronomeDone)return {text:'Enfrente O Metrônomo.',hint:'Ele responde à repetição. Alterne técnicas e integrantes.',area:'cloud_terrace',x:15,y:9,name:'O Metrônomo'};
+  if(!c.silenceDone)return {text:'Atravesse o Último Torii e enfrente O Silêncio.',hint:'O checkpoint final está diante do núcleo.',area:'silence_core',x:17,y:10,name:'O Silêncio'};
+  if(!c.complete)return {text:'Volte ao estúdio e abra uma sessão nova.',hint:'A próxima frequência será uma escolha de vocês.',area:'studio',x:12,y:5,name:'Mesa de produção'};
+  return {text:'Crie livremente e revisite os mundos.',hint:'A frase pode mudar sem apagar a jornada.',area:G.area,x:G.x,y:G.y,name:'Pós-jogo'};
+};
+
+const C3_objectiveBase=objectiveData;
+objectiveData=function(){if(G?.c3?.started&&!G.c3.complete||G?.chapter===3)return C3.objective();return C3_objectiveBase()};
+
+C3.nav=function(){const objective=C3.objective();if(objective.area===G.area)return objective;const queue=[G.area],parents=new Map([[G.area,null]]);for(let i=0;i<queue.length;i++){const id=queue[i],a=areas[id];if(!a)continue;for(const gate of a.gates){if(!C3.AREAS.includes(gate.to)||parents.has(gate.to)||gate.need&&!gate.need())continue;parents.set(gate.to,{from:id,gate});queue.push(gate.to)}}if(!parents.has(objective.area))return objective;let q=objective.area;while(parents.get(q)&&parents.get(q).from!==G.area)q=parents.get(q).from;const entry=parents.get(q);return entry?{...objective,area:G.area,x:entry.gate.x,y:entry.gate.y,name:'PASSAGEM · '+C3.labels[q][0],hint:'Siga a trilha luminosa para a próxima área.'}:objective};
+const C3_navigationBase=navigationTarget;
+navigationTarget=function(){return G?.c3?.started&&C3.AREAS.includes(G.area)?C3.nav():C3_navigationBase()};
+
+const C3_labelsBase=areaLabels;
+areaLabels=function(){return {...C3_labelsBase(),...C3.labels}};
+
+const C3_mapBase=openMap;
+openMap=function(){if(!G?.c3?.started||!C3.AREAS.includes(G.area))return C3_mapBase();const rows=C3.AREAS.map(id=>`<div class="stat"><span>${G.discovered.includes(id)?'◆ '+C3.labels[id][0]:'◇ ???'}</span><b>${G.area===id?'VOCÊ ESTÁ AQUI':''}</b></div>`).join('');const o=C3.objective();openOverlay(`<div class="eyebrow">CARTOGRAFIA · CAPÍTULO 03</div><h2>Da cidade ao Último Torii</h2><p>O distrito se abre em duas frentes. Acima dele, as rotas de nuvem voltam a se encontrar.</p>${rows}<hr class="divider"><p><b>Próximo destino:</b> ${o.name}</p><p class="lore">${o.hint}</p><div class="row"><button class="action strong" id="c3MapClose">VOLTAR</button></div>`);$('c3MapClose').onclick=closeOverlay};
+
+const C3_journalBase=openJournal;
+openJournal=function(){if(!G?.c3?.started||!C3.AREAS.includes(G.area))return C3_journalBase();const c=G.c3;const rows=[['A porta que ainda abre',c.metMaia],['A volta a mais',c.usinaDone],['Segura o pulso',c.canalDone],['Flauta dos Ventos',c.windFlute],['Uma música que ainda não existe',c.clubPhraseDone],['Tambor do Horizonte',c.horizonDrum],['Mar de Nuvens',c.cloudPathA&&c.cloudPathB&&c.cloudPlatform],['O Metrônomo',c.metronomeDone],['O Silêncio',c.silenceDone]].map(([t,v])=>`<div class="stat"><span>${v?'◆':'◇'} ${t}</span><b>${v?'REGISTRADO':'...'}</b></div>`).join('');openOverlay(`<div class="eyebrow">ARQUIVO HUTUKARA · 03</div><h2>O Som que Ainda Não Existe</h2>${rows}<p class="lore">RELÍQUIAS · Baixo move. Violino separa. Flauta forma. Tambor alterna.</p><div class="row"><button class="action strong" id="c3JournalClose">VOLTAR</button></div>`);$('c3JournalClose').onclick=closeOverlay};
+
+const C3_trackBase=albumTrack11;
+albumTrack11=function(){if(!G?.c3?.started||!C3.AREAS.includes(G.area))return C3_trackBase();if(G.area==='silence_core'&&bossActor?.id==='c3_silence'&&battle?.boss)return 'c3_nervos';if(['cloud_sea','cloud_terrace','last_torii','silence_core'].includes(G.area))return 'c3_passaros_exoticos';if(G.c3.clubPhraseDone||G.area==='sky_lift')return 'c3_chico_buarque';if(G.c3.usinaDone||G.c3.canalDone)return 'c3_ak_cruzada';if(G.c3.twoRoutesOpen)return 'c3_type_shit';return 'c3_100_adsense'};
+
+const C3_updateHUDBase=updateHUD;
+updateHUD=function(){C3_updateHUDBase();if(!G)return;if(G.c3?.started){const bar=document.querySelector('.brandbar .build');if(bar)bar.innerHTML='TORII & HUTUKARA<br>ALPHA 1.1.0 · SPRITES INTEGRADOS';const ver=document.querySelector('#start .version');if(ver)ver.textContent='ALPHA 1.1.0 · TRÊS CAPÍTULOS';}};
+
+const C3_tileBase=drawTile;
+drawTile=function(type,x,y,xx,yy){const colors={c3_asphalt:['#242139','#322b49','#4e3a58'],c3_street:['#3b3549','#574a5a','#b87483'],c3_metal:['#38374b','#54526a','#d17b62'],c3_platform:['#4a405b','#6a5b78','#e2a56d'],c3_factory:['#292b3b','#454454','#b86d5b'],c3_indoor:['#50384b','#775263','#d28b6f'],c3_clubfloor:['#39243f','#683454','#e349a1'],c3_bridge:['#555266','#82728a','#69d7dc'],c3_cloud:['#b8a6d4','#e8c9dc','#fff0ce'],c3_sanctuary:['#81718f','#c8a9b5','#f2ca8f'],c3_voidfloor:['#21172f','#3f2850','#c94d9d']};if(colors[type]){const c=colors[type];rect(x,y,24,24,c[0]);const seed=Math.floor(rng(xx,yy,311)*6);for(let i=0;i<seed;i++){const px=(xx*13+i*7)%22,py=(yy*9+i*11)%22;rect(x+px,y+py,2+(i%3),1,i%2?c[1]:c[2]+'66')}rect(x,y+23,24,1,c[1]+'88');return}if(type==='c3_water'){rect(x,y,24,24,'#25294f');for(let i=0;i<3;i++)rect(x+((xx*7+i*9+Math.floor(tick*5))%20),y+5+i*7,8,1,i%2?'#f04fab':'#54d9e8');return}if(type==='c3_sky'){rect(x,y,24,24,'#17142d');const glow=rng(xx,yy,904);if(glow>.78)rect(x+glow*17,y+glow*13,2,2,glow>.9?'#ff8dda':'#87d8ff');return}C3_tileBase(type,x,y,xx,yy)};
+
+function c3SheetSprite(image,col,row,cols,rows,x,y,w,h){if(!image?.complete||!image.naturalWidth)return false;const sw=image.naturalWidth/cols,sh=image.naturalHeight/rows;ctx.save();ctx.imageSmoothingEnabled=false;ctx.drawImage(image,col*sw,row*sh,sw,sh,Math.round(x-w/2),Math.round(y-h),Math.round(w),Math.round(h));ctx.restore();return true}
+function c3MoveSprite(image,x,y,w=68,h=82,dir='down',frame=0){if(!image?.complete||!image.naturalWidth)return false;const group={down:0,left:1,up:2,right:3}[dir]||0,sw=image.naturalWidth/8,sh=image.naturalHeight;ctx.save();ctx.imageSmoothingEnabled=false;ctx.drawImage(image,(group*2+(frame%2))*sw,0,sw,sh,Math.round(x-w/2),Math.round(y-h),Math.round(w),Math.round(h));ctx.restore();return true}
+const C3_PROP_ATLAS={
+  c3_bench:['atlas_urban',0,0,3,3,96,58],c3_bins:['atlas_urban',1,0,3,3,74,68],c3_planter:['atlas_urban',2,0,3,3,96,54],c3_crates:['atlas_urban',0,1,3,3,82,72],c3_vending:['atlas_urban',1,1,3,3,60,88],c3_railing:['atlas_urban',2,1,3,3,106,58],c3_drain:['atlas_urban',0,2,3,3,72,38],c3_barricade:['atlas_urban',1,2,3,3,78,60],c3_kiosk:['atlas_urban',2,2,3,3,68,80],
+  c3_workbench:['atlas_workshop',0,0,3,3,154,88],c3_wind_console:['atlas_workshop',1,0,3,3,82,92],c3_flute_rack:['atlas_workshop',2,0,3,3,112,78],c3_turbine:['atlas_workshop',0,1,3,3,88,88],c3_toolboard:['atlas_workshop',1,1,3,3,112,78],c3_drawers:['atlas_workshop',2,1,3,3,92,82],c3_cables:['atlas_workshop',0,2,3,3,94,70],c3_tuning_machine:['atlas_workshop',1,2,3,3,86,84],c3_workshop_control:['atlas_workshop',2,2,3,3,70,86],
+  c3_canal_gate:['atlas_canal',0,0,3,3,112,92],c3_interference:['atlas_canal',1,0,3,3,92,96],c3_pressure_switch:['atlas_canal',2,0,3,3,78,58],c3_rescue_barrier:['atlas_canal',0,1,3,3,96,64],c3_broken_pipe:['atlas_canal',1,1,3,3,96,76],c3_bridge_control:['atlas_canal',2,1,3,3,86,82],c3_signal_beacon:['atlas_canal',0,2,3,3,72,82],c3_valve_station:['atlas_canal',1,2,3,3,108,84],c3_interference_calm:['atlas_canal',2,2,3,3,92,96],
+  c3_lift_console:['atlas_lift',0,1,3,3,104,76],c3_wind_receiver:['atlas_lift',1,1,3,3,82,98],c3_bass_lock:['atlas_lift',2,1,3,3,92,68],c3_anchor_tower:['atlas_lift',0,2,3,3,92,110],c3_cloud_beacon:['atlas_lift',1,2,3,3,74,96],c3_arrival_arch:['atlas_lift',2,2,3,3,116,92]
+};
+const C3_propBase=drawProp;
+drawProp=function(p,cx,cy){if(!p.type.startsWith('c3_'))return C3_propBase(p,cx,cy);const x=(p.x+.5)*T-cx,y=(p.y+.65)*T-cy;if(p.type==='c3_elevator'&&c3SheetSprite(C3.images.atlas_lift,G?.c3?.liftOpen?1:0,0,3,3,x,y,142,132))return;if(p.type==='c3_lamp'&&c3SheetSprite(C3.images.atlas_lamps,0,0,3,2,x,y,55,92))return;const atlas=C3_PROP_ATLAS[p.type];if(atlas){const [image,col,row,cols,rows,w,h]=atlas;if(c3SheetSprite(C3.images[image],col,row,cols,rows,x,y,w,h))return}const map={c3_club:[0,0,220,176],c3_house:[1,0,176,168],c3_workshop:[2,0,190,132],c3_sanctuary:[1,1,212,166],c3_machine:[2,1,132,156]};if(map[p.type]){const [col,row,w,h]=map[p.type];if(c3SheetSprite(C3.images.props,col,row,3,2,x,y,w,h))return}if(p.type==='c3_sign'){rect(x-36,y-28,72,22,'#352844');rect(x-34,y-26,68,18,'#612c62');ctx.font='bold 8px monospace';ctx.textAlign='center';ctx.fillStyle='#f3c5d7';ctx.fillText(p.text||'DISTORÇÃO',x,y-14);return}if(p.type==='c3_speakers'){rect(x-17,y-44,34,45,'#242237');for(const dy of [-30,-10]){ctx.strokeStyle='#ef4da1';ctx.lineWidth=3;ctx.beginPath();ctx.arc(x,y+dy,9,0,Math.PI*2);ctx.stroke()}return}if(p.type==='c3_stage'){rect(x-78,y-24,156,24,'#2b2238');rect(x-73,y-21,146,15,'#73345d');for(let i=-2;i<=2;i++)rect(x+i*25-7,y-37,14,4,'#e94ca1');return}if(p.type==='c3_bar'){rect(x-52,y-29,104,30,'#53354a');rect(x-49,y-26,98,7,'#cf865f');return}if(p.type==='c3_table'){rect(x-24,y-13,48,12,'#6d4650');rect(x-18,y-1,4,13,'#372d3b');rect(x+14,y-1,4,13,'#372d3b');return}C3_propBase(p,cx,cy)};
+
+const C3_actorBase=drawActor;
+drawActor=function(p,x,y,moving=false){if(p.style!=='synth'&&p.style!=='percussion')return C3_actorBase(p,x,y,moving);const im=C3.images.actors;if(!im?.complete||!im.naturalWidth)return C3_actorBase({...p,style:p.style==='synth'?'franco':'ryuchi'},x,y,moving);const row=p.style==='synth'?0:1,group={down:0,left:1,up:2,right:3}[p.dir||'down']||0,frame=moving?Math.floor(tick*8)%2:0,sw=im.naturalWidth/8,sh=im.naturalHeight/2;ctx.save();ctx.imageSmoothingEnabled=false;ctx.drawImage(im,(group*2+frame)*sw,row*sh,sw,sh,Math.round(x-32),Math.round(y-74),64,80);ctx.restore()};
+
+const C3_npcBase=drawDetailedNPC;
+drawDetailedNPC=function(n,x,y){if(n.id==='c3_synth_npc'&&c3SheetSprite(C3.images.actors,0,0,8,2,x,y,64,80))return;if(n.id==='c3_percussion_npc'&&c3SheetSprite(C3.images.actors,0,1,8,2,x,y,64,80))return;const movement={c3_maia:'sprite_maia',c3_nara_canal:'sprite_nara',c3_nara:'sprite_nara',c3_ciro:'sprite_ciro',c3_vega:'sprite_vega',c3_dimas:'sprite_dimas',c3_resident:'sprite_resident_a',c3_resident_b:'sprite_resident_b',c3_canal_worker:'sprite_canal_worker',c3_plant_operator:'sprite_plant_operator'};if(movement[n.id]&&c3MoveSprite(C3.images[movement[n.id]],x,y,68,82,n.dir||'down',0))return;C3_npcBase(n,x,y)};
+
+const C3_creatureBase=drawCreature;
+drawCreature=function(x,y,kind,entity){if(entity?.id==='c3_metronome'&&c3SheetSprite(C3.images.cast,1,1,3,2,x,y,118,134))return;if(entity?.id==='c3_silence'&&c3SheetSprite(C3.images.cast,2,1,3,2,x,y,156,166))return;if(kind==='c3_drone'&&c3SheetSprite(C3.images.cast,0,1,3,2,x,y,70,66))return;if(kind==='c3_echo'&&c3SheetSprite(C3.images.cast,0,1,3,2,x,y,58,58))return;C3_creatureBase(x,y,kind,entity)};
+
+const C3_drawEnvBase=drawEnv;
+drawEnv=function(){C3_drawEnvBase();if(!G||!C3.AREAS.includes(G.area))return;ctx.save();ctx.globalCompositeOperation='screen';const grad=ctx.createLinearGradient(0,0,VW,VH);grad.addColorStop(0,'#ff7a8c18');grad.addColorStop(.5,'#7f4bc510');grad.addColorStop(1,'#39cbe815');ctx.fillStyle=grad;ctx.fillRect(0,0,VW,VH);if(['cloud_sea','cloud_terrace','last_torii'].includes(G.area)){ctx.globalAlpha=.22;for(let i=0;i<10;i++){const px=((i*127+tick*5*(i%3+1))%(VW+180))-90,py=45+(i*53)%330;ctx.fillStyle=i%2?'#e8c8dd':'#c0b0dc';ctx.beginPath();ctx.ellipse(px,py,70+(i%3)*24,22+(i%2)*9,0,0,Math.PI*2);ctx.fill()}}if(G.area==='distortion_district'&&G.c3.smallLight){const lx=42*T-cam.x,ly=18*T-cam.y;ctx.globalAlpha=.72;ctx.fillStyle='#6be6e8';ctx.fillRect(lx-3,ly-45,6,32);ctx.fillStyle='#fff2b0';ctx.beginPath();ctx.arc(lx,ly-48,8,0,Math.PI*2);ctx.fill()}if(bossActor&&['c3_metronome','c3_silence'].includes(bossActor.id))drawCreature(Math.round(bossActor.x*T-cam.x),Math.round(bossActor.y*T-cam.y),bossActor.type,bossActor);ctx.restore()};
+
+const C3_slotBase=slotSwitch;
+slotSwitch=function(slot){const id=partyMembers()[slot-1];if(id!=='synth'&&id!=='percussion')return C3_slotBase(slot);if(!G||!activeModes10()||G.hp[id]<=0)return;G.active=id;switchedAt=.4;act.invuln=Math.max(.2,act.invuln||0);act.cool=0;resetMotion10();Combat10.active=id;emitMusic(G.x*T,G.y*T,12,id==='synth'?'gold':'green');playTone(id==='synth'?330:196,.18,'triangle',.07);toast('EQUIPE '+slot+' · '+C3.names[id].toUpperCase());updateActionHUD()};
+
+const C3_attackBase=attackAction;
+attackAction=function(){if(!G||!['synth','percussion'].includes(G.active))return C3_attackBase();if(!combatReady10()||act.cool>0||Combat10.dashTime>0)return;if(mode==='walk')engage();const d=combatDirection10();act.slash=.2;act.slashMax=.2;act.slashHero=G.active;act.slashDir=G.dir;if(G.active==='synth'){act.cool=.3;arrow10(d,17,10,1.05,2);effect10('thrust',G.x,G.y,d,.28,1,'#61e7ed');playTone(330,.11,'square',.055)}else{act.cool=.22;coneHit10(d,2.45,.12,13,.24,.12);if(act.comboTime&&tick-act.comboTime<.55)act.combo=(act.combo||0)%3+1;else act.combo=1;act.comboTime=tick;if(act.combo===3)for(const e of meleeCandidates())if(Math.hypot(e.x-G.x,e.y-G.y)<2.1)hitEnemy(e,12,.4,.2);effect10('katanaA',G.x,G.y,d,.22,1,'#ff8bd6');playTone(150+act.combo*38,.08,'triangle',.06)}G.resonance=Math.min(100,G.resonance+5);updateActionHUD()};
+
+const C3_skillBase=skillAction;
+skillAction=function(){if(!G||!['synth','percussion'].includes(G.active))return C3_skillBase();if(!combatReady10()||act.skill>0)return;if(mode==='walk')engage();if(G.active==='synth'){act.skill=3.8;const targets=meleeCandidates().filter(e=>Math.hypot(e.x-G.x,e.y-G.y)<5).slice(0,4);for(const e of targets){traceSpecial11('chain',G.x,G.y,e.x,e.y,'#67e8ed');hitEnemy(e,25,.55,.08)}playTone(523,.28,'square',.07)}else{act.skill=3.2;for(const e of meleeCandidates())if(Math.hypot(e.x-G.x,e.y-G.y)<3.5)hitEnemy(e,23,1.0,.55);hostileShots=hostileShots.filter(p=>Math.hypot(p.x-G.x,p.y-G.y)>3.2);traceSpecial11('heart',G.x,G.y,3.5,0,'#ff91d2');screenShake=.3;playTone(98,.3,'triangle',.08)}updateActionHUD()};
+
+const C3_advancedBase=advancedSkill;
+advancedSkill=function(){if(!G||!['synth','percussion'].includes(G.active))return C3_advancedBase();if(!combatReady10()||act.skillX>0)return;if(mode==='walk')engage();act.skillX=6.2;act.invuln=Math.max(act.invuln,.4);const d=combatDirection10();if(G.active==='synth'){for(let i=-2;i<=2;i++)arrow10([Math.cos(Math.atan2(d[1],d[0])+i*.16),Math.sin(Math.atan2(d[1],d[0])+i*.16)],24,12,1.2,1);traceSpecial11('cut',G.x,G.y,G.x+d[0]*5,G.y+d[1]*5,'#69f3f1')}else{for(const e of meleeCandidates())if(Math.hypot(e.x-G.x,e.y-G.y)<5.2)hitEnemy(e,38,1.5,.7);const area=G.area,who=G.active;for(let i=0;i<3;i++)setTimeout(()=>{if(G&&activeModes10()&&G.area===area&&G.active===who){addCombatFX(G.x,G.y,'pulse',3+i);playTone(110+i*55,.18,'triangle',.055)}},i*120)}updateActionHUD()};
+
+const C3_duoBase=duoAction;
+duoAction=function(){if(!G||!['synth','percussion'].includes(G.active))return C3_duoBase();if(!combatReady10()||G.resonance<40||(act.duo||0)>0)return false;G.resonance-=40;act.duo=7;act.invuln=.7;if(G.active==='synth'){for(const e of meleeCandidates()){hitEnemy(e,32,.65,.12);traceSpecial11('chain',G.x,G.y,e.x,e.y,'#59eff1')}for(const id of partyMembers())if(G.hp[id]>0)G.hp[id]=Math.min(G.maxhp[id],G.hp[id]+5);toast('CAMADAS VIVAS · 40 RESSONÂNCIA')}else{for(const e of meleeCandidates())if(Math.hypot(e.x-G.x,e.y-G.y)<5.5)hitEnemy(e,52,1.8,.8);hostileShots=[];traceSpecial11('heart',G.x,G.y,5.5,0,'#ff79ca');toast('PULSO COMUM · 40 RESSONÂNCIA')}screenShake=.5;emitMusic(G.x*T,G.y*T,34,G.active==='synth'?'green':'gold');updateActionHUD();return true};
+
+const C3_damageBase=damageHero;
+damageHero=function(dmg,from){if(!G||!['synth','percussion'].includes(G.active))return C3_damageBase(dmg,from);if(act.invuln>0||mode!=='action')return;const who=G.active;G.hp[who]=Math.max(0,G.hp[who]-dmg);act.invuln=.8;act.hit=.35;screenShake=.3;addCombatFX(G.x,G.y,'hurt',1);if(G.hp[who]<=0){const next=partyMembers().find(id=>id!==who&&G.hp[id]>0);if(next){G.active=next;resetMotion10(false);act.invuln=1;toast('OUTRO INTEGRANTE ASSUME A LIDERANÇA')}else return loseBattle()}updateActionHUD()};
+
+const C3_hudBase=updateActionHUD;
+updateActionHUD=function(){C3_hudBase();if(!G||!['synth','percussion'].includes(G.active))return;const id=G.active;$('actionHero').textContent='◆ '+C3.names[id].toUpperCase();$('actionHero').style.color=id==='synth'?'#74e7e8':'#ff8ed0';$('actionHP').textContent=`♥ ${G.hp[id]}/${G.maxhp[id]} · FORMAÇÃO ${partyMembers().length}/3`;$('actionSkill').textContent=id==='synth'?`J · ONDA  Z · SEQUÊNCIA${act.skill>0?' '+act.skill.toFixed(1)+'s':''}  X · CAMADAS${act.skillX>0?' '+act.skillX.toFixed(1)+'s':''}  K · SINTONIA`:`J · BATIDA  Z · CONTRATEMPO${act.skill>0?' '+act.skill.toFixed(1)+'s':''}  X · QUEBRA-PULSO${act.skillX>0?' '+act.skillX.toFixed(1)+'s':''}  K · PULSO COMUM`};
+
+const C3_portraitBase=portraitURI10;
+portraitURI10=function(id){if(id!=='synth'&&id!=='percussion')return C3_portraitBase(id);const im=C3.images.actors,c=document.createElement('canvas');c.width=64;c.height=80;const q=c.getContext('2d');q.imageSmoothingEnabled=false;if(im?.complete&&im.naturalWidth)q.drawImage(im,0,(id==='synth'?0:1)*im.naturalHeight/2,im.naturalWidth/8,im.naturalHeight/2,0,0,64,80);return c.toDataURL()};
+
+const C3_partyBase=openParty;
+openParty=function(){if(!G?.c3?.started)return C3_partyBase();const roster=['franco','ryuchi',...(G.flags.reveal?['alt']:[]),...(G.flags.voicesKatana?['katana']:[]),...(G.c3.synthUnlocked?['synth']:[]),...(G.c3.percussionUnlocked?['percussion']:[])],team=partyMembers();enterMenu10(pauseHeader10(`Equipe · ${team.length}/3`,'SEIS FREQUÊNCIAS')+`<p>Escolha até três integrantes. Todos participam das cenas finais, mesmo na reserva.</p>${roster.map(id=>`<div class="formation-row10"><img alt="${labels10[id]}" src="${portraitURI10(id)}"><div><b>${team.includes(id)?team.indexOf(id)+1+' · ':''}${labels10[id]}</b><small>♥ ${G.hp[id]} / ${G.maxhp[id]}<br>J ${skillNames10[id][0]} · Z ${skillNames10[id][1]} · X ${skillNames10[id][2]}</small></div><button class="action" data-c3member="${id}" ${team.includes(id)&&(team.length===1||G.hp[id]>0&&!team.some(k=>k!==id&&G.hp[k]>0))||!team.includes(id)&&team.length===3?'disabled':''}>${team.includes(id)?'RESERVAR':'ESCALAR'}</button></div>`).join('')}<div class="row"><button class="action strong" id="c3PartyBack">VOLTAR</button></div>`,'party');document.querySelectorAll('[data-c3member]').forEach(b=>b.onclick=()=>{const id=b.dataset.c3member;let t=partyMembers().slice();if(t.includes(id)){if(t.length===1||G.hp[id]>0&&!t.some(x=>x!==id&&G.hp[x]>0)){toast('MANTENHA UM INTEGRANTE COM VIDA NA FORMAÇÃO');return}t=t.filter(x=>x!==id)}else if(t.length<3)t.push(id);G.formation=t;if(!t.includes(G.active))G.active=t.find(x=>G.hp[x]>0)||t[0];save(true);openParty()});$('c3PartyBack').onclick=openSystem};
+
+/* Chefes do ato final: telegráficos legíveis, retries curtos e frase livre como golpe final. */
+C3.patternLabels={ring:'ANEL DE PRESSÃO',cross:'EIXOS CORTADOS',fan:'CONE DE ESTÁTICA',rain:'CHUVA DE ECOS',chase:'RASTRO DA DÚVIDA',pulse:'PULSO INVERSO',orbit:'ÓRBITA VAZIA'};
+C3.rememberAction=function(kind){if(!G||!bossActor||bossActor.id!=='c3_metronome')return;C3.attackMemory.push(G.active+':'+kind);if(C3.attackMemory.length>8)C3.attackMemory.shift()};
+const C3_trackAttackBase=attackAction;
+attackAction=function(){const before=act.cool||0,result=C3_trackAttackBase();if((act.cool||0)>before)C3.rememberAction('J');return result};
+const C3_trackSkillBase=skillAction;
+skillAction=function(){const before=act.skill||0,result=C3_trackSkillBase();if((act.skill||0)>before)C3.rememberAction('Z');return result};
+const C3_trackAdvancedBase=advancedSkill;
+advancedSkill=function(){const before=act.skillX||0,result=C3_trackAdvancedBase();if((act.skillX||0)>before)C3.rememberAction('X');return result};
+const C3_trackDuoBase=duoAction;
+duoAction=function(){const before=act.duo||0,result=C3_trackDuoBase();if((act.duo||0)>before)C3.rememberAction('K');return result};
+
+const C3_hitBase=hitEnemy;
+hitEnemy=function(e,damage,stun=.15,knock=0){
+  if(e?.id==='c3_metronome'&&C3.attackMemory.length>=2){const a=C3.attackMemory[C3.attackMemory.length-1],b=C3.attackMemory[C3.attackMemory.length-2];if(a===b){damage=Math.max(1,Math.round(damage*.34));if(tick-(C3.repeatToastAt||0)>1.1){C3.repeatToastAt=tick;toast('O METRÔNOMO PREVIU A REPETIÇÃO · ALTERNE A TÉCNICA')}}}
+  if(e?.id==='c3_silence'&&damage>=e.hp&&!C3.finalPending){damage=Math.max(0,e.hp-1);C3_hitBase(e,damage,stun,0);C3.finalPending=true;C3.hazards.length=0;hostileShots=[];projectiles=[];e.stun=999;act.invuln=Math.max(act.invuln||0,9);screenShake=.55;setTimeout(()=>C3.openPhrase('final'),220);return}
+  return C3_hitBase(e,damage,stun,knock);
+};
+
+C3.fireHazard=function(h,e){if(h.fired)return;h.fired=true;const dx=G.x-h.x,dy=G.y-h.y,d=Math.hypot(dx,dy);let hit=false;if(h.kind==='ring')hit=d<h.r;else if(h.kind==='cross')hit=Math.abs(dx)<h.width||Math.abs(dy)<h.width;else if(h.kind==='fan'){const a=Math.atan2(dy,dx),diff=Math.abs(Math.atan2(Math.sin(a-h.angle),Math.cos(a-h.angle)));hit=d<h.r&&diff<h.arc} else if(h.kind==='rain')hit=d<h.r;else if(h.kind==='pulse')hit=d>h.inner&&d<h.r;
+  if(hit)damageHero(h.damage,e);
+  if(h.kind==='chase'){const aim=Math.atan2(G.y-h.y,G.x-h.x);for(let i=-2;i<=2;i++){const a=aim+i*.16;hostileShots.push({x:h.x,y:h.y,vx:Math.cos(a)*(4.4+h.phase*.45),vy:Math.sin(a)*(4.4+h.phase*.45),time:2.6,damage:h.damage,type:'c3_shot'})}}
+  if(h.kind==='orbit'){for(let i=0;i<12;i++){const a=i*Math.PI/6+(h.phase||0)*.17;hostileShots.push({x:h.x,y:h.y,vx:Math.cos(a)*(3.7+h.phase*.4),vy:Math.sin(a)*(3.7+h.phase*.4),time:2.8,damage:h.damage,type:'c3_shot'})}}
+  addCombatFX(h.x,h.y,h.kind==='rain'?'strike':'pulse',h.r||2);screenShake=Math.max(screenShake,.18);
+};
+C3.updateHazards=function(dt,e){for(let i=C3.hazards.length-1;i>=0;i--){const h=C3.hazards[i];if(!h)continue;h.time-=dt;if(!h.fired&&h.time<=h.trigger)C3.fireHazard(h,e);if(C3.hazards[i]===h&&h.time<=0)C3.hazards.splice(i,1)}};
+C3.castPattern=function(e,kind){const phase=e.phase||1,base={kind,x:e.x,y:e.y,max:1.18,time:1.18,trigger:.17,damage:e.id==='c3_silence'?12+phase*2:11+phase,r:3.7,phase};if(kind==='cross')Object.assign(base,{max:1.25,time:1.25,width:.68+phase*.06});if(kind==='fan')Object.assign(base,{max:1.05,time:1.05,r:5.8,arc:.72,angle:Math.atan2(G.y-e.y,G.x-e.x)});if(kind==='pulse')Object.assign(base,{max:1.22,time:1.22,r:6.2,inner:2.45});if(kind==='chase'||kind==='orbit')Object.assign(base,{max:1.05,time:1.05,r:2.4});if(kind==='rain'){for(let i=0;i<5+phase;i++){const a=i*2.399+phase*.47,r=.45+(i%3)*.72;C3.hazards.push({...base,kind:'rain',x:clamp(G.x+Math.cos(a)*r,3,current.w-3),y:clamp(G.y+Math.sin(a)*r,3,current.h-3),r:1.02,max:1.16,time:1.16,trigger:.14})}}else C3.hazards.push(base);e.wind=base.time;e.windKind=kind;e.facing=base.angle||0;addCombatFX(e.x,e.y,'warning',base.r||3);toast(C3.patternLabels[kind]||'O SILÊNCIO SE MOVE')};
+
+const C3_updateEnemyBase=updateEnemy;
+updateEnemy=function(e,dt,isBoss=false){if(!e||!['c3_metronome','c3_silence'].includes(e.id))return C3_updateEnemyBase(e,dt,isBoss);if(e.hp<=0)return;e.cd=Math.max(0,(e.cd||0)-dt);e.stun=Math.max(0,(e.stun||0)-dt);e.flash=Math.max(0,(e.flash||0)-dt);e.wind=Math.max(0,(e.wind||0)-dt);e.phase=e.hp<e.max*.34?3:e.hp<e.max*.68?2:1;C3.updateHazards(dt,e);if(!bossActor||bossActor!==e||mode!=='action')return;if(C3.finalPending&&e.id==='c3_silence')return;if(e.stun>0)return;if(e.cd<=0&&!C3.hazards.length){let kind;if(e.id==='c3_metronome'){const seq=e.phase===1?['ring','cross','fan']:['cross','pulse','ring','fan'];kind=seq[(e.patternIndex++)%seq.length]}else{kind=C3.bossPattern[(C3.bossPatternIndex++)%C3.bossPattern.length]||'ring'}C3.castPattern(e,kind);e.cd=Math.max(.48,(e.id==='c3_silence'?1.28:1.5)-e.phase*.16)}const d=Math.hypot(G.x-e.x,G.y-e.y);if(!C3.hazards.length&&d>4.2){const a=Math.atan2(G.y-e.y,G.x-e.x),nx=e.x+Math.cos(a)*dt*.58,ny=e.y+Math.sin(a)*dt*.58;if(tileWalkable(current,nx,ny)){e.x=nx;e.y=ny}}};
+
+C3.drawHazard=function(h){const x=h.x*T-cam.x,y=h.y*T-cam.y-12,k=clamp(h.time/h.max,0,1),pulse=.55+.35*Math.sin(tick*18);ctx.save();ctx.globalAlpha=.26+.34*pulse;ctx.strokeStyle=h.kind==='rain'?'#7ee9f0':'#ff6fb8';ctx.fillStyle=h.kind==='rain'?'#56dce522':'#d73e8b22';ctx.lineWidth=2.5;if(h.kind==='ring'||h.kind==='rain'){ctx.beginPath();ctx.arc(x,y,h.r*T,0,Math.PI*2);ctx.fill();ctx.stroke()}else if(h.kind==='cross'){line(x-current.w*T,y,x+current.w*T,y,'#ff6fb899',Math.max(2,h.width*T*2));line(x,y-current.h*T,x,y+current.h*T,'#ff6fb899',Math.max(2,h.width*T*2))}else if(h.kind==='fan'){ctx.beginPath();ctx.moveTo(x,y);ctx.arc(x,y,h.r*T,h.angle-h.arc,h.angle+h.arc);ctx.closePath();ctx.fill();ctx.stroke()}else if(h.kind==='pulse'){ctx.beginPath();ctx.arc(x,y,h.r*T,0,Math.PI*2);ctx.arc(x,y,h.inner*T,0,Math.PI*2,true);ctx.fill('evenodd');ctx.stroke()}else{ctx.beginPath();ctx.arc(x,y,2.4*T*(1-k*.18),0,Math.PI*2);ctx.stroke();for(let i=0;i<8;i++){const a=i*Math.PI/4+tick*(h.kind==='orbit'?1.2:.35);rect(x+Math.cos(a)*42,y+Math.sin(a)*42,4,4,i%2?'#ff8fd0':'#7de6ee')}}ctx.restore()};
+const C3_drawCombatBase=drawCombatLayer;
+drawCombatLayer=function(){C3_drawCombatBase();if(!G||!bossActor||!['c3_metronome','c3_silence'].includes(bossActor.id))return;for(const h of C3.hazards)C3.drawHazard(h)};
+
+C3.healFormation=function(){for(const id of partyMembers()){if(G.maxhp[id])G.hp[id]=G.maxhp[id]}G.resonance=Math.max(60,G.resonance)};
+C3.spawnMetronome=function(){C3.healFormation();C3.hazards=[];C3.attackMemory=[];C3.repeatToastAt=0;G.x=15.5;G.y=14.5;G.dir='up';trail=[];bossActor={id:'c3_metronome',kind:'boss',type:'boss',x:15.5,y:6.5,hp:360,max:360,power:13,cd:1.15,wind:0,stun:0,flash:0,phase:1,patternIndex:0};battle={boss:true,id:'c3_metronome'};mode='action';act.invuln=1.4;$('actionHUD').classList.remove('hidden');addCombatFX(bossActor.x,bossActor.y,'spawn',4);updateActionHUD();save(true)};
+C3.startMetronome=function(retry=false){if(G.c3.metronomeDone)return talk([{who:'metronome',t:'COMPASSO REGISTRADO. PASSAGEM LIBERADA.'}]);if(bossActor)return;if(!retry&&!G.c3.metronomeSeen){G.c3.metronomeSeen=true;setCheckpoint('c3_clouds','cloud_terrace',7.5,17.5,true);C3.scene('C3_019',C3.spawnMetronome);return}C3.spawnMetronome()};
+C3.finishMetronome=function(){if(!bossActor)return;const x=bossActor.x,y=bossActor.y;bossActor=null;battle=null;C3.hazards=[];hostileShots=[];projectiles=[];G.c3.metronomeDone=true;gainXP(120);G.shards+=18;G.resonance=100;mode='walk';$('actionHUD').classList.add('hidden');addCombatFX(x,y,'duo',5);screenShake=.45;setCheckpoint('c3_clouds','cloud_terrace',15.5,13.5,true);C3.scene('C3_020',()=>{save(true);updateHUD();toast('PASSAGEM · ÚLTIMO TORII')})};
+
+C3.pickSilencePatterns=function(attempt){const all=['ring','cross','fan','rain','chase','pulse','orbit'],start=(attempt*3+1)%all.length;return Array.from({length:5},(_,i)=>all[(start+i*2)%all.length])};
+C3.spawnSilence=function(){C3.healFormation();C3.hazards=[];C3.finalPending=false;C3.phraseInput=[];C3.bossPatternIndex=0;C3.bossPattern=C3.pickSilencePatterns(G.c3.bossAttempts);G.x=17.5;G.y=20.5;G.dir='up';trail=[];bossActor={id:'c3_silence',kind:'boss',type:'boss',x:17.5,y:7.5,hp:690,max:690,power:15,cd:1.0,wind:0,stun:0,flash:0,phase:1};battle={boss:true,id:'c3_silence'};mode='action';act.invuln=1.8;$('actionHUD').classList.remove('hidden');addCombatFX(bossActor.x,bossActor.y,'spawn',6);screenShake=.35;updateActionHUD();soundscape();save(true)};
+C3.startSilence=function(retry=false){if(G.c3.silenceDone)return G.c3.endingPending?C3.resumeEnding():C3.showEnding();if(!G.c3.metronomeDone)return toast('O METRÔNOMO AINDA GUARDA A PASSAGEM');if(bossActor)return;G.c3.bossAttempts=(G.c3.bossAttempts||0)+1;if(G.checkpoint?.snapshot?.c3)G.checkpoint.snapshot.c3.bossAttempts=G.c3.bossAttempts;save(true);const scene=G.c3.bossAttempts>1||retry?'C3_024':'C3_023';C3.scene(scene,C3.spawnSilence)};
+C3.playPhrase=function(phrase,end){enableAudio();const notes=[110,164.81,220,329.63],p=phrase?.length?phrase:[0,1,2,3];p.forEach((n,i)=>setTimeout(()=>{playTone(notes[n%4],.52,'triangle',.12);playTone(notes[n%4]*1.5,.35,'sine',.045);emitMusic((G?.x||0)*T,(G?.y||0)*T,18,i%2?'green':'gold')},i*240));if(end)setTimeout(end,p.length*240+520)};
+C3.resolveSilence=function(){if(!C3.finalPending)return;act.invuln=Math.max(act.invuln||0,8);C3.playPhrase(G.c3.finalPhrase,()=>C3.finishSilence())};
+C3.finishSilence=function(){const x=bossActor?.x||17.5,y=bossActor?.y||7.5;bossActor=null;battle=null;C3.hazards=[];hostileShots=[];projectiles=[];C3.finalPending=false;G.c3.silenceDone=true;G.c3.returnHome=true;G.c3.endingPending=true;gainXP(220);G.shards+=40;G.resonance=100;mode='walk';$('actionHUD').classList.add('hidden');addCombatFX(x,y,'duo',7);screenShake=.62;soundscape();save(true);C3.resumeEnding()};
+C3.resumeEnding=function(){C3.scene('C3_025',()=>C3.scene('C3_026',()=>C3.returnStudio()))};
+C3.returnStudio=function(){setArea('studio',12.5,10.5,false);showCinema('studio');$('cinemaTitle').innerHTML='<small>EPÍLOGO · CAPÍTULO 03</small>DEPOIS A GENTE PÕE';C3.scene('C3_027',()=>{G.c3.complete=true;G.c3.endingPending=false;setCheckpoint('c3_complete','studio',12.5,10.5,true);save(true);C3.showEnding()})};
+C3.showEnding=function(){openOverlay(`<div class="eyebrow">ALPHA 1.1.0 · JORNADA CONCLUÍDA</div><h2>O Som que Ainda Não Existe</h2><p>O Silêncio não desapareceu como sentimento. Ele deixou de decidir quando a música podia começar.</p><div class="stat"><span>Capítulos concluídos</span><b>3 / 3</b></div><div class="stat"><span>Formação disponível</span><b>6 FREQUÊNCIAS · 3 EM CAMPO</b></div><div class="stat"><span>Tentativas no confronto final</span><b>${G.c3.bossAttempts}</b></div><p class="lore">“Abre uma sessão nova.” — “Qual nome?” — “Depois a gente põe.”</p><div class="row"><button class="action strong" id="c3FreePhrase">CRIAR NOVA FRASE</button><button class="action" id="c3Revisit">REVISITAR HUTUKARA</button><button class="action" id="c3Export">EXPORTAR PROGRESSO</button></div>`);$('c3FreePhrase').onclick=()=>C3.openPhrase('post');$('c3Revisit').onclick=()=>{closeOverlay();setArea('distortion_district',15.5,21.5,false);save(true)};$('c3Export').onclick=exportSave};
+
+const C3_finishBossBase=finishBoss;
+finishBoss=function(){if(bossActor?.id==='c3_metronome')return C3.finishMetronome();if(bossActor?.id==='c3_silence')return C3.finishSilence();return C3_finishBossBase()};
+
+const C3_defeatBase=showDefeat;
+showDefeat=function(){if(!G?.c3?.started||!C3.AREAS.includes(G.area))return C3_defeatBase();const cpName=checkpointName(G.checkpoint?.id||'c3_district'),finalFight=bossActor?.id==='c3_silence';bossActor=null;battle=null;C3.hazards=[];C3.finalPending=false;C3.phraseInput=[];hostileShots=[];projectiles=[];combatFX.length=0;$('actionHUD').classList.add('hidden');attackHeld=false;openOverlay(`<div class="eyebrow" style="text-align:center">CAPÍTULO 03 · A FREQUÊNCIA SE PARTIU</div><h2 class="defeat-title">AINDA DÁ PARA RECOMEÇAR</h2><p style="text-align:center">A formação retorna à última ressonância sem perder aliados, relíquias ou a frase do Contratempo.</p><div class="checkpoint-panel"><strong>◆ CHECKPOINT: ${cpName}</strong>${finalFight?'Uma nova tentativa escolhe cinco padrões do repertório de sete.':'O encontro recomeça limpo, com a equipe recuperada.'}</div><div class="row" style="justify-content:center"><button class="action strong" id="retryCheckpoint">↻ TENTAR NOVAMENTE</button><button class="action" id="c3RestCheckpoint">DESCANSAR NO CHECKPOINT</button></div>`);$('retryCheckpoint').onclick=()=>restoreCheckpoint();$('c3RestCheckpoint').onclick=()=>restoreCheckpoint({c3Rest:true});save(true)};
+
+const C3_actionHUDEnemyBase=updateActionHUD;
+updateActionHUD=function(){C3_actionHUDEnemyBase();if(!G||!bossActor)return;if(bossActor.id==='c3_metronome')$('actionEnemy').textContent='O METRÔNOMO · '+(bossActor.phase===1?'COMPASSO I':bossActor.phase===2?'COMPASSO II':'SEM GRADE');if(bossActor.id==='c3_silence')$('actionEnemy').textContent='O SILÊNCIO · '+(bossActor.phase===1?'ADIAMENTO':bossActor.phase===2?'EXPOSIÇÃO':'COMEÇAR');$('actionEnemyFill').style.width=Math.max(0,bossActor.hp/bossActor.max*100)+'%'};
+
+const C3_applyPortalBase=C3.applyWorld;
+C3.applyWorld=function(){C3_applyPortalBase();if(!G?.c3)return;const tower=areas.voice_tower;if(tower&&G.flags.voicesDone&&!tower.events.some(e=>e.id==='c3_side_b'))evt(tower,'c3_side_b',13,15,'MÁSCARAS · SEGUIR PARA O LADO B',()=>C3.start(false));const studio=areas.studio,consoleEvent=studio?.events?.find(e=>e.id==='console');if(consoleEvent&&!consoleEvent.c3Wrapped){consoleEvent.c3Wrapped=true;const base=consoleEvent.doit;consoleEvent.doit=()=>G.c3.complete?C3.openPhrase('post'):base()}};
+
+const C3_voiceEndingBase=voiceEnding;
+voiceEnding=function(){C3.applyWorld();openOverlay(`<div class="eyebrow">CAPÍTULO 02 · CONCLUÍDO</div><h2>A máscara abriu o Lado B</h2><p>O Silêncio recua antes de desaparecer. Ele promete voltar — e as máscaras respondem antes que alguém consiga persegui-lo.</p><p>A frequência envolve o grupo e revela uma cidade acima das nuvens. A passagem acontece dentro da história; não é necessário voltar ao menu nem recarregar o salvamento.</p><div class="stat"><span>Próximo capítulo</span><b>O SOM QUE AINDA NÃO EXISTE</b></div><div class="row"><button class="action strong" id="c3Continue">ATRAVESSAR · CAPÍTULO 03</button><button class="action" id="c3ExploreVoices">EXPLORAR ANTES DE PARTIR</button><button class="action" id="c3ExportVoice">EXPORTAR PROGRESSO</button></div>`);$('c3Continue').onclick=()=>C3.start(false);$('c3ExploreVoices').onclick=()=>{closeOverlay();setArea('voices',32.5,28.5,false);setCheckpoint('voices','voices',32.5,28.5,true);C3.applyWorld()};$('c3ExportVoice').onclick=exportSave};
+
+openTitleOptions10=function(){enterMenu10(pauseHeader10('Escolha uma frequência','ALPHA 1.1.0 · JOGO COMPLETO')+`<div class="menu-grid10">${menuButton10('previewC3','Capítulo 03','Testar diretamente o ato final')}${menuButton10('preview10','Capítulo 02','Começar na Cidade das Vozes')}${menuButton10('load10','Importar','Usar seu salvamento em JSON')}${menuButton10('help10','Como jogar','Movimento, combate e formação')}${menuButton10('backTitle10','Voltar','Retornar à tela inicial')}</div><p class="menu-note10">Os inícios diretos são ferramentas de Alpha. A jornada normal começa no estúdio.</p>`,'title-options');$('previewC3').onclick=()=>{closeOverlay();C3.start(true)};$('preview10').onclick=()=>{closeOverlay();startChapterTwoPreview()};$('load10').onclick=()=>$('importFile').click();$('help10').onclick=openHelp;$('backTitle10').onclick=closeOverlay};
+
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&C3.phraseOrigin==='final'&&$('overlay')&&!$('overlay').classList.contains('hidden')){e.preventDefault();e.stopImmediatePropagation();toast('A ÚLTIMA FREQUÊNCIA PRECISA COMEÇAR')}},true);
+
+window.__toriiAlphaDebug={version:11,state:()=>G?copy(G):null,previewChapter3:()=>C3.start(true),warp:(area,x=5.5,y=5.5)=>setArea(area,x,y,false),setC3:patch=>{Object.assign(G.c3,patch);C3.applyWorld();updateHUD()},startBoss:id=>id==='silence'?C3.startSilence(false):C3.startMetronome(false),finishBoss:()=>bossActor?.id==='c3_metronome'?C3.finishMetronome():bossActor?.id==='c3_silence'?C3.finishSilence():null,patterns:()=>[...C3.bossPattern]};
+
+const C3_continueBase=continueGame;
+continueGame=function(){const result=C3_continueBase();if(G?.c3?.endingPending&&!G.c3.complete)setTimeout(()=>C3.resumeEnding(),120);return result};
+
+C3.qaState=function(stage){if(stage==='win'&&bossActor){if(bossActor.id==='c3_metronome')return C3.finishMetronome();bossActor.hp=1;return hitEnemy(bossActor,10)}if(stage==='defeat'&&bossActor)return showDefeat();if(!G?.c3?.started)C3.start(true);$('dialogue').classList.add('hidden');$('cinema').style.display='none';$('overlay').classList.add('hidden');menuOpen=false;mode='walk';Object.assign(G.c3,{metMaia:true,twoRoutesOpen:true,usinaGate:true,usinaDone:true,canalPath:true,canalDone:true,synthUnlocked:true,percussionUnlocked:true,windFlute:true,clubPhrase:[0,1,2,3],clubPhraseDone:true,horizonDrum:true,liftOpen:true,cloudPathA:true,cloudPathB:true,cloudPlatform:true});G.hp.synth=G.maxhp.synth;G.hp.percussion=G.maxhp.percussion;G.formation=['synth','percussion','katana'];G.active='synth';buildMaps();if(stage==='routes')setArea('distortion_district',31.5,28.5,false);if(stage==='metronome'){setArea('cloud_terrace',15.5,14.5,false);C3.startMetronome(false)}if(stage==='silence'){G.c3.metronomeDone=true;setArea('last_torii',13.5,13.5,false);setCheckpoint('c3_final','last_torii',13.5,13.5,true);setArea('silence_core',17.5,20.5,false);C3.startSilence(false)}if(stage==='ending'){G.c3.metronomeDone=true;G.c3.silenceDone=true;G.c3.returnHome=true;G.c3.endingPending=true;C3.returnStudio()}save(true);updateHUD()};
+C3.installQA=function(){if(!new URLSearchParams(location.search).has('qa')||$('c3QAPanel'))return;const box=document.createElement('div');box.id='c3QAPanel';box.style.cssText='position:fixed;right:8px;bottom:8px;z-index:99999;display:flex;gap:4px;flex-wrap:wrap;max-width:420px;background:#100d1ddd;padding:6px;border:1px solid #d89aaf';box.innerHTML='<button class="action" data-c3qa="routes">QA ROTAS</button><button class="action" data-c3qa="metronome">QA METRÔNOMO</button><button class="action" data-c3qa="silence">QA SILÊNCIO</button><button class="action" data-c3qa="win">QA VENCER</button><button class="action" data-c3qa="defeat">QA DERROTA</button><button class="action" data-c3qa="ending">QA EPÍLOGO</button>';document.body.appendChild(box);box.querySelectorAll('[data-c3qa]').forEach(b=>b.onclick=()=>C3.qaState(b.dataset.c3qa))};
+
+const C3_initBase=init;
+init=function(){C3_initBase();document.title='Torii & Hutukara · Alpha 1.1.0';const ver=document.querySelector('#start .version');if(ver)ver.textContent='ALPHA 1.1.0 · TRÊS CAPÍTULOS · JOGO COMPLETO';const build=document.querySelector('.brandbar .build');if(build)build.innerHTML='TORII & HUTUKARA<br>ALPHA 1.1.0 · SPRITES INTEGRADOS';const sub=document.querySelector('#start .sub');if(sub)sub.textContent='TRÊS CAPÍTULOS · UMA JORNADA MUSICAL';C3.installQA()};
+
+
+
+
+
+

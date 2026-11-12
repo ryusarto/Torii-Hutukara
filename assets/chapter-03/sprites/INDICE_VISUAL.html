@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Torii Hutukara — Sprites do Capítulo 3</title>
+  <style>
+    :root { color-scheme: dark; --ink:#f8e9ff; --muted:#c4a9cc; --panel:#211a31; --line:#634a78; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.45 system-ui,sans-serif; color:var(--ink); background:#100c18; }
+    header { padding:40px clamp(18px,5vw,72px) 24px; background:linear-gradient(135deg,#281438,#102c42); border-bottom:1px solid var(--line); }
+    h1 { margin:0 0 8px; font-size:clamp(28px,5vw,52px); }
+    header p { margin:0; color:var(--muted); }
+    main { width:min(1500px,94vw); margin:30px auto 70px; }
+    h2 { margin:42px 0 16px; color:#ffc8ff; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:18px; }
+    article { overflow:hidden; border:1px solid var(--line); border-radius:16px; background:var(--panel); box-shadow:0 12px 35px #0007; }
+    article img { display:block; width:100%; min-height:190px; object-fit:contain; background-color:#191526; background-image:linear-gradient(45deg,#29223a 25%,transparent 25%),linear-gradient(-45deg,#29223a 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#29223a 75%),linear-gradient(-45deg,transparent 75%,#29223a 75%); background-size:24px 24px; background-position:0 0,0 12px,12px -12px,-12px 0; }
+    article h3 { margin:0; padding:13px 16px 15px; font-size:15px; letter-spacing:.02em; }
+    .wide { grid-column:1/-1; }
+    footer { color:var(--muted); text-align:center; padding:24px; border-top:1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <header><h1>Sprites do Capítulo 3</h1><p>Alpha 1.2 · 72 quadros de movimento · 42 objetos de ambiente</p></header>
+  <main>
+    <h2>Personagens e movimentação</h2>
+    <section class="grid">
+      <article class="wide"><img src="personagens/MAIA_MOVIMENTO_8_FRAMES.png" alt="Maia"><h3>Maia</h3></article>
+      <article class="wide"><img src="personagens/NARA_MOVIMENTO_8_FRAMES.png" alt="Nara"><h3>Nara · permite a chegada antecipada ao canal</h3></article>
+      <article class="wide"><img src="personagens/CIRO_MOVIMENTO_8_FRAMES.png" alt="Ciro"><h3>Ciro</h3></article>
+      <article class="wide"><img src="personagens/VEGA_MOVIMENTO_8_FRAMES.png" alt="Vega"><h3>Vega</h3></article>
+      <article class="wide"><img src="personagens/DIMAS_MOVIMENTO_8_FRAMES.png" alt="Dimas"><h3>Dimas · dono da loja de discos</h3></article>
+      <article class="wide"><img src="personagens/MORADORA_DISTRITO_A_MOVIMENTO_8_FRAMES.png" alt="Moradora do distrito"><h3>Moradora do distrito A</h3></article>
+      <article class="wide"><img src="personagens/MORADOR_DISTRITO_B_MOVIMENTO_8_FRAMES.png" alt="Morador do distrito"><h3>Morador do distrito B</h3></article>
+      <article class="wide"><img src="personagens/TRABALHADORA_CANAL_MOVIMENTO_8_FRAMES.png" alt="Trabalhadora do canal"><h3>Trabalhadora do canal</h3></article>
+      <article class="wide"><img src="personagens/OPERADOR_USINA_MOVIMENTO_8_FRAMES.png" alt="Operador da usina"><h3>Operador da usina</h3></article>
+    </section>
+    <h2>Ambiente e objetos interativos</h2>
+    <section class="grid">
+      <article><img src="ambiente/POSTES_LUMINARIAS_ATLAS.png" alt="Postes"><h3>Postes e luminárias · 6 itens</h3></article>
+      <article><img src="ambiente/MOBILIARIO_URBANO_ATLAS.png" alt="Mobiliário"><h3>Mobiliário urbano · 9 itens</h3></article>
+      <article><img src="ambiente/OFICINA_CIRO_PROPS_ATLAS.png" alt="Oficina"><h3>Oficina de Ciro · 9 itens</h3></article>
+      <article><img src="ambiente/CANAL_INTERFERENCIA_PROPS_ATLAS.png" alt="Canal"><h3>Canal e interferência · 9 itens</h3></article>
+      <article><img src="ambiente/ELEVADOR_CEU_PROPS_ATLAS.png" alt="Elevador"><h3>Elevador do céu · 9 itens</h3></article>
+    </section>
+  </main>
+  <footer>Torii Hutukara · Biblioteca visual do Capítulo 3</footer>
+</body>
+</html>

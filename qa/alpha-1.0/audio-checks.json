@@ -1,0 +1,36 @@
+{
+  "htmlSha256": "3ef025448cc94400758ce26252813975bb01a7670e91d1d80efd8ab3e6856209",
+  "checks": [
+    {
+      "track": "Veracidade",
+      "embeddedIdenticalToOriginal": true,
+      "fullAudioDecode": "PASS"
+    },
+    {
+      "track": "Nunca Imaginei",
+      "embeddedIdenticalToOriginal": true,
+      "fullAudioDecode": "PASS"
+    },
+    {
+      "track": "Pensa em Tudo",
+      "embeddedIdenticalToOriginal": true,
+      "fullAudioDecode": "PASS"
+    },
+    {
+      "track": "Esquecer",
+      "embeddedIdenticalToOriginal": true,
+      "fullAudioDecode": "PASS"
+    },
+    {
+      "track": "Sauna",
+      "embeddedIdenticalToOriginal": true,
+      "fullAudioDecode": "PASS"
+    },
+    {
+      "track": "Walk Talk Twin",
+      "embeddedIdenticalToOriginal": true,
+      "fullAudioDecode": "PASS"
+    }
+  ],
+  "browserAudioValidation": false
+}

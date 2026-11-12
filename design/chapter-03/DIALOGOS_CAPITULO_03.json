@@ -1,0 +1,1080 @@
+{
+  "language": "pt-BR",
+  "status": "authored_not_integrated",
+  "style": "cenas curtas; subtexto em ações concretas; variantes de ordem e revisita",
+  "scenes": [
+    {
+      "id": "C3_001",
+      "location": "terminal",
+      "trigger": "primeira chegada",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_001.01",
+          "speaker": "Ryuchi",
+          "text": "Essa cidade não desliga?"
+        },
+        {
+          "id": "C3_001.02",
+          "speaker": "Franco",
+          "text": "Tem luz até em lugar que ninguém tá usando."
+        },
+        {
+          "id": "C3_001.03",
+          "speaker": "Maia",
+          "text": "Se vieram pelo trem, o último já foi. Se vieram por outro jeito... prefiro ouvir depois."
+        },
+        {
+          "id": "C3_001.04",
+          "speaker": "Ryuchi",
+          "text": "A gente tá procurando um lugar."
+        },
+        {
+          "id": "C3_001.05",
+          "speaker": "Maia",
+          "text": "Todo mundo aqui tá. Vão no Contratempo. É a porta que ainda abre sem pedir cadastro."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_002",
+      "location": "rua do clube",
+      "trigger": "examinar aviso de show",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_002.01",
+          "speaker": "Franco",
+          "text": "“Hoje.” Sem horário."
+        },
+        {
+          "id": "C3_002.02",
+          "speaker": "Vega",
+          "text": "O horário eu sei. Falta escolher o que tocar."
+        },
+        {
+          "id": "C3_002.03",
+          "speaker": "Ryuchi",
+          "text": "Você tá esperando alguém?"
+        },
+        {
+          "id": "C3_002.04",
+          "speaker": "Vega",
+          "text": "Uma versão minha que não ache defeito em tudo. Ela tá atrasada."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_003",
+      "location": "clube",
+      "trigger": "primeira conversa com Maia",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_003.01",
+          "speaker": "Maia",
+          "text": "O palco tem luz. A mesa tem som. Mas o grave da rua sumiu e tem gente presa no canal."
+        },
+        {
+          "id": "C3_003.02",
+          "speaker": "Franco",
+          "text": "Você quer salvar o show ou buscar o pessoal?"
+        },
+        {
+          "id": "C3_003.03",
+          "speaker": "Maia",
+          "text": "Quero que amanhã ainda tenha gente pra fazer show aqui."
+        },
+        {
+          "id": "C3_003.04",
+          "speaker": "Ryuchi",
+          "text": "A gente vai ver o canal e a usina. Qual aperto tá pior?"
+        },
+        {
+          "id": "C3_003.05",
+          "speaker": "Maia",
+          "text": "O que vocês conseguirem resolver primeiro. Eu fico segurando a porta."
+        }
+      ],
+      "onComplete": [
+        "c3.metMaia",
+        "c3.twoRoutesOpen"
+      ],
+      "status": "authored_not_integrated",
+      "choices": [
+        {
+          "id": "C3_003.C01",
+          "text": "Vamos pela Usina primeiro.",
+          "set": {
+            "c3.firstDestination": "usina"
+          },
+          "effect": "Prioriza a Usina no diário; ambas as rotas continuam disponíveis."
+        },
+        {
+          "id": "C3_003.C02",
+          "text": "Vamos buscar o pessoal do canal.",
+          "set": {
+            "c3.firstDestination": "canal"
+          },
+          "effect": "Prioriza o canal no diário; ambas as rotas continuam disponíveis."
+        }
+      ]
+    },
+    {
+      "id": "C3_004",
+      "location": "distrito",
+      "trigger": "Ciro dá pistas",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_004.01",
+          "speaker": "Ciro",
+          "text": "Se virem uma menina com um estojo amarelo, digam que a oficina tá aberta."
+        },
+        {
+          "id": "C3_004.02",
+          "speaker": "Franco",
+          "text": "Ela se perdeu?"
+        },
+        {
+          "id": "C3_004.03",
+          "speaker": "Ciro",
+          "text": "A Nara? Não. Saiu pra consertar a ventilação do elevador. Eu é que não devia ter deixado ela ir sozinha."
+        },
+        {
+          "id": "C3_004.04",
+          "speaker": "Ryuchi",
+          "text": "Você podia ter ido atrás."
+        },
+        {
+          "id": "C3_004.05",
+          "speaker": "Ciro",
+          "text": "Podia. Fiquei tentando decidir se era mais seguro esperar."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_005",
+      "location": "usina",
+      "trigger": "encontro com sintetista",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_005.01",
+          "speaker": "Franco sintetista",
+          "text": "Não pisa nesse cabo. Se o canal quatro cair, a prensa reinicia."
+        },
+        {
+          "id": "C3_005.02",
+          "speaker": "Franco",
+          "text": "Boa noite pra você também."
+        },
+        {
+          "id": "C3_005.03",
+          "speaker": "Franco sintetista",
+          "text": "...Eu ia perguntar como vocês entraram. Agora tenho outra pergunta."
+        },
+        {
+          "id": "C3_005.04",
+          "speaker": "Ryuchi",
+          "text": "Pode deixar a pergunta pra depois? A máquina tá acelerando."
+        },
+        {
+          "id": "C3_005.05",
+          "speaker": "Franco sintetista",
+          "text": "Eu programei a sequência certa. Era pra ela parar."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_006",
+      "location": "usina",
+      "trigger": "tentativa rígida falha; jogador já viu o sinal",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_006.01",
+          "speaker": "Franco sintetista",
+          "text": "Não toca ainda. Falta sincronizar."
+        },
+        {
+          "id": "C3_006.02",
+          "speaker": "Franco",
+          "text": "Você falou isso há três voltas."
+        },
+        {
+          "id": "C3_006.03",
+          "speaker": "Franco sintetista",
+          "text": "Se eu errar, todo mundo aqui vai ouvir."
+        },
+        {
+          "id": "C3_006.04",
+          "speaker": "Ryuchi",
+          "text": "Vai. Eu também tô ouvindo você não tocar."
+        },
+        {
+          "id": "C3_006.05",
+          "speaker": "Franco",
+          "text": "Segura a sua sequência. Eu entro com o baixo no vão."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_007",
+      "location": "usina",
+      "trigger": "baixo abre a passagem; inimigos afastados",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_007.01",
+          "speaker": "Franco sintetista",
+          "text": "Eu nunca teria deixado essa nota entrar."
+        },
+        {
+          "id": "C3_007.02",
+          "speaker": "Franco",
+          "text": "Ela já tava querendo entrar fazia tempo."
+        },
+        {
+          "id": "C3_007.03",
+          "speaker": "Franco sintetista",
+          "text": "Vocês vão voltar pro clube?"
+        },
+        {
+          "id": "C3_007.04",
+          "speaker": "Ryuchi",
+          "text": "Tem um palco esperando."
+        },
+        {
+          "id": "C3_007.05",
+          "speaker": "Franco sintetista",
+          "text": "Então eu levo o teclado. O que não estiver pronto... vai assim mesmo."
+        }
+      ],
+      "onComplete": [
+        "c3.usinaDone",
+        "party.synthUnlocked"
+      ],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_008",
+      "location": "canal",
+      "trigger": "avistar percussionista",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_008.01",
+          "speaker": "Ryuchi percussionista",
+          "text": "Pisa quando eu marcar. A passarela tá soltando."
+        },
+        {
+          "id": "C3_008.02",
+          "speaker": "Ryuchi",
+          "text": "A gente veio ajudar!"
+        },
+        {
+          "id": "C3_008.03",
+          "speaker": "Ryuchi percussionista",
+          "text": "Ótimo. Me ajuda daqui, antes de tentar entender por que eu tenho a sua cara."
+        },
+        {
+          "id": "C3_008.04",
+          "speaker": "Nara",
+          "text": "Tem mais gente na comporta. E uma coisa repetindo a voz deles lá dentro."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_009",
+      "location": "canal",
+      "trigger": "interagir com passagem antes do violino",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_009.01",
+          "speaker": "Nara",
+          "text": "Eu aumento o sinal e a água devolve tudo em cima."
+        },
+        {
+          "id": "C3_009.02",
+          "speaker": "Franco",
+          "text": "O violino da Lumi achou caminho no meio de outra interferência."
+        },
+        {
+          "id": "C3_009.03",
+          "speaker": "Ryuchi percussionista",
+          "text": "Eu seguro o pulso. Vocês procuram espaço entre as batidas."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_010",
+      "location": "canal",
+      "trigger": "resgate concluído",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_010.01",
+          "speaker": "Ryuchi percussionista",
+          "text": "Pode soltar. O pessoal já atravessou."
+        },
+        {
+          "id": "C3_010.02",
+          "speaker": "Ryuchi",
+          "text": "Você ficou aqui esse tempo todo?"
+        },
+        {
+          "id": "C3_010.03",
+          "speaker": "Ryuchi percussionista",
+          "text": "Eu fiquei pensando que, se parasse um segundo, ia perder o tempo de vez."
+        },
+        {
+          "id": "C3_010.04",
+          "speaker": "Nara",
+          "text": "Você parou quando precisou me puxar. E a gente voltou a tocar depois."
+        },
+        {
+          "id": "C3_010.05",
+          "speaker": "Ryuchi percussionista",
+          "text": "...Tá. Dessa vez eu vou junto."
+        }
+      ],
+      "onComplete": [
+        "c3.canalDone",
+        "party.percussionUnlocked"
+      ],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_011",
+      "location": "oficina",
+      "trigger": "Nara volta; entrega flauta e demonstração segura",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_011.01",
+          "speaker": "Ciro",
+          "text": "O estojo tá inteiro?"
+        },
+        {
+          "id": "C3_011.02",
+          "speaker": "Nara",
+          "text": "Eu também, obrigada."
+        },
+        {
+          "id": "C3_011.03",
+          "speaker": "Ciro",
+          "text": "Eu ia perguntar isso primeiro."
+        },
+        {
+          "id": "C3_011.04",
+          "speaker": "Nara",
+          "text": "Aham. Esta é a Flauta dos Ventos. Eu uso pra dar forma ao ar nas chaminés."
+        },
+        {
+          "id": "C3_011.05",
+          "speaker": "Franco",
+          "text": "Dar forma?"
+        },
+        {
+          "id": "C3_011.06",
+          "speaker": "Nara",
+          "text": "Olha a saída do duto. Toca uma nota e vê onde o vapor segura."
+        }
+      ],
+      "onComplete": [
+        "relic.windFlute"
+      ],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_012",
+      "location": "clube",
+      "trigger": "retorno após só usina",
+      "condition": [
+        "c3.usinaDone",
+        "!c3.canalDone"
+      ],
+      "lines": [
+        {
+          "id": "C3_012.01",
+          "speaker": "Maia",
+          "text": "O grave voltou na minha caneca antes de vocês virarem a esquina."
+        },
+        {
+          "id": "C3_012.02",
+          "speaker": "Franco sintetista",
+          "text": "A prensa ainda tá fazendo barulho."
+        },
+        {
+          "id": "C3_012.03",
+          "speaker": "Maia",
+          "text": "Que faça. Agora é ela que vai ter que acompanhar a rua."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_013",
+      "location": "clube",
+      "trigger": "retorno após só canal",
+      "condition": [
+        "c3.canalDone",
+        "!c3.usinaDone"
+      ],
+      "lines": [
+        {
+          "id": "C3_013.01",
+          "speaker": "Maia",
+          "text": "A Nara passou aqui correndo. Nem deu tempo de cobrar o copo que ela me deve."
+        },
+        {
+          "id": "C3_013.02",
+          "speaker": "Ryuchi percussionista",
+          "text": "Ela falou do pessoal da comporta?"
+        },
+        {
+          "id": "C3_013.03",
+          "speaker": "Maia",
+          "text": "Falou os nomes de um por um. Senta. Eu sirvo alguma coisa enquanto vocês pensam no próximo passo."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_014",
+      "location": "clube",
+      "trigger": "duas frentes concluídas; palco acessível",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_014.01",
+          "speaker": "Vega",
+          "text": "Agora tem grave. Tem gente. Acabaram as minhas desculpas."
+        },
+        {
+          "id": "C3_014.02",
+          "speaker": "Franco",
+          "text": "A gente pode começar com você."
+        },
+        {
+          "id": "C3_014.03",
+          "speaker": "Vega",
+          "text": "Qual música?"
+        },
+        {
+          "id": "C3_014.04",
+          "speaker": "Ryuchi",
+          "text": "Pode ser uma que ainda não existe."
+        },
+        {
+          "id": "C3_014.05",
+          "speaker": "Vega",
+          "text": "Tá. Mas não vale ficar pedindo pra voltar do início."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_015",
+      "location": "clube",
+      "trigger": "frase livre executada",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_015.01",
+          "speaker": "Vega",
+          "text": "Essa virada você já tinha pensado?"
+        },
+        {
+          "id": "C3_015.02",
+          "speaker": "Ryuchi percussionista",
+          "text": "Não."
+        },
+        {
+          "id": "C3_015.03",
+          "speaker": "Franco sintetista",
+          "text": "Eu quase cortei o retorno."
+        },
+        {
+          "id": "C3_015.04",
+          "speaker": "Franco",
+          "text": "Ainda bem que não cortou."
+        },
+        {
+          "id": "C3_015.05",
+          "speaker": "Maia",
+          "text": "A rua inteira ouviu. Ninguém foi embora."
+        }
+      ],
+      "onComplete": [
+        "c3.clubPhrase"
+      ],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_016",
+      "location": "elevador",
+      "trigger": "Tambor recebido e mecanismo aberto",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_016.01",
+          "speaker": "Ryuchi percussionista",
+          "text": "Esse tambor segurava as plataformas de carga. Eu trouxe comigo quando a parte alta fechou."
+        },
+        {
+          "id": "C3_016.02",
+          "speaker": "Ryuchi",
+          "text": "E você quer subir de novo?"
+        },
+        {
+          "id": "C3_016.03",
+          "speaker": "Ryuchi percussionista",
+          "text": "Não quero continuar tocando só pra não cair."
+        },
+        {
+          "id": "C3_016.04",
+          "speaker": "Franco",
+          "text": "Então dessa vez a gente toca pra ir a algum lugar."
+        }
+      ],
+      "onComplete": [
+        "relic.horizonDrum",
+        "c3.liftOpen"
+      ],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_017",
+      "location": "elevador",
+      "trigger": "subida; plano aberto, sem parar o controle por muito tempo",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_017.01",
+          "speaker": "Ryuchi",
+          "text": "Daqui dá pra ver o clube."
+        },
+        {
+          "id": "C3_017.02",
+          "speaker": "Franco",
+          "text": "A porta parece pequena."
+        },
+        {
+          "id": "C3_017.03",
+          "speaker": "Ryuchi",
+          "text": "Foi por ali que a gente entrou."
+        },
+        {
+          "id": "C3_017.04",
+          "speaker": "Franco",
+          "text": "É. Não parecia que dava pra chegar tão longe."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_018",
+      "location": "nuvens",
+      "trigger": "primeiro uso de flauta; teste seguro",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_018.01",
+          "speaker": "Nara",
+          "text": "A nuvem escura é a sombra. Procura onde a borda clareia."
+        },
+        {
+          "id": "C3_018.02",
+          "speaker": "Ryuchi",
+          "text": "E se não segurar?"
+        },
+        {
+          "id": "C3_018.03",
+          "speaker": "Nara",
+          "text": "Eu amarrei um cabo na primeira plataforma. A gente testa antes de sair andando por aí."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_019",
+      "location": "terraço",
+      "trigger": "antes do miniboss",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_019.01",
+          "speaker": "O Metrônomo",
+          "text": "ENTRADA FORA DO COMPASSO. RECOMEÇAR."
+        },
+        {
+          "id": "C3_019.02",
+          "speaker": "Franco sintetista",
+          "text": "Eu conheço esse sistema. Ele espera todo mundo repetir a mesma abertura."
+        },
+        {
+          "id": "C3_019.03",
+          "speaker": "Ryuchi percussionista",
+          "text": "Então não entrega a mesma abertura."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_020",
+      "location": "terraço",
+      "trigger": "vitória; checkpoint e silêncio de descanso",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_020.01",
+          "speaker": "Maia",
+          "text": "O sinal chegou inteiro lá embaixo."
+        },
+        {
+          "id": "C3_020.02",
+          "speaker": "Ryuchi",
+          "text": "Dá pra ouvir a cidade daqui?"
+        },
+        {
+          "id": "C3_020.03",
+          "speaker": "Maia",
+          "text": "Dá. Vou deixar o canal aberto."
+        },
+        {
+          "id": "C3_020.04",
+          "speaker": "Franco",
+          "text": "Obrigado. A gente já vai."
+        }
+      ],
+      "onComplete": [
+        "c3.metronomeDone",
+        "checkpoint.finalAntechamber"
+      ],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_021",
+      "location": "ultimo_torii",
+      "trigger": "conversa opcional com arqueiro",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_021.01",
+          "speaker": "Franco arqueiro",
+          "text": "Eu passei um tempão procurando um som que provasse que eu era diferente."
+        },
+        {
+          "id": "C3_021.02",
+          "speaker": "Franco",
+          "text": "Achou?"
+        },
+        {
+          "id": "C3_021.03",
+          "speaker": "Franco arqueiro",
+          "text": "Quando parei de tentar provar."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_022",
+      "location": "ultimo_torii",
+      "trigger": "conversa opcional com espadachim",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_022.01",
+          "speaker": "Ryuchi espadachim",
+          "text": "Eu não vou te falar pra entrar sem medo."
+        },
+        {
+          "id": "C3_022.02",
+          "speaker": "Ryuchi",
+          "text": "Ainda bem. Eu ia ter que mentir."
+        },
+        {
+          "id": "C3_022.03",
+          "speaker": "Ryuchi espadachim",
+          "text": "Só entra com a gente."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_023",
+      "location": "sala_final",
+      "trigger": "primeira entrada no boss",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_023.01",
+          "speaker": "O Silêncio",
+          "text": "Espera."
+        },
+        {
+          "id": "C3_023.02",
+          "speaker": "Franco",
+          "text": "A gente já esperou bastante."
+        },
+        {
+          "id": "C3_023.03",
+          "speaker": "O Silêncio",
+          "text": "Ainda não está pronto. Eles vão perceber."
+        },
+        {
+          "id": "C3_023.04",
+          "speaker": "Ryuchi",
+          "text": "Franco... essa voz."
+        },
+        {
+          "id": "C3_023.05",
+          "speaker": "Franco",
+          "text": "Eu sei."
+        },
+        {
+          "id": "C3_023.06",
+          "speaker": "O Silêncio",
+          "text": "É mais seguro quando ninguém escuta."
+        },
+        {
+          "id": "C3_023.07",
+          "speaker": "Ryuchi",
+          "text": "A gente escutou tanta gente pra chegar aqui."
+        },
+        {
+          "id": "C3_023.08",
+          "speaker": "Franco",
+          "text": "Agora vai ter que deixar a gente tocar."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_024",
+      "location": "sala_final",
+      "trigger": "nova tentativa; fala curta alternativa",
+      "condition": [
+        "boss.attempts>1"
+      ],
+      "lines": [
+        {
+          "id": "C3_024.01",
+          "speaker": "O Silêncio",
+          "text": "Eu avisei."
+        },
+        {
+          "id": "C3_024.02",
+          "speaker": "Franco",
+          "text": "E a gente voltou."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_025",
+      "location": "sala_final",
+      "trigger": "vitória; depois de deixar ação e som assentarem",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_025.01",
+          "speaker": "Ryuchi",
+          "text": "Eu achei que ia sumir."
+        },
+        {
+          "id": "C3_025.02",
+          "speaker": "Franco",
+          "text": "O medo?"
+        },
+        {
+          "id": "C3_025.03",
+          "speaker": "Ryuchi",
+          "text": "É."
+        },
+        {
+          "id": "C3_025.04",
+          "speaker": "Franco",
+          "text": "Ainda tá aqui também."
+        },
+        {
+          "id": "C3_025.05",
+          "speaker": "Ryuchi",
+          "text": "Então por que tá diferente?"
+        },
+        {
+          "id": "C3_025.06",
+          "speaker": "Franco",
+          "text": "Porque agora a gente consegue começar mesmo assim."
+        }
+      ],
+      "onComplete": [
+        "c3.silenceDone"
+      ],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_026",
+      "location": "limiar",
+      "trigger": "resolução do Hutukara",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_026.01",
+          "speaker": "Nara",
+          "text": "Vocês vão voltar?"
+        },
+        {
+          "id": "C3_026.02",
+          "speaker": "Franco",
+          "text": "Acho que a máscara trouxe a gente até onde precisava."
+        },
+        {
+          "id": "C3_026.03",
+          "speaker": "Ryuchi",
+          "text": "Ela não trouxe uma música pronta."
+        },
+        {
+          "id": "C3_026.04",
+          "speaker": "Franco",
+          "text": "Trouxe a gente até conseguir fazer a próxima."
+        },
+        {
+          "id": "C3_026.05",
+          "speaker": "Maia",
+          "text": "Quando fizerem, deixem o canal aberto."
+        }
+      ],
+      "onComplete": [
+        "c3.returnHome"
+      ],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_027",
+      "location": "estudio",
+      "trigger": "epílogo",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_027.01",
+          "speaker": "Ryuchi",
+          "text": "São quase três da manhã."
+        },
+        {
+          "id": "C3_027.02",
+          "speaker": "Franco",
+          "text": "De novo."
+        },
+        {
+          "id": "C3_027.03",
+          "speaker": "Ryuchi",
+          "text": "Abre uma sessão nova."
+        },
+        {
+          "id": "C3_027.04",
+          "speaker": "Franco",
+          "text": "Qual nome?"
+        },
+        {
+          "id": "C3_027.05",
+          "speaker": "Ryuchi",
+          "text": "Depois a gente põe."
+        }
+      ],
+      "onComplete": [
+        "c3.complete",
+        "feature.freeCreation"
+      ],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_S01",
+      "location": "banca",
+      "trigger": "missão opcional: fita sem rótulo",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_S01.01",
+          "speaker": "Dimas",
+          "text": "Não precisa comprar nada. Só não joga aquela caixa fora."
+        },
+        {
+          "id": "C3_S01.02",
+          "speaker": "Franco",
+          "text": "Fita de teste?"
+        },
+        {
+          "id": "C3_S01.03",
+          "speaker": "Dimas",
+          "text": "Primeiro show do Contratempo. A Vega manda eu apagar desde aquela noite."
+        },
+        {
+          "id": "C3_S01.04",
+          "speaker": "Ryuchi",
+          "text": "E por que não apagou?"
+        },
+        {
+          "id": "C3_S01.05",
+          "speaker": "Dimas",
+          "text": "Porque eu tava lá. Foi uma noite boa."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_S02",
+      "location": "clube",
+      "trigger": "fita devolvida; escolha opcional",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_S02.01",
+          "speaker": "Vega",
+          "text": "Nossa. Eu entrei antes do tempo."
+        },
+        {
+          "id": "C3_S02.02",
+          "speaker": "Franco",
+          "text": "O pessoal entrou junto depois."
+        },
+        {
+          "id": "C3_S02.03",
+          "speaker": "Vega",
+          "text": "Eu só lembrava da minha entrada."
+        }
+      ],
+      "onComplete": [
+        "c3.keptFirstShow"
+      ],
+      "status": "authored_not_integrated",
+      "choices": [
+        {
+          "id": "C3_S02.C01",
+          "text": "Vamos guardar no arquivo do clube.",
+          "set": {
+            "c3.cassetteChoice": "archive"
+          },
+          "effect": "Libera a memória e a fala de revisita; não toca a gravação em público."
+        },
+        {
+          "id": "C3_S02.C02",
+          "text": "Você quer tocar um trecho no show?",
+          "set": {
+            "c3.cassetteChoice": "ask_vega"
+          },
+          "effect": "Vega decide aceitar e escolher o trecho; altera a abertura do show. Mesma recompensa."
+        }
+      ]
+    },
+    {
+      "id": "C3_S03",
+      "location": "telhado",
+      "trigger": "conversa com morador",
+      "condition": [],
+      "lines": [
+        {
+          "id": "C3_S03.01",
+          "speaker": "Moradora",
+          "text": "O letreiro pisca no quarto desde terça."
+        },
+        {
+          "id": "C3_S03.02",
+          "speaker": "Ryuchi",
+          "text": "Você não consegue desligar?"
+        },
+        {
+          "id": "C3_S03.03",
+          "speaker": "Moradora",
+          "text": "Consigo. Mas aí o rapaz da esquina não acha a porta quando volta do turno. Vou trocar por uma luz menor."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_S04",
+      "location": "usina",
+      "trigger": "banter se percussionista veio primeiro",
+      "condition": [
+        "party.percussionUnlocked",
+        "!party.synthUnlocked"
+      ],
+      "lines": [
+        {
+          "id": "C3_S04.01",
+          "speaker": "Ryuchi percussionista",
+          "text": "O teclado tá te esperando ou você tá esperando ele?"
+        },
+        {
+          "id": "C3_S04.02",
+          "speaker": "Franco sintetista",
+          "text": "Você fala isso como se fosse fácil."
+        },
+        {
+          "id": "C3_S04.03",
+          "speaker": "Ryuchi percussionista",
+          "text": "Não é. Por isso eu trouxe mais gente."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    },
+    {
+      "id": "C3_S05",
+      "location": "canal",
+      "trigger": "banter se sintetista veio primeiro",
+      "condition": [
+        "party.synthUnlocked",
+        "!party.percussionUnlocked"
+      ],
+      "lines": [
+        {
+          "id": "C3_S05.01",
+          "speaker": "Franco sintetista",
+          "text": "Posso segurar um pulso com o sequenciador."
+        },
+        {
+          "id": "C3_S05.02",
+          "speaker": "Ryuchi percussionista",
+          "text": "Aguenta quando a ponte balança?"
+        },
+        {
+          "id": "C3_S05.03",
+          "speaker": "Franco sintetista",
+          "text": "A gente ajusta na hora."
+        }
+      ],
+      "onComplete": [],
+      "status": "authored_not_integrated"
+    }
+  ]
+}

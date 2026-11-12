@@ -1,0 +1,55 @@
+TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.0
+=====================================================
+Resultado: 40/40 verificações aprovadas
+HTML: 83828969 bytes
+SHA-256: d1333b717fb655dd75c31c16b00c464f12e492d77b43c4475836994fc8c7b72a
+
+OK · arquivo TORII_HUTUKARA_1_1_2_TRILHAS.html
+OK · arquivo TORII_HUTUKARA_ALPHA_1_0_COMPLETO.html
+OK · arquivo chapter3_runtime.js
+OK · arquivo DIALOGOS_CAPITULO_03.json
+OK · mapa sky_terminal
+OK · mapa distortion_district
+OK · mapa contratempo
+OK · mapa power_plant
+OK · mapa sky_canal
+OK · mapa ciro_workshop
+OK · mapa sky_lift
+OK · mapa cloud_sea
+OK · mapa cloud_terrace
+OK · mapa last_torii
+OK · mapa silence_core
+OK · referências de diálogo
+OK · trilha c3_100_adsense
+OK · trilha c3_type_shit
+OK · trilha c3_ak_cruzada
+OK · trilha c3_chico_buarque
+OK · trilha c3_passaros_exoticos
+OK · trilha c3_nervos
+OK · função C3.startMetronome
+OK · função C3.startSilence
+OK · função C3.resolveSilence
+OK · função C3.finishMetronome
+OK · função C3.finishSilence
+OK · função C3.returnStudio
+OK · schema 11
+OK · autosave Alpha separado
+OK · migração da 1.1.2
+OK · seis assinaturas
+OK · sete padrões finais
+OK · cinco padrões por tentativa
+OK · frase final
+OK · epílogo
+OK · nenhum placeholder
+OK · um init final
+OK · um bloco script
+OK · base 1.1.2 preservada
+
+Validação real executada separadamente no navegador:
+- menu e preview do Capítulo 03;
+- HUD com sintetista, percussionista e katana;
+- Metrônomo e telegráficos;
+- Silêncio, derrota, checkpoint e retry curto;
+- frase decisiva de quatro notas;
+- epílogo e save schema 11 reaberto;
+- viewport desktop e móvel.

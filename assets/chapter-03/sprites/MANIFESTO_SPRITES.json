@@ -1,0 +1,55 @@
+{
+  "projeto": "Torii Hutukara",
+  "capitulo": 3,
+  "versao": "alpha-1.2",
+  "personagens": {
+    "formato": {
+      "largura": 2176,
+      "altura": 724,
+      "quadros": 8,
+      "largura_quadro": 272,
+      "ordem": [
+        "frente_a",
+        "frente_b",
+        "esquerda_a",
+        "esquerda_b",
+        "costas_a",
+        "costas_b",
+        "direita_a",
+        "direita_b"
+      ]
+    },
+    "arquivos": [
+      "personagens/MAIA_MOVIMENTO_8_FRAMES.png",
+      "personagens/NARA_MOVIMENTO_8_FRAMES.png",
+      "personagens/CIRO_MOVIMENTO_8_FRAMES.png",
+      "personagens/VEGA_MOVIMENTO_8_FRAMES.png",
+      "personagens/DIMAS_MOVIMENTO_8_FRAMES.png",
+      "personagens/MORADORA_DISTRITO_A_MOVIMENTO_8_FRAMES.png",
+      "personagens/MORADOR_DISTRITO_B_MOVIMENTO_8_FRAMES.png",
+      "personagens/TRABALHADORA_CANAL_MOVIMENTO_8_FRAMES.png",
+      "personagens/OPERADOR_USINA_MOVIMENTO_8_FRAMES.png"
+    ]
+  },
+  "ambiente": {
+    "formato": {
+      "largura": 1536,
+      "altura": 1024,
+      "fundo": "transparente"
+    },
+    "arquivos": [
+      { "arquivo": "ambiente/POSTES_LUMINARIAS_ATLAS.png", "itens": 6 },
+      { "arquivo": "ambiente/MOBILIARIO_URBANO_ATLAS.png", "itens": 9 },
+      { "arquivo": "ambiente/OFICINA_CIRO_PROPS_ATLAS.png", "itens": 9 },
+      { "arquivo": "ambiente/CANAL_INTERFERENCIA_PROPS_ATLAS.png", "itens": 9 },
+      { "arquivo": "ambiente/ELEVADOR_CEU_PROPS_ATLAS.png", "itens": 9 }
+    ]
+  },
+  "totais": {
+    "folhas_personagens": 9,
+    "quadros_movimento": 72,
+    "atlas_ambiente": 5,
+    "objetos_ambiente": 42
+  }
+}
+

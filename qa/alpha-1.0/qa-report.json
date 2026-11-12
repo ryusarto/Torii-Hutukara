@@ -1,0 +1,319 @@
+{
+  "musicChecks": 47,
+  "candidate": "TORII_HUTUKARA_1_1_2_TRILHAS.html",
+  "sha256": "3ef025448cc94400758ce26252813975bb01a7670e91d1d80efd8ab3e6856209",
+  "environment": "Node vm; simulated DOM/canvas; no browser, audio or GPU validation",
+  "status": "PASS_LOGIC_ONLY",
+  "functionalChecks": 53,
+  "progressionChecks": 40,
+  "failures": [],
+  "baseResults": [
+    {
+      "name": "Boot: versão e menu inicial enxuto",
+      "status": "PASS"
+    },
+    {
+      "name": "Nova jornada inicia sem erro e pode pausar diálogo",
+      "status": "PASS"
+    },
+    {
+      "name": "Pausa congela relógio e retomada",
+      "status": "PASS"
+    },
+    {
+      "name": "Menus de título não reabrem jornada antiga no Escape",
+      "status": "PASS"
+    },
+    {
+      "name": "Menu equipe impede remover o único integrante vivo",
+      "status": "PASS"
+    },
+    {
+      "name": "Normalização recupera formação composta somente de mortos",
+      "status": "PASS"
+    },
+    {
+      "name": "Normalização preserva desbloqueios e limita equipe a três",
+      "status": "PASS"
+    },
+    {
+      "name": "Arquivos futuros e valores de HP inválidos são tratados",
+      "status": "PASS"
+    },
+    {
+      "name": "Movimento: mesmo percurso a 30 e 60 quadros",
+      "status": "PASS"
+    },
+    {
+      "name": "Diagonal normalizada e parada curta",
+      "status": "PASS"
+    },
+    {
+      "name": "Corrida tem velocidade e estado visual próprios",
+      "status": "PASS"
+    },
+    {
+      "name": "Andar não acelera o relógio global de animação",
+      "status": "PASS"
+    },
+    {
+      "name": "Q dash em exploração percorre 2,34 tiles e respeita recarga",
+      "status": "PASS"
+    },
+    {
+      "name": "Dash não atravessa parede nem muda direção no meio",
+      "status": "PASS"
+    },
+    {
+      "name": "Pausa e troca cancelam impulso sem devolver recarga",
+      "status": "PASS"
+    },
+    {
+      "name": "Troca não concede invulnerabilidade gratuita",
+      "status": "PASS"
+    },
+    {
+      "name": "Ataque katana é direcional e distinto de pulso",
+      "status": "PASS"
+    },
+    {
+      "name": "Combo da katana encadeia três ataques",
+      "status": "PASS"
+    },
+    {
+      "name": "Iai atinge uma vez cada alvo no trajeto",
+      "status": "PASS"
+    },
+    {
+      "name": "Aparo responde a golpe frontal direto",
+      "status": "PASS"
+    },
+    {
+      "name": "Aparo não protege as costas, áreas ou ondas do Arauto",
+      "status": "PASS"
+    },
+    {
+      "name": "Flecha perfurante atravessa alvos em linha",
+      "status": "PASS"
+    },
+    {
+      "name": "Rajada de arco é sequencial, não leque simultâneo",
+      "status": "PASS"
+    },
+    {
+      "name": "Pausar rajada cancela fila mas mantém recarga",
+      "status": "PASS"
+    },
+    {
+      "name": "Morte só usa integrantes escalados vivos",
+      "status": "PASS"
+    },
+    {
+      "name": "Vida permanente acompanha dano e líder",
+      "status": "PASS"
+    },
+    {
+      "name": "Ataques originais mantêm controle sonoro e notas",
+      "status": "PASS"
+    },
+    {
+      "name": "Salvamento de combate usa checkpoint seguro",
+      "status": "PASS"
+    },
+    {
+      "name": "Checkpoint cancela dash, Iai, aparo e rajada",
+      "status": "PASS"
+    },
+    {
+      "name": "Material novo e seis animações têm dimensões corretas",
+      "status": "PASS"
+    },
+    {
+      "name": "Seguidores mantêm distância espacial em vez de atraso por quadros",
+      "status": "PASS"
+    }
+  ],
+  "extraResults": [
+    {
+      "name": "HUD compacto mostra ressonância e recargas",
+      "status": "PASS"
+    },
+    {
+      "name": "Pausa pode ser aberta e fechada por Escape",
+      "status": "PASS"
+    },
+    {
+      "name": "Enter ativa a opção focada sem disparar interação do mundo",
+      "status": "PASS"
+    },
+    {
+      "name": "Capítulo completo pode retomar e salvar sem recrutar duplicados",
+      "status": "PASS"
+    },
+    {
+      "name": "Formação segue distância também em monitor de240Hz",
+      "status": "PASS"
+    },
+    {
+      "name": "Sessão simulada de5min não acumula ações ou posições inválidas",
+      "status": "PASS"
+    },
+    {
+      "name": "Perda de foco cancela dash e ações pendentes",
+      "status": "PASS"
+    },
+    {
+      "name": "Descanso do primeiro capítulo também cura a katana",
+      "status": "PASS"
+    },
+    {
+      "name": "Salvar em pausa preserva aliado vivo com originais mortos",
+      "status": "PASS"
+    },
+    {
+      "name": "Importar aliado vivo não teleporta nem ressuscita originais",
+      "status": "PASS"
+    },
+    {
+      "name": "Menu não substitui a tela de derrota",
+      "status": "PASS"
+    }
+  ],
+  "gameplayResults": [
+    {
+      "name": "K Franco cura apenas vivos e afasta inimigos",
+      "status": "PASS"
+    },
+    {
+      "name": "K Ryuchi encadeia3 e neutraliza projéteis próximos",
+      "status": "PASS"
+    },
+    {
+      "name": "K arqueiro avisa antes de3pulsos e pausa cancela campo",
+      "status": "PASS"
+    },
+    {
+      "name": "K katana corta faixa estreita com execução",
+      "status": "PASS"
+    },
+    {
+      "name": "K rejeita pouco recurso e modo pausado",
+      "status": "PASS"
+    },
+    {
+      "name": "Violino recompensa puzzle e persiste no save",
+      "status": "PASS"
+    },
+    {
+      "name": "Névoa bloqueia passagem, exige violino e abre sem custo",
+      "status": "PASS"
+    },
+    {
+      "name": "Migra Lumi antiga e capítulo concluído sem softlock",
+      "status": "PASS"
+    },
+    {
+      "name": "Ponte de baixo muda caminho e restaura pelo checkpoint",
+      "status": "PASS"
+    },
+    {
+      "name": "Ponte fecha ao aplicar save anterior no mesmo mapa",
+      "status": "PASS"
+    },
+    {
+      "name": "Save1.0 além da névoa mantém caminho de volta",
+      "status": "PASS"
+    }
+  ],
+  "storyResults": [
+    "Nova jornada no estúdio",
+    "Mesa de som investigada",
+    "Máscaras obtidas",
+    "Ema e escolha narrativa",
+    "Baixo de Raiz obtido",
+    "Puzzle da ponte aberto",
+    "Ponte liberada pelo puzzle",
+    "Duas pedras despertas",
+    "Primeiro chefe iniciado",
+    "Checkpoint anterior ao boss1",
+    "Boss1, revelação e arqueiro recrutado",
+    "Arqueiro disponível na formação",
+    "Travessia ao Lado A",
+    "Missão de Íris iniciada",
+    "Fita recuperada",
+    "Acoplador montado na oficina",
+    "Bento único dentro da oficina",
+    "Investigação libera relés sem recrutar katana",
+    "Dois guardas surgem em relayPlaza",
+    "Relé bloqueado com guardas vivos relayPlaza",
+    "Relé ativado relayPlaza",
+    "Dois guardas surgem em relayMarket",
+    "Relé bloqueado com guardas vivos relayMarket",
+    "Relé ativado relayMarket",
+    "Lumi entrega Violino das Vozes",
+    "Baixo abre Ponte dos Graves",
+    "Violino dissipa névoa dos telhados",
+    "Dois guardas surgem em relayRoof",
+    "Relé bloqueado com guardas vivos relayRoof",
+    "Relé ativado relayRoof",
+    "Três frequências alinhadas",
+    "Arauto iniciado com dificuldade preservada",
+    "Checkpoint do Arauto preserva missões",
+    "Contratempo entra na fase2",
+    "Arauto vencido e katana resgatada",
+    "Checkpoint final contém novo aliado e esquema10",
+    "Importação futura inválida não apaga a sessão",
+    "JSON inválido não apaga a sessão",
+    "Importação válida mantém final e aliados",
+    "Exportação gera download JSON"
+  ],
+  "musicResults": [
+    "Veracidade em studio",
+    "Veracidade em corridor",
+    "Veracidade em chamber",
+    "Nunca Imaginei em city",
+    "Nunca Imaginei em forest",
+    "Nunca Imaginei em ruins",
+    "Pensa em Tudo no boss1",
+    "Esquecer no início: rain_station",
+    "Esquecer no início: voices",
+    "Esquecer no início: tape_market",
+    "Esquecer no início: bento_shop",
+    "Esquecer no início: celina_home",
+    "Esquecer no início: radio9",
+    "Esquecer no início: voice_roofs",
+    "Esquecer no início: voice_tower",
+    "Uma antena mantém Esquecer",
+    "Sauna após segunda antena: rain_station",
+    "Sauna após segunda antena: voices",
+    "Sauna após segunda antena: tape_market",
+    "Sauna após segunda antena: bento_shop",
+    "Sauna após segunda antena: celina_home",
+    "Sauna após segunda antena: radio9",
+    "Sauna após segunda antena: voice_roofs",
+    "Sauna após segunda antena: voice_tower",
+    "Walk Talk Twin no boss2",
+    "Final de capítulo conserva Sauna",
+    "Título não toca faixa da jornada",
+    "Uma decodificação por solicitação pendente",
+    "Troca de região pede faixa correta",
+    "Decodificação atrasada não inicia faixa errada",
+    "Faixa da cidade inicia",
+    "Diálogo reduz volume",
+    "Menu reduz volume",
+    "Retorno restaura volume",
+    "Som desligado interrompe música",
+    "Religar usa faixa em cache",
+    "Boss1 solicita terceira faixa",
+    "Boss1 toca e cache fica limitado a duas faixas",
+    "Travessia troca para Esquecer",
+    "Quest troca para Sauna sem mudar de área",
+    "Boss2 solicita sexta faixa",
+    "Resposta atrasada respeita mute",
+    "Boss2 toca Walk Talk Twin",
+    "Perda de foco encerra faixa",
+    "Foco permite retomada",
+    "Título encerra trilha",
+    "Seis solicitações recebem MP3 completos"
+  ]
+}

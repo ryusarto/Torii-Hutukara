@@ -1,0 +1,58 @@
+{
+  "version": "1.1.2",
+  "source": "Original MP3 files provided by the user, unchanged; mapping follows attachment order",
+  "tracks": [
+    {
+      "id": "veracidade",
+      "title": "Veracidade",
+      "file": "Exploration Theme.mp3",
+      "usage": "Estúdio, corredor e câmara das máscaras",
+      "bytes": 2340824,
+      "sha256": "228ae70270dc776b7cdaa2c787e38ae0660d3dfc50940d6c7e4cf3c5489079c2"
+    },
+    {
+      "id": "nunca_imaginei",
+      "title": "Nunca Imaginei",
+      "file": "Forest Path.mp3",
+      "usage": "Cidade do Eco, floresta e ruínas antes do boss",
+      "bytes": 4463689,
+      "sha256": "5694a9633df5a38ea52bedaeb364c1f214d8dd38ebcb56f748db71d5b1fb7745"
+    },
+    {
+      "id": "pensa_em_tudo",
+      "title": "Pensa em Tudo",
+      "file": "Pixelated Forest.mp3",
+      "usage": "Primeiro boss",
+      "bytes": 3548669,
+      "sha256": "ad49838a9a496fcacb2984472d90e7aec8f26fd7a8b194200031320e9e119191"
+    },
+    {
+      "id": "esquecer",
+      "title": "Esquecer",
+      "file": "Pastoral Pixel.mp3",
+      "usage": "Chegada e início do capítulo 2",
+      "bytes": 2741993,
+      "sha256": "482c5821700495b52b9689229743de33f3f23d6f607c8684b213970e278c8b20"
+    },
+    {
+      "id": "sauna",
+      "title": "Sauna",
+      "file": "Pixelated Dawn.mp3",
+      "usage": "Capítulo 2 a partir de dois retransmissores ativados, e após o boss",
+      "bytes": 3835880,
+      "sha256": "43c0c825f75e937cce42e573ee8c34dd01b5a6f11abeb9278ca6a463b17cefb0"
+    },
+    {
+      "id": "walk_talk_twin",
+      "title": "Walk Talk Twin",
+      "file": "Boss Battle Theme.mp3",
+      "usage": "Segundo boss",
+      "bytes": 3384530,
+      "sha256": "af19e1b8589fadc1c6e8af7d1e29edd3b295efe09cbcc652e9014f77061ba57b"
+    }
+  ],
+  "cacheDecodedTracksMax": 2,
+  "htmlSha256": "3ef025448cc94400758ce26252813975bb01a7670e91d1d80efd8ab3e6856209",
+  "gameplayUnchanged": true,
+  "saveSchema": 10
+}

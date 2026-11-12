@@ -1,0 +1,118 @@
+{
+  "status": "integrated_alpha_1_1_0_pending_playtest",
+  "entryRequires": [
+    "legacy.voicesDone"
+  ],
+  "legacyItemsGuaranteedByCompletedPreviousChapters": true,
+  "quests": [
+    {
+      "id": "Q3_01",
+      "requires": [],
+      "completes": [
+        "c3.metMaia"
+      ]
+    },
+    {
+      "id": "Q3_02",
+      "requires": [
+        "c3.metMaia"
+      ],
+      "completes": [
+        "c3.twoRoutesOpen"
+      ]
+    },
+    {
+      "id": "Q3_03A",
+      "requires": [
+        "c3.twoRoutesOpen",
+        "legacy.bass"
+      ],
+      "completes": [
+        "c3.usinaDone",
+        "party.synthUnlocked"
+      ]
+    },
+    {
+      "id": "Q3_03B",
+      "requires": [
+        "c3.twoRoutesOpen",
+        "legacy.violin"
+      ],
+      "completes": [
+        "c3.canalDone",
+        "party.percussionUnlocked"
+      ]
+    },
+    {
+      "id": "Q3_04",
+      "requires": [
+        "c3.canalDone"
+      ],
+      "completes": [
+        "relic.windFlute"
+      ]
+    },
+    {
+      "id": "Q3_05",
+      "requires": [
+        "c3.usinaDone",
+        "c3.canalDone"
+      ],
+      "completes": [
+        "c3.clubPhrase"
+      ]
+    },
+    {
+      "id": "Q3_06",
+      "requires": [
+        "c3.clubPhrase",
+        "relic.windFlute",
+        "party.percussionUnlocked"
+      ],
+      "completes": [
+        "relic.horizonDrum",
+        "c3.liftOpen"
+      ]
+    },
+    {
+      "id": "Q3_07",
+      "requires": [
+        "c3.liftOpen",
+        "relic.windFlute",
+        "relic.horizonDrum"
+      ],
+      "completes": [
+        "c3.cloudPathsOpen"
+      ]
+    },
+    {
+      "id": "Q3_08",
+      "requires": [
+        "c3.cloudPathsOpen"
+      ],
+      "completes": [
+        "c3.metronomeDone",
+        "checkpoint.finalAntechamber"
+      ]
+    },
+    {
+      "id": "Q3_09",
+      "requires": [
+        "c3.metronomeDone"
+      ],
+      "completes": [
+        "c3.silenceDone"
+      ]
+    },
+    {
+      "id": "Q3_10",
+      "requires": [
+        "c3.silenceDone"
+      ],
+      "completes": [
+        "c3.complete",
+        "feature.freeCreation"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "stage": "integrated_alpha_pending_full_playtest",
+  "lastPlayableBuild": "alpha-1.1.0",
+  "files": [
+    {
+      "file": "DIALOGOS_CAPITULO_03.json",
+      "sha256": "bdeb54669a29ef0e38b7d1a31903aab69a0825ed7a74b76871199aa620b84283"
+    },
+    {
+      "file": "DIALOGOS_CAPITULO_03.md",
+      "sha256": "dbd6cd8d4d9f10184741a87c3042536bc4508eb13c8f6a1c2d16739b2b0fe734"
+    },
+    {
+      "file": "DIRECAO_RUAS_E_EDIFICIOS.md",
+      "sha256": "f03116cc46de4c39d864b652df01f23c50315e747458cb173415a45c5d543690"
+    },
+    {
+      "file": "LEIA-ME.txt",
+      "sha256": "5e8c8a4bd53679a1e723e9ec3b3aa5afacbebb56e317750033c8d9c4114a7dba"
+    },
+    {
+      "file": "MATERIAIS_CIDADE_NUVENS_FONTE.png",
+      "sha256": "a20bfb49a7d019e9a436fca6111a38d7dd385a3fd0341ae84d35ecf5fd08c20d"
+    },
+    {
+      "file": "MISSOES_CAPITULO_03.json",
+      "sha256": "2b9e75a12537a4a34b263b5cdecb64dc8df04039b501045e7deb072b0fe36aaf"
+    },
+    {
+      "file": "QUEST_LINE_CAPITULO_03.md",
+      "sha256": "3eddd07089cd48c07256f54d3d1b0634a621b92fece4f9f8f6356f3a33fdc556"
+    },
+    {
+      "file": "REVISAO_AUTORIA.json",
+      "sha256": "fddd70e43fc42236f39f859efc4b5689d72b6c5902ab54cd5d250df189eeee3d"
+    },
+    {
+      "file": "RUA_DISTRITO_PROPOSTA.png",
+      "sha256": "72d42fe662d7193164081e20317ac714fddbb8ff004640a0c46d5d737495b892"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "game": "TORII & HUTUKARA",
+  "build": "ALPHA 1.1.0",
+  "schema": 11,
+  "created_at": "2026-11-12T04:29:10-03:00",
+  "output": {
+    "file": "TORII_HUTUKARA_ALPHA_1_1_0_COMPLETO.html",
+    "bytes": 82349689,
+    "sha256": "22e0637c4c95d2389a731b6a2038be5eff86bf415eb87f2a9a60340fc536c94f"
+  },
+  "chapter_3": {
+    "title": "O Som que Ainda Não Existe",
+    "areas": 11,
+    "playable_characters": 6,
+    "final_boss_patterns": 7,
+    "patterns_per_attempt": 5,
+    "tracks": [
+      "100Adsense",
+      "type_shit",
+      "ak_cruzada",
+      "chico_buarque",
+      "passaros_exoticos",
+      "nervos"
+    ]
+  },
+  "sources": {
+    "01-100adsense.mp3": {
+      "bytes": 4085475,
+      "sha256": "139591ea14bbe626c8024b6f3a2bd650a8c330ccb91820435b2f38a2b296e155"
+    },
+    "02-type-shit.mp3": {
+      "bytes": 3312730,
+      "sha256": "f625d71f457df56ed2732de6f6b0a3da61cc32ae6a2e91557235c6132c344cae"
+    },
+    "03-ak-cruzada.mp3": {
+      "bytes": 4671624,
+      "sha256": "9870e965b30ff3398d919d6b13f05ee04cc4cd8573e2e040c24f3484ab987bca"
+    },
+    "04-chico-buarque.mp3": {
+      "bytes": 3512617,
+      "sha256": "5a168e2e21782c1d29f8ce3d9a7018162c348514c10ec93a1f53dbe2aab07570"
+    },
+    "05-passaros-exoticos.mp3": {
+      "bytes": 3792018,
+      "sha256": "fc7fee0c07a90729c2774b938cb6d7897357b93732e7638e3bd1c913f30a5140"
+    },
+    "06-final-boss.mp3": {
+      "bytes": 3435124,
+      "sha256": "fd0cedef4f032ea29ab8986b17e4a0932a0120d0a8c91a74d6b4118e5627601c"
+    },
+    "FRANCO_RYUCHI_MOVIMENTO.png": {
+      "bytes": 651824,
+      "sha256": "7d65307688fb1121d89224b9ace8cb0be858d2daf0978db6754a687469330a20"
+    },
+    "EDIFICIOS_PERSONAGENS.png": {
+      "bytes": 716999,
+      "sha256": "759a36a7993864a56e77d6be7a80527b3fa969b98e8e8c30be74a9d7690793f2"
+    },
+    "ELENCO_INIMIGOS.png": {
+      "bytes": 696341,
+      "sha256": "a4b5b1b276e297f37ba8838e3be8e7ad9a57ce395f6d4fa24cd39109e4c77b52"
+    },
+    "RUA_DISTRITO_PROPOSTA.png": {
+      "bytes": 3181956,
+      "sha256": "72d42fe662d7193164081e20317ac714fddbb8ff004640a0c46d5d737495b892"
+    },
+    "MAIA_MOVIMENTO_8_FRAMES.png": {
+      "bytes": 117577,
+      "sha256": "0feb40e7534a548fbf14b422327dfd8017edcd7feee85f58a7c4b3d0a3791fd9"
+    },
+    "NARA_MOVIMENTO_8_FRAMES.png": {
+      "bytes": 126796,
+      "sha256": "0240cea160b7d6ccc27fa8c9e05d46e11f8c26972af648b290fd0b625685fcde"
+    },
+    "CIRO_MOVIMENTO_8_FRAMES.png": {
+      "bytes": 231237,
+      "sha256": "eeadac66845eeabfcceb28e17756193bc0b2ac5c54000cc762ac45eee58528f0"
+    },
+    "VEGA_MOVIMENTO_8_FRAMES.png": {
+      "bytes": 142296,
+      "sha256": "b6f4cfb21530b634b1c1e08247e322042cb51a939c18fdd06b5ed7ebfb2e293c"
+    },
+    "DIMAS_MOVIMENTO_8_FRAMES.png": {
+      "bytes": 137920,
+      "sha256": "c280a9fd364d551db39a80794634f87cec263b65e45934cd6fd1be4f9d4b7420"
+    },
+    "MORADORA_DISTRITO_A_MOVIMENTO_8_FRAMES.png": {
+      "bytes": 139847,
+      "sha256": "632305fd35f6cc559c9339f6a12a57e4317e74da26dbce68bd5ad4743cac59f0"
+    },
+    "MORADOR_DISTRITO_B_MOVIMENTO_8_FRAMES.png": {
+      "bytes": 128916,
+      "sha256": "932f582906368c58490eee8c5c8b5d95db15c902d7fc24b737af8ae618964a3c"
+    },
+    "TRABALHADORA_CANAL_MOVIMENTO_8_FRAMES.png": {
+      "bytes": 131920,
+      "sha256": "91792dddeaeb0fc824117eda2500a0b2e41d8fe5717f8a08494f6a472c81979b"
+    },
+    "OPERADOR_USINA_MOVIMENTO_8_FRAMES.png": {
+      "bytes": 131371,
+      "sha256": "5eb2fdf846c36475f449b810ec3805dcc3e5a1cd2532ad1f7edd6953ce80292a"
+    },
+    "POSTES_LUMINARIAS_ATLAS.png": {
+      "bytes": 239847,
+      "sha256": "373a09c2147929f61c66da92bfc6242de910b4b16b7e23e982b28bcf0368371f"
+    },
+    "MOBILIARIO_URBANO_ATLAS.png": {
+      "bytes": 417924,
+      "sha256": "a1bb23118a4c8b258025f92110e1d3c755a67c458a5287f0b1f18ab8de740267"
+    },
+    "OFICINA_CIRO_PROPS_ATLAS.png": {
+      "bytes": 569360,
+      "sha256": "80dc5aa329c25245faf73022fc8693bdb6fd752f90c3fcf86431fcd23a49f9be"
+    },
+    "CANAL_INTERFERENCIA_PROPS_ATLAS.png": {
+      "bytes": 498216,
+      "sha256": "15189efacca94627908ebfbb59b4d2e71f3d57c2321118dc830c8f179d104c0e"
+    },
+    "ELEVADOR_CEU_PROPS_ATLAS.png": {
+      "bytes": 560746,
+      "sha256": "f94eb4b38b8b4463577625f09d5cd73cb4d15bd6196aed8bf99bbb3007242c49"
+    },
+    "TORII_HUTUKARA_1_1_2_TRILHAS.html": {
+      "bytes": 40080984,
+      "sha256": "3ef025448cc94400758ce26252813975bb01a7670e91d1d80efd8ab3e6856209"
+    },
+    "chapter3_runtime.js": {
+      "bytes": 75139,
+      "sha256": "0d7b70a9cd3a0a868057d45594d03f69a6c301a8ff08bd54b48293e25a3160f3"
+    },
+    "DIALOGOS_CAPITULO_03.json": {
+      "bytes": 29255,
+      "sha256": "bdeb54669a29ef0e38b7d1a31903aab69a0825ed7a74b76871199aa620b84283"
+    }
+  }
+}

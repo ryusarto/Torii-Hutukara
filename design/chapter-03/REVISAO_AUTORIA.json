@@ -1,0 +1,23 @@
+{
+  "status": "PASS_AUTHORING_STRUCTURE_ONLY",
+  "sceneCount": 32,
+  "lineCount": 135,
+  "authoredChoices": 4,
+  "uniqueLineIds": true,
+  "questDependenciesReachable": true,
+  "oneValidQuestOrder": [
+    "Q3_01",
+    "Q3_02",
+    "Q3_03A",
+    "Q3_03B",
+    "Q3_04",
+    "Q3_05",
+    "Q3_06",
+    "Q3_07",
+    "Q3_08",
+    "Q3_09",
+    "Q3_10"
+  ],
+  "runtimeIntegration": false,
+  "visualRuntimeValidation": false
+}

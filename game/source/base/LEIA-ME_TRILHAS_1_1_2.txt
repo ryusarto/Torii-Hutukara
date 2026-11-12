@@ -1,0 +1,19 @@
+TORII & HUTUKARA 1.1.2 — TRILHAS DO ÁLBUM
+
+Abra TORII_HUTUKARA_1_1_2_TRILHAS.html no navegador. As seis músicas estão embutidas no próprio HTML e funcionam sem download durante o jogo. Ative o som no menu Sistema caso esteja desligado. Os arquivos musicais são exatamente os MP3 enviados, com andamento, tom e arranjo preservados.
+
+Ordem dos anexos e uso no jogo:
+1. Exploration Theme.mp3 → VERACIDADE: estúdio, corredor e câmara das máscaras.
+2. Forest Path.mp3 → NUNCA IMAGINEI: Cidade do Eco, floresta e ruínas, até o primeiro boss.
+3. Pixelated Forest.mp3 → PENSA EM TUDO: primeiro boss.
+4. Pastoral Pixel.mp3 → ESQUECER: chegada e início da missão do capítulo 2.
+5. Pixelated Dawn.mp3 → SAUNA: entra após o segundo retransmissor ser ativado e segue na etapa final da missão. Também toca na exploração após vencer o segundo boss.
+6. Boss Battle Theme.mp3 → WALK TALK TWIN: segundo boss.
+
+As faixas tocam completas em repetição. As trocas têm transição de volume; diálogos e menus reduzem o volume para manter a leitura confortável. O botão de som e a saída para a tela inicial interrompem a trilha. Apenas duas faixas decodificadas permanecem em cache para limitar memória.
+
+Combate, relíquias, personagens, fases e salvamentos da 1.1 foram preservados. Para continuar, exporte seu JSON na versão anterior e importe nesta. O autosave pode depender de como seu navegador trata os arquivos locais; guarde uma cópia antes de iniciar uma nova jornada.
+
+Verificação: 53testes funcionais, 40etapas de progressão e 47verificações de música em ambiente simulado passaram. Os seis MP3 foram decodificados integralmente e seus conteúdos embutidos conferidos por hash contra os arquivos originais. Isso não equivale a teste de reprodução num navegador real. O ZIP foi verificado por CRC e contém o mesmo HTML validado.
+
+O HTML contém o código-fonte e os arquivos musicais embutidos. A alteração desta entrega foi limitada ao mapeamento musical, cache de áudio, seis arquivos musicais e rótulo de versão. Esquema de salvamento 10, mesma chave de autosave.

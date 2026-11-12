@@ -1,0 +1,14 @@
+TORII & HUTUKARA — CAPÍTULO 03: ROTEIRO, MISSÕES E ARTE DAS RUAS
+
+Esta entrega desenvolve a proposta em colaboração com o autor. Não é uma nova build jogável; a versão entregue do jogo continua 1.1.2.
+
+QUEST_LINE_CAPITULO_03.md: sequência principal, recrutamento em duas ordens, relíquias, missões laterais e critérios de progressão.
+DIALOGOS_CAPITULO_03.md: 32 cenas e 135 falas, incluindo variantes, revisitas e escolhas.
+DIALOGOS_CAPITULO_03.json: as mesmas falas com IDs estáveis e efeitos pretendidos, para integração posterior.
+MISSOES_CAPITULO_03.json: dependências e estados principais do roteiro.
+DIRECAO_RUAS_E_EDIFICIOS.md: proposta visual, escala, legibilidade, família de edifícios e critérios para finalizar assets.
+RUA_DISTRITO_PROPOSTA.png: referência visual de uma rua na câmera do jogo, produzida com imagegen e referências aprovadas do projeto. Não é captura da build.
+MATERIAIS_CIDADE_NUVENS_FONTE.png: fonte de arte para 16 materiais. A grade ainda exige recorte, normalização e testes de repetição; não é um tileset pronto para importar.
+REVISAO_AUTORIA.json: checagem limitada à estrutura de autoria. Não comprova progressão real, áudio, colisão ou leitura no jogo.
+
+As imagens preservam os PNGs gerados. Produção: OpenAI imagegen. Referências: conceito cyberpunk aprovado e captura do capítulo 2 para câmera. A última build não foi alterada nesta entrega.
