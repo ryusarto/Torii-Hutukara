@@ -12,6 +12,15 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - Mais reações de grupo ao encontro das versões de Franco e Ryuchi.
 - Balanceamento dos dois chefes finais a partir de tentativas reais.
 
+## [Alpha 1.2.2 · Mobile horizontal] — 2026-11-13
+
+- Controles na horizontal com elementos posicionados e captura de toques simultâneos; removido o uso de `display:contents` nessa orientação.
+- Jogo ocupa a área horizontal completa, com controles semitransparentes sobrepostos e respeito às áreas seguras.
+- Diálogos cancelam movimento, rolamento e comandos mantidos; analógico não acumula movimento durante falas.
+- Trilha pausada durante desafios musicais, inclusive impedindo que uma decodificação atrasada reinicie a música durante a prova.
+- Rolamento dos seis personagens com aproximadamente 15% mais distância, mantendo duração, invulnerabilidade e colisão.
+- 103 verificações estáticas e 19 testes funcionais aprovados no Chrome, incluindo multitouch horizontal, bloqueio em diálogo e pausa musical. Testes em aparelhos físicos continuam pendentes.
+
 ## [Site provisório de testes] — 2026-11-13
 
 - GitHub Pages com HTTPS no mesmo repositório, tornado público pelo autor.

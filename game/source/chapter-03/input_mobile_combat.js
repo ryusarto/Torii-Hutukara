@@ -1,4 +1,4 @@
-/* Alpha 1.2.1: inputs belong to their devices; simulation belongs to the game tick.
+/* Alpha 1.2.2: inputs belong to their devices; simulation belongs to the game tick.
  * Delta reference study: docs/DELTA_MOBILE_STUDY.md. Original browser implementation.
  */
 const Input121={
@@ -8,12 +8,12 @@ const Input121={
   recovery:0,game:null,wasCoop:false,lastArea:null
 };
 const CombatFeel121=Object.freeze({
-  franco:{roll:.40,distance:2.05,cooldown:.85,grace:.23,recovery:.34,move:.40},
-  ryuchi:{roll:.34,distance:2.55,cooldown:.64,grace:.22,recovery:.18,move:.82},
-  alt:{roll:.36,distance:2.40,cooldown:.76,grace:.22,recovery:.35,move:.58},
-  katana:{roll:.35,distance:2.35,cooldown:.72,grace:.22,recovery:.25,move:.66},
-  synth:{roll:.39,distance:2.10,cooldown:.82,grace:.23,recovery:.31,move:.52},
-  percussion:{roll:.38,distance:2.20,cooldown:.78,grace:.23,recovery:.30,move:.53}
+  franco:{roll:.40,distance:2.36,cooldown:.85,grace:.23,recovery:.34,move:.40},
+  ryuchi:{roll:.34,distance:2.93,cooldown:.64,grace:.22,recovery:.18,move:.82},
+  alt:{roll:.36,distance:2.76,cooldown:.76,grace:.22,recovery:.35,move:.58},
+  katana:{roll:.35,distance:2.70,cooldown:.72,grace:.22,recovery:.25,move:.66},
+  synth:{roll:.39,distance:2.42,cooldown:.82,grace:.23,recovery:.31,move:.52},
+  percussion:{roll:.38,distance:2.53,cooldown:.78,grace:.23,recovery:.30,move:.53}
 });
 function feel121(id){return CombatFeel121[id]||CombatFeel121.franco}
 function canBody121(x,y){
@@ -124,6 +124,7 @@ getFollower=function(index){
 };
 
 function inputVector121(){
+  if(!activeModes10())return [0,0];
   const x=(keys.d||keys.ArrowRight?1:0)-(keys.a||keys.ArrowLeft?1:0),
     y=(keys.s||keys.ArrowDown?1:0)-(keys.w||keys.ArrowUp?1:0),n=Math.hypot(x,y);
   if(n)return [x/n,y/n];
@@ -138,6 +139,7 @@ function mergeInput121(){
 }
 const moveGBefore121=moveG;
 moveG=function(dx,dy,dt){
+  if(!activeModes10())return false;
   const v=inputVector121(),n=Math.hypot(...v),f=feel121(G?.active);
   if(n>.01){dx=v[0];dy=v[1]}
   const scale=Input121.recovery>0?f.move:1;
@@ -306,6 +308,7 @@ C3.pollControllers=function(now){
 const updateBefore121=update;
 update=function(dt){
   if(!G)return updateBefore121(dt);
+  if(!activeModes10()){releaseAll121();G.moveSpeed10=0;G.isRunning10=false;}
   const boundary=Input121.game!==G||Input121.lastArea!==G.area;
   if(boundary){Input121.game=G;Input121.lastArea=G.area;Input121.roll=null;Input121.recovery=0;C3.coop.area=''}
   mergeInput121();const coop=C3.coopActive();
@@ -328,6 +331,7 @@ function releaseAll121(){Input121.pad=[0,0];Input121.padRun=false;Input121.padAt
 const overlayBefore121=openOverlay;
 openOverlay=function(...args){releaseTouch121();return overlayBefore121(...args)};
 function mobileStick121(e){
+  if(!activeModes10())return;
   const s=Input121.stickOrigin;if(!s)return;
   const dx=e.clientX-s.x,dy=e.clientY-s.y,r=s.radius,n=Math.hypot(dx,dy),m=Math.min(1,n/r),value=m<.14?0:(m-.14)/.86;
   Input121.touch=n?[dx/n*value,dy/n*value]:[0,0];Input121.touchRun=m>.88;
@@ -347,6 +351,7 @@ function bindMobile121(deck){
     const target=e.target.closest('[data-mobile-action],#mobileStick121');if(!target)return;
     e.preventDefault();enableAudio();Input121.lastSource='touch';
     if(target.id==='mobileStick121'){
+      if(!activeModes10())return;
       if(Input121.stickPointer!==null)return;
       Input121.stickPointer=e.pointerId;const box=target.getBoundingClientRect();
       Input121.stickOrigin={x:box.left+box.width/2,y:box.top+box.height/2,radius:box.width*.32};
@@ -448,10 +453,35 @@ html.mobile121,html.mobile121 body{height:100%;width:100%;overflow:hidden;oversc
 .mobile121.physical121 #dialogue{left:12px;right:12px;bottom:45px;max-height:65%}
 @media(max-height:430px){.mobile121.landscape121 #mobileStick121{width:108px;height:108px}.mobile121.landscape121 .mobileActions121 button{height:48px}.mobile121.landscape121 .switch121{height:36px!important}.mobile121.landscape121 #mobileGoal121{font-size:9px}.mobile121.landscape121 #mobileReadout121{font-size:10px}}
 `;
+
+// Landscape uses real positioned elements: no display:contents touch target tree.
+const LANDSCAPE_CSS122=`
+.mobile121.landscape121 #app{display:block;padding:0;gap:0}
+.mobile121.landscape121 #frame{position:fixed;inset:0;width:100%;height:100%;max-height:none;aspect-ratio:auto;border:0;box-shadow:none}
+.mobile121.landscape121 #mobileDeck121{display:block;position:fixed;inset:0;z-index:10010;background:none;border:0;border-radius:0;padding:0;pointer-events:none}
+.mobile121.landscape121 #mobileLeft121{position:absolute;left:max(12px,env(safe-area-inset-left));bottom:max(12px,env(safe-area-inset-bottom));width:140px;pointer-events:none}
+.mobile121.landscape121 #mobileRight121{position:absolute;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));width:210px;pointer-events:none}
+.mobile121.landscape121 #mobileStick121,.mobile121.landscape121 #mobileDeck121 button{pointer-events:auto;touch-action:none;background:#15223655!important;border-color:#e9e4de80!important;box-shadow:none;opacity:.72}
+.mobile121.landscape121 #mobileKnob121{background:#9caec055;box-shadow:none}
+.mobile121.landscape121 #mobileReadout121,.mobile121.landscape121 #mobileGoal121,.mobile121.landscape121 #mobileLeft121 small{display:none}
+.mobile121.landscape121 #mobileDeck121 button.pressed{opacity:1;background:#526b8d99!important}
+.mobile121.landscape121 #dialogue{left:8px;right:8px;bottom:8px;max-height:90%;z-index:10020}
+.mobile121.landscape121.physical121 #mobileDeck121{display:none!important}
+`;
+function musicChallenge122(){return mode==='rhythm'||!!document.getElementById('c3PhraseProgress')&& !document.getElementById('overlay').classList.contains('hidden')}
+const soundscapeBefore122=soundscape;
+soundscape=function(){if(musicChallenge122()){stopAlbum11(.04);return}return soundscapeBefore122()};
+const startAlbumBefore122=startAlbum11;
+startAlbum11=function(...args){if(musicChallenge122())return;return startAlbumBefore122(...args)};
+const rhythmBefore122=openRhythm;
+openRhythm=function(...args){releaseAll121();stopAlbum11(.04);return rhythmBefore122(...args)};
+const talkBefore122=talk;
+talk=function(...args){releaseAll121();if(G){G.moveSpeed10=0;G.isRunning10=false}return talkBefore122(...args)};
+
 const initBefore121=init;
 init=function(){
-  initBefore121();installMobile121();
-  document.title='Torii & Hutukara · Alpha 1.2.1 · Mobile & Co-op';
-  const version=document.querySelector('#start .version');if(version)version.textContent='ALPHA 1.2.1 · MOBILE & CO-OP';
-  const build=document.querySelector('.brandbar .build');if(build)build.innerHTML='TORII & HUTUKARA<br>ALPHA 1.2.1 · MOBILE & CO-OP';
+  initBefore121();installMobile121();const landscapeStyle=document.createElement('style');landscapeStyle.textContent=LANDSCAPE_CSS122;document.head.appendChild(landscapeStyle);
+  document.title='Torii & Hutukara · Alpha 1.2.2 · Mobile & Co-op';
+  const version=document.querySelector('#start .version');if(version)version.textContent='ALPHA 1.2.2 · MOBILE & CO-OP';
+  const build=document.querySelector('.brandbar .build');if(build)build.innerHTML='TORII & HUTUKARA<br>ALPHA 1.2.2 · MOBILE & CO-OP';
 };

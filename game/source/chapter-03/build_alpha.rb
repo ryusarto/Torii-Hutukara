@@ -12,8 +12,8 @@ REPO_ROOT = File.expand_path('../../..', ROOT)
 BASE = File.join(REPO_ROOT, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
 RUNTIME = File.join(ROOT, 'chapter3_runtime.js')
 INPUT_RUNTIME = File.join(ROOT, 'input_mobile_combat.js')
-OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.2.1')
-OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_2_1_MOBILE_COOP.html')
+OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.2.2')
+OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_2_2_MOBILE_COOP.html')
 
 ASSETS = File.join(REPO_ROOT, 'assets', 'chapter-03')
 RUNTIME_ASSETS = File.join(ASSETS, 'runtime')
@@ -196,8 +196,8 @@ marker = "\ninit();\n</script>"
 position = html.rindex(marker)
 raise 'Ponto final de injeção não encontrado' unless position
 html.insert(position, "\n\n#{runtime}\n\n#{File.read(INPUT_RUNTIME, encoding: 'UTF-8')}\n")
-html.gsub!('ALPHA 1.2.0', 'ALPHA 1.2.1')
-html.gsub!('Alpha 1.2.0', 'Alpha 1.2.1')
+html.gsub!('ALPHA 1.2.0', 'ALPHA 1.2.2')
+html.gsub!('Alpha 1.2.0', 'Alpha 1.2.2')
 
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
@@ -205,7 +205,7 @@ File.binwrite(OUTPUT, html)
 sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUES]
 manifest = {
   game: 'TORII & HUTUKARA',
-  build: 'ALPHA 1.2.1 · MOBILE & CO-OP',
+  build: 'ALPHA 1.2.2 · MOBILE & CO-OP',
   schema: 13,
   created_at: Time.now.iso8601,
   output: {
@@ -238,11 +238,11 @@ manifest = {
   end
 }
 
-manifest_path = File.join(OUTPUT_DIR, 'MANIFESTO_ALPHA_1_2_1.json')
+manifest_path = File.join(OUTPUT_DIR, 'MANIFESTO_ALPHA_1_2_2.json')
 File.write(manifest_path, JSON.pretty_generate(manifest) + "\n")
-File.write(File.join(OUTPUT_DIR, 'SHA256_ALPHA_1_2_1.txt'), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
-File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_1.txt'), <<~README)
-  TORII & HUTUKARA — ALPHA 1.2.1 · MOBILE & CO-OP
+File.write(File.join(OUTPUT_DIR, 'SHA256_ALPHA_1_2_2.txt'), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
+File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_2.txt'), <<~README)
+  TORII & HUTUKARA — ALPHA 1.2.2 · MOBILE & CO-OP
   =================================
 
   Build jogável completa, do Capítulo 01 ao Capítulo 03.

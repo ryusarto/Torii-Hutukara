@@ -1,0 +1,52 @@
+TORII & HUTUKARA — ALPHA 1.2.2 · MOBILE & CO-OP
+=================================
+
+Build jogável completa, do Capítulo 01 ao Capítulo 03.
+Arquivo principal: TORII_HUTUKARA_ALPHA_1_2_2_MOBILE_COOP.html
+
+COMO JOGAR
+- Abra o HTML em um navegador moderno.
+- A jornada normal começa no estúdio.
+- Em OUTRAS OPÇÕES há previews dos Capítulos 02 e 03 para teste.
+- WASD/setas: mover · Shift: correr · E: interagir.
+- J/Espaço: atacar · Z/X: técnicas · Q: dash · K: especial.
+- 1–3: trocar o integrante ativo.
+- Controle PlayStation: analógico/direcional mover · ✕ interagir · □ atacar · ○ esquivar.
+- L1/R1: técnicas · R2: especial · △: trocar integrante · Options: pausa.
+- Com dois controles, cada pessoa controla um integrante da formação em coop local.
+- Celulares e tablets abrem com controles dedicados em retrato ou paisagem.
+- No celular: analógico virtual com corrida na borda, multitouch e botões de combate.
+- Círculo sempre esquiva durante a exploração; apenas Options/Start abre a pausa.
+- O segundo jogador é puxado por rotas livres, sem teleporte por distância.
+
+CONTEÚDO DA ALPHA
+- Três capítulos conectados e salvamento migrável da build 1.1.2.
+- Seis personagens jogáveis, formação de até três.
+- Duas ordens possíveis de recrutamento no Capítulo 03.
+- Metrônomo, O Silêncio, retries e epílogo no estúdio.
+- Seis faixas novas incorporadas no próprio HTML.
+- Belga, Colli, Mazza e Dney ocupam os papéis centrais do Capítulo 03, com sprites e retratos próprios.
+- Postes, mobiliário, oficina, canal e elevador redesenhados.
+- Objetivos do canal e da usina reagem ao estado real da missão.
+- Transição do Capítulo 02 ao Capítulo 03 sem voltar ao menu.
+- Entrada do Elevador do Céu acessível depois da frase do Contratempo.
+- Ryuchi percussionista com corrida, rolamento e golpes rítmicos próprios.
+- Franco sintetizador com combo de oscilador, pads persistentes e filtro de corte.
+- Recrutamentos acontecem somente depois das apresentações específicas de cada rota.
+- Passarela de entrada do Núcleo do Silêncio reconstruída e caminhável.
+- NPCs do Capítulo 03 com movimento ambiente e reação à aproximação.
+- Pisos do distrito, interiores, canal e nuvens usam texturas detalhadas.
+- Rosto do Franco refeito com referências autorais e identidade consistente nos diálogos.
+- Máscara Torii canônica ampliada sobre testa e cabelo, mantendo a parte inferior do rosto visível.
+- Rolamento em seis etapas para os seis personagens jogáveis.
+- Corrida fluida própria para Franco sintetizador e Ryuchi percussionista.
+- Nuvens volumétricas em 16 bits e fundos cinematográficos próprios por região.
+- Placas, postes e pilares substituídos por sprites detalhados.
+- Colisões do Distrito da Distorção alinhadas às fachadas, inclusive no setor noroeste.
+- Placas próprias para Contratempo, Oficina, Usina, Canal e Elevador.
+- Pós-jogo com revisita e criação de uma nova frase musical.
+- DualShock 4, DualSense e controles padronizados via Gamepad API.
+- Coop local para duas pessoas, com HP e ações independentes em câmera compartilhada.
+
+O arquivo original TORII_HUTUKARA_1_1_2_TRILHAS.html não é alterado.
+Esta é uma Alpha: use o menu para exportar o progresso periodicamente.

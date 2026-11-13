@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Build principal:** Alpha 1.2.1 Mobile & Co-op — jogo completo do início ao fim, com os três capítulos.
+**Build principal:** Alpha 1.2.2 Mobile & Co-op — jogo completo do início ao fim, com os três capítulos.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -24,7 +24,7 @@ O link identifica PC ou mobile na entrada e exibe um aviso por quatro segundos. 
 
 Abra o arquivo abaixo em um navegador moderno:
 
-`game/builds/alpha-1.2.1/TORII_HUTUKARA_ALPHA_1_2_1_MOBILE_COOP.html`
+`game/builds/alpha-1.2.2/TORII_HUTUKARA_ALPHA_1_2_2_MOBILE_COOP.html`
 
 Controles principais:
 
@@ -55,7 +55,7 @@ Ao conectar dois controles, o segundo jogador assume outro integrante vivo da fo
 
 O menu **Outras opções** permite iniciar diretamente os capítulos 2 e 3 para testes. A jornada normal começa no estúdio.
 
-## Destaques da Alpha 1.2.1
+## Destaques da Alpha 1.2.2
 
 - Mobile dedicado em retrato e paisagem, analógico com intensidade e multitouch.
 - Círculo sempre esquiva; Options/Start controla a pausa.
@@ -115,7 +115,7 @@ ruby game/source/chapter-03/build_alpha.rb
 ruby game/source/chapter-03/validate_alpha.rb
 ```
 
-O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.1/`. A build é aceita somente quando não há placeholders, todas as cenas referenciadas existem e as validações de mapas, músicas, sprites, progressão e controles são aprovadas.
+O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.2/`. A build é aceita somente quando não há placeholders, todas as cenas referenciadas existem e as validações de mapas, músicas, sprites, progressão e controles são aprovadas.
 
 ## Documentação
 

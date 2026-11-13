@@ -2,7 +2,7 @@
 
 URL: https://ryusarto.github.io/Torii-Hutukara/
 
-O mesmo endereço abre a Alpha 1.2.1 em computador, celular ou tablet. O jogo seleciona teclado ou interface de toque automaticamente e continua aceitando controles físicos.
+O mesmo endereço abre a Alpha 1.2.2 em computador, celular ou tablet. O jogo seleciona teclado ou interface de toque automaticamente e continua aceitando controles físicos.
 
 Na entrada, um aviso mostra **PC** ou **MOBILE**, acompanhado da versão. Ele fica por quatro segundos, desaparece em 250 ms e é removido da página. Não retorna ao girar o aparelho, trocar de aplicativo ou conectar um controle, nem ocupa espaço no layout. O identificador descreve o modo selecionado pelo jogo; o parâmetro de teste `?input=mobile` ou `?input=desktop` pode forçá-lo.
 
@@ -41,3 +41,5 @@ O progresso fica no navegador e no aparelho em que se joga. Não há sincroniza�
 `qa/playtest_site.cjs` verifica a página em Chrome isolado com perfis de PC, iPhone e iPad com identificação de desktop. Confere seleção do layout, desaparecimento do aviso, rotação, janela estreita no PC, imagens, entrada no capítulo 3 e decodificação de músicas dos capítulos 1 e 3 e do chefe final. O relatório distingue emulação de testes em aparelhos reais. Safari iOS, Android e controles físicos continuam precisando de playtest.
 
 A primeira publicação foi concluída e verificada no endereço ao vivo em 13/11/2026. O [workflow aprovado](https://github.com/ryusarto/Torii-Hutukara/actions/runs/43390076638) corresponde ao commit `3aead33e404c7047426d68b483db3aa36a96c2aa`. O relatório em `qa/playtest/SITE_TEST_RESULTS.json` registra a URL pública e o hash da build efetivamente carregada nos testes.
+
+A Alpha 1.2.2 amplia o jogo na horizontal e sobrepõe controles semitransparentes. Os testes funcionais específicos estão em `qa/alpha-1.2.2/INPUT_TEST_RESULTS.json`.
