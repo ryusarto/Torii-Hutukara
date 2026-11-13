@@ -109,6 +109,11 @@ Dir.mktmpdir('torii-playtest-') do |temp|
   FileUtils.rm_rf(OUTPUT)
   FileUtils.mkdir_p(OUTPUT)
   FileUtils.cp_r(Dir.glob(File.join(temp, '*'), File::FNM_DOTMATCH).reject { |p| %w[. ..].include?(File.basename(p)) }, OUTPUT)
+  # Site editorial do álbum, isolado da build original do jogo.
+  album_source = File.join(ROOT, 'web', 'album')
+  if Dir.exist?(album_source)
+    FileUtils.cp_r(album_source, File.join(OUTPUT, 'album'))
+  end
   puts "Playtest #{config['version']}: HTML #{html.bytesize} bytes; #{media.length} cacheable assets"
   puts "Device notice: 4 seconds; original build: #{original_hash}"
   puts OUTPUT

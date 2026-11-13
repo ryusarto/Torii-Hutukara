@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#f4f0e8" />
+<meta name="description" content="Torii & Hutukara — o universo oficial do álbum de Ryuchi e Franco, The Sir!. Música, jogo, arte e mais. 27.11.2026." />
+<meta property="og:title" content="TORII & HUTUKARA — O site oficial" />
+<meta property="og:description" content="Um disco, vários mundos. Lançamento em 27 de novembro de 2026." />
+<meta property="og:type" content="website" />
+<meta name="color-scheme" content="light" />
+<title>TORII & HUTUKARA — Ryuchi × Franco, The Sir!</title>
+<link rel="icon" type="image/webp" href="assets/mask-original.webp" />
+<link rel="preload" as="image" href="assets/mask-cobalt.webp" />
+<script src="site-config.js"></script>
+<style>
+:root{--paper:#f4f0e8;--ink:#181818;--blue:#233bf2;--coral:#f25a43;--pink:#f9a3bb;--lime:#e9f09b;--muted:#666560;--line:#1c1b1960;--radius:18px;--ease:cubic-bezier(.2,.83,.2,1)}
+*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}body.modal-open{overflow:hidden}
+::selection{background:var(--blue);color:white}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}button,a{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible{outline:3px solid #f18a6a;outline-offset:4px}img{max-width:100%;display:block}button{cursor:pointer}main{overflow:hidden}.container{max-width:1610px;padding-inline:clamp(20px,4.1vw,76px);margin-inline:auto}.mono{font-family:'Courier New',monospace;font-weight:700;letter-spacing:.065em;text-transform:uppercase;font-size:11px}.eyebrow{font-family:'Courier New',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}.display{font-family:Arial,Helvetica,sans-serif;font-weight:950;letter-spacing:-.085em;line-height:.85;text-transform:uppercase}.ital{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;letter-spacing:-.07em}.red{color:var(--coral)}.blue{color:var(--blue)}
+#scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--coral);z-index:120;pointer-events:none}
+.site-nav{height:80px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #18181826;position:sticky;top:0;z-index:80;background:rgba(244,240,232,.95);backdrop-filter:blur(18px);padding-inline:clamp(20px,4.1vw,76px)}.brand{display:flex;align-items:center;gap:12px;min-width:175px;font-size:19px;font-weight:900;line-height:.85;letter-spacing:-.07em}.brand-symbol{width:38px;height:38px;border:2px solid currentColor;border-radius:50%;display:grid;place-items:center;font-size:22px;line-height:1;transform:rotate(-12deg)}.brand-name small{display:block;font:700 9px 'Courier New',monospace;letter-spacing:.2em;margin-top:4px}.nav-links{display:flex;align-items:center;gap:clamp(15px,2.6vw,44px)}.nav-links a{font:800 12px Arial,sans-serif;letter-spacing:.01em;position:relative}.nav-links a::after{content:"";height:2px;background:var(--ink);width:0;position:absolute;bottom:-8px;left:0;transition:width .25s}.nav-links a:hover::after{width:100%}.nav-right{display:flex;align-items:center;gap:10px}.nav-pill{border:1.5px solid var(--ink);background:transparent;border-radius:100px;padding:11px 17px;font:800 11px 'Courier New',monospace;white-space:nowrap}.nav-pill span{color:var(--coral)}.menu-toggle{display:none;width:44px;height:44px;border:1px solid var(--ink);border-radius:50%;background:none;align-items:center;justify-content:center;font-size:20px}
+.hero{min-height:calc(100svh - 80px);position:relative;padding-top:clamp(65px,9vw,132px);padding-bottom:28px;isolation:isolate}.hero-inner{position:relative;min-height:650px;display:flex;flex-direction:column;justify-content:space-between}.hero-topnote{display:flex;align-items:center;gap:12px}.mini-dot{width:8px;height:8px;border-radius:50%;background:var(--coral);display:inline-block}.hero-photo{position:absolute;z-index:-1;top:-9px;right:0;width:54%;height:min(66vh,650px);min-height:465px;background:var(--blue);border-radius:250px 16px 16px 16px;overflow:hidden;transform:translateZ(0)}.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#233bf217 0%,transparent 48%)}.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:62% center;transition:transform .6s ease;will-change:transform}.hero-title{position:relative;z-index:4;margin:clamp(48px,7vw,120px) 0 12px;font-size:clamp(86px,13vw,210px);line-height:.76;letter-spacing:-.107em;white-space:nowrap}.hero-title .amp{font-family:Georgia,serif;font-weight:400;font-style:italic;letter-spacing:-.12em;color:var(--coral);font-size:.58em;vertical-align:.19em;margin-left:.1em}.hero-title .next{display:block;margin-top:.13em;position:relative}.hero-title .period{color:var(--coral)}.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;max-width:900px}.hero-info{max-width:350px}.hero-info p{font-size:clamp(16px,1.6vw,21px);font-weight:600;line-height:1.3;letter-spacing:-.04em;margin:12px 0 22px}.release-badge{display:inline-flex;gap:8px;align-items:center}.release-badge i{height:13px;width:13px;background:var(--blue);border-radius:50%}.hero-actions{display:flex;flex-wrap:wrap;gap:8px}.btn{border:1.5px solid var(--ink);border-radius:40px;min-height:49px;padding:13px 22px;display:inline-flex;justify-content:space-between;align-items:center;gap:22px;font-weight:900;font-size:13px;white-space:nowrap;transition:transform .22s var(--ease),background .22s,color .22s}.btn:hover{transform:translateY(-3px)}.btn-dark{background:var(--ink);color:white}.btn-dark:hover{background:var(--blue)}.btn-white{background:var(--paper)}.btn-white:hover{background:white}.btn .arr{font-size:20px;line-height:0}.hero-counter{text-align:right;align-self:flex-end;padding-bottom:5px}.hero-counter>div{font-size:clamp(45px,5.3vw,88px);font-weight:950;letter-spacing:-.095em;line-height:.9}.hero-counter>span{font-size:10px}.hero-sidenote{position:absolute;top:5px;right:0;writing-mode:vertical-rl;transform:translateX(28px);font:700 10px 'Courier New',monospace;letter-spacing:.12em}.hero-stamp{position:absolute;z-index:5;width:95px;height:95px;right:43%;top:9%;background:var(--lime);border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;text-align:center;font:900 12px/1.14 Arial;transform:rotate(18deg);box-shadow:5px 5px 0 #161616}.hero-stamp span{font-size:26px;line-height:1}
+.ticker{background:var(--blue);color:white;white-space:nowrap;overflow:hidden;padding:16px 0;border-block:2px solid var(--ink)}.ticker-track{display:flex;width:max-content;animation:marquee 24s linear infinite;gap:38px}.ticker span{font-size:clamp(18px,2.15vw,33px);font-weight:950;letter-spacing:-.055em;line-height:1}.ticker b{font-family:Georgia,serif;font-style:italic;color:var(--lime);font-size:32px}.ticker:hover .ticker-track{animation-play-state:paused}@keyframes marquee{to{transform:translateX(-50%)}}
+.section{padding-top:clamp(92px,10vw,165px);padding-bottom:clamp(92px,10vw,165px)}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:35px;margin-bottom:43px}.section-head h2{font-size:clamp(60px,8.6vw,142px);margin:12px 0 0}.section-head .intro{font-size:16px;line-height:1.38;letter-spacing:-.02em;max-width:340px;font-weight:550;margin:0 0 5px}.section-head .intro b{color:var(--blue)}
+.portal-grid{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:420px 305px;gap:15px}.portal{overflow:hidden;border:1.5px solid var(--ink);border-radius:7px;position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(22px,2.4vw,37px);isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}.portal:hover{transform:translateY(-5px);box-shadow:9px 9px 0 var(--ink)}.portal .number{font:900 12px 'Courier New',monospace;position:relative;z-index:2}.portal h3{font-size:clamp(42px,4.6vw,76px);margin:0;position:relative;z-index:2}.portal p{font-size:13px;line-height:1.4;max-width:235px;font-weight:650;margin:15px 0 0;position:relative;z-index:3}.portal .circle-go{position:absolute;bottom:30px;right:29px;width:55px;height:55px;border-radius:50%;border:1.5px solid var(--ink);background:var(--paper);display:grid;place-items:center;font-size:28px;font-weight:700;z-index:5;transition:transform .3s var(--ease)}.portal:hover .circle-go{transform:rotate(-45deg)}.portal-game{background:#ebe798;color:var(--ink);grid-row:span 2}.game-shot{position:absolute;width:91%;left:4.5%;top:26%;border-radius:6px;box-shadow:16px 16px 0 #171717;transform:rotate(-3deg);border:5px solid #222;overflow:hidden;transition:transform .45s var(--ease)}.game-shot img{width:100%;aspect-ratio:16/10;object-fit:cover}.portal-game:hover .game-shot{transform:rotate(0deg) scale(1.02)}.portal-game h3{max-width:200px}.portal-game .game-bottom{z-index:3;position:relative}.portal-album{background:#f4a5c0;color:#1b1b1b}.portal-album::after{content:"";position:absolute;width:315px;height:315px;border:2px solid #1e1e1e;border-radius:50%;right:-50px;top:70px;box-shadow:inset 0 0 0 18px #f4a5c0,inset 0 0 0 20px #262626,inset 0 0 0 60px #f4a5c0,inset 0 0 0 62px #272727,inset 0 0 0 106px #f4a5c0,inset 0 0 0 108px #272727;transform:rotate(25deg)}.portal-album h3{max-width:200px}.portal-universe{background:#bdc8ff;flex-direction:row}.portal-universe::before{content:"";width:250px;height:250px;border-radius:50%;position:absolute;top:20px;right:50px;background:white}.portal-universe .universe-mask{position:absolute;height:290px;width:290px;right:27px;bottom:-70px;object-fit:cover;border-radius:50%;mix-blend-mode:multiply;transform:rotate(-11deg)}.portal-universe h3{font-size:clamp(36px,3.2vw,58px);max-width:200px}.portal-universe .circle-go{background:var(--lime)}
+.mask-section{background:var(--blue);color:white;overflow:hidden}.mask-layout{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(35px,7vw,140px);align-items:center;padding-block:clamp(65px,9vw,135px)}.mask-left .eyebrow{color:#b4bfff}.mask-left h2{font-size:clamp(75px,10vw,155px);margin:25px 0 30px}.mask-left p{font-size:clamp(17px,2vw,25px);line-height:1.28;font-weight:600;letter-spacing:-.04em;max-width:530px}.mask-foot{margin-top:44px;display:flex;align-items:center;gap:20px;border-top:1px solid #ffffff5f;padding-top:18px}.mask-frame{aspect-ratio:1;max-width:630px;display:grid;place-items:center;position:relative;background:#ff6d54;border-radius:100% 100% 8px 8px;transform:rotate(3deg)}.mask-frame img{height:75%;width:75%;object-fit:contain;mix-blend-mode:screen;filter:contrast(1.2);transform:rotate(-7deg);transition:transform .3s ease}.mask-frame::before,.mask-frame::after{content:"✳";position:absolute;font-size:70px;font-weight:700;color:var(--lime)}.mask-frame::before{top:2%;left:2%}.mask-frame::after{right:2%;bottom:4%;font-size:90px}.mask-label{position:absolute;bottom:18px;left:27px;background:var(--lime);color:var(--ink);padding:11px 17px;transform:rotate(-8deg);z-index:2;font-weight:900;font-size:12px;letter-spacing:.05em}
+.links-section{background:var(--paper)}.music-title{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}.music-title h2{font-size:clamp(88px,13vw,190px);margin:22px 0 0}.music-title p{font-size:17px;font-weight:600;line-height:1.4;max-width:325px}.platform-list{border-top:2px solid var(--ink);margin-top:48px}.platform{display:grid;grid-template-columns:65px minmax(0,1fr) 175px 40px;gap:12px;align-items:center;border-bottom:1px solid #18181866;padding:24px 12px;transition:background .25s,color .25s}.platform>span:nth-child(2){font-weight:900;letter-spacing:-.055em;font-size:clamp(28px,3.7vw,56px)}.platform .platform-status{font:700 11px 'Courier New',monospace;text-align:right;text-transform:uppercase}.platform .platform-arrow{font-size:28px;text-align:right}.platform.available:hover{background:var(--blue);color:white;cursor:pointer}.platform.unavailable{opacity:.56}.platform.unavailable .platform-arrow{opacity:.3}.link-note{padding:20px 0 0;color:var(--muted);font-size:12px}
+.editorial{background:#e2f1ed}.editorial-shell{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px}.editorial-copy h2{font-size:clamp(82px,10vw,170px);margin:20px 0 18px}.editorial-copy p{font-size:17px;font-weight:600;line-height:1.45;max-width:440px}.editorial-photo{position:relative}.editorial-photo img{width:100%;aspect-ratio:1.25;object-fit:cover;border-radius:150px 15px 150px 15px;box-shadow:18px 18px 0 var(--coral)}.editorial-photo .photo-sticker{position:absolute;top:12px;left:-35px;display:grid;place-items:center;width:115px;height:115px;text-align:center;border-radius:50%;background:var(--lime);border:1px solid var(--ink);transform:rotate(-14deg);font:900 12px/1.2 'Courier New',monospace}
+.merch{background:var(--lime);position:relative;overflow:hidden}.merch-wrap{position:relative;min-height:570px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:35px;padding-block:90px}.merch h2{font-size:clamp(105px,15vw,245px);line-height:.76;margin:15px 0 25px}.merch p{font-size:17px;font-weight:600;line-height:1.4;max-width:410px}.merch-sticker{display:inline-block;background:var(--coral);border:1px solid var(--ink);border-radius:50%;padding:16px 25px;transform:rotate(-8deg);font-size:15px;font-weight:900}.merch-product{position:relative;min-height:370px;display:grid;place-items:center}.tee{position:relative;width:min(100%,420px);height:380px;background:#f4f0e8;clip-path:polygon(25% 0%,42% 0%,46% 5%,54% 5%,58% 0%,75% 0%,100% 22%,84% 42%,75% 35%,75% 100%,25% 100%,25% 35%,16% 42%,0% 22%);filter:drop-shadow(12px 22px 0 #1b1b1b33);display:grid;place-items:center;transform:rotate(7deg)}.tee-art{margin-top:75px;width:125px;height:125px;position:relative;border-radius:8px;overflow:hidden}.tee-art img{width:100%;height:100%;object-fit:cover}.tee-word{position:absolute;top:50px;width:100%;text-align:center;font-weight:950;font-size:24px;letter-spacing:-.08em;line-height:.82}.merch-tag{position:absolute;right:5%;top:10%;border:1px solid var(--ink);background:#fff;padding:15px 22px;font:900 13px 'Courier New',monospace;transform:rotate(11deg)}
+.outro{background:var(--paper);padding:85px 0 50px}.outro-line{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}.outro-title{font-size:clamp(64px,11.1vw,170px);margin:0;letter-spacing:-.1em}.outro-sub{font-size:clamp(24px,3vw,42px);font-weight:800;letter-spacing:-.05em;max-width:430px;line-height:1.05}.footer{margin-top:110px;border-top:1px solid var(--ink);padding-top:25px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;font:700 11px/1.7 'Courier New',monospace;letter-spacing:.06em}.footer-links{display:flex;gap:24px;flex-wrap:wrap}.footer a:hover{text-decoration:underline}
+#mobile-panel{display:none}.game-dialog{position:fixed;inset:0;z-index:200;display:none;flex-direction:column;background:#171717;color:white}.game-dialog.is-open{display:flex}.game-topbar{height:62px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 20px;background:#161616;border-bottom:1px solid #ffffff24}.game-topbar h2{font-size:14px;letter-spacing:-.04em}.game-topbar nav{display:flex;gap:9px}.game-topbar button,.game-topbar a{background:#fff;color:#111;border:0;border-radius:30px;padding:9px 15px;font-weight:800;font-size:12px}.game-dialog iframe{flex:1;width:100%;border:0;background:#0c0c13}.game-loading{position:absolute;inset:62px 0 0;display:grid;place-items:center;background:#171717;color:white;font-size:24px;font-weight:900;z-index:2;pointer-events:none}.game-loading.is-hidden{display:none}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}.reveal.is-visible{opacity:1;transform:translateY(0)}
+@media(max-width:1100px){.nav-links{gap:18px}.hero-title{font-size:clamp(78px,11.9vw,135px)}.hero-inner{min-height:610px}.hero-photo{width:56%;height:490px}.hero-stamp{right:40%}.portal-grid{grid-template-rows:350px 300px}.game-shot{top:30%}.portal-universe .universe-mask{width:210px;height:210px}.mask-left h2{font-size:clamp(68px,9vw,105px)}}
+@media(max-width:780px){.site-nav{height:69px}.brand{font-size:16px;min-width:0}.brand-symbol{width:33px;height:33px;font-size:19px}.nav-links{display:none}.nav-pill{font-size:9px;padding:9px 12px}.menu-toggle{display:flex}#mobile-panel{display:none;position:fixed;z-index:78;top:69px;inset-inline:0;background:var(--paper);border-bottom:2px solid var(--ink);padding:20px 25px 28px;box-shadow:0 18px 30px #0002}#mobile-panel.is-open{display:flex;flex-direction:column;gap:10px}#mobile-panel a{display:block;font-size:42px;font-weight:950;letter-spacing:-.07em;padding:4px 0;border-bottom:1px solid #ccc}.hero{min-height:0;padding-top:28px}.hero-inner{min-height:0;padding-bottom:5px;display:block}.hero-topnote{font-size:10px}.hero-photo{position:relative;top:auto;right:auto;width:100%;height:auto;min-height:0;aspect-ratio:1.1;margin-top:25px;border-radius:120px 7px 7px 7px}.hero-photo img{object-position:67%}.hero-stamp{top:100px;right:18px;width:84px;height:84px;font-size:11px}.hero-title{margin:19px 0 25px;font-size:clamp(52px,12vw,95px);position:relative;z-index:4;line-height:.82;letter-spacing:-.095em}.hero-title .next{margin-top:.13em}.hero-bottom{display:block}.hero-info{max-width:100%}.hero-info p{max-width:450px;font-size:17px}.hero-actions{flex-wrap:nowrap}.hero-actions .btn{font-size:12px;padding:11px 18px;flex:1;gap:6px}.hero-counter{text-align:left;margin-top:27px;padding-top:15px;border-top:1px solid #16161652}.hero-counter>div{font-size:52px;letter-spacing:-.08em}.hero-sidenote{display:none}.ticker{margin-top:38px;padding:13px 0}.section{padding-block:80px}.section-head{display:block;margin-bottom:28px}.section-head h2{font-size:clamp(58px,11.8vw,96px)}.section-head .intro{font-size:14px;margin-top:20px}.portal-grid{grid-template-columns:1fr;grid-template-rows:auto;gap:12px}.portal{min-height:330px;padding:25px}.portal h3{font-size:clamp(50px,10vw,82px)}.portal-game{min-height:490px;grid-row:auto}.portal-game h3{max-width:none}.game-shot{top:28%;left:5%;width:90%}.portal-album{min-height:305px}.portal-universe{min-height:305px}.portal-universe .universe-mask{width:270px;height:270px;right:-25px}.mask-layout{grid-template-columns:1fr;padding-block:75px;gap:55px}.mask-left h2{font-size:clamp(70px,13vw,110px)}.mask-left p{font-size:19px}.mask-frame{width:100%;max-width:480px}.music-title{display:block}.music-title h2{font-size:clamp(75px,15vw,140px)}.music-title p{margin-top:23px}.platform-list{margin-top:32px}.platform{grid-template-columns:32px 1fr 115px 20px;padding:21px 5px;gap:8px}.platform>span:nth-child(2){font-size:clamp(23px,5.6vw,40px)}.platform .platform-status{font-size:9px}.platform .platform-arrow{font-size:22px}.editorial-shell{grid-template-columns:1fr;gap:44px}.editorial-copy h2{font-size:clamp(80px,14vw,132px)}.editorial-photo .photo-sticker{width:95px;height:95px;left:-10px}.merch-wrap{grid-template-columns:1fr;padding-block:85px;gap:10px}.merch h2{font-size:clamp(100px,23vw,200px)}.merch-product{min-height:320px}.tee{height:300px;width:350px}.tee-art{width:100px;height:100px}.outro{padding-top:80px}.outro-line{display:block}.outro-title{font-size:clamp(63px,12vw,115px)}.outro-sub{font-size:25px}.footer{margin-top:75px;display:block}.footer-links{margin-top:25px;gap:15px}.game-topbar{padding:8px 10px}.game-topbar h2{font-size:11px;max-width:130px}.game-topbar button,.game-topbar a{padding:9px 10px;font-size:10px}}
+@media(max-width:390px){.brand-name{font-size:14px}.nav-pill{display:none}.hero-title{font-size:13.4vw}.hero-stamp{top:93px}.hero-actions .btn{font-size:11px}.portal-game{min-height:440px}.game-shot{top:31%}.platform{grid-template-columns:22px 1fr 95px 18px}.platform>span:nth-child(2){font-size:22px}.platform .platform-status{font-size:8px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker-track{animation:none}.reveal{opacity:1;transform:none;transition:none}.portal,.hero-photo img,.btn,.mask-frame img,.game-shot{transition:none}}
+
+/* Ferramentas discretas de teste: não aparecem quando testMode=false. */
+.test-chip{position:fixed;left:16px;bottom:16px;z-index:74;display:inline-flex;align-items:center;gap:9px;padding:10px 14px;background:#f4f0e8;border:1.5px solid #191919;border-radius:999px;font:800 11px Arial,sans-serif;box-shadow:3px 3px 0 #171717;transition:transform .2s ease}
+.test-chip:hover{transform:translateY(-2px)}.test-chip .blink{width:8px;height:8px;background:#f25a43;border-radius:50%}
+.feedback-panel[hidden],.test-chip[hidden]{display:none!important}
+.feedback-panel{position:fixed;inset:0;z-index:250;background:rgba(20,20,20,.55);padding:20px;display:grid;place-items:center;overflow:auto}
+.feedback-card{width:min(100%,520px);max-height:calc(100svh - 40px);overflow:auto;border:2px solid #161616;border-radius:18px;background:var(--paper);box-shadow:12px 12px 0 #161616;padding:clamp(20px,4vw,32px)}
+.feedback-card h2{font-size:clamp(33px,6vw,50px);margin:10px 0 14px;line-height:.95}
+.feedback-card p{font-size:14px;line-height:1.5;margin:0 0 16px;color:#444}
+.feedback-top{display:flex;justify-content:space-between;align-items:center}.feedback-close{border:1.5px solid #181818;border-radius:50%;background:none;width:36px;height:36px;display:grid;place-items:center;font-size:20px}
+.feedback-card label{display:block;font-size:12px;font-weight:850;margin-bottom:8px}
+.feedback-card select,.feedback-card textarea{border:1.5px solid #181818;background:white;color:#151515;width:100%;border-radius:10px;padding:13px;font:500 14px Arial,sans-serif}
+.feedback-card select{margin-bottom:16px}.feedback-card textarea{resize:vertical;min-height:124px;max-height:230px}
+.feedback-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.feedback-buttons .btn{flex:1;justify-content:center;min-height:44px;font-size:12px}
+#feedback-status{min-height:18px;margin:12px 0 0;font-size:12px;font-weight:700}
+.skip-link{position:absolute;z-index:300;top:-60px;left:12px;padding:12px 18px;background:#181818;color:white;border-radius:999px}.skip-link:focus{top:12px}
+@media(max-width:780px){.test-chip{left:12px;bottom:max(12px,env(safe-area-inset-bottom));font-size:10px}.feedback-panel{padding:12px}.feedback-card{max-height:calc(100svh - 24px);box-shadow:6px 6px 0 #161616}.feedback-buttons .btn{white-space:normal;padding:9px 13px}}
+
+/* Ajustes de tipografia dos dois slogans em português. */
+.mobile-only{display:none}
+.mobile-line{display:inline}
+@media(max-width:780px){
+  .mobile-only{display:inline}
+  .desktop-space{display:none}
+  .music-title h2{font-size:clamp(64px,14.5vw,116px)}
+  .music-title h2 .ital{font-size:.79em}
+  .outro-title{font-size:clamp(55px,11.3vw,100px)}
+}
+@media(max-width:390px){
+  .music-title h2{font-size:clamp(60px,15vw,72px)}
+  .music-title h2 .ital{font-size:.76em}
+  .outro-title{font-size:clamp(50px,12vw,64px)}
+}
+
+
+/* Contagem completa: dias, horas, minutos e segundos, inclusive no celular. */
+.hero-counter{min-width:0}
+.hero-counter>div{
+  font-size:clamp(27px,3.15vw,51px);
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum" 1;
+  letter-spacing:-.055em;
+  white-space:nowrap;
+}
+.hero-counter>span{display:block;line-height:1.45}
+#count-detail{margin-top:8px}
+@media(max-width:780px){
+  .hero-counter>div{font-size:clamp(26px,7.3vw,45px);letter-spacing:-.065em}
+}
+@media(max-width:350px){
+  .hero-counter>div{font-size:26px;letter-spacing:-.07em}
+}
+
+/* TORII / SITUAÇÕES BLOQUEADAS — disponível apenas para conteúdo ainda não lançado. */
+.portal-album .portal-seal{position:absolute;right:18px;top:18px;z-index:6;background:var(--lime);border:1.8px solid var(--ink);border-radius:100px;padding:11px 13px;font:900 10px 'Courier New',monospace;box-shadow:4px 4px 0 var(--ink);transform:rotate(8deg);white-space:nowrap}
+.portal-seal>span:first-child{font-size:14px;color:var(--blue)}
+.portal-album.is-released .portal-seal{display:none}
+.portal-album .number{max-width:50%}
+.lock-notice{display:flex;align-items:center;gap:15px;background:var(--lime);border:1.5px solid var(--ink);border-radius:4px;margin-top:33px;padding:15px 18px;box-shadow:5px 5px 0 var(--ink)}
+.lock-notice-icon{display:grid;place-items:center;font-size:28px;width:44px;height:44px;border:1.5px solid var(--ink);border-radius:50%;background:var(--paper);flex:none;animation:seal-turn 8s linear infinite}
+.lock-notice>div{flex:1;display:grid;gap:5px}
+.lock-notice strong{font:900 12px 'Courier New',monospace;letter-spacing:.04em}
+.lock-notice>div>span{font:650 13px/1.35 Arial,sans-serif}
+.lock-notice-glyph{color:var(--coral);font-size:38px}
+.lock-notice[hidden]{display:none!important}
+.platform{font-family:inherit;width:100%;text-align:left;background:transparent;color:inherit}
+.platform.is-locked{cursor:pointer;opacity:1;border-left:0;border-right:0;border-top:0}
+.platform.is-locked .platform-status{background:#f9a3bb;border:1.3px solid var(--ink);border-radius:100px;display:inline-block;padding:8px 11px;justify-self:end;color:var(--ink);white-space:nowrap;transform:rotate(-3deg);box-shadow:2px 2px 0 #171717}
+.platform.is-locked .platform-arrow{opacity:1}
+.platform.is-locked:hover,.platform.is-locked:focus-visible{background:#efc7dc}
+.platform.is-locked:hover .platform-arrow{transform:translateX(4px) rotate(-15deg)}
+.platform .platform-arrow{transition:transform .2s ease}
+.merch-joke{font:700 13px/1.5 'Courier New',monospace!important;max-width:340px!important;margin-top:0;color:#3b3b28}
+.merch-unlock{margin-top:7px;background:var(--ink);color:white;border:2px solid var(--ink);border-radius:100px;min-height:48px;padding:12px 20px;display:inline-flex;align-items:center;gap:22px;justify-content:space-between;font:900 12px 'Courier New',monospace;box-shadow:5px 5px 0 var(--coral);transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.merch-unlock:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--coral)}
+.merch-fence{position:absolute;left:1%;bottom:7%;z-index:3;transform:rotate(-9deg);background:var(--coral);color:#111;border:2px solid var(--ink);padding:16px 19px;text-align:center;box-shadow:6px 6px 0 #111;font:900 17px/1 'Courier New',monospace;pointer-events:none}
+.merch-fence span{display:block}.merch-fence small{font-size:9px;display:block;margin-top:8px}
+.merch-fence[hidden]{display:none!important}
+.lock-dialog[hidden]{display:none!important}
+.lock-dialog{position:fixed;z-index:238;inset:0;background:rgba(24,24,24,.57);display:grid;place-items:center;padding:17px;overflow:auto;backdrop-filter:blur(6px)}
+.lock-card{position:relative;width:min(100%,650px);max-height:calc(100svh - 34px);overflow:auto;background:var(--paper);border:2px solid var(--ink);border-radius:6px;padding:clamp(23px,4vw,45px);box-shadow:12px 12px 0 var(--blue)}
+.lock-close{position:absolute;right:20px;top:20px;border:1.5px solid var(--ink);background:var(--paper);width:38px;height:38px;border-radius:50%;font-size:17px;z-index:3}
+.lock-halo{background:var(--coral);color:var(--ink);border:2px solid var(--ink);border-radius:50%;width:108px;height:108px;display:grid;place-items:center;position:relative;transform:rotate(-10deg);margin-bottom:28px}
+.lock-halo span{font-size:49px}.lock-halo b{position:absolute;inset:auto -25px -5px auto;display:block;transform:rotate(14deg);font:900 9px/1.05 'Courier New',monospace;background:var(--lime);border:1.5px solid var(--ink);padding:6px}
+.lock-card h2{font-size:clamp(58px,9vw,103px);margin:17px 0 15px;line-height:.84}.lock-card .ital{font-size:.88em}
+.lock-card>p{max-width:470px;font-size:clamp(16px,2.5vw,20px);font-weight:650;line-height:1.35;margin:0 0 33px}
+.lock-bottom{border-top:2px solid var(--ink);padding-top:19px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.lock-bottom .mono{font-size:10px}.lock-confirm{border:2px solid var(--ink);background:var(--lime);border-radius:100px;padding:13px 17px;font:900 12px 'Courier New',monospace;white-space:nowrap}
+.lock-confirm:hover{background:var(--coral)}
+@keyframes seal-turn{to{transform:rotate(360deg)}}
+@media(max-width:780px){
+ .portal-album .portal-seal{font-size:9px;right:16px;top:20px;padding:9px 11px}
+ .portal-album .number{max-width:60%}
+ .platform{grid-template-columns:28px minmax(0,1fr) auto 16px;gap:7px}
+ .platform.is-locked .platform-status{font-size:8px;padding:7px 8px;box-shadow:1px 1px 0 #171717}
+ .lock-notice{align-items:flex-start;padding:13px}.lock-notice-icon{width:36px;height:36px;font-size:23px}.lock-notice>div>span{font-size:11px}.lock-notice-glyph{display:none}
+ .merch-fence{left:5%;bottom:2%;font-size:13px;padding:12px 16px}
+ .lock-card{padding:28px 24px;box-shadow:6px 6px 0 var(--blue)}.lock-card h2{font-size:clamp(52px,13.2vw,86px)}.lock-bottom .mono{font-size:9px}
+}
+@media(max-width:390px){.platform{grid-template-columns:20px minmax(0,1fr) auto 12px}.platform>span:nth-child(2){font-size:20px}.platform.is-locked .platform-status{font-size:7px;padding:6px 5px}}
+@media(prefers-reduced-motion:reduce){.lock-notice-icon{animation:none}}
+
+</style>
+</head>
+<body>
+<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+<div id="scroll-progress" aria-hidden="true"></div>
+<header class="site-nav" id="inicio">
+<a href="#inicio" class="brand" aria-label="Torii & Hutukara, início"><span class="brand-symbol" aria-hidden="true">✳</span><span class="brand-name">TORII &<br>HUTUKARA<small>OFFICIAL WORLD / 2026</small></span></a>
+<nav class="nav-links" aria-label="Navegação principal"><a href="#universo">O PROJETO</a><a href="#portais">EXPERIÊNCIAS</a><a href="#musica">MÚSICA</a><a href="#jogo">JOGO</a><a href="#merch">MERCH</a></nav>
+<div class="nav-right"><span class="nav-pill" id="nav-date">LANÇAMENTO <span>27.11.26</span></span><button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-panel"><span aria-hidden="true">☰</span></button></div>
+</header>
+<nav id="mobile-panel" aria-label="Menu celular"><a href="#universo">O PROJETO</a><a href="#portais">EXPERIÊNCIAS</a><a href="#musica">MÚSICA</a><a href="#jogo">JOGO</a><a href="#merch">MERCH</a></nav>
+<main id="conteudo">
+<section class="hero container" aria-labelledby="hero-title">
+ <div class="hero-inner">
+  <div class="hero-topnote eyebrow"><span class="mini-dot"></span> RYUCHI × FRANCO, THE SIR! <span style="opacity:.48;margin-inline:3px">/</span> O PROJETO</div>
+  <div class="hero-photo" id="hero-photo"><img src="assets/mask-cobalt.webp" alt="A máscara de Torii em um editorial fotográfico azul intenso e vermelho" fetchpriority="high"></div>
+  <div class="hero-stamp" aria-hidden="true"><div><span>✳</span><br>NEW<br>WORLD!</div></div>
+  <h1 class="hero-title display" id="hero-title">TORII <span class="amp">&</span><span class="next">HUTUKARA<span class="period">.</span></span></h1>
+  <div class="hero-bottom">
+    <div class="hero-info"><div class="release-badge mono"><i aria-hidden="true"></i> 27 NOVEMBRO 2026 <span aria-hidden="true">↗</span></div><p>Um álbum. Vários mundos. Uma experiência que vai muito além da música.</p>
+      <div class="hero-actions"><a href="#portais" class="btn btn-dark">EXPLORAR O SITE <span class="arr" aria-hidden="true">↗</span></a><button class="btn btn-white" data-open-game>JOGAR AGORA <span class="arr" aria-hidden="true">↗</span></button></div>
+    </div>
+    <div class="hero-counter"><span class="mono" id="count-label">CONTAGEM PARA O LANÇAMENTO</span><div id="count-display" role="timer" aria-live="off">00d 00h 00m 00s</div><span class="mono" id="count-detail">27 / 11 / 2026 — 00:01 (BRASÍLIA)</span></div>
+  </div>
+  <div class="hero-sidenote">TORII & HUTUKARA © 2026</div>
+ </div>
+</section>
+<div class="ticker" aria-label="Torii e Hutukara, álbum e jogo"><div class="ticker-track" aria-hidden="true"><span>UM DISCO, VÁRIOS MUNDOS</span><b>✳</b><span>RYUCHI × FRANCO, THE SIR!</span><b>✳</b><span>27.11.2026</span><b>✳</b><span>UM DISCO, VÁRIOS MUNDOS</span><b>✳</b><span>RYUCHI × FRANCO, THE SIR!</span><b>✳</b><span>27.11.2026</span><b>✳</b></div></div>
+<section class="section container" id="portais"><div class="section-head reveal"><div><div class="eyebrow">01 / ESCOLHA SEU CAMINHO</div><h2 class="display">ENTRE NO<br><span class="ital red">UNIVERSO.</span></h2></div><p class="intro">Música, um jogo completo e experiências para explorar. <b>Tudo em um lugar só.</b></p></div>
+<div class="portal-grid">
+ <article class="portal portal-game reveal" id="jogo"><div><div class="number">01 / PLAY MODE ↗</div><h3 class="display">O<br>JOGO.</h3></div><div class="game-shot"><img src="assets/game-preview.webp" loading="lazy" alt="Tela do jogo Torii & Hutukara — A Última Frequência, com cenários e menu em pixel art"></div><div class="game-bottom"><p>A Última Frequência: uma aventura musical para jogar direto no navegador.</p></div><button class="circle-go" data-open-game aria-label="Abrir jogo Torii & Hutukara">↗</button></article>
+ <a href="#musica" class="portal portal-album reveal"><div class="number">02 / THE ALBUM ↗</div><div class="portal-seal" id="album-seal"><span aria-hidden="true">✳</span> PORTAL SELADO <span class="seal-date">/ 27.11</span></div><h3 class="display">A<br>MÚSICA.</h3><p>O lançamento, as plataformas e tudo o que vem depois.</p><span class="circle-go" aria-hidden="true">↗</span></a>
+ <a href="#universo" class="portal portal-universe reveal"><div class="number">03 / EXPLORE ↗</div><h3 class="display">O<br>UNIVERSO.</h3><img class="universe-mask" src="assets/mask-original.webp" alt="Máscara original de Torii, com grandes pontas e óculos escuros" loading="lazy"><span class="circle-go" aria-hidden="true">↗</span></a>
+</div></section>
+<section class="mask-section" id="universo"><div class="container mask-layout"><div class="mask-left reveal"><div class="eyebrow">02 / UM SÍMBOLO, MUITAS HISTÓRIAS</div><h2 class="display">OLHE<br>DE <span class="ital" style="color:var(--lime)">NOVO.</span></h2><p>Essa é a máscara de Torii. Um dos símbolos do nosso universo — onde som, imagem e histórias se encontram.</p><div class="mask-foot"><span class="eyebrow">ORIGINAL MASK / ARTIFACT 001</span><span aria-hidden="true">↗</span></div></div><div class="mask-frame reveal" id="mask-frame"><img src="assets/mask-original.webp" alt="Fotografia original da máscara de Torii e Hutukara, branca com costuras, óculos redondos escuros e pontas ao redor da cabeça" loading="lazy"><span class="mask-label">THE MASK / 001</span></div></div></section>
+<section class="section links-section container" id="musica"><div class="music-title reveal"><div><div class="eyebrow">03 / O ÁLBUM — 27.11.2026</div><h2 class="display">VOLUME<br><span class="ital blue">MÁXIMO</span></h2></div><p>Quando o álbum estiver disponível, você encontrará todos os destinos oficiais aqui. Sem ter que procurar nada.</p></div>
+<div class="lock-notice" id="album-notice" role="status"><span class="lock-notice-icon" aria-hidden="true">✳</span><div><strong>ÁREA TEMPORARIAMENTE LACRADA</strong><span>O Silêncio roubou o botão de play. Ryuchi e Franco estão investigando. <b>27.11.2026</b></span></div><span class="lock-notice-glyph" aria-hidden="true">✷</span></div>
+<div class="platform-list" aria-label="Plataformas de música">
+ <button class="platform unavailable is-locked" type="button" data-platform="spotify" aria-label="Spotify: acesso bloqueado, clique para saber mais"><span class="mono">01</span><span>Spotify</span><span class="platform-status">🔒 BLOQUEADO</span><span class="platform-arrow" aria-hidden="true">↗</span></button>
+ <button class="platform unavailable is-locked" type="button" data-platform="appleMusic" aria-label="Apple Music: acesso bloqueado, clique para saber mais"><span class="mono">02</span><span>Apple Music</span><span class="platform-status">🔒 BLOQUEADO</span><span class="platform-arrow" aria-hidden="true">↗</span></button>
+ <button class="platform unavailable is-locked" type="button" data-platform="youtubeMusic" aria-label="YouTube Music: acesso bloqueado, clique para saber mais"><span class="mono">03</span><span>YouTube Music</span><span class="platform-status">🔒 BLOQUEADO</span><span class="platform-arrow" aria-hidden="true">↗</span></button>
+ <button class="platform unavailable is-locked" type="button" data-platform="deezer" aria-label="Deezer: acesso bloqueado, clique para saber mais"><span class="mono">04</span><span>Deezer</span><span class="platform-status">🔒 BLOQUEADO</span><span class="platform-arrow" aria-hidden="true">↗</span></button>
+</div><p class="link-note mono">AS FREQUÊNCIAS SERÃO LIBERADAS QUANDO OS LINKS OFICIAIS CHEGAREM.</p></section>
+<section class="section editorial" aria-labelledby="experience-title"><div class="container editorial-shell"><div class="editorial-copy reveal"><div class="eyebrow">04 / UMA EXPERIÊNCIA ALÉM DO DISCO</div><h2 class="display" id="experience-title">DÊ O<br><span class="ital blue">PLAY.</span></h2><p>Entre no mundo de Torii & Hutukara. Um RPG feito em HTML, com narrativa, personagens, música e três capítulos para explorar.</p><button class="btn btn-dark" data-open-game>ABRIR O JOGO <span class="arr" aria-hidden="true">↗</span></button></div><div class="editorial-photo reveal"><img src="assets/game-preview.webp" loading="lazy" alt="Cena inicial do RPG musical Torii & Hutukara com fundo ilustrado e seleção de nova jornada"><span class="photo-sticker">JOGUE<br>NO SEU<br>NAVEGADOR ✳</span></div></div></section>
+<section class="merch" id="merch"><div class="container merch-wrap"><div class="reveal"><div class="eyebrow">05 / STORE UNDER CONSTRUCTION</div><h2 class="display">MERCH<span class="red">.</span></h2><div class="merch-sticker">🔒 LOJA SELADA</div><p>Peças e objetos para levar um pouco do universo Torii & Hutukara para fora da tela.</p><p class="merch-joke">A máscara está cuidando do estoque. Ela não parece muito aberta a negociações.</p><button type="button" class="merch-unlock" id="merch-unlock" aria-label="Tentar abrir a loja bloqueada">TENTAR ABRIR A LOJA <span aria-hidden="true">↗</span></button></div><div class="merch-product reveal" aria-label="Prévia conceitual de camiseta, ainda não disponível para compra"><div class="tee"><span class="tee-word">TORII &<br>HUTUKARA</span><span class="tee-art"><img src="assets/mask-original.webp" alt="Estampa conceitual da máscara Torii"></span></div><span class="merch-tag">CONCEPT / 001</span><div class="merch-fence" id="merch-fence" aria-hidden="true"><span>ACESSO NEGADO ✳</span><small>NÍVEL DE PACIÊNCIA: 99</small></div></div></div></section>
+<section class="outro"><div class="container"><div class="eyebrow">RYUCHI × FRANCO, THE SIR! / 2026</div><div class="outro-line"><h2 class="outro-title display">VEMOS<span class="desktop-space"> </span><br class="mobile-only">VOCÊ<br><span class="ital blue">DO OUTRO</span><br>LADO<span class="red">.</span></h2><p class="outro-sub">O mundo de Torii & Hutukara está só começando. <span class="red">✳</span></p></div><footer class="footer"><span>© 2026 TORII & HUTUKARA<br>UM PROJETO DE RYUCHI E FRANCO, THE SIR!</span><div class="footer-links"><a href="#inicio">VOLTAR AO TOPO ↑</a><a href="#musica">MÚSICA</a><a href="#jogo">JOGO</a><a href="#merch">MERCH</a></div><span>FEITO PARA SER EXPLORADO.</span></footer></div></section>
+</main>
+<div class="lock-dialog" id="lock-dialog" role="dialog" aria-modal="true" aria-labelledby="lock-title" aria-describedby="lock-description" hidden>
+ <div class="lock-card">
+  <button class="lock-close" id="lock-close" type="button" aria-label="Fechar mensagem">✕</button>
+  <div class="lock-halo" aria-hidden="true"><span>✳</span><b>404<br>FREQUENCY<br>NOT FOUND</b></div>
+  <div class="mono">TORII SECURITY SYSTEM / 2026</div>
+  <h2 class="display" id="lock-title">PORTAL<br><em class="ital blue">LACRADO.</em></h2>
+  <p id="lock-description">O Silêncio pediu mais tempo.</p>
+  <div class="lock-bottom"><span class="mono">ACESSO NEGADO PELO SILÊNCIO ✳</span><button class="lock-confirm" type="button" id="lock-confirm">TÁ BOM, EU VOLTO ↗</button></div>
+ </div>
+</div>
+<div class="game-dialog" id="game-dialog" role="dialog" aria-modal="true" aria-label="Jogar Torii & Hutukara" aria-hidden="true"><div class="game-topbar"><h2>TORII & HUTUKARA / A ÚLTIMA FREQUÊNCIA</h2><nav aria-label="Controles do jogo"><a href="../" target="_blank" rel="noopener">NOVA ABA ↗</a><button type="button" id="close-game">FECHAR ✕</button></nav></div><div class="game-loading" id="game-loading"><span>CARREGANDO O UNIVERSO... ✳</span></div><iframe title="Torii & Hutukara — A Última Frequência" id="game-frame" src="about:blank" allow="fullscreen; gamepad" loading="lazy"></iframe></div>
+
+<button class="test-chip" id="open-feedback" type="button" hidden aria-label="Abrir formulário de feedback do site"><span class="blink" aria-hidden="true"></span>TESTE 01 · DAR FEEDBACK ↗</button>
+<div class="feedback-panel" id="feedback-panel" role="dialog" aria-modal="true" aria-labelledby="feedback-title" hidden>
+  <div class="feedback-card">
+    <div class="feedback-top"><span class="mono">TORII & HUTUKARA / PREVIEW 01</span><button class="feedback-close" type="button" id="feedback-close" aria-label="Fechar formulário">×</button></div>
+    <h2 id="feedback-title" class="display">SUA<br>OPINIÃO<span class="red">.</span></h2>
+    <p>Encontrou algo estranho? Registre seu comentário e baixe um relatório para enviar à equipe. Nada é enviado automaticamente.</p>
+    <label for="feedback-section">Em qual parte?</label>
+    <select id="feedback-section"><option>Visual e design</option><option>Jogo</option><option>Celular</option><option>Menu e navegação</option><option>Links e música</option><option>Outro</option></select>
+    <label for="feedback-text">O que podemos melhorar?</label>
+    <textarea id="feedback-text" placeholder="Ex.: no meu celular, o botão Jogar abre uma tela em branco..." maxlength="4000"></textarea>
+    <div class="feedback-buttons"><button class="btn btn-dark" type="button" id="feedback-download">BAIXAR RELATÓRIO ↓</button><button class="btn btn-white" type="button" id="feedback-copy">COPIAR TEXTO ↗</button></div>
+    <p id="feedback-status" role="status" aria-live="polite"></p>
+  </div>
+</div>
+<script>
+(()=>{
+  'use strict';
+  // Insira URLs oficiais aqui quando o álbum estiver no ar.
+  const SETTINGS = window.TORII_CONFIG || {};
+  const STREAMING_LINKS = SETTINGS.streaming || {};
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const menu=document.getElementById('mobile-panel'), menuToggle=document.getElementById('menu-toggle');
+  function setMenu(open){menu.classList.toggle('is-open',open);menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');menuToggle.firstElementChild.textContent=open?'✕':'☰';}
+  menuToggle.addEventListener('click',()=>setMenu(!menu.classList.contains('is-open')));
+  menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setMenu(false)));
+  const target=new Date(SETTINGS.releaseDate || '2026-11-27T00:01:00-03:00').getTime();
+  const countDisplay=document.getElementById('count-display');
+  const countLabel=document.getElementById('count-label');
+  const countDetail=document.getElementById('count-detail');
+  const navDate=document.getElementById('nav-date');
+  function updateCount(){
+    // Calcula a diferença absoluta em cada atualização, sem acumular atraso.
+    const remaining=target-Date.now();
+    if(remaining<=0){
+      countDisplay.textContent='JÁ DISPONÍVEL!';
+      countLabel.textContent='O ÁLBUM CHEGOU';
+      countDetail.textContent='LANÇADO EM 27.11.2026 ÀS 00:01 (BRASÍLIA)';
+      navDate.innerHTML='ÁLBUM <span>LANÇADO ✳</span>';
+      return;
+    }
+    const totalSeconds=Math.ceil(remaining/1000);
+    const days=Math.floor(totalSeconds/86400);
+    const hours=Math.floor(totalSeconds%86400/3600);
+    const minutes=Math.floor(totalSeconds%3600/60);
+    const seconds=totalSeconds%60;
+    const pad=n=>String(n).padStart(2,'0');
+    countDisplay.textContent=`${pad(days)}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
+    countDetail.textContent='27 / 11 / 2026 — 00:01 (BRASÍLIA)';
+  }
+  updateCount();
+  setInterval(updateCount,1000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)updateCount();});
+  const progress=document.getElementById('scroll-progress');let pending=false;window.addEventListener('scroll',()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{const d=document.documentElement;progress.style.width=(d.scrollTop/Math.max(1,d.scrollHeight-d.clientHeight)*100)+'%';pending=false;});},{passive:true});
+  if('IntersectionObserver' in window&&!reduce){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target);}}),{threshold:.09});document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));}else document.querySelectorAll('.reveal').forEach(e=>e.classList.add('is-visible'));
+  const photo=document.querySelector('#hero-photo img'); if(!reduce&&window.matchMedia('(pointer:fine)').matches){document.getElementById('hero-photo').addEventListener('pointermove',(e)=>{const r=e.currentTarget.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;photo.style.transform=`scale(1.035) translate(${x*-9}px,${y*-9}px)`;});document.getElementById('hero-photo').addEventListener('pointerleave',()=>{photo.style.transform='';});}
+  const overlay=document.getElementById('game-dialog'),frame=document.getElementById('game-frame'),loader=document.getElementById('game-loading'),close=document.getElementById('close-game');let lastFocus=null,gameLoaded=false;
+  function openGame(){lastFocus=document.activeElement;setMenu(false);overlay.classList.add('is-open');overlay.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');close.focus();if(!gameLoaded){loader.classList.remove('is-hidden');frame.src=SETTINGS.gamePath||'jogo/index.html';gameLoaded=true;}}
+  function closeGame(){overlay.classList.remove('is-open');overlay.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');if(lastFocus&&lastFocus.focus)lastFocus.focus();/* Preserve o jogo carregado e seu estado ao fechar */}
+  document.querySelectorAll('[data-open-game]').forEach(el=>el.addEventListener('click',openGame));close.addEventListener('click',closeGame);
+  document.querySelector('.game-topbar a').href=SETTINGS.gamePath||'jogo/index.html';
+  frame.addEventListener('load',()=>{loader.classList.add('is-hidden');});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(overlay.classList.contains('is-open'))closeGame();else setMenu(false);}});
+  // As únicas portas bloqueadas são conteúdo do SITE sem destino publicado.
+  // Adicionar uma URL HTTPS oficial em site-config.js desbloqueia a plataforma específica.
+  const lockDialog=document.getElementById('lock-dialog');
+  const lockTitle=document.getElementById('lock-title'),lockDescription=document.getElementById('lock-description');
+  const lockClose=document.getElementById('lock-close'),lockConfirm=document.getElementById('lock-confirm');
+  let lockLastFocus=null;
+  const lockMessages={
+    spotify:['O PLAY FUGIU.','O Silêncio colocou o Spotify de castigo. Volta quando a frequência oficial estiver no ar.'],
+    appleMusic:['SEM SINAL.','Franco mandou o áudio por um portal interdimensional. Ainda estamos esperando o upload.'],
+    youtubeMusic:['404: MÚSICA.','Ryuchi apertou o play antes da hora. A máscara confiscou o botão.'],
+    deezer:['PORTAL SELADO.','Você encontrou a porta certa. Só esqueceu de esperar ela existir.'],
+    merch:['LOJA LACRADA.','A máscara é a segurança da loja. Ela disse: “Sem merch antes do merch.” E ninguém teve coragem de discutir.']
+  };
+  function openLock(key){
+    const [title,desc]=lockMessages[key]||lockMessages.spotify;
+    lockTitle.textContent=title;lockDescription.textContent=desc;
+    lockLastFocus=document.activeElement;lockDialog.hidden=false;document.body.classList.add('modal-open');lockClose.focus();
+  }
+  function closeLock(){lockDialog.hidden=true;document.body.classList.remove('modal-open');if(lockLastFocus&&lockLastFocus.focus)lockLastFocus.focus();}
+  lockClose.addEventListener('click',closeLock);lockConfirm.addEventListener('click',closeLock);
+  lockDialog.addEventListener('click',e=>{if(e.target===lockDialog)closeLock();});
+  document.addEventListener('keydown',e=>{
+    if(lockDialog.hidden)return;
+    if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();closeLock();return;}
+    if(e.key==='Tab'){
+      const items=[lockClose,lockConfirm];
+      if(e.shiftKey&&document.activeElement===items[0]){e.preventDefault();items[1].focus();}
+      else if(!e.shiftKey&&document.activeElement===items[1]){e.preventDefault();items[0].focus();}
+    }
+  },true);
+  let enabledLinks=0;
+  document.querySelectorAll('.platform').forEach(el=>{
+    const url=STREAMING_LINKS[el.dataset.platform];
+    if(typeof url!=='string'||!/^https:\/\/[^\s/]+/i.test(url)){
+      el.addEventListener('click',()=>openLock(el.dataset.platform));return;
+    }
+    enabledLinks++;
+    const link=document.createElement('a');
+    link.className='platform available';link.dataset.platform=el.dataset.platform;
+    link.href=url;link.target='_blank';link.rel='noopener noreferrer';
+    while(el.firstChild)link.appendChild(el.firstChild);
+    link.querySelector('.platform-status').textContent='OUVIR AGORA ↗';
+    link.querySelector('.platform-arrow').textContent='↗';
+    el.replaceWith(link);
+  });
+  if(enabledLinks>0){
+    document.querySelector('.portal-album').classList.add('is-released');
+    document.getElementById('album-notice').hidden=true;
+  }
+  const merchUnlock=document.getElementById('merch-unlock');
+  const merchUrl=SETTINGS.merchUrl;
+  if(typeof merchUrl==='string'&&/^https:\/\/[^\s/]+/i.test(merchUrl)){
+    const link=document.createElement('a');link.href=merchUrl;link.target='_blank';link.rel='noopener noreferrer';link.className=merchUnlock.className;
+    link.innerHTML='ENTRAR NA LOJA <span aria-hidden="true">↗</span>';merchUnlock.replaceWith(link);
+    document.getElementById('merch-fence').hidden=true;
+    document.querySelector('.merch-sticker').textContent='LOJA ABERTA ↗';
+  } else merchUnlock.addEventListener('click',()=>openLock('merch'));
+  const fbOpen=document.getElementById('open-feedback'),fbPanel=document.getElementById('feedback-panel'),fbClose=document.getElementById('feedback-close'),fbText=document.getElementById('feedback-text'),fbStatus=document.getElementById('feedback-status');
+  let fbLastFocus=null;
+  if(SETTINGS.testMode!==false){fbOpen.hidden=false;}
+  function showFeedback(){fbLastFocus=document.activeElement;fbPanel.hidden=false;fbClose.focus();}
+  function hideFeedback(){fbPanel.hidden=true;if(fbLastFocus&&fbLastFocus.focus)fbLastFocus.focus();}
+  function feedbackReport(){const msg=fbText.value.trim();if(!msg){fbStatus.textContent='Escreva seu comentário antes de continuar.';fbText.focus();return null;}const area=document.getElementById('feedback-section').value;return 'TORII & HUTUKARA | SITE TESTE 01\nÁrea: '+area+'\nData: '+new Date().toLocaleString('pt-BR')+'\nLargura da tela: '+window.innerWidth+'px\nNavegador: '+navigator.userAgent+'\n\nCOMENTÁRIO\n'+msg+'\n';}
+  fbOpen.addEventListener('click',showFeedback);fbClose.addEventListener('click',hideFeedback);
+  fbPanel.addEventListener('click',e=>{if(e.target===fbPanel)hideFeedback();});
+  document.getElementById('feedback-download').addEventListener('click',()=>{const report=feedbackReport();if(!report)return;const blob=new Blob([report],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='feedback-torii-hutukara.txt';a.click();URL.revokeObjectURL(url);fbStatus.textContent='Relatório baixado. Envie o arquivo à equipe.';});
+  document.getElementById('feedback-copy').addEventListener('click',async()=>{const report=feedbackReport();if(!report)return;try{await navigator.clipboard.writeText(report);fbStatus.textContent='Texto copiado.';}catch(err){fbStatus.textContent='Cópia indisponível neste navegador. Use Baixar relatório.';}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!fbPanel.hidden){hideFeedback();return;}if(e.key!=='Tab')return;const modal=!fbPanel.hidden?fbPanel:(overlay.classList.contains('is-open')?overlay:null);if(!modal)return;const items=[...modal.querySelectorAll('a[href],button:not([disabled]),textarea,select')].filter(x=>x.getClientRects().length);if(items.length===0)return;const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}});
+
+})();
+</script>
+</body>
+</html>

@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'web/playtest/**'
+      - 'web/album/**'
       - 'production/build_playtest.rb'
       - 'game/builds/**'
       - '.github/workflows/playtest.yml'
