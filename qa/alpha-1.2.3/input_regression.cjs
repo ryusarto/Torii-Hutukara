@@ -74,7 +74,7 @@ async function main(){
   await check('Player 2 is smoothly pulled around a building without teleport or wall penetration',async()=>{
     await arena();const v=await page.evaluate(()=>{
       window.__pads=[window.__pad(0),window.__pad(1)];C3.pad.pads=window.__pads;
-      G.x=18.5;G.y=12.5;C3.syncCoop(true);C3.coop.x=9.5;C3.coop.y=12.5;C3.coop.lastGood={x:9.5,y:12.5};
+      G.x=18.5;G.y=12.5;C3.syncCoop(true);C3.coop.x=7.5;C3.coop.y=12.5;C3.coop.lastGood={x:7.5,y:12.5};
       for(let y=9;y<=15;y++)for(let x=12;x<=15;x++)current.blocked.add(x+','+y);
       let maxStep=0,invalid=0;for(let i=0;i<900;i++){const x=C3.coop.x,y=C3.coop.y;C3.coopMove(window.__pads[1],1/60);maxStep=Math.max(maxStep,Math.hypot(C3.coop.x-x,C3.coop.y-y));if(!canBody121(C3.coop.x,C3.coop.y))invalid++}
       return {maxStep,invalid,distance:Math.hypot(C3.coop.x-G.x,C3.coop.y-G.y)};
