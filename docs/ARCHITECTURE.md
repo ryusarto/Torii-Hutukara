@@ -11,7 +11,7 @@ base 1.1.2
     + áudio e imagens em Base64
     + patches de compatibilidade
              ↓
-HTML completo Alpha 1.1.0
+HTML completo Alpha 1.2.1
 ```
 
 ## Componentes
@@ -38,6 +38,13 @@ Responsabilidades:
 - epílogo e pós-jogo;
 - renderização dos sprites e atlas do Capítulo 3;
 - ferramentas de QA.
+- adaptação da Gamepad API, mapeamento PlayStation e estado do segundo jogador.
+
+### Entrada e combate multiplataforma
+
+`game/source/chapter-03/input_mobile_combat.js` é injetado depois do runtime narrativo. Separa a propriedade dos comandos por dispositivo e mantém movimento/recargas no mesmo ciclo de simulação. Também implementa layout mobile, Pointer Events por dedo, perfil de rolada, colisão por corpo, puxão com busca de caminho e abertura de contra-ataque dos chefes.
+
+O enquadramento usa dimensões lógicas mutáveis: 768×432 no desktop/paisagem e 512×480 no mobile em retrato. O estado narrativo e o schema de save continuam os mesmos.
 
 ### Gerador
 
@@ -61,7 +68,7 @@ Verifica arquivos, mapas, cenas, músicas, funções finais, schema do save, mig
 
 ## Estado e salvamento
 
-- Schema atual: 11.
+- Schema atual: 13.
 - Chave local da Alpha: `torii_hutukara_alpha_v1`.
 - Saves anteriores da 1.1.2 são migrados.
 - Estado do Capítulo 3 é guardado em `G.c3`.
@@ -85,6 +92,7 @@ Atlas ambientais usam grades 3×3; postes usam 3×2. O runtime recorta cada cél
 - Os NPCs não possuem um sistema geral de pathfinding; animações de deslocamento narrativo ainda precisam de uma camada própria.
 - Parte dos mapas usa tiles procedurais, não um tileset completo.
 - Testes são majoritariamente estáticos e manuais.
+- O coop usa câmera compartilhada e mantém o Jogador 1 como autoridade narrativa; tela dividida não faz parte desta Alpha.
 
 ## Direção futura
 

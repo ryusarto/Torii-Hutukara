@@ -7,7 +7,7 @@ require 'json'
 root = File.expand_path(__dir__)
 repo_root = File.expand_path('../../..', root)
 base = File.join(repo_root, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
-alpha = File.join(repo_root, 'game', 'builds', 'alpha-1.2.0', 'TORII_HUTUKARA_ALPHA_1_2_0_PREBETA.html')
+alpha = File.join(repo_root, 'game', 'builds', 'alpha-1.2.1', 'TORII_HUTUKARA_ALPHA_1_2_1_MOBILE_COOP.html')
 runtime = File.join(root, 'chapter3_runtime.js')
 dialogues = File.join(repo_root, 'design', 'chapter-03', 'DIALOGOS_CAPITULO_03.json')
 collaborator_atlases = %w[
@@ -26,7 +26,7 @@ check.call('sprites de colaboradores com transparência PNG', collaborator_atlas
   File.file?(path) && [4, 6].include?(File.binread(path, 26).getbyte(25))
 end)
 
-source = File.read(runtime, encoding: 'UTF-8')
+source = File.read(runtime, encoding: 'UTF-8') + File.read(File.join(root, 'input_mobile_combat.js'), encoding: 'UTF-8')
 built = File.read(alpha, encoding: 'UTF-8')
 dialogue_ids = JSON.parse(File.read(dialogues, encoding: 'UTF-8')).fetch('scenes').map { |scene| scene.fetch('id') }
 
@@ -121,6 +121,12 @@ end
 check.call('entrada caminhável do Núcleo', seen[[17, 10]] && source.include?("fill(a,3,19,15,4,'c3_voidfloor')"))
 check.call('NPCs com animação ambiente', source.include?('function c3NpcPose') && source.include?('pose.frame'))
 check.call('equipe com níveis e experiência de reserva', source.include?("C3.roles=") && source.include?('Math.floor(amount*.75)') && source.include?('C3.ensureProgression'))
+check.call('Gamepad API com mapeamento PlayStation', source.include?('navigator.getGamepads') && source.include?('C3.handlePrimaryPad') && source.include?('CONTROLE PLAYSTATION'))
+check.call('coop local com segundo controle', source.include?('C3.handleSecondPad') && source.include?('C3.coopMove') && source.include?('C3.coopAttack'))
+check.call('Jogador 2 com HP e dano próprios', source.include?('C3.damageCoop') && source.include?('C3.updateCoopCombat'))
+check.call('assistência automática suspensa no coop', source.include?('companionCooldown=Math.max(companionCooldown,.48)'))
+check.call('câmera compartilhada com limite', source.include?('max=7.25') && source.include?('C3.syncCoop'))
+check.call('ajuda de controles dentro do jogo', source.include?('controllerHelp') && source.include?('ESPECIAL R2'))
 check.call('nenhum placeholder', built.scan(/__C3_[A-Z0-9_]+__/).empty?)
 check.call('um init final', built.scan(/\binit\(\);/).length == 1)
 check.call('um bloco script', built.scan(/<script\b/).length == 1 && built.scan(%r{</script>}).length == 1)
@@ -131,7 +137,7 @@ check.call('base 1.1.2 preservada', Digest::SHA256.file(base).hexdigest == expec
 passed = checks.count { |(_, ok, _)| ok }
 failed = checks.reject { |(_, ok, _)| ok }
 lines = [
-  'TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.2.0',
+  'TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.2.1',
   '=' * 53,
   "Resultado: #{passed}/#{checks.length} verificações aprovadas",
   "HTML: #{File.size(alpha)} bytes",
@@ -146,10 +152,10 @@ lines += [
   'Playtest visual e funcional desta versão: PENDENTE',
   '- a validação acima comprova estrutura, referências e integridade da build;',
   '- a jornada completa ainda deve ser jogada em navegador desktop e móvel;',
-  '- resultados manuais devem ser registrados em qa/alpha-1.2.0/PLAYTEST.md.'
+  '- resultados manuais devem ser registrados em qa/alpha-1.2.1/PLAYTEST.md.'
 ]
 
 report = lines.join("\n") + "\n"
-File.write(File.join(repo_root, 'game', 'builds', 'alpha-1.2.0', 'VALIDACAO_ALPHA_1_2_0.txt'), report)
+File.write(File.join(repo_root, 'game', 'builds', 'alpha-1.2.1', 'VALIDACAO_ALPHA_1_2_1.txt'), report)
 puts report
 exit(failed.empty? ? 0 : 1)

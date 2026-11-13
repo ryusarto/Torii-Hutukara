@@ -1,8 +1,8 @@
 TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.2.0
 =====================================================
-Resultado: 97/97 verificações aprovadas
-HTML: 97859838 bytes
-SHA-256: 32ebecc215f989d5d69c6523d68db23bacc3ffe4cff329b7cca3bc0de3a76539
+Resultado: 103/103 verificações aprovadas
+HTML: 97872821 bytes
+SHA-256: c3ac6d011bdae931d7d0e59f851bee57930f2191deb2d1389f3dddd7ed1e7dca
 
 OK · arquivo TORII_HUTUKARA_1_1_2_TRILHAS.html
 OK · arquivo TORII_HUTUKARA_ALPHA_1_2_0_PREBETA.html
@@ -97,6 +97,12 @@ OK · recrutamento somente após apresentação
 OK · entrada caminhável do Núcleo
 OK · NPCs com animação ambiente
 OK · equipe com níveis e experiência de reserva
+OK · Gamepad API com mapeamento PlayStation
+OK · coop local com segundo controle
+OK · Jogador 2 com HP e dano próprios
+OK · assistência automática suspensa no coop
+OK · câmera compartilhada com limite
+OK · ajuda de controles dentro do jogo
 OK · nenhum placeholder
 OK · um init final
 OK · um bloco script

@@ -1,10 +1,10 @@
 # Estado do projeto
 
-Atualizado em 12 de novembro de 2026.
+Atualizado em 13 de novembro de 2026.
 
 ## Versão jogável atual
 
-**Alpha 1.1.2** — os três capítulos estão reunidos em um único HTML portátil. A build passou por 65 verificações estáticas e preserva a base 1.1.2 sem modificá-la.
+**Alpha 1.2.1 Mobile & Co-op** — os três capítulos estão reunidos em um único HTML portátil. A base 1.1.2 permanece preservada. Os resultados da nova versão estão em `qa/alpha-1.2.1/`.
 
 ## Implementado
 
@@ -28,6 +28,10 @@ Atualizado em 12 de novembro de 2026.
 
 ## Precisa de playtest antes da Beta
 
+- Confirmar ergonomia mobile em iPhone/Safari e Android físicos, em pé e deitado.
+- Confirmar dois controles físicos no mesmo computador e no celular.
+- Unificar os kits completos de habilidades entre Jogador 1 e Jogador 2, que ainda tem ações simplificadas.
+
 - Jornada integral em navegador desktop.
 - Jornada integral em celular.
 - Escala, colisão e ordem visual dos novos sprites em todas as salas.
@@ -38,10 +42,11 @@ Atualizado em 12 de novembro de 2026.
 
 ## Próximo ciclo
 
-1. Executar e registrar o playtest da Alpha 1.1.2.
-2. Corrigir apenas falhas comprovadas, preservando a build publicada.
-3. Produzir Alpha 1.2 com gerenciamento de equipe, níveis, técnicas combinadas e reações adicionais do grupo.
-4. Congelar conteúdo e iniciar a fase Beta.
+1. Jogar a Alpha 1.2.1 no aparelho físico e validar a prioridade mobile/rolada/coop.
+2. Discutir os seis kits e as reduções de deslocamento propostas em `design/COMBATE_E_RITMO_PROPOSTA.md`.
+3. Refinar as técnicas completas e encurtar quests preservando as revelações centrais.
+4. Produzir as versões cyberpunk de Belga, Colli e Mazza com identidade preservada e PNG transparente.
+5. Congelar conteúdo e iniciar a fase Beta após o playtest integral.
 
 ## Critério de pronto
 

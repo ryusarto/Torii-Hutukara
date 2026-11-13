@@ -12,6 +12,35 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - Mais reações de grupo ao encontro das versões de Franco e Ryuchi.
 - Balanceamento dos dois chefes finais a partir de tentativas reais.
 
+## [Alpha 1.2.1 · Mobile & Co-op] — 2026-11-13
+
+### Corrigido
+
+- Leitura de gamepad apagando movimento e ataque de toque quando não havia controle físico conectado.
+- Círculo abrindo a pausa em áreas sem combate; agora sempre esquiva durante exploração e luta.
+- Teleporte por distância do segundo jogador e projeção de posição para dentro de casas.
+- Colisão pontual do P2: agora usa o corpo inteiro e passos curtos, com recuperação de posição inválida.
+- Simulação e recargas do P2 continuando durante menus.
+- Rolada com direção, duração e integração inconsistentes entre controle, personagem e ciclo de simulação.
+
+### Adicionado
+
+- Layout mobile automático em retrato e paisagem, com enquadramento próprio, zonas seguras e painéis de toque dedicados.
+- Analógico com intensidade, corrida na borda, captura de cada dedo e cancelamento seguro ao girar ou trocar de aplicativo.
+- Convivência de toque e controle físico no celular; teclado como apresentação inicial do desktop.
+- Puxão gradual do coop por rota caminhável e espera do líder ao alcançar o limite de afastamento.
+- Perfis autorais de rolada e recuperação de ataques para os seis personagens.
+- Abertura de contra-ataque sinalizada após padrões dos chefes finais, prevenção de repetição imediata e alternância de mira entre jogadores.
+- Estudo do Delta e aprofundamento do Moonlighter com REA: 36 tipos e 1.019 métodos selecionados, sem alterar a instalação ou incorporar seu conteúdo.
+- Proposta para discutir as habilidades dos seis personagens e reduzir o deslocamento vazio das quests.
+
+### Verificação
+
+- 16 testes funcionais no Chrome, incluindo multitouch real simulado, orientação e dois controles simulados.
+- Roladas verificadas a 30, 60 e 120 quadros por segundo, inclusive contra paredes e no ciclo real de atualização.
+- Testes físicos em Safari iOS/Android e com dois controles reais continuam pendentes.
+- Sprites cyberpunk e cortes narrativos ficam no ciclo seguinte, após a prioridade de controles e discussão dos kits.
+
 ## [Alpha 1.2.0 · Pré-beta] — 2026-11-12
 
 ### Adicionado
@@ -27,6 +56,11 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - Movimento multidirecional transparente para os quatro colaboradores, com quadros alternados de passo e retratos próprios.
 - Materiais integrados para as ruas, o Mar de Nuvens, o Último Torii e o Núcleo do Silêncio.
 - Olhos observadores e altar do Silêncio para a arena do confronto final.
+- Suporte à Gamepad API com mapeamento para DualShock 4, DualSense e controles padronizados.
+- Navegação de menus, diálogos, exploração, combate, técnicas, especial e pausa pelo controle.
+- Coop local automático com dois controles e dois integrantes jogáveis simultaneamente.
+- Movimento, direção, recargas, esquiva, invulnerabilidade e HP independentes para o Jogador 2.
+- Troca do integrante controlado pelo Jogador 2, vibração quando disponível e ajuda dentro do jogo.
 
 ### Alterado
 
@@ -39,6 +73,8 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - O Último Torii deixou de exibir máscaras duplicadas: o círculo de ressonância agora explica a reunião das seis versões.
 - Os papéis antes ocupados por Maia, Ciro, Nara e Vega passaram respectivamente a Belga, Mazza, Colli e Dney.
 - A lore dos quatro colaboradores agora evolui entre Contratempo, Oficina, Canal, Nuvens e limiar final.
+- A assistência automática do primeiro seguidor é suspensa no coop para que suas ações pertençam ao segundo jogador.
+- A câmera compartilhada ganhou limite de distância e reposicionamento seguro nas transições.
 
 ### Corrigido
 
@@ -49,9 +85,9 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ### Verificação
 
-- 97 de 97 verificações estáticas aprovadas.
-- Build final com 97.859.838 bytes.
-- SHA-256: `32ebecc215f989d5d69c6523d68db23bacc3ffe4cff329b7cca3bc0de3a76539`.
+- 103 de 103 verificações estáticas aprovadas.
+- Build final com 97.872.821 bytes.
+- SHA-256: `c3ac6d011bdae931d7d0e59f851bee57930f2191deb2d1389f3dddd7ed1e7dca`.
 
 ## [Alpha 1.1.2] — 2026-11-12
 

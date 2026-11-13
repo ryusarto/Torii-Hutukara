@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Build principal:** Alpha 1.1.2 — jogo completo do início ao fim, com os três capítulos.
+**Build principal:** Alpha 1.2.1 Mobile & Co-op — jogo completo do início ao fim, com os três capítulos.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -14,12 +14,13 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 - Seis faixas próprias do terceiro capítulo incorporadas à build.
 - Sprites detalhados para os personagens e NPCs do Capítulo 3.
 - Jogo distribuído como um único HTML portátil, sem instalação.
+- Suporte a DualShock 4, DualSense e controles compatíveis, com coop local para duas pessoas.
 
 ## Jogar
 
 Abra o arquivo abaixo em um navegador moderno:
 
-`game/builds/alpha-1.1.2/TORII_HUTUKARA_ALPHA_1_1_2_COMPLETO.html`
+`game/builds/alpha-1.2.1/TORII_HUTUKARA_ALPHA_1_2_1_MOBILE_COOP.html`
 
 Controles principais:
 
@@ -34,15 +35,39 @@ Controles principais:
 | Ação especial | K |
 | Trocar integrante ativo | 1, 2 e 3 |
 
+Controle PlayStation:
+
+| Ação | Botão |
+|---|---|
+| Movimento / corrida | Analógico ou direcional / L2 |
+| Interagir / confirmar | ✕ |
+| Ataque / esquiva | □ / ○ |
+| Técnicas | L1 / R1 |
+| Especial de ressonância | R2 |
+| Trocar integrante | △ |
+| Pausa | Options |
+
+Ao conectar dois controles, o segundo jogador assume outro integrante vivo da formação. Os dois personagens se movem e lutam de modo independente em uma câmera compartilhada.
+
 O menu **Outras opções** permite iniciar diretamente os capítulos 2 e 3 para testes. A jornada normal começa no estúdio.
 
-## Destaques da Alpha 1.1.2
+## Destaques da Alpha 1.2.1
+
+- Mobile dedicado em retrato e paisagem, analógico com intensidade e multitouch.
+- Círculo sempre esquiva; Options/Start controla a pausa.
+- Coop com puxão por caminho livre, colisão por corpo e recuperação de posições inválidas.
+- Rolada única com direção fixada e distância consistente a 30, 60 e 120 quadros por segundo.
+- Recuperação de ataques e roladas diferenciadas por personagem.
+- Chefes finais com abertura de contra-ataque e alternância de ataques mirados entre P1 e P2.
+- Estudo aprofundado de Moonlighter com REA sobre 36 tipos e 1.019 métodos selecionados, com evidências locais e limites registrados.
 
 - A entrada do Núcleo do Silêncio agora possui uma passarela caminhável da porta à arena.
 - Franco Sintetizador e Ryuchi Percussionista só entram na equipe depois de suas cenas de apresentação.
 - A segunda rota possui narrativa própria e reação do personagem recrutado primeiro.
 - Franco Sintetizador ganhou Oscilador em três estágios, Pads Harmônicos persistentes e Filtro de Corte.
 - O estudo de combate de Moonlighter foi documentado e traduzido em sistemas autorais, sem copiar código ou conteúdo.
+- Controles PlayStation funcionam no navegador por USB ou Bluetooth.
+- Coop local permite que duas pessoas controlem personagens diferentes, com HP, ações e esquivas independentes.
 
 - Maia, Nara, Ciro, Vega, Dimas, moradores e trabalhadores agora possuem sprites próprios.
 - Nara deixa de surgir sem contexto: ela é apresentada como alguém que foi na frente e já está esperando no canal.
@@ -86,7 +111,7 @@ ruby game/source/chapter-03/build_alpha.rb
 ruby game/source/chapter-03/validate_alpha.rb
 ```
 
-O gerador preserva a base 1.1.2 e cria uma nova build em `game/builds/alpha-1.1.2/`. A build é aceita somente quando não há placeholders, todas as cenas referenciadas existem e as validações de mapas, músicas, sprites e progressão são aprovadas.
+O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.1/`. A build é aceita somente quando não há placeholders, todas as cenas referenciadas existem e as validações de mapas, músicas, sprites, progressão e controles são aprovadas.
 
 ## Documentação
 
@@ -100,6 +125,10 @@ O gerador preserva a base 1.1.2 e cria uma nova build em `game/builds/alpha-1.1.
 - [Origem e uso dos assets](docs/ASSET_PROVENANCE.md)
 - [Estudo sistêmico de Chrono Trigger](docs/CHRONO_REFERENCE_STUDY.md)
 - [Estudo de combate de Moonlighter](docs/MOONLIGHTER_COMBAT_STUDY.md)
+- [Controles PlayStation e coop local](docs/CONTROLLER_SUPPORT.md)
+- [Estudo mobile do Delta](docs/DELTA_MOBILE_STUDY.md)
+- [Aprofundamento de combate com REA](docs/MOONLIGHTER_REA_2026_11_13.md)
+- [Proposta para habilidades e ritmo das quests](design/COMBATE_E_RITMO_PROPOSTA.md)
 - [Histórico de mudanças](CHANGELOG.md)
 
 ## Regra de desenvolvimento

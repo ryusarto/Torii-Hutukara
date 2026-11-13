@@ -11,8 +11,9 @@ ROOT = File.expand_path(__dir__)
 REPO_ROOT = File.expand_path('../../..', ROOT)
 BASE = File.join(REPO_ROOT, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
 RUNTIME = File.join(ROOT, 'chapter3_runtime.js')
-OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.2.0')
-OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_2_0_PREBETA.html')
+INPUT_RUNTIME = File.join(ROOT, 'input_mobile_combat.js')
+OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.2.1')
+OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_2_1_MOBILE_COOP.html')
 
 ASSETS = File.join(REPO_ROOT, 'assets', 'chapter-03')
 RUNTIME_ASSETS = File.join(ASSETS, 'runtime')
@@ -89,7 +90,7 @@ html.gsub!('NILO', 'COLLI').gsub!('Nilo', 'Colli')
 
 replace_once!(html,
   "const VW=768,VH=432,T=24,KEY='torii_hutukara_piloto_v04';",
-  "const VW=768,VH=432,T=24,KEY='torii_hutukara_alpha_v1';",
+  "let VW=768,VH=432;const T=24,KEY='torii_hutukara_alpha_v1';",
   'chave de autosave')
 
 replace_once!(html,
@@ -194,15 +195,17 @@ raise "Placeholders restantes: #{leftovers.join(', ')}" unless leftovers.empty?
 marker = "\ninit();\n</script>"
 position = html.rindex(marker)
 raise 'Ponto final de injeção não encontrado' unless position
-html.insert(position, "\n\n#{runtime}\n")
+html.insert(position, "\n\n#{runtime}\n\n#{File.read(INPUT_RUNTIME, encoding: 'UTF-8')}\n")
+html.gsub!('ALPHA 1.2.0', 'ALPHA 1.2.1')
+html.gsub!('Alpha 1.2.0', 'Alpha 1.2.1')
 
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
-sources = FILES.values + [BASE, RUNTIME, DIALOGUES]
+sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUES]
 manifest = {
   game: 'TORII & HUTUKARA',
-  build: 'ALPHA 1.2.0 · PRÉ-BETA',
+  build: 'ALPHA 1.2.1 · MOBILE & CO-OP',
   schema: 13,
   created_at: Time.now.iso8601,
   output: {
@@ -218,16 +221,28 @@ manifest = {
     patterns_per_attempt: 5,
     tracks: %w[100Adsense type_shit ak_cruzada chico_buarque passaros_exoticos nervos]
   },
+  controls: {
+    keyboard: true,
+    touch: true,
+    gamepad_api: true,
+    playstation_mapping: true,
+    local_players: 2,
+    shared_camera: true,
+    dedicated_mobile: true,
+    portrait_viewport: [512, 480],
+    landscape_viewport: [768, 432],
+    distance_teleport: false
+  },
   sources: sources.uniq.to_h do |path|
     [File.basename(path), { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end
 }
 
-manifest_path = File.join(OUTPUT_DIR, 'MANIFESTO_ALPHA_1_2_0.json')
+manifest_path = File.join(OUTPUT_DIR, 'MANIFESTO_ALPHA_1_2_1.json')
 File.write(manifest_path, JSON.pretty_generate(manifest) + "\n")
-File.write(File.join(OUTPUT_DIR, 'SHA256_ALPHA_1_2_0.txt'), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
-File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_0.txt'), <<~README)
-  TORII & HUTUKARA — ALPHA 1.2.0 · PRÉ-BETA
+File.write(File.join(OUTPUT_DIR, 'SHA256_ALPHA_1_2_1.txt'), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
+File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_1.txt'), <<~README)
+  TORII & HUTUKARA — ALPHA 1.2.1 · MOBILE & CO-OP
   =================================
 
   Build jogável completa, do Capítulo 01 ao Capítulo 03.
@@ -240,6 +255,13 @@ File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_0.txt'), <<~README)
   - WASD/setas: mover · Shift: correr · E: interagir.
   - J/Espaço: atacar · Z/X: técnicas · Q: dash · K: especial.
   - 1–3: trocar o integrante ativo.
+  - Controle PlayStation: analógico/direcional mover · ✕ interagir · □ atacar · ○ esquivar.
+  - L1/R1: técnicas · R2: especial · △: trocar integrante · Options: pausa.
+  - Com dois controles, cada pessoa controla um integrante da formação em coop local.
+  - Celulares e tablets abrem com controles dedicados em retrato ou paisagem.
+  - No celular: analógico virtual com corrida na borda, multitouch e botões de combate.
+  - Círculo sempre esquiva durante a exploração; apenas Options/Start abre a pausa.
+  - O segundo jogador é puxado por rotas livres, sem teleporte por distância.
 
   CONTEÚDO DA ALPHA
   - Três capítulos conectados e salvamento migrável da build 1.1.2.
@@ -267,6 +289,8 @@ File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_0.txt'), <<~README)
   - Colisões do Distrito da Distorção alinhadas às fachadas, inclusive no setor noroeste.
   - Placas próprias para Contratempo, Oficina, Usina, Canal e Elevador.
   - Pós-jogo com revisita e criação de uma nova frase musical.
+  - DualShock 4, DualSense e controles padronizados via Gamepad API.
+  - Coop local para duas pessoas, com HP e ações independentes em câmera compartilhada.
 
   O arquivo original TORII_HUTUKARA_1_1_2_TRILHAS.html não é alterado.
   Esta é uma Alpha: use o menu para exportar o progresso periodicamente.
