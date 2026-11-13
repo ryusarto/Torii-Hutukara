@@ -2,7 +2,7 @@
 
 URL: https://ryusarto.github.io/Torii-Hutukara/
 
-O mesmo endereço abre a Alpha 1.2.2 em computador, celular ou tablet. O jogo seleciona teclado ou interface de toque automaticamente e continua aceitando controles físicos.
+O mesmo endereço abre a Alpha 1.2.3 em computador, celular ou tablet. O jogo seleciona teclado ou interface de toque automaticamente e continua aceitando controles físicos.
 
 Na entrada, um aviso mostra **PC** ou **MOBILE**, acompanhado da versão. Ele fica por quatro segundos, desaparece em 250 ms e é removido da página. Não retorna ao girar o aparelho, trocar de aplicativo ou conectar um controle, nem ocupa espaço no layout. O identificador descreve o modo selecionado pelo jogo; o parâmetro de teste `?input=mobile` ou `?input=desktop` pode forçá-lo.
 

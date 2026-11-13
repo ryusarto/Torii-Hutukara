@@ -1,0 +1,96 @@
+{
+  "build": "TORII_HUTUKARA_ALPHA_1_2_3_MOBILE_COOP.html",
+  "sha256": "86d45385da48b3768ade497fb788134684816099faf683386f97d430425637a2",
+  "passed": 22,
+  "checks": [
+    {
+      "name": "Desktop starts with keyboard layout and no touch deck",
+      "passed": true
+    },
+    {
+      "name": "No gamepad does not erase touch-owned movement or attack",
+      "passed": true
+    },
+    {
+      "name": "Circle rolls in peaceful areas; only Options opens pause",
+      "passed": true
+    },
+    {
+      "name": "All six rolls have stable distance and duration independent of frame rate",
+      "passed": true
+    },
+    {
+      "name": "Roll stops at walls with full body radius at high and low frame rates",
+      "passed": true
+    },
+    {
+      "name": "Ryuchi roll completes through the real game update without double displacement",
+      "passed": true
+    },
+    {
+      "name": "Player 2 is smoothly pulled around a building without teleport or wall penetration",
+      "passed": true
+    },
+    {
+      "name": "Map entry near a wall finds a valid player 2 spawn",
+      "passed": true
+    },
+    {
+      "name": "Two controllers do not advance player 2 during pause",
+      "passed": true
+    },
+    {
+      "name": "Player 2 can leave a blocked legacy position without disconnecting",
+      "passed": true
+    },
+    {
+      "name": "Final bosses expose a recovery window after the pattern resolves",
+      "passed": true
+    },
+    {
+      "name": "Final boss alternates its aimed attacks between both players",
+      "passed": true
+    },
+    {
+      "name": "P2 identity changes cancel roll and attack state without touching P1",
+      "passed": true
+    },
+    {
+      "name": "Six P2 attacks retain character identity and never mutate P1 action state",
+      "passed": true
+    },
+    {
+      "name": "P2 interacts at its own position and can travel nine tiles before pull",
+      "passed": true
+    },
+    {
+      "name": "iPhone automatically gets portrait mobile layout with large targets",
+      "passed": true
+    },
+    {
+      "name": "Real multitouch holds movement and attack; releasing one finger preserves the other",
+      "passed": true
+    },
+    {
+      "name": "Rotation switches layout and releases all held touches",
+      "passed": true
+    },
+    {
+      "name": "Landscape touch targets receive real simultaneous movement and attack",
+      "passed": true
+    },
+    {
+      "name": "Dialogue cancels held touch and roll and cannot move the actor",
+      "passed": true
+    },
+    {
+      "name": "Musical challenge stops album and blocks late decoded tracks",
+      "passed": true
+    },
+    {
+      "name": "Mobile can connect and disconnect a physical controller and return to touch",
+      "passed": true
+    }
+  ],
+  "browserErrors": []
+}

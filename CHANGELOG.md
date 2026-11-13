@@ -12,6 +12,16 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - Mais reações de grupo ao encontro das versões de Franco e Ryuchi.
 - Balanceamento dos dois chefes finais a partir de tentativas reais.
 
+## [Alpha 1.2.3 · Coop e identidade] — 2026-11-13
+
+- Estado de ataque, combinação, passada e rolamento do P2 vinculado ao personagem. Trocas cancelam a animação anterior, inclusive quando P1 muda de líder.
+- Ataques básicos distintos no P2: arco com projétil, oscilador, batidas de percussão, estocada, corte de katana e golpe amplo de baixo. Os estados de ação do P1 ficam isolados.
+- Rolamento renderizado somente para a identidade que iniciou a ação; passada do P2 independente da movimentação do líder.
+- Puxão passa de 6 para 9,5 blocos; limite de afastamento do líder passa de 7,6 para 11. Câmera busca o ponto médio dos jogadores.
+- P2 usa ✕ para conversar, acionar eventos e atravessar passagens a partir da própria posição, mantendo requisitos e transições da história.
+- Franco principal: rolada de 0,36 s e 2,76 blocos, recarga de 0,76 s e recuperação do ataque reduzida. Velocidade normal de caminhada já é compartilhada entre personagens.
+- 103 verificações estáticas e 22 funcionais aprovadas com controles simulados; playtest com dois controles físicos permanece necessário.
+
 ## [Alpha 1.2.2 · Mobile horizontal] — 2026-11-13
 
 - Controles na horizontal com elementos posicionados e captura de toques simultâneos; removido o uso de `display:contents` nessa orientação.

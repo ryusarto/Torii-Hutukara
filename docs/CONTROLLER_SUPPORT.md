@@ -64,3 +64,10 @@ O sistema usa princípios estudados em Chrono Trigger — equipe visível no map
 4. Testar movimento simultâneo, limite da câmera, troca de personagem e transição entre mapas.
 5. Em combate, confirmar dano independente, técnicas, morte do segundo integrante e continuação pelo líder.
 6. Repetir o teste com DualShock 4 e DualSense, em USB e Bluetooth quando disponíveis.
+
+
+## Alpha 1.2.3
+
+O P2 pode interagir com NPCs, eventos e passagens usando ✕ próximo ao alvo, sem precisar estar junto do líder. Requisitos de missão continuam compartilhados e passagens levam a equipe para a mesma área. O puxão começa a 9,5 blocos, com câmera no ponto médio; o líder deixa de aumentar o afastamento além de 11 blocos.
+
+Ataques básicos e animações do P2 têm identidade própria e são cancelados ao trocar integrante. O teste automático verifica que os seis ataques não alteram as ações do P1. As técnicas avançadas do P2 ainda usam implementações simplificadas, conforme a pendência de paridade dos kits em PROJECT_STATUS.md.

@@ -4,7 +4,7 @@ Atualizado em 13 de novembro de 2026.
 
 ## Versão jogável atual
 
-**Alpha 1.2.2 Mobile & Co-op** — os três capítulos estão reunidos em um único HTML portátil. A base 1.1.2 permanece preservada. Os resultados da nova versão estão em `qa/alpha-1.2.2/`.
+**Alpha 1.2.3 Mobile & Co-op** — os três capítulos estão reunidos em um único HTML portátil. A base 1.1.2 permanece preservada. Os resultados da nova versão estão em `qa/alpha-1.2.3/`.
 
 Site provisório: https://ryusarto.github.io/Torii-Hutukara/. O aviso PC/MOBILE aparece por quatro segundos na entrada. O fluxo de publicação e suas limitações estão em `docs/PLAYTEST_SITE.md`.
 
@@ -44,7 +44,7 @@ Site provisório: https://ryusarto.github.io/Torii-Hutukara/. O aviso PC/MOBILE 
 
 ## Próximo ciclo
 
-1. Jogar a Alpha 1.2.2 no aparelho físico e validar a prioridade mobile/rolada/coop.
+1. Jogar a Alpha 1.2.3 no aparelho físico e validar a prioridade mobile/rolada/coop.
 2. Discutir os seis kits e as reduções de deslocamento propostas em `design/COMBATE_E_RITMO_PROPOSTA.md`.
 3. Refinar as técnicas completas e encurtar quests preservando as revelações centrais.
 4. Produzir as versões cyberpunk de Belga, Colli e Mazza com identidade preservada e PNG transparente.

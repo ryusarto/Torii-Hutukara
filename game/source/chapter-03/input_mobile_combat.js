@@ -1,4 +1,4 @@
-/* Alpha 1.2.2: inputs belong to their devices; simulation belongs to the game tick.
+/* Alpha 1.2.3: inputs belong to their devices; simulation belongs to the game tick.
  * Delta reference study: docs/DELTA_MOBILE_STUDY.md. Original browser implementation.
  */
 const Input121={
@@ -8,7 +8,7 @@ const Input121={
   recovery:0,game:null,wasCoop:false,lastArea:null
 };
 const CombatFeel121=Object.freeze({
-  franco:{roll:.40,distance:2.36,cooldown:.85,grace:.23,recovery:.34,move:.40},
+  franco:{roll:.36,distance:2.76,cooldown:.76,grace:.23,recovery:.26,move:.68},
   ryuchi:{roll:.34,distance:2.93,cooldown:.64,grace:.22,recovery:.18,move:.82},
   alt:{roll:.36,distance:2.76,cooldown:.76,grace:.22,recovery:.35,move:.58},
   katana:{roll:.35,distance:2.70,cooldown:.72,grace:.22,recovery:.25,move:.66},
@@ -70,6 +70,7 @@ function pullRoute121(from,to){
 C3.syncCoop=function(force=false){
   if(!C3.coopActive())return;
   const c=C3.coop;
+  const member=C3.coopMember();if(c.actor123!==member){Object.assign(c,{actor123:member,dash:0,dashCD:0,rollHero:null,cool:0,recovery:0,combo:0,attackHero:null,attackUntil:0,stride:0,synthWave:0});}
   if(force||c.area!==G.area||c.game!==G){
     const point=safeSpawn121(G.x-.65,G.y+.55)||safeSpawn121(G.x,G.y);
     if(!point)return;
@@ -86,7 +87,7 @@ C3.coopMove=function(pad,dt){
   const ox=c.x,oy=c.y;let [dx,dy]=C3.padDirection(pad),n=Math.hypot(dx,dy);
   if(c.dash>0){[dx,dy]=c.dashDir||C3.coopVector();n=1}
   const distance=Math.hypot(c.x-G.x,c.y-G.y),running=C3.padPressed(pad,6)||C3.padPressed(pad,10)||n>.82;
-  c.routeAt=(c.routeAt||0)-dt;c.pulling=distance>6.0;
+  c.routeAt=(c.routeAt||0)-dt;c.pulling=distance>9.5;
   if(c.pulling){
     const targetKey=Math.floor(G.x)+','+Math.floor(G.y);
     if(c.routeAt<=0||c.routeGoal!==targetKey||!c.route?.length){c.route=pullRoute121(c,G);c.routeAt=.25;c.routeGoal=targetKey}
@@ -96,7 +97,7 @@ C3.coopMove=function(pad,dt){
     else {dx=dy=0;n=0}
   }
   const f=feel121(C3.coopMember()),rollSpeed=f.distance/f.roll;
-  const speed=c.pulling?Math.min(8.5,5.4+(distance-6)*1.6):c.dash>0?rollSpeed:(running?6.1:3.7)*(c.recovery>0?f.move:1);
+  const speed=c.pulling?Math.min(8.5,5.4+(distance-9.5)*1.6):c.dash>0?rollSpeed:(running?6.1:3.7)*(c.recovery>0?f.move:1);
   if(n>.06)moveActor121(c,dx,dy,speed*dt);
   c.moving=Math.hypot(c.x-ox,c.y-oy)>.001;c.running=running||c.pulling;
   if(c.moving){
@@ -107,7 +108,7 @@ C3.coopMove=function(pad,dt){
 };
 const moveBodyBefore121=moveBody10;
 moveBody10=function(dx,dy,distance,updateFacing=true){
-  if(C3.coopActive()&&Input121.wasCoop&&Math.hypot(G.x-C3.coop.x,G.y-C3.coop.y)>7.6){
+  if(C3.coopActive()&&Input121.wasCoop&&Math.hypot(G.x-C3.coop.x,G.y-C3.coop.y)>11.0){
     const away=(G.x-C3.coop.x)*dx+(G.y-C3.coop.y)*dy;
     if(away>0)return false;
   }
@@ -192,7 +193,7 @@ attackAction=function(){
 C3.coopDodge=function(pad){
   const c=C3.coop;if(!C3.coopActive()||!activeModes10()||c.dashCD>0)return false;
   const f=feel121(C3.coopMember()),v=C3.padDirection(pad),n=Math.hypot(...v);
-  c.dashDir=n>.08?[v[0]/n,v[1]/n]:C3.coopVector();c.rollDuration=f.roll;c.dash=f.roll;c.dashCD=f.cooldown;c.invuln=f.grace;
+  c.dashDir=n>.08?[v[0]/n,v[1]/n]:C3.coopVector();c.rollHero=C3.coopMember();c.rollDuration=f.roll;c.dash=f.roll;c.dashCD=f.cooldown;c.invuln=f.grace;
   C3.padPulse(pad,.12,.2,80);return true;
 };
 const coopAttackBefore121=C3.coopAttack;
@@ -211,7 +212,7 @@ for(const action of ['coopSkill','coopAdvanced','coopSignature']){
 const actorBefore121=drawActor;
 drawActor=function(p,x,y,moving=false){
   const c=C3.coop,p2=C3.coopActive()&&p.style===C3.coopMember()&&Math.abs(x-(c.x*T-cam.x))<2&&Math.abs(y-(c.y*T-cam.y))<2,
-    r=p2&&c.dash>0?{left:c.dash,duration:c.rollDuration,dir:c.dir}:p.style===G?.active&&Input121.roll&&Combat10.dashTime>0?{left:Combat10.dashTime,...Input121.roll}:null;
+    r=p2&&c.dash>0&&c.rollHero===p.style?{left:c.dash,duration:c.rollDuration,dir:c.dir}:p.style===G?.active&&Input121.roll?.id===p.style&&Combat10.dashTime>0?{left:Combat10.dashTime,...Input121.roll}:null;
   if(r){
     const image=C3.images.prebeta_roll,row=PB.heroRows[p.style];
     if(image?.complete&&image.naturalWidth&&row!==undefined){
@@ -221,8 +222,8 @@ drawActor=function(p,x,y,moving=false){
     }
   }
   if(p2){
-    const speed=G.moveSpeed10,running=G.isRunning10;G.moveSpeed10=c.moving?(c.running?6.1:3.7):0;G.isRunning10=c.running;
-    try{return actorBefore121(p,x,y,c.moving)}finally{G.moveSpeed10=speed;G.isRunning10=running}
+    const speed=G.moveSpeed10,running=G.isRunning10,stride=stride10;stride10=c.stride||0;G.moveSpeed10=c.moving?(c.running?6.1:3.7):0;G.isRunning10=c.running;
+    try{return actorBefore121(p,x,y,c.moving)}finally{G.moveSpeed10=speed;G.isRunning10=running;stride10=stride}
   }
   return actorBefore121(p,x,y,moving);
 };
@@ -282,10 +283,11 @@ C3.handlePrimaryPad=function(pad){
 };
 C3.handleSecondPad=function(pad){
   if(!C3.coopActive())return;
+  C3.syncCoop();
   if(C3.padEdge(pad,9)&&G){if(mode==='overlay')closeOverlay();else if(activeModes10())openSystem();return}
   if(mode==='dialogue'){if(C3.padEdge(pad,0))advanceDialogue();return}
   if(!activeModes10())return;
-  if(C3.padEdge(pad,0)&&Math.hypot(C3.coop.x-G.x,C3.coop.y-G.y)<2.2)interact();
+  if(C3.padEdge(pad,0))C3.interactCoop();
   if(C3.padPressed(pad,2))C3.coopAttack(pad);
   if(C3.padEdge(pad,1))C3.coopDodge(pad);
   if(C3.padEdge(pad,4))C3.coopSkill(pad);if(C3.padEdge(pad,5))C3.coopAdvanced(pad);
@@ -478,10 +480,55 @@ openRhythm=function(...args){releaseAll121();stopAlbum11(.04);return rhythmBefor
 const talkBefore122=talk;
 talk=function(...args){releaseAll121();if(G){G.moveSpeed10=0;G.isRunning10=false}return talkBefore122(...args)};
 
+
+// Each player owns their attack state; effects are emitted at that player's position.
+function coopCamera123(axis){return C3.coopActive()?(G[axis]+C3.coop[axis])/2:G[axis]}
+C3.interactCoop=function(){
+  if(!C3.coopActive()||mode!=='walk')return;
+  const x=G.x,y=G.y;let target;
+  try{G.x=C3.coop.x;G.y=C3.coop.y;target=nearestInteraction()}finally{G.x=x;G.y=y}
+  if(!target)return toast('JOGADOR 2 · NENHUMA INTERAÇÃO POR PERTO');
+  const e=target.value;enableAudio();
+  if(target.type==='event')return e.doit();
+  if(target.type==='npc')return e.say();
+  if(e.need&&!e.need())return talk([{who:'narrator',t:e.blocked||'Este caminho ainda está bloqueado.'}]);
+  setArea(e.to,e.tx,e.ty);
+};
+C3.coopAttack=function(pad){
+  if(!C3.coopActive()||!activeModes10()||!combatAreas10.has(G.area))return;
+  C3.syncCoop();const c=C3.coop,id=C3.coopMember();if(c.dash>0||c.cool>0)return;
+  if(mode==='walk')engage();
+  const d=C3.coopVector(),f=feel121(id);
+  c.combo=tick-(c.lastAttack||-10)<.7?(c.combo||0)%3+1:1;c.lastAttack=tick;
+  c.attackHero=id;c.attackDir=[...d];c.attackUntil=tick+.24;c.recovery=f.recovery;
+  c.cool=Math.max(f.recovery,id==='alt'?.38:id==='franco'?.32:.24);
+  if(id==='alt'){
+    projectiles.push({x:c.x,y:c.y,vx:d[0]*12,vy:d[1]*12,time:1.1,damage:14,hit:[],arrow:true});
+    effect10('pulse',c.x,c.y,d,.18,.5,'#d3b680');
+  }else{
+    const range=id==='synth'?3.9:id==='franco'?3.0:id==='katana'?2.8:id==='ryuchi'?2.15:2.7;
+    const damage=id==='franco'?18:id==='katana'?17:id==='ryuchi'?12:id==='synth'?12+c.combo*2:10+c.combo*3;
+    C3.coopTargets(range,id==='synth'?.7:id==='ryuchi'?.45:-.12).slice(0,id==='ryuchi'?1:4).forEach(e=>hitEnemy(e,damage,id==='franco'?.5:.25,0));
+    const type=id==='percussion'?(c.combo===3?'drumFinish':'drumBeat'):id==='synth'?'synthWave':id==='ryuchi'?'thrust':'slash';
+    c.attackType=type;effect10(type,c.x,c.y,d,.25,id==='franco'?1.4:1,id==='percussion'?'#ff82d2':id==='synth'?'#61e7ed':'#ffe0a0');
+  }
+  G.resonance=Math.min(100,G.resonance+4);playTone(id==='percussion'?147:id==='synth'?330:220,.09,'triangle',.05);C3.padPulse(pad,.16,.1,70);updateActionHUD();
+};
+const combatDrawBefore123=drawCombatLayer;
+drawCombatLayer=function(){
+  combatDrawBefore123();const c=C3.coop;if(!C3.coopActive()||!activeModes10()||c.attackHero!==C3.coopMember()||tick>=c.attackUntil)return;
+  const id=c.attackHero;if(!['franco','ryuchi','katana'].includes(id))return;
+  const d=c.attackDir,a=Math.atan2(d[1],d[0]),phase=1-(c.attackUntil-tick)/.24;
+  ctx.save();ctx.translate(c.x*T-cam.x,c.y*T-cam.y-20);ctx.strokeStyle=id==='ryuchi'?'#9ee2ff':id==='franco'?'#ffcc86':'#e2b4ff';ctx.lineWidth=id==='franco'?5:3;
+  ctx.beginPath();if(id==='ryuchi'){ctx.moveTo(d[0]*8,d[1]*8);ctx.lineTo(d[0]*(28+phase*30),d[1]*(28+phase*30))}else{ctx.arc(0,0,id==='franco'?44:36,a-.9+phase,a+.5+phase)}ctx.stroke();ctx.restore();
+};
+const cycleBefore123=C3.cycleCoop;
+C3.cycleCoop=function(){cycleBefore123();C3.syncCoop()};
+
 const initBefore121=init;
 init=function(){
   initBefore121();installMobile121();const landscapeStyle=document.createElement('style');landscapeStyle.textContent=LANDSCAPE_CSS122;document.head.appendChild(landscapeStyle);
-  document.title='Torii & Hutukara · Alpha 1.2.2 · Mobile & Co-op';
-  const version=document.querySelector('#start .version');if(version)version.textContent='ALPHA 1.2.2 · MOBILE & CO-OP';
-  const build=document.querySelector('.brandbar .build');if(build)build.innerHTML='TORII & HUTUKARA<br>ALPHA 1.2.2 · MOBILE & CO-OP';
+  document.title='Torii & Hutukara · Alpha 1.2.3 · Mobile & Co-op';
+  const version=document.querySelector('#start .version');if(version)version.textContent='ALPHA 1.2.3 · MOBILE & CO-OP';
+  const build=document.querySelector('.brandbar .build');if(build)build.innerHTML='TORII & HUTUKARA<br>ALPHA 1.2.3 · MOBILE & CO-OP';
 };
