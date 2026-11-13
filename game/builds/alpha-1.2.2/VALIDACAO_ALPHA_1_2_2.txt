@@ -1,8 +1,8 @@
 TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.2.2
 =====================================================
 Resultado: 103/103 verificações aprovadas
-HTML: 97905985 bytes
-SHA-256: 4216eed32cea33f2749bca4a6a0e7ea8f19575a5f714eefe89b225d75c9947ad
+HTML: 97906035 bytes
+SHA-256: d390b98d2d51f6f30e132bb4def180ddc0cc8307dcf2e155ebfe0f972b9b3707
 
 OK · arquivo TORII_HUTUKARA_1_1_2_TRILHAS.html
 OK · arquivo TORII_HUTUKARA_ALPHA_1_2_2_MOBILE_COOP.html
