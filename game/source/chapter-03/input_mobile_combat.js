@@ -468,7 +468,7 @@ const LANDSCAPE_CSS122=`
 .mobile121.landscape121 #dialogue{left:8px;right:8px;bottom:8px;max-height:90%;z-index:10020}
 .mobile121.landscape121.physical121 #mobileDeck121{display:none!important}
 `;
-function musicChallenge122(){return mode==='rhythm'||!!document.getElementById('c3PhraseProgress')&& !document.getElementById('overlay').classList.contains('hidden')}
+function musicChallenge122(){return mode==='rhythm'||!!document.querySelector('#overlay .voice-note-grid,#overlay .notes,#overlay #c3PhraseProgress')&&!document.getElementById('overlay').classList.contains('hidden')}
 const soundscapeBefore122=soundscape;
 soundscape=function(){if(musicChallenge122()){stopAlbum11(.04);return}return soundscapeBefore122()};
 const startAlbumBefore122=startAlbum11;
