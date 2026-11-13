@@ -1,6 +1,6 @@
 # Fluxo de atualização no GitHub
 
-O GitHub é a fonte oficial do projeto. Toda alteração aprovada deve terminar registrada no repositório privado.
+O GitHub é a fonte oficial do projeto. Toda alteração aprovada deve terminar registrada no repositório. O autor tornou o projeto público em 13/11/2026 para publicar o teste pelo Pages; o site publica apenas o jogo exportado. Consulte [o fluxo de publicação](PLAYTEST_SITE.md).
 
 ## Em cada mudança
 

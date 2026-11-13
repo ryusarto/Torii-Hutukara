@@ -18,6 +18,10 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Jogar
 
+**Teste no navegador:** [Abrir Torii & Hutukara](https://ryusarto.github.io/Torii-Hutukara/).
+
+O link identifica PC ou mobile na entrada e exibe um aviso por quatro segundos. Depois, o aviso some. A interface de toque é automática em celular/tablet. Veja [publicação e testes entre aparelhos](docs/PLAYTEST_SITE.md).
+
 Abra o arquivo abaixo em um navegador moderno:
 
 `game/builds/alpha-1.2.1/TORII_HUTUKARA_ALPHA_1_2_1_MOBILE_COOP.html`
@@ -122,6 +126,7 @@ O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.1
 - [Plano de QA](docs/QA.md)
 - [Estado atual do projeto](docs/PROJECT_STATUS.md)
 - [Fluxo de atualização no GitHub](docs/GITHUB_WORKFLOW.md)
+- [Endereço de testes e publicação](docs/PLAYTEST_SITE.md)
 - [Origem e uso dos assets](docs/ASSET_PROVENANCE.md)
 - [Estudo sistêmico de Chrono Trigger](docs/CHRONO_REFERENCE_STUDY.md)
 - [Estudo de combate de Moonlighter](docs/MOONLIGHTER_COMBAT_STUDY.md)
@@ -137,4 +142,4 @@ Nenhuma build anterior é sobrescrita. Cada mudança deve atualizar o código-fo
 
 ## Direitos
 
-Este é um repositório privado de produção. Nenhuma licença de redistribuição foi concedida. Consulte `docs/ASSET_PROVENANCE.md` antes de publicar músicas ou imagens fora do projeto.
+O repositório foi tornado público pelo autor para permitir os testes pelo GitHub Pages. O jogo e seus materiais continuam com direitos reservados; a publicação não concede licença de redistribuição. Consulte `docs/ASSET_PROVENANCE.md` antes de reutilizar músicas ou imagens fora do projeto.

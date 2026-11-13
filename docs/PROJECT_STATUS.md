@@ -6,6 +6,8 @@ Atualizado em 13 de novembro de 2026.
 
 **Alpha 1.2.1 Mobile & Co-op** — os três capítulos estão reunidos em um único HTML portátil. A base 1.1.2 permanece preservada. Os resultados da nova versão estão em `qa/alpha-1.2.1/`.
 
+Site provisório: https://ryusarto.github.io/Torii-Hutukara/. O aviso PC/MOBILE aparece por quatro segundos na entrada. O fluxo de publicação e suas limitações estão em `docs/PLAYTEST_SITE.md`.
+
 ## Implementado
 
 - Jornada do início ao epílogo, com atalhos de teste para os capítulos 2 e 3.

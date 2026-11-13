@@ -12,6 +12,15 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - Mais reações de grupo ao encontro das versões de Franco e Ryuchi.
 - Balanceamento dos dois chefes finais a partir de tentativas reais.
 
+## [Site provisório de testes] — 2026-11-13
+
+- GitHub Pages com HTTPS no mesmo repositório, tornado público pelo autor.
+- Publicação da Alpha 1.2.1 no endereço fixo `https://ryusarto.github.io/Torii-Hutukara/`.
+- Identificação PC/MOBILE na entrada por quatro segundos, seguida de remoção completa do aviso.
+- Exportação web com imagens em cache e MP3 sob demanda; HTML portátil preservado e conteúdo reconstruído byte a byte durante a verificação.
+- Publicação automática da versão selecionada em `web/playtest/build.json`, com hashes e relatório públicos.
+- Verificação de PC, celular e tablet por emulação, incluindo rotação, músicas e entrada do capítulo 3.
+
 ## [Alpha 1.2.1 · Mobile & Co-op] — 2026-11-13
 
 ### Corrigido
