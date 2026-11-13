@@ -1,4 +1,4 @@
-/* Alpha 1.2.3: inputs belong to their devices; simulation belongs to the game tick.
+/* Alpha 1.2.4: inputs belong to their devices; simulation belongs to the game tick.
  * Delta reference study: docs/DELTA_MOBILE_STUDY.md. Original browser implementation.
  */
 const Input121={
@@ -528,7 +528,7 @@ C3.cycleCoop=function(){cycleBefore123();C3.syncCoop()};
 const initBefore121=init;
 init=function(){
   initBefore121();installMobile121();const landscapeStyle=document.createElement('style');landscapeStyle.textContent=LANDSCAPE_CSS122;document.head.appendChild(landscapeStyle);
-  document.title='Torii & Hutukara · Alpha 1.2.3 · Mobile & Co-op';
-  const version=document.querySelector('#start .version');if(version)version.textContent='ALPHA 1.2.3 · MOBILE & CO-OP';
-  const build=document.querySelector('.brandbar .build');if(build)build.innerHTML='TORII & HUTUKARA<br>ALPHA 1.2.3 · MOBILE & CO-OP';
+  document.title='Torii & Hutukara · Alpha 1.2.4 · Mobile & Co-op';
+  const version=document.querySelector('#start .version');if(version)version.textContent='ALPHA 1.2.4 · MOBILE & CO-OP';
+  const build=document.querySelector('.brandbar .build');if(build)build.innerHTML='TORII & HUTUKARA<br>ALPHA 1.2.4 · MOBILE & CO-OP';
 };

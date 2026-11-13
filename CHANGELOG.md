@@ -12,6 +12,12 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - Mais reações de grupo ao encontro das versões de Franco e Ryuchi.
 - Balanceamento dos dois chefes finais a partir de tentativas reais.
 
+## [Alpha 1.2.4 · Nome de Colli] — 2026-11-13
+
+- Corrigido o cabeçalho dos diálogos de Colli no capítulo 2: o ID legado `nilo` agora é resolvido como COLLI pelo próprio renderizador de diálogo, em vez de usar o ID em maiúsculas.
+- IDs de NPC, sprites e flags das fitas permanecem compatíveis com saves existentes.
+- Verificadas no navegador as falas com zero, uma e duas fitas: todas mostram COLLI e a recompensa continua funcionando. Validação estática: 103/103.
+
 ## [Alpha 1.2.3 · Coop e identidade] — 2026-11-13
 
 - Estado de ataque, combinação, passada e rolamento do P2 vinculado ao personagem. Trocas cancelam a animação anterior, inclusive quando P1 muda de líder.

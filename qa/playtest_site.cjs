@@ -38,7 +38,7 @@ async function main() {
     assert.equal(await page.evaluate(() => Input121.mobile), device === 'mobile');
     assert.match(await page.locator('#playtestEntry').textContent(), device === 'mobile' ? /^MOBILE/ : /^PC/);
     assert.equal(await page.locator('#playtestEntry').evaluate(el => getComputedStyle(el).pointerEvents), 'none');
-    assert.equal(await page.evaluate(() => ToriiPlaytest.version), '1.2.3');
+    assert.equal(await page.evaluate(() => ToriiPlaytest.version), '1.2.4');
     await page.waitForLoadState('load');
     // All externally served chapter assets must have decoded, not just returned HTTP 200.
     await page.waitForFunction(() => Object.values(C3.images).every(img => img.complete && img.naturalWidth > 0));

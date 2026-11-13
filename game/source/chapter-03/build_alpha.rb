@@ -12,8 +12,8 @@ REPO_ROOT = File.expand_path('../../..', ROOT)
 BASE = File.join(REPO_ROOT, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
 RUNTIME = File.join(ROOT, 'chapter3_runtime.js')
 INPUT_RUNTIME = File.join(ROOT, 'input_mobile_combat.js')
-OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.2.3')
-OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_2_3_MOBILE_COOP.html')
+OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.2.4')
+OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_2_4_MOBILE_COOP.html')
 
 ASSETS = File.join(REPO_ROOT, 'assets', 'chapter-03')
 RUNTIME_ASSETS = File.join(ASSETS, 'runtime')
@@ -87,6 +87,7 @@ html.sub!('<title>TORII & HUTUKARA — A Última Frequência · 1.1.2 · Pré-al
 # Nomes públicos dos colaboradores mudam sem alterar IDs persistentes de save.
 html.gsub!('BENTO', 'BELGA').gsub!('Bento', 'Belga')
 html.gsub!('NILO', 'COLLI').gsub!('Nilo', 'Colli')
+replace_once!(html, "const who={franco:", "const who={nilo:'COLLI',franco:", 'nome de Colli nos diálogos legados')
 
 replace_once!(html,
   "const VW=768,VH=432,T=24,KEY='torii_hutukara_piloto_v04';",
@@ -196,8 +197,8 @@ marker = "\ninit();\n</script>"
 position = html.rindex(marker)
 raise 'Ponto final de injeção não encontrado' unless position
 html.insert(position, "\n\n#{runtime}\n\n#{File.read(INPUT_RUNTIME, encoding: 'UTF-8')}\n")
-html.gsub!('ALPHA 1.2.0', 'ALPHA 1.2.3')
-html.gsub!('Alpha 1.2.0', 'Alpha 1.2.3')
+html.gsub!('ALPHA 1.2.0', 'ALPHA 1.2.4')
+html.gsub!('Alpha 1.2.0', 'Alpha 1.2.4')
 
 html.gsub!('clamp(G.x*T-VW/2,0,a.w*T-VW)', 'clamp(coopCamera123("x")*T-VW/2,0,a.w*T-VW)')
 html.gsub!('clamp(G.y*T-VH/2,0,a.h*T-VH)', 'clamp(coopCamera123("y")*T-VH/2,0,a.h*T-VH)')
@@ -208,7 +209,7 @@ File.binwrite(OUTPUT, html)
 sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUES]
 manifest = {
   game: 'TORII & HUTUKARA',
-  build: 'ALPHA 1.2.3 · MOBILE & CO-OP',
+  build: 'ALPHA 1.2.4 · MOBILE & CO-OP',
   schema: 13,
   created_at: Time.now.iso8601,
   output: {
@@ -241,11 +242,11 @@ manifest = {
   end
 }
 
-manifest_path = File.join(OUTPUT_DIR, 'MANIFESTO_ALPHA_1_2_3.json')
+manifest_path = File.join(OUTPUT_DIR, 'MANIFESTO_ALPHA_1_2_4.json')
 File.write(manifest_path, JSON.pretty_generate(manifest) + "\n")
-File.write(File.join(OUTPUT_DIR, 'SHA256_ALPHA_1_2_3.txt'), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
-File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_3.txt'), <<~README)
-  TORII & HUTUKARA — ALPHA 1.2.3 · MOBILE & CO-OP
+File.write(File.join(OUTPUT_DIR, 'SHA256_ALPHA_1_2_4.txt'), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
+File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_4.txt'), <<~README)
+  TORII & HUTUKARA — ALPHA 1.2.4 · MOBILE & CO-OP
   =================================
 
   Build jogável completa, do Capítulo 01 ao Capítulo 03.
