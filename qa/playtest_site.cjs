@@ -8,6 +8,7 @@ const path = require('node:path');
 const { chromium } = require(process.env.PLAYWRIGHT_CORE || 'playwright-core');
 const base = process.argv[2] || 'http://127.0.0.1:8766/';
 const results = [];
+let testedBuild;
 const uaPhone = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1';
 const uaPad = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15';
 
@@ -31,6 +32,7 @@ async function main() {
     page.on('response', response => { if (response.status() >= 400) failed.push(response.status() + ' ' + response.url()); });
     await page.goto(base, { waitUntil: 'domcontentloaded', timeout: 120000 });
     await page.waitForSelector('#playtestEntry', { timeout: 30000 });
+    testedBuild = await page.evaluate(() => ToriiPlaytest);
     assert.equal(await page.evaluate(() => ToriiPlaytest.device), device);
     assert.equal(await page.evaluate(() => Input121.mobile), device === 'mobile');
     assert.match(await page.locator('#playtestEntry').textContent(), device === 'mobile' ? /^MOBILE/ : /^PC/);
@@ -84,7 +86,7 @@ async function main() {
   }
   const dir = path.join(__dirname, 'playtest');
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'SITE_TEST_RESULTS.json'), JSON.stringify({ testedAt: new Date().toISOString(), url: base, method: 'Chrome with emulated device profiles; no physical-device validation', results }, null, 2) + '\n');
+  fs.writeFileSync(path.join(dir, 'SITE_TEST_RESULTS.json'), JSON.stringify({ testedAt: new Date().toISOString(), url: base, build: testedBuild, method: 'Chrome with emulated device profiles; no physical-device validation', results }, null, 2) + '\n');
   console.log(JSON.stringify(results, null, 2));
 }
 main().then(() => process.exit(0)).catch(error => { console.error(error); process.exit(1); });

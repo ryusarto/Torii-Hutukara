@@ -39,3 +39,5 @@ Uma limitação preexistente foi preservada: a string de áudio `walk_talk_twin`
 O progresso fica no navegador e no aparelho em que se joga. Não há sincronização entre aparelhos. Um save do arquivo local pode ser exportado no jogo e importado no site; é recomendável guardar o JSON antes de limpar os dados do navegador.
 
 `qa/playtest_site.cjs` verifica a página em Chrome isolado com perfis de PC, iPhone e iPad com identificação de desktop. Confere seleção do layout, desaparecimento do aviso, rotação, janela estreita no PC, imagens, entrada no capítulo 3 e decodificação de músicas dos capítulos 1 e 3 e do chefe final. O relatório distingue emulação de testes em aparelhos reais. Safari iOS, Android e controles físicos continuam precisando de playtest.
+
+A primeira publicação foi concluída e verificada no endereço ao vivo em 13/11/2026. O [workflow aprovado](https://github.com/ryusarto/Torii-Hutukara/actions/runs/43390076638) corresponde ao commit `3aead33e404c7047426d68b483db3aa36a96c2aa`. O relatório em `qa/playtest/SITE_TEST_RESULTS.json` registra a URL pública e o hash da build efetivamente carregada nos testes.

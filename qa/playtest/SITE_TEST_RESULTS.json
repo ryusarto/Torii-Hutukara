@@ -1,6 +1,13 @@
 {
-  "testedAt": "2026-11-13T08:01:14.400Z",
-  "url": "http://127.0.0.1:8766/",
+  "testedAt": "2026-11-13T08:03:49.250Z",
+  "url": "https://ryusarto.github.io/Torii-Hutukara/",
+  "build": {
+    "version": "1.2.1",
+    "sourceSha256": "a9fe09684ebc33e847c37099ac32676b3b51c6e6e5f4c0edc362b656a0afbea5",
+    "shellVersion": 1,
+    "builtAt": "2026-11-13T08:02:40Z",
+    "device": "mobile"
+  },
   "method": "Chrome with emulated device profiles; no physical-device validation",
   "results": [
     {
