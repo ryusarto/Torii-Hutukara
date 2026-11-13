@@ -18,7 +18,7 @@ CONTEÚDO DA ALPHA
 - Duas ordens possíveis de recrutamento no Capítulo 03.
 - Metrônomo, O Silêncio, retries e epílogo no estúdio.
 - Seis faixas novas incorporadas no próprio HTML.
-- Sprites próprios para Maia, Nara, Ciro, Vega, Dimas e NPCs do distrito.
+- Belga, Colli, Mazza e Dney ocupam os papéis centrais do Capítulo 03, com sprites e retratos próprios.
 - Postes, mobiliário, oficina, canal e elevador redesenhados.
 - Objetivos do canal e da usina reagem ao estado real da missão.
 - Transição do Capítulo 02 ao Capítulo 03 sem voltar ao menu.

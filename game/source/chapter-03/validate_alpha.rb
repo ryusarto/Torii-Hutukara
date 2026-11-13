@@ -10,6 +10,11 @@ base = File.join(repo_root, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRIL
 alpha = File.join(repo_root, 'game', 'builds', 'alpha-1.2.0', 'TORII_HUTUKARA_ALPHA_1_2_0_PREBETA.html')
 runtime = File.join(root, 'chapter3_runtime.js')
 dialogues = File.join(repo_root, 'design', 'chapter-03', 'DIALOGOS_CAPITULO_03.json')
+collaborator_atlases = %w[
+  BELGA_COLLI_MAZZA_3X2.png
+  BELGA_COLLI_MAZZA_MOVEMENT_8X3.png
+  DNEY_MOVEMENT_PORTRAITS_4X3.png
+].map { |name| File.join(repo_root, 'assets', 'prebeta', 'runtime', 'collaborators', name) }
 
 checks = []
 check = lambda do |name, value, detail = nil|
@@ -17,6 +22,9 @@ check = lambda do |name, value, detail = nil|
 end
 
 [base, alpha, runtime, dialogues].each { |path| check.call("arquivo #{File.basename(path)}", File.file?(path)) }
+check.call('sprites de colaboradores com transparência PNG', collaborator_atlases.all? do |path|
+  File.file?(path) && [4, 6].include?(File.binread(path, 26).getbyte(25))
+end)
 
 source = File.read(runtime, encoding: 'UTF-8')
 built = File.read(alpha, encoding: 'UTF-8')
@@ -57,6 +65,9 @@ end
 %w[prebeta_roll prebeta_run prebeta_portraits prebeta_mask prebeta_props prebeta_clouds prebeta_cinema].each do |asset|
   check.call("asset #{asset}", source.include?("#{asset}:") && built.include?("#{asset}:"))
 end
+%w[prebeta_run_v2 prebeta_portraits_v2 prebeta_collabs prebeta_collabs_move prebeta_dney prebeta_materials_v2].each do |asset|
+  check.call("asset #{asset}", source.include?("#{asset}:") && built.include?("#{asset}:"))
+end
 check.call('rosto autoral do Franco nos diálogos', source.include?('prebeta_portraits') && source.include?("who.includes('franco')"))
 check.call('máscara canônica com rosto visível', source.include?('PB.drawCanonicalMask') && source.include?('Eu ainda vejo pelas lentes'))
 check.call('máscara passa a aparecer depois da aquisição', source.include?('PB.repairMaps') && source.include?('G.flags.masks=true;updateHUD()'))
@@ -66,8 +77,17 @@ check.call('nuvens volumétricas', source.include?('PB.cloudTile') && source.inc
 check.call('placa e pilares detalhados', source.include?("p.type==='signpost'") && source.include?("p.type==='ruinColumn'"))
 check.call('colisões alinhadas às fachadas', source.include?('districtHouses') && source.include?('rectBlock(a,hx-3,hy-5,7,5)'))
 check.call('fundos cinematográficos próprios', source.include?('PB.cinemaPanel') && source.include?("showCinema('distortion')"))
+check.call('máscara ancorada sem flutuar', source.include?("-18,-25,36,36") && !source.include?("-34,-66,68,68"))
+check.call('novos personagens na escala dos protagonistas', source.include?('ACTOR_W,ACTOR_H') && source.include?('prebeta_run_v2'))
+check.call('rolamento desacelerado', built.include?("duration:.30,cooldown:.75,invulnerability:.22,speed:7.8"))
+check.call('retry final reconstrói estado', source.include?('C3.retryFinal=function') && source.include?("setArea('silence_core',17.5,20.5,false)"))
+check.call('colaboradores Belga Colli Mazza', %w[Belga Colli Mazza].all? { |name| built.include?(name) })
+check.call('Dney integrado ao Contratempo', built.include?('Dney · Imagem e Ressonância') && source.include?('prebeta_dney'))
+check.call('papéis centrais ocupados pelos colaboradores', built.include?('Belga · Contratempo') && built.include?('Mazza · Oficina de Frequências') && built.include?('Colli · Cartógrafo Sonoro'))
+check.call('Último Torii sem máscaras aleatórias', source.include?("prop(a,'c3_resonance_circle',13,8)") && !source.include?("prop(a,'maskStand',13,8)"))
+check.call('Núcleo observado por olhos', source.include?('c3_silence_eye') && source.include?('c3_silence_altar'))
 check.call('objetivo do canal por estado', source.include?("!c.canalPath?") && source.include?('Atravesse e liberte a comporta'))
-check.call('Nara apresentada no canal', source.include?('canalIntro') && source.include?('Eu disse para irem na frente'))
+check.call('Colli apresentado no canal', source.include?('canalIntro') && source.include?('Eu disse para irem na frente'))
 check.call('transição contínua do capítulo 02', source.include?('ATRAVESSAR · CAPÍTULO 03') && source.include?('não é necessário voltar ao menu'))
 check.call('entrada do elevador sem ciclo impossível', source.include?("need:()=>G.c3.clubPhraseDone,blocked:'O ELEVADOR AINDA ESPERA A FRASE DO CONTRATEMPO'"))
 check.call('Ryuchi percussionista com golpes próprios', %w[drumBeat drumCounter drumBreak CONTRATEMPO].all? { |term| source.include?(term) })

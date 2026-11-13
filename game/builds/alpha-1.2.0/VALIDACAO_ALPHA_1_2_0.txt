@@ -1,13 +1,14 @@
 TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.2.0
 =====================================================
-Resultado: 81/81 verificações aprovadas
-HTML: 93882119 bytes
-SHA-256: b11466a946e0d07a7b8764db24f15390574ce9d10f24cbd9141ee10cd201363e
+Resultado: 97/97 verificações aprovadas
+HTML: 97859838 bytes
+SHA-256: 32ebecc215f989d5d69c6523d68db23bacc3ffe4cff329b7cca3bc0de3a76539
 
 OK · arquivo TORII_HUTUKARA_1_1_2_TRILHAS.html
 OK · arquivo TORII_HUTUKARA_ALPHA_1_2_0_PREBETA.html
 OK · arquivo chapter3_runtime.js
 OK · arquivo DIALOGOS_CAPITULO_03.json
+OK · sprites de colaboradores com transparência PNG
 OK · mapa sky_terminal
 OK · mapa distortion_district
 OK · mapa contratempo
@@ -62,6 +63,12 @@ OK · asset prebeta_mask
 OK · asset prebeta_props
 OK · asset prebeta_clouds
 OK · asset prebeta_cinema
+OK · asset prebeta_run_v2
+OK · asset prebeta_portraits_v2
+OK · asset prebeta_collabs
+OK · asset prebeta_collabs_move
+OK · asset prebeta_dney
+OK · asset prebeta_materials_v2
 OK · rosto autoral do Franco nos diálogos
 OK · máscara canônica com rosto visível
 OK · máscara passa a aparecer depois da aquisição
@@ -71,8 +78,17 @@ OK · nuvens volumétricas
 OK · placa e pilares detalhados
 OK · colisões alinhadas às fachadas
 OK · fundos cinematográficos próprios
+OK · máscara ancorada sem flutuar
+OK · novos personagens na escala dos protagonistas
+OK · rolamento desacelerado
+OK · retry final reconstrói estado
+OK · colaboradores Belga Colli Mazza
+OK · Dney integrado ao Contratempo
+OK · papéis centrais ocupados pelos colaboradores
+OK · Último Torii sem máscaras aleatórias
+OK · Núcleo observado por olhos
 OK · objetivo do canal por estado
-OK · Nara apresentada no canal
+OK · Colli apresentado no canal
 OK · transição contínua do capítulo 02
 OK · entrada do elevador sem ciclo impossível
 OK · Ryuchi percussionista com golpes próprios

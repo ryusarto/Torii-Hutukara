@@ -2,11 +2,11 @@
   "game": "TORII & HUTUKARA",
   "build": "ALPHA 1.2.0 · PRÉ-BETA",
   "schema": 13,
-  "created_at": "2026-11-12T19:47:55-03:00",
+  "created_at": "2026-11-13T00:04:50-03:00",
   "output": {
     "file": "TORII_HUTUKARA_ALPHA_1_2_0_PREBETA.html",
-    "bytes": 93882119,
-    "sha256": "b11466a946e0d07a7b8764db24f15390574ce9d10f24cbd9141ee10cd201363e"
+    "bytes": 97859838,
+    "sha256": "32ebecc215f989d5d69c6523d68db23bacc3ffe4cff329b7cca3bc0de3a76539"
   },
   "chapter_3": {
     "title": "O Som que Ainda Não Existe",
@@ -132,9 +132,17 @@
       "bytes": 648321,
       "sha256": "e163f6f43bb99ece258348a0f37927903f9fedcda0ccd65d86729b36d9ad1365"
     },
+    "SYNTH_PERCUSSION_RUN_V2_12X2.png": {
+      "bytes": 466971,
+      "sha256": "8b5b0a3e66278083daa7c6e02f2788b861fbcfb37565ac75e761446520c6e574"
+    },
     "PLAYABLE_PORTRAITS_MASK_CANON.png": {
       "bytes": 1686797,
       "sha256": "a70a9c3b46954d4cc488ddf22c5de32399f4d6e31117e59630bac6a07265ce0d"
+    },
+    "PLAYABLE_PORTRAITS_NATURAL_V2.png": {
+      "bytes": 1109253,
+      "sha256": "d4dbeb879e29261020683fd7d25f54d8ebbdee54c7a20ca202e830f6a4bde7f6"
     },
     "TORII_MASK_CANON_4X2.png": {
       "bytes": 354722,
@@ -152,17 +160,33 @@
       "bytes": 881250,
       "sha256": "a78bdee9aecb4056e00436557994f2d9e88ea557e521e909de1c39ee55ff7c71"
     },
+    "BELGA_COLLI_MAZZA_3X2.png": {
+      "bytes": 292445,
+      "sha256": "6003b7a1161f365f61f03b6cdd45c9333dd82d4450bce116a9b8933441eb9c43"
+    },
+    "BELGA_COLLI_MAZZA_MOVEMENT_8X3.png": {
+      "bytes": 255522,
+      "sha256": "c69c310472a92adc2cdc86d277748b2818a9031ed3e0f5c79582fbaca3ec10f8"
+    },
+    "DNEY_MOVEMENT_PORTRAITS_4X3.png": {
+      "bytes": 230139,
+      "sha256": "f192355151917a04e4ebf47c00b061e248c2cb03e1fecf13b6583145c8f39a71"
+    },
+    "ENVIRONMENT_MATERIALS_V2_4X2.png": {
+      "bytes": 625331,
+      "sha256": "af817cbb21dc8fcb5b5f33dff74e0595c1c6dcc311c1fcb24e2f45c141addec3"
+    },
     "TORII_HUTUKARA_1_1_2_TRILHAS.html": {
       "bytes": 40080984,
       "sha256": "3ef025448cc94400758ce26252813975bb01a7670e91d1d80efd8ab3e6856209"
     },
     "chapter3_runtime.js": {
-      "bytes": 91610,
-      "sha256": "ed90634bdec7c2cd8c690751c293593c0c9a037dc32a5e3a2227aee04a1d2031"
+      "bytes": 95440,
+      "sha256": "6e6d0eff9e23f8247661c867cc6b2555fc2280aef5ed2c5bc8b6a600a8f26d66"
     },
     "DIALOGOS_CAPITULO_03.json": {
-      "bytes": 33054,
-      "sha256": "6c591ad48d97a4a63c8e136cd88385c0308581b3423187dc284f85f206a5619f"
+      "bytes": 33051,
+      "sha256": "f2cb7673f7eca7781f31ec59cf17ba104bcc49fbee011810e9ee13d7d498fead"
     }
   }
 }

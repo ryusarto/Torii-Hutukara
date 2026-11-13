@@ -6,6 +6,11 @@
 - `assets/prebeta/source/FRANCO_THE_SIR_FACE_REFERENCE.png` e `FRANCO_THE_SIR_FACE_REFERENCE_FRONT.png`: referências fornecidas pelo próprio usuário para a identidade visual de Franco, The Sir.
 - As referências faciais são material de produção sensível à identidade. Elas não devem ser reutilizadas fora do projeto nem tratadas como material genérico.
 - Os atlas em `assets/prebeta/originals/` são originais de alta resolução. As cópias em `assets/prebeta/runtime/` foram reduzidas somente para manter o HTML portátil abaixo do limite de distribuição.
+- `BELGA_COLLI_MAZZA_3X2.png` foi produzido a partir das fotografias privadas fornecidas pelo usuário para representar colaboradores do álbum; seu uso fica restrito a este projeto.
+- `assets/prebeta/source/DNEY_FACE_REFERENCE.HEIC` é a referência privada fornecida para Dney; retratos e movimento derivados permanecem restritos ao projeto.
+- `BELGA_COLLI_MAZZA_MOVEMENT_8X3.png` e `DNEY_MOVEMENT_PORTRAITS_4X3.png` são os atlas multidirecionais transparentes aprovados para os quatro papéis centrais.
+- `PLAYABLE_PORTRAITS_NATURAL_V2.png`, `SYNTH_PERCUSSION_RUN_V2_12X2.png` e `ENVIRONMENT_MATERIALS_V2_4X2.png` são novos atlas autorais gerados para esta revisão da pré-beta.
+- Sprites recortados de personagens, NPCs e objetos isolados devem ser armazenados em PNG com canal alfa e fundo transparente. Materiais que preenchem piso, parede ou cenário permanecem opacos por função.
 
 ## Escopo
 

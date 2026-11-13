@@ -6,9 +6,9 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ### Planejado
 
-- Playtest completo da Alpha 1.1.2 em desktop e celular.
+- Playtest completo da Alpha 1.2.0 em desktop e celular.
 - Ajustes finos de escala, colisão e ordenação dos novos objetos.
-- Animação visível da saída de Nara da oficina e chegada ao canal.
+- Animação visível da saída de Colli da oficina e chegada ao canal.
 - Mais reações de grupo ao encontro das versões de Franco e Ryuchi.
 - Balanceamento dos dois chefes finais a partir de tentativas reais.
 
@@ -22,6 +22,11 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - Corrida própria para Franco Sintetizador e Ryuchi Percussionista.
 - Atlas de nuvens volumétricas em 16 bits, pilares, placa, postes e mobiliário cyberpunk.
 - Seis fundos cinematográficos próprios para estúdio, câmara, cidades, ruínas e nuvens.
+- Retratos naturais de conversa para os seis personagens jogáveis, sem deformação no enquadramento.
+- Sprites autorais de Belga, Colli, Mazza e Dney como colaboradores centrais do mundo.
+- Movimento multidirecional transparente para os quatro colaboradores, com quadros alternados de passo e retratos próprios.
+- Materiais integrados para as ruas, o Mar de Nuvens, o Último Torii e o Núcleo do Silêncio.
+- Olhos observadores e altar do Silêncio para a arena do confronto final.
 
 ### Alterado
 
@@ -29,12 +34,24 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - A máscara cobre testa e linha frontal do cabelo, mas revela boca, parte inferior das bochechas, barba e queixo.
 - Placas do Distrito foram aproximadas das fachadas e as colisões passaram a acompanhar o volume visível dos prédios.
 - A aquisição das máscaras foi dividida em antes e depois de equipá-las, sincronizando retrato e narrativa.
+- Franco Sintetizador e Ryuchi Percussionista passaram a usar a mesma escala, âncora e fluidez dos protagonistas.
+- O rolamento foi desacelerado, manteve a distância tática e perdeu a rotação artificial da tela inteira.
+- O Último Torii deixou de exibir máscaras duplicadas: o círculo de ressonância agora explica a reunião das seis versões.
+- Os papéis antes ocupados por Maia, Ciro, Nara e Vega passaram respectivamente a Belga, Mazza, Colli e Dney.
+- A lore dos quatro colaboradores agora evolui entre Contratempo, Oficina, Canal, Nuvens e limiar final.
+
+### Corrigido
+
+- Máscaras flutuando acima dos personagens durante a exploração.
+- NPCs genéricos ou deformados no Último Torii.
+- Congelamento ao escolher tentar novamente depois de morrer para o chefe final.
+- Resíduos de projéteis, padrões e estados de batalha que contaminavam uma nova tentativa.
 
 ### Verificação
 
-- 81 de 81 verificações estáticas aprovadas.
-- Build final com 93.882.119 bytes.
-- SHA-256: `b11466a946e0d07a7b8764db24f15390574ce9d10f24cbd9141ee10cd201363e`.
+- 97 de 97 verificações estáticas aprovadas.
+- Build final com 97.859.838 bytes.
+- SHA-256: `32ebecc215f989d5d69c6523d68db23bacc3ffe4cff329b7cca3bc0de3a76539`.
 
 ## [Alpha 1.1.2] — 2026-11-12
 
