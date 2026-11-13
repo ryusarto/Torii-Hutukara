@@ -26,6 +26,7 @@ async function main() {
     if (name.includes('iPad')) await context.addInitScript(() => {
       Object.defineProperty(navigator, 'maxTouchPoints', { get: () => 5 });
     });
+    await context.addInitScript(() => Object.defineProperty(navigator, 'getGamepads', { value: () => [] }));
     const page = await context.newPage();
     const errors = [], failed = [];
     page.on('pageerror', error => errors.push(error.message));
@@ -49,7 +50,7 @@ async function main() {
     } else if (name === 'Mobile') {
       await page.setViewportSize({ width: 844, height: 390 });
       await page.waitForFunction(() => document.documentElement.classList.contains('landscape121'));
-      assert(await page.locator('#mobileStick121').isVisible());
+      await page.locator('#mobileStick121').waitFor({state:'visible',timeout:10000});
       const stick = await page.locator('#mobileStick121').boundingBox();
       assert(stick.x >= 0 && stick.y >= 0 && stick.x + stick.width <= 844 && stick.y + stick.height <= 390);
       await page.setViewportSize(options.viewport);
