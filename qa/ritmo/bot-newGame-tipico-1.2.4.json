@@ -2,68 +2,68 @@
  "sessions": [
   {
    "label": "Nova jornada",
-   "startedAt": "2026-11-14T09:10:16.445Z",
+   "startedAt": "2026-11-14T09:50:40.535Z",
    "build": "Torii & Hutukara · Alpha 1.2.4 · Mobile & Co-op",
-   "total": 1648.8499999994724,
+   "total": 1215.4833333331999,
    "modes": {
-    "andando": 285.58333333349304,
-    "parado": 1.650000000000985,
-    "dialogo": 1205.1833333346026,
-    "combate": 147.7166666670139,
-    "menu": 4.800000000010672,
+    "andando": 275.1833333331316,
+    "parado": 1.4999999999992166,
+    "dialogo": 787.3166666672726,
+    "combate": 142.76666666670715,
+    "menu": 4.79999999999469,
     "ritmo": 3.9166666666643772
    },
    "areas": {
     "studio": {
      "andando": 6.416666666665984,
      "parado": 0.06666666666666424,
-     "dialogo": 45.566666666709374,
+     "dialogo": 39.483333333376386,
      "combate": 0,
      "menu": 0.016666666666744278,
      "ritmo": 0,
      "visitas": 2
     },
     "corridor": {
-     "andando": 7.316666666665556,
-     "parado": 0.03333333333332848,
-     "dialogo": 12.399999999998059,
+     "andando": 7.33333333333222,
+     "parado": 0.01666666666666424,
+     "dialogo": 0,
      "combate": 0,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
     },
     "chamber": {
-     "andando": 1.100000000000319,
-     "parado": 0.03333333333334303,
-     "dialogo": 39.5000000000125,
+     "andando": 1.0999999999998402,
+     "parado": 0.03333333333332848,
+     "dialogo": 35.81666666667019,
      "combate": 0,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
     },
     "city": {
-     "andando": 10.616666666661313,
-     "parado": 0.06666666666665697,
-     "dialogo": 65.11666666665508,
+     "andando": 10.616666666663132,
+     "parado": 0.06666666666668607,
+     "dialogo": 45.5166666666821,
      "combate": 0,
-     "menu": 0.016666666666656966,
+     "menu": 0.016666666666671517,
      "ritmo": 0,
      "visitas": 1
     },
     "forest": {
-     "andando": 13.016666666671112,
-     "parado": 0.09999999999999999,
-     "dialogo": 70.71666666662904,
-     "combate": 3.9500000000016144,
+     "andando": 13.649999999991971,
+     "parado": 0.09999999999994179,
+     "dialogo": 40.183333333312234,
+     "combate": 4.716666666663905,
      "menu": 0,
      "ritmo": 3.9166666666643772,
      "visitas": 1
     },
     "ruins": {
-     "andando": 11.016666666679377,
-     "parado": 0.1000000000001164,
-     "dialogo": 158.38333333348538,
-     "combate": 21.35000000002481,
+     "andando": 12.416666666659365,
+     "parado": 0.09999999999994179,
+     "dialogo": 104.53333333338706,
+     "combate": 20.466666666662427,
      "menu": 0.016666666666686068,
      "ritmo": 0,
      "visitas": 1
@@ -71,62 +71,53 @@
     "rain_station": {
      "andando": 4.883333333339036,
      "parado": 0.033333333333372135,
-     "dialogo": 20.466666666690397,
+     "dialogo": 12.500000000014365,
      "combate": 0,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
     },
     "voices": {
-     "andando": 65.38333333322356,
-     "parado": 0.2166666666662204,
-     "dialogo": 86.88333333321461,
-     "combate": 9.166666666645302,
-     "menu": 1.6166666666629066,
+     "andando": 53.83333333339608,
+     "parado": 0.16666666666686067,
+     "dialogo": 52.616666666729685,
+     "combate": 7.933333333342601,
+     "menu": 1.616666666668551,
      "ritmo": 0,
-     "visitas": 5
+     "visitas": 4
     },
     "tape_market": {
-     "andando": 2.666666666660469,
-     "parado": 0.04999999999988358,
-     "dialogo": 15.39999999996433,
+     "andando": 2.6666666666697783,
+     "parado": 0.050000000000058206,
+     "dialogo": 5.400000000006306,
      "combate": 0,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
     },
     "bento_shop": {
-     "andando": 2.549999999994073,
-     "parado": 0.04999999999988358,
-     "dialogo": 16.966666666627297,
-     "combate": 0,
-     "menu": 0,
-     "ritmo": 0,
-     "visitas": 1
-    },
-    "radio9": {
-     "andando": 2.1333333333283737,
-     "parado": 0.04999999999988358,
-     "dialogo": 20.249999999952745,
+     "andando": 2.550000000002975,
+     "parado": 0.050000000000058206,
+     "dialogo": 17.050000000019555,
      "combate": 0,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
     },
     "voice_roofs": {
-     "andando": 10.9833333333078,
-     "parado": 0.0833333333331393,
-     "dialogo": 23.44999999994506,
-     "combate": 4.833333333322083,
+     "andando": 10.383333333345337,
+     "parado": 0.08333333333343033,
+     "dialogo": 10.650000000012302,
+     "combate": 3.633333333337575,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
     },
     "voice_tower": {
-     "andando": 1.6666666666627905,
-     "parado": 0.03333333333325572,
-     "dialogo": 73.88333333316199,
-     "combate": 15.71666666663027,
+     "andando": 1.6833333333294185,
+     "parado": 0.01666666666662786,
+     "dialogo": 58.816666666532505,
+     "combate": 14.86666666663222,
      "menu": 0.01666666666662786,
      "ritmo": 0,
      "visitas": 1
@@ -134,15 +125,15 @@
     "sky_terminal": {
      "andando": 4.083333333323845,
      "parado": 0.03333333333325572,
-     "dialogo": 35.6833333332498,
+     "dialogo": 37.849999999911724,
      "combate": 0,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
     },
     "distortion_district": {
-     "andando": 54.30000000007989,
-     "parado": 0.11666666666686071,
+     "andando": 54.29999999987572,
+     "parado": 0.11666666666639502,
      "dialogo": 0,
      "combate": 0,
      "menu": 0,
@@ -150,64 +141,64 @@
      "visitas": 7
     },
     "contratempo": {
-     "andando": 9.766666666673851,
-     "parado": 0.10000000000011643,
-     "dialogo": 73.65000000009351,
+     "andando": 9.766666666643925,
+     "parado": 0.09999999999976716,
+     "dialogo": 43.56666666656588,
      "combate": 0,
-     "menu": 3.1166666666810703,
+     "menu": 3.116666666659424,
      "ritmo": 0,
      "visitas": 2
     },
     "power_plant": {
-     "andando": 16.099999999962712,
+     "andando": 17.04999999996043,
      "parado": 0.0833333333331393,
-     "dialogo": 62.216666666525064,
-     "combate": 8.98333333331239,
+     "dialogo": 43.43333333323284,
+     "combate": 10.499999999975575,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
     },
     "sky_canal": {
-     "andando": 20.150000000093456,
-     "parado": 0.16666666666744276,
-     "dialogo": 167.01666666736253,
-     "combate": 11.933333333388722,
+     "andando": 20.38333333328576,
+     "parado": 0.14999999999965075,
+     "dialogo": 59.46666666653108,
+     "combate": 9.366666666644843,
      "menu": 0,
      "ritmo": 0,
      "visitas": 2
     },
     "ciro_workshop": {
-     "andando": 2.66666666667909,
-     "parado": 0.05000000000023283,
-     "dialogo": 26.56666666678985,
+     "andando": 2.666666666660469,
+     "parado": 0.04999999999988358,
+     "dialogo": 33.11666666658875,
      "combate": 0,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
     },
     "sky_lift": {
-     "andando": 4.350000000020257,
-     "parado": 0.05000000000023283,
-     "dialogo": 31.583333333479757,
+     "andando": 4.349999999989885,
+     "parado": 0.04999999999988358,
+     "dialogo": 15.866666666629925,
      "combate": 0,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
     },
     "cloud_sea": {
-     "andando": 14.283333333399609,
-     "parado": 0.033333333333488556,
-     "dialogo": 19.100000000088592,
-     "combate": 7.3333333333674116,
+     "andando": 14.383333333299996,
+     "parado": 0.03333333333325572,
+     "dialogo": 10.533333333308832,
+     "combate": 7.6166666666488805,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
     },
     "cloud_terrace": {
-     "andando": 10.516666666715492,
-     "parado": 0.05000000000023283,
-     "dialogo": 33.48333333348856,
-     "combate": 36.66666666683664,
+     "andando": 11.050000000020226,
+     "parado": 0.050000000000116424,
+     "dialogo": 25.649999999988314,
+     "combate": 33.38333333332664,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
@@ -215,7 +206,7 @@
     "last_torii": {
      "andando": 4.083333333352355,
      "parado": 0.033333333333488556,
-     "dialogo": 26.966666666791703,
+     "dialogo": 13.566666666729622,
      "combate": 0,
      "menu": 0,
      "ritmo": 0,
@@ -224,8 +215,8 @@
     "silence_core": {
      "andando": 5.533333333359073,
      "parado": 0.016666666666744278,
-     "dialogo": 79.93333333371055,
-     "combate": 27.783333333462153,
+     "dialogo": 81.70000000038615,
+     "combate": 30.283333333473735,
      "menu": 0,
      "ritmo": 0,
      "visitas": 1
@@ -251,176 +242,26 @@
      "objetivo": "Siga o som. Encontre a origem da melodia.",
      "area": "studio",
      "inicio": 17.4,
-     "segundos": 68.23333333333811,
+     "segundos": 46.0166666666655,
      "modos": {
-      "andando": 13.54999999999834,
-      "parado": 0.1,
-      "dialogo": 54.58333333334021,
+      "andando": 13.566666666664535,
+      "parado": 0.08333333333332121,
+      "dialogo": 32.366666666666276,
       "combate": 0,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 13
+     "falas": 7
     },
     {
      "objetivo": "Converse com a Anciã Ema na praça da cidade.",
      "area": "chamber",
-     "inicio": 85.7,
-     "segundos": 46.93333333334713,
+     "inicio": 63.5,
+     "segundos": 36.68333333334503,
      "modos": {
-      "andando": 3.0833333333324227,
+      "andando": 3.0833333333342265,
       "parado": 0.03333333333334303,
-      "dialogo": 43.81666666668107,
-      "combate": 0,
-      "menu": 0,
-      "ritmo": 0
-     },
-     "falas": 8
-    },
-    {
-     "objetivo": "Passe pelo portão leste e explore a floresta.",
-     "area": "city",
-     "inicio": 132.6,
-     "segundos": 47.016666666642266,
-     "modos": {
-      "andando": 7.533333333328911,
-      "parado": 0.03333333333331393,
-      "dialogo": 39.433333333312596,
-      "combate": 0,
-      "menu": 0.016666666666656966,
-      "ritmo": 0
-     },
-     "falas": 7
-    },
-    {
-     "objetivo": "Encontre a figura mascarada na floresta.",
-     "area": "forest",
-     "inicio": 179.6,
-     "segundos": 12.91666666665907,
-     "modos": {
-      "andando": 3.21666666666479,
-      "parado": 0.03333333333331393,
-      "dialogo": 7.949999999995332,
-      "combate": 1.7166666666656707,
-      "menu": 0,
-      "ritmo": 0
-     },
-     "falas": 2
-    },
-    {
-     "objetivo": "Use o Baixo de Raiz na ponte de frequências.",
-     "area": "forest",
-     "inicio": 192.5,
-     "segundos": 48.56666666664152,
-     "modos": {
-      "andando": 2.7666666666650555,
-      "parado": 0.03333333333331393,
-      "dialogo": 41.849999999978095,
-      "combate": 0,
-      "menu": 0,
-      "ritmo": 3.9166666666643772
-     },
-     "falas": 7
-    },
-    {
-     "objetivo": "Ative as duas pedras de ressonância nas ruínas.",
-     "area": "forest",
-     "inicio": 241.1,
-     "segundos": 70.1333333333806,
-     "modos": {
-      "andando": 14.150000000016206,
-      "parado": 0.1000000000001164,
-      "dialogo": 44.900000000019055,
-      "combate": 10.983333333346007,
-      "menu": 0,
-      "ritmo": 0
-     },
-     "falas": 10
-    },
-    {
-     "objetivo": "Confronte a fonte do Silêncio.",
-     "area": "ruins",
-     "inicio": 311.3,
-     "segundos": 53.5000000000641,
-     "modos": {
-      "andando": 3.900000000004553,
-      "parado": 0.033333333333372135,
-      "dialogo": 36.96666666671056,
-      "combate": 12.600000000014477,
-      "menu": 0,
-      "ritmo": 0
-     },
-     "falas": 7
-    },
-    {
-     "objetivo": "Descubra a identidade do viajante mascarado.",
-     "area": "ruins",
-     "inicio": 364.8,
-     "segundos": 22.500000000026215,
-     "modos": {
-      "andando": 0,
-      "parado": 0,
-      "dialogo": 22.500000000026215,
-      "combate": 0,
-      "menu": 0,
-      "ritmo": 0
-     },
-     "falas": 4
-    },
-    {
-     "objetivo": "Converse com seu novo aliado.",
-     "area": "ruins",
-     "inicio": 387.3,
-     "segundos": 56.500000000067764,
-     "modos": {
-      "andando": 0,
-      "parado": 0,
-      "dialogo": 56.48333333340108,
-      "combate": 0,
-      "menu": 0.016666666666686068,
-      "ritmo": 0
-     },
-     "falas": 11
-    },
-    {
-     "objetivo": "Siga a máscara até a próxima realidade.",
-     "area": "ruins",
-     "inicio": 443.8,
-     "segundos": 18.500000000021327,
-     "modos": {
-      "andando": 0,
-      "parado": 0,
-      "dialogo": 18.500000000021327,
-      "combate": 0,
-      "menu": 0,
-      "ritmo": 0
-     },
-     "falas": 3
-    },
-    {
-     "objetivo": "Encontre Íris na Praça das Antenas.",
-     "area": "rain_station",
-     "inicio": 462.3,
-     "segundos": 36.50000000004332,
-     "modos": {
-      "andando": 16.200000000018516,
-      "parado": 0.050000000000058206,
-      "dialogo": 20.250000000023466,
-      "combate": 0,
-      "menu": 0,
-      "ritmo": 0
-     },
-     "falas": 3
-    },
-    {
-     "objetivo": "Procure a fita perdida no Mercado das Fitas.",
-     "area": "voices",
-     "inicio": 498.8,
-     "segundos": 40.883333333324664,
-     "modos": {
-      "andando": 10.816666666641515,
-      "parado": 0.04999999999988358,
-      "dialogo": 30.016666666682198,
+      "dialogo": 33.566666666677214,
       "combate": 0,
       "menu": 0,
       "ritmo": 0
@@ -428,14 +269,119 @@
      "falas": 5
     },
     {
-     "objetivo": "Monte o acoplador na Oficina do Belga.",
-     "area": "tape_market",
-     "inicio": 539.6,
-     "segundos": 23.24999999994554,
+     "objetivo": "Passe pelo portão leste e explore a floresta.",
+     "area": "city",
+     "inicio": 100.1,
+     "segundos": 37.63333333333929,
      "modos": {
-      "andando": 7.849999999981666,
-      "parado": 0.06666666666651144,
-      "dialogo": 15.333333333297816,
+      "andando": 7.533333333328926,
+      "parado": 0.03333333333334303,
+      "dialogo": 30.05000000000956,
+      "combate": 0,
+      "menu": 0.016666666666671517,
+      "ritmo": 0
+     },
+     "falas": 4
+    },
+    {
+     "objetivo": "Encontre a figura mascarada na floresta.",
+     "area": "forest",
+     "inicio": 137.8,
+     "segundos": 10.849999999993623,
+     "modos": {
+      "andando": 3.6666666666645247,
+      "parado": 0.03333333333331393,
+      "dialogo": 4.683333333330592,
+      "combate": 2.4666666666652324,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 1
+    },
+    {
+     "objetivo": "Use o Baixo de Raiz na ponte de frequências.",
+     "area": "forest",
+     "inicio": 148.6,
+     "segundos": 37.71666666664676,
+     "modos": {
+      "andando": 2.9666666666649375,
+      "parado": 0.03333333333331393,
+      "dialogo": 30.799999999983434,
+      "combate": 0,
+      "menu": 0,
+      "ritmo": 3.9166666666643772
+     },
+     "falas": 5
+    },
+    {
+     "objetivo": "Ative as duas pedras de ressonância nas ruínas.",
+     "area": "forest",
+     "inicio": 186.3,
+     "segundos": 38.74999999997959,
+     "modos": {
+      "andando": 15.266666666657684,
+      "parado": 0.09999999999994179,
+      "dialogo": 12.54999999999262,
+      "combate": 10.833333333326966,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 3
+    },
+    {
+     "objetivo": "Confronte a fonte do Silêncio.",
+     "area": "ruins",
+     "inicio": 225.1,
+     "segundos": 40.64999999998655,
+     "modos": {
+      "andando": 4.16666666666423,
+      "parado": 0.03333333333331393,
+      "dialogo": 24.566666666653653,
+      "combate": 11.8833333333337,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 4
+    },
+    {
+     "objetivo": "Descubra a identidade do viajante mascarado.",
+     "area": "ruins",
+     "inicio": 265.7,
+     "segundos": 17.500000000020105,
+     "modos": {
+      "andando": 0,
+      "parado": 0,
+      "dialogo": 17.500000000020105,
+      "combate": 0,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 3
+    },
+    {
+     "objetivo": "Converse com seu novo aliado.",
+     "area": "ruins",
+     "inicio": 283.2,
+     "segundos": 42.500000000050655,
+     "modos": {
+      "andando": 0,
+      "parado": 0,
+      "dialogo": 42.48333333338397,
+      "combate": 0,
+      "menu": 0.016666666666686068,
+      "ritmo": 0
+     },
+     "falas": 9
+    },
+    {
+     "objetivo": "Siga a máscara até a próxima realidade.",
+     "area": "ruins",
+     "inicio": 325.8,
+     "segundos": 12.000000000013808,
+     "modos": {
+      "andando": 0,
+      "parado": 0,
+      "dialogo": 12.000000000013808,
       "combate": 0,
       "menu": 0,
       "ritmo": 0
@@ -443,14 +389,29 @@
      "falas": 2
     },
     {
-     "objetivo": "Investigue o desaparecimento do técnico na Rádio 9.",
-     "area": "bento_shop",
-     "inicio": 562.9,
-     "segundos": 34.09999999991993,
+     "objetivo": "Encontre Íris na Praça das Antenas.",
+     "area": "rain_station",
+     "inicio": 337.8,
+     "segundos": 29.00000000003416,
      "modos": {
-      "andando": 17.04999999996043,
-      "parado": 0.06666666666651144,
-      "dialogo": 16.983333333293924,
+      "andando": 16.200000000018516,
+      "parado": 0.050000000000058206,
+      "dialogo": 12.750000000014644,
+      "combate": 0,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 2
+    },
+    {
+     "objetivo": "Procure a fita perdida no Mercado das Fitas.",
+     "area": "voices",
+     "inicio": 366.8,
+     "segundos": 42.500000000050655,
+     "modos": {
+      "andando": 10.816666666679154,
+      "parado": 0.050000000000058206,
+      "dialogo": 31.63333333337071,
       "combate": 0,
       "menu": 0,
       "ritmo": 0
@@ -458,104 +419,119 @@
      "falas": 4
     },
     {
-     "objetivo": "Reative o retransmissor da Praça.",
-     "area": "radio9",
-     "inicio": 597,
-     "segundos": 29.44999999993065,
+     "objetivo": "Monte o acoplador na Oficina do Belga.",
+     "area": "tape_market",
+     "inicio": 409.3,
+     "segundos": 13.500000000015481,
      "modos": {
-      "andando": 4.666666666655808,
-      "parado": 0.04999999999988358,
-      "dialogo": 20.349999999952505,
-      "combate": 4.38333333332314,
+      "andando": 7.85000000000917,
+      "parado": 0.06666666666674427,
+      "dialogo": 5.583333333339854,
+      "combate": 0,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 3
+     "falas": 1
+    },
+    {
+     "objetivo": "Reative o retransmissor da Praça.",
+     "area": "bento_shop",
+     "inicio": 422.8,
+     "segundos": 28.50000000003355,
+     "modos": {
+      "andando": 8.450000000009847,
+      "parado": 0.06666666666674427,
+      "dialogo": 16.80000000001925,
+      "combate": 3.183333333337049,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 2
     },
     {
      "objetivo": "Reative o retransmissor do Mercado.",
      "area": "voices",
-     "inicio": 626.4,
-     "segundos": 20.66666666661841,
+     "inicio": 451.3,
+     "segundos": 9.500000000011019,
      "modos": {
-      "andando": 4.3333333333232575,
-      "parado": 0.03333333333325572,
-      "dialogo": 11.516666666639908,
-      "combate": 4.783333333322201,
+      "andando": 4.7333333333388605,
+      "parado": 0.016666666666686068,
+      "dialogo": 0,
+      "combate": 4.750000000005547,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 2
+     "falas": 0
     },
     {
      "objetivo": "Recupere a melodia de Lumi e receba o violino.",
      "area": "voices",
-     "inicio": 647.1,
-     "segundos": 34.09999999991993,
+     "inicio": 460.8,
+     "segundos": 22.000000000025604,
      "modos": {
-      "andando": 5.516666666653812,
-      "parado": 0.03333333333325572,
-      "dialogo": 26.933333333270028,
+      "andando": 4.683333333338802,
+      "parado": 0,
+      "dialogo": 15.700000000017935,
       "combate": 0,
-      "menu": 1.6166666666629066,
-      "ritmo": 0
-     },
-     "falas": 4
-    },
-    {
-     "objetivo": "Toque o violino para dissipar a névoa dos telhados.",
-     "area": "voices",
-     "inicio": 681.2,
-     "segundos": 31.516666666592354,
-     "modos": {
-      "andando": 12.816666666636925,
-      "parado": 0.04999999999988358,
-      "dialogo": 18.649999999956588,
-      "combate": 0,
-      "menu": 0,
+      "menu": 1.616666666668551,
       "ritmo": 0
      },
      "falas": 3
     },
     {
-     "objetivo": "Reative o retransmissor dos Telhados.",
-     "area": "voice_roofs",
-     "inicio": 712.7,
-     "segundos": 16.533333333295005,
+     "objetivo": "Toque o violino para dissipar a névoa dos telhados.",
+     "area": "voices",
+     "inicio": 482.8,
+     "segundos": 18.000000000020716,
      "modos": {
-      "andando": 1.1999999999972073,
-      "parado": 0.03333333333325572,
-      "dialogo": 10.466666666642318,
-      "combate": 4.833333333322083,
+      "andando": 12.83333333334807,
+      "parado": 0.050000000000058206,
+      "dialogo": 5.116666666672642,
+      "combate": 0,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 2
+     "falas": 1
+    },
+    {
+     "objetivo": "Reative o retransmissor dos Telhados.",
+     "area": "voice_roofs",
+     "inicio": 500.8,
+     "segundos": 8.000000000009345,
+     "modos": {
+      "andando": 0.5833333333340125,
+      "parado": 0.033333333333372135,
+      "dialogo": 3.750000000004378,
+      "combate": 3.633333333337575,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 1
     },
     {
      "objetivo": "Suba à Torre de Transmissão e enfrente o Silêncio.",
      "area": "voice_roofs",
-     "inicio": 729.3,
-     "segundos": 69.74999999983946,
+     "inicio": 508.8,
+     "segundos": 55.68333333325634,
      "modos": {
-      "andando": 9.81666666664381,
-      "parado": 0.0833333333331393,
-      "dialogo": 44.133333333231306,
-      "combate": 15.71666666663027,
+      "andando": 9.850000000003869,
+      "parado": 0.06666666666668607,
+      "dialogo": 30.8999999999511,
+      "combate": 14.86666666663222,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 7
+     "falas": 5
     },
     {
      "objetivo": "Capítulo 02 concluído! Descubra os segredos da cidade.",
      "area": "voice_tower",
-     "inicio": 799,
-     "segundos": 42.366666666568506,
+     "inicio": 564.4,
+     "segundos": 35.133333333251,
      "modos": {
       "andando": 0,
       "parado": 0,
-      "dialogo": 42.349999999901875,
+      "dialogo": 35.11666666658437,
       "combate": 0,
       "menu": 0.01666666666662786,
       "ritmo": 0
@@ -565,27 +541,27 @@
     {
      "objetivo": "Encontre Belga no Clube Contratempo.",
      "area": "sky_terminal",
-     "inicio": 841.4,
-     "segundos": 85.76666666646425,
+     "inicio": 599.6,
+     "segundos": 65.09999999985162,
      "modos": {
-      "andando": 13.849999999967887,
+      "andando": 14.066666666634056,
       "parado": 0.09999999999976716,
-      "dialogo": 71.7999999998341,
+      "dialogo": 50.916666666549794,
       "combate": 0,
       "menu": 0.01666666666662786,
       "ritmo": 0
      },
-     "falas": 10
+     "falas": 5
     },
     {
      "objetivo": "Abra a trava grave da Usina.",
      "area": "contratempo",
-     "inicio": 927.1,
-     "segundos": 18.599999999956708,
+     "inicio": 664.7,
+     "segundos": 18.083333333291282,
      "modos": {
-      "andando": 18.133333333291162,
+      "andando": 17.916666666625016,
       "parado": 0.03333333333325572,
-      "dialogo": 0.4333333333323244,
+      "dialogo": 0.13333333333302289,
       "combate": 0,
       "menu": 0,
       "ritmo": 0
@@ -595,148 +571,148 @@
     {
      "objetivo": "Interrompa o ciclo da Usina.",
      "area": "power_plant",
-     "inicio": 945.7,
-     "segundos": 29.44999999993065,
+     "inicio": 682.8,
+     "segundos": 27.899999999934373,
      "modos": {
-      "andando": 3.4333333333253555,
+      "andando": 4.38333333332314,
       "parado": 0.03333333333325572,
-      "dialogo": 16.99999999996055,
-      "combate": 8.98333333331239,
+      "dialogo": 12.983333333303209,
+      "combate": 10.499999999975575,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 5
+     "falas": 4
     },
     {
      "objetivo": "Separe a interferência do canal.",
      "area": "power_plant",
-     "inicio": 975.2,
-     "segundos": 95.58333333328315,
+     "inicio": 710.7,
+     "segundos": 73.88333333316199,
      "modos": {
-      "andando": 17.033333333309155,
-      "parado": 0.08333333333337214,
-      "dialogo": 78.46666666663857,
+      "andando": 17.033333333293804,
+      "parado": 0.0833333333331393,
+      "dialogo": 56.76666666653699,
       "combate": 0,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 13
+     "falas": 8
     },
     {
      "objetivo": "Resgate os trabalhadores do canal.",
      "area": "sky_canal",
-     "inicio": 1070.8,
-     "segundos": 28.41666666679842,
+     "inicio": 784.5,
+     "segundos": 11.883333333305734,
      "modos": {
-      "andando": 3.1166666666811866,
-      "parado": 0.05000000000023283,
-      "dialogo": 19.083333333421848,
-      "combate": 6.16666666669534,
+      "andando": 3.216666666659192,
+      "parado": 0.04999999999988358,
+      "dialogo": 4.44999999998965,
+      "combate": 4.166666666656982,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 2
+     "falas": 0
     },
     {
      "objetivo": "Separe a interferência do canal.",
      "area": "distortion_district",
-     "inicio": 1099.2,
-     "segundos": 41.333333333524926,
+     "inicio": 796.4,
+     "segundos": 7.749999999981901,
      "modos": {
-      "andando": 7.466666666701363,
-      "parado": 0.033333333333488556,
-      "dialogo": 33.83333333349018,
+      "andando": 7.383333333316095,
+      "parado": 0.01666666666662786,
+      "dialogo": 0.3499999999991851,
       "combate": 0,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 7
+     "falas": 1
     },
     {
      "objetivo": "Resgate os trabalhadores do canal.",
      "area": "sky_canal",
-     "inicio": 1140.5,
-     "segundos": 29.45000000013654,
+     "inicio": 804.2,
+     "segundos": 14.466666666633138,
      "modos": {
-      "andando": 4.416666666687233,
-      "parado": 0.033333333333488556,
-      "dialogo": 19.233333333422543,
-      "combate": 5.766666666693487,
+      "andando": 4.599999999989298,
+      "parado": 0.03333333333325572,
+      "dialogo": 4.633333333322553,
+      "combate": 5.199999999987889,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 3
+     "falas": 1
     },
     {
      "objetivo": "Encontre Colli na Oficina de Mazza.",
      "area": "sky_canal",
-     "inicio": 1170,
-     "segundos": 83.18333333372699,
+     "inicio": 818.6,
+     "segundos": 45.46666666656172,
      "modos": {
-      "andando": 21.783333333434356,
-      "parado": 0.06666666666697711,
-      "dialogo": 61.33333333361758,
+      "andando": 21.81666666661565,
+      "parado": 0.06666666666651144,
+      "dialogo": 23.583333333278073,
       "combate": 0,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 13
+     "falas": 4
     },
     {
      "objetivo": "Volte ao Contratempo e comece uma música.",
      "area": "ciro_workshop",
-     "inicio": 1253.1,
-     "segundos": 36.683333333503384,
+     "inicio": 864.1,
+     "segundos": 43.39999999989958,
      "modos": {
-      "andando": 7.100000000032997,
-      "parado": 0.06666666666697711,
-      "dialogo": 26.416666666789155,
+      "andando": 7.099999999983427,
+      "parado": 0.06666666666651144,
+      "dialogo": 33.13333333325538,
       "combate": 0,
-      "menu": 3.1000000000144423,
-      "ritmo": 0
-     },
-     "falas": 5
-    },
-    {
-     "objetivo": "Reabra o Elevador do Céu.",
-     "area": "contratempo",
-     "inicio": 1289.8,
-     "segundos": 50.63333333356801,
-     "modos": {
-      "andando": 12.800000000059404,
-      "parado": 0.06666666666697711,
-      "dialogo": 37.766666666841736,
-      "combate": 0,
-      "menu": 0,
+      "menu": 3.099999999992796,
       "ritmo": 0
      },
      "falas": 6
     },
     {
-     "objetivo": "Forme a primeira passarela de nuvem.",
-     "area": "sky_lift",
-     "inicio": 1340.5,
-     "segundos": 56.833333333596734,
+     "objetivo": "Reabra o Elevador do Céu.",
+     "area": "contratempo",
+     "inicio": 907.5,
+     "segundos": 43.39999999989958,
      "modos": {
-      "andando": 6.316666666696035,
-      "parado": 0.06666666666697711,
-      "dialogo": 50.45000000023383,
+      "andando": 12.799999999970296,
+      "parado": 0.06666666666651144,
+      "dialogo": 30.533333333261382,
       "combate": 0,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 10
+     "falas": 4
+    },
+    {
+     "objetivo": "Forme a primeira passarela de nuvem.",
+     "area": "sky_lift",
+     "inicio": 950.9,
+     "segundos": 32.03333333325779,
+     "modos": {
+      "andando": 5.983333333319383,
+      "parado": 0.06666666666651144,
+      "dialogo": 25.98333333327231,
+      "combate": 0,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 4
     },
     {
      "objetivo": "Mova a plataforma com o Tambor do Horizonte.",
      "area": "cloud_sea",
-     "inicio": 1397.3,
-     "segundos": 7.233333333366948,
+     "inicio": 982.9,
+     "segundos": 7.233333333316447,
      "modos": {
-      "andando": 3.5833333333500277,
+      "andando": 3.749999999991287,
       "parado": 0,
       "dialogo": 0,
-      "combate": 3.650000000017005,
+      "combate": 3.4833333333252394,
       "menu": 0,
       "ritmo": 0
      },
@@ -745,13 +721,13 @@
     {
      "objetivo": "Forme a última passarela de nuvem.",
      "area": "cloud_sea",
-     "inicio": 1404.5,
-     "segundos": 7.233333333366948,
+     "inicio": 990.2,
+     "segundos": 7.749999999981901,
      "modos": {
-      "andando": 3.550000000016539,
+      "andando": 3.616666666658263,
       "parado": 0,
       "dialogo": 0,
-      "combate": 3.6833333333504936,
+      "combate": 4.133333333323727,
       "menu": 0,
       "ritmo": 0
      },
@@ -760,13 +736,13 @@
     {
      "objetivo": "Enfrente O Metrônomo.",
      "area": "cloud_sea",
-     "inicio": 1411.8,
-     "segundos": 63.03333333362546,
+     "inicio": 997.9,
+     "segundos": 59.93333333326676,
      "modos": {
-      "andando": 7.566666666701826,
-      "parado": 0.016666666666744278,
-      "dialogo": 18.783333333420458,
-      "combate": 36.66666666683664,
+      "andando": 7.766666666648528,
+      "parado": 0.01666666666662786,
+      "dialogo": 18.76666666662309,
+      "combate": 33.38333333332664,
       "menu": 0,
       "ritmo": 0
      },
@@ -775,27 +751,27 @@
     {
      "objetivo": "Atravesse o Último Torii e enfrente O Silêncio.",
      "area": "cloud_terrace",
-     "inicio": 1474.8,
-     "segundos": 124.51666666726943,
+     "inicio": 1057.9,
+     "segundos": 105.91666666717533,
      "modos": {
-      "andando": 15.683333333406095,
+      "andando": 16.2166666667419,
       "parado": 0.0833333333337214,
-      "dialogo": 80.96666666704911,
-      "combate": 27.783333333462153,
+      "dialogo": 59.333333333608316,
+      "combate": 30.283333333473735,
       "menu": 0,
       "ritmo": 0
      },
-     "falas": 15
+     "falas": 11
     },
     {
      "objetivo": "Volte ao estúdio e abra uma sessão nova.",
      "area": "silence_core",
-     "inicio": 1599.3,
-     "segundos": 49.55000000022966,
+     "inicio": 1163.8,
+     "segundos": 51.73333333357311,
      "modos": {
       "andando": 0,
       "parado": 0,
-      "dialogo": 49.533333333562915,
+      "dialogo": 51.71666666690636,
       "combate": 0,
       "menu": 0.016666666666744278,
       "ritmo": 0
@@ -804,39 +780,37 @@
     }
    ],
    "dialogue": {
-    "lines": 225,
-    "chars": 14955,
+    "lines": 139,
+    "chars": 9839,
     "speakers": {
-     "FRANCO, THE SIR!": 48,
-     "RYUCHI": 48,
-     "NARRADOR": 39,
+     "FRANCO, THE SIR!": 26,
+     "RYUCHI": 33,
+     "NARRADOR": 14,
      "VOZ DESCONHECIDA": 1,
-     "ANCIÃ EMA": 4,
-     "MÚSICO MASCARADO": 6,
-     "???": 7,
-     "IRIS": 9,
-     "BENTO": 1,
-     "LUMI": 4,
+     "ANCIÃ EMA": 3,
+     "MÚSICO MASCARADO": 5,
+     "???": 6,
+     "IRIS": 5,
+     "BELGA": 8,
+     "LUMI": 3,
      "O SILÊNCIO": 4,
      "KATANA": 2,
-     "BELGA": 9,
-     "SYNTH": 11,
-     "NARA": 2,
-     "PERCUSSION": 15,
-     "COLLI": 11,
-     "MAZZA": 2,
-     "DNEY": 1,
-     "METRONOME": 1
+     "FRANCO SINTETIZADOR": 6,
+     "COLLI": 7,
+     "RYUCHI PERCUSSIONISTA": 10,
+     "MAZZA": 3,
+     "DNEY": 2,
+     "O METRÔNOMO": 1
     }
    },
    "combat": {
-    "encounters": 17,
-    "firstAt": 190.3,
-    "longestQuiet": 257.4,
+    "encounters": 18,
+    "firstAt": 145.3,
+    "longestQuiet": 182.2,
     "longestQuietWhere": "voices"
    },
    "deaths": 1,
-   "areaChanges": 37
+   "areaChanges": 35
   }
  ]
 }

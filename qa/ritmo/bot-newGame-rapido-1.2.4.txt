@@ -1,111 +1,109 @@
-RELATÓRIO DE RITMO · Nova jornada · 2026-11-14 09:10
-Tempo de jogo medido: 20min 14s
+RELATÓRIO DE RITMO · Nova jornada · 2026-11-14 09:50
+Tempo de jogo medido: 14min 26s
 
 ONDE O TEMPO FOI
-  Andando                    2min 54s   14%
-  Parado (sem diálogo)             2s    0%
-  Lendo diálogo             14min 46s   73%
-  Combate                    2min 24s   12%
-  Menus/mapa/diário                5s    0%
+  Andando                    2min 44s   19%
+  Parado (sem diálogo)             1s    0%
+  Lendo diálogo              9min 37s   67%
+  Combate                    1min 55s   13%
+  Menus/mapa/diário                5s    1%
   Desafio de ritmo                 4s    0%
-  → Jogando de fato (combate + ritmo): 12% · Andando + lendo: 87%
+  → Jogando de fato (combate + ritmo): 14% · Andando + lendo: 86%
 
 COMBATE
-  Encontros: 18 · Derrotas: 1
-  Primeiro combate em: 2min 17s
-  Maior trecho sem lutar: 3min 01s (terminou em voices)
+  Encontros: 17 · Derrotas: 1
+  Primeiro combate em: 1min 43s
+  Maior trecho sem lutar: 2min 08s (terminou em voices)
 
 DIÁLOGO
-  Falas lidas: 225 · Caracteres: 14955 · Narrador: 17%
-  Quem mais fala: FRANCO, THE SIR! 48 · RYUCHI 48 · NARRADOR 39 · PERCUSSION 15 · SYNTH 11 · COLLI 11
+  Falas lidas: 139 · Caracteres: 9839 · Narrador: 10%
+  Quem mais fala: RYUCHI 33 · FRANCO, THE SIR! 26 · NARRADOR 14 · RYUCHI PERCUSSIONISTA 10 · BELGA 8 · COLLI 7
 
 ETAPAS MAIS LONGAS (onde cortar primeiro)
-   1.  1min 40s · lendo diálogo 59% · 15 falas · Atravesse o Último Torii e enfrente O Silêncio.
-   2.  1min 08s · lendo diálogo 85% · 13 falas · Separe a interferência do canal.
-   3.  1min 00s · lendo diálogo 85% · 9 falas · Encontre Belga no Clube Contratempo.
-   4.       59s · lendo diálogo 77% · 13 falas · Encontre Colli na Oficina de Mazza.
-   5.       54s · lendo diálogo 61% · 7 falas · Suba à Torre de Transmissão e enfrente o Silêncio.
-   6.       53s · lendo diálogo 63% · 10 falas · Ative as duas pedras de ressonância nas ruínas.
-   7.       50s · combate 63% · 4 falas · Enfrente O Metrônomo.
-   8.       49s · lendo diálogo 83% · 13 falas · Siga o som. Encontre a origem da melodia.
-   9.       45s · lendo diálogo 60% · 7 falas · Confronte a fonte do Silêncio.
-  10.       42s · lendo diálogo 100% · 12 falas · Converse com seu novo aliado.
+   1.  1min 17s · lendo diálogo 56% · 11 falas · Atravesse o Último Torii e enfrente O Silêncio.
+   2.       52s · lendo diálogo 80% · 8 falas · Separe a interferência do canal.
+   3.       46s · lendo diálogo 81% · 5 falas · Encontre Belga no Clube Contratempo.
+   4.       45s · lendo diálogo 51% · 5 falas · Suba à Torre de Transmissão e enfrente o Silêncio.
+   5.       39s · lendo diálogo 100% · 15 falas · Volte ao estúdio e abra uma sessão nova.
+   6.       36s · combate 48% · 4 falas · Enfrente O Metrônomo.
+   7.       35s · lendo diálogo 51% · 4 falas · Confronte a fonte do Silêncio.
+   8.       32s · lendo diálogo 74% · 7 falas · Siga o som. Encontre a origem da melodia.
+   9.       32s · lendo diálogo 100% · 9 falas · Converse com seu novo aliado.
+  10.       32s · lendo diálogo 76% · 5 falas · Volte ao Contratempo e comece uma música.
 
 POR ÁREA
-  ruins                 2min 28s · andando 5% · diálogo 79% · combate 16% · entradas 1
-  sky_canal             2min 27s · andando 9% · diálogo 83% · combate 8% · entradas 2
-  voices                1min 51s · andando 35% · diálogo 57% · combate 6% · entradas 5
-  silence_core          1min 34s · andando 4% · diálogo 63% · combate 33% · entradas 1
-  voice_tower           1min 10s · andando 1% · diálogo 77% · combate 22% · entradas 1
-  forest                1min 08s · andando 12% · diálogo 76% · combate 6% · entradas 1
-  power_plant           1min 05s · andando 15% · diálogo 70% · combate 15% · entradas 1
-  cloud_terrace         1min 03s · andando 11% · diálogo 39% · combate 50% · entradas 1
-  contratempo           1min 03s · andando 9% · diálogo 85% · combate 0% · entradas 2
-  city                       54s · andando 12% · diálogo 88% · combate 0% · entradas 1
-  studio                     38s · andando 10% · diálogo 90% · combate 0% · entradas 2
+  ruins                 1min 47s · andando 7% · diálogo 72% · combate 21% · entradas 1
+  silence_core          1min 29s · andando 4% · diálogo 68% · combate 28% · entradas 1
+  voices                1min 19s · andando 41% · diálogo 48% · combate 8% · entradas 4
+  sky_canal             1min 06s · andando 19% · diálogo 66% · combate 14% · entradas 2
+  voice_tower           1min 00s · andando 2% · diálogo 72% · combate 27% · entradas 1
+  power_plant                49s · andando 17% · diálogo 65% · combate 17% · entradas 1
+  forest                     45s · andando 19% · diálogo 65% · combate 7% · entradas 1
+  cloud_terrace              42s · andando 14% · diálogo 45% · combate 41% · entradas 1
+  contratempo                41s · andando 14% · diálogo 78% · combate 0% · entradas 2
+  city                       39s · andando 16% · diálogo 84% · combate 0% · entradas 1
+  studio                     33s · andando 12% · diálogo 88% · combate 0% · entradas 2
   distortion_district        33s · andando 100% · diálogo 0% · combate 0% · entradas 7
-  chamber                    30s · andando 2% · diálogo 98% · combate 0% · entradas 1
-  cloud_sea                  30s · andando 29% · diálogo 47% · combate 25% · entradas 1
-  sky_terminal               28s · andando 9% · diálogo 91% · combate 0% · entradas 1
-  voice_roofs                27s · andando 24% · diálogo 65% · combate 11% · entradas 1
-  sky_lift                   26s · andando 10% · diálogo 90% · combate 0% · entradas 1
-  last_torii                 22s · andando 11% · diálogo 89% · combate 0% · entradas 1
-  ciro_workshop              21s · andando 8% · diálogo 92% · combate 0% · entradas 1
-  rain_station               18s · andando 16% · diálogo 83% · combate 0% · entradas 1
-  radio9                     16s · andando 8% · diálogo 92% · combate 0% · entradas 1
+  sky_terminal               30s · andando 8% · diálogo 92% · combate 0% · entradas 1
+  chamber                    27s · andando 2% · diálogo 97% · combate 0% · entradas 1
+  ciro_workshop              26s · andando 6% · diálogo 93% · combate 0% · entradas 1
+  cloud_sea                  20s · andando 40% · diálogo 38% · combate 22% · entradas 1
+  voice_roofs                17s · andando 39% · diálogo 47% · combate 13% · entradas 1
+  sky_lift                   15s · andando 18% · diálogo 82% · combate 0% · entradas 1
   bento_shop                 14s · andando 11% · diálogo 89% · combate 0% · entradas 1
-  corridor                   14s · andando 32% · diálogo 68% · combate 0% · entradas 1
-  tape_market                13s · andando 13% · diálogo 87% · combate 0% · entradas 1
+  last_torii                 12s · andando 20% · diálogo 80% · combate 0% · entradas 1
+  rain_station               12s · andando 24% · diálogo 75% · combate 0% · entradas 1
+  tape_market                 6s · andando 29% · diálogo 70% · combate 0% · entradas 1
+  corridor                    4s · andando 100% · diálogo 0% · combate 0% · entradas 1
 
 EVENTOS DO ROBÔ
 [0.0 min] Objetivo: Investigue a mesa de produção no estúdio.
 [0.2 min] Objetivo: Siga o som. Encontre a origem da melodia.
-[1.0 min] Objetivo: Converse com a Anciã Ema na praça da cidade.
-[1.6 min] Objetivo: Passe pelo portão leste e explore a floresta.
-[1.9 min] Overlay "DIÁLOGO · ESCOLHA O que vocês querem perguntar à Anciã Ema? A resposta fica reg" → 1. Quem é esse viajante mascarado?
-[2.1 min] Objetivo: Encontre a figura mascarada na floresta.
-[2.3 min] Objetivo: Use o Baixo de Raiz na ponte de frequências.
-[2.9 min] Objetivo: Ative as duas pedras de ressonância nas ruínas.
-[3.8 min] Objetivo: Confronte a fonte do Silêncio.
-[4.6 min] Objetivo: Descubra a identidade do viajante mascarado.
-[4.8 min] Objetivo: Converse com seu novo aliado.
-[5.5 min] Objetivo: Siga a máscara até a próxima realidade.
-[5.5 min] Overlay "CAPÍTULO 01 · CONCLUÍDO A Última Frequência O primeiro doppelgänger foi encontr" → ✦ CONTINUAR · CAPÍTULO 02
-[5.8 min] Objetivo: Encontre Íris na Praça das Antenas.
-[6.2 min] Objetivo: Procure a fita perdida no Mercado das Fitas.
-[6.6 min] Objetivo: Monte o acoplador na Oficina do Belga.
-[6.9 min] Objetivo: Investigue o desaparecimento do técnico na Rádio 9.
-[7.3 min] Objetivo: Reative o retransmissor da Praça.
-[7.6 min] Objetivo: Reative o retransmissor do Mercado.
-[7.9 min] Objetivo: Recupere a melodia de Lumi e receba o violino.
-[8.3 min] Puzzle Lumi → nota 0
-[8.3 min] Puzzle Lumi → nota 2
-[8.3 min] Puzzle Lumi → nota 0
-[8.3 min] Objetivo: Toque o violino para dissipar a névoa dos telhados.
-[8.6 min] Objetivo: Reative o retransmissor dos Telhados.
-[8.8 min] Objetivo: Suba à Torre de Transmissão e enfrente o Silêncio.
-[9.7 min] Objetivo: Capítulo 02 concluído! Descubra os segredos da cidade.
-[10.2 min] Overlay "CAPÍTULO 02 · CONCLUÍDO A máscara abriu o Lado B O Silêncio recua antes de desa" → ATRAVESSAR · CAPÍTULO 03
-[10.2 min] Objetivo: Encontre Belga no Clube Contratempo.
-[11.2 min] Overlay "CAPÍTULO 03 · ESCOLHA DE ROTA Qual aperto vem primeiro? As duas frentes continu" → USINAO grave da rua desapareceu.
-[11.2 min] Objetivo: Abra a trava grave da Usina.
-[11.4 min] Objetivo: Interrompa o ciclo da Usina.
-[11.8 min] Objetivo: Separe a interferência do canal.
-[13.0 min] Objetivo: Resgate os trabalhadores do canal.
-[13.3 min] Overlay "CAPÍTULO 03 · A FREQUÊNCIA SE PARTIU AINDA DÁ PARA RECOMEÇAR A formação retorna" → ↻ TENTAR NOVAMENTE
-[13.3 min] Objetivo: Separe a interferência do canal.
-[13.8 min] Objetivo: Resgate os trabalhadores do canal.
-[14.2 min] Objetivo: Encontre Colli na Oficina de Mazza.
-[15.2 min] Objetivo: Volte ao Contratempo e comece uma música.
-[15.6 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♪GRAVE
-[15.6 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♫MÉDIA
-[15.6 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♬AGUDA
-[15.6 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ✦ABERTA
-[15.6 min] Objetivo: Reabra o Elevador do Céu.
-[16.2 min] Objetivo: Forme a primeira passarela de nuvem.
-[16.9 min] Objetivo: Mova a plataforma com o Tambor do Horizonte.
-[17.0 min] Objetivo: Forme a última passarela de nuvem.
-[17.1 min] Objetivo: Enfrente O Metrônomo.
-[17.9 min] Objetivo: Atravesse o Último Torii e enfrente O Silêncio.
-[19.6 min] Objetivo: Volte ao estúdio e abra uma sessão nova.
-[20.2 min] Objetivo: Crie livremente e revisite os mundos.
+[0.7 min] Objetivo: Converse com a Anciã Ema na praça da cidade.
+[1.2 min] Objetivo: Passe pelo portão leste e explore a floresta.
+[1.5 min] Overlay "DIÁLOGO · ESCOLHA O que vocês querem perguntar à Anciã Ema? A resposta fica reg" → 1. Quem é esse viajante mascarado?
+[1.6 min] Objetivo: Encontre a figura mascarada na floresta.
+[1.8 min] Objetivo: Use o Baixo de Raiz na ponte de frequências.
+[2.2 min] Objetivo: Ative as duas pedras de ressonância nas ruínas.
+[2.7 min] Objetivo: Confronte a fonte do Silêncio.
+[3.3 min] Objetivo: Descubra a identidade do viajante mascarado.
+[3.5 min] Objetivo: Converse com seu novo aliado.
+[4.0 min] Objetivo: Siga a máscara até a próxima realidade.
+[4.0 min] Overlay "CAPÍTULO 01 · CONCLUÍDO A Última Frequência O primeiro doppelgänger foi encontr" → ✦ CONTINUAR · CAPÍTULO 02
+[4.2 min] Objetivo: Encontre Íris na Praça das Antenas.
+[4.5 min] Objetivo: Procure a fita perdida no Mercado das Fitas.
+[5.0 min] Objetivo: Monte o acoplador na Oficina do Belga.
+[5.1 min] Objetivo: Reative o retransmissor da Praça.
+[5.5 min] Objetivo: Reative o retransmissor do Mercado.
+[5.6 min] Objetivo: Recupere a melodia de Lumi e receba o violino.
+[5.8 min] Puzzle Lumi → nota 0
+[5.8 min] Puzzle Lumi → nota 2
+[5.8 min] Puzzle Lumi → nota 0
+[5.8 min] Objetivo: Toque o violino para dissipar a névoa dos telhados.
+[6.0 min] Objetivo: Reative o retransmissor dos Telhados.
+[6.1 min] Objetivo: Suba à Torre de Transmissão e enfrente o Silêncio.
+[6.9 min] Objetivo: Capítulo 02 concluído! Descubra os segredos da cidade.
+[7.3 min] Overlay "CAPÍTULO 02 · CONCLUÍDO A máscara abriu o Lado B O Silêncio recua antes de desa" → ATRAVESSAR · CAPÍTULO 03
+[7.3 min] Objetivo: Encontre Belga no Clube Contratempo.
+[8.0 min] Overlay "CAPÍTULO 03 · ESCOLHA DE ROTA Qual aperto vem primeiro? As duas frentes continu" → USINAO grave da rua desapareceu.
+[8.0 min] Objetivo: Abra a trava grave da Usina.
+[8.2 min] Objetivo: Interrompa o ciclo da Usina.
+[8.6 min] Objetivo: Separe a interferência do canal.
+[9.4 min] Objetivo: Resgate os trabalhadores do canal.
+[9.6 min] Overlay "CAPÍTULO 03 · A FREQUÊNCIA SE PARTIU AINDA DÁ PARA RECOMEÇAR A formação retorna" → ↻ TENTAR NOVAMENTE
+[9.6 min] Objetivo: Separe a interferência do canal.
+[9.6 min] Objetivo: Resgate os trabalhadores do canal.
+[9.8 min] Objetivo: Encontre Colli na Oficina de Mazza.
+[10.4 min] Objetivo: Volte ao Contratempo e comece uma música.
+[10.8 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♪GRAVE
+[10.9 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♫MÉDIA
+[10.9 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♬AGUDA
+[10.9 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ✦ABERTA
+[10.9 min] Objetivo: Reabra o Elevador do Céu.
+[11.4 min] Objetivo: Forme a primeira passarela de nuvem.
+[11.8 min] Objetivo: Mova a plataforma com o Tambor do Horizonte.
+[11.8 min] Objetivo: Forme a última passarela de nuvem.
+[11.9 min] Objetivo: Enfrente O Metrônomo.
+[12.5 min] Objetivo: Atravesse o Último Torii e enfrente O Silêncio.
+[13.8 min] Objetivo: Volte ao estúdio e abra uma sessão nova.
+[14.4 min] Objetivo: Crie livremente e revisite os mundos.

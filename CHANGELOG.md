@@ -4,6 +4,17 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ## [Não lançado]
 
+### Fase 5 — cortes de diálogo
+
+- 225 → 139 falas obrigatórias, preservando estúdio e chegada ao Hutukara, máscaras, revelação do mascarado, encontro das versões, plot twist e final. Edições em `design/dialogo/EDICOES_DIALOGO.json`, aplicadas por `dialogue_edits.js`.
+- Avisos de sistema (itens, retransmissores, novo aliado, ressonância) viram notificação rápida, sem travar o jogo.
+- Capítulo 2: a Íris explica tudo de uma vez e o Belga entrega o acoplador; a parada obrigatória na Rádio 9 deixa de existir (saves antigos são ajustados).
+- Belga, Colli, Mazza e Dney com mais presença: Dney conduz a cena do Contratempo e Mazza ganha falas próprias.
+- Final: 3 falas novas com o gancho dos mundos dentro do Hutukara e das próximas sessões (aprovadas pelo autor).
+- Corrigido: cena do Canal repetia inteira ao falar de novo com Colli ou com o Percussionista; cenas automáticas se repetiam depois de uma derrota; nomes "BENTO" e "NARA" no lugar de BELGA e COLLI; duas aberturas contraditórias na revelação do mascarado; mesma fala nas duas pedras; fala do Mazza respondendo a uma fala cortada.
+- Corrigido no medidor de ritmo: o início do teste do Capítulo 3 não era registrado.
+- Jornada típica medida: 27,5 → 20,3 min.
+
 ### Fase 1 — medição de ritmo
 
 - Medidor de ritmo (`game/source/telemetry/pace_meter.js`): tempo andando, lendo, lutando e em menus por área e por etapa, guardado só no aparelho. Com `?ritmo` no endereço aparece o botão RITMO para baixar o relatório.

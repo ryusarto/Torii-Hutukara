@@ -71,7 +71,7 @@ for(const [fn,label] of [['newGame','Nova jornada'],['continueGame','Continuaç�
   const before=window[fn];if(typeof before!=='function')continue;
   window[fn]=function(...args){newSession(label);return before.apply(this,args)};
 }
-if(window.C3&&typeof C3.start==='function'){const before=C3.start;C3.start=function(preview,...rest){if(preview)newSession('Teste Capítulo 3');return before.call(this,preview,...rest)}}
+if(typeof C3!=='undefined'&&typeof C3.start==='function'){const before=C3.start;C3.start=function(preview,...rest){if(preview)newSession('Teste Capítulo 3');return before.call(this,preview,...rest)}}
 
 // ---------- relatório ----------
 const fmt=x=>{x=Math.round(x);const m=Math.floor(x/60),r=x%60;return m?`${m}min ${String(r).padStart(2,'0')}s`:`${r}s`};
