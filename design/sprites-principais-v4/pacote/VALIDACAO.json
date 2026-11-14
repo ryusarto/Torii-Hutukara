@@ -1,0 +1,17 @@
+{
+  "sheets": 8,
+  "animations": 64,
+  "individualPngs": 576,
+  "cell": [
+    256,
+    256
+  ],
+  "scalePerHero": {
+    "franco": 0.7421875,
+    "ryuchi": 0.7450980392156863
+  },
+  "alpha": true,
+  "closed_cycles": true,
+  "empty_frames": [],
+  "portraits": 16
+}

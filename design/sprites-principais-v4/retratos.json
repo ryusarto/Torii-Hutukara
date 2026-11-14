@@ -1,0 +1,8 @@
+[
+  {
+    "hero": "ryuchi",
+    "prompt": "Production 16-bit JRPG dialogue portrait atlas for RYUCHI, the MAIN hero of Torii & Hutukara. Match the face in approved face board and costume colors, NOT the alternate heroes. Exactly 4 columns by 4 rows of equal square cells, NO labels or grid, truly transparent empty background. Head and shoulders bust at identical angle/scale/pivot in all cells, detailed visible square pixel clusters and restrained 16-bit shading, no photoreal texture, no blur. First TWO rows eight expressions WITHOUT MASK: neutral, speaking, smiling, surprised, determined, angry, hurt, sad. Last TWO rows SAME eight expressions WITH MASK: the ivory cloth spiked helmet covers forehead and top of hair/beanie, with visible central stitched seam, black circular goggles. Lower mask opening exposes the natural mouth and chin of this hero. Mask must fit face exactly, no floating mask, no empty black mouth hole. Maintain helmet geometry across expressions, expression communicated through exposed mouth and posture. Black fitted fabric beanie with cuff, no bangs; blue jacket white shirt red/gold tie, warm skin, subtle moustache and chin stubble. Keep all spikes within each cell with safe margins. These are detailed PIXEL ART portraits consistent with the game sprites.",
+    "file": "retratos/ryuchi_expressoes.png",
+    "sha256": "d728d891a65b4e0bf41107ade7afab9832534466641667efba4d14dc3580309a"
+  }
+]
