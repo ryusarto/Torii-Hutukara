@@ -218,7 +218,7 @@ Hoje o jogo conta 1, 2 e parte de 3 (o Arqueiro, o Katana, o Sintetizador e o Pe
   - mundo percussivo/afro/funk → o Percussionista e golpes no tempo (já existe);
   - mundo lo-fi/jazz → exploração mais calma, puzzles de ritmo.
 - **A versão de Ryuchi/Franco de cada mundo apresenta o gênero**: ela fala como alguém daquela cena, a faixa daquele mundo toca quando ela entra na equipe.
-- **A música do jogo é a música do álbum.** Os três capítulos já tocam versões 16-bit do álbum. Falta mostrar o nome da faixa na tela, com o nome da faixa aparecendo na tela ("♪ Agora tocando: …"). O jogo vira o player do álbum.
+- **A música do jogo é a música do álbum.** Os três capítulos já tocam versões 16-bit do álbum. Falta mostrar o nome da faixa na tela ("♪ Agora tocando: …"). O jogo vira o player do álbum.
 
 **Máscaras como peça central.**
 - A máscara do jogo deve ser idêntica à máscara física (a referência `TORII_MASK_PHYSICAL_REFERENCE.png` já existe).
