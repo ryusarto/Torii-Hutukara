@@ -33,7 +33,7 @@ assets/prebeta/source/                         fotos de referência e máscara f
 web/album/assets/mask-*.webp                   máscaras
 ```
 
-**Builds HTML** (`game/builds/**`, `game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html`) e o site publicado misturam código aberto com materiais protegidos embutidos. O código dentro deles segue a MIT; as músicas, as máscaras e a arte de Ryuchi e Franco embutidas continuam protegidas.
+**Builds HTML** (gerados em `game/builds/`, `game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html`) e o site publicado misturam código aberto com materiais protegidos embutidos. O código dentro deles segue a MIT; as músicas, as máscaras e a arte de Ryuchi e Franco embutidas continuam protegidas.
 
 Arquivos novos com qualquer um desses elementos entram automaticamente nesta lista, mesmo que ainda não tenham sido acrescentados aqui.
 

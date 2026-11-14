@@ -13,7 +13,9 @@ O número da build e o schema do save não são a mesma coisa. A Alpha 1.1.0 con
 
 ## Preservação
 
-- Só a build atual fica em `game/builds/`. Ao gerar uma nova, a anterior sai da árvore de arquivos e continua acessível pelo histórico do git, pela tag da versão (`alpha-x.y.z`) e, até a 1.2.4, por o branch `claude/arquivo-builds-ate-1.2.4`.
+- Builds não ficam no git. `game/builds/` é gerado por `build_alpha.rb` (localmente ou no GitHub Actions) e está no `.gitignore`.
+- Para recuperar uma versão, gere a build a partir do commit ou da tag correspondente (`alpha-x.y.z`); o resultado tem o mesmo SHA-256 do manifesto.
+- A cada publicação, o HTML portátil fica disponível por 90 dias como artefato do workflow.
 - A base 1.1.2 nunca é modificada.
 - Manifesto e SHA-256 acompanham cada HTML.
 - Uma versão só vira principal depois de validação e playtest.

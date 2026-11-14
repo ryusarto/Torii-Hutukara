@@ -8,5 +8,5 @@ Consulte:
 
 - `docs/PROJECT_STATUS.md` para o estado atual;
 - `docs/ROADMAP.md` para as próximas versões;
-- `game/builds/` para a versão jogável atual;
+- `game/builds/` (gerado por `build_alpha.rb`) para a versão jogável atual;
 - `qa/` para os relatórios de playtest e validação.

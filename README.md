@@ -22,9 +22,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 O link identifica PC ou mobile na entrada e exibe um aviso por quatro segundos. Depois, o aviso some. A interface de toque é automática em celular/tablet. Veja [publicação e testes entre aparelhos](docs/PLAYTEST_SITE.md).
 
-Abra o arquivo abaixo em um navegador moderno:
-
-`game/builds/alpha-1.2.4/TORII_HUTUKARA_ALPHA_1_2_4_MOBILE_COOP.html`
+**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/alpha-1.2.4/`.
 
 Controles principais:
 
@@ -99,7 +97,7 @@ design/
   chapter-03/               roteiro, diálogos, missões e direção de arte
 docs/                       arquitetura, visão, roadmap e processo
 game/
-  builds/                   build jogável atual (anteriores: histórico do git e tags)
+  builds/                   gerado pelo build; não versionado
   source/
     base/                   build 1.1.2 original, nunca sobrescrita
     chapter-03/             runtime, gerador e validador
@@ -115,7 +113,7 @@ ruby game/source/chapter-03/build_alpha.rb
 ruby game/source/chapter-03/validate_alpha.rb
 ```
 
-O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.4/`. A build é aceita somente quando não há placeholders, todas as cenas referenciadas existem e as validações de mapas, músicas, sprites, progressão e controles são aprovadas.
+O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.4/`. Essa pasta é gerada e não vai para o git; o GitHub Actions gera, valida e publica a mesma build a cada mudança no `main`. O gerador é determinístico: as mesmas fontes produzem sempre o mesmo SHA-256. A build é aceita somente quando não há placeholders, todas as cenas referenciadas existem e as validações de mapas, músicas, sprites, progressão e controles são aprovadas.
 
 ## Documentação
 
@@ -138,7 +136,7 @@ O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.4
 
 ## Regra de desenvolvimento
 
-Nenhuma build anterior é sobrescrita; as antigas ficam no histórico do git, nas tags `alpha-*` e no branch `claude/arquivo-builds-ate-1.2.4`. Cada mudança deve atualizar o código-fonte, a documentação afetada, o changelog e as verificações correspondentes. Alterações aprovadas são registradas no GitHub para manter o repositório como fonte oficial do projeto. Consulte o fluxo de atualização antes de criar cada nova versão.
+Builds não são versionadas no git: são geradas a partir do código-fonte e dos assets. Cada versão é identificada pelo número, pelo manifesto e pelo SHA-256. Cada mudança deve atualizar o código-fonte, a documentação afetada, o changelog e as verificações correspondentes. Alterações aprovadas são registradas no GitHub para manter o repositório como fonte oficial do projeto. Consulte o fluxo de atualização antes de criar cada nova versão.
 
 ## Licença
 

@@ -6,3 +6,6 @@ torii-hutukara-*-salvamento.json
 qa/screenshots-local/
 production/playtest-dist/
 
+
+# Gerado pelo build (ruby game/source/chapter-03/build_alpha.rb); não versionar.
+game/builds/
