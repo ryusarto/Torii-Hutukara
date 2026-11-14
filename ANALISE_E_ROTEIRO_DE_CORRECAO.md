@@ -34,7 +34,7 @@ Contagem de inimigos de campo no código (`enemy(...)`):
 - Não existe pular cena, acelerar texto nem registro de falas (procurei por skip/pular/log no código: nada).
 
 ### 2.4 A música não é mecânica de verdade
-A premissa é "a música organiza combate, exploração e escolhas", mas na prática as relíquias são **chaves de porta** (o Baixo abre raízes e a ponte; o Violino revela uma passagem). O mini-game de ritmo é uma tela separada. O combate não usa batida (só o Percussionista tem bônus "no tempo"). Os Caps. 1–2 usam som sintetizado e o Cap. 3 usa faixas reais, ou seja, **duas identidades sonoras diferentes**.
+A premissa é "a música organiza combate, exploração e escolhas", mas na prática as relíquias são **chaves de porta** (o Baixo abre raízes e a ponte; o Violino revela uma passagem). O mini-game de ritmo é uma tela separada. O combate não usa batida (só o Percussionista tem bônus "no tempo"). Os Caps. 1–2 usam som sintetizado no navegador e o Cap. 3 usa as versões 16-bit do álbum, ou seja, **duas identidades sonoras diferentes**.
 
 ### 2.5 Sem curva de tensão
 Faltam picos entre os chefes: nada de emboscada, perseguição, sala com tempo, escolha com custo, recompensa no meio do caminho. Os XP_STEPS (`0,25,65,130,225…`), com tão poucos inimigos, fazem o nível subir quase só por roteiro.
@@ -129,7 +129,7 @@ Ordem pensada para cada fase destravar a seguinte. Durações são estimativas p
 ### Fase 0 — Emergência (1–2 dias)
 - [ ] Remover fotos de rosto reais e reescrever o histórico (ou tornar o repo privado).
 - [ ] Tirar os documentos de engenharia reversa de Moonlighter do repo público.
-- [ ] Confirmar a licença Suno de cada faixa e documentar.
+- [ ] Registrar em `ASSET_PROVENANCE.md` a faixa do álbum de cada arquivo, o plano Suno usado e a autorização das pessoas retratadas.
 - [ ] Corrigir o rótulo "1.0 · PRÉ-ALPHA" no cabeçalho.
 - [ ] Mover `game/builds/` antigas para **GitHub Releases** (anexos) e tirá-las do git. Manter só a build atual (ou nenhuma, gerada no CI).
 
@@ -170,7 +170,7 @@ Ordem pensada para cada fase destravar a seguinte. Durações são estimativas p
 - [ ] Gancho do Silêncio já no Cap. 1.
 
 ### Fase 6 — Identidade musical (1–2 semanas)
-- [ ] Trilha consistente nos 3 capítulos (faixas reais também nos Caps. 1–2, ou o sintetizado também no 3).
+- [ ] Trilha consistente nos 3 capítulos (versões 16-bit do álbum também nos Caps. 1–2).
 - [ ] Música adaptativa: camada de percussão entra no combate e sai na exploração.
 - [ ] Show do Contratempo como sequência de ritmo jogável.
 - [ ] Fitas colecionáveis + toca-discos no estúdio.
@@ -218,7 +218,7 @@ Hoje o jogo conta 1, 2 e parte de 3 (o Arqueiro, o Katana, o Sintetizador e o Pe
   - mundo percussivo/afro/funk → o Percussionista e golpes no tempo (já existe);
   - mundo lo-fi/jazz → exploração mais calma, puzzles de ritmo.
 - **A versão de Ryuchi/Franco de cada mundo apresenta o gênero**: ela fala como alguém daquela cena, a faixa daquele mundo toca quando ela entra na equipe.
-- **A música do jogo é a música do álbum.** Substituir os sons sintetizados e as faixas do Suno pelas faixas reais (ou trechos/instrumentais) do álbum, com o nome da faixa aparecendo na tela ("♪ Agora tocando: …"). O jogo vira o player do álbum.
+- **A música do jogo é a música do álbum.** As faixas do Cap. 3 já são versões 16-bit do álbum. Estender isso aos Caps. 1–2 (hoje com som sintetizado), com o nome da faixa aparecendo na tela ("♪ Agora tocando: …"). O jogo vira o player do álbum.
 
 **Máscaras como peça central.**
 - A máscara do jogo deve ser idêntica à máscara física (a referência `TORII_MASK_PHYSICAL_REFERENCE.png` já existe).
@@ -244,10 +244,10 @@ Hoje o jogo conta 1, 2 e parte de 3 (o Arqueiro, o Katana, o Sintetizador e o Pe
 ### Ajuste no roteiro
 | Fase | Acréscimo |
 |---|---|
-| 0 | `LICENSE` (código) + `ASSETS_LICENSE.md` (identidade/música); consentimento das fotos; decidir se as faixas Suno ficam |
+| 0 | `LICENSE` (código) + `ASSETS_LICENSE.md` (identidade/música); registrar autorizações e origem das faixas |
 | 2 | Estrutura hub + `worlds/`; áudio e imagens fora do HTML, carregados sob demanda |
 | 4 | Recortar os capítulos atuais em mundos por gênero; início com máscara + travessia + combate em 5 min |
-| 6 | Trocar a trilha pelas faixas do álbum; "Agora tocando" |
+| 6 | Versões 16-bit do álbum também nos Caps. 1–2; "Agora tocando" |
 | 7 | Mapa do multiverso pós-final, portais "em breve", links do álbum, botão de compartilhar |
 
 ---
