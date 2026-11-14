@@ -4,6 +4,12 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ## [Não lançado]
 
+### Fase 3 (parte 2) — padrões de chefe e inimigos musicais
+
+- Chefes com padrão por fase + 20% de variação (RNG), nunca 3 ataques iguais seguidos e nome de cada ataque na tela. Viajante deixa de ser sorteio puro; Arauto ganha variação e aviso um pouco mais longo; Metrônomo varia só na fase 3; O Silêncio ganha 15% de variação.
+- Três inimigos novos: Metrônomo Menor (ataca no compasso fixo), Eco Espelho (devolve onda após 2 golpes) e Abafador (aura que bloqueia técnicas). Um aviso explica cada um na primeira vez.
+- Laboratório de combate (`qa/combat_lab.cjs`) e relatório em `docs/COMBATE_PADROES.md`.
+
 ### Fases 3 e 4 (parte 1) — mais ação, menos idas e voltas, cura
 
 - 14 encontros novos no caminho principal; o primeiro combate acontece no corredor do estúdio (190 s → 40 s no perfil típico).

@@ -7,6 +7,7 @@
  */
 (function(){
 // [área, id, x, y, tipo] — posições aproximadas; o jogo procura o chão livre mais próximo.
+// Tipos novos (compasso, espelho, abafador) estão em combat_patterns.js.
 const ENCOUNTERS=[
   // Capítulo 1: primeiro combate no corredor, antes das máscaras.
   ['corridor','p4_corridor_hush',20,9,'hush'],
@@ -14,23 +15,23 @@ const ENCOUNTERS=[
   ['forest','p4_forest_path_b',26,20,'whisper'],
   ['forest','p4_forest_east',40,19,'hush'],
   ['ruins','p4_ruins_entry',10,17,'hush'],
-  ['ruins','p4_ruins_mid',22,18,'whisper'],
-  ['ruins','p4_ruins_gate',35,16,'hush'],
+  ['ruins','p4_ruins_mid',22,18,'compasso'],
+  ['ruins','p4_ruins_gate',16,14,'hush'],  // longe da arena do Viajante (39,17)
   // Capítulo 2: caminho da estação até a praça e o mercado.
   ['voices','p4_voices_west',12,24,'hush'],
-  ['voices','p4_voices_center',28,30,'whisper'],
-  ['voices','p4_voices_market',22,14,'hush'],
+  ['voices','p4_voices_center',28,30,'espelho'],
+  ['voices','p4_voices_market',22,14,'abafador'],
   ['voice_roofs','p4_roofs_end',30,18,'whisper'],
   // Capítulo 3: travessias e aproximação do elevador.
   ['sky_canal','p4_canal_entry',10,13,'c3_echo'],
   ['power_plant','p4_plant_entry',10,15,'c3_echo'],
-  ['cloud_sea','p4_cloud_mid',33,22,'c3_echo'],
+  ['cloud_sea','p4_cloud_mid',33,22,'compasso'],
 ];
 // Patrulhas do Distrito: reaparecem ao voltar, no máximo uma vez por minuto.
 // Ficam a mais de 8 passos das portas e dos checkpoints do Distrito.
 const PATROLS=[
   ['distortion_district','p4_patrol_center',36,25,'c3_echo'],
-  ['distortion_district','p4_patrol_east',44,21,'c3_echo'],
+  ['distortion_district','p4_patrol_east',44,21,'abafador'],
 ];
 const PATROL_COOLDOWN=60;
 // Inimigos acrescentados do Capítulo 3 são versões menores (ecos menores):

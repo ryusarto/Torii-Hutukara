@@ -1,0 +1,1815 @@
+{
+ "bosses": {
+  "viajante": {
+   "sorteio/reativo": [
+    {
+     "win": true,
+     "time": 10.4,
+     "taken": 11,
+     "takenPct": 14,
+     "spike": 11,
+     "attacks": 5,
+     "streak": 3,
+     "varied": 0,
+     "seq": "fan ring fan fan fan"
+    },
+    {
+     "win": true,
+     "time": 8.4,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 0,
+     "seq": "ring fan fan ring"
+    },
+    {
+     "win": true,
+     "time": 7.9,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 3,
+     "streak": 3,
+     "varied": 0,
+     "seq": "fan fan fan"
+    },
+    {
+     "win": true,
+     "time": 8.5,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan fan ring ring"
+    },
+    {
+     "win": true,
+     "time": 11.2,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 6,
+     "streak": 3,
+     "varied": 0,
+     "seq": "fan ring ring ring charge fan"
+    },
+    {
+     "win": true,
+     "time": 11,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan ring charge charge fan"
+    },
+    {
+     "win": true,
+     "time": 9,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 0,
+     "seq": "ring fan ring ring"
+    },
+    {
+     "win": true,
+     "time": 11.1,
+     "taken": 15,
+     "takenPct": 19,
+     "spike": 15,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 0,
+     "seq": "ring ring charge ring fan"
+    }
+   ],
+   "sorteio/aprendiz": [
+    {
+     "win": true,
+     "time": 9.5,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan fan ring charge fan"
+    },
+    {
+     "win": true,
+     "time": 9.3,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan fan charge charge ring"
+    },
+    {
+     "win": true,
+     "time": 11.2,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 6,
+     "streak": 3,
+     "varied": 0,
+     "seq": "ring ring ring fan ring fan"
+    },
+    {
+     "win": true,
+     "time": 9.3,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 5,
+     "streak": 3,
+     "varied": 0,
+     "seq": "fan fan charge charge charge"
+    },
+    {
+     "win": true,
+     "time": 9,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring fan charge ring"
+    },
+    {
+     "win": true,
+     "time": 9.2,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan fan charge fan"
+    },
+    {
+     "win": true,
+     "time": 9.7,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan fan charge ring fan"
+    },
+    {
+     "win": true,
+     "time": 11.7,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 6,
+     "streak": 3,
+     "varied": 0,
+     "seq": "fan ring ring charge charge charge"
+    }
+   ],
+   "padrao/reativo": [
+    {
+     "win": true,
+     "time": 10.1,
+     "taken": 15,
+     "takenPct": 19,
+     "spike": 15,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 0,
+     "seq": "ring ring charge charge ring"
+    },
+    {
+     "win": true,
+     "time": 11.6,
+     "taken": 11,
+     "takenPct": 14,
+     "spike": 11,
+     "attacks": 6,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan ring fan ring ring charge"
+    },
+    {
+     "win": true,
+     "time": 9,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring fan charge fan"
+    },
+    {
+     "win": true,
+     "time": 10.4,
+     "taken": 11,
+     "takenPct": 14,
+     "spike": 11,
+     "attacks": 5,
+     "streak": 1,
+     "varied": 0,
+     "seq": "fan ring fan charge fan"
+    },
+    {
+     "win": true,
+     "time": 10.4,
+     "taken": 11,
+     "takenPct": 14,
+     "spike": 11,
+     "attacks": 5,
+     "streak": 1,
+     "varied": 0,
+     "seq": "fan ring fan charge fan"
+    },
+    {
+     "win": true,
+     "time": 9,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring fan charge ring"
+    },
+    {
+     "win": true,
+     "time": 8.4,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 0,
+     "seq": "ring fan fan charge"
+    },
+    {
+     "win": true,
+     "time": 8.4,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 0,
+     "seq": "ring fan fan charge"
+    }
+   ],
+   "padrao/aprendiz": [
+    {
+     "win": true,
+     "time": 9.1,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan ring fan fan"
+    },
+    {
+     "win": true,
+     "time": 11.6,
+     "taken": 15,
+     "takenPct": 19,
+     "spike": 15,
+     "attacks": 6,
+     "streak": 3,
+     "varied": 0,
+     "seq": "ring ring charge fan fan fan"
+    },
+    {
+     "win": true,
+     "time": 9.1,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan ring fan fan"
+    },
+    {
+     "win": true,
+     "time": 9,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": null,
+     "seq": "ring fan charge charge"
+    },
+    {
+     "win": true,
+     "time": 11.8,
+     "taken": 15,
+     "takenPct": 19,
+     "spike": 15,
+     "attacks": 6,
+     "streak": 2,
+     "varied": 0,
+     "seq": "ring ring charge fan ring fan"
+    },
+    {
+     "win": true,
+     "time": 9.5,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 1,
+     "varied": 0,
+     "seq": "fan ring fan charge"
+    },
+    {
+     "win": true,
+     "time": 10.6,
+     "taken": 15,
+     "takenPct": 19,
+     "spike": 15,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 0,
+     "seq": "ring ring charge ring fan"
+    },
+    {
+     "win": true,
+     "time": 14.7,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 9,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan ring fan ring ring charge ring charge fan"
+    }
+   ],
+   "misto/reativo": [
+    {
+     "win": true,
+     "time": 10.4,
+     "taken": 11,
+     "takenPct": 14,
+     "spike": 11,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan ring fan fan charge"
+    },
+    {
+     "win": true,
+     "time": 8.4,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 1,
+     "seq": "fan fan charge fan"
+    },
+    {
+     "win": true,
+     "time": 10.4,
+     "taken": 11,
+     "takenPct": 14,
+     "spike": 11,
+     "attacks": 5,
+     "streak": 3,
+     "varied": 0,
+     "seq": "fan ring fan fan fan"
+    },
+    {
+     "win": true,
+     "time": 10.4,
+     "taken": 11,
+     "takenPct": 14,
+     "spike": 11,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan ring fan fan charge"
+    },
+    {
+     "win": true,
+     "time": 9,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 1,
+     "varied": 0,
+     "seq": "ring fan ring charge"
+    },
+    {
+     "win": true,
+     "time": 10.1,
+     "taken": 15,
+     "takenPct": 19,
+     "spike": 15,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 0,
+     "seq": "ring ring charge charge ring"
+    },
+    {
+     "win": true,
+     "time": 9,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring fan charge ring"
+    },
+    {
+     "win": true,
+     "time": 11.1,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 1,
+     "seq": "ring ring fan ring fan"
+    }
+   ],
+   "misto/aprendiz": [
+    {
+     "win": true,
+     "time": 9.5,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 1,
+     "varied": 0,
+     "seq": "fan ring fan charge"
+    },
+    {
+     "win": true,
+     "time": 9.1,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan ring fan fan"
+    },
+    {
+     "win": true,
+     "time": 8.4,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 0,
+     "seq": "ring fan fan charge"
+    },
+    {
+     "win": true,
+     "time": 9,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": null,
+     "seq": "ring fan charge charge"
+    },
+    {
+     "win": true,
+     "time": 9,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 1,
+     "varied": 0,
+     "seq": "ring fan ring charge"
+    },
+    {
+     "win": true,
+     "time": 9.1,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 4,
+     "streak": 2,
+     "varied": 0,
+     "seq": "fan ring fan fan"
+    },
+    {
+     "win": true,
+     "time": 10.7,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 5,
+     "streak": 2,
+     "varied": 1,
+     "seq": "fan ring ring fan charge"
+    },
+    {
+     "win": true,
+     "time": 11.9,
+     "taken": 0,
+     "takenPct": 0,
+     "spike": 0,
+     "attacks": 6,
+     "streak": 1,
+     "varied": 1,
+     "seq": "fan ring charge ring charge fan"
+    }
+   ]
+  },
+  "torre": {
+   "sorteio/reativo": [
+    {
+     "win": false,
+     "time": 41.2,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 32,
+     "attacks": 25,
+     "streak": 2,
+     "varied": 14,
+     "seq": "feedback lanes feedback lanes feedback feedback lanes feedback lanes lanes feedback lanes lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 40.6,
+     "taken": 55,
+     "takenPct": 51,
+     "spike": 32,
+     "attacks": 25,
+     "streak": 2,
+     "varied": 13,
+     "seq": "feedback lanes lanes feedback lanes feedback lanes feedback lanes lanes feedback lanes feedback lanes"
+    },
+    {
+     "win": false,
+     "time": 40.6,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 33,
+     "attacks": 25,
+     "streak": 2,
+     "varied": 14,
+     "seq": "lanes lanes feedback feedback lanes lanes feedback lanes feedback feedback lanes lanes feedback lanes"
+    },
+    {
+     "win": true,
+     "time": 43.5,
+     "taken": 97,
+     "takenPct": 90,
+     "spike": 44,
+     "attacks": 27,
+     "streak": 2,
+     "varied": 12,
+     "seq": "feedback lanes lanes feedback feedback lanes lanes feedback feedback lanes lanes feedback feedback lanes"
+    },
+    {
+     "win": false,
+     "time": 32.2,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 54,
+     "attacks": 19,
+     "streak": 2,
+     "varied": 7,
+     "seq": "lanes feedback lanes feedback lanes lanes feedback feedback lanes feedback feedback lanes lanes feedback"
+    },
+    {
+     "win": false,
+     "time": 38.9,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 43,
+     "attacks": 24,
+     "streak": 2,
+     "varied": 12,
+     "seq": "feedback feedback lanes lanes feedback lanes feedback lanes lanes feedback feedback lanes lanes feedback"
+    },
+    {
+     "win": false,
+     "time": 45.1,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 33,
+     "attacks": 28,
+     "streak": 2,
+     "varied": 17,
+     "seq": "feedback feedback lanes lanes feedback lanes feedback feedback lanes feedback lanes lanes feedback lanes"
+    },
+    {
+     "win": false,
+     "time": 39.2,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 32,
+     "attacks": 24,
+     "streak": 2,
+     "varied": 6,
+     "seq": "feedback feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes lanes feedback feedback"
+    }
+   ],
+   "sorteio/aprendiz": [
+    {
+     "win": false,
+     "time": 39.2,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 44,
+     "attacks": 24,
+     "streak": 2,
+     "varied": 11,
+     "seq": "feedback feedback lanes feedback feedback lanes lanes feedback lanes feedback feedback lanes lanes feedback"
+    },
+    {
+     "win": false,
+     "time": 47,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 32,
+     "attacks": 29,
+     "streak": 2,
+     "varied": 18,
+     "seq": "lanes lanes feedback lanes feedback lanes lanes feedback lanes feedback feedback lanes feedback lanes"
+    },
+    {
+     "win": true,
+     "time": 41.2,
+     "taken": 77,
+     "takenPct": 71,
+     "spike": 22,
+     "attacks": 25,
+     "streak": 2,
+     "varied": 12,
+     "seq": "lanes feedback feedback lanes lanes feedback lanes feedback feedback lanes feedback lanes lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 42.5,
+     "taken": 97,
+     "takenPct": 90,
+     "spike": 32,
+     "attacks": 27,
+     "streak": 2,
+     "varied": 13,
+     "seq": "feedback feedback lanes feedback feedback lanes feedback lanes lanes feedback lanes lanes feedback feedback"
+    },
+    {
+     "win": false,
+     "time": 42.3,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 44,
+     "attacks": 25,
+     "streak": 2,
+     "varied": 15,
+     "seq": "lanes lanes feedback lanes feedback feedback lanes feedback lanes lanes feedback lanes feedback feedback"
+    },
+    {
+     "win": false,
+     "time": 37.2,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 44,
+     "attacks": 23,
+     "streak": 2,
+     "varied": 11,
+     "seq": "feedback lanes feedback feedback lanes lanes feedback feedback lanes feedback feedback lanes lanes feedback"
+    },
+    {
+     "win": false,
+     "time": 46,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 45,
+     "attacks": 28,
+     "streak": 2,
+     "varied": 11,
+     "seq": "feedback feedback lanes feedback lanes lanes feedback lanes feedback feedback lanes lanes feedback feedback"
+    },
+    {
+     "win": true,
+     "time": 38.9,
+     "taken": 87,
+     "takenPct": 81,
+     "spike": 22,
+     "attacks": 24,
+     "streak": 2,
+     "varied": 10,
+     "seq": "feedback feedback lanes feedback feedback lanes feedback feedback lanes lanes feedback lanes feedback feedback"
+    }
+   ],
+   "padrao/reativo": [
+    {
+     "win": true,
+     "time": 42.9,
+     "taken": 87,
+     "takenPct": 81,
+     "spike": 32,
+     "attacks": 26,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 42.9,
+     "taken": 87,
+     "takenPct": 81,
+     "spike": 32,
+     "attacks": 26,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 42.9,
+     "taken": 87,
+     "takenPct": 81,
+     "spike": 32,
+     "attacks": 26,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 42.9,
+     "taken": 87,
+     "takenPct": 81,
+     "spike": 32,
+     "attacks": 26,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 42.9,
+     "taken": 87,
+     "takenPct": 81,
+     "spike": 32,
+     "attacks": 26,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 42.9,
+     "taken": 87,
+     "takenPct": 81,
+     "spike": 32,
+     "attacks": 26,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 42.9,
+     "taken": 87,
+     "takenPct": 81,
+     "spike": 32,
+     "attacks": 26,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 42.9,
+     "taken": 87,
+     "takenPct": 81,
+     "spike": 32,
+     "attacks": 26,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    }
+   ],
+   "padrao/aprendiz": [
+    {
+     "win": true,
+     "time": 40.8,
+     "taken": 10,
+     "takenPct": 9,
+     "spike": 10,
+     "attacks": 25,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 40.8,
+     "taken": 10,
+     "takenPct": 9,
+     "spike": 10,
+     "attacks": 25,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 40.8,
+     "taken": 10,
+     "takenPct": 9,
+     "spike": 10,
+     "attacks": 25,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 40.8,
+     "taken": 10,
+     "takenPct": 9,
+     "spike": 10,
+     "attacks": 25,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 40.8,
+     "taken": 10,
+     "takenPct": 9,
+     "spike": 10,
+     "attacks": 25,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 40.8,
+     "taken": 10,
+     "takenPct": 9,
+     "spike": 10,
+     "attacks": 25,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 40.8,
+     "taken": 10,
+     "takenPct": 9,
+     "spike": 10,
+     "attacks": 25,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 40.8,
+     "taken": 10,
+     "takenPct": 9,
+     "spike": 10,
+     "attacks": 25,
+     "streak": 1,
+     "varied": 0,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    }
+   ],
+   "misto/reativo": [
+    {
+     "win": true,
+     "time": 41,
+     "taken": 99,
+     "takenPct": 92,
+     "spike": 32,
+     "attacks": 25,
+     "streak": 2,
+     "varied": 5,
+     "seq": "lanes feedback lanes feedback feedback lanes lanes feedback lanes lanes feedback feedback lanes feedback"
+    },
+    {
+     "win": false,
+     "time": 38.3,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 32,
+     "attacks": 24,
+     "streak": 2,
+     "varied": 5,
+     "seq": "lanes feedback feedback lanes feedback feedback lanes lanes feedback feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 43.7,
+     "taken": 99,
+     "takenPct": 92,
+     "spike": 32,
+     "attacks": 27,
+     "streak": 2,
+     "varied": 5,
+     "seq": "lanes feedback lanes feedback lanes lanes feedback feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 46.1,
+     "taken": 99,
+     "takenPct": 92,
+     "spike": 33,
+     "attacks": 29,
+     "streak": 2,
+     "varied": 9,
+     "seq": "lanes feedback feedback lanes lanes feedback lanes feedback feedback lanes lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 44,
+     "taken": 87,
+     "takenPct": 81,
+     "spike": 32,
+     "attacks": 27,
+     "streak": 2,
+     "varied": 3,
+     "seq": "feedback feedback lanes feedback lanes feedback lanes lanes feedback feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": false,
+     "time": 45.4,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 32,
+     "attacks": 28,
+     "streak": 2,
+     "varied": 9,
+     "seq": "lanes feedback lanes lanes feedback feedback lanes feedback lanes lanes feedback lanes lanes feedback"
+    },
+    {
+     "win": false,
+     "time": 38.6,
+     "taken": 108,
+     "takenPct": 100,
+     "spike": 44,
+     "attacks": 24,
+     "streak": 2,
+     "varied": 7,
+     "seq": "feedback lanes feedback feedback lanes lanes feedback feedback lanes lanes feedback feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 45.4,
+     "taken": 77,
+     "takenPct": 71,
+     "spike": 32,
+     "attacks": 28,
+     "streak": 2,
+     "varied": 7,
+     "seq": "feedback feedback lanes feedback lanes feedback feedback lanes lanes feedback feedback lanes lanes feedback"
+    }
+   ],
+   "misto/aprendiz": [
+    {
+     "win": true,
+     "time": 39.5,
+     "taken": 10,
+     "takenPct": 9,
+     "spike": 10,
+     "attacks": 24,
+     "streak": 2,
+     "varied": 2,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 37.4,
+     "taken": 55,
+     "takenPct": 51,
+     "spike": 32,
+     "attacks": 23,
+     "streak": 2,
+     "varied": 5,
+     "seq": "lanes lanes feedback feedback lanes feedback lanes feedback lanes feedback lanes feedback feedback lanes"
+    },
+    {
+     "win": true,
+     "time": 39.5,
+     "taken": 20,
+     "takenPct": 19,
+     "spike": 10,
+     "attacks": 24,
+     "streak": 2,
+     "varied": 6,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes lanes feedback feedback lanes feedback lanes lanes"
+    },
+    {
+     "win": true,
+     "time": 43.7,
+     "taken": 55,
+     "takenPct": 51,
+     "spike": 32,
+     "attacks": 27,
+     "streak": 2,
+     "varied": 8,
+     "seq": "feedback feedback lanes feedback lanes lanes feedback lanes lanes feedback lanes feedback lanes lanes"
+    },
+    {
+     "win": true,
+     "time": 40.3,
+     "taken": 20,
+     "takenPct": 19,
+     "spike": 10,
+     "attacks": 25,
+     "streak": 2,
+     "varied": 2,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback lanes lanes"
+    },
+    {
+     "win": true,
+     "time": 46.3,
+     "taken": 20,
+     "takenPct": 19,
+     "spike": 10,
+     "attacks": 28,
+     "streak": 2,
+     "varied": 2,
+     "seq": "lanes feedback lanes feedback lanes lanes feedback lanes lanes feedback lanes feedback lanes feedback"
+    },
+    {
+     "win": true,
+     "time": 35,
+     "taken": 55,
+     "takenPct": 51,
+     "spike": 32,
+     "attacks": 21,
+     "streak": 2,
+     "varied": 6,
+     "seq": "lanes feedback lanes lanes feedback feedback lanes feedback lanes feedback feedback lanes feedback feedback"
+    },
+    {
+     "win": true,
+     "time": 38,
+     "taken": 42,
+     "takenPct": 39,
+     "spike": 32,
+     "attacks": 23,
+     "streak": 2,
+     "varied": 2,
+     "seq": "lanes feedback lanes feedback lanes feedback lanes feedback lanes feedback feedback lanes feedback feedback"
+    }
+   ]
+  },
+  "metronomo": {
+   "padrao/reativo": [
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse"
+    },
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse"
+    },
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse"
+    },
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse"
+    },
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse"
+    },
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse"
+    },
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse"
+    },
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse"
+    }
+   ],
+   "padrao/aprendiz": [
+    {
+     "win": true,
+     "time": 28,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse ring fan"
+    },
+    {
+     "win": true,
+     "time": 28,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse ring fan"
+    },
+    {
+     "win": true,
+     "time": 28,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse ring fan"
+    },
+    {
+     "win": true,
+     "time": 28,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse ring fan"
+    },
+    {
+     "win": true,
+     "time": 28,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse ring fan"
+    },
+    {
+     "win": true,
+     "time": 28,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse ring fan"
+    },
+    {
+     "win": true,
+     "time": 28,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse ring fan"
+    },
+    {
+     "win": true,
+     "time": 28,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse ring fan"
+    }
+   ],
+   "misto/reativo": [
+    {
+     "win": true,
+     "time": 25,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 11,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan pulse ring cross"
+    },
+    {
+     "win": true,
+     "time": 21.6,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross fan ring fan cross pulse"
+    },
+    {
+     "win": true,
+     "time": 23.6,
+     "taken": 40,
+     "takenPct": 31,
+     "spike": 26,
+     "attacks": 11,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring cross ring pulse fan"
+    },
+    {
+     "win": true,
+     "time": 23.6,
+     "taken": 40,
+     "takenPct": 31,
+     "spike": 28,
+     "attacks": 11,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring pulse cross ring cross"
+    },
+    {
+     "win": true,
+     "time": 20.4,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 8,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse cross fan"
+    },
+    {
+     "win": true,
+     "time": 23.4,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 11,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan ring pulse ring"
+    },
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse"
+    },
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse"
+    }
+   ],
+   "misto/aprendiz": [
+    {
+     "win": true,
+     "time": 27.8,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross pulse ring cross"
+    },
+    {
+     "win": true,
+     "time": 25.1,
+     "taken": 40,
+     "takenPct": 31,
+     "spike": 28,
+     "attacks": 11,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring pulse cross pulse cross"
+    },
+    {
+     "win": true,
+     "time": 27.9,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan ring pulse ring fan"
+    },
+    {
+     "win": true,
+     "time": 24.5,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 11,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse fan ring cross fan ring"
+    },
+    {
+     "win": true,
+     "time": 27.7,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan ring pulse ring cross"
+    },
+    {
+     "win": true,
+     "time": 24.4,
+     "taken": 40,
+     "takenPct": 31,
+     "spike": 26,
+     "attacks": 11,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan pulse ring cross"
+    },
+    {
+     "win": true,
+     "time": 27,
+     "taken": 40,
+     "takenPct": 31,
+     "spike": 28,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring pulse cross pulse ring fan"
+    },
+    {
+     "win": true,
+     "time": 25.1,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 11,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross pulse ring fan cross ring cross"
+    }
+   ],
+   "sorteio/reativo": [
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 28,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross fan ring cross pulse ring"
+    },
+    {
+     "win": true,
+     "time": 25.3,
+     "taken": 54,
+     "takenPct": 43,
+     "spike": 28,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross ring fan pulse ring cross pulse ring"
+    },
+    {
+     "win": true,
+     "time": 21.9,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross fan ring cross fan ring"
+    },
+    {
+     "win": true,
+     "time": 23,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 28,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross fan ring pulse ring cross"
+    },
+    {
+     "win": true,
+     "time": 23.3,
+     "taken": 54,
+     "takenPct": 43,
+     "spike": 40,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross ring pulse ring pulse cross"
+    },
+    {
+     "win": true,
+     "time": 22.4,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 28,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross ring fan ring cross fan"
+    },
+    {
+     "win": true,
+     "time": 25.3,
+     "taken": 40,
+     "takenPct": 31,
+     "spike": 28,
+     "attacks": 12,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross ring fan pulse ring cross ring cross"
+    },
+    {
+     "win": true,
+     "time": 23.1,
+     "taken": 40,
+     "takenPct": 31,
+     "spike": 28,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross ring pulse cross ring fan"
+    }
+   ],
+   "sorteio/aprendiz": [
+    {
+     "win": true,
+     "time": 23,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 28,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross fan ring pulse ring cross"
+    },
+    {
+     "win": true,
+     "time": 22.1,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 28,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross fan ring cross pulse cross"
+    },
+    {
+     "win": true,
+     "time": 23.4,
+     "taken": 40,
+     "takenPct": 31,
+     "spike": 40,
+     "attacks": 11,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross ring pulse ring fan ring fan"
+    },
+    {
+     "win": true,
+     "time": 20.7,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 9,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross ring cross ring fan"
+    },
+    {
+     "win": true,
+     "time": 20.7,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 14,
+     "attacks": 9,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross ring cross ring fan"
+    },
+    {
+     "win": true,
+     "time": 21.8,
+     "taken": 28,
+     "takenPct": 22,
+     "spike": 28,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross ring fan ring fan ring"
+    },
+    {
+     "win": true,
+     "time": 21.9,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 10,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross fan cross pulse fan ring"
+    },
+    {
+     "win": true,
+     "time": 20.1,
+     "taken": 14,
+     "takenPct": 11,
+     "spike": 14,
+     "attacks": 8,
+     "streak": 1,
+     "varied": null,
+     "seq": "ring cross fan ring cross ring fan cross"
+    }
+   ]
+  }
+ },
+ "enemies": {
+  "compasso": [
+   {
+    "win": true,
+    "time": 13.7,
+    "taken": 18,
+    "takenPct": 14,
+    "spike": 18,
+    "attacks": 9,
+    "streak": 1,
+    "varied": null,
+    "beatGaps": [
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6
+    ]
+   },
+   {
+    "win": true,
+    "time": 13.7,
+    "taken": 18,
+    "takenPct": 14,
+    "spike": 18,
+    "attacks": 9,
+    "streak": 1,
+    "varied": null,
+    "beatGaps": [
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6
+    ]
+   },
+   {
+    "win": true,
+    "time": 13.7,
+    "taken": 18,
+    "takenPct": 14,
+    "spike": 18,
+    "attacks": 9,
+    "streak": 1,
+    "varied": null,
+    "beatGaps": [
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6
+    ]
+   },
+   {
+    "win": true,
+    "time": 13.7,
+    "taken": 18,
+    "takenPct": 14,
+    "spike": 18,
+    "attacks": 9,
+    "streak": 1,
+    "varied": null,
+    "beatGaps": [
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6,
+     1.6
+    ]
+   }
+  ],
+  "espelho": [
+   {
+    "win": true,
+    "time": 9.1,
+    "taken": 40,
+    "takenPct": 31,
+    "spike": 24,
+    "attacks": 9,
+    "streak": 3,
+    "varied": null,
+    "beatGaps": [],
+    "retaliations": 2
+   },
+   {
+    "win": true,
+    "time": 9.1,
+    "taken": 40,
+    "takenPct": 31,
+    "spike": 24,
+    "attacks": 9,
+    "streak": 3,
+    "varied": null,
+    "beatGaps": [],
+    "retaliations": 2
+   },
+   {
+    "win": true,
+    "time": 9.1,
+    "taken": 40,
+    "takenPct": 31,
+    "spike": 24,
+    "attacks": 9,
+    "streak": 3,
+    "varied": null,
+    "beatGaps": [],
+    "retaliations": 2
+   },
+   {
+    "win": true,
+    "time": 9.1,
+    "taken": 40,
+    "takenPct": 31,
+    "spike": 24,
+    "attacks": 9,
+    "streak": 3,
+    "varied": null,
+    "beatGaps": [],
+    "retaliations": 2
+   }
+  ],
+  "abafador": [
+   {
+    "win": true,
+    "time": 14.6,
+    "taken": 7,
+    "takenPct": 6,
+    "spike": 7,
+    "attacks": 0,
+    "streak": 0,
+    "varied": null,
+    "beatGaps": [],
+    "mutedBlocks": 13
+   },
+   {
+    "win": true,
+    "time": 14.6,
+    "taken": 7,
+    "takenPct": 6,
+    "spike": 7,
+    "attacks": 0,
+    "streak": 0,
+    "varied": null,
+    "beatGaps": [],
+    "mutedBlocks": 13
+   },
+   {
+    "win": true,
+    "time": 14.6,
+    "taken": 7,
+    "takenPct": 6,
+    "spike": 7,
+    "attacks": 0,
+    "streak": 0,
+    "varied": null,
+    "beatGaps": [],
+    "mutedBlocks": 13
+   },
+   {
+    "win": true,
+    "time": 14.6,
+    "taken": 7,
+    "takenPct": 6,
+    "spike": 7,
+    "attacks": 0,
+    "streak": 0,
+    "varied": null,
+    "beatGaps": [],
+    "mutedBlocks": 13
+   }
+  ]
+ },
+ "errors": []
+}
