@@ -43,3 +43,7 @@ O progresso fica no navegador e no aparelho em que se joga. Não há sincroniza�
 A primeira publicação foi concluída e verificada no endereço ao vivo em 13/11/2026. O [workflow aprovado](https://github.com/ryusarto/Torii-Hutukara/actions/runs/43390076638) corresponde ao commit `3aead33e404c7047426d68b483db3aa36a96c2aa`. O relatório em `qa/playtest/SITE_TEST_RESULTS.json` registra a URL pública e o hash da build efetivamente carregada nos testes.
 
 A Alpha 1.2.2 amplia o jogo na horizontal e sobrepõe controles semitransparentes. Os testes de controles, rolada, coop e mobile estão em `qa/input_regression.cjs` (`node qa/input_regression.cjs`), que sempre testa a build publicada e grava o resultado em `qa/alpha-<versão>/`.
+
+## Medir o ritmo num playtest
+
+Abra `https://ryusarto.github.io/Torii-Hutukara/?ritmo`. O botão **RITMO** no topo mostra quanto tempo foi gasto andando, lendo e lutando e permite baixar o relatório. Detalhes em [RITMO_FASE1.md](RITMO_FASE1.md).

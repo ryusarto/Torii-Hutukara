@@ -4,6 +4,13 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ## [Não lançado]
 
+### Fase 1 — medição de ritmo
+
+- Medidor de ritmo (`game/source/telemetry/pace_meter.js`): tempo andando, lendo, lutando e em menus por área e por etapa, guardado só no aparelho. Com `?ritmo` no endereço aparece o botão RITMO para baixar o relatório.
+- Jogada automática (`qa/pace_bot.cjs`) que zera o jogo seguindo os objetivos, com perfis rápido e típico.
+- Resultado em `docs/RITMO_FASE1.md`: 73% do tempo lendo, 9% em combate, 225 falas obrigatórias, Capítulo 3 com metade do tempo e 109 falas.
+- Corrigido: falas do Franco Sintetizador, do Ryuchi Percussionista e do Metrônomo apareciam como SYNTH, PERCUSSION e METRONOME e com retrato errado.
+
 ### Fase 0 — licença e identificação
 
 - Projeto licenciado como código aberto: código em MIT (`LICENSE`), materiais abertos em CC BY 4.0 e materiais protegidos em CC BY-NC-ND 4.0 (`LICENSE-ASSETS.md`). Protegidos: Ryuchi e Franco, The Sir em todas as versões, máscaras Torii, músicas e participantes do álbum.

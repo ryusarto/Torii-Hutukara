@@ -12,6 +12,7 @@ REPO_ROOT = File.expand_path('../../..', ROOT)
 BASE = File.join(REPO_ROOT, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
 RUNTIME = File.join(ROOT, 'chapter3_runtime.js')
 INPUT_RUNTIME = File.join(ROOT, 'input_mobile_combat.js')
+PACE_METER = File.join(REPO_ROOT, 'game', 'source', 'telemetry', 'pace_meter.js')
 OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.2.4')
 OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_2_4_MOBILE_COOP.html')
 
@@ -87,7 +88,7 @@ html.sub!('<title>TORII & HUTUKARA — A Última Frequência · 1.1.2 · Pré-al
 # Nomes públicos dos colaboradores mudam sem alterar IDs persistentes de save.
 html.gsub!('BENTO', 'BELGA').gsub!('Bento', 'Belga')
 html.gsub!('NILO', 'COLLI').gsub!('Nilo', 'Colli')
-replace_once!(html, "const who={franco:", "const who={nilo:'COLLI',franco:", 'nome de Colli nos diálogos legados')
+replace_once!(html, "const who={franco:", "const who={nilo:'COLLI',synth:'FRANCO SINTETIZADOR',percussion:'RYUCHI PERCUSSIONISTA',metronome:'O METRÔNOMO',franco:", 'nomes de Colli e das falas do Capítulo 3 por ID interno')
 
 replace_once!(html,
   "const VW=768,VH=432,T=24,KEY='torii_hutukara_piloto_v04';",
@@ -196,7 +197,7 @@ raise "Placeholders restantes: #{leftovers.join(', ')}" unless leftovers.empty?
 marker = "\ninit();\n</script>"
 position = html.rindex(marker)
 raise 'Ponto final de injeção não encontrado' unless position
-html.insert(position, "\n\n#{runtime}\n\n#{File.read(INPUT_RUNTIME, encoding: 'UTF-8')}\n")
+html.insert(position, "\n\n#{runtime}\n\n#{File.read(INPUT_RUNTIME, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n")
 html.gsub!('ALPHA 1.2.0', 'ALPHA 1.2.4')
 html.gsub!('Alpha 1.2.0', 'Alpha 1.2.4')
 
@@ -206,7 +207,7 @@ html.gsub!("yy=bossActor?.id==='voice_boss'?", "yy=!C3.coopActive()&&bossActor?.
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
-sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUES]
+sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, PACE_METER, DIALOGUES]
 manifest = {
   game: 'TORII & HUTUKARA',
   build: 'ALPHA 1.2.4 · MOBILE & CO-OP',
