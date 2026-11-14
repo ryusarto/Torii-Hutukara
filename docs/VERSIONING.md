@@ -11,6 +11,10 @@ O projeto usa `MAJOR.MINOR.PATCH` acompanhado do estágio:
 
 O número da build e o schema do save não são a mesma coisa. A Alpha 1.1.0 continua usando schema 11 porque seus novos campos têm defaults compatíveis.
 
+## Fonte única da versão
+
+`game/VERSION.json` define número, rótulo e nome de arquivo. O gerador, o validador, o site e os testes leem dali; para lançar uma versão nova, mude só esse arquivo. A chave de save no navegador não muda entre versões.
+
 ## Preservação
 
 - Builds não ficam no git. `game/builds/` é gerado por `build_alpha.rb` (localmente ou no GitHub Actions) e está no `.gitignore`.

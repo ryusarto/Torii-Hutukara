@@ -11,7 +11,7 @@ base 1.1.2
     + áudio e imagens em Base64
     + patches de compatibilidade
              ↓
-HTML completo Alpha 1.2.4
+HTML completo (versão em game/VERSION.json)
 ```
 
 ## Componentes
@@ -45,6 +45,22 @@ Responsabilidades:
 `game/source/chapter-03/input_mobile_combat.js` é injetado depois do runtime narrativo. Separa a propriedade dos comandos por dispositivo e mantém movimento/recargas no mesmo ciclo de simulação. Também implementa layout mobile, Pointer Events por dedo, perfil de rolada, colisão por corpo, puxão com busca de caminho e abertura de contra-ataque dos chefes.
 
 O enquadramento usa dimensões lógicas mutáveis: 768×432 no desktop/paisagem e 512×480 no mobile em retrato. O estado narrativo e o schema de save continuam os mesmos.
+
+### Camadas de jogo da Beta
+
+Injetadas pelo gerador, nesta ordem, depois de `input_mobile_combat.js`:
+
+| Arquivo | Função |
+|---|---|
+| `dialogue_edits.js` | aplica `design/dialogo/EDICOES_DIALOGO.json` (cortes, trocas, avisos) e evita cenas repetidas |
+| `pacing.js` | encontros extras, patrulhas do Distrito, flauta no Contratempo, levantar quem caiu, correção de projéteis |
+| `healing.js` | fitas de cura, mercadores, gravadores do Capítulo 3, equipe recuperada a cada capítulo |
+| `combat_patterns.js` | padrões de chefe com RNG, inimigos musicais, ajuste do Viajante |
+| `flow_fixes.js` | Capítulo 2 → 3 contínuo, diálogo preso, integrante ativo e formação |
+| `accessibility.js` | opção "Texto maior" |
+| `../telemetry/pace_meter.js` | medidor de ritmo (`?ritmo`) |
+
+Cada camada documenta no topo o que faz e por quê. A próxima etapa técnica é fundir essas camadas e as da base em módulos (roteiro, Fase 2).
 
 ### Gerador
 

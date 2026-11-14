@@ -528,7 +528,7 @@ C3.cycleCoop=function(){cycleBefore123();C3.syncCoop()};
 // Single source for the visible version label. Older layers rewrite the
 // brand bar on every HUD update ("1.0 · PRÉ-ALPHA", "1.2.0 · PRÉ-BETA"), so the
 // final label is reapplied after them.
-const BUILD_LABEL='ALPHA 1.2.4 · MOBILE & CO-OP';
+const BUILD_LABEL='__BUILD_LABEL__';
 function applyBuildLabel(){
   const build=document.querySelector('.brandbar .build');
   if(build&&build.innerHTML!=='TORII &amp; HUTUKARA<br>'+BUILD_LABEL)build.innerHTML='TORII &amp; HUTUKARA<br>'+BUILD_LABEL;
@@ -539,7 +539,7 @@ updateHUD=function(...args){const result=hudBeforeLabel(...args);applyBuildLabel
 const initBefore121=init;
 init=function(){
   initBefore121();installMobile121();const landscapeStyle=document.createElement('style');landscapeStyle.textContent=LANDSCAPE_CSS122;document.head.appendChild(landscapeStyle);
-  document.title='Torii & Hutukara · Alpha 1.2.4 · Mobile & Co-op';
+  document.title='Torii & Hutukara · __BUILD_TITLE__';
   const version=document.querySelector('#start .version');if(version)version.textContent=BUILD_LABEL;
   applyBuildLabel();
 };

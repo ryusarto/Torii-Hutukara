@@ -4,6 +4,16 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ## [Não lançado]
 
+## [Beta 1.0] — 2026-11-14
+
+- Primeira Beta. Versão definida em `game/VERSION.json` (o número deixa de ficar espalhado pelos scripts); a chave de save não muda.
+- Corrigido: salvar e recarregar no Capítulo 1 congelava a formação em Franco e Ryuchi; quem entrava depois ficava de fora e o Arauto virava uma parede com 2 integrantes. Agora quem entra no grupo ocupa uma vaga livre, e saves já afetados são consertados ao carregar.
+- Corrigido: se o integrante ativo não fazia parte da formação, os golpes não causavam dano e a luta nunca terminava.
+- Acessibilidade: opção "Texto maior" no menu Sistema (lembrada no aparelho), ao lado de "Efeitos suaves".
+- Auditoria de Beta: jornada completa nas duas ordens do Capítulo 3 e com recargas da página no meio, sem travamentos, perdas de save ou derrotas.
+- Teste de controles estabilizado: a verificação de mira do Silêncio em coop fixa o modo sem variação.
+
+
 ### Correções do playtest do autor
 
 - Site mais leve no celular, sem mudar nenhum pixel: HTML de 5,0 → 0,5 MB e jogo pronto para começar em 0,7 s (antes 4,4 s) num 4G simulado; artes do início carregadas em 15 s (antes 28 s). As artes exclusivas do Capítulo 3 carregam em segundo plano depois do resto (ou na hora, se o Capítulo 3 for iniciado direto).

@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Build principal:** Alpha 1.2.4 Mobile & Co-op — jogo completo do início ao fim, com os três capítulos.
+**Versão atual:** Beta 1.0 — jogo completo do início ao fim, com os três capítulos. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -54,6 +54,15 @@ Controle PlayStation:
 Ao conectar dois controles, o segundo jogador assume outro integrante vivo da formação. Os dois personagens se movem e lutam de modo independente em uma câmera compartilhada.
 
 O menu **Outras opções** permite iniciar diretamente os capítulos 2 e 3 para testes. A jornada normal começa no estúdio.
+
+## Destaques da Beta 1.0
+
+- Ritmo: diálogos enxutos (225 → 139 falas), mais encontros, primeiro combate em menos de 1 minuto e Capítulo 2 → 3 contínuo.
+- Combate: chefes com padrão que dá para aprender + variação (RNG) e três inimigos musicais (Metrônomo Menor, Eco Espelho, Abafador).
+- Cura: fitas de cura (R / Share / botão ♥ FITA), mercadores nos três capítulos e gravadores no Capítulo 3.
+- Acessibilidade: "Texto maior" e "Efeitos suaves" no menu Sistema.
+- Site leve no celular: jogo pronto em menos de 1 s num 4G; a faixa do Arauto ("Walk Talk Twin") voltou a tocar.
+- Auditoria de Beta: jornada completa automática nas duas ordens do Capítulo 3, inclusive salvando e recarregando a página no meio (veja `docs/QA.md`).
 
 ## Destaques da Alpha 1.2.4
 
@@ -115,7 +124,7 @@ ruby game/source/chapter-03/build_alpha.rb
 ruby game/source/chapter-03/validate_alpha.rb
 ```
 
-O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.4/`. Essa pasta é gerada e não vai para o git; o GitHub Actions gera, valida e publica a mesma build a cada mudança no `main`. O gerador é determinístico: as mesmas fontes produzem sempre o mesmo SHA-256. A build é aceita somente quando não há placeholders, todas as cenas referenciadas existem e as validações de mapas, músicas, sprites, progressão e controles são aprovadas.
+O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/<versão>/` (versão em `game/VERSION.json`). Essa pasta é gerada e não vai para o git; o GitHub Actions gera, valida e publica a mesma build a cada mudança no `main`. O gerador é determinístico: as mesmas fontes produzem sempre o mesmo SHA-256. A build é aceita somente quando não há placeholders, todas as cenas referenciadas existem e as validações de mapas, músicas, sprites, progressão e controles são aprovadas.
 
 ## Documentação
 

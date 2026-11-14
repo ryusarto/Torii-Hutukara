@@ -14,6 +14,8 @@ const build=path.join(path.dirname(manifestPath),manifest.output.file);
 const start=process.argv[2]||'newGame';const maxMinutes=Number(process.argv[3]||120);
 // Perfil: 'rapido' (corre, lê 20 car/s) ou 'tipico' (anda, lê 14 car/s).
 const profile=process.env.PERFIL||'rapido';const opts=profile==='tipico'?{run:false,cps:14}:{run:true,cps:20};
+// ROTA=canal|usina escolhe a primeira frente do Capítulo 3. RECARREGAR=1 salva, recarrega a página e continua a cada 2 min de jogo.
+opts.rota=process.env.ROTA||null;const reloadEvery=process.env.RECARREGAR?(Number(process.env.RECARREGAR)>1?Number(process.env.RECARREGAR):120):0;
 const outDir=path.join(__dirname,'ritmo');fs.mkdirSync(outDir,{recursive:true});
 
 async function main(){
@@ -24,8 +26,20 @@ async function main(){
   await page.evaluate(()=>{try{localStorage.clear()}catch{}});
   await page.evaluate(installBot);await page.evaluate(o=>{window.__botOpts=o},opts);
   await page.evaluate(s=>window.__bot.begin(s),start);
-  const log=[];let lastLog=0;
+  const log=[];let lastLog=0,lastReload=0,reloads=0,saveIssues=[];
+  const snapshot=()=>page.evaluate(()=>{const c=G.c3||{};const flags=Object.keys(G.flags||{}).filter(k=>G.flags[k]).sort();const c3=Object.keys(c).filter(k=>c[k]===true).sort();
+    return {objective:(()=>{try{return objectiveData().text}catch{return '?'}})(),area:G.area,flags,c3,defeated:(G.defeated||[]).length,potions:G.potions,shards:G.shards,formation:(G.formation||[]).join(',')}});
   for(;;){
+    if(reloadEvery){const st0=await page.evaluate(()=>({t:window.__bot.clock(),mode,area:G&&G.area}));
+      if(st0.t-lastReload>=reloadEvery&&st0.mode==='walk'){lastReload=st0.t;
+        await page.evaluate(()=>save(true));const before=await snapshot();
+        await page.reload({waitUntil:'load'});await page.evaluate(installBot);await page.evaluate(o=>{window.__botOpts=o},opts);await page.evaluate(t=>window.__bot.setClock(t),st0.t);
+        await page.evaluate(()=>{continueGame()});await page.evaluate(()=>{let t=1e4;for(let i=0;i<20;i++){t+=16;loop(t)}});
+        const after=await snapshot();reloads++;
+        const diff=Object.keys(before).filter(k=>JSON.stringify(before[k])!==JSON.stringify(after[k]));
+        if(diff.length){saveIssues.push(`[${(st0.t/60).toFixed(1)} min] ${diff.map(k=>k+': '+JSON.stringify(before[k]).slice(0,120)+' → '+JSON.stringify(after[k]).slice(0,120)).join(' | ')}`)}
+        log.push(`[${(st0.t/60).toFixed(1)} min] Recarregou a página (${diff.length?'DIFERENÇAS: '+diff.join(','):'progresso idêntico'})`);
+      }}
     const st=await page.evaluate(()=>window.__bot.run(3600)); // 60 s de jogo por lote
     if(st.events.length)log.push(...st.events);
     if(st.time-lastLog>=300){lastLog=st.time;console.log(`${(st.time/60).toFixed(1)} min · ${st.area} · ${st.mode} · ${st.objective}`)}
@@ -33,11 +47,13 @@ async function main(){
   }
   const summary=await page.evaluate(()=>window.ToriiRitmo.summary());
   const report=await page.evaluate(()=>window.ToriiRitmo.report());
-  const tag=start+'-'+profile+'-'+pt.version;
+  const tag=start+'-'+profile+(opts.rota?'-'+opts.rota:'')+(reloadEvery?'-recarga':'')+(process.env.TAG?'-'+process.env.TAG:'')+'-'+pt.version;
   const lines=await page.evaluate(()=>window.__lines||[]);fs.writeFileSync(path.join(outDir,`falas-${tag}.json`),JSON.stringify(lines,null,1));
   fs.writeFileSync(path.join(outDir,`bot-${tag}.txt`),summary+'\n\nEVENTOS DO ROBÔ\n'+log.join('\n')+(errors.length?'\n\nERROS\n'+errors.join('\n'):'')+'\n');
   fs.writeFileSync(path.join(outDir,`bot-${tag}.json`),JSON.stringify(report,null,1));
   console.log(summary);if(errors.length)console.log('ERROS:',errors.slice(0,5));
+  if(reloadEvery){console.log(`RECARGAS: ${reloads} · divergências: ${saveIssues.length}`);saveIssues.forEach(x=>console.log('  '+x));
+    fs.appendFileSync(path.join(outDir,`bot-${tag}.txt`),`\nRECARGAS: ${reloads} · divergências: ${saveIssues.length}\n${saveIssues.join('\n')}\n`)}
   await browser.close();
 }
 
@@ -77,8 +93,10 @@ function installBot(){
       const b=ov.querySelector(`[data-vnote="${n}"]`);say('Puzzle Lumi → nota '+n);b.click();return}
     // derrota: voltar ao checkpoint
     const retry=buttons.find(b=>/checkpoint|tentar|continuar|voltar ao/i.test(b.textContent));
-    if(/derrot|caiu|silêncio venceu|game over|frequência se partiu/i.test(ov.innerText)&&retry){say('Derrota em '+G.area+' ('+G.x.toFixed(0)+','+G.y.toFixed(0)+') perto de: '+(current.enemies||[]).filter(e=>Math.hypot(e.x-G.x,e.y-G.y)<9&&!G.defeated.includes(e.id)).map(e=>e.id+' '+(e.hp??'?')+'hp').join(', ')+' · equipe '+JSON.stringify(G.hp)+' → '+retry.textContent.trim());retry.click();return}
+    if(/derrot|caiu|silêncio venceu|game over|se partiu|silêncio avança/i.test(ov.innerText)&&retry){say('Derrota em '+G.area+' ('+G.x.toFixed(0)+','+G.y.toFixed(0)+') perto de: '+(current.enemies||[]).filter(e=>Math.hypot(e.x-G.x,e.y-G.y)<9&&!G.defeated.includes(e.id)).map(e=>e.id+' '+(e.hp??'?')+'hp').join(', ')+' · equipe '+JSON.stringify(G.hp)+' → '+retry.textContent.trim());retry.click();return}
     // escolhas/puzzles: clicar opções não usadas até fechar
+    const route=(window.__botOpts||{}).rota;
+    if(route&&/ESCOLHA DE ROTA/i.test(ov.innerText)){const rb=buttons.find(b=>new RegExp(route,'i').test(b.textContent));if(rb){say('Rota escolhida: '+rb.textContent.trim().slice(0,20));rb.click();return}}
     const pick=buttons.find(b=>!b.__botClicked&&!/fechar|voltar|sair|cancel|exportar|importar|apagar|menu/i.test(b.textContent));
     if(pick){pick.__botClicked=true;say('Overlay "'+text+'" → '+pick.textContent.trim().slice(0,40));pick.click();return}
     say('Overlay sem opção útil, fechando: '+text);closeOverlay();
@@ -114,12 +132,13 @@ function installBot(){
     loop(t);
   }
   window.__bot={
+    clock(){return clock},setClock(t){clock=t;stuckSince=t},
     begin(s){if(s==='chapter2')startChapterTwoPreview();else if(s==='chapter3')C3.start(true);else newGame();say('Início: '+s)},
     run(n){events=[];let stuck=null;
       for(let i=0;i<n;i++){frame();
         const obj=(()=>{try{return objectiveData().text}catch{return '?'}})();
         if(obj!==stuckObj){stuckObj=obj;stuckSince=clock;say('Objetivo: '+obj)}
-        if(clock-stuckSince>480){stuck=`objetivo parado há 8 min: "${obj}" em ${G.area} (${G.x.toFixed(1)},${G.y.toFixed(1)}) modo ${mode}`;break}
+        if(clock-stuckSince>480){stuck=`objetivo parado há 8 min: "${obj}" em ${G.area} (${G.x.toFixed(1)},${G.y.toFixed(1)}) modo ${mode} · chefe ${bossActor?bossActor.id+' '+bossActor.hp+'/'+bossActor.max+' em ('+bossActor.x.toFixed(1)+','+bossActor.y.toFixed(1)+')':'nenhum'} · battle ${JSON.stringify(battle)} · inimigos vivos ${(current.enemies||[]).filter(e=>!G.defeated.includes(e.id)).map(e=>e.id).join(',')} · ativo ${G.active} (fighter ${(()=>{try{return fighterName()}catch{return '?'}})()}) · vida ${JSON.stringify(G.hp)} · formação ${JSON.stringify(G.formation)} · membros ${JSON.stringify((()=>{try{return partyMembers()}catch{return '?'}})())} · act ${JSON.stringify({cool:act.cool,dash:act.dash,invuln:act.invuln})}`;break}
         const fin=(G.c3&&G.c3.complete)||(G.flags&&G.flags.c3Complete);if(fin){doneFlag=true;break}
       }
       let objective='?';try{objective=objectiveData().text}catch{}
