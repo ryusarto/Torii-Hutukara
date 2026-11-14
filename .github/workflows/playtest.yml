@@ -7,7 +7,11 @@ on:
       - 'web/playtest/**'
       - 'web/album/**'
       - 'production/build_playtest.rb'
-      - 'game/builds/**'
+      - 'game/source/**'
+      - 'assets/chapter-03/audio/**'
+      - 'assets/chapter-03/runtime/**'
+      - 'assets/prebeta/runtime/**'
+      - 'design/chapter-03/**'
       - '.github/workflows/playtest.yml'
   workflow_dispatch:
 
@@ -29,6 +33,19 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: actions/configure-pages@v5
+      # The playable HTML is generated here from game/source and assets; it is
+      # no longer stored in git. The generator is deterministic: the same
+      # sources always produce the same SHA-256.
+      - name: Generate portable build
+        run: ruby game/source/chapter-03/build_alpha.rb
+      - name: Validate build (fails the deploy on any error)
+        run: ruby game/source/chapter-03/validate_alpha.rb
+      - name: Keep portable HTML as a downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: torii-hutukara-html-portatil
+          path: game/builds/
+          retention-days: 90
       - name: Export verified playable build
         run: ruby production/build_playtest.rb
       - uses: actions/upload-pages-artifact@v4

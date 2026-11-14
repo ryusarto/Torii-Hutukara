@@ -2,7 +2,7 @@
 
 ## Princípios
 
-1. Não sobrescrever builds publicadas.
+1. Não sobrescrever builds publicadas: cada versão nova recebe pasta própria, e a anterior fica no histórico do git e na sua tag.
 2. Não alterar a base 1.1.2; mudanças entram pelo runtime ou por uma nova arquitetura versionada.
 3. Toda condição narrativa deve depender de estado concluído, não da quantidade de cliques em um NPC.
 4. Recompensas e transições precisam ser idempotentes.

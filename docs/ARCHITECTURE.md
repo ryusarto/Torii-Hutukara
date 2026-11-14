@@ -11,7 +11,7 @@ base 1.1.2
     + áudio e imagens em Base64
     + patches de compatibilidade
              ↓
-HTML completo Alpha 1.2.1
+HTML completo Alpha 1.2.4
 ```
 
 ## Componentes
@@ -58,7 +58,7 @@ O gerador:
 4. incorpora áudio e imagens otimizadas;
 5. injeta o runtime antes da inicialização;
 6. rejeita placeholders restantes;
-7. grava HTML, manifesto e SHA-256.
+7. grava HTML, manifesto e SHA-256 em `game/builds/` (pasta gerada, fora do git; o GitHub Actions repete o processo a cada publicação).
 
 ### Validador
 

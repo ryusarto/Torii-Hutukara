@@ -25,7 +25,7 @@ O GitHub é a fonte oficial do projeto. Toda alteração aprovada deve terminar 
 
 ## Regra de versões
 
-- A build anterior permanece intacta em `game/builds/`.
+- Builds não são commitadas: o workflow `Publish playtest` gera, valida (falha se algo der errado) e publica a build a partir do código-fonte.
 - Cada versão recebe pasta, nome, manifesto, hash e relatório próprios.
 - Uma correção pequena incrementa o último número: 1.1.0 → 1.1.1.
 - Um conjunto novo de conteúdo incrementa o número intermediário: 1.1.x → 1.2.0.
