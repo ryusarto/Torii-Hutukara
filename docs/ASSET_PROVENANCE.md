@@ -1,5 +1,13 @@
 # Origem dos assets
 
+> Licenças: código em MIT, materiais abertos em CC BY 4.0 e materiais protegidos (Ryuchi, Franco, máscaras, músicas e participantes do álbum) em CC BY-NC-ND 4.0. Veja [`LICENSE-ASSETS.md`](../LICENSE-ASSETS.md).
+
+## Autorizações e decisões confirmadas pelo autor — 14/11/2026
+
+- Todas as pessoas retratadas participaram do álbum e autorizaram o uso de sua imagem neste jogo.
+- As faixas de `assets/chapter-03/audio/` são versões 16-bit de faixas do álbum, produzidas com Suno para uso não comercial. O jogo é gratuito e sem fins comerciais.
+- Pendente: registrar abaixo qual faixa do álbum cada arquivo representa.
+
 ## Referências autorais privadas — Alpha 1.2.0
 
 - `assets/prebeta/source/TORII_MASK_PHYSICAL_REFERENCE.png`: fotografia da máscara física criada pela equipe; referência canônica para toda representação da máscara Torii.

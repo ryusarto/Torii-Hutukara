@@ -4,6 +4,12 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ## [Não lançado]
 
+### Fase 0 — licença e identificação
+
+- Projeto licenciado como código aberto: código em MIT (`LICENSE`), materiais abertos em CC BY 4.0 e materiais protegidos em CC BY-NC-ND 4.0 (`LICENSE-ASSETS.md`). Protegidos: Ryuchi e Franco, The Sir em todas as versões, máscaras Torii, músicas e participantes do álbum.
+- README e `docs/ASSET_PROVENANCE.md` atualizados com as licenças, as autorizações e o crédito ao Suno.
+- Corrigido o rótulo de versão no topo da tela: camadas antigas reescreviam "1.0 · PRÉ-ALPHA" a cada atualização do HUD. Agora um único `BUILD_LABEL` é reaplicado por último. Entra na próxima build gerada.
+
 ### Planejado
 
 - Playtest completo da Alpha 1.2.0 em desktop e celular.

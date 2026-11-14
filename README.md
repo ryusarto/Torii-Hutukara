@@ -140,6 +140,12 @@ O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.4
 
 Nenhuma build anterior é sobrescrita. Cada mudança deve atualizar o código-fonte, a documentação afetada, o changelog e as verificações correspondentes. Alterações aprovadas são registradas no GitHub para manter o repositório como fonte oficial do projeto. Consulte o fluxo de atualização antes de criar cada nova versão.
 
-## Direitos
+## Licença
 
-O repositório foi tornado público pelo autor para permitir os testes pelo GitHub Pages. O jogo e seus materiais continuam com direitos reservados; a publicação não concede licença de redistribuição. Consulte `docs/ASSET_PROVENANCE.md` antes de reutilizar músicas ou imagens fora do projeto.
+Torii & Hutukara é gratuito, sem fins comerciais e de código aberto.
+
+- **Código:** [MIT](LICENSE).
+- **Arte, cenários, NPCs, roteiro e diálogos:** CC BY 4.0.
+- **Protegidos (não podem ser alterados):** Ryuchi e Franco, The Sir em todas as versões, as máscaras Torii, todas as músicas e as pessoas reais que participaram do álbum. Licença CC BY-NC-ND 4.0.
+
+Detalhes e lista de arquivos em [LICENSE-ASSETS.md](LICENSE-ASSETS.md).
