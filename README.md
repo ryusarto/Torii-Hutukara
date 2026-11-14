@@ -132,6 +132,7 @@ O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.4
 - [Estudo mobile do Delta](docs/DELTA_MOBILE_STUDY.md)
 - [Aprofundamento de combate com REA](docs/MOONLIGHTER_REA_2026_11_13.md)
 - [Proposta para habilidades e ritmo das quests](design/COMBATE_E_RITMO_PROPOSTA.md)
+- [Medição de ritmo — Fase 1](docs/RITMO_FASE1.md)
 - [Histórico de mudanças](CHANGELOG.md)
 
 ## Regra de desenvolvimento
