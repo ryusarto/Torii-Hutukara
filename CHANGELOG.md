@@ -4,6 +4,11 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ## [Não lançado]
 
+### Correções do playtest do autor
+
+- Fim do Capítulo 2 → Capítulo 3 contínuo: o cartão "Capítulo 02 concluído" segue sozinho para o Capítulo 3 em 5 segundos (ou na hora, pelo botão). Sai a opção "explorar antes de partir", que deixava o jogador procurando o ponto de passagem na torre. Saves antigos parados nesse ponto seguem direto ao continuar.
+- Corrigido diálogo preso na tela (ex.: fala do Belga depois do Metrônomo): apertar J, M ou I durante uma fala abria o menu por cima e, ao fechar, a caixa não respondia mais. Agora esses atalhos não abrem menus durante falas, e qualquer menu aberto por cima devolve o controle à fala ao fechar.
+
 ### Fase 3 (parte 2) — padrões de chefe e inimigos musicais
 
 - Chefes com padrão por fase + 20% de variação (RNG), nunca 3 ataques iguais seguidos e nome de cada ataque na tela. Viajante deixa de ser sorteio puro; Arauto ganha variação e aviso um pouco mais longo; Metrônomo varia só na fase 3; O Silêncio ganha 15% de variação.

@@ -34,7 +34,7 @@ Contagem de inimigos de campo no código (`enemy(...)`):
 - Não existe pular cena, acelerar texto nem registro de falas (procurei por skip/pular/log no código: nada).
 
 ### 2.4 A música não é mecânica de verdade
-A premissa é "a música organiza combate, exploração e escolhas", mas na prática as relíquias são **chaves de porta** (o Baixo abre raízes e a ponte; o Violino revela uma passagem). O mini-game de ritmo é uma tela separada. O combate não usa batida (só o Percussionista tem bônus "no tempo"). Os Caps. 1–2 usam som sintetizado no navegador e o Cap. 3 usa as versões 16-bit do álbum, ou seja, **duas identidades sonoras diferentes**.
+A premissa é "a música organiza combate, exploração e escolhas", mas na prática as relíquias são **chaves de porta** (o Baixo abre raízes e a ponte; o Violino revela uma passagem). O mini-game de ritmo é uma tela separada. O combate não usa batida (só o Percussionista tem bônus "no tempo"). Os três capítulos tocam versões 16-bit das faixas do álbum (correção de 14/11/2026: a análise inicial dizia, por engano, que os Caps. 1–2 usavam só som sintetizado).
 
 ### 2.5 Sem curva de tensão
 Faltam picos entre os chefes: nada de emboscada, perseguição, sala com tempo, escolha com custo, recompensa no meio do caminho. Os XP_STEPS (`0,25,65,130,225…`), com tão poucos inimigos, fazem o nível subir quase só por roteiro.
@@ -170,7 +170,7 @@ Ordem pensada para cada fase destravar a seguinte. Durações são estimativas p
 - [ ] Gancho do Silêncio já no Cap. 1.
 
 ### Fase 6 — Identidade musical (1–2 semanas)
-- [ ] Trilha consistente nos 3 capítulos (versões 16-bit do álbum também nos Caps. 1–2).
+- [x] Trilha consistente nos 3 capítulos (já era: versões 16-bit do álbum em todos).
 - [ ] Música adaptativa: camada de percussão entra no combate e sai na exploração.
 - [ ] Show do Contratempo como sequência de ritmo jogável.
 - [ ] Fitas colecionáveis + toca-discos no estúdio.
@@ -218,7 +218,7 @@ Hoje o jogo conta 1, 2 e parte de 3 (o Arqueiro, o Katana, o Sintetizador e o Pe
   - mundo percussivo/afro/funk → o Percussionista e golpes no tempo (já existe);
   - mundo lo-fi/jazz → exploração mais calma, puzzles de ritmo.
 - **A versão de Ryuchi/Franco de cada mundo apresenta o gênero**: ela fala como alguém daquela cena, a faixa daquele mundo toca quando ela entra na equipe.
-- **A música do jogo é a música do álbum.** As faixas do Cap. 3 já são versões 16-bit do álbum. Estender isso aos Caps. 1–2 (hoje com som sintetizado), com o nome da faixa aparecendo na tela ("♪ Agora tocando: …"). O jogo vira o player do álbum.
+- **A música do jogo é a música do álbum.** Os três capítulos já tocam versões 16-bit do álbum. Falta mostrar o nome da faixa na tela ("♪ Agora tocando: …"). O jogo vira o player do álbum.
 
 **Máscaras como peça central.**
 - A máscara do jogo deve ser idêntica à máscara física (a referência `TORII_MASK_PHYSICAL_REFERENCE.png` já existe).
@@ -247,7 +247,7 @@ Hoje o jogo conta 1, 2 e parte de 3 (o Arqueiro, o Katana, o Sintetizador e o Pe
 | 0 | `LICENSE` (código) + `ASSETS_LICENSE.md` (identidade/música); registrar autorizações e origem das faixas |
 | 2 | Estrutura hub + `worlds/`; áudio e imagens fora do HTML, carregados sob demanda |
 | 4 | Recortar os capítulos atuais em mundos por gênero; início com máscara + travessia + combate em 5 min |
-| 6 | Versões 16-bit do álbum também nos Caps. 1–2; "Agora tocando" |
+| 6 | "Agora tocando" com o nome da faixa do álbum |
 | 7 | Mapa do multiverso pós-final, portais "em breve", links do álbum, botão de compartilhar |
 
 ---

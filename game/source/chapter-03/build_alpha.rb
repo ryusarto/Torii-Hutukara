@@ -17,6 +17,7 @@ DIALOGUE_EDITS_JS = File.join(ROOT, 'dialogue_edits.js')
 PACING_JS = File.join(ROOT, 'pacing.js')
 HEALING_JS = File.join(ROOT, 'healing.js')
 COMBAT_JS = File.join(ROOT, 'combat_patterns.js')
+FLOW_JS = File.join(ROOT, 'flow_fixes.js')
 DIALOGUE_EDITS = File.join(REPO_ROOT, 'design', 'dialogo', 'EDICOES_DIALOGO.json')
 OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.2.4')
 OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_2_4_MOBILE_COOP.html')
@@ -206,7 +207,7 @@ edits_json = JSON.generate(JSON.parse(File.read(DIALOGUE_EDITS, encoding: 'UTF-8
 edits_js = File.read(DIALOGUE_EDITS_JS, encoding: 'UTF-8')
 raise 'Marcador __DIALOGUE_EDITS__ ausente' unless edits_js.include?('__DIALOGUE_EDITS__')
 edits_js = edits_js.sub('__DIALOGUE_EDITS__') { edits_json }
-html.insert(position, "\n\n#{runtime}\n\n#{File.read(INPUT_RUNTIME, encoding: 'UTF-8')}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n")
+html.insert(position, "\n\n#{runtime}\n\n#{File.read(INPUT_RUNTIME, encoding: 'UTF-8')}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n")
 html.gsub!('ALPHA 1.2.0', 'ALPHA 1.2.4')
 html.gsub!('Alpha 1.2.0', 'Alpha 1.2.4')
 
@@ -216,7 +217,7 @@ html.gsub!("yy=bossActor?.id==='voice_boss'?", "yy=!C3.coopActive()&&bossActor?.
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
-sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, PACE_METER, DIALOGUES]
+sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, PACE_METER, DIALOGUES]
 manifest = {
   game: 'TORII & HUTUKARA',
   build: 'ALPHA 1.2.4 · MOBILE & CO-OP',
