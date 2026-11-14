@@ -62,7 +62,7 @@ hydrateEnemy=function(e,...rest){const fresh=e&&e.hp===undefined;const r=hydrate
   if(fresh&&e&&WEAK_IDS.has(e.id)){e.max=e.hp=Math.round(e.hp*WEAK.hp);e.power=Math.max(4,Math.round(e.power*WEAK.power));e.weak=true}
   return r};
 
-// Patrulhas só depois de conhecer o Belga e antes do fim.
+// Reaparecimento das patrulhas (só depois de conhecer o Belga e antes do fim).
 const patrolIds=new Set(PATROLS.map(p=>p[1]));
 let lastPatrolReset=-1e9,restoring=false;
 // Depois de uma derrota as patrulhas não reaparecem (evita ciclo de derrotas).
@@ -79,9 +79,9 @@ setArea=function(id,...rest){
   relocateFluteKeepers();
   return r;
 };
-// Antes de conhecer o Belga, as patrulhas ficam fora do caminho da chegada.
+// Patrulhas só depois da primeira frente concluída: a chegada ao Distrito fica limpa.
 const actorsBeforePacing=enemyActors;
-enemyActors=function(){const list=actorsBeforePacing();if(G&&G.area==='distortion_district'&&!(G.c3&&G.c3.metMaia))return list.filter(e=>!patrolIds.has(e.id));return list};
+enemyActors=function(){const list=actorsBeforePacing();if(G&&G.area==='distortion_district'&&!(G.c3&&(G.c3.usinaDone||G.c3.canalDone)))return list.filter(e=>!patrolIds.has(e.id));return list};
 
 // ---------- Capítulo 3: a Flauta chega ao Contratempo ----------
 const fluteAtClub=()=>G&&G.c3&&G.c3.usinaDone&&G.c3.canalDone&&!G.c3.windFlute;
@@ -113,8 +113,8 @@ if(typeof C3!=='undefined'&&typeof C3.objective==='function'){
     return o;
   };
 }
-// Cada etapa grande do Capítulo 3 devolve a música à cidade e recupera a
-// equipe inteira — sem isso, o trio chegava ao Distrito sem vida.
+// Cada etapa grande do Capítulo 3 levanta quem caiu (30% da vida). O resto da
+// recuperação fica com fitas de cura e gravadores (healing.js).
 const MILESTONES=['usinaDone','canalDone','windFlute','clubPhraseDone','liftOpen','metronomeDone'];
 let healedFor=new Set(),seeded=false;
 const reseed=()=>{healedFor=new Set();seeded=false};
@@ -125,8 +125,9 @@ function healOnMilestones(){
   if(!seeded){done.forEach(k=>healedFor.add(k));seeded=true;return}
   const fresh=done.filter(k=>!healedFor.has(k));if(!fresh.length)return;
   fresh.forEach(k=>healedFor.add(k));
-  for(const id of Object.keys(G.maxhp||{}))if(G.maxhp[id])G.hp[id]=G.maxhp[id];
-  try{toast('A CIDADE VOLTA A TOCAR · EQUIPE RECUPERADA');updateHUD()}catch{}
+  // Decisão do autor: só quem caiu volta, com 30% da vida.
+  let raised=0;for(const id of Object.keys(G.maxhp||{}))if(G.maxhp[id]&&G.hp[id]<=0){G.hp[id]=Math.max(1,Math.round(G.maxhp[id]*.3));raised++}
+  if(raised)try{toast('A CIDADE VOLTA A TOCAR · QUEM CAIU SE LEVANTA');updateHUD()}catch{}
 }
 const updateBeforePacing=update;
 let healTimer=0;
@@ -136,6 +137,20 @@ if(typeof C3!=='undefined'&&typeof C3.start==='function'){const before=C3.start;
 // Derrota volta o estado; a cura daquela etapa pode acontecer de novo ao refazê-la.
 const restoreHealBefore=restoreCheckpoint;
 restoreCheckpoint=function(...args){const r=restoreHealBefore.apply(this,args);reseed();return r};
+
+// Correção (bug antigo da 1.0): um projétil que derrota o último inimigo
+// encerra a luta, a lista de projéteis é esvaziada no meio do laço e o
+// jogo lia um item inexistente, travando o loop. Agora cada passo confere
+// se o projétil ainda existe.
+for(const name of ['tickFriendlyShots10','tickHostileShots10']){
+  const original=window[name];if(typeof original!=='function')continue;
+  window[name]=function(dt,...rest){
+    const list=name==='tickFriendlyShots10'?projectiles:hostileShots;
+    if(list.some(p=>!p))for(let i=list.length-1;i>=0;i--)if(!list[i])list.splice(i,1);
+    try{return original.call(this,dt,...rest)}
+    catch(e){if(e instanceof TypeError){const l=name==='tickFriendlyShots10'?projectiles:hostileShots;for(let i=l.length-1;i>=0;i--)if(!l[i])l.splice(i,1);return}throw e}
+  };
+}
 
 window.ToriiRitmoMapa={ENCOUNTERS,PATROLS,relocateFluteKeepers};
 })();

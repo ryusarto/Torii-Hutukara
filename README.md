@@ -36,6 +36,7 @@ Controles principais:
 | Dash | Q |
 | Ação especial | K |
 | Trocar integrante ativo | 1, 2 e 3 |
+| Usar fita de cura | R (ou tocar em ♥ FITA no topo da tela) |
 
 Controle PlayStation:
 
@@ -48,6 +49,7 @@ Controle PlayStation:
 | Especial de ressonância | R2 |
 | Trocar integrante | △ |
 | Pausa | Options |
+| Usar fita de cura | Share / Create |
 
 Ao conectar dois controles, o segundo jogador assume outro integrante vivo da formação. Os dois personagens se movem e lutam de modo independente em uma câmera compartilhada.
 
