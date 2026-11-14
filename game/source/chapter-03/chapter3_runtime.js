@@ -95,12 +95,25 @@ const PB={
   directionIndex:{down:0,left:1,up:2,right:3}
 };
 
-function c3ChromaImage(src){
-  const raw=new Image(),out=new Image();
+function c3ChromaImage(src,out=new Image()){
+  const raw=new Image();
   raw.onload=()=>{try{const c=document.createElement('canvas');c.width=raw.naturalWidth;c.height=raw.naturalHeight;const q=c.getContext('2d',{willReadFrequently:true});q.drawImage(raw,0,0);const im=q.getImageData(0,0,c.width,c.height),d=im.data,w=c.width,h=c.height,count=w*h,mask=new Uint8Array(count),queue=new Int32Array(count);let head=0,tail=0;const green=p=>{const i=p*4,r=d[i],g=d[i+1],b=d[i+2];return g>118&&g>r*1.24&&g>b*1.24};const add=p=>{if(!mask[p]&&green(p)){mask[p]=1;queue[tail++]=p}};for(let x=0;x<w;x++){add(x);add((h-1)*w+x)}for(let y=0;y<h;y++){add(y*w);add(y*w+w-1)}while(head<tail){const p=queue[head++],x=p%w;if(p>=w)add(p-w);if(p<count-w)add(p+w);if(x)add(p-1);if(x<w-1)add(p+1)}for(let p=0;p<count;p++){const i=p*4;if(mask[p]){d[i+3]=0;continue}const r=d[i],g=d[i+1],b=d[i+2];if(g>Math.max(r,b)*1.06){const x=p%w,edge=(p>=w&&mask[p-w])||(p<count-w&&mask[p+w])||(x&&mask[p-1])||(x<w-1&&mask[p+1]);if(edge){const spill=Math.min(1,(g-Math.max(r,b))/96);d[i+3]=Math.round(d[i+3]*(1-spill*.82));d[i+1]=Math.round(g-(g-Math.max(r,b))*.72)}}}q.putImageData(im,0,0);out.src=c.toDataURL('image/png')}catch(e){out.src=src}};
   raw.src=src;return out;
 }
-for(const [id,src] of Object.entries(C3.assetData))C3.images[id]=(id==='street'||id==='district_materials'||id.startsWith('sprite_')||id.startsWith('atlas_')||id.startsWith('prebeta_'))?Object.assign(new Image(),{src}):c3ChromaImage(src);
+// Carregamento em duas ondas: as artes usadas desde o Capítulo 1 (prebeta_*)
+// carregam já; as exclusivas do Capítulo 3 esperam o resto do jogo carregar
+// (ou começam na hora, se o Capítulo 3 for iniciado antes). Isso libera a
+// conexão para o início do jogo no celular. Nenhum pixel muda.
+C3.deferredImages=[];
+for(const [id,src] of Object.entries(C3.assetData)){
+  const plain=id==='street'||id==='district_materials'||id.startsWith('sprite_')||id.startsWith('atlas_')||id.startsWith('prebeta_');
+  const img=new Image();C3.images[id]=img;
+  const start=plain?()=>{img.src=src}:()=>{c3ChromaImage(src,img)};
+  if(id.startsWith('prebeta_'))start();else C3.deferredImages.push(start);
+}
+C3.loadDeferredImages=function(){if(C3.deferredStarted)return;C3.deferredStarted=true;for(const start of C3.deferredImages)start()};
+if(document.readyState==='complete')setTimeout(C3.loadDeferredImages,800);
+else window.addEventListener('load',()=>setTimeout(C3.loadDeferredImages,800),{once:true});
 Object.assign(ALBUM11,C3.music);
 Object.assign(names09,C3.names);
 Object.assign(names09,{mazza:'Mazza',bento:'Belga',nilo:'Colli',dney:'Dney'});
@@ -249,7 +262,7 @@ buildMaps=function(){C3_buildMapsBase();C3.buildMaps();PB.repairMaps();C3.applyW
 const C3_setAreaBase=setArea;
 setArea=function(id,x,y,story=true){const result=C3_setAreaBase(id,x,y,C3.AREAS.includes(id)?false:story);C3.applyWorld();C3.hazards.length=0;C3.synthZones.length=0;if(C3.AREAS.includes(id)&&story)C3.areaStory(id);return result};
 
-C3.start=function(preview=false){
+C3.start=function(preview=false){C3.loadDeferredImages();
   if(preview){G=fresh();Object.assign(G.flags,{console:true,masks:true,arrived:true,ema:true,forestGuide:true,bass:true,bridge:true,ruinA:true,ruinB:true,boss:true,reveal:true,ending:true,voicesArrived:true,voicesIris:true,voicesTape:true,voicesCoupler:true,voicesTech:true,violin11:true,fogCleared11:true,bassBridge11:true,relayPlaza:true,relayMarket:true,relayRoof:true,voicesTower:true,voicesBoss:true,voicesDone:true,voicesKatana:true});G.party3=true;G.thirdSlot='alt';G.formation=['franco','ryuchi','katana'];G.hp.alt=G.maxhp.alt=48;G.hp.katana=G.maxhp.katana=49;G.xp.franco=G.xp.ryuchi=350;G.levels.franco=G.levels.ryuchi=5}
   if(!G.flags.voicesDone){toast('CONCLUA A CIDADE DAS VOZES');return}
   G.c3={...C3.defaults(),...(G.c3||{}),started:true};G.chapter=3;buildMaps();$('start').classList.add('hidden');$('hud').style.display='block';closeOverlay();setArea('sky_terminal',6.5,12.5,false);setCheckpoint('c3_terminal','sky_terminal',6.5,12.5,true);enableAudio();showCinema('distortion');$('cinemaTitle').innerHTML='<small>CAPÍTULO 03 · LADO B</small>O SOM QUE AINDA NÃO EXISTE';C3.scene('C3_001',()=>{save(true);updateHUD()})

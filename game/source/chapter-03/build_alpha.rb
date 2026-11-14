@@ -17,6 +17,7 @@ DIALOGUE_EDITS_JS = File.join(ROOT, 'dialogue_edits.js')
 PACING_JS = File.join(ROOT, 'pacing.js')
 HEALING_JS = File.join(ROOT, 'healing.js')
 COMBAT_JS = File.join(ROOT, 'combat_patterns.js')
+FLOW_JS = File.join(ROOT, 'flow_fixes.js')
 DIALOGUE_EDITS = File.join(REPO_ROOT, 'design', 'dialogo', 'EDICOES_DIALOGO.json')
 OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.2.4')
 OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_2_4_MOBILE_COOP.html')
@@ -75,6 +76,21 @@ def replace_once!(text, old, replacement, label)
   text.sub!(old, replacement)
 end
 
+# Troca texto só fora de dados codificados (base64 de músicas e imagens).
+# Antes, 'NILO' -> 'COLLI' também alterava a faixa Walk Talk Twin e a corrompia.
+DATA_RUN = %r{[A-Za-z0-9+/=]{300,}}
+def replace_in_text!(text, old, replacement)
+  out = +''
+  last = 0
+  text.scan(DATA_RUN) do
+    m = Regexp.last_match
+    out << text[last...m.begin(0)].gsub(old, replacement) << m[0]
+    last = m.end(0)
+  end
+  out << text[last..].gsub(old, replacement)
+  text.replace(out)
+end
+
 def encode(path)
   raise "Arquivo ausente: #{path}" unless File.file?(path)
   Base64.strict_encode64(File.binread(path))
@@ -91,8 +107,9 @@ html.sub!('<title>TORII & HUTUKARA — A Última Frequência · 1.1.2 · Pré-al
           '<title>TORII & HUTUKARA — Alpha 1.2.0 · Pré-beta</title>')
 
 # Nomes públicos dos colaboradores mudam sem alterar IDs persistentes de save.
-html.gsub!('BENTO', 'BELGA').gsub!('Bento', 'Belga')
-html.gsub!('NILO', 'COLLI').gsub!('Nilo', 'Colli')
+{ 'BENTO' => 'BELGA', 'Bento' => 'Belga', 'NILO' => 'COLLI', 'Nilo' => 'Colli' }.each do |old, current|
+  replace_in_text!(html, old, current)
+end
 replace_once!(html, "const who={franco:", "const who={nilo:'COLLI',bento:'BELGA',nara:'COLLI',synth:'FRANCO SINTETIZADOR',percussion:'RYUCHI PERCUSSIONISTA',metronome:'O METRÔNOMO',franco:", 'nomes de Colli e das falas do Capítulo 3 por ID interno')
 
 replace_once!(html,
@@ -206,7 +223,7 @@ edits_json = JSON.generate(JSON.parse(File.read(DIALOGUE_EDITS, encoding: 'UTF-8
 edits_js = File.read(DIALOGUE_EDITS_JS, encoding: 'UTF-8')
 raise 'Marcador __DIALOGUE_EDITS__ ausente' unless edits_js.include?('__DIALOGUE_EDITS__')
 edits_js = edits_js.sub('__DIALOGUE_EDITS__') { edits_json }
-html.insert(position, "\n\n#{runtime}\n\n#{File.read(INPUT_RUNTIME, encoding: 'UTF-8')}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n")
+html.insert(position, "\n\n#{runtime}\n\n#{File.read(INPUT_RUNTIME, encoding: 'UTF-8')}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n")
 html.gsub!('ALPHA 1.2.0', 'ALPHA 1.2.4')
 html.gsub!('Alpha 1.2.0', 'Alpha 1.2.4')
 
@@ -216,7 +233,7 @@ html.gsub!("yy=bossActor?.id==='voice_boss'?", "yy=!C3.coopActive()&&bossActor?.
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
-sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, PACE_METER, DIALOGUES]
+sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, PACE_METER, DIALOGUES]
 manifest = {
   game: 'TORII & HUTUKARA',
   build: 'ALPHA 1.2.4 · MOBILE & CO-OP',

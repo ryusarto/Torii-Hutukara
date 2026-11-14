@@ -166,5 +166,11 @@ drawCreature=function(x,y,kind,entity,...rest){
   drawBeforePatterns.call(this,x,y,t.base,entity,...rest);
   try{ctx.save();ctx.strokeStyle=t.color;ctx.lineWidth=2;ctx.globalAlpha=.85;ctx.beginPath();ctx.arc(x,y-34,6+(entity&&entity.wind>0?3:0),0,Math.PI*2);ctx.stroke();ctx.restore()}catch{}
 };
-window.ToriiCombate={MODE,BOSS_PATTERNS,NEW_TYPES,muted};
+// Viajante (Cap. 1) levemente mais difícil, a pedido do autor depois do playtest:
+// +33% de vida e +20% de dano nos ataques (os valores de dano dele são fixos no código base).
+const VIAJANTE={hp:340,damage:1.2};
+enemyInfo.boss.hp=VIAJANTE.hp;
+const damageBeforePatterns=damageHero;
+damageHero=function(dmg,from,...rest){if(from&&from===bossActor&&from.id==='boss')dmg=Math.round(dmg*VIAJANTE.damage);return damageBeforePatterns.call(this,dmg,from,...rest)};
+window.ToriiCombate={MODE,BOSS_PATTERNS,NEW_TYPES,muted,VIAJANTE};
 })();
