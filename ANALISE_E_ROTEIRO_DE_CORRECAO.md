@@ -252,29 +252,21 @@ Hoje o jogo conta 1, 2 e parte de 3 (o Arqueiro, o Katana, o Sintetizador e o Pe
 
 ---
 
-## 9. Calendário de lançamentos → mundos do jogo
+## 9. Prioridade definida pelo autor
 
-| Lançamento | Quando | Mundo no jogo | Ideia de mecânica | Versão de Ryuchi/Franco |
-|---|---|---|---|---|
-| Álbum **Torii & Hutukara** | agora | campanha principal (Caps. 1–3 enxutos) + estúdio-hub + mapa do multiverso | o que já existe, reorganizado | as 6 versões atuais |
-| **Funk** | Carnaval (≈ 6–10/02/2027) | **Baile/Paredão** — favela-cidade em festa que o Silêncio está calando | golpes no tamborzão (bônus no tempo), paredões que viram torres de som, multidão que dança e libera caminho | MCs/DJs do baile |
-| **Trap — Salvadores Nacionais** | a definir | **Cidade sitiada** — os artistas convidados são heróis | elenco de aliados convidados (cada um com 1 golpe especial), 808 como onda de choque, missões de resgate | versões "salvadoras", cada artista como herói |
-| **Solo do Ryuchi** (amor) | março | **Mundo do Ryuchi** | jogo sozinho, mais calmo: exploração, memórias, puzzles de ritmo; o duo está separado | Ryuchi apaixonado |
-| **Solo do Franco** (amor) | março | **Mundo do Franco** | espelho do mundo do Ryuchi; no coop, cada jogador fica num mundo e um ajuda o outro | Franco apaixonado |
-| **The Whistles** (rock) | depois | **Turnê da banda** — mundo final da temporada | apitos/assobios como mecânica (chamar, atordoar), guitarra pesada, chefe-show em estádio | banda de rock |
+**Foco agora: deixar Torii & Hutukara redondo.** Mundos por mixtape (funk, trap, solos, The Whistles) ficam como **expansões futuras**, lançadas junto de cada álbum, depois que o jogo principal estiver pronto. A estrutura em mundos (seção 8) continua útil como arquitetura, mas não muda o prazo atual.
 
-### Regras para todo mundo novo
-- 15–25 min, ~5 encontros + 1 chefe, uma faixa 16-bit da mixtape por trecho, e a versão original disponível no fim ("ouça a mixtape").
-- Entra no jogo **no dia do lançamento**, acendendo o portal no mapa do multiverso.
-- **Convidados (trap e outros):** pegar autorização de cada artista para nome, rosto e trecho de música antes de produzir os sprites.
+Ordem de trabalho: Fase 0 (só licença e rótulo de versão) → Fase 1 (medir) → Fase 3 (combate) → Fase 4/5 (ritmo e diálogos) → Fase 2 em paralelo, conforme cada sistema for tocado.
 
-### O que isso significa para o prazo
-Até o Carnaval faltam **~12 semanas**. Para o mundo do funk sair junto, a ordem precisa ser:
+## 10. Combate no tempo com as faixas 16-bit prontas
 
-1. **Semanas 1–2 — Fase 0 + base mínima:** licenças, builds antigas fora do git, áudio e imagens fora do HTML (carregamento rápido).
-2. **Semanas 3–6 — estrutura hub + `worlds/`:** estúdio central, mapa do multiverso, formato de dados de mundo, combate unificado (o mesmo kit para P1/P2). Os Caps. 1–3 atuais passam a ser carregados como "mundos" (sem reescrever tudo ainda).
-3. **Semanas 7–10 — Mundo Funk:** arte, 4–6 faixas 16-bit, inimigos, chefe.
-4. **Semanas 11–12 — teste no celular + publicação.**
-5. **Depois do Carnaval:** enxugar os Caps. 1–3 (Fases 4–5) em paralelo com os mundos de março.
+As faixas não precisam ser refeitas. Músicas no estilo 16-bit (tipo Zelda) têm andamento fixo, o que facilita.
 
-O enxugamento completo da campanha atual (cortar diálogos, encontros novos) vem **depois** do mundo funk, porque o prazo fixo do Carnaval é o que mais gera divulgação.
+1. **Mapa de batida por faixa:** um arquivo `beats.json` com BPM e o instante da primeira batida de cada faixa (medido uma vez, com detecção automática ou uma ferramenta de "bater no ritmo" no navegador).
+2. **Relógio do áudio:** a posição da batida vem de `AudioContext.currentTime`, não do relógio do jogo, para não dessincronizar no celular.
+3. **Janela generosa:** golpe a ±120 ms da batida conta como "no tempo". Só **dá bônus** (dano extra, ressonância, efeito visual); nunca pune quem ignora o ritmo.
+4. **Leitura visual:** um pulso discreto no HUD e no chão em cada batida, e os inimigos telegrafam ataques no compasso, para o ritmo ser visto e não só ouvido.
+5. **Onde usar mais:** combos (terceiro golpe no tempo = golpe forte), técnicas do Percussionista, e padrões dos chefes alinhados ao compasso da faixa do chefe.
+6. **Calibração:** opção de ajuste de atraso (fone Bluetooth atrasa o som).
+
+Teste antes de espalhar: aplicar só ao combo básico numa arena e ver se o jogador sente diferença.
