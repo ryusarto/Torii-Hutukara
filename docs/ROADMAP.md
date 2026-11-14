@@ -62,6 +62,11 @@
 - Direitos e créditos de todos os assets confirmados.
 - Pacote testado em outro computador sem arquivos externos.
 
+## Possíveis mudanças futuras (decididas para depois)
+
+- **Golpe no tempo da música:** bônus pequeno (dano, ressonância, efeito) para golpes dados na batida da faixa que está tocando. Plano técnico em `ANALISE_E_ROTEIRO_DE_CORRECAO.md`, seção 10: mapa de BPM por faixa, relógio do áudio, janela de ±120 ms, só bônus (nunca punição) e ajuste de atraso para fones Bluetooth. Adiado pelo autor em 14/11/2026 para priorizar playtest da versão atual.
+- **Expansões por lançamento:** um mundo novo dentro do Hutukara a cada álbum (funk, trap, solos, The Whistles), com o mapa de mundos no fim do jogo.
+
 ## Depois do lançamento
 
 - Correções críticas sem alterar saves.

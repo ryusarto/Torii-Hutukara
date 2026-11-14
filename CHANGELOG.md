@@ -4,6 +4,24 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ## [Não lançado]
 
+### Fase 3 (parte 2) — padrões de chefe e inimigos musicais
+
+- Chefes com padrão por fase + 20% de variação (RNG), nunca 3 ataques iguais seguidos e nome de cada ataque na tela. Viajante deixa de ser sorteio puro; Arauto ganha variação e aviso um pouco mais longo; Metrônomo varia só na fase 3; O Silêncio ganha 15% de variação.
+- Três inimigos novos: Metrônomo Menor (ataca no compasso fixo), Eco Espelho (devolve onda após 2 golpes) e Abafador (aura que bloqueia técnicas). Um aviso explica cada um na primeira vez.
+- Laboratório de combate (`qa/combat_lab.cjs`) e relatório em `docs/COMBATE_PADROES.md`.
+
+### Fases 3 e 4 (parte 1) — mais ação, menos idas e voltas, cura
+
+- 14 encontros novos no caminho principal; o primeiro combate acontece no corredor do estúdio (190 s → 40 s no perfil típico).
+- Duas patrulhas de ecos menores no Distrito da Distorção, ativas depois da primeira frente concluída; voltam a cada nova passagem, mas não depois de uma derrota.
+- Capítulo 3: Mazza e Colli levam a Flauta dos Ventos ao Contratempo; a ida à oficina deixa de ser obrigatória.
+- Fitas de cura passam a funcionar (antes eram compradas e ganhas, mas não havia como usar): R, Share/Create ou botão ♥ FITA; recuperam 40% da vida do integrante ativo.
+- Mercadores com fitas nos três capítulos: Mercadora (Cap. 1), banca do Colli no Mercado das Fitas (Cap. 2) e balcão do Belga no Contratempo (Cap. 3).
+- Três gravadores novos no Capítulo 3 (Distrito e Mar de Nuvens) que curam a equipe e salvam o ponto.
+- Ao concluir cada etapa grande do Capítulo 3, quem caiu volta com 30% da vida. Cada capítulo novo começa com a equipe recuperada.
+- Corrigido (bug antigo da 1.0): o jogo podia travar quando um projétil derrotava o último inimigo da luta.
+- Jogada automática: 0 derrotas e nenhum travamento nos dois perfis; maior trecho sem lutar 4,3 → 2,1 min.
+
 ### Fase 5 — cortes de diálogo
 
 - 225 → 139 falas obrigatórias, preservando estúdio e chegada ao Hutukara, máscaras, revelação do mascarado, encontro das versões, plot twist e final. Edições em `design/dialogo/EDICOES_DIALOGO.json`, aplicadas por `dialogue_edits.js`.

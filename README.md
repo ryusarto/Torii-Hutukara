@@ -36,6 +36,7 @@ Controles principais:
 | Dash | Q |
 | Ação especial | K |
 | Trocar integrante ativo | 1, 2 e 3 |
+| Usar fita de cura | R (ou tocar em ♥ FITA no topo da tela) |
 
 Controle PlayStation:
 
@@ -48,6 +49,7 @@ Controle PlayStation:
 | Especial de ressonância | R2 |
 | Trocar integrante | △ |
 | Pausa | Options |
+| Usar fita de cura | Share / Create |
 
 Ao conectar dois controles, o segundo jogador assume outro integrante vivo da formação. Os dois personagens se movem e lutam de modo independente em uma câmera compartilhada.
 
@@ -133,6 +135,7 @@ O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.4
 - [Aprofundamento de combate com REA](docs/MOONLIGHTER_REA_2026_11_13.md)
 - [Proposta para habilidades e ritmo das quests](design/COMBATE_E_RITMO_PROPOSTA.md)
 - [Medição de ritmo — Fase 1](docs/RITMO_FASE1.md)
+- [Combate: padrões de chefe e inimigos musicais](docs/COMBATE_PADROES.md)
 - [Histórico de mudanças](CHANGELOG.md)
 
 ## Regra de desenvolvimento

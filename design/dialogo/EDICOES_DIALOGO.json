@@ -617,6 +617,20 @@
      "t": "Então a gente atravessa. Um mundo de cada vez — e cada um vira uma sessão nova."
     }
    ]
+  },
+  {
+   "linha": 0,
+   "t": "Eu ainda estou lendo as correntes do canal. Vai na frente; quando a última rota estabilizar, encontro vocês na oficina do Mazza.",
+   "acao": "trocar",
+   "novo": "Eu ainda estou lendo as correntes do canal. Vai na frente; quando a rota estabilizar, eu e o Mazza levamos a flauta pro Contratempo.",
+   "motivo": "Fase 4: a flauta é entregue no Contratempo"
+  },
+  {
+   "linha": 175,
+   "t": "Olha a saída do duto. Toca uma nota e vê onde o vapor segura.",
+   "acao": "trocar",
+   "novo": "Lá em cima, toca uma nota e vê onde o vapor segura.",
+   "motivo": "Fase 4: a cena da flauta acontece no Contratempo, sem o duto da oficina"
   }
  ]
 }

@@ -77,7 +77,7 @@ function installBot(){
       const b=ov.querySelector(`[data-vnote="${n}"]`);say('Puzzle Lumi → nota '+n);b.click();return}
     // derrota: voltar ao checkpoint
     const retry=buttons.find(b=>/checkpoint|tentar|continuar|voltar ao/i.test(b.textContent));
-    if(/derrot|caiu|silêncio venceu|game over/i.test(ov.innerText)&&retry){say('Derrota → '+retry.textContent.trim());retry.click();return}
+    if(/derrot|caiu|silêncio venceu|game over|frequência se partiu/i.test(ov.innerText)&&retry){say('Derrota em '+G.area+' ('+G.x.toFixed(0)+','+G.y.toFixed(0)+') perto de: '+(current.enemies||[]).filter(e=>Math.hypot(e.x-G.x,e.y-G.y)<9&&!G.defeated.includes(e.id)).map(e=>e.id+' '+(e.hp??'?')+'hp').join(', ')+' · equipe '+JSON.stringify(G.hp)+' → '+retry.textContent.trim());retry.click();return}
     // escolhas/puzzles: clicar opções não usadas até fechar
     const pick=buttons.find(b=>!b.__botClicked&&!/fechar|voltar|sair|cancel|exportar|importar|apagar|menu/i.test(b.textContent));
     if(pick){pick.__botClicked=true;say('Overlay "'+text+'" → '+pick.textContent.trim().slice(0,40));pick.click();return}
@@ -92,6 +92,7 @@ function installBot(){
     else if(mode==='overlay'){release();if(interactCd<=0){interactCd=.8;handleOverlay()}}
     else if(mode==='rhythm'){release();rhythmTime+=DT;if(rhythmTime>2.2&&interactCd<=0){interactCd=.55;try{rhythmPush(targetPattern[rhythmInput.length])}catch(e){say('Ritmo: '+e.message)}}}
     else if(mode==='action'){
+      try{const id=fighterName();if(G.potions>0&&G.hp[id]<G.maxhp[id]*.35&&window.ToriiCura&&interactCd<=0){interactCd=1.3;ToriiCura.useTape();say('Usou fita: '+id+' '+G.hp[id]+'/'+G.maxhp[id])}}catch{}
       const foes=aliveEnemies();
       if(foes.length){foes.sort((a,b)=>Math.hypot(a.x-G.x,a.y-G.y)-Math.hypot(b.x-G.x,b.y-G.y));const e=foes[0];const d=Math.hypot(e.x-G.x,e.y-G.y);
         if(e.wind>0&&d<2.2&&attackCd<0){dodgeAction();attackCd=.3}
@@ -99,7 +100,12 @@ function installBot(){
       else steer(G.x+Math.sin(clock),G.y+Math.cos(clock));
     }
     else if(mode==='walk'){
-      const o=navigationTarget();const d=o&&o.area===G.area?steer(o.x,o.y):99;
+      // Equipe fraca e gravador na área: passa nele antes de seguir (como uma pessoa faria).
+      let o=navigationTarget();
+      try{const team=(G.formation&&G.formation.length?G.formation:Object.keys(G.maxhp)).filter(k=>G.maxhp[k]);
+        const ratio=team.reduce((a,k)=>a+G.hp[k],0)/Math.max(1,team.reduce((a,k)=>a+G.maxhp[k],0));
+        const rec=current.events.find(e=>/GRAVADOR/.test(e.label||''));
+        if(rec&&ratio<.5&&clock-(window.__lastRec||-999)>45){o={area:G.area,x:rec.x,y:rec.y};if(Math.hypot(rec.x-G.x,rec.y-G.y)<1.2){window.__lastRec=clock;say('Gravador: equipe em '+Math.round(ratio*100)+'%')}}}catch{}const d=o&&o.area===G.area?steer(o.x,o.y):99;
       if(d<1.6&&interactCd<=0){const near=nearestInteraction();const v=near&&near.value;const onTarget=v&&Math.hypot(v.x-o.x,v.y-o.y)<1.3;
         if(onTarget||d<.45){interactCd=.7;release();interact()}}
       const pos=G.area+Math.round(G.x*4)+','+Math.round(G.y*4);if(pos===lastPos)noMove+=DT;else noMove=0;lastPos=pos;

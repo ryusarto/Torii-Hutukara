@@ -96,3 +96,16 @@ PERFIL=tipico node qa/pace_bot.cjs newGame
 | Combate | 9% | 12% |
 
 A leitura caiu em tempo absoluto (de ~20 para ~13 min), mas a **proporção** ainda é alta porque o jogo tem pouca ação. As Fases 3 (combate) e 4 (ritmo dos capítulos) precisam preencher esse espaço. Relatórios em `qa/ritmo/` (antes em `qa/ritmo/antes/`).
+
+## Depois das Fases 3 e 4 (parte 1)
+
+| Perfil típico | Original | Fase 5 | Agora |
+|---|---|---|---|
+| Jornada | 27,5 min | 20,3 min | 20,8 min |
+| Encontros | 17 | 18 | 23 |
+| Primeiro combate | 190 s | 145 s | **40 s** |
+| Maior trecho sem lutar | 4,3 min | 3,0 min | **2,1 min** |
+| Lendo / combate | 73% / 9% | 65% / 12% | 64% / 14% |
+| Derrotas da jogada automática | 1 | 1 | **0** |
+
+A ação aparece mais cedo e com mais frequência, sem aumentar a duração. A proporção de leitura ainda é alta: o próximo passo é dar variedade e peso às lutas (novos tipos de inimigo, padrões de chefe, golpe no tempo da música).

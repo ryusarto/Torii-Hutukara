@@ -1,0 +1,67 @@
+RELATÓRIO DE RITMO · Teste Capítulo 3 · 2026-11-14 10:36
+Tempo de jogo medido: 10min 16s
+
+ONDE O TEMPO FOI
+  Andando                    2min 08s   21%
+  Parado (sem diálogo)             1s    0%
+  Lendo diálogo              6min 14s   61%
+  Combate                    1min 51s   18%
+  Menus/mapa/diário                3s    1%
+  Desafio de ritmo                 0s    0%
+  → Jogando de fato (combate + ritmo): 18% · Andando + lendo: 81%
+
+COMBATE
+  Encontros: 11 · Derrotas: 0
+  Primeiro combate em: 1min 12s
+  Maior trecho sem lutar: 2min 05s (terminou em distortion_district)
+
+DIÁLOGO
+  Falas lidas: 68 · Caracteres: 4651 · Narrador: 0%
+  Quem mais fala: FRANCO, THE SIR! 15 · RYUCHI 14 · RYUCHI PERCUSSIONISTA 9 · COLLI 7 · BELGA 6 · FRANCO SINTETIZADOR 6
+
+ETAPAS MAIS LONGAS (onde cortar primeiro)
+   1.  1min 46s · lendo diálogo 55% · 10 falas · Atravesse o Último Torii e enfrente O Silêncio.
+   2.  1min 16s · lendo diálogo 75% · 8 falas · Separe a interferência do canal.
+   3.  1min 06s · lendo diálogo 78% · 6 falas · Encontre Belga no Clube Contratempo.
+   4.       57s · lendo diálogo 100% · 16 falas · Volte ao estúdio e abra uma sessão nova.
+   5.       54s · combate 50% · 4 falas · Enfrente O Metrônomo.
+   6.       50s · lendo diálogo 60% · 4 falas · Reabra o Elevador do Céu.
+   7.       48s · andando 51% · 5 falas · Encontre Mazza e Colli no Contratempo.
+   8.       38s · lendo diálogo 85% · 5 falas · Comece uma música no palco do Contratempo.
+   9.       33s · lendo diálogo 80% · 4 falas · Forme a primeira passarela de nuvem.
+  10.       31s · andando 51% · 1 falas · Abra a trava grave da Usina.
+
+POR ÁREA
+  silence_core          2min 06s · andando 4% · diálogo 69% · combate 26% · entradas 1
+  contratempo           1min 31s · andando 13% · diálogo 83% · combate 0% · entradas 2
+  sky_canal             1min 18s · andando 19% · diálogo 70% · combate 11% · entradas 1
+  power_plant           1min 10s · andando 19% · diálogo 62% · combate 19% · entradas 1
+  distortion_district   1min 07s · andando 70% · diálogo 0% · combate 30% · entradas 5
+  cloud_terrace         1min 02s · andando 15% · diálogo 41% · combate 44% · entradas 1
+  sky_terminal               42s · andando 10% · diálogo 90% · combate 0% · entradas 1
+  cloud_sea                  33s · andando 40% · diálogo 32% · combate 28% · entradas 1
+  sky_lift                   20s · andando 21% · diálogo 78% · combate 0% · entradas 1
+  last_torii                 18s · andando 23% · diálogo 77% · combate 0% · entradas 1
+  studio                      9s · andando 0% · diálogo 100% · combate 0% · entradas 1
+
+EVENTOS DO ROBÔ
+[0.0 min] Objetivo: Encontre Belga no Clube Contratempo.
+[1.1 min] Overlay "CAPÍTULO 03 · ESCOLHA DE ROTA Qual aperto vem primeiro? As duas frentes continu" → USINAO grave da rua desapareceu.
+[1.1 min] Objetivo: Abra a trava grave da Usina.
+[1.6 min] Objetivo: Interrompa o ciclo da Usina.
+[2.0 min] Objetivo: Separe a interferência do canal.
+[3.3 min] Objetivo: Resgate os trabalhadores do canal.
+[3.6 min] Objetivo: Encontre Mazza e Colli no Contratempo.
+[4.4 min] Objetivo: Comece uma música no palco do Contratempo.
+[5.0 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♪GRAVE
+[5.0 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♫MÉDIA
+[5.0 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♬AGUDA
+[5.0 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ✦ABERTA
+[5.0 min] Objetivo: Reabra o Elevador do Céu.
+[5.8 min] Objetivo: Forme a primeira passarela de nuvem.
+[6.4 min] Objetivo: Mova a plataforma com o Tambor do Horizonte.
+[6.5 min] Objetivo: Forme a última passarela de nuvem.
+[6.6 min] Objetivo: Enfrente O Metrônomo.
+[7.5 min] Objetivo: Atravesse o Último Torii e enfrente O Silêncio.
+[9.3 min] Objetivo: Volte ao estúdio e abra uma sessão nova.
+[10.3 min] Objetivo: Crie livremente e revisite os mundos.
