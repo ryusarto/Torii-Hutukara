@@ -66,9 +66,9 @@ Contexto confirmado pelo autor: jogo **gratuito, sem uso comercial, código aber
 1. **Licença não bate com "código aberto"**: o README diz "direitos reservados" e não existe arquivo `LICENSE`. Para ser open code de verdade, separar:
    - **código** sob uma licença aberta (MIT se qualquer um puder reaproveitar; GPL-3.0 se quiserem que derivados também fiquem abertos);
    - **músicas, máscaras, rostos e personagens** sob outra licença (ex.: CC BY-NC-ND 4.0, ou "todos os direitos reservados"), descrita num `ASSETS_LICENSE.md`. Isso deixa o código aberto sem permitir que alguém reutilize a identidade de vocês.
-2. **Fotos de rosto reais** (`FRANCO_THE_SIR_FACE_REFERENCE*.png`, `DNEY_FACE_REFERENCE.HEIC`): se Franco e Dney concordam com a publicação, o risco cai. Mesmo assim, as fotos brutas não são necessárias para o jogo; só os sprites derivados. Recomendo tirar as fotos-fonte do repositório público (e do histórico) e confirmar o consentimento por escrito.
-3. **Músicas do Cap. 3 geradas no Suno** (metadados `made with suno`, conta `hugeviola221`). Mesmo sem vender o jogo, ele **divulga um álbum**, o que pode contar como uso promocional. No plano gratuito do Suno, as faixas pertencem ao Suno e o uso é só não comercial; no plano pago, pertencem a quem gerou. Confirme o plano de cada faixa. **Melhor ainda: trocar pelas faixas reais do álbum** (ver seção 8).
-4. **Estudo por descompilação de Moonlighter** (`docs/MOONLIGHTER_REA_*.md`, `MOONLIGHTER_COMBAT_STUDY.md`): ser gratuito não muda o risco do EULA. Tire do repositório público e baseie os estudos em jogar o jogo.
+2. **Músicas** — *resolvido pelo autor*: cada faixa é uma versão 16-bit de uma faixa do álbum, feita no Suno. Único cuidado: a conta precisa ter sido de plano pago quando as faixas foram geradas (no gratuito, o Suno fica dono). Registrar em `ASSET_PROVENANCE.md` qual faixa do álbum cada arquivo representa.
+3. **Pessoas retratadas** — *resolvido pelo autor*: todas autorizaram e participaram do álbum. Registrar isso em `ASSET_PROVENANCE.md`.
+4. **Estudo de Moonlighter** — *decisão do autor*: mantido por enquanto.
 
 ---
 
@@ -249,3 +249,32 @@ Hoje o jogo conta 1, 2 e parte de 3 (o Arqueiro, o Katana, o Sintetizador e o Pe
 | 4 | Recortar os capítulos atuais em mundos por gênero; início com máscara + travessia + combate em 5 min |
 | 6 | Trocar a trilha pelas faixas do álbum; "Agora tocando" |
 | 7 | Mapa do multiverso pós-final, portais "em breve", links do álbum, botão de compartilhar |
+
+---
+
+## 9. Calendário de lançamentos → mundos do jogo
+
+| Lançamento | Quando | Mundo no jogo | Ideia de mecânica | Versão de Ryuchi/Franco |
+|---|---|---|---|---|
+| Álbum **Torii & Hutukara** | agora | campanha principal (Caps. 1–3 enxutos) + estúdio-hub + mapa do multiverso | o que já existe, reorganizado | as 6 versões atuais |
+| **Funk** | Carnaval (≈ 6–10/02/2027) | **Baile/Paredão** — favela-cidade em festa que o Silêncio está calando | golpes no tamborzão (bônus no tempo), paredões que viram torres de som, multidão que dança e libera caminho | MCs/DJs do baile |
+| **Trap — Salvadores Nacionais** | a definir | **Cidade sitiada** — os artistas convidados são heróis | elenco de aliados convidados (cada um com 1 golpe especial), 808 como onda de choque, missões de resgate | versões "salvadoras", cada artista como herói |
+| **Solo do Ryuchi** (amor) | março | **Mundo do Ryuchi** | jogo sozinho, mais calmo: exploração, memórias, puzzles de ritmo; o duo está separado | Ryuchi apaixonado |
+| **Solo do Franco** (amor) | março | **Mundo do Franco** | espelho do mundo do Ryuchi; no coop, cada jogador fica num mundo e um ajuda o outro | Franco apaixonado |
+| **The Whistles** (rock) | depois | **Turnê da banda** — mundo final da temporada | apitos/assobios como mecânica (chamar, atordoar), guitarra pesada, chefe-show em estádio | banda de rock |
+
+### Regras para todo mundo novo
+- 15–25 min, ~5 encontros + 1 chefe, uma faixa 16-bit da mixtape por trecho, e a versão original disponível no fim ("ouça a mixtape").
+- Entra no jogo **no dia do lançamento**, acendendo o portal no mapa do multiverso.
+- **Convidados (trap e outros):** pegar autorização de cada artista para nome, rosto e trecho de música antes de produzir os sprites.
+
+### O que isso significa para o prazo
+Até o Carnaval faltam **~12 semanas**. Para o mundo do funk sair junto, a ordem precisa ser:
+
+1. **Semanas 1–2 — Fase 0 + base mínima:** licenças, builds antigas fora do git, áudio e imagens fora do HTML (carregamento rápido).
+2. **Semanas 3–6 — estrutura hub + `worlds/`:** estúdio central, mapa do multiverso, formato de dados de mundo, combate unificado (o mesmo kit para P1/P2). Os Caps. 1–3 atuais passam a ser carregados como "mundos" (sem reescrever tudo ainda).
+3. **Semanas 7–10 — Mundo Funk:** arte, 4–6 faixas 16-bit, inimigos, chefe.
+4. **Semanas 11–12 — teste no celular + publicação.**
+5. **Depois do Carnaval:** enxugar os Caps. 1–3 (Fases 4–5) em paralelo com os mundos de março.
+
+O enxugamento completo da campanha atual (cortar diálogos, encontros novos) vem **depois** do mundo funk, porque o prazo fixo do Carnaval é o que mais gera divulgação.
