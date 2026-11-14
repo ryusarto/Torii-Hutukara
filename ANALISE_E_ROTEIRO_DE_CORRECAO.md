@@ -61,9 +61,14 @@ O P2 tem kit simplificado (documentado em `PROJECT_STATUS.md`). Câmera comparti
 
 ## 4. Riscos legais e de privacidade (resolver primeiro)
 
-1. **Fotos de rosto de pessoas reais num repositório público**: `assets/prebeta/source/FRANCO_THE_SIR_FACE_REFERENCE*.png` e `DNEY_FACE_REFERENCE.HEIC`. O próprio `ASSET_PROVENANCE.md` diz que são privadas. Remova do repo **e do histórico** (`git filter-repo`), ou torne o repo privado.
-2. **Músicas do Cap. 3 geradas no Suno** (metadados ID3: `made with suno`, conta `hugeviola221`). O uso comercial depende do plano do Suno na data em que cada faixa foi criada. Confirme isso e registre em `ASSET_PROVENANCE.md`. Os nomes de arquivo (`chico-buarque`, `ak-cruzada`) também podem sugerir associação indevida.
-3. **Estudo por descompilação de Moonlighter** (`docs/MOONLIGHTER_REA_*.md`, `MOONLIGHTER_COMBAT_STUDY.md`): engenharia reversa da `Assembly-CSharp.dll`, publicada com tokens e hashes. Pode violar o EULA. Tire do repositório público e baseie os estudos em jogar o jogo, não no binário.
+Contexto confirmado pelo autor: jogo **gratuito, sem uso comercial, código aberto, jogado no navegador**, feito para divulgar o álbum colaborativo de Ryuchi e Franco, The Sir.
+
+1. **Licença não bate com "código aberto"**: o README diz "direitos reservados" e não existe arquivo `LICENSE`. Para ser open code de verdade, separar:
+   - **código** sob uma licença aberta (MIT se qualquer um puder reaproveitar; GPL-3.0 se quiserem que derivados também fiquem abertos);
+   - **músicas, máscaras, rostos e personagens** sob outra licença (ex.: CC BY-NC-ND 4.0, ou "todos os direitos reservados"), descrita num `ASSETS_LICENSE.md`. Isso deixa o código aberto sem permitir que alguém reutilize a identidade de vocês.
+2. **Fotos de rosto reais** (`FRANCO_THE_SIR_FACE_REFERENCE*.png`, `DNEY_FACE_REFERENCE.HEIC`): se Franco e Dney concordam com a publicação, o risco cai. Mesmo assim, as fotos brutas não são necessárias para o jogo; só os sprites derivados. Recomendo tirar as fotos-fonte do repositório público (e do histórico) e confirmar o consentimento por escrito.
+3. **Músicas do Cap. 3 geradas no Suno** (metadados `made with suno`, conta `hugeviola221`). Mesmo sem vender o jogo, ele **divulga um álbum**, o que pode contar como uso promocional. No plano gratuito do Suno, as faixas pertencem ao Suno e o uso é só não comercial; no plano pago, pertencem a quem gerou. Confirme o plano de cada faixa. **Melhor ainda: trocar pelas faixas reais do álbum** (ver seção 8).
+4. **Estudo por descompilação de Moonlighter** (`docs/MOONLIGHTER_REA_*.md`, `MOONLIGHTER_COMBAT_STUDY.md`): ser gratuito não muda o risco do EULA. Tire do repositório público e baseie os estudos em jogar o jogo.
 
 ---
 
@@ -191,3 +196,56 @@ Ordem pensada para cada fase destravar a seguinte. Durações são estimativas p
 | Maior trecho só andando | ? (medir) | < 45 s |
 | Tamanho do download web | 98 MB | < 30 MB (assets em arquivo + streaming de áudio) |
 | Tamanho do repo | 1,2 GB | < 200 MB |
+
+---
+
+## 8. O jogo como divulgação do álbum
+
+### O que o jogo precisa comunicar
+1. As **máscaras (Torii)** são reais: vocês vão usá-las na vida real.
+2. Os Torii levam a **vários mundos (Hutukara)**, em várias realidades.
+3. Em cada realidade existe um **Ryuchi e um Franco, The Sir diferentes**, cada um com um **estilo musical**.
+4. No final, Ryuchi e Franco **sabem desses universos** e vão viajar por eles. **Cada viagem = uma mixtape de um gênero.**
+
+Hoje o jogo conta 1, 2 e parte de 3 (o Arqueiro, o Katana, o Sintetizador e o Percussionista já são versões alternativas), mas **as versões não são ligadas a gêneros musicais de forma explícita** e o final não aponta para as mixtapes.
+
+### Mudanças de design que servem à divulgação
+
+**Cada mundo = um gênero = uma faixa/mixtape.**
+- Cada Hutukara tem visual, inimigos, trilha e mecânica de combate do seu gênero. Exemplo de como pensar (os gêneros reais são de vocês):
+  - mundo trap/drill → combate de ataques curtos e pesados no 808, inimigos que "travam" o tempo;
+  - mundo eletrônico/synth → o Franco Sintetizador e seus campos (já existe);
+  - mundo percussivo/afro/funk → o Percussionista e golpes no tempo (já existe);
+  - mundo lo-fi/jazz → exploração mais calma, puzzles de ritmo.
+- **A versão de Ryuchi/Franco de cada mundo apresenta o gênero**: ela fala como alguém daquela cena, a faixa daquele mundo toca quando ela entra na equipe.
+- **A música do jogo é a música do álbum.** Substituir os sons sintetizados e as faixas do Suno pelas faixas reais (ou trechos/instrumentais) do álbum, com o nome da faixa aparecendo na tela ("♪ Agora tocando: …"). O jogo vira o player do álbum.
+
+**Máscaras como peça central.**
+- A máscara do jogo deve ser idêntica à máscara física (a referência `TORII_MASK_PHYSICAL_REFERENCE.png` já existe).
+- Colocar a máscara no momento mais forte de cada capítulo (a travessia), sempre com o mesmo efeito visual e sonoro, para virar marca.
+
+**Final que abre a série de mixtapes.**
+- Depois do Silêncio, Ryuchi e Franco voltam ao estúdio e aparece um **mapa do multiverso**: os mundos já visitados acesos e vários portais apagados, cada um com o nome de um gênero/mixtape futura ("Em breve").
+- Cada mixtape lançada na vida real = **um mundo novo e curto no jogo** (15–20 min), que acende um portal. Isso dá motivo para voltar ao jogo a cada lançamento e para divulgar cada mixtape com uma atualização.
+- Tela final com links para ouvir o álbum, redes de vocês e créditos.
+
+### Por isso, a estrutura ideal muda
+- **Hub (estúdio) + mundos curtos e independentes**, em vez de uma campanha longa e linear. Cada mundo: chegada → encontrar a versão daquele mundo → 3–5 encontros → chefe → a versão entra na equipe → faixa desbloqueada.
+- **Duração-alvo da campanha principal: 45–75 min.** Quem chega por um link de divulgação precisa ver máscara, travessia, uma versão alternativa e um combate nos **primeiros 5 minutos**.
+- A modularização da Fase 2 vira obrigatória: cada mundo é uma pasta de dados (`worlds/<genero>/`) que dá para acrescentar sem mexer no resto.
+
+### Requisitos de divulgação (entram nas fases do roteiro)
+- **Carregar rápido pelo link do Instagram/TikTok** (navegador interno do app, celular, 4G): hoje são 98 MB. Meta: tela de título em < 5 s, áudio carregado sob demanda. Isso sobe para a **Fase 0/2**.
+- **Mobile em primeiro lugar**: é por onde quase todo mundo vai chegar.
+- **Compartilhar**: botão de print com moldura do álbum ao vencer um chefe ou recrutar uma versão.
+- **Página de entrada** (`web/album/` já existe) ligando álbum ↔ jogo ↔ máscaras reais.
+- **Créditos e links** acessíveis do menu principal, não só no fim.
+
+### Ajuste no roteiro
+| Fase | Acréscimo |
+|---|---|
+| 0 | `LICENSE` (código) + `ASSETS_LICENSE.md` (identidade/música); consentimento das fotos; decidir se as faixas Suno ficam |
+| 2 | Estrutura hub + `worlds/`; áudio e imagens fora do HTML, carregados sob demanda |
+| 4 | Recortar os capítulos atuais em mundos por gênero; início com máscara + travessia + combate em 5 min |
+| 6 | Trocar a trilha pelas faixas do álbum; "Agora tocando" |
+| 7 | Mapa do multiverso pós-final, portais "em breve", links do álbum, botão de compartilhar |
