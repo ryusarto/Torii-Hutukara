@@ -34,6 +34,7 @@ async function main(){
   const summary=await page.evaluate(()=>window.ToriiRitmo.summary());
   const report=await page.evaluate(()=>window.ToriiRitmo.report());
   const tag=start+'-'+profile+'-'+pt.version;
+  const lines=await page.evaluate(()=>window.__lines||[]);fs.writeFileSync(path.join(outDir,`falas-${tag}.json`),JSON.stringify(lines,null,1));
   fs.writeFileSync(path.join(outDir,`bot-${tag}.txt`),summary+'\n\nEVENTOS DO ROBÔ\n'+log.join('\n')+(errors.length?'\n\nERROS\n'+errors.join('\n'):'')+'\n');
   fs.writeFileSync(path.join(outDir,`bot-${tag}.json`),JSON.stringify(report,null,1));
   console.log(summary);if(errors.length)console.log('ERROS:',errors.slice(0,5));
@@ -86,7 +87,7 @@ function installBot(){
     clock+=DT;t+=DT*1000;attackCd-=DT;interactCd-=DT;
     if(mode!=='rhythm')rhythmTime=0;
     if(mode==='dialogue'){release();const w=document.getElementById('words').textContent;
-      if(w!==lastWords){lastWords=w;readWait=.6+w.length/((window.__botOpts||{cps:20}).cps);if(clock-stuckSince>120&&!(window.__seen||(window.__seen=new Set())).has(w)){window.__seen.add(w);say('Fala (preso): '+w.slice(0,140))}}
+      if(w!==lastWords){lastWords=w;(window.__lines||(window.__lines=[])).push({min:+(clock/60).toFixed(2),area:G.area,etapa:(()=>{try{return objectiveData().text}catch{return '?'}})(),quem:document.getElementById('speaker').textContent,texto:w});readWait=.6+w.length/((window.__botOpts||{cps:20}).cps);if(clock-stuckSince>120&&!(window.__seen||(window.__seen=new Set())).has(w)){window.__seen.add(w);say('Fala (preso): '+w.slice(0,140))}}
       readWait-=DT;if(readWait<=0){lastWords='';advanceDialogue()}}
     else if(mode==='overlay'){release();if(interactCd<=0){interactCd=.8;handleOverlay()}}
     else if(mode==='rhythm'){release();rhythmTime+=DT;if(rhythmTime>2.2&&interactCd<=0){interactCd=.55;try{rhythmPush(targetPattern[rhythmInput.length])}catch(e){say('Ritmo: '+e.message)}}}
