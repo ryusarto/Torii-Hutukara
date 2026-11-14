@@ -604,17 +604,17 @@
    "linha": 219,
    "t": "E a última nota não fechou Hutukara. Abriu espaço para a próxima música existir sem repetir a anterior.",
    "acao": "trocar",
-   "motivo": "PROPOSTA — gancho das mixtapes (aguarda aprovação)",
+   "motivo": "Gancho do multiverso dentro do Hutukara (aprovado pelo autor com ajuste: um só Hutukara, mundos dentro dele; DAW em vez de fita)",
    "quem": "franco",
-   "novo": "A máscara não trouxe a gente só até aqui. Existem outros Hutukaras — outros Francos, outros Ryuchis, cada um tocando uma música que a gente nunca fez.",
+   "novo": "A máscara não trouxe a gente só até aqui. O Hutukara guarda outros mundos — outros Francos, outros Ryuchis, cada um tocando um som que a gente nunca fez.",
    "depois": [
     {
      "quem": "ryuchi",
-     "t": "Então a gente vai até eles. Um mundo de cada vez, um som de cada vez."
+     "t": "Era isso que o Hutukara queria mostrar desde o começo, né? Que a gente pode fazer qualquer som."
     },
     {
      "quem": "franco",
-     "t": "E cada viagem vira uma fita nova."
+     "t": "Então a gente atravessa. Um mundo de cada vez — e cada um vira uma sessão nova."
     }
    ]
   }

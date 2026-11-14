@@ -6,6 +6,15 @@
 
 O objetivo emocional do final é permitir que o jogador reconheça medo e dúvida sem precisar destruí-los. O Silêncio deixa de decidir quando a música pode começar.
 
+## Cânone do universo
+
+- **Torii** são as máscaras. Elas existem também na vida real: Ryuchi e Franco, The Sir as usam.
+- **Hutukara existe um só.** Ele não é um lugar entre vários: é um único universo que guarda **vários mundos dentro dele** (a floresta, a Cidade das Vozes, o Distrito da Distorção e outros).
+- **Hutukara também é um ser.** Ele conduz Ryuchi e Franco de propósito, para que entendam que podem fazer **qualquer som** e atravessar os mundos dele. É esse caminho que vence o Silêncio, e é isso que eles passam a mostrar.
+- Em cada mundo existe uma **versão diferente de Ryuchi e de Franco**, com outro estilo de música.
+- No fim, os dois sabem que esses mundos existem e decidem atravessá-los, **um mundo de cada vez, cada um virando uma sessão nova na DAW**. Esse é o gancho para os próximos álbuns e mixtapes.
+- Nunca escrever "Hutukaras" no plural nem tratar os mundos como "outros Hutukaras".
+
 ## Pilares
 
 ### Música como ação

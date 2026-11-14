@@ -1,6 +1,6 @@
 # Proposta de cortes de diálogo (resumida)
 
-> **Status: aprovada e aplicada** (14/11/2026). As edições estão em `design/dialogo/EDICOES_DIALOGO.json` e são aplicadas por `game/source/chapter-03/dialogue_edits.js`. Para desfazer uma edição, basta tirá-la do JSON. As 3 falas novas do final aguardam aprovação do autor.
+> **Status: aprovada e aplicada** (14/11/2026). As edições estão em `design/dialogo/EDICOES_DIALOGO.json` e são aplicadas por `game/source/chapter-03/dialogue_edits.js`. Para desfazer uma edição, basta tirá-la do JSON. As 3 falas novas do final foram aprovadas pelo autor com ajuste (um só Hutukara, mundos dentro dele; sessão na DAW em vez de fita).
 >
 > Resultado medido: 225 → 139 falas; jornada típica 27,5 → 20,3 min; Capítulo 3 13,3 → 10,1 min.
 

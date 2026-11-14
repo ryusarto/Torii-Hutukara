@@ -10,7 +10,7 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - Avisos de sistema (itens, retransmissores, novo aliado, ressonância) viram notificação rápida, sem travar o jogo.
 - Capítulo 2: a Íris explica tudo de uma vez e o Belga entrega o acoplador; a parada obrigatória na Rádio 9 deixa de existir (saves antigos são ajustados).
 - Belga, Colli, Mazza e Dney com mais presença: Dney conduz a cena do Contratempo e Mazza ganha falas próprias.
-- Final: 3 falas novas com o gancho do multiverso e das mixtapes (aguardando aprovação).
+- Final: 3 falas novas com o gancho dos mundos dentro do Hutukara e das próximas sessões (aprovadas pelo autor).
 - Corrigido: cena do Canal repetia inteira ao falar de novo com Colli ou com o Percussionista; cenas automáticas se repetiam depois de uma derrota; nomes "BENTO" e "NARA" no lugar de BELGA e COLLI; duas aberturas contraditórias na revelação do mascarado; mesma fala nas duas pedras; fala do Mazza respondendo a uma fala cortada.
 - Corrigido no medidor de ritmo: o início do teste do Capítulo 3 não era registrado.
 - Jornada típica medida: 27,5 → 20,3 min.
