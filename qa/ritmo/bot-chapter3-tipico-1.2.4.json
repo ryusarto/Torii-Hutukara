@@ -1,0 +1,357 @@
+{
+ "sessions": [
+  {
+   "label": "Teste Capítulo 3",
+   "startedAt": "2026-11-14T10:36:01.503Z",
+   "build": "Torii & Hutukara · Alpha 1.2.4 · Mobile & Co-op",
+   "total": 615.9166666670786,
+   "modes": {
+    "andando": 127.51666666668416,
+    "parado": 0.6166666666668897,
+    "dialogo": 373.5166666667771,
+    "combate": 111.13333333329835,
+    "menu": 3.1333333333369175,
+    "ritmo": 0
+   },
+   "areas": {
+    "sky_terminal": {
+     "andando": 4.083333333332751,
+     "parado": 0.03333333333332848,
+     "dialogo": 37.816666666668354,
+     "combate": 0,
+     "menu": 0,
+     "ritmo": 0,
+     "visitas": 1
+    },
+    "distortion_district": {
+     "andando": 46.950000000003534,
+     "parado": 0.08333333333333574,
+     "dialogo": 0,
+     "combate": 19.80000000001187,
+     "menu": 0,
+     "ritmo": 0,
+     "visitas": 5
+    },
+    "contratempo": {
+     "andando": 11.816666666673251,
+     "parado": 0.1333333333334085,
+     "dialogo": 75.96666666673585,
+     "combate": 0,
+     "menu": 3.1166666666702896,
+     "ritmo": 0,
+     "visitas": 2
+    },
+    "power_plant": {
+     "andando": 13.18333333332833,
+     "parado": 0.08333333333332847,
+     "dialogo": 43.433333333328896,
+     "combate": 13.68333333333725,
+     "menu": 0,
+     "ritmo": 0,
+     "visitas": 1
+    },
+    "sky_canal": {
+     "andando": 14.949999999991205,
+     "parado": 0.09999999999994179,
+     "dialogo": 54.716666666638545,
+     "combate": 8.433333333328381,
+     "menu": 0,
+     "ritmo": 0,
+     "visitas": 1
+    },
+    "sky_lift": {
+     "andando": 4.350000000005079,
+     "parado": 0.050000000000058206,
+     "dialogo": 15.866666666684788,
+     "combate": 0,
+     "menu": 0,
+     "ritmo": 0,
+     "visitas": 1
+    },
+    "cloud_sea": {
+     "andando": 13.15000000001509,
+     "parado": 0.033333333333372135,
+     "dialogo": 10.533333333345505,
+     "combate": 9.083333333343887,
+     "menu": 0,
+     "ritmo": 0,
+     "visitas": 1
+    },
+    "cloud_terrace": {
+     "andando": 9.416666666677592,
+     "parado": 0.050000000000058206,
+     "dialogo": 25.650000000030065,
+     "combate": 27.20000000003196,
+     "menu": 0,
+     "ritmo": 0,
+     "visitas": 1
+    },
+    "last_torii": {
+     "andando": 4.083333333338101,
+     "parado": 0.033333333333372135,
+     "dialogo": 13.566666666682222,
+     "combate": 0,
+     "menu": 0,
+     "ritmo": 0,
+     "visitas": 1
+    },
+    "silence_core": {
+     "andando": 5.533333333339796,
+     "parado": 0.016666666666686068,
+     "dialogo": 87.0666666665887,
+     "combate": 32.93333333325582,
+     "menu": 0,
+     "ritmo": 0,
+     "visitas": 1
+    },
+    "studio": {
+     "andando": 0,
+     "parado": 0,
+     "dialogo": 8.899999999979247,
+     "combate": 0,
+     "menu": 0.01666666666662786,
+     "ritmo": 0,
+     "visitas": 1
+    }
+   },
+   "steps": [
+    {
+     "objetivo": "Encontre Belga no Clube Contratempo.",
+     "area": "sky_terminal",
+     "inicio": 0,
+     "segundos": 65.51666666666678,
+     "modos": {
+      "andando": 14.14999999999793,
+      "parado": 0.1,
+      "dialogo": 51.250000000001165,
+      "combate": 0,
+      "menu": 0.016666666666671517,
+      "ritmo": 0
+     },
+     "falas": 6
+    },
+    {
+     "objetivo": "Abra a trava grave da Usina.",
+     "area": "contratempo",
+     "inicio": 65.5,
+     "segundos": 31.00000000001007,
+     "modos": {
+      "andando": 15.783333333337803,
+      "parado": 0.03333333333334303,
+      "dialogo": 0.16666666666671517,
+      "combate": 15.016666666670934,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 1
+    },
+    {
+     "objetivo": "Interrompa o ciclo da Usina.",
+     "area": "power_plant",
+     "inicio": 96.5,
+     "segundos": 25.316666666674635,
+     "modos": {
+      "andando": 1.1500000000003334,
+      "parado": 0.03333333333334303,
+      "dialogo": 12.633333333336974,
+      "combate": 11.500000000003343,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 4
+    },
+    {
+     "objetivo": "Separe a interferência do canal.",
+     "area": "power_plant",
+     "inicio": 121.8,
+     "segundos": 76.38333333329679,
+     "modos": {
+      "andando": 17.099999999990054,
+      "parado": 0.08333333333328483,
+      "dialogo": 56.93333333331146,
+      "combate": 2.2666666666653503,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 8
+    },
+    {
+     "objetivo": "Resgate os trabalhadores do canal.",
+     "area": "sky_canal",
+     "inicio": 198.2,
+     "segundos": 16.016666666657244,
+     "modos": {
+      "andando": 4.9166666666637875,
+      "parado": 0.03333333333331393,
+      "dialogo": 4.899999999997131,
+      "combate": 6.16666666666305,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 1
+    },
+    {
+     "objetivo": "Encontre Mazza e Colli no Contratempo.",
+     "area": "sky_canal",
+     "inicio": 214.2,
+     "segundos": 48.49999999997764,
+     "modos": {
+      "andando": 24.5333333333219,
+      "parado": 0.06666666666662786,
+      "dialogo": 23.899999999987422,
+      "combate": 0,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 5
+    },
+    {
+     "objetivo": "Comece uma música no palco do Contratempo.",
+     "area": "contratempo",
+     "inicio": 262.7,
+     "segundos": 38.000000000045155,
+     "modos": {
+      "andando": 2.5666666666696614,
+      "parado": 0.033333333333372135,
+      "dialogo": 32.30000000003819,
+      "combate": 0,
+      "menu": 3.100000000003618,
+      "ritmo": 0
+     },
+     "falas": 5
+    },
+    {
+     "objetivo": "Reabra o Elevador do Céu.",
+     "area": "contratempo",
+     "inicio": 300.7,
+     "segundos": 50.00000000005982,
+     "modos": {
+      "andando": 12.850000000014756,
+      "parado": 0.06666666666674427,
+      "dialogo": 30.11666666670219,
+      "combate": 6.966666666674804,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 4
+    },
+    {
+     "objetivo": "Forme a primeira passarela de nuvem.",
+     "area": "sky_lift",
+     "inicio": 350.8,
+     "segundos": 32.50000000003843,
+     "modos": {
+      "andando": 6.300000000007358,
+      "parado": 0.06666666666674427,
+      "dialogo": 26.13333333336399,
+      "combate": 0,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 4
+    },
+    {
+     "objetivo": "Mova a plataforma com o Tambor do Horizonte.",
+     "area": "cloud_sea",
+     "inicio": 383.3,
+     "segundos": 7.500000000008761,
+     "modos": {
+      "andando": 2.200000000002566,
+      "parado": 0,
+      "dialogo": 0,
+      "combate": 5.3000000000061895,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 0
+    },
+    {
+     "objetivo": "Forme a última passarela de nuvem.",
+     "area": "cloud_sea",
+     "inicio": 390.8,
+     "segundos": 7.500000000008761,
+     "modos": {
+      "andando": 3.7166666666710055,
+      "parado": 0,
+      "dialogo": 0,
+      "combate": 3.78333333333775,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 0
+    },
+    {
+     "objetivo": "Enfrente O Metrônomo.",
+     "area": "cloud_sea",
+     "inicio": 398.3,
+     "segundos": 54.00000000006471,
+     "modos": {
+      "andando": 7.6666666666756225,
+      "parado": 0.016666666666686068,
+      "dialogo": 19.116666666688747,
+      "combate": 27.20000000003196,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 4
+    },
+    {
+     "objetivo": "Atravesse o Último Torii e enfrente O Silêncio.",
+     "area": "cloud_terrace",
+     "inicio": 452.3,
+     "segundos": 106.49999999998978,
+     "modos": {
+      "andando": 14.583333333350023,
+      "parado": 0.08333333333343033,
+      "dialogo": 58.90000000006206,
+      "combate": 32.93333333325582,
+      "menu": 0,
+      "ritmo": 0
+     },
+     "falas": 10
+    },
+    {
+     "objetivo": "Volte ao estúdio e abra uma sessão nova.",
+     "area": "silence_core",
+     "inicio": 558.8,
+     "segundos": 57.18333333320275,
+     "modos": {
+      "andando": 0,
+      "parado": 0,
+      "dialogo": 57.166666666536116,
+      "combate": 0,
+      "menu": 0.01666666666662786,
+      "ritmo": 0
+     },
+     "falas": 16
+    }
+   ],
+   "dialogue": {
+    "lines": 68,
+    "chars": 4651,
+    "speakers": {
+     "RYUCHI": 14,
+     "FRANCO, THE SIR!": 15,
+     "BELGA": 6,
+     "FRANCO SINTETIZADOR": 6,
+     "COLLI": 7,
+     "RYUCHI PERCUSSIONISTA": 9,
+     "MAZZA": 3,
+     "DNEY": 2,
+     "O METRÔNOMO": 1,
+     "???": 1,
+     "KATANA": 1,
+     "O SILÊNCIO": 3
+    }
+   },
+   "combat": {
+    "encounters": 11,
+    "firstAt": 72.3,
+    "longestQuiet": 125.4,
+    "longestQuietWhere": "distortion_district"
+   },
+   "deaths": 0,
+   "areaChanges": 16
+  }
+ ]
+}

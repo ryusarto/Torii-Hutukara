@@ -77,7 +77,7 @@ function installBot(){
       const b=ov.querySelector(`[data-vnote="${n}"]`);say('Puzzle Lumi → nota '+n);b.click();return}
     // derrota: voltar ao checkpoint
     const retry=buttons.find(b=>/checkpoint|tentar|continuar|voltar ao/i.test(b.textContent));
-    if(/derrot|caiu|silêncio venceu|game over/i.test(ov.innerText)&&retry){say('Derrota → '+retry.textContent.trim());retry.click();return}
+    if(/derrot|caiu|silêncio venceu|game over|frequência se partiu/i.test(ov.innerText)&&retry){say('Derrota em '+G.area+' ('+G.x.toFixed(0)+','+G.y.toFixed(0)+') perto de: '+(current.enemies||[]).filter(e=>Math.hypot(e.x-G.x,e.y-G.y)<9&&!G.defeated.includes(e.id)).map(e=>e.id+' '+(e.hp??'?')+'hp').join(', ')+' · equipe '+JSON.stringify(G.hp)+' → '+retry.textContent.trim());retry.click();return}
     // escolhas/puzzles: clicar opções não usadas até fechar
     const pick=buttons.find(b=>!b.__botClicked&&!/fechar|voltar|sair|cancel|exportar|importar|apagar|menu/i.test(b.textContent));
     if(pick){pick.__botClicked=true;say('Overlay "'+text+'" → '+pick.textContent.trim().slice(0,40));pick.click();return}
