@@ -6,6 +6,10 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ### Correções do playtest do autor
 
+- Site mais leve no celular, sem mudar nenhum pixel: HTML de 5,0 → 0,5 MB e jogo pronto para começar em 0,7 s (antes 4,4 s) num 4G simulado; artes do início carregadas em 15 s (antes 28 s). As artes exclusivas do Capítulo 3 carregam em segundo plano depois do resto (ou na hora, se o Capítulo 3 for iniciado direto).
+- Corrigido: a faixa "Walk Talk Twin" (luta contra o Arauto) nunca tocava. O gerador trocava "NILO" por "COLLI" também dentro dos dados da música e a corrompia; agora os nomes só são trocados no texto. A faixa toca e sai do HTML do site (4,5 MB a menos).
+- Viajante (Cap. 1) levemente mais difícil: +33% de vida e +20% de dano nos ataques.
+
 - Fim do Capítulo 2 → Capítulo 3 contínuo: o cartão "Capítulo 02 concluído" segue sozinho para o Capítulo 3 em 5 segundos (ou na hora, pelo botão). Sai a opção "explorar antes de partir", que deixava o jogador procurando o ponto de passagem na torre. Saves antigos parados nesse ponto seguem direto ao continuar.
 - Corrigido diálogo preso na tela (ex.: fala do Belga depois do Metrônomo): apertar J, M ou I durante uma fala abria o menu por cima e, ao fechar, a caixa não respondia mais. Agora esses atalhos não abrem menus durante falas, e qualquer menu aberto por cima devolve o controle à fala ao fechar.
 

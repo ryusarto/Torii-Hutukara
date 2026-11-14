@@ -76,6 +76,21 @@ def replace_once!(text, old, replacement, label)
   text.sub!(old, replacement)
 end
 
+# Troca texto só fora de dados codificados (base64 de músicas e imagens).
+# Antes, 'NILO' -> 'COLLI' também alterava a faixa Walk Talk Twin e a corrompia.
+DATA_RUN = %r{[A-Za-z0-9+/=]{300,}}
+def replace_in_text!(text, old, replacement)
+  out = +''
+  last = 0
+  text.scan(DATA_RUN) do
+    m = Regexp.last_match
+    out << text[last...m.begin(0)].gsub(old, replacement) << m[0]
+    last = m.end(0)
+  end
+  out << text[last..].gsub(old, replacement)
+  text.replace(out)
+end
+
 def encode(path)
   raise "Arquivo ausente: #{path}" unless File.file?(path)
   Base64.strict_encode64(File.binread(path))
@@ -92,8 +107,9 @@ html.sub!('<title>TORII & HUTUKARA — A Última Frequência · 1.1.2 · Pré-al
           '<title>TORII & HUTUKARA — Alpha 1.2.0 · Pré-beta</title>')
 
 # Nomes públicos dos colaboradores mudam sem alterar IDs persistentes de save.
-html.gsub!('BENTO', 'BELGA').gsub!('Bento', 'Belga')
-html.gsub!('NILO', 'COLLI').gsub!('Nilo', 'Colli')
+{ 'BENTO' => 'BELGA', 'Bento' => 'Belga', 'NILO' => 'COLLI', 'Nilo' => 'Colli' }.each do |old, current|
+  replace_in_text!(html, old, current)
+end
 replace_once!(html, "const who={franco:", "const who={nilo:'COLLI',bento:'BELGA',nara:'COLLI',synth:'FRANCO SINTETIZADOR',percussion:'RYUCHI PERCUSSIONISTA',metronome:'O METRÔNOMO',franco:", 'nomes de Colli e das falas do Capítulo 3 por ID interno')
 
 replace_once!(html,

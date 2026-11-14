@@ -30,7 +30,7 @@ Três modos de ataque:
 - **Padrão + RNG** é o equilíbrio: quem joga pela primeira vez tem uma luta tensa e vencível, quem aprendeu vence com folga mas ainda precisa prestar atenção.
 
 ## O que mudou nos chefes
-- **Viajante (Cap. 1)**: sorteio → padrão por fase + 20% de variação. Cada ataque mostra o nome (◆ ONDA AO REDOR, ◆ LEQUE À FRENTE, ◆ INVESTIDA).
+- **Viajante (Cap. 1)**: sorteio → padrão por fase + 20% de variação. Depois do playtest do autor ("muito fácil"): 340 de vida (antes 255) e +20% de dano; ajuste em `VIAJANTE` no mesmo arquivo. Cada ataque mostra o nome (◆ ONDA AO REDOR, ◆ LEQUE À FRENTE, ◆ INVESTIDA).
 - **Arauto (Cap. 2)**: já alternava "faixas" e "círculo" em ordem fixa; agora 20% de chance de trocar. **Aviso 0,14–0,17 s mais longo**: com o aviso original, quem jogava pela primeira vez perdia 8 de 8.
 - **Metrônomo (Cap. 3)**: continua rígido nas fases 1 e 2 (ele *é* um metrônomo); na fase 3, quando está quase derrotado, "perde o compasso" com 25% de variação.
 - **O Silêncio (Cap. 3)**: já mudava a ordem a cada tentativa; agora 15% de variação dentro da tentativa.

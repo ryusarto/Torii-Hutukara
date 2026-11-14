@@ -47,3 +47,7 @@ A Alpha 1.2.2 amplia o jogo na horizontal e sobrepõe controles semitransparente
 ## Medir o ritmo num playtest
 
 Abra `https://ryusarto.github.io/Torii-Hutukara/?ritmo`. O botão **RITMO** no topo mostra quanto tempo foi gasto andando, lendo e lutando e permite baixar o relatório. Detalhes em [RITMO_FASE1.md](RITMO_FASE1.md).
+
+## Desempenho no celular
+
+Medido num 4G simulado (10 Mbps, 60 ms): HTML de 0,5 MB, jogo pronto para começar em 0,7 s e artes do início carregadas em ~15 s. As artes exclusivas do Capítulo 3 (cerca de 11 MB) carregam em segundo plano depois disso. O áudio de cada faixa só é baixado quando ela vai tocar.
