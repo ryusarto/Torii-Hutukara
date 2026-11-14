@@ -66,7 +66,7 @@ function installBot(){
   }
   function aliveEnemies(){let list=[];try{list=enemyActors().filter(e=>e.hp>0)}catch{}
     if(typeof bossActor!=='undefined'&&bossActor&&bossActor.hp>0)list.push(bossActor);
-    try{if(window.C3&&C3.boss&&C3.boss.hp>0)list.push(C3.boss)}catch{}return list}
+    try{if(typeof C3!=='undefined'&&C3.boss&&C3.boss.hp>0)list.push(C3.boss)}catch{}return list}
   function handleOverlay(){
     const ov=document.getElementById('overlay');if(!ov||ov.classList.contains('hidden'))return closeOverlay();
     const buttons=[...ov.querySelectorAll('button')].filter(b=>!b.disabled&&b.offsetParent!==null);

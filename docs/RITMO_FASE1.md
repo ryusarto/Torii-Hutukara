@@ -9,7 +9,7 @@ Medido em 14/11/2026 na Alpha 1.2.4, com o medidor de ritmo do jogo e uma jogada
   - perfil **típico**: anda sem correr, lê 14 caracteres/s.
 - O robô nunca se perde nem explora. Por isso os tempos dele são o **mínimo**. Os playtests reais (30–60 min) somam exploração, tentativa e erro.
 
-Relatórios brutos: `qa/ritmo/bot-newGame-rapido-1.2.4.txt` e `qa/ritmo/bot-newGame-tipico-1.2.4.txt`.
+Relatórios brutos: `qa/ritmo/antes/bot-newGame-rapido-1.2.4.txt` e `qa/ritmo/antes/bot-newGame-tipico-1.2.4.txt`.
 
 ## Resultado
 
@@ -84,3 +84,15 @@ Para repetir a jogada automática depois de cada mudança:
 ruby game/source/chapter-03/build_alpha.rb
 PERFIL=tipico node qa/pace_bot.cjs newGame
 ```
+
+## Depois dos cortes de diálogo (Fase 5)
+
+| | Antes | Depois |
+|---|---|---|
+| Falas obrigatórias | 225 | 139 |
+| Jornada (típico) | 27,5 min | 20,3 min |
+| Capítulo 1 / 2 / 3 | 7,8 / 6,3 / 13,3 min | 5,8 / 4,4 / 10,1 min |
+| Lendo diálogo | 73% | 65% |
+| Combate | 9% | 12% |
+
+A leitura caiu em tempo absoluto (de ~20 para ~13 min), mas a **proporção** ainda é alta porque o jogo tem pouca ação. As Fases 3 (combate) e 4 (ritmo dos capítulos) precisam preencher esse espaço. Relatórios em `qa/ritmo/` (antes em `qa/ritmo/antes/`).

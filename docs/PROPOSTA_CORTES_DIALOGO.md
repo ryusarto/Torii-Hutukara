@@ -1,6 +1,10 @@
 # Proposta de cortes de diálogo (resumida)
 
-Base: as 225 falas obrigatórias lidas pela jogada automática (`qa/ritmo/falas-newGame-rapido-1.2.4.json`, numeradas na ordem do jogo).
+> **Status: aprovada e aplicada** (14/11/2026). As edições estão em `design/dialogo/EDICOES_DIALOGO.json` e são aplicadas por `game/source/chapter-03/dialogue_edits.js`. Para desfazer uma edição, basta tirá-la do JSON. As 3 falas novas do final aguardam aprovação do autor.
+>
+> Resultado medido: 225 → 139 falas; jornada típica 27,5 → 20,3 min; Capítulo 3 13,3 → 10,1 min.
+
+Base: as 225 falas obrigatórias lidas pela jogada automática (`qa/ritmo/antes/falas-newGame-rapido-1.2.4.json`, numeradas na ordem do jogo).
 
 ## Regras
 - **Intocáveis** (só ajuste fino): estúdio e chegada ao Hutukara, descoberta das máscaras, revelação do mascarado, encontro das versões (impacto e plot twist), final.

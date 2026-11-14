@@ -1,0 +1,622 @@
+{
+ "sobre": "Edições de diálogo aplicadas na hora de exibir (game/source/chapter-03/dialogue_edits.js). Cada entrada encontra a fala pelo texto original exato. Ações: cortar, aviso (vira notificação rápida), trocar (quem/novo), manter (com 'depois' para acrescentar falas). 'linha' é o número na lista qa/ritmo/antes/falas-newGame-rapido-1.2.4.json.",
+ "edicoes": [
+  {
+   "linha": 4,
+   "t": "Franco isola cada canal da sessão. A melodia continua. Ele desliga os monitores... e ela permanece.",
+   "acao": "trocar",
+   "motivo": "funde 4–6",
+   "quem": "franco",
+   "novo": "Isolei cada canal. Desliguei os monitores... e a melodia continua. A gente nunca gravou essa track."
+  },
+  {
+   "linha": 5,
+   "t": "Mas a gente não gravou isso. Nem existe essa track no projeto.",
+   "acao": "cortar",
+   "motivo": "fundidas na fala 4"
+  },
+  {
+   "linha": 6,
+   "t": "Pera. Se não tá saindo dos monitores... de onde tá vindo?",
+   "acao": "cortar",
+   "motivo": "fundidas na fala 4"
+  },
+  {
+   "linha": 7,
+   "t": "O som vem da porta que leva para a rua.",
+   "acao": "trocar",
+   "motivo": "funde 7–9",
+   "novo": "O som vem da porta. Onde antes havia uma escada para a rua, agora há um corredor de pedra."
+  },
+  {
+   "linha": 8,
+   "t": "Essa porta não levava para a rua?",
+   "acao": "cortar",
+   "motivo": "fundidas na fala 7"
+  },
+  {
+   "linha": 9,
+   "t": "Levava. E tinha uma escada aqui... antes.",
+   "acao": "cortar",
+   "motivo": "fundidas na fala 7"
+  },
+  {
+   "linha": 10,
+   "t": "Uma melodia distante percorre o corredor. Não há nenhum som vindo de trás.",
+   "acao": "cortar",
+   "motivo": "o corredor já mostra a melodia"
+  },
+  {
+   "linha": 12,
+   "t": "A mesma melodia tá vindo delas. Tá ouvindo?",
+   "acao": "cortar",
+   "motivo": "repete a fala anterior"
+  },
+  {
+   "linha": 20,
+   "t": "A claridade toma conta de tudo. O chão do estúdio desaparece. Vocês estão em outro lugar.",
+   "acao": "trocar",
+   "motivo": "funde 20–22",
+   "novo": "A claridade toma conta de tudo. O estúdio desaparece. Diante de vocês, uma cidade onde até o vento parece ter ritmo."
+  },
+  {
+   "linha": 21,
+   "t": "O quê...? Onde a gente tá?",
+   "acao": "cortar",
+   "motivo": "fundidas na fala 20"
+  },
+  {
+   "linha": 22,
+   "t": "Não sei. Mas essa cidade... parece que tudo aqui tem um ritmo.",
+   "acao": "cortar",
+   "motivo": "fundidas na fala 20"
+  },
+  {
+   "linha": 24,
+   "t": "Vamos falar com alguém. Aquelas casas parecem habitadas.",
+   "acao": "cortar",
+   "motivo": "o objetivo já indica a cidade"
+  },
+  {
+   "linha": 28,
+   "t": "Roubando sons?",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 29,
+   "t": "Primeiro somem as melodias. Depois, as memórias. Encontrem o músico antes que tudo se cale.",
+   "acao": "trocar",
+   "motivo": "funde 29–30",
+   "novo": "Primeiro somem as melodias, depois as memórias. Ele toca uma frequência que nenhum instrumento nosso reproduz. Encontrem o músico antes que tudo se cale."
+  },
+  {
+   "linha": 30,
+   "t": "Ele toca uma frequência que nenhum dos nossos instrumentos consegue reproduzir. E nunca mostra o rosto.",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 31,
+   "t": "Mais alguém com a nossa máscara... estranho demais.",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 32,
+   "t": "As árvores... estão cantando?",
+   "acao": "trocar",
+   "motivo": "funde 32–33",
+   "novo": "As árvores estão cantando... é a mesma melodia do estúdio."
+  },
+  {
+   "linha": 33,
+   "t": "Tem uma melodia por baixo dos sons da floresta. Igual no estúdio.",
+   "acao": "cortar",
+   "motivo": "fundida na 32"
+  },
+  {
+   "linha": 38,
+   "t": "Você tá dando esse instrumento pra gente assim, do nada?",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 40,
+   "t": "ITEM OBTIDO: BAIXO DE RAIZ. Uma frequência profunda pode despertar passagens adormecidas.",
+   "acao": "aviso",
+   "motivo": "aviso de sistema vira notificação rápida"
+  },
+  {
+   "linha": 41,
+   "t": "As quatro notas encontram sua ordem. O rio se ergue em uma ponte de madeira viva.",
+   "acao": "cortar",
+   "motivo": "a ponte aparece na tela"
+  },
+  {
+   "linha": 43,
+   "t": "E parece que podemos usar a mesma frequência em outros lugares.",
+   "acao": "cortar",
+   "motivo": "explicação"
+  },
+  {
+   "linha": 44,
+   "t": "RESSONÂNCIA +30 · QUATRO FRAGMENTOS DE ECO OBTIDOS.",
+   "acao": "aviso",
+   "motivo": "aviso de sistema vira notificação rápida"
+  },
+  {
+   "linha": 45,
+   "t": "O ar pesa. Folhas se movem, mas não fazem nenhum som.",
+   "acao": "cortar",
+   "motivo": "a tela já mostra o silêncio"
+  },
+  {
+   "linha": 47,
+   "t": "A gente precisa encontrar a origem disso.",
+   "acao": "cortar",
+   "motivo": "a tela já mostra o silêncio"
+  },
+  {
+   "linha": 48,
+   "t": "Essa nota... respondeu ao nosso baixo.",
+   "acao": "cortar",
+   "motivo": "mesma fala nas duas pedras"
+  },
+  {
+   "linha": 50,
+   "t": "Uma pedra desperta e ilumina as ruínas. Ressonância +20.",
+   "acao": "aviso",
+   "motivo": "aviso de sistema vira notificação rápida"
+  },
+  {
+   "linha": 55,
+   "t": "Essa máscara... ele é igual a gente. O que está acontecendo?",
+   "acao": "cortar",
+   "motivo": "o jogador já vê a máscara"
+  },
+  {
+   "linha": 59,
+   "t": "Ele estava lutando contra aquilo dentro da própria máscara?",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 62,
+   "t": "Quando a criatura se desfaz, o músico mascarado aparece entre os fragmentos. Ele segura a própria máscara pelas bordas.",
+   "acao": "trocar",
+   "motivo": "corrige a abertura duplicada da revelação",
+   "novo": "O músico se levanta entre os fragmentos e segura a própria máscara pelas bordas."
+  },
+  {
+   "linha": 63,
+   "t": "Vocês conseguiram. Eu queria ter certeza de que eram vocês.",
+   "acao": "cortar",
+   "motivo": "repete a fala 60"
+  },
+  {
+   "linha": 72,
+   "t": "NOVO ALIADO: FRANCO — O ARQUEIRO. A terceira vaga da equipe foi desbloqueada.",
+   "acao": "aviso",
+   "motivo": "aviso de sistema vira notificação rápida"
+  },
+  {
+   "linha": 73,
+   "t": "Eu conheço uma frequência parecida... Mas o Hutukara vai decidir para onde ela leva.",
+   "acao": "cortar",
+   "motivo": "fundida na travessia"
+  },
+  {
+   "linha": 76,
+   "t": "Depois das raízes da floresta, o Hutukara abre seu Lado A. Sol nos canais. Melodias saindo das janelas.",
+   "acao": "cortar",
+   "motivo": "narração"
+  },
+  {
+   "linha": 81,
+   "t": "Ele está engolindo nossos sinais. Precisamos encontrar uma FITA PERDIDA no mercado e levar a Belga.",
+   "acao": "trocar",
+   "motivo": "Íris explica tudo de uma vez",
+   "novo": "Ele está engolindo nossos sinais. Achem a FITA PERDIDA no Mercado e levem ao Belga: ele monta um acoplador.",
+   "depois": [
+    {
+     "quem": "iris",
+     "t": "E tem mais: o mascarado que cuidava da cidade foi levado pelo Arauto. Com o acoplador, reativem os três retransmissores e a torre abre."
+    }
+   ]
+  },
+  {
+   "linha": 82,
+   "t": "Uma fita? E depois?",
+   "acao": "cortar",
+   "motivo": "fundidas na fala da Íris"
+  },
+  {
+   "linha": 83,
+   "t": "Belga sabe construir um acoplador. A Rádio 9 precisa dele para acordar os retransmissores.",
+   "acao": "cortar",
+   "motivo": "fundidas na fala da Íris"
+  },
+  {
+   "linha": 84,
+   "t": "No fundo de uma gaveta, uma fita toca uma voz que parece vir de outra dimensão.",
+   "acao": "cortar",
+   "motivo": "narração"
+  },
+  {
+   "linha": 86,
+   "t": "ITEM: FITA PERDIDA. Leve a Belga na oficina.",
+   "acao": "aviso",
+   "motivo": "aviso de sistema vira notificação rápida"
+  },
+  {
+   "linha": 89,
+   "t": "BELGA CONSTRUIU O ACOPLADOR DE SINAL. A porta da Rádio 9 pode ser reativada.",
+   "acao": "trocar",
+   "motivo": "Belga entrega o acoplador e dispensa a ida à Rádio 9",
+   "quem": "belga",
+   "novo": "Acoplador montado. Liguem nos retransmissores — a Íris guia vocês pelo rádio."
+  },
+  {
+   "linha": 93,
+   "t": "RETRANSMISSOR 1/3 REATIVADO. Um novo grupo de antenas acende sob o sol.",
+   "acao": "aviso",
+   "motivo": "aviso de sistema vira notificação rápida"
+  },
+  {
+   "linha": 94,
+   "t": "Conseguimos recuperar uma parte das vozes. Ainda faltam retransmissores.",
+   "acao": "cortar",
+   "motivo": "Íris fala só no 3/3"
+  },
+  {
+   "linha": 95,
+   "t": "RETRANSMISSOR 2/3 REATIVADO. Um novo grupo de antenas acende sob o sol.",
+   "acao": "aviso",
+   "motivo": "aviso de sistema vira notificação rápida"
+  },
+  {
+   "linha": 100,
+   "t": "Lumi volta a tocar. Uma nova voz preenche a praça. +42 XP e 1 fita de cura.",
+   "acao": "aviso",
+   "motivo": "aviso de sistema vira notificação rápida"
+  },
+  {
+   "linha": 101,
+   "t": "RELÍQUIA RECEBIDA · VIOLINO DAS VOZES. Toquem junto à névoa dos telhados (E) para dissipá-la.",
+   "acao": "aviso",
+   "motivo": "aviso de sistema vira notificação rápida"
+  },
+  {
+   "linha": 103,
+   "t": "O Violino das Vozes atravessa a névoa. A cidade reaparece até o retransmissor dos telhados.",
+   "acao": "cortar",
+   "motivo": "a névoa some na tela"
+  },
+  {
+   "linha": 104,
+   "t": "RETRANSMISSOR 3/3 REATIVADO. Um novo grupo de antenas acende sob o sol.",
+   "acao": "aviso",
+   "motivo": "aviso de sistema vira notificação rápida"
+  },
+  {
+   "linha": 106,
+   "t": "Uma escadaria em espiral termina diante da antena principal. A chuva desaparece. Só resta um chiado.",
+   "acao": "cortar",
+   "motivo": "funde as narrações da torre"
+  },
+  {
+   "linha": 115,
+   "t": "Uma nova melodia percorre todos os telhados. A máscara Torii responde com um brilho diferente.",
+   "acao": "cortar",
+   "motivo": "fundida na 111"
+  },
+  {
+   "linha": 120,
+   "t": "A gente está procurando ele.",
+   "acao": "cortar",
+   "motivo": "Belga explica as duas frentes numa fala"
+  },
+  {
+   "linha": 121,
+   "t": "Vão ao Contratempo. Se recuperarem o pulso e a harmonia da cidade, o palco consegue abrir o caminho até ele.",
+   "acao": "trocar",
+   "motivo": "funde 121–124",
+   "novo": "O Silêncio separou a música da cidade: a Usina ficou presa numa harmonia que reinicia, e o Canal perdeu o próprio pulso. Sem as duas, o Contratempo não abre o Elevador do Céu."
+  },
+  {
+   "linha": 122,
+   "t": "O Silêncio separou a música da cidade: a Usina ficou presa numa harmonia que reinicia, e o Canal perdeu o próprio pulso.",
+   "acao": "cortar",
+   "motivo": "Belga explica as duas frentes numa fala"
+  },
+  {
+   "linha": 124,
+   "t": "Isso. Sem harmonia e pulso, o Contratempo não compõe a frequência que reabre o Elevador do Céu. E tem gente presa no meio disso.",
+   "acao": "cortar",
+   "motivo": "Belga explica as duas frentes numa fala"
+  },
+  {
+   "linha": 125,
+   "t": "A gente resolve os dois. Por onde começamos?",
+   "acao": "cortar",
+   "motivo": "Belga explica as duas frentes numa fala"
+  },
+  {
+   "linha": 131,
+   "t": "Segura a sua sequência. Eu entro com o baixo no vão.",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 132,
+   "t": "O sequenciador apaga. No escuro, uma última tecla permanece acesa — e alguém a sustenta com a mão, como se segurasse uma porta.",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 136,
+   "t": "Vocês vão voltar pro clube?",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 137,
+   "t": "Tem um palco esperando.",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 139,
+   "t": "Antes que o grupo alcance a primeira placa da passarela, uma luz amarela responde do outro lado.",
+   "acao": "cortar",
+   "motivo": "narração"
+  },
+  {
+   "linha": 140,
+   "t": "Eu disse para irem na frente. Não disse que chegaria depois.",
+   "acao": "trocar",
+   "motivo": "nome antigo NARA → COLLI",
+   "quem": "nilo"
+  },
+  {
+   "linha": 142,
+   "t": "A gente veio ajudar!",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 144,
+   "t": "Tem mais gente na comporta. Eu marquei o caminho, mas uma coisa está repetindo a voz deles e apagando minhas referências.",
+   "acao": "trocar",
+   "motivo": "funde 144–145",
+   "novo": "Tem mais gente na comporta. Uma coisa está repetindo a voz deles e apagando minhas marcas — precisamos separar a interferência do caminho verdadeiro."
+  },
+  {
+   "linha": 145,
+   "t": "Eu aumento o sinal e a água devolve tudo por cima. A rota existe; precisamos separar a interferência do lugar verdadeiro.",
+   "acao": "cortar",
+   "motivo": "fundida na 144"
+  },
+  {
+   "linha": 146,
+   "t": "O violino da Lumi achou caminho no meio de outra interferência.",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 157,
+   "t": "O sintetizador portátil capta uma batida impossível: ela continua mesmo quando a água cobre a passarela. Franco vira o visor para o grupo.",
+   "acao": "cortar",
+   "motivo": "encurta o resgate mantendo a entrada pelo som e o medo de parar"
+  },
+  {
+   "linha": 158,
+   "t": "Isso não é ruído. Alguém está marcando o caminho para as pessoas presas.",
+   "acao": "cortar",
+   "motivo": "encurta o resgate mantendo a entrada pelo som e o medo de parar"
+  },
+  {
+   "linha": 160,
+   "t": "Se ele tiver a sua cara, ninguém age como se isso fosse normal. Combinado?",
+   "acao": "cortar",
+   "motivo": "encurta o resgate mantendo a entrada pelo som e o medo de parar"
+  },
+  {
+   "linha": 162,
+   "t": "Posso segurar seu pulso com o sequenciador.",
+   "acao": "cortar",
+   "motivo": "encurta o resgate mantendo a entrada pelo som e o medo de parar"
+  },
+  {
+   "linha": 163,
+   "t": "Aguenta quando a ponte balança?",
+   "acao": "cortar",
+   "motivo": "encurta o resgate mantendo a entrada pelo som e o medo de parar"
+  },
+  {
+   "linha": 164,
+   "t": "Não sei. A gente ajusta na hora.",
+   "acao": "cortar",
+   "motivo": "encurta o resgate mantendo a entrada pelo som e o medo de parar"
+  },
+  {
+   "linha": 165,
+   "t": "Pode soltar. O pessoal já atravessou.",
+   "acao": "cortar",
+   "motivo": "encurta o resgate mantendo a entrada pelo som e o medo de parar"
+  },
+  {
+   "linha": 166,
+   "t": "Você ficou aqui esse tempo todo?",
+   "acao": "cortar",
+   "motivo": "encurta o resgate mantendo a entrada pelo som e o medo de parar"
+  },
+  {
+   "linha": 170,
+   "t": "O mapa voltou inteiro?",
+   "acao": "trocar",
+   "motivo": "Mazza ganha personalidade",
+   "novo": "Colli voltou inteiro. Agora eu posso voltar a me preocupar com coisas pequenas — tipo a cidade caindo."
+  },
+  {
+   "linha": 171,
+   "t": "Eu também, obrigado.",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 172,
+   "t": "Eu ia perguntar isso primeiro. A flauta só funciona porque o desenho do Colli diz onde o ar consegue ficar.",
+   "acao": "trocar",
+   "novo": "A flauta só funciona porque o desenho do Colli diz onde o ar consegue ficar.",
+   "motivo": "a fala respondia a uma fala cortada"
+  },
+  {
+   "linha": 173,
+   "t": "Esta é a Flauta dos Ventos. O Mazza construiu o corpo; eu desenhei as rotas que ela consegue revelar.",
+   "acao": "manter",
+   "depois": [
+    {
+     "quem": "mazza",
+     "t": "Eu fiz o corpo dela pra aguentar erro. Toca torto mesmo — ela foi feita pra isso."
+    }
+   ],
+   "motivo": "Mazza ganha fala própria sobre a flauta"
+  },
+  {
+   "linha": 174,
+   "t": "Dar forma?",
+   "acao": "cortar",
+   "motivo": "repetição"
+  },
+  {
+   "linha": 176,
+   "t": "A frase entrou no sistema. Eu deixei as imperfeições visíveis — foram elas que mostraram ao Elevador que havia gente tocando.",
+   "acao": "manter",
+   "depois": [
+    {
+     "quem": "dney",
+     "t": "Aqui ninguém toca a mesma frase duas vezes. Não existe a frase certa — existe a que vocês tiveram coragem de tocar."
+    }
+   ],
+   "motivo": "Dney conduz a cena do Contratempo"
+  },
+  {
+   "linha": 178,
+   "t": "Eu quase cortei o retorno. Se cortasse, a chave perdia a memória dos outros capítulos.",
+   "acao": "cortar",
+   "motivo": "recapitulação"
+  },
+  {
+   "linha": 179,
+   "t": "O Baixo moveu a Usina, o Violino separou o Canal, a Flauta vai dar forma ao ar. Nossa frase diz para onde tudo isso quer ir.",
+   "acao": "cortar",
+   "motivo": "recapitulação"
+  },
+  {
+   "linha": 181,
+   "t": "Esse Tambor do Horizonte ancorava as plataformas de carga. A frase abre o Elevador; ele impede que o caminho de nuvens se desfaça.",
+   "acao": "cortar",
+   "motivo": "explicação do Tambor fica no aviso de relíquia"
+  },
+  {
+   "linha": 185,
+   "t": "Daqui dá pra ver o clube.",
+   "acao": "trocar",
+   "motivo": "funde 185–188",
+   "novo": "Daqui dá pra ver o clube. Não parecia que dava pra chegar tão longe."
+  },
+  {
+   "linha": 186,
+   "t": "A porta parece pequena.",
+   "acao": "cortar",
+   "motivo": "fundidas / tutorial vira marca visual"
+  },
+  {
+   "linha": 187,
+   "t": "Foi por ali que a gente entrou.",
+   "acao": "cortar",
+   "motivo": "fundidas / tutorial vira marca visual"
+  },
+  {
+   "linha": 188,
+   "t": "É. Não parecia que dava pra chegar tão longe.",
+   "acao": "cortar",
+   "motivo": "fundidas / tutorial vira marca visual"
+  },
+  {
+   "linha": 190,
+   "t": "E se não segurar?",
+   "acao": "cortar",
+   "motivo": "fundidas / tutorial vira marca visual"
+  },
+  {
+   "linha": 191,
+   "t": "Eu amarrei um cabo na primeira plataforma. A gente testa antes de sair andando por aí.",
+   "acao": "cortar",
+   "motivo": "fundidas / tutorial vira marca visual"
+  },
+  {
+   "linha": 195,
+   "t": "O sinal chegou inteiro. Eu reconheci cada frequência — até as que vocês quase esconderam.",
+   "acao": "trocar",
+   "motivo": "funde 195–198",
+   "novo": "O sinal chegou inteiro. Vou deixar o canal aberto — a cidade inteira está ouvindo vocês."
+  },
+  {
+   "linha": 196,
+   "t": "Dá pra ouvir a cidade daqui?",
+   "acao": "cortar",
+   "motivo": "fundidas na 195"
+  },
+  {
+   "linha": 197,
+   "t": "Dá. Vou deixar o canal aberto.",
+   "acao": "cortar",
+   "motivo": "fundidas na 195"
+  },
+  {
+   "linha": 198,
+   "t": "Obrigado. A gente já vai.",
+   "acao": "cortar",
+   "motivo": "fundidas na 195"
+  },
+  {
+   "linha": 199,
+   "t": "Franco Arqueiro e Ryuchi da Katana chegaram por ressonâncias abertas nos mundos anteriores. Eles não são guardas nem novas máscaras: vieram garantir que ninguém atravesse sozinho.",
+   "acao": "cortar",
+   "motivo": "Arqueiro e Katana aparecem na tela"
+  },
+  {
+   "linha": 217,
+   "t": "Acho que a máscara trouxe a gente até onde precisava.",
+   "acao": "cortar",
+   "motivo": "substituídas pelo gancho do multiverso"
+  },
+  {
+   "linha": 218,
+   "t": "Ela trouxe as ferramentas e as pessoas de cada mundo até a mesma frase.",
+   "acao": "cortar",
+   "motivo": "substituídas pelo gancho do multiverso"
+  },
+  {
+   "linha": 219,
+   "t": "E a última nota não fechou Hutukara. Abriu espaço para a próxima música existir sem repetir a anterior.",
+   "acao": "trocar",
+   "motivo": "PROPOSTA — gancho das mixtapes (aguarda aprovação)",
+   "quem": "franco",
+   "novo": "A máscara não trouxe a gente só até aqui. Existem outros Hutukaras — outros Francos, outros Ryuchis, cada um tocando uma música que a gente nunca fez.",
+   "depois": [
+    {
+     "quem": "ryuchi",
+     "t": "Então a gente vai até eles. Um mundo de cada vez, um som de cada vez."
+    },
+    {
+     "quem": "franco",
+     "t": "E cada viagem vira uma fita nova."
+    }
+   ]
+  }
+ ]
+}
