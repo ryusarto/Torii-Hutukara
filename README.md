@@ -99,7 +99,7 @@ design/
   chapter-03/               roteiro, diálogos, missões e direção de arte
 docs/                       arquitetura, visão, roadmap e processo
 game/
-  builds/                   versões jogáveis preservadas
+  builds/                   build jogável atual (anteriores: histórico do git e tags)
   source/
     base/                   build 1.1.2 original, nunca sobrescrita
     chapter-03/             runtime, gerador e validador
@@ -138,7 +138,7 @@ O gerador preserva a base 1.1.2 e cria a build atual em `game/builds/alpha-1.2.4
 
 ## Regra de desenvolvimento
 
-Nenhuma build anterior é sobrescrita. Cada mudança deve atualizar o código-fonte, a documentação afetada, o changelog e as verificações correspondentes. Alterações aprovadas são registradas no GitHub para manter o repositório como fonte oficial do projeto. Consulte o fluxo de atualização antes de criar cada nova versão.
+Nenhuma build anterior é sobrescrita; as antigas ficam no histórico do git, nas tags `alpha-*` e no branch `claude/arquivo-builds-ate-1.2.4`. Cada mudança deve atualizar o código-fonte, a documentação afetada, o changelog e as verificações correspondentes. Alterações aprovadas são registradas no GitHub para manter o repositório como fonte oficial do projeto. Consulte o fluxo de atualização antes de criar cada nova versão.
 
 ## Licença
 

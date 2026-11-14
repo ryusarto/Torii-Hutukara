@@ -8,6 +8,8 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 - Projeto licenciado como código aberto: código em MIT (`LICENSE`), materiais abertos em CC BY 4.0 e materiais protegidos em CC BY-NC-ND 4.0 (`LICENSE-ASSETS.md`). Protegidos: Ryuchi e Franco, The Sir em todas as versões, máscaras Torii, músicas e participantes do álbum.
 - README e `docs/ASSET_PROVENANCE.md` atualizados com as licenças, as autorizações e o crédito ao Suno.
+- Repositório limpo: builds Alpha 1.0 a 1.2.3 (~700 MB) saíram da árvore e ficam no histórico do git, nas tags `alpha-*` e no branch `claude/arquivo-builds-ate-1.2.4`. Removidos também dois HTMLs de outros projetos em `design/chapter-03/` (*Assim que as Flores Crescem* e o painel IKIRU) e `docs/SHA256SUMS.txt`, que duplicava o hash da base com caminho errado.
+- Os três scripts de regressão de controles por versão viraram um só, `qa/input_regression.cjs`, que lê a build atual de `web/playtest/build.json`. 22/22 verificações aprovadas na Alpha 1.2.4.
 - Corrigido o rótulo de versão no topo da tela: camadas antigas reescreviam "1.0 · PRÉ-ALPHA" a cada atualização do HUD. Agora um único `BUILD_LABEL` é reaplicado por último. Entra na próxima build gerada.
 
 ### Planejado

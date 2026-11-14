@@ -25,7 +25,7 @@ O GitHub é a fonte oficial do projeto. Toda alteração aprovada deve terminar 
 
 ## Regra de versões
 
-- A build anterior permanece intacta em `game/builds/`.
+- A build anterior não é alterada: sai de `game/builds/` e fica no histórico do git e na tag da versão.
 - Cada versão recebe pasta, nome, manifesto, hash e relatório próprios.
 - Uma correção pequena incrementa o último número: 1.1.0 → 1.1.1.
 - Um conjunto novo de conteúdo incrementa o número intermediário: 1.1.x → 1.2.0.

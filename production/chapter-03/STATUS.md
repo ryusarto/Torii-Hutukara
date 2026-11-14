@@ -8,5 +8,5 @@ Consulte:
 
 - `docs/PROJECT_STATUS.md` para o estado atual;
 - `docs/ROADMAP.md` para as próximas versões;
-- `game/builds/alpha-1.1.0/` para a versão jogável;
-- `qa/alpha-1.1.0/PLAYTEST.md` para o playtest pendente.
+- `game/builds/` para a versão jogável atual;
+- `qa/` para os relatórios de playtest e validação.

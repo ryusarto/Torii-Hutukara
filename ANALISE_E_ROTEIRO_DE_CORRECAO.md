@@ -53,7 +53,7 @@ O P2 tem kit simplificado (documentado em `PROJECT_STATUS.md`). Câmera comparti
 | T3 | **HTML de 98 MB** com áudio/imagem em Base64 | 6 faixas MP3 ≈ 30 MB só em Base64 | Carregamento pesado no celular e muita memória |
 | T4 | **Repositório de 1,2 GB** | `game/builds/` tem 791 MB: 9 builds de ~90 MB versionadas no git | Clone lento. O GitHub reclama de arquivos >50 MB e bloqueia >100 MB. |
 | T5 | Base 1.1.2 "imutável" + patches por regex no Ruby | `build_alpha.rb` aplica substituições textuais | Não dá para corrigir os Caps. 1–2 de verdade |
-| T6 | Testes quase só estáticos | `validate_alpha.rb` checa strings; `input_regression.cjs` copiado por versão | Travas de quest só aparecem no playtest |
+| T6 | Testes quase só estáticos | `validate_alpha.rb` checa strings; `input_regression.cjs` copiado por versão (unificado na Fase 0) | Travas de quest só aparecem no playtest |
 | T7 | Rótulo de versão errado | Cabeçalho in-game mostra **"1.0 · PRÉ-ALPHA"** na build 1.2.4 | Confusão em feedback de testers |
 | T8 | Mapas procedurais com `rng()` + "garantir caminho" depois | floresta refaz `path(...)` duas vezes | Colisões imprevisíveis, árvores bloqueando rota |
 

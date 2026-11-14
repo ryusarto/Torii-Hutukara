@@ -13,7 +13,7 @@ O número da build e o schema do save não são a mesma coisa. A Alpha 1.1.0 con
 
 ## Preservação
 
-- Cada build fica em uma pasta própria dentro de `game/builds/`.
+- Só a build atual fica em `game/builds/`. Ao gerar uma nova, a anterior sai da árvore de arquivos e continua acessível pelo histórico do git, pela tag da versão (`alpha-x.y.z`) e, até a 1.2.4, por o branch `claude/arquivo-builds-ate-1.2.4`.
 - A base 1.1.2 nunca é modificada.
 - Manifesto e SHA-256 acompanham cada HTML.
 - Uma versão só vira principal depois de validação e playtest.
