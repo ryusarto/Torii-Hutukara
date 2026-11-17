@@ -1,10 +1,21 @@
 # Estado do projeto
 
-Atualizado em 13 de novembro de 2026.
+Atualizado em 14 de novembro de 2026.
 
 ## Versão jogável atual
 
-**Alpha 1.2.4 Mobile & Co-op** — os três capítulos estão reunidos em um único HTML portátil. A base 1.1.2 permanece preservada. Os resultados da nova versão estão em `qa/alpha-1.2.4/`.
+**Beta 1.0** — os três capítulos estão reunidos em um único HTML portátil. A base 1.1.2 permanece preservada. Os resultados de teste estão em `qa/beta-1.0.0/`, `qa/ritmo/` e `qa/combate/`.
+
+### Critério de Beta (verificado em 14/11/2026)
+| Critério | Como foi verificado | Resultado |
+|---|---|---|
+| Nenhuma missão travada | jornada completa automática, Usina primeiro e Canal primeiro | ✅ |
+| Nenhuma perda de save | 4 jornadas salvando e recarregando a página a cada 2 min | ✅ progresso idêntico (só a formação é completada) |
+| Nenhum objetivo preso | as mesmas jornadas, com detector de objetivo parado | ✅ |
+| Sem voltar ao menu para continuar | Capítulo 1 → 2 → 3 contínuos | ✅ |
+| Sem travamento de luta | correções de projétil, integrante ativo e formação | ✅ |
+
+Ainda dependem de pessoas: playtest em iPhone/Android físicos, dois controles físicos e a sensação de combate.
 
 Site provisório: https://ryusarto.github.io/Torii-Hutukara/. O aviso PC/MOBILE aparece por quatro segundos na entrada. O fluxo de publicação e suas limitações estão em `docs/PLAYTEST_SITE.md`.
 
@@ -44,7 +55,7 @@ Site provisório: https://ryusarto.github.io/Torii-Hutukara/. O aviso PC/MOBILE 
 
 ## Próximo ciclo
 
-1. Jogar a Alpha 1.2.4 no aparelho físico e validar a prioridade mobile/rolada/coop.
+1. Playtest da Beta 1.0 com pessoas de fora (usar `?ritmo` e coletar os relatórios).
 2. Discutir os seis kits e as reduções de deslocamento propostas em `design/COMBATE_E_RITMO_PROPOSTA.md`.
 3. Refinar as técnicas completas e encurtar quests preservando as revelações centrais.
 4. Produzir as versões cyberpunk de Belga, Colli e Mazza com identidade preservada e PNG transparente.

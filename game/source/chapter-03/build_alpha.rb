@@ -18,9 +18,11 @@ PACING_JS = File.join(ROOT, 'pacing.js')
 HEALING_JS = File.join(ROOT, 'healing.js')
 COMBAT_JS = File.join(ROOT, 'combat_patterns.js')
 FLOW_JS = File.join(ROOT, 'flow_fixes.js')
+ACCESS_JS = File.join(ROOT, 'accessibility.js')
 DIALOGUE_EDITS = File.join(REPO_ROOT, 'design', 'dialogo', 'EDICOES_DIALOGO.json')
-OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', 'alpha-1.2.4')
-OUTPUT = File.join(OUTPUT_DIR, 'TORII_HUTUKARA_ALPHA_1_2_4_MOBILE_COOP.html')
+VERSION = JSON.parse(File.read(File.join(REPO_ROOT, 'game', 'VERSION.json')))
+OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', VERSION.fetch('versao'))
+OUTPUT = File.join(OUTPUT_DIR, "TORII_HUTUKARA_#{VERSION.fetch('sufixo')}.html")
 
 ASSETS = File.join(REPO_ROOT, 'assets', 'chapter-03')
 RUNTIME_ASSETS = File.join(ASSETS, 'runtime')
@@ -223,9 +225,11 @@ edits_json = JSON.generate(JSON.parse(File.read(DIALOGUE_EDITS, encoding: 'UTF-8
 edits_js = File.read(DIALOGUE_EDITS_JS, encoding: 'UTF-8')
 raise 'Marcador __DIALOGUE_EDITS__ ausente' unless edits_js.include?('__DIALOGUE_EDITS__')
 edits_js = edits_js.sub('__DIALOGUE_EDITS__') { edits_json }
-html.insert(position, "\n\n#{runtime}\n\n#{File.read(INPUT_RUNTIME, encoding: 'UTF-8')}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n")
-html.gsub!('ALPHA 1.2.0', 'ALPHA 1.2.4')
-html.gsub!('Alpha 1.2.0', 'Alpha 1.2.4')
+input_runtime = File.read(INPUT_RUNTIME, encoding: 'UTF-8').gsub('__BUILD_LABEL__', VERSION.fetch('rotulo')).gsub('__BUILD_TITLE__', VERSION.fetch('titulo'))
+raise 'Rótulo de versão ausente no runtime' if input_runtime.include?('__BUILD_')
+html.insert(position, "\n\n#{runtime}\n\n#{input_runtime}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(ACCESS_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n")
+html.gsub!('ALPHA 1.2.0', VERSION.fetch('rotulo'))
+html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
 
 html.gsub!('clamp(G.x*T-VW/2,0,a.w*T-VW)', 'clamp(coopCamera123("x")*T-VW/2,0,a.w*T-VW)')
 html.gsub!('clamp(G.y*T-VH/2,0,a.h*T-VH)', 'clamp(coopCamera123("y")*T-VH/2,0,a.h*T-VH)')
@@ -233,10 +237,11 @@ html.gsub!("yy=bossActor?.id==='voice_boss'?", "yy=!C3.coopActive()&&bossActor?.
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
-sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, PACE_METER, DIALOGUES]
+sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES]
 manifest = {
   game: 'TORII & HUTUKARA',
-  build: 'ALPHA 1.2.4 · MOBILE & CO-OP',
+  build: VERSION.fetch('rotulo'),
+  version: VERSION.fetch('versao'),
   schema: 13,
   created_at: Time.now.iso8601,
   output: {
@@ -269,11 +274,11 @@ manifest = {
   end
 }
 
-manifest_path = File.join(OUTPUT_DIR, 'MANIFESTO_ALPHA_1_2_4.json')
+manifest_path = File.join(OUTPUT_DIR, "MANIFESTO_#{VERSION.fetch('sufixo')}.json")
 File.write(manifest_path, JSON.pretty_generate(manifest) + "\n")
-File.write(File.join(OUTPUT_DIR, 'SHA256_ALPHA_1_2_4.txt'), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
-File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_4.txt'), <<~README)
-  TORII & HUTUKARA — ALPHA 1.2.4 · MOBILE & CO-OP
+File.write(File.join(OUTPUT_DIR, "SHA256_#{VERSION.fetch('sufixo')}.txt"), "#{manifest[:output][:sha256]}  #{File.basename(OUTPUT)}\n")
+File.write(File.join(OUTPUT_DIR, "LEIA-ME_#{VERSION.fetch('sufixo')}.txt"), <<~README)
+  TORII & HUTUKARA — #{VERSION.fetch('rotulo')}
   =================================
 
   Build jogável completa, do Capítulo 01 ao Capítulo 03.
@@ -294,7 +299,7 @@ File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_4.txt'), <<~README)
   - Círculo sempre esquiva durante a exploração; apenas Options/Start abre a pausa.
   - O segundo jogador é puxado por rotas livres, sem teleporte por distância.
 
-  CONTEÚDO DA ALPHA
+  CONTEÚDO DA VERSÃO
   - Três capítulos conectados e salvamento migrável da build 1.1.2.
   - Seis personagens jogáveis, formação de até três.
   - Duas ordens possíveis de recrutamento no Capítulo 03.
@@ -324,9 +329,15 @@ File.write(File.join(OUTPUT_DIR, 'LEIA-ME_ALPHA_1_2_4.txt'), <<~README)
   - Coop local para duas pessoas, com HP e ações independentes em câmera compartilhada.
 
   O arquivo original TORII_HUTUKARA_1_1_2_TRILHAS.html não é alterado.
-  Esta é uma Alpha: use o menu para exportar o progresso periodicamente.
+  Esta é uma Beta: use o menu para exportar o progresso periodicamente.
 README
 
 warn "Gerado: #{OUTPUT}"
 warn "Tamanho: #{File.size(OUTPUT)} bytes"
 warn "SHA-256: #{manifest[:output][:sha256]}"
+
+# O site publica sempre a versão atual.
+File.write(File.join(REPO_ROOT, 'web', 'playtest', 'build.json'), JSON.pretty_generate(
+  'version' => VERSION.fetch('numero'),
+  'manifest' => "game/builds/#{VERSION.fetch('versao')}/MANIFESTO_#{VERSION.fetch('sufixo')}.json"
+) + "\n")

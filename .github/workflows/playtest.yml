@@ -8,6 +8,7 @@ on:
       - 'web/album/**'
       - 'production/build_playtest.rb'
       - 'game/source/**'
+      - 'game/VERSION.json'
       - 'assets/chapter-03/audio/**'
       - 'assets/chapter-03/runtime/**'
       - 'assets/prebeta/runtime/**'

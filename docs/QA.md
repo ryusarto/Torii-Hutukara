@@ -69,3 +69,20 @@ A Alpha 1.1.2 possui 65 verificações estáticas cobrindo:
 
 Zero bloqueios de progressão, zero perda de save, zero placeholders e conclusão integral em pelo menos três computadores diferentes.
 
+
+
+## Auditoria de Beta (automática)
+
+Gere a build antes: `ruby game/source/chapter-03/build_alpha.rb`.
+
+| Teste | Comando |
+|---|---|
+| Validação estática | `ruby game/source/chapter-03/validate_alpha.rb` |
+| Controles, rolada, coop e mobile | `node qa/input_regression.cjs` |
+| Site publicado (PC, iPhone, iPad) | `ruby production/build_playtest.rb` e `node qa/playtest_site.cjs <url>` |
+| Jornada completa (Usina primeiro) | `node qa/pace_bot.cjs newGame` |
+| Jornada completa (Canal primeiro) | `ROTA=canal PERFIL=tipico node qa/pace_bot.cjs newGame` |
+| Salvar e recarregar no meio | `RECARREGAR=1 PERFIL=tipico node qa/pace_bot.cjs newGame` |
+| Combate (chefes e inimigos) | `node qa/combat_lab.cjs 8` |
+
+Use `TAG=nome` para separar relatórios de jogadas em paralelo. Os relatórios ficam em `qa/ritmo/` e `qa/combate/`.

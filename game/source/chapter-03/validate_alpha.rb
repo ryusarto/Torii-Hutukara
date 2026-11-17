@@ -7,7 +7,8 @@ require 'json'
 root = File.expand_path(__dir__)
 repo_root = File.expand_path('../../..', root)
 base = File.join(repo_root, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
-alpha = File.join(repo_root, 'game', 'builds', 'alpha-1.2.4', 'TORII_HUTUKARA_ALPHA_1_2_4_MOBILE_COOP.html')
+version = JSON.parse(File.read(File.join(repo_root, 'game', 'VERSION.json')))
+alpha = File.join(repo_root, 'game', 'builds', version.fetch('versao'), "TORII_HUTUKARA_#{version.fetch('sufixo')}.html")
 runtime = File.join(root, 'chapter3_runtime.js')
 dialogues = File.join(repo_root, 'design', 'chapter-03', 'DIALOGOS_CAPITULO_03.json')
 collaborator_atlases = %w[
@@ -137,7 +138,7 @@ check.call('base 1.1.2 preservada', Digest::SHA256.file(base).hexdigest == expec
 passed = checks.count { |(_, ok, _)| ok }
 failed = checks.reject { |(_, ok, _)| ok }
 lines = [
-  'TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA ALPHA 1.2.4',
+  "TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA #{version.fetch('rotulo')}",
   '=' * 53,
   "Resultado: #{passed}/#{checks.length} verificações aprovadas",
   "HTML: #{File.size(alpha)} bytes",
@@ -152,10 +153,10 @@ lines += [
   'Playtest visual e funcional desta versão: PENDENTE',
   '- a validação acima comprova estrutura, referências e integridade da build;',
   '- a jornada completa ainda deve ser jogada em navegador desktop e móvel;',
-  '- resultados manuais devem ser registrados em qa/alpha-1.2.4/PLAYTEST.md.'
+  "- resultados manuais devem ser registrados em qa/#{version.fetch('versao')}/PLAYTEST.md."
 ]
 
 report = lines.join("\n") + "\n"
-File.write(File.join(repo_root, 'game', 'builds', 'alpha-1.2.4', 'VALIDACAO_ALPHA_1_2_4.txt'), report)
+File.write(File.join(repo_root, 'game', 'builds', version.fetch('versao'), "VALIDACAO_#{version.fetch('sufixo')}.txt"), report)
 puts report
 exit(failed.empty? ? 0 : 1)

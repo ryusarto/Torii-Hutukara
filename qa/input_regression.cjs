@@ -17,7 +17,8 @@ const playtest=JSON.parse(fs.readFileSync(path.join(root,'web/playtest/build.jso
 const manifestPath=path.join(root,playtest.manifest);
 const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8'));
 const build=path.join(path.dirname(manifestPath),manifest.output.file);
-const outDir=path.join(__dirname,'alpha-'+playtest.version);fs.mkdirSync(outDir,{recursive:true});
+const versionInfo=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'),'utf8'));
+const outDir=path.join(__dirname,versionInfo.versao);fs.mkdirSync(outDir,{recursive:true});
 const results=[];
 async function main(){
   const browser=await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9223').catch(()=>chromium.launch());
@@ -111,7 +112,9 @@ async function main(){
       window.__pads=[window.__pad(0),window.__pad(1)];C3.pad.pads=window.__pads;C3.syncCoop(true);
       G.x=10;G.y=15;C3.coop.x=20;C3.coop.y=10;
       bossActor={id:'c3_silence',x:15,y:10,hp:100,max:100,phase:1,cd:0};C3.hazards=[];
-      C3.castPattern(bossActor,'ring');C3.hazards=[];C3.castPattern(bossActor,'fan');
+      // Mede a mira entre P1 e P2, não a variação: modo sem RNG durante a verificação.
+      const modeBefore=window.ToriiCombate?ToriiCombate.MODE.mode:null;if(modeBefore)ToriiCombate.MODE.mode='padrao';
+      try{C3.castPattern(bossActor,'ring');C3.hazards=[];C3.castPattern(bossActor,'fan')}finally{if(modeBefore)ToriiCombate.MODE.mode=modeBefore}
       return {angle:C3.hazards[0].angle,x:G.x,y:G.y};
     });assert(Math.abs(v.angle)<.001);assert.equal(v.x,10);assert.equal(v.y,15);
   });
