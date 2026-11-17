@@ -1,0 +1,2072 @@
+{
+  "review": "coordination technical inventory",
+  "version": "cenarios-v2",
+  "auditedCommit": "dab09c8b3679cd9a7a3c6c6e0ae6acd89b74e47d",
+  "integrationBaseCommit": "524e68f4d1c7cb97bc3e81274db409c27ca86f0e",
+  "recoveryCommit": "dab09c8b3679cd9a7a3c6c6e0ae6acd89b74e47d",
+  "date": "2026-11-17",
+  "reviewLevel": "code-and-recorded-runtime-snapshot; not physical playthrough",
+  "engine": "HTML Canvas2D",
+  "tileLogicalPx": 24,
+  "snapshot": {
+    "file": "qa/cenarios-v2/antes/MAPAS.json",
+    "areas": 25,
+    "propTypes": 81,
+    "propInstances": 1031,
+    "countsAreSnapshotOnly": true,
+    "aggregatesRecovery": "exact printed map summary from own session log",
+    "sha256": null
+  },
+  "coverage": [
+    {
+      "type": "bridgeMarker",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "forest"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "c3_bar",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "contratempo"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "inline_geometry",
+      "decision": "replace_procedural_except_live_text",
+      "productionGroups": [
+        "A06"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_bass_lock",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "sky_lift"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_lift",
+      "decision": "reuse_and_bind_state",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_bench",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_urban",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_broken_pipe",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "sky_canal"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_canal",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_canal_gate",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "sky_canal"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_canal",
+      "decision": "reuse_and_bind_state",
+      "productionGroups": [
+        "A07"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Estado fechado/aberto por canalDone sem mudar o resgate."
+    },
+    {
+      "type": "c3_club",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster_reference_cutout",
+      "sourceFamily": "C3_props_3x2_chroma",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Fachada preservada; entrada e retorno ajustados conforme decisão autorizada."
+    },
+    {
+      "type": "c3_crates",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_urban",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_drain",
+      "instancesInSnapshot": 2,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_urban",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_elevator",
+      "instancesInSnapshot": 3,
+      "areas": [
+        "distortion_district",
+        "sky_lift",
+        "sky_terminal"
+      ],
+      "currentRenderer": "raster_with_liftOpen_state",
+      "sourceFamily": "atlas_lift",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Preservar estados aprovados de liftOpen."
+    },
+    {
+      "type": "c3_flute_rack",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "ciro_workshop"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_workshop",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_house",
+      "instancesInSnapshot": 6,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster_reference_cutout",
+      "sourceFamily": "C3_props_3x2_chroma",
+      "decision": "contextual_replacement_or_variation",
+      "productionGroups": [
+        "A05"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Três variações para seis ocorrências, mantendo apoio e colisão."
+    },
+    {
+      "type": "c3_interference",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "sky_canal"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_canal",
+      "decision": "reuse_and_bind_state",
+      "productionGroups": [
+        "A07"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Usar interferência calma depois de canalPath/canalDone."
+    },
+    {
+      "type": "c3_kiosk",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_urban",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_lamp",
+      "instancesInSnapshot": 2,
+      "areas": [
+        "sky_terminal"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "prebeta_props",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_lift_console",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "sky_lift"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_lift",
+      "decision": "reuse_and_bind_state",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_machine",
+      "instancesInSnapshot": 6,
+      "areas": [
+        "distortion_district",
+        "power_plant",
+        "sky_canal"
+      ],
+      "currentRenderer": "raster_reference_cutout",
+      "sourceFamily": "C3_props_3x2_chroma",
+      "decision": "contextual_replacement_or_variation",
+      "productionGroups": [
+        "A05",
+        "A07"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Separar fachada do Distrito e máquinas internas por contexto; máquina do Canal acompanha canalPath/canalDone."
+    },
+    {
+      "type": "c3_neon_lamp",
+      "instancesInSnapshot": 8,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "prebeta_props",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_neon_utility",
+      "instancesInSnapshot": 3,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "prebeta_props",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_planter",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_urban",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_pressure_switch",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "power_plant"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_canal",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_railing",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_urban",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_rescue_barrier",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "sky_canal"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_canal",
+      "decision": "reuse_and_bind_state",
+      "productionGroups": [
+        "A07"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Estado aberto após canalDone."
+    },
+    {
+      "type": "c3_resonance_circle",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "last_torii"
+      ],
+      "currentRenderer": "material_panel_used_as_sprite",
+      "sourceFamily": "prebeta_materials_v2",
+      "decision": "replace_with_transparent_prop",
+      "productionGroups": [
+        "A10"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Decalque RGBA transparente, sem quadrado opaco de piso."
+    },
+    {
+      "type": "c3_sanctuary",
+      "instancesInSnapshot": 3,
+      "areas": [
+        "cloud_terrace",
+        "last_torii",
+        "silence_core"
+      ],
+      "currentRenderer": "raster_reference_cutout",
+      "sourceFamily": "C3_props_3x2_chroma",
+      "decision": "contextual_replacement_or_variation",
+      "productionGroups": [
+        "A10"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Selecionar linguagem por contexto do mapa."
+    },
+    {
+      "type": "c3_sign",
+      "instancesInSnapshot": 6,
+      "areas": [
+        "distortion_district",
+        "sky_terminal"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "inline_geometry",
+      "decision": "replace_procedural_except_live_text",
+      "productionGroups": [
+        "A08"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Moldura PNG sem letras; nomes permanecem texto vivo alinhado às entradas."
+    },
+    {
+      "type": "c3_silence_altar",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "silence_core"
+      ],
+      "currentRenderer": "material_panel_used_as_sprite",
+      "sourceFamily": "prebeta_materials_v2",
+      "decision": "replace_with_transparent_prop",
+      "productionGroups": [
+        "A10"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Altar separado do piso e sem duplicar santuário no mesmo eixo."
+    },
+    {
+      "type": "c3_silence_eye",
+      "instancesInSnapshot": 4,
+      "areas": [
+        "silence_core"
+      ],
+      "currentRenderer": "material_panel_used_as_sprite",
+      "sourceFamily": "prebeta_materials_v2",
+      "decision": "replace_with_transparent_prop",
+      "productionGroups": [
+        "A10"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "PNG isolado sem cobrir telegraphs."
+    },
+    {
+      "type": "c3_speakers",
+      "instancesInSnapshot": 4,
+      "areas": [
+        "contratempo",
+        "power_plant",
+        "sky_canal"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "inline_geometry",
+      "decision": "replace_procedural_except_live_text",
+      "productionGroups": [
+        "A06"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_stage",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "contratempo"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "inline_geometry",
+      "decision": "replace_procedural_except_live_text",
+      "productionGroups": [
+        "A06"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_table",
+      "instancesInSnapshot": 2,
+      "areas": [
+        "contratempo"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "inline_geometry",
+      "decision": "replace_procedural_except_live_text",
+      "productionGroups": [
+        "A06"
+      ],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_tuning_machine",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "ciro_workshop"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_workshop",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_valve_station",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "power_plant"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_canal",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_vending",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_urban",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_wind_console",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "ciro_workshop"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_workshop",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_wind_receiver",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "sky_lift"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_lift",
+      "decision": "reuse_and_bind_state",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_workbench",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "ciro_workshop"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "atlas_workshop",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Sprite reutilizável; revisar recorte, pivô, escala e ocupação física."
+    },
+    {
+      "type": "c3_workshop",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "distortion_district"
+      ],
+      "currentRenderer": "raster_reference_cutout",
+      "sourceFamily": "C3_props_3x2_chroma",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/chapter-03/chapter3_runtime.js:355-365",
+      "notes": "Fachada preservada; entrada e retorno ajustados conforme decisão autorizada."
+    },
+    {
+      "type": "checkpointStone",
+      "instancesInSnapshot": 11,
+      "areas": [
+        "city",
+        "cloud_sea",
+        "distortion_district",
+        "forest",
+        "radio9",
+        "rain_station",
+        "ruins",
+        "voice_tower",
+        "voices"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A11"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Revisar forma geométrica isolada sem mudar sua função."
+    },
+    {
+      "type": "column",
+      "instancesInSnapshot": 18,
+      "areas": [
+        "chamber",
+        "corridor"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Já interceptado por prebeta_props; não é uma ausência atual de sprite."
+    },
+    {
+      "type": "desk",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "studio"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "doorLit",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "studio"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A12"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Revisar forma geométrica isolada sem mudar sua função."
+    },
+    {
+      "type": "gateArch",
+      "instancesInSnapshot": 3,
+      "areas": [
+        "city",
+        "corridor"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "grandTree",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "city"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "house",
+      "instancesInSnapshot": 7,
+      "areas": [
+        "city"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "ENV_ATLAS house/shop/archive/inn já detalhados; não trocar por fachadas cyberpunk do Capítulo3."
+    },
+    {
+      "type": "lamp",
+      "instancesInSnapshot": 4,
+      "areas": [
+        "city",
+        "studio"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A11"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Revisar forma geométrica isolada sem mudar sua função."
+    },
+    {
+      "type": "life091",
+      "instancesInSnapshot": 60,
+      "areas": [
+        "bento_shop",
+        "celina_home",
+        "radio9",
+        "tape_market",
+        "voices"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse_and_complete_window_frame",
+      "productionGroups": [
+        "A12"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "60 instâncias; bed/kitchen/shelf/table/chair/tools/rug já usam ENV092 e plant tem override; window(8) e frame(3) seguem furniture091 procedural. Só estas duas categorias precisam de recorte novo A12."
+    },
+    {
+      "type": "maskStand",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "chamber"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse_and_verify_state",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "ENV_ATLAS raster existente, mas estado visual ocupado/vazio deve seguir masks. Máscara física canônica, sem inventar outra."
+    },
+    {
+      "type": "memoryBell",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "forest"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A11"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Só aparece enquanto !bell && !bellReward."
+    },
+    {
+      "type": "mushroom",
+      "instancesInSnapshot": 125,
+      "areas": [
+        "forest"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A11"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "125 instâncias; um asset compartilhado é suficiente, sem nova imagem por ocorrência."
+    },
+    {
+      "type": "plant",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "studio"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "pool",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "forest"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A11"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Revisar forma geométrica isolada sem mudar sua função."
+    },
+    {
+      "type": "radioConsole",
+      "instancesInSnapshot": 3,
+      "areas": [
+        "radio9",
+        "tape_market"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "rainLamp",
+      "instancesInSnapshot": 21,
+      "areas": [
+        "celina_home",
+        "rain_station",
+        "voice_roofs",
+        "voices"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "rainTorii",
+      "instancesInSnapshot": 3,
+      "areas": [
+        "city",
+        "rain_station",
+        "ruins"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "rainTree",
+      "instancesInSnapshot": 7,
+      "areas": [
+        "voices"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "relayTower",
+      "instancesInSnapshot": 5,
+      "areas": [
+        "radio9",
+        "voice_roofs",
+        "voice_tower",
+        "voices"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "rock10",
+      "instancesInSnapshot": 2,
+      "areas": [
+        "city"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "rootGate",
+      "instancesInSnapshot": 2,
+      "areas": [
+        "city",
+        "voice_roofs"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A11"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "No Capítulo1 usar roots; em voice_roofs usar fogCleared11. Não aplicar roots global a todas as realidades."
+    },
+    {
+      "type": "rootInstrument",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "forest"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "propSprite10(9) raster; manter ocultação por bass sem restaurar relíquia pega."
+    },
+    {
+      "type": "rootWall",
+      "instancesInSnapshot": 27,
+      "areas": [
+        "city"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A11"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Revisar forma geométrica isolada sem mudar sua função."
+    },
+    {
+      "type": "ruinColumn",
+      "instancesInSnapshot": 14,
+      "areas": [
+        "ruins"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Já interceptado por prebeta_props; não é uma ausência atual de sprite."
+    },
+    {
+      "type": "signpost",
+      "instancesInSnapshot": 6,
+      "areas": [
+        "city",
+        "corridor",
+        "forest",
+        "studio"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Já interceptado por prebeta_props; preservar sprite, verificar posição/escala e texto original."
+    },
+    {
+      "type": "silenceGate",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "ruins"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "ENV_ATLAS raster existente; conferir aparência fechada/aberta por boss para evitar estado congelado da imagem."
+    },
+    {
+      "type": "sofa",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "studio"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "stall",
+      "instancesInSnapshot": 2,
+      "areas": [
+        "city"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "stoneCrystal",
+      "instancesInSnapshot": 2,
+      "areas": [
+        "ruins"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A11"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Revisar forma geométrica isolada sem mudar sua função."
+    },
+    {
+      "type": "studioMonitors10",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "studio"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "synth",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "studio"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "tapeShelf",
+      "instancesInSnapshot": 12,
+      "areas": [
+        "bento_shop",
+        "celina_home",
+        "tape_market"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "totem",
+      "instancesInSnapshot": 2,
+      "areas": [
+        "city"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A11"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Revisar forma geométrica isolada sem mudar sua função."
+    },
+    {
+      "type": "tree",
+      "instancesInSnapshot": 565,
+      "areas": [
+        "city",
+        "forest"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "ENV_ATLAS com565 instâncias no snapshot; reuso, evitar aumentar variantes/cache sem necessidade."
+    },
+    {
+      "type": "voiceAntenna",
+      "instancesInSnapshot": 15,
+      "areas": [
+        "radio9",
+        "rain_station",
+        "voice_roofs",
+        "voice_tower",
+        "voices"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "voiceBench",
+      "instancesInSnapshot": 7,
+      "areas": [
+        "bento_shop",
+        "celina_home",
+        "voices"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "voiceFountain",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "voices"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "voiceHouse",
+      "instancesInSnapshot": 8,
+      "areas": [
+        "voices"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "voiceSign",
+      "instancesInSnapshot": 8,
+      "areas": [
+        "rain_station",
+        "tape_market",
+        "voice_roofs",
+        "voice_tower",
+        "voices"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A08"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Revisar forma geométrica isolada sem mudar sua função."
+    },
+    {
+      "type": "voiceTrain",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "rain_station"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "voiceWorkbench",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "bento_shop"
+      ],
+      "currentRenderer": "raster",
+      "sourceFamily": "legacy_base",
+      "decision": "reuse",
+      "productionGroups": [],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Preservar a identidade aprovada; trocar somente com evidência de escala/recorte incorretos."
+    },
+    {
+      "type": "well",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "city"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A11"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Revisar forma geométrica isolada sem mudar sua função."
+    },
+    {
+      "type": "window",
+      "instancesInSnapshot": 1,
+      "areas": [
+        "studio"
+      ],
+      "currentRenderer": "procedural",
+      "sourceFamily": "legacy_base",
+      "decision": "replace_procedural",
+      "productionGroups": [
+        "A12"
+      ],
+      "evidence": "game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html",
+      "notes": "Revisar forma geométrica isolada sem mudar sua função."
+    }
+  ],
+  "terrainCoverage": [
+    {
+      "area": "studio",
+      "propInstances": 9,
+      "tileTypes": [
+        "rug",
+        "wood"
+      ]
+    },
+    {
+      "area": "corridor",
+      "propInstances": 15,
+      "tileTypes": [
+        "stone",
+        "void"
+      ]
+    },
+    {
+      "area": "chamber",
+      "propInstances": 7,
+      "tileTypes": [
+        "marble",
+        "void"
+      ]
+    },
+    {
+      "area": "city",
+      "propInstances": 84,
+      "tileTypes": [
+        "cobble",
+        "flower",
+        "grass",
+        "grass2",
+        "plaza",
+        "water",
+        "woodbridge"
+      ]
+    },
+    {
+      "area": "forest",
+      "propInstances": 664,
+      "tileTypes": [
+        "forest",
+        "forestpath",
+        "moss",
+        "water"
+      ]
+    },
+    {
+      "area": "ruins",
+      "propInstances": 20,
+      "tileTypes": [
+        "cracked",
+        "ruinfloor",
+        "ruinmoss",
+        "void"
+      ]
+    },
+    {
+      "area": "rain_station",
+      "propInstances": 11,
+      "tileTypes": [
+        "insidecarpet",
+        "radiofloor",
+        "wetbridge"
+      ]
+    },
+    {
+      "area": "voices",
+      "propInstances": 50,
+      "tileTypes": [
+        "canalwater",
+        "garden092",
+        "plazaBorder092",
+        "wetbridge",
+        "wetplaza",
+        "wetstone",
+        "wetstone2"
+      ]
+    },
+    {
+      "area": "tape_market",
+      "propInstances": 23,
+      "tileTypes": [
+        "insidewood",
+        "wall092"
+      ]
+    },
+    {
+      "area": "bento_shop",
+      "propInstances": 15,
+      "tileTypes": [
+        "insidewood",
+        "insideworkshop",
+        "wall092"
+      ]
+    },
+    {
+      "area": "celina_home",
+      "propInstances": 17,
+      "tileTypes": [
+        "insidecarpet",
+        "insidewood",
+        "wall092"
+      ]
+    },
+    {
+      "area": "radio9",
+      "propInstances": 17,
+      "tileTypes": [
+        "insidewood",
+        "radiofloor",
+        "wall092"
+      ]
+    },
+    {
+      "area": "voice_roofs",
+      "propInstances": 11,
+      "tileTypes": [
+        "rooftile",
+        "wetbridge",
+        "wetstone2"
+      ]
+    },
+    {
+      "area": "voice_tower",
+      "propInstances": 11,
+      "tileTypes": [
+        "towerfloor",
+        "towersignal",
+        "void"
+      ]
+    },
+    {
+      "area": "sky_terminal",
+      "propInstances": 4,
+      "tileTypes": [
+        "c3_metal",
+        "c3_platform"
+      ]
+    },
+    {
+      "area": "distortion_district",
+      "propInstances": 36,
+      "tileTypes": [
+        "c3_asphalt",
+        "c3_street"
+      ]
+    },
+    {
+      "area": "contratempo",
+      "propInstances": 6,
+      "tileTypes": [
+        "c3_clubfloor"
+      ]
+    },
+    {
+      "area": "power_plant",
+      "propInstances": 7,
+      "tileTypes": [
+        "c3_factory",
+        "c3_metal"
+      ]
+    },
+    {
+      "area": "sky_canal",
+      "propInstances": 6,
+      "tileTypes": [
+        "c3_asphalt",
+        "c3_street",
+        "c3_water"
+      ]
+    },
+    {
+      "area": "ciro_workshop",
+      "propInstances": 4,
+      "tileTypes": [
+        "c3_indoor"
+      ]
+    },
+    {
+      "area": "sky_lift",
+      "propInstances": 4,
+      "tileTypes": [
+        "c3_platform"
+      ]
+    },
+    {
+      "area": "cloud_sea",
+      "propInstances": 1,
+      "tileTypes": [
+        "c3_cloud",
+        "c3_sky"
+      ]
+    },
+    {
+      "area": "cloud_terrace",
+      "propInstances": 1,
+      "tileTypes": [
+        "c3_sanctuary"
+      ]
+    },
+    {
+      "area": "last_torii",
+      "propInstances": 2,
+      "tileTypes": [
+        "c3_sanctuary"
+      ]
+    },
+    {
+      "area": "silence_core",
+      "propInstances": 6,
+      "tileTypes": [
+        "c3_voidfloor",
+        "void"
+      ]
+    }
+  ],
+  "production": {
+    "status": "twelve-sheet contract recovered from recorded art-director inventory; actual exports must be checked in recovered repository",
+    "sheets": 12,
+    "cellsAndStates": 126,
+    "canonicalOrder": "design/cenarios-v2/REVISAO_ARTE.json",
+    "groups": [
+      {
+        "id": "A01",
+        "file": "C3_SUPERFICIES_URBANAS.png",
+        "grid": [
+          4,
+          2
+        ],
+        "cells": 8,
+        "cellIds": [
+          "asfalto_seco",
+          "asfalto_molhado",
+          "calcada_pedra",
+          "beco_laje",
+          "agua_canal",
+          "metal_industrial",
+          "ceu_nuvens_fundo",
+          "abismo_fundo"
+        ],
+        "bindings": [
+          "c3_asphalt",
+          "c3_street",
+          "c3_metal",
+          "c3_factory",
+          "c3_bridge",
+          "c3_water",
+          "c3_sky"
+        ]
+      },
+      {
+        "id": "A02",
+        "file": "C3_SUPERFICIES_INTERIORES.png",
+        "grid": [
+          4,
+          2
+        ],
+        "cells": 8,
+        "cellIds": [
+          "madeira_clube",
+          "madeira_oficina",
+          "metal_terminal",
+          "pedra_santuario",
+          "basalto_nucleo",
+          "tabuas_ponte",
+          "tapete_palco",
+          "paineis_parede"
+        ],
+        "bindings": [
+          "c3_indoor",
+          "c3_clubfloor",
+          "c3_sanctuary",
+          "c3_voidfloor",
+          "c3_platform",
+          "insidewood",
+          "insideworkshop",
+          "wall092"
+        ]
+      },
+      {
+        "id": "A03",
+        "file": "C3_BORDAS_RUAS.png",
+        "grid": [
+          4,
+          4
+        ],
+        "cells": 16,
+        "cellIds": [
+          "curb_n",
+          "curb_e",
+          "curb_s",
+          "curb_w",
+          "curb_outer_ne",
+          "curb_outer_se",
+          "curb_outer_sw",
+          "curb_outer_nw",
+          "curb_inner_ne",
+          "curb_inner_se",
+          "curb_inner_sw",
+          "curb_inner_nw",
+          "crossing_horizontal",
+          "crossing_vertical",
+          "service_drain",
+          "threshold_inlay"
+        ],
+        "bindings": [
+          "c3_asphalt/c3_street boundary",
+          "distortion_district",
+          "sky_canal",
+          "sky_terminal"
+        ]
+      },
+      {
+        "id": "A04",
+        "file": "C3_NUVENS_ENCAIXES.png",
+        "grid": [
+          4,
+          4
+        ],
+        "cells": 16,
+        "cellIds": [
+          "cloud_top_a",
+          "cloud_top_b",
+          "cloud_top_c",
+          "cloud_top_d",
+          "cloud_edge_n",
+          "cloud_edge_e",
+          "cloud_edge_s",
+          "cloud_edge_w",
+          "cloud_outer_ne",
+          "cloud_outer_se",
+          "cloud_outer_sw",
+          "cloud_outer_nw",
+          "cloud_inner_ne",
+          "cloud_inner_se",
+          "cloud_inner_sw",
+          "cloud_inner_nw"
+        ],
+        "bindings": [
+          "c3_cloud",
+          "cloud_sea",
+          "cloud_terrace/outer edges"
+        ]
+      },
+      {
+        "id": "A05",
+        "file": "C3_FACHADAS_COMPLEMENTARES.png",
+        "grid": [
+          3,
+          2
+        ],
+        "cells": 6,
+        "cellIds": [
+          "residence_laundry",
+          "residence_roof_garden",
+          "residence_service_window",
+          "plant_entrance",
+          "terminal_canopy",
+          "cloud_arrival_arch"
+        ],
+        "bindings": [
+          "c3_house variations",
+          "district c3_machine facade by context",
+          "sky_terminal",
+          "cloud arrival"
+        ]
+      },
+      {
+        "id": "A06",
+        "file": "C3_CONTRATEMPO_PROPS.png",
+        "grid": [
+          4,
+          3
+        ],
+        "cells": 12,
+        "cellIds": [
+          "stage_idle",
+          "stage_active",
+          "speaker_idle",
+          "speaker_active",
+          "bar_counter",
+          "club_table",
+          "club_chair",
+          "club_stool",
+          "projection_console",
+          "projector_rig",
+          "instrument_rack",
+          "acoustic_wallpanel"
+        ],
+        "bindings": [
+          "c3_stage",
+          "c3_speakers",
+          "c3_bar",
+          "c3_table",
+          "contratempo"
+        ]
+      },
+      {
+        "id": "A07",
+        "file": "C3_INDUSTRIA_ESTADOS.png",
+        "grid": [
+          4,
+          2
+        ],
+        "cells": 8,
+        "cellIds": [
+          "machine_inactive",
+          "machine_active",
+          "pressure_switch_inactive",
+          "pressure_switch_active",
+          "valve_stalled",
+          "valve_released",
+          "canal_gate_closed",
+          "canal_gate_open"
+        ],
+        "bindings": [
+          "c3_machine inside power_plant",
+          "c3_pressure_switch",
+          "c3_valve_station",
+          "c3_canal_gate"
+        ]
+      },
+      {
+        "id": "A08",
+        "file": "C3_LETREIROS_SOLEIRAS.png",
+        "grid": [
+          4,
+          3
+        ],
+        "cells": 12,
+        "cellIds": [
+          "sign_club",
+          "sign_workshop",
+          "sign_plant",
+          "sign_canal",
+          "sign_lift",
+          "wayfinder_left",
+          "wayfinder_right",
+          "threshold_open",
+          "threshold_closed",
+          "platform_embark",
+          "canal_pier_left",
+          "canal_pier_right"
+        ],
+        "bindings": [
+          "c3_sign themes",
+          "district thresholds",
+          "canal entrance",
+          "sky_lift boarding"
+        ]
+      },
+      {
+        "id": "A09",
+        "file": "C3_NUVENS_MECANISMOS.png",
+        "grid": [
+          4,
+          2
+        ],
+        "cells": 8,
+        "cellIds": [
+          "wind_beacon_off",
+          "wind_beacon_on",
+          "condensation_off",
+          "condensation_on",
+          "drum_anchor_off",
+          "drum_anchor_on",
+          "wind_current_marker",
+          "cloud_anchor_foundation"
+        ],
+        "bindings": [
+          "cloud_sea event positions cloud_a/cloud_b/cloud_platform",
+          "cloud route mechanisms",
+          "existing lift receiver companions"
+        ]
+      },
+      {
+        "id": "A10",
+        "file": "C3_SANTUARIO_NUCLEO.png",
+        "grid": [
+          4,
+          3
+        ],
+        "cells": 12,
+        "cellIds": [
+          "silence_eye_open",
+          "silence_eye_half",
+          "silence_eye_closed",
+          "silence_altar_dormant",
+          "silence_altar_awake",
+          "resonance_circle_off",
+          "resonance_circle_on",
+          "last_torii_arch",
+          "core_entry_bridge",
+          "core_bridge_edge",
+          "core_column_left",
+          "core_column_right"
+        ],
+        "bindings": [
+          "c3_silence_eye",
+          "c3_silence_altar",
+          "c3_resonance_circle",
+          "c3_sanctuary contexts",
+          "last_torii",
+          "silence_core"
+        ]
+      },
+      {
+        "id": "A11",
+        "file": "LEGADO_OBJETIVOS_C1.png",
+        "grid": [
+          4,
+          3
+        ],
+        "cells": 12,
+        "cellIds": [
+          "forest_lamp",
+          "checkpoint_recorder",
+          "root_gate_closed",
+          "root_gate_open",
+          "crystal_pulse",
+          "crystal_timbre",
+          "memory_bell",
+          "pool_stone",
+          "well_stone",
+          "root_totem",
+          "root_wall",
+          "mushroom_cluster"
+        ],
+        "bindings": [
+          "lamp",
+          "checkpointStone",
+          "rootGate",
+          "stoneCrystal",
+          "memoryBell",
+          "pool",
+          "well",
+          "totem",
+          "rootWall",
+          "mushroom",
+          "window",
+          "doorLit"
+        ]
+      },
+      {
+        "id": "A12",
+        "file": "LEGADO_TRANSICOES_INTERIORES.png",
+        "grid": [
+          4,
+          2
+        ],
+        "cells": 8,
+        "cellIds": [
+          "window_rustic",
+          "door_lit",
+          "window_warm",
+          "frame_landscape",
+          "frame_music",
+          "room_doorway",
+          "rooftop_parapet",
+          "canal_bank"
+        ],
+        "bindings": [
+          "life091/window",
+          "life091/frame",
+          "C2 interior doorway",
+          "voice_roofs edge",
+          "canal borders"
+        ]
+      }
+    ],
+    "bindingsClarifications": [
+      "window/doorLit belong to A12; broad references in A11 do not create extra cells.",
+      "maskStand is reuse plus state correction, not a127th generated cell.",
+      "Canal calm interference and rescue barrier first reuse existing atlas art."
+    ]
+  },
+  "stateBindings": [
+    {
+      "owner": "power_plant",
+      "flag": "G.c3.usinaGate",
+      "before": "visible bass barrier across actual x17 wall",
+      "after": "opening matching y9..19 unsolid corridor",
+      "evidence": "chapter3_runtime.js:197,240"
+    },
+    {
+      "owner": "power_plant",
+      "flag": "G.c3.usinaDone",
+      "before": "sequencer inactive",
+      "after": "sequencer stable and workers safe",
+      "evidence": "chapter3_runtime.js:280"
+    },
+    {
+      "owner": "sky_canal",
+      "flag": "G.c3.canalPath",
+      "before": "water closed and interference active",
+      "after": "bridge x17..23,y10..14 and calm interference",
+      "evidence": "chapter3_runtime.js:240,283"
+    },
+    {
+      "owner": "sky_canal",
+      "flag": "G.c3.canalDone",
+      "before": "gate/rescue barrier closed",
+      "after": "gate/barrier open; survivors no longer signal blocked rescue",
+      "evidence": "chapter3_runtime.js:240,285"
+    },
+    {
+      "owner": "contratempo",
+      "flag": "G.c3.clubPhraseDone",
+      "before": "stage quiet, system waiting",
+      "after": "stage/club coherent lights and elevator direction",
+      "evidence": "chapter3_runtime.js/pacing.js; keep narrative order"
+    },
+    {
+      "owner": "sky_lift",
+      "flag": "G.c3.liftOpen",
+      "before": "elevator closed/console awaiting frequencies",
+      "after": "elevator/console active and route physically legible",
+      "evidence": "chapter3_runtime.js:218,362"
+    },
+    {
+      "owner": "cloud_sea",
+      "flag": "G.c3.cloudPathA / cloudPlatform / cloudPathB",
+      "before": "clear non-walkable gap with mechanism marker",
+      "after": "connected cloud/platform surface and active marker",
+      "evidence": "chapter3_runtime.js:221-225,240"
+    },
+    {
+      "owner": "chamber",
+      "flag": "G.flags.masks",
+      "before": "two canonical physical masks on pedestal",
+      "after": "empty pedestal; masks accompany protagonists",
+      "evidence": "chapter3_runtime.js:243-258"
+    },
+    {
+      "owner": "city",
+      "flag": "G.flags.roots",
+      "before": "rootWall/rootGate closed",
+      "after": "open/absent roots preserving route",
+      "evidence": "base drawProp and tileWalkable"
+    },
+    {
+      "owner": "voice_roofs",
+      "flag": "G.flags.fogCleared11",
+      "before": "fog/related gate visible",
+      "after": "clear corridor; do not derive from C1 roots flag",
+      "evidence": "base:1074"
+    },
+    {
+      "owner": "forest",
+      "flag": "G.flags.bass",
+      "before": "rootInstrument available",
+      "after": "instrument absent",
+      "evidence": "base drawProp/rootInstrument"
+    },
+    {
+      "owner": "forest",
+      "flag": "G.flags.bell || G.flags.bellReward",
+      "before": "memoryBell available",
+      "after": "bell absent",
+      "evidence": "base drawProp/memoryBell"
+    }
+  ],
+  "integrationDecisionUpdates": {
+    "reason": "Apron alone did not align interaction with visible doors; principal authorized three entry and three return coordinates.",
+    "authorizedPortalChanges": [
+      {
+        "from": "distortion_district",
+        "to": "contratempo",
+        "fields": [
+          "x",
+          "y"
+        ],
+        "before": [
+          15,
+          20
+        ],
+        "after": [
+          13.5,
+          16.5
+        ]
+      },
+      {
+        "from": "distortion_district",
+        "to": "ciro_workshop",
+        "fields": [
+          "x",
+          "y"
+        ],
+        "before": [
+          28,
+          16
+        ],
+        "after": [
+          25.5,
+          12.5
+        ]
+      },
+      {
+        "from": "distortion_district",
+        "to": "power_plant",
+        "fields": [
+          "x",
+          "y"
+        ],
+        "before": [
+          56,
+          14
+        ],
+        "after": [
+          55.5,
+          12.5
+        ]
+      },
+      {
+        "from": "contratempo",
+        "to": "distortion_district",
+        "fields": [
+          "tx",
+          "ty"
+        ],
+        "before": [
+          15.5,
+          21.5
+        ],
+        "after": [
+          13.5,
+          17.5
+        ]
+      },
+      {
+        "from": "ciro_workshop",
+        "to": "distortion_district",
+        "fields": [
+          "tx",
+          "ty"
+        ],
+        "before": [
+          28.5,
+          17.5
+        ],
+        "after": [
+          25.5,
+          13.5
+        ]
+      },
+      {
+        "from": "power_plant",
+        "to": "distortion_district",
+        "fields": [
+          "tx",
+          "ty"
+        ],
+        "before": [
+          55.5,
+          15.5
+        ],
+        "after": [
+          55.5,
+          13.5
+        ]
+      }
+    ],
+    "otherPortalsUnchanged": true,
+    "facadeHitboxesUnchanged": true,
+    "saveSchemaUnchanged": true,
+    "oldStreetSavePositionsRemainValid": true,
+    "additionalPhysicalChange": "Only the inner walkable cloud-ring is made solid sky; legacy invalid positions recover onto the entrance-connected component."
+  },
+  "finalRecordedValidation": {
+    "status": "recorded passed before filesystem eviction; not re-executed during recovery",
+    "portableSha256": "8b440916c92218e393ab0242c69572af3ae21653a73248284914a0ea1a750361",
+    "portableBytes": 232838480,
+    "runtimeChecksPassed": 13,
+    "protagonistV5ChecksPassed": 11,
+    "ninjaArcherChecksPassed": 8,
+    "inputChecksPassed": 22,
+    "javascriptErrorsReported": 0,
+    "staticChecksPassed": 115,
+    "geometryChecksPassed": 88,
+    "finalSiteFullSuite": "not completed after eviction; PC passed an earlier round",
+    "finalAssetViewer": "not completed after eviction",
+    "physicalHardwareTested": false,
+    "manualFullCampaignTested": false,
+    "source": "Principal confirmed final collection after combined V5/scenario build."
+  },
+  "assetRescueReported": {
+    "branch": "art/cenarios-v2",
+    "commitPrefix": "a16e275",
+    "pngFiles": 13,
+    "source": "Principal report, not independently downloaded by this agent."
+  },
+  "requiredChecks": [
+    "registered renderer or explicit reuse for all81snapshot prop types",
+    "explicit material/cloud renderer for all13C3tile types",
+    "PNG RGBA alpha and126normalized rectangles",
+    "cloud corners andplatform joins at tile24",
+    "3x3material repetition andcombat telegraph contrast",
+    "only six authorized portal coordinate changes",
+    "body radius.29 andvalid arrivals",
+    "no collision derived from whole sprite bbox",
+    "current Flauta-at-club pacing andquestconditions preserved",
+    "before/after state visuals",
+    "portable/hosted content-byte round trip",
+    "report simulated versus physical validation separately",
+    "official integrated code/assets GitHub; backupsDropbox/T&H; noDrive"
+  ],
+  "recovery": {
+    "method": "Own session-log patch replay for Markdown; technical JSON reconstructed from exact logged map aggregates, canonical sheet order and literal classification tables.",
+    "sourceSessionId": "01a1e890-5b48-7f20-bafc-75c67baeafd6",
+    "originalGhostFilesRead": false,
+    "exactByteRecovery": false,
+    "unrecoveredFields": [
+      "Full original80KB JSON formatting/wording and per-instance coordinate examples",
+      "Original MAPAS byte hash",
+      "Eight original runtime-atlas file hashes/dimensions/byte sizes not printed in own log"
+    ],
+    "verifiedRecoveredTotals": {
+      "areas": 25,
+      "propTypes": 81,
+      "propInstances": 1031,
+      "sheets": 12,
+      "cells": 126
+    },
+    "markdownPatchesApplied": [
+      {
+        "path": "docs/cenarios-v2/COORDENACAO.md",
+        "operation": "add"
+      },
+      {
+        "path": "docs/cenarios-v2/COORDENACAO.md",
+        "operation": "update"
+      },
+      {
+        "path": "docs/cenarios-v2/REVISAO_INTEGRACAO.md",
+        "operation": "add"
+      },
+      {
+        "path": "docs/cenarios-v2/REVISAO_INTEGRACAO.md",
+        "operation": "update"
+      },
+      {
+        "path": "docs/cenarios-v2/COORDENACAO.md",
+        "operation": "update"
+      },
+      {
+        "path": "docs/cenarios-v2/REVISAO_INTEGRACAO.md",
+        "operation": "update"
+      },
+      {
+        "path": "docs/cenarios-v2/REVISAO_INTEGRACAO.md",
+        "operation": "update"
+      }
+    ]
+  },
+  "limits": [
+    "Preserved report summaries are evidence from earlier runs, not tests rerun after filesystem recovery.",
+    "Final full hosted/device suite andviewer remain pending after dataless eviction.",
+    "No claim of physical-controller, real-phone or manual-full-campaign validation."
+  ],
+  "finalValidation": {
+    "build": "beta-1.2.0",
+    "baseCommit": "54b8fff1992a58f59ca897e12b066d5b8afc9abe",
+    "sourceSha256": "41a7abfe9dac6a8059e488ea1e28ef9f9cd8a43dc796ab2ffbf6c22dcd222528",
+    "portableBytes": 232842945,
+    "areasReviewed": 25,
+    "chapter3Areas": 11,
+    "sheets": 12,
+    "cells": 126,
+    "staticChecks": 115,
+    "runtimeChecks": 13,
+    "geometryChecks": 88,
+    "protagonistChecks": 11,
+    "variantChecks": 8,
+    "stateUnitChecks": 24,
+    "npcUnitChecks": 32,
+    "inputChecks": 22,
+    "gameplayChecks": 20,
+    "siteChecks": 4,
+    "previewItems": 126,
+    "physicalDevicesTested": false,
+    "physicalControllersTested": false,
+    "manualFullCampaign": false,
+    "baselineMethod": "Same compiled build with only Environment V2 module removed by QA HTTP server; authored base map functions unchanged.",
+    "snapshots": {
+      "antes": "a1cb63406dc3577444b0531aac367a5bd0f0044f0255c7fbe057c3efcd73f7e5",
+      "depois": "50b6d7f928e4dd15280f5374c44c4f72afb7947236b24c5378fb8856486a4c2e"
+    }
+  }
+}

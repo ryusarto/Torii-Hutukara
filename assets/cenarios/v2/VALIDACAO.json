@@ -1,0 +1,1269 @@
+{
+  "sheets": 12,
+  "cells": 126,
+  "pngAlpha": true,
+  "uniformPropScale": true,
+  "sourceIntegrity": true,
+  "checks": [
+    {
+      "id": "asfalto_seco",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "99c692729eaf25b55ba9395dff8404d64f25c5dc85a30484cc4c6861db7ac0bb"
+    },
+    {
+      "id": "asfalto_molhado",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "99c692729eaf25b55ba9395dff8404d64f25c5dc85a30484cc4c6861db7ac0bb"
+    },
+    {
+      "id": "calcada_pedra",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "99c692729eaf25b55ba9395dff8404d64f25c5dc85a30484cc4c6861db7ac0bb"
+    },
+    {
+      "id": "beco_laje",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "99c692729eaf25b55ba9395dff8404d64f25c5dc85a30484cc4c6861db7ac0bb"
+    },
+    {
+      "id": "agua_canal",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "99c692729eaf25b55ba9395dff8404d64f25c5dc85a30484cc4c6861db7ac0bb"
+    },
+    {
+      "id": "metal_industrial",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "99c692729eaf25b55ba9395dff8404d64f25c5dc85a30484cc4c6861db7ac0bb"
+    },
+    {
+      "id": "ceu_nuvens_fundo",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "99c692729eaf25b55ba9395dff8404d64f25c5dc85a30484cc4c6861db7ac0bb"
+    },
+    {
+      "id": "abismo_fundo",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "99c692729eaf25b55ba9395dff8404d64f25c5dc85a30484cc4c6861db7ac0bb"
+    },
+    {
+      "id": "madeira_clube",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "96d71f2e447b662dd500d995c34c4866f3af6ff611c68fb12f9c824656bc9ce3"
+    },
+    {
+      "id": "madeira_oficina",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "96d71f2e447b662dd500d995c34c4866f3af6ff611c68fb12f9c824656bc9ce3"
+    },
+    {
+      "id": "metal_terminal",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "96d71f2e447b662dd500d995c34c4866f3af6ff611c68fb12f9c824656bc9ce3"
+    },
+    {
+      "id": "pedra_santuario",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "96d71f2e447b662dd500d995c34c4866f3af6ff611c68fb12f9c824656bc9ce3"
+    },
+    {
+      "id": "basalto_nucleo",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "96d71f2e447b662dd500d995c34c4866f3af6ff611c68fb12f9c824656bc9ce3"
+    },
+    {
+      "id": "tabuas_ponte",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "96d71f2e447b662dd500d995c34c4866f3af6ff611c68fb12f9c824656bc9ce3"
+    },
+    {
+      "id": "tapete_palco",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "96d71f2e447b662dd500d995c34c4866f3af6ff611c68fb12f9c824656bc9ce3"
+    },
+    {
+      "id": "paineis_parede",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "96d71f2e447b662dd500d995c34c4866f3af6ff611c68fb12f9c824656bc9ce3"
+    },
+    {
+      "id": "curb_n",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "curb_e",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "curb_s",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "curb_w",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "curb_outer_ne",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "curb_outer_se",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "curb_outer_sw",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "curb_outer_nw",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "curb_inner_ne",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "curb_inner_se",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "curb_inner_sw",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "curb_inner_nw",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "crossing_horizontal",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "crossing_vertical",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "service_drain",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "threshold_inlay",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "61ea2f557244f6d6205eae3c29133e1515746a57d5e3d647ac0ef115370de814"
+    },
+    {
+      "id": "cloud_top_a",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_top_b",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_top_c",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_top_d",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_edge_n",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_edge_e",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_edge_s",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_edge_w",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_outer_ne",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_outer_se",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_outer_sw",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_outer_nw",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_inner_ne",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_inner_se",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_inner_sw",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "cloud_inner_nw",
+      "size": [
+        104,
+        104
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "daf61ffdae684a233a0d77e1e659feeda2e911544c0a4f8405897bb7de0b8b81"
+    },
+    {
+      "id": "residence_laundry",
+      "size": [
+        384,
+        384
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "c0028e499b2be6b98cb3864977afa363431f03d5725222887f343493b11be41b"
+    },
+    {
+      "id": "residence_roof_garden",
+      "size": [
+        384,
+        384
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "c0028e499b2be6b98cb3864977afa363431f03d5725222887f343493b11be41b"
+    },
+    {
+      "id": "residence_service_window",
+      "size": [
+        384,
+        384
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "c0028e499b2be6b98cb3864977afa363431f03d5725222887f343493b11be41b"
+    },
+    {
+      "id": "plant_entrance",
+      "size": [
+        384,
+        384
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "c0028e499b2be6b98cb3864977afa363431f03d5725222887f343493b11be41b"
+    },
+    {
+      "id": "terminal_canopy",
+      "size": [
+        384,
+        384
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "c0028e499b2be6b98cb3864977afa363431f03d5725222887f343493b11be41b"
+    },
+    {
+      "id": "cloud_arrival_arch",
+      "size": [
+        384,
+        384
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "c0028e499b2be6b98cb3864977afa363431f03d5725222887f343493b11be41b"
+    },
+    {
+      "id": "stage_idle",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "stage_active",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "speaker_idle",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "speaker_active",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "bar_counter",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "club_table",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "club_chair",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "club_stool",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "projection_console",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "projector_rig",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "instrument_rack",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "acoustic_wallpanel",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "b5cbf07e7f090db1c10fd4421caaaa26a066a8f7181005fa6e77110ea8230eca"
+    },
+    {
+      "id": "machine_inactive",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "2b16bb08db7f3c1e1f6942bc5dc1c690668c47135304cc10b63ecf83e53ba96c"
+    },
+    {
+      "id": "machine_active",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "2b16bb08db7f3c1e1f6942bc5dc1c690668c47135304cc10b63ecf83e53ba96c"
+    },
+    {
+      "id": "pressure_switch_inactive",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "2b16bb08db7f3c1e1f6942bc5dc1c690668c47135304cc10b63ecf83e53ba96c"
+    },
+    {
+      "id": "pressure_switch_active",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "2b16bb08db7f3c1e1f6942bc5dc1c690668c47135304cc10b63ecf83e53ba96c"
+    },
+    {
+      "id": "valve_stalled",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "2b16bb08db7f3c1e1f6942bc5dc1c690668c47135304cc10b63ecf83e53ba96c"
+    },
+    {
+      "id": "valve_released",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "2b16bb08db7f3c1e1f6942bc5dc1c690668c47135304cc10b63ecf83e53ba96c"
+    },
+    {
+      "id": "canal_gate_closed",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "2b16bb08db7f3c1e1f6942bc5dc1c690668c47135304cc10b63ecf83e53ba96c"
+    },
+    {
+      "id": "canal_gate_open",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "2b16bb08db7f3c1e1f6942bc5dc1c690668c47135304cc10b63ecf83e53ba96c"
+    },
+    {
+      "id": "sign_club",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "sign_workshop",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "sign_plant",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "sign_canal",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "sign_lift",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "wayfinder_left",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "wayfinder_right",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "threshold_open",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "threshold_closed",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "platform_embark",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "canal_pier_left",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "canal_pier_right",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "54803af2303086f7f4d4cafab409529416af059f906da49b6320e64825b5a2d7"
+    },
+    {
+      "id": "wind_beacon_off",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "f952bea35200f3025105d32912aecb8b132c098b01919f20b8922c87cb5948c9"
+    },
+    {
+      "id": "wind_beacon_on",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "f952bea35200f3025105d32912aecb8b132c098b01919f20b8922c87cb5948c9"
+    },
+    {
+      "id": "condensation_off",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "f952bea35200f3025105d32912aecb8b132c098b01919f20b8922c87cb5948c9"
+    },
+    {
+      "id": "condensation_on",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "f952bea35200f3025105d32912aecb8b132c098b01919f20b8922c87cb5948c9"
+    },
+    {
+      "id": "drum_anchor_off",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "f952bea35200f3025105d32912aecb8b132c098b01919f20b8922c87cb5948c9"
+    },
+    {
+      "id": "drum_anchor_on",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "f952bea35200f3025105d32912aecb8b132c098b01919f20b8922c87cb5948c9"
+    },
+    {
+      "id": "wind_current_marker",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "f952bea35200f3025105d32912aecb8b132c098b01919f20b8922c87cb5948c9"
+    },
+    {
+      "id": "cloud_anchor_foundation",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "f952bea35200f3025105d32912aecb8b132c098b01919f20b8922c87cb5948c9"
+    },
+    {
+      "id": "silence_eye_open",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "silence_eye_half",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "silence_eye_closed",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "silence_altar_dormant",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "silence_altar_awake",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "resonance_circle_off",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "resonance_circle_on",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "last_torii_arch",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "core_entry_bridge",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "core_bridge_edge",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "core_column_left",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "core_column_right",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "e4050c32c30a3d4b5feb34ffae46aab0667f61d90c0bd94ad69ee134dc88e675"
+    },
+    {
+      "id": "forest_lamp",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "checkpoint_recorder",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "root_gate_closed",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "root_gate_open",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "crystal_pulse",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "crystal_timbre",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "memory_bell",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "pool_stone",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "well_stone",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "root_totem",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "root_wall",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "mushroom_cluster",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "35bcad285c2432d4c823691c40da9d7cd9cdc5b28c06e547267a36045fb2a704"
+    },
+    {
+      "id": "window_rustic",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "17f55afcbcb4ecca1d42f3031445323b473f227dbb1f58d6a5a8d6ce68825705"
+    },
+    {
+      "id": "door_lit",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "17f55afcbcb4ecca1d42f3031445323b473f227dbb1f58d6a5a8d6ce68825705"
+    },
+    {
+      "id": "window_warm",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "17f55afcbcb4ecca1d42f3031445323b473f227dbb1f58d6a5a8d6ce68825705"
+    },
+    {
+      "id": "frame_landscape",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "17f55afcbcb4ecca1d42f3031445323b473f227dbb1f58d6a5a8d6ce68825705"
+    },
+    {
+      "id": "frame_music",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "17f55afcbcb4ecca1d42f3031445323b473f227dbb1f58d6a5a8d6ce68825705"
+    },
+    {
+      "id": "room_doorway",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "17f55afcbcb4ecca1d42f3031445323b473f227dbb1f58d6a5a8d6ce68825705"
+    },
+    {
+      "id": "rooftop_parapet",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "17f55afcbcb4ecca1d42f3031445323b473f227dbb1f58d6a5a8d6ce68825705"
+    },
+    {
+      "id": "canal_bank",
+      "size": [
+        256,
+        256
+      ],
+      "alpha": true,
+      "nonempty": true,
+      "sourceSha256": "17f55afcbcb4ecca1d42f3031445323b473f227dbb1f58d6a5a8d6ce68825705"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "build": "beta-1.2.0",
+  "baseCommit": "54b8fff1992a58f59ca897e12b066d5b8afc9abe",
+  "sourceSha256": "41a7abfe9dac6a8059e488ea1e28ef9f9cd8a43dc796ab2ffbf6c22dcd222528",
+  "portableBytes": 232842945,
+  "areasReviewed": 25,
+  "chapter3Areas": 11,
+  "sheets": 12,
+  "cells": 126,
+  "staticChecks": 115,
+  "runtimeChecks": 13,
+  "geometryChecks": 88,
+  "protagonistChecks": 11,
+  "variantChecks": 8,
+  "stateUnitChecks": 24,
+  "npcUnitChecks": 32,
+  "inputChecks": 22,
+  "gameplayChecks": 20,
+  "siteChecks": 4,
+  "previewItems": 126,
+  "physicalDevicesTested": false,
+  "physicalControllersTested": false,
+  "manualFullCampaign": false,
+  "baselineMethod": "Same compiled build with only Environment V2 module removed by QA HTTP server; authored base map functions unchanged.",
+  "snapshots": {
+    "antes": "a1cb63406dc3577444b0531aac367a5bd0f0044f0255c7fbe057c3efcd73f7e5",
+    "depois": "50b6d7f928e4dd15280f5374c44c4f72afb7947236b24c5378fb8856486a4c2e"
+  }
+}

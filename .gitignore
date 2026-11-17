@@ -21,3 +21,10 @@ design/sprites-principais-v5/pacote/
 design/sprites-principais-v5/*.zip
 production/__pycache__/
 production/referencias-protagonistas/
+
+# Capturas completas ficam no backup; versionar os comparativos selecionados.
+qa/cenarios-v2/antes/*.png
+qa/cenarios-v2/depois/*.png
+
+# Capturas de diálogo ficam nos artefatos/backup de QA.
+qa/beta-1.2.0/dialogue-*.png

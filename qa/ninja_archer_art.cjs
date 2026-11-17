@@ -7,7 +7,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
 const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json')));
 const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:true});
 (async()=>{
- const browser=await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9237').catch(()=>chromium.launch());
+ const browser=await (process.env.CHROME_PATH ? chromium.launch({executablePath:process.env.CHROME_PATH,headless:true}) : chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9237').catch(()=>chromium.launch()));
  const context=await browser.newContext({viewport:{width:1280,height:800}}),page=await context.newPage(),errors=[],checks=[];
  page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{const getContext=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,options){return getContext.call(this,type,type==='2d'&&this.id==='game'?{...options,willReadFrequently:true}:options)};window.requestAnimationFrame=()=>0;window.__pads=[];Object.defineProperty(navigator,'getGamepads',{value:()=>window.__pads});window.__pad=i=>({index:i,id:'DualSense isolated QA '+i,connected:true,mapping:'standard',axes:[0,0],buttons:Array.from({length:18},()=>({pressed:false,value:0}))})});
@@ -81,15 +81,20 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
    });assert(v.ninja&&v.archer&&v.frozen,JSON.stringify(v));return v;
  });
  await check('Legacy rendering of the musician heroes stays pixel-identical',async()=>{
-   await arena('franco','ryuchi');const v=await page.evaluate(()=>{
+   await arena('franco','ryuchi');
+   await page.evaluate(async()=>{C3.loadDeferredImages();await Promise.all(Object.values(C3.images).map(image=>image.decode()));if(typeof ProtagonistArtV5!=='undefined')for(const hero of ['alt','katana'])await NinjaArcherArtV1.image(hero+'_idle').decode();if(typeof ProtagonistArtV5!=='undefined')for(const hero of ['franco','ryuchi'])await ProtagonistArtV5.image(hero+'_idle').decode();});
+   const v=await page.evaluate(()=>{
      C3.pad.pads=[];const results=[];
+     // Stabilize Canvas readback (Chrome may switch GPU/CPU raster after repeated reads).
+     ctx.resetTransform();for(let n=0;n<4;n++)ctx.getImageData(100,70,180,180);
      for(const hero of ['synth','percussion']){
        G.active=hero;act.hit=0;Combat10.dashTime=0;G.flags.masks=true;const p={style:hero,dir:'down'};
+       ninjaArcherActorV1(p,180,180,false);
        ctx.clearRect(0,0,768,432);ninjaArcherActorV1(p,180,180,false);const before=ctx.getImageData(100,70,180,180).data;
        ctx.clearRect(0,0,768,432);drawActor(p,180,180,false);const after=ctx.getImageData(100,70,180,180).data;
-       results.push({hero,equal:before.every((n,i)=>n===after[i])});
+       results.push({hero,equal:before.every((n,i)=>n===after[i]),changedChannels:before.reduce((n,v,i)=>n+(v!==after[i]),0),maxDelta:before.reduce((n,v,i)=>Math.max(n,Math.abs(v-after[i])),0)});
      }return results;
-   });assert(v.every(x=>x.equal));return v;
+   });assert(v.every(x=>x.equal),JSON.stringify(v));return v;
  });
  await check('Full resolution sheet cache remains bounded to eight decoded images',async()=>{
    const size=await page.evaluate(()=>{for(const hero of ['alt','katana'])for(const state of NinjaArcherArtV1.manifest.states)NinjaArcherArtV1.image(hero+'_'+state);return Object.keys(NinjaArcherArtV1.images).length});assert.equal(size,8);return size;

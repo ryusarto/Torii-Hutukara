@@ -13,7 +13,7 @@ const build=path.join(path.dirname(manifestPath),manifest.output.file),out=path.
 fs.mkdirSync(out,{recursive:true});const checks=[],errors=[];
 
 async function main(){
- const browser=await chromium.launch();
+ const browser=await chromium.launch({executablePath:process.env.CHROME_PATH,headless:true});
  try{
   const page=await browser.newPage({viewport:{width:1280,height:800}});
   page.on('pageerror',e=>errors.push(e.message));
@@ -22,7 +22,7 @@ async function main(){
    Object.defineProperty(navigator,'getGamepads',{value:()=>window.__pads});
    window.__pad=index=>({index,id:'audit controller',connected:true,mapping:'standard',axes:[0,0],buttons:Array.from({length:18},()=>({pressed:false,value:0}))});
   });
-  await page.goto(pathToFileURL(build).href,{waitUntil:'load',timeout:120000});
+  await page.goto((process.argv[2]||pathToFileURL(build).href),{waitUntil:'load',timeout:120000});
   async function check(name,run){await run();checks.push({name,passed:true});console.log('OK · '+name)}
   async function arena(coop=false){await page.evaluate(coop=>{
    G=fresh();G.flags.masks=G.flags.bass=true;G.formation=['franco','ryuchi'];G.active='franco';
@@ -169,7 +169,7 @@ async function main(){
   const mobileContext=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,userAgent:'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'});
   const mobile=await mobileContext.newPage();mobile.on('pageerror',e=>errors.push(e.message));
   await mobile.addInitScript(()=>{window.requestAnimationFrame=()=>0;Object.defineProperty(navigator,'getGamepads',{value:()=>[]})});
-  await mobile.goto(pathToFileURL(build).href,{waitUntil:'load',timeout:120000});
+  await mobile.goto((process.argv[2]||pathToFileURL(build).href),{waitUntil:'load',timeout:120000});
   for(const viewport of [{width:390,height:844},{width:844,height:390}]){
    for(const bigText of [false,true]){
     await check(`Diálogo ${viewport.width} × ${viewport.height}, texto ${bigText?'maior':'normal'}: leitura e toque livres`,async()=>{

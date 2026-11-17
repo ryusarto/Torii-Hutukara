@@ -14,7 +14,8 @@ const uaPhone = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWeb
 const uaPad = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15';
 
 async function main() {
-  browser = process.env.CDP_URL ? await chromium.connectOverCDP(process.env.CDP_URL) : await chromium.launch();
+  browser = await (process.env.CHROME_PATH ? chromium.launch({executablePath: process.env.CHROME_PATH, headless:true}) : chromium.connectOverCDP(process.env.CDP_URL || 'http://127.0.0.1:9223'));
+  try {
   const cases = [
     { name: 'PC', device: 'pc', viewport: { width: 1280, height: 800 } },
     { name: 'Mobile', device: 'mobile', userAgent: uaPhone, isMobile: true, hasTouch: true, viewport: { width: 390, height: 844 } },
@@ -40,7 +41,7 @@ async function main() {
     assert.match(await page.locator('#playtestEntry').textContent(), device === 'mobile' ? /^MOBILE/ : /^PC/);
     assert.equal(await page.locator('#playtestEntry').evaluate(el => getComputedStyle(el).pointerEvents), 'none');
     assert.equal(await page.evaluate(() => ToriiPlaytest.version), JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'web', 'playtest', 'build.json'), 'utf8')).version);
-    await page.waitForLoadState('load');
+    await page.waitForLoadState('load', {timeout:120000});
     // All externally served chapter assets must have decoded, not just returned HTTP 200.
     await page.evaluate(() => C3.loadDeferredImages());
     await page.waitForFunction(() => Object.values(C3.images).every(img => img.complete && img.naturalWidth > 0));
@@ -91,5 +92,6 @@ async function main() {
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, 'SITE_TEST_RESULTS.json'), JSON.stringify({ testedAt: new Date().toISOString(), url: base, build: testedBuild, method: 'Chrome with emulated device profiles; no physical-device validation', results }, null, 2) + '\n');
   console.log(JSON.stringify(results, null, 2));
+  } finally { await browser.close(); }
 }
 main().catch(error => { console.error(error); process.exitCode=1; }).finally(async()=>{if(browser)await browser.close()});

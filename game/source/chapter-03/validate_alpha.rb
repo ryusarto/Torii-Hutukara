@@ -42,6 +42,22 @@ check.call('40 imagens Ninja e Arqueiro completas com alpha', ninja_files.size =
   header.byteslice(16, 8).unpack('NN') == expected && header.getbyte(25) == 6
 end)
 check.call('arte Ninja e Arqueiro integrada sem marcadores pendentes', built.include?('const NinjaArcherArtV1') && !built.include?('__NINJA_ARCHER_'))
+scene_root = File.join(repo_root, 'assets', 'cenarios', 'v2')
+scene_manifest = JSON.parse(File.read(File.join(scene_root, 'manifest.json')))
+check.call('cenários V2: 12 folhas e 126 recortes', scene_manifest.fetch('sheets').size == 12 && scene_manifest.fetch('items').size == 126)
+check.call('atlas de cenário RGBA com dimensões contratuais', scene_manifest.fetch('sheets').all? do |_id, sheet|
+  path = File.join(scene_root, sheet.fetch('file'))
+  next false unless File.file?(path)
+  header = File.binread(path, 26)
+  header.getbyte(25) == 6 && header.byteslice(16, 8).unpack('NN') == sheet.fetch('grid').map { |n| n * sheet.fetch('cell') }
+end)
+check.call('recortes de cenário contidos no atlas', scene_manifest.fetch('items').all? do |_id, item|
+  sheet = scene_manifest.fetch('sheets').fetch(item.fetch('sheet'))
+  x, y, w, h = item.fetch('content')
+  x >= 0 && y >= 0 && w > 0 && h > 0 && x + w <= sheet['grid'][0] * sheet['cell'] && y + h <= sheet['grid'][1] * sheet['cell']
+end)
+check.call('cenários integrados sem marcador de dados pendente', built.include?('const CenariosV2=') && !built.include?('__CENARIOS_V2_'))
+check.call('posição de save antigo nas nuvens possui migração', built.include?('repairLegacyCloudPosition') && built.include?('env2RemovedCloudCells'))
 protagonist_root = File.join(repo_root, 'assets', 'protagonistas', 'v5')
 protagonist_manifest = JSON.parse(File.read(File.join(protagonist_root, 'manifest.json')))
 check.call('protagonistas V5: 192 sequências com oito poses e fechamento', protagonist_manifest.fetch('animations').size == 192 && protagonist_manifest.fetch('animations').all? { |a| a['frames'] == 9 && a['playFrames'] == 8 })

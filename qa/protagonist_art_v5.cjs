@@ -7,7 +7,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
 const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json')));
 const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:true});
 (async()=>{
- const browser=await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9237').catch(()=>chromium.launch());
+ const browser=await (process.env.CHROME_PATH ? chromium.launch({executablePath:process.env.CHROME_PATH,headless:true}) : chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9237').catch(()=>chromium.launch()));
  const context=await browser.newContext({viewport:{width:1280,height:800}}),page=await context.newPage(),errors=[],checks=[];
  page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{
@@ -110,14 +110,17 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
    await page.evaluate(async()=>{
      for(const hero of ['alt','katana'])for(const state of ['walk','run','roll','idle'])await NinjaArcherArtV1.image(hero+'_'+state).decode();
    });
+   await page.evaluate(async()=>{for(const hero of ['franco','ryuchi'])await ProtagonistArtV5.image(hero+'_idle').decode();});
    const v=await page.evaluate(()=>{
      C3.pad.pads=[];const results=[];
+     // Stabilize Canvas readback (Chrome may switch GPU/CPU raster after repeated reads).
+     ctx.resetTransform();for(let n=0;n<4;n++)ctx.getImageData(100,70,180,180);
      for(const hero of ['synth','percussion','alt','katana']){
        G.active=hero;act.hit=0;Combat10.dashTime=0;G.flags.masks=true;const p={style:hero,dir:'down'};
        protagonistActorV5(p,180,180,false); // initialize any legacy canvas cache
        ctx.clearRect(0,0,768,432);protagonistActorV5(p,180,180,false);const before=ctx.getImageData(100,70,180,180).data;
        ctx.clearRect(0,0,768,432);drawActor(p,180,180,false);const after=ctx.getImageData(100,70,180,180).data;
-       results.push({hero,equal:before.every((n,i)=>n===after[i])});
+       results.push({hero,equal:before.every((n,i)=>n===after[i]),changedChannels:before.reduce((n,v,i)=>n+(v!==after[i]),0),maxDelta:before.reduce((n,v,i)=>Math.max(n,Math.abs(v-after[i])),0)});
      }return results;
    });assert(v.every(x=>x.equal),JSON.stringify(v));return v;
  });

@@ -1,0 +1,2395 @@
+{
+  "passed": true,
+  "passedChecks": 88,
+  "totalChecks": 88,
+  "method": "Offline tile-center BFS with radius .29 corner checks; eight applyWorld-equivalent physical states; C3 preview bridge override. No event callbacks or conditional gate predicates executed.",
+  "conditionalGateFlagsTested": false,
+  "physicalControllersTested": false,
+  "assumptions": [
+    "Snapshots exported from C3.start(true) before C3 route completion.",
+    "Flauta delivery and quests are not modified by this test.",
+    "Cloud end-gate reachability is a physical approach test, not proof that its predicate allows chapter progression."
+  ],
+  "portalAlignments": [
+    {
+      "area": "distortion_district",
+      "to": "contratempo",
+      "before": {
+        "x": 15,
+        "y": 20
+      },
+      "after": {
+        "x": 13.5,
+        "y": 16.5
+      }
+    },
+    {
+      "area": "distortion_district",
+      "to": "ciro_workshop",
+      "before": {
+        "x": 28,
+        "y": 16
+      },
+      "after": {
+        "x": 25.5,
+        "y": 12.5
+      }
+    },
+    {
+      "area": "distortion_district",
+      "to": "power_plant",
+      "before": {
+        "x": 56,
+        "y": 14
+      },
+      "after": {
+        "x": 55.5,
+        "y": 12.5
+      }
+    },
+    {
+      "area": "contratempo",
+      "to": "distortion_district",
+      "before": {
+        "tx": 15.5,
+        "ty": 21.5
+      },
+      "after": {
+        "tx": 13.5,
+        "ty": 17.5
+      }
+    },
+    {
+      "area": "ciro_workshop",
+      "to": "distortion_district",
+      "before": {
+        "tx": 28.5,
+        "ty": 17.5
+      },
+      "after": {
+        "tx": 25.5,
+        "ty": 13.5
+      }
+    },
+    {
+      "area": "power_plant",
+      "to": "distortion_district",
+      "before": {
+        "tx": 55.5,
+        "ty": 15.5
+      },
+      "after": {
+        "tx": 55.5,
+        "ty": 13.5
+      }
+    }
+  ],
+  "checks": [
+    {
+      "name": "All 25 authored maps are present once in both snapshots",
+      "passed": true,
+      "detail": {
+        "before": [
+          "bento_shop",
+          "celina_home",
+          "chamber",
+          "ciro_workshop",
+          "city",
+          "cloud_sea",
+          "cloud_terrace",
+          "contratempo",
+          "corridor",
+          "distortion_district",
+          "forest",
+          "last_torii",
+          "power_plant",
+          "radio9",
+          "rain_station",
+          "ruins",
+          "silence_core",
+          "sky_canal",
+          "sky_lift",
+          "sky_terminal",
+          "studio",
+          "tape_market",
+          "voice_roofs",
+          "voice_tower",
+          "voices"
+        ],
+        "after": [
+          "bento_shop",
+          "celina_home",
+          "chamber",
+          "ciro_workshop",
+          "city",
+          "cloud_sea",
+          "cloud_terrace",
+          "contratempo",
+          "corridor",
+          "distortion_district",
+          "forest",
+          "last_torii",
+          "power_plant",
+          "radio9",
+          "rain_station",
+          "ruins",
+          "silence_core",
+          "sky_canal",
+          "sky_lift",
+          "sky_terminal",
+          "studio",
+          "tape_market",
+          "voice_roofs",
+          "voice_tower",
+          "voices"
+        ]
+      }
+    },
+    {
+      "name": "Map dimensions preserved: studio",
+      "passed": true,
+      "detail": {
+        "before": [
+          25,
+          18
+        ],
+        "after": [
+          25,
+          18
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: studio",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: studio",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: corridor",
+      "passed": true,
+      "detail": {
+        "before": [
+          36,
+          19
+        ],
+        "after": [
+          36,
+          19
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: corridor",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: corridor",
+      "passed": true,
+      "detail": {
+        "portals": 2,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: chamber",
+      "passed": true,
+      "detail": {
+        "before": [
+          24,
+          19
+        ],
+        "after": [
+          24,
+          19
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: chamber",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: chamber",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: city",
+      "passed": true,
+      "detail": {
+        "before": [
+          58,
+          45
+        ],
+        "after": [
+          58,
+          45
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: city",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: city",
+      "passed": true,
+      "detail": {
+        "portals": 2,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: forest",
+      "passed": true,
+      "detail": {
+        "before": [
+          63,
+          41
+        ],
+        "after": [
+          63,
+          41
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: forest",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: forest",
+      "passed": true,
+      "detail": {
+        "portals": 2,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: ruins",
+      "passed": true,
+      "detail": {
+        "before": [
+          49,
+          36
+        ],
+        "after": [
+          49,
+          36
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: ruins",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: ruins",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: rain_station",
+      "passed": true,
+      "detail": {
+        "before": [
+          26,
+          19
+        ],
+        "after": [
+          26,
+          19
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: rain_station",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: rain_station",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: voices",
+      "passed": true,
+      "detail": {
+        "before": [
+          64,
+          44
+        ],
+        "after": [
+          64,
+          44
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: voices",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: voices",
+      "passed": true,
+      "detail": {
+        "portals": 7,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: tape_market",
+      "passed": true,
+      "detail": {
+        "before": [
+          26,
+          19
+        ],
+        "after": [
+          26,
+          19
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: tape_market",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: tape_market",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: bento_shop",
+      "passed": true,
+      "detail": {
+        "before": [
+          26,
+          19
+        ],
+        "after": [
+          26,
+          19
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: bento_shop",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: bento_shop",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: celina_home",
+      "passed": true,
+      "detail": {
+        "before": [
+          26,
+          19
+        ],
+        "after": [
+          26,
+          19
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: celina_home",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: celina_home",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: radio9",
+      "passed": true,
+      "detail": {
+        "before": [
+          26,
+          19
+        ],
+        "after": [
+          26,
+          19
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: radio9",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: radio9",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: voice_roofs",
+      "passed": true,
+      "detail": {
+        "before": [
+          38,
+          29
+        ],
+        "after": [
+          38,
+          29
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: voice_roofs",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: voice_roofs",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: voice_tower",
+      "passed": true,
+      "detail": {
+        "before": [
+          28,
+          25
+        ],
+        "after": [
+          28,
+          25
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: voice_tower",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: voice_tower",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: sky_terminal",
+      "passed": true,
+      "detail": {
+        "before": [
+          26,
+          18
+        ],
+        "after": [
+          26,
+          18
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: sky_terminal",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: sky_terminal",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: distortion_district",
+      "passed": true,
+      "detail": {
+        "before": [
+          64,
+          44
+        ],
+        "after": [
+          64,
+          44
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: distortion_district",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: distortion_district",
+      "passed": true,
+      "detail": {
+        "portals": 6,
+        "approvedAlignments": [
+          {
+            "area": "distortion_district",
+            "to": "contratempo",
+            "before": {
+              "x": 15,
+              "y": 20
+            },
+            "after": {
+              "x": 13.5,
+              "y": 16.5
+            }
+          },
+          {
+            "area": "distortion_district",
+            "to": "ciro_workshop",
+            "before": {
+              "x": 28,
+              "y": 16
+            },
+            "after": {
+              "x": 25.5,
+              "y": 12.5
+            }
+          },
+          {
+            "area": "distortion_district",
+            "to": "power_plant",
+            "before": {
+              "x": 56,
+              "y": 14
+            },
+            "after": {
+              "x": 55.5,
+              "y": 12.5
+            }
+          }
+        ],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: contratempo",
+      "passed": true,
+      "detail": {
+        "before": [
+          28,
+          20
+        ],
+        "after": [
+          28,
+          20
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: contratempo",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: contratempo",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [
+          {
+            "area": "contratempo",
+            "to": "distortion_district",
+            "before": {
+              "tx": 15.5,
+              "ty": 21.5
+            },
+            "after": {
+              "tx": 13.5,
+              "ty": 17.5
+            }
+          }
+        ],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: power_plant",
+      "passed": true,
+      "detail": {
+        "before": [
+          38,
+          25
+        ],
+        "after": [
+          38,
+          25
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: power_plant",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: power_plant",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [
+          {
+            "area": "power_plant",
+            "to": "distortion_district",
+            "before": {
+              "tx": 55.5,
+              "ty": 15.5
+            },
+            "after": {
+              "tx": 55.5,
+              "ty": 13.5
+            }
+          }
+        ],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: sky_canal",
+      "passed": true,
+      "detail": {
+        "before": [
+          42,
+          25
+        ],
+        "after": [
+          42,
+          25
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: sky_canal",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: sky_canal",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: ciro_workshop",
+      "passed": true,
+      "detail": {
+        "before": [
+          28,
+          19
+        ],
+        "after": [
+          28,
+          19
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: ciro_workshop",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: ciro_workshop",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [
+          {
+            "area": "ciro_workshop",
+            "to": "distortion_district",
+            "before": {
+              "tx": 28.5,
+              "ty": 17.5
+            },
+            "after": {
+              "tx": 25.5,
+              "ty": 13.5
+            }
+          }
+        ],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: sky_lift",
+      "passed": true,
+      "detail": {
+        "before": [
+          22,
+          24
+        ],
+        "after": [
+          22,
+          24
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: sky_lift",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: sky_lift",
+      "passed": true,
+      "detail": {
+        "portals": 2,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: cloud_sea",
+      "passed": true,
+      "detail": {
+        "before": [
+          58,
+          34
+        ],
+        "after": [
+          58,
+          34
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint changes only on the excess outer ring: cloud_sea",
+      "passed": true,
+      "detail": {
+        "removedCenters": 172,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: cloud_sea",
+      "passed": true,
+      "detail": {
+        "portals": 2,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: cloud_terrace",
+      "passed": true,
+      "detail": {
+        "before": [
+          30,
+          22
+        ],
+        "after": [
+          30,
+          22
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: cloud_terrace",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: cloud_terrace",
+      "passed": true,
+      "detail": {
+        "portals": 2,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: last_torii",
+      "passed": true,
+      "detail": {
+        "before": [
+          26,
+          19
+        ],
+        "after": [
+          26,
+          19
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: last_torii",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: last_torii",
+      "passed": true,
+      "detail": {
+        "portals": 2,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Map dimensions preserved: silence_core",
+      "passed": true,
+      "detail": {
+        "before": [
+          34,
+          26
+        ],
+        "after": [
+          34,
+          26
+        ]
+      }
+    },
+    {
+      "name": "Walkable footprint preserved: silence_core",
+      "passed": true,
+      "detail": {
+        "removedCenters": 0,
+        "addedCenters": 0
+      }
+    },
+    {
+      "name": "Portal fields match the six explicit alignments only: silence_core",
+      "passed": true,
+      "detail": {
+        "portals": 1,
+        "approvedAlignments": [],
+        "invalidBaseline": []
+      }
+    },
+    {
+      "name": "Every map has at least one incoming authored transition",
+      "passed": true,
+      "detail": {
+        "maps": 25
+      }
+    },
+    {
+      "name": "All incoming spawn points fit the .29-tile body before and after",
+      "passed": true,
+      "detail": {
+        "beforeTransitions": 43,
+        "afterTransitions": 43,
+        "invalidBefore": [],
+        "invalidAfter": []
+      }
+    },
+    {
+      "name": "No walkable centers remain on the unintended cloud perimeter ring",
+      "passed": true,
+      "detail": {
+        "remaining": []
+      }
+    },
+    {
+      "name": "Physical route state: power_plant / usinaGate=false",
+      "passed": true,
+      "detail": {
+        "targets": {
+          "lock": {
+            "reachable": true,
+            "minCenterSteps": 14
+          },
+          "sequencer": {
+            "reachable": false,
+            "minCenterSteps": null
+          },
+          "returnGate": {
+            "reachable": true,
+            "minCenterSteps": 0
+          }
+        },
+        "mismatches": []
+      }
+    },
+    {
+      "name": "Physical route state: power_plant / usinaGate=true",
+      "passed": true,
+      "detail": {
+        "targets": {
+          "lock": {
+            "reachable": true,
+            "minCenterSteps": 14
+          },
+          "sequencer": {
+            "reachable": true,
+            "minCenterSteps": 37
+          },
+          "returnGate": {
+            "reachable": true,
+            "minCenterSteps": 0
+          }
+        },
+        "mismatches": []
+      }
+    },
+    {
+      "name": "Physical route state: sky_canal / canalPath=false",
+      "passed": true,
+      "detail": {
+        "targets": {
+          "violin": {
+            "reachable": true,
+            "minCenterSteps": 8
+          },
+          "rescue": {
+            "reachable": false,
+            "minCenterSteps": null
+          },
+          "returnGate": {
+            "reachable": true,
+            "minCenterSteps": 0
+          }
+        },
+        "mismatches": []
+      }
+    },
+    {
+      "name": "Physical route state: sky_canal / canalPath=true",
+      "passed": true,
+      "detail": {
+        "targets": {
+          "violin": {
+            "reachable": true,
+            "minCenterSteps": 8
+          },
+          "rescue": {
+            "reachable": true,
+            "minCenterSteps": 31
+          },
+          "returnGate": {
+            "reachable": true,
+            "minCenterSteps": 0
+          }
+        },
+        "mismatches": []
+      }
+    },
+    {
+      "name": "Physical route state: cloud_sea / none",
+      "passed": true,
+      "detail": {
+        "targets": {
+          "A": {
+            "reachable": true,
+            "minCenterSteps": 13
+          },
+          "platform": {
+            "reachable": false,
+            "minCenterSteps": null
+          },
+          "B": {
+            "reachable": false,
+            "minCenterSteps": null
+          },
+          "endGatePhysicalApproach": {
+            "reachable": false,
+            "minCenterSteps": null
+          },
+          "returnGate": {
+            "reachable": true,
+            "minCenterSteps": 1
+          }
+        },
+        "mismatches": []
+      }
+    },
+    {
+      "name": "Physical route state: cloud_sea / A",
+      "passed": true,
+      "detail": {
+        "targets": {
+          "A": {
+            "reachable": true,
+            "minCenterSteps": 13
+          },
+          "platform": {
+            "reachable": true,
+            "minCenterSteps": 33
+          },
+          "B": {
+            "reachable": false,
+            "minCenterSteps": null
+          },
+          "endGatePhysicalApproach": {
+            "reachable": false,
+            "minCenterSteps": null
+          },
+          "returnGate": {
+            "reachable": true,
+            "minCenterSteps": 1
+          }
+        },
+        "mismatches": []
+      }
+    },
+    {
+      "name": "Physical route state: cloud_sea / A+platform",
+      "passed": true,
+      "detail": {
+        "targets": {
+          "A": {
+            "reachable": true,
+            "minCenterSteps": 13
+          },
+          "platform": {
+            "reachable": true,
+            "minCenterSteps": 33
+          },
+          "B": {
+            "reachable": true,
+            "minCenterSteps": 52
+          },
+          "endGatePhysicalApproach": {
+            "reachable": false,
+            "minCenterSteps": null
+          },
+          "returnGate": {
+            "reachable": true,
+            "minCenterSteps": 1
+          }
+        },
+        "mismatches": []
+      }
+    },
+    {
+      "name": "Physical route state: cloud_sea / A+platform+B",
+      "passed": true,
+      "detail": {
+        "targets": {
+          "A": {
+            "reachable": true,
+            "minCenterSteps": 13
+          },
+          "platform": {
+            "reachable": true,
+            "minCenterSteps": 33
+          },
+          "B": {
+            "reachable": true,
+            "minCenterSteps": 52
+          },
+          "endGatePhysicalApproach": {
+            "reachable": true,
+            "minCenterSteps": 66
+          },
+          "returnGate": {
+            "reachable": true,
+            "minCenterSteps": 1
+          }
+        },
+        "mismatches": []
+      }
+    },
+    {
+      "name": "Usina and Canal route reachability is unchanged by the art pass",
+      "passed": true,
+      "detail": {
+        "states": 4
+      }
+    }
+  ],
+  "walkableChanges": [
+    {
+      "area": "studio",
+      "beforeWalkableCenters": 295,
+      "afterWalkableCenters": 295,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "corridor",
+      "beforeWalkableCenters": 288,
+      "afterWalkableCenters": 288,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "chamber",
+      "beforeWalkableCenters": 208,
+      "afterWalkableCenters": 208,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "city",
+      "beforeWalkableCenters": 2062,
+      "afterWalkableCenters": 2062,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "forest",
+      "beforeWalkableCenters": 1765,
+      "afterWalkableCenters": 1765,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "ruins",
+      "beforeWalkableCenters": 1406,
+      "afterWalkableCenters": 1406,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "rain_station",
+      "beforeWalkableCenters": 408,
+      "afterWalkableCenters": 408,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "voices",
+      "beforeWalkableCenters": 1869,
+      "afterWalkableCenters": 1869,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "tape_market",
+      "beforeWalkableCenters": 394,
+      "afterWalkableCenters": 394,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "bento_shop",
+      "beforeWalkableCenters": 394,
+      "afterWalkableCenters": 394,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "celina_home",
+      "beforeWalkableCenters": 394,
+      "afterWalkableCenters": 394,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "radio9",
+      "beforeWalkableCenters": 397,
+      "afterWalkableCenters": 397,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "voice_roofs",
+      "beforeWalkableCenters": 850,
+      "afterWalkableCenters": 850,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "voice_tower",
+      "beforeWalkableCenters": 405,
+      "afterWalkableCenters": 405,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "sky_terminal",
+      "beforeWalkableCenters": 384,
+      "afterWalkableCenters": 384,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "distortion_district",
+      "beforeWalkableCenters": 2245,
+      "afterWalkableCenters": 2245,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "contratempo",
+      "beforeWalkableCenters": 468,
+      "afterWalkableCenters": 468,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "power_plant",
+      "beforeWalkableCenters": 805,
+      "afterWalkableCenters": 805,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "sky_canal",
+      "beforeWalkableCenters": 759,
+      "afterWalkableCenters": 759,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "ciro_workshop",
+      "beforeWalkableCenters": 442,
+      "afterWalkableCenters": 442,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "sky_lift",
+      "beforeWalkableCenters": 440,
+      "afterWalkableCenters": 440,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "cloud_sea",
+      "beforeWalkableCenters": 382,
+      "afterWalkableCenters": 210,
+      "removed": [
+        "1,1",
+        "2,1",
+        "3,1",
+        "4,1",
+        "5,1",
+        "6,1",
+        "7,1",
+        "8,1",
+        "9,1",
+        "10,1",
+        "11,1",
+        "12,1",
+        "13,1",
+        "14,1",
+        "15,1",
+        "16,1",
+        "17,1",
+        "18,1",
+        "19,1",
+        "20,1",
+        "21,1",
+        "22,1",
+        "23,1",
+        "24,1",
+        "25,1",
+        "26,1",
+        "27,1",
+        "28,1",
+        "29,1",
+        "30,1",
+        "31,1",
+        "32,1",
+        "33,1",
+        "34,1",
+        "35,1",
+        "36,1",
+        "37,1",
+        "38,1",
+        "39,1",
+        "40,1",
+        "41,1",
+        "42,1",
+        "43,1",
+        "44,1",
+        "45,1",
+        "46,1",
+        "47,1",
+        "48,1",
+        "49,1",
+        "50,1",
+        "51,1",
+        "52,1",
+        "53,1",
+        "54,1",
+        "55,1",
+        "56,1",
+        "1,2",
+        "56,2",
+        "1,3",
+        "56,3",
+        "1,4",
+        "56,4",
+        "1,5",
+        "56,5",
+        "1,6",
+        "56,6",
+        "1,7",
+        "56,7",
+        "1,8",
+        "56,8",
+        "1,9",
+        "56,9",
+        "1,10",
+        "56,10",
+        "1,11",
+        "56,11",
+        "1,12",
+        "56,12",
+        "1,13",
+        "56,13",
+        "1,14",
+        "56,14",
+        "1,15",
+        "56,15",
+        "1,16",
+        "56,16",
+        "1,17",
+        "56,17",
+        "1,18",
+        "56,18",
+        "1,19",
+        "56,19",
+        "1,20",
+        "56,20",
+        "1,21",
+        "56,21",
+        "1,22",
+        "56,22",
+        "1,23",
+        "56,23",
+        "1,24",
+        "56,24",
+        "1,25",
+        "56,25",
+        "1,26",
+        "56,26",
+        "1,27",
+        "56,27",
+        "1,28",
+        "56,28",
+        "1,29",
+        "56,29",
+        "1,30",
+        "56,30",
+        "1,31",
+        "56,31",
+        "1,32",
+        "2,32",
+        "3,32",
+        "4,32",
+        "5,32",
+        "6,32",
+        "7,32",
+        "8,32",
+        "9,32",
+        "10,32",
+        "11,32",
+        "12,32",
+        "13,32",
+        "14,32",
+        "15,32",
+        "16,32",
+        "17,32",
+        "18,32",
+        "19,32",
+        "20,32",
+        "21,32",
+        "22,32",
+        "23,32",
+        "24,32",
+        "25,32",
+        "26,32",
+        "27,32",
+        "28,32",
+        "29,32",
+        "30,32",
+        "31,32",
+        "32,32",
+        "33,32",
+        "34,32",
+        "35,32",
+        "36,32",
+        "37,32",
+        "38,32",
+        "39,32",
+        "40,32",
+        "41,32",
+        "42,32",
+        "43,32",
+        "44,32",
+        "45,32",
+        "46,32",
+        "47,32",
+        "48,32",
+        "49,32",
+        "50,32",
+        "51,32",
+        "52,32",
+        "53,32",
+        "54,32",
+        "55,32",
+        "56,32"
+      ],
+      "added": []
+    },
+    {
+      "area": "cloud_terrace",
+      "beforeWalkableCenters": 560,
+      "afterWalkableCenters": 560,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "last_torii",
+      "beforeWalkableCenters": 408,
+      "afterWalkableCenters": 408,
+      "removed": [],
+      "added": []
+    },
+    {
+      "area": "silence_core",
+      "beforeWalkableCenters": 572,
+      "afterWalkableCenters": 572,
+      "removed": [],
+      "added": []
+    }
+  ],
+  "arrivals": [
+    {
+      "from": "studio",
+      "to": "corridor",
+      "point": [
+        3.5,
+        8.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "corridor",
+      "to": "studio",
+      "point": [
+        22.2,
+        14.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "corridor",
+      "to": "chamber",
+      "point": [
+        5.5,
+        8.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "chamber",
+      "to": "corridor",
+      "point": [
+        31.5,
+        9.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "city",
+      "to": "chamber",
+      "point": [
+        11.5,
+        11.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "city",
+      "to": "forest",
+      "point": [
+        4.5,
+        22.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "forest",
+      "to": "city",
+      "point": [
+        54.5,
+        20.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "forest",
+      "to": "ruins",
+      "point": [
+        4.5,
+        17.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "ruins",
+      "to": "forest",
+      "point": [
+        57.5,
+        17.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "rain_station",
+      "to": "voices",
+      "point": [
+        5.5,
+        35.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "voices",
+      "to": "rain_station",
+      "point": [
+        22.5,
+        10.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "voices",
+      "to": "tape_market",
+      "point": [
+        12.5,
+        15.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "voices",
+      "to": "bento_shop",
+      "point": [
+        12.5,
+        15.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "voices",
+      "to": "celina_home",
+      "point": [
+        12.5,
+        15.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "voices",
+      "to": "radio9",
+      "point": [
+        12.5,
+        15.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "voices",
+      "to": "voice_roofs",
+      "point": [
+        4.5,
+        21.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "voices",
+      "to": "voice_tower",
+      "point": [
+        13.5,
+        17.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "tape_market",
+      "to": "voices",
+      "point": [
+        12.5,
+        17.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "bento_shop",
+      "to": "voices",
+      "point": [
+        13.5,
+        35.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "celina_home",
+      "to": "voices",
+      "point": [
+        9.5,
+        26.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "radio9",
+      "to": "voices",
+      "point": [
+        54.5,
+        20.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "voice_roofs",
+      "to": "voices",
+      "point": [
+        51.5,
+        11.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "voice_tower",
+      "to": "voices",
+      "point": [
+        57.5,
+        9.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "sky_terminal",
+      "to": "distortion_district",
+      "point": [
+        5.5,
+        37.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "distortion_district",
+      "to": "sky_terminal",
+      "point": [
+        22.5,
+        12.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "distortion_district",
+      "to": "contratempo",
+      "point": [
+        13.5,
+        16.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "distortion_district",
+      "to": "power_plant",
+      "point": [
+        4.5,
+        20.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "distortion_district",
+      "to": "sky_canal",
+      "point": [
+        4.5,
+        12.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "distortion_district",
+      "to": "ciro_workshop",
+      "point": [
+        13.5,
+        15.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "distortion_district",
+      "to": "sky_lift",
+      "point": [
+        10.5,
+        20.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "contratempo",
+      "to": "distortion_district",
+      "point": [
+        13.5,
+        17.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "power_plant",
+      "to": "distortion_district",
+      "point": [
+        55.5,
+        13.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "sky_canal",
+      "to": "distortion_district",
+      "point": [
+        56.5,
+        34.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "ciro_workshop",
+      "to": "distortion_district",
+      "point": [
+        25.5,
+        13.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "sky_lift",
+      "to": "distortion_district",
+      "point": [
+        35.5,
+        8.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "sky_lift",
+      "to": "cloud_sea",
+      "point": [
+        5.5,
+        26.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "cloud_sea",
+      "to": "sky_lift",
+      "point": [
+        11.5,
+        5.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "cloud_sea",
+      "to": "cloud_terrace",
+      "point": [
+        5.5,
+        17.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "cloud_terrace",
+      "to": "cloud_sea",
+      "point": [
+        53.5,
+        7.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "cloud_terrace",
+      "to": "last_torii",
+      "point": [
+        5.5,
+        13.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "last_torii",
+      "to": "cloud_terrace",
+      "point": [
+        25.5,
+        18.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "last_torii",
+      "to": "silence_core",
+      "point": [
+        5.5,
+        20.5
+      ],
+      "bodyValid": true
+    },
+    {
+      "from": "silence_core",
+      "to": "last_torii",
+      "point": [
+        21.5,
+        14.5
+      ],
+      "bodyValid": true
+    }
+  ],
+  "beforeStates": [
+    {
+      "area": "power_plant",
+      "state": "usinaGate=false",
+      "entry": [
+        3.5,
+        21.5
+      ],
+      "targets": {
+        "lock": {
+          "reachable": true,
+          "minCenterSteps": 14
+        },
+        "sequencer": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 0
+        }
+      }
+    },
+    {
+      "area": "power_plant",
+      "state": "usinaGate=true",
+      "entry": [
+        3.5,
+        21.5
+      ],
+      "targets": {
+        "lock": {
+          "reachable": true,
+          "minCenterSteps": 14
+        },
+        "sequencer": {
+          "reachable": true,
+          "minCenterSteps": 37
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 0
+        }
+      }
+    },
+    {
+      "area": "sky_canal",
+      "state": "canalPath=false",
+      "entry": [
+        4.5,
+        12.5
+      ],
+      "targets": {
+        "violin": {
+          "reachable": true,
+          "minCenterSteps": 8
+        },
+        "rescue": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 0
+        }
+      }
+    },
+    {
+      "area": "sky_canal",
+      "state": "canalPath=true",
+      "entry": [
+        4.5,
+        12.5
+      ],
+      "targets": {
+        "violin": {
+          "reachable": true,
+          "minCenterSteps": 8
+        },
+        "rescue": {
+          "reachable": true,
+          "minCenterSteps": 31
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 0
+        }
+      }
+    },
+    {
+      "area": "cloud_sea",
+      "state": "none",
+      "entry": [
+        5.5,
+        26.5
+      ],
+      "targets": {
+        "A": {
+          "reachable": true,
+          "minCenterSteps": 13
+        },
+        "platform": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "B": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "endGatePhysicalApproach": {
+          "reachable": true,
+          "minCenterSteps": 90
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 1
+        }
+      }
+    },
+    {
+      "area": "cloud_sea",
+      "state": "A",
+      "entry": [
+        5.5,
+        26.5
+      ],
+      "targets": {
+        "A": {
+          "reachable": true,
+          "minCenterSteps": 13
+        },
+        "platform": {
+          "reachable": true,
+          "minCenterSteps": 33
+        },
+        "B": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "endGatePhysicalApproach": {
+          "reachable": true,
+          "minCenterSteps": 90
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 1
+        }
+      }
+    },
+    {
+      "area": "cloud_sea",
+      "state": "A+platform",
+      "entry": [
+        5.5,
+        26.5
+      ],
+      "targets": {
+        "A": {
+          "reachable": true,
+          "minCenterSteps": 13
+        },
+        "platform": {
+          "reachable": true,
+          "minCenterSteps": 33
+        },
+        "B": {
+          "reachable": true,
+          "minCenterSteps": 52
+        },
+        "endGatePhysicalApproach": {
+          "reachable": true,
+          "minCenterSteps": 90
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 1
+        }
+      }
+    },
+    {
+      "area": "cloud_sea",
+      "state": "A+platform+B",
+      "entry": [
+        5.5,
+        26.5
+      ],
+      "targets": {
+        "A": {
+          "reachable": true,
+          "minCenterSteps": 13
+        },
+        "platform": {
+          "reachable": true,
+          "minCenterSteps": 33
+        },
+        "B": {
+          "reachable": true,
+          "minCenterSteps": 52
+        },
+        "endGatePhysicalApproach": {
+          "reachable": true,
+          "minCenterSteps": 66
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 1
+        }
+      }
+    }
+  ],
+  "afterStates": [
+    {
+      "area": "power_plant",
+      "state": "usinaGate=false",
+      "entry": [
+        3.5,
+        21.5
+      ],
+      "targets": {
+        "lock": {
+          "reachable": true,
+          "minCenterSteps": 14
+        },
+        "sequencer": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 0
+        }
+      }
+    },
+    {
+      "area": "power_plant",
+      "state": "usinaGate=true",
+      "entry": [
+        3.5,
+        21.5
+      ],
+      "targets": {
+        "lock": {
+          "reachable": true,
+          "minCenterSteps": 14
+        },
+        "sequencer": {
+          "reachable": true,
+          "minCenterSteps": 37
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 0
+        }
+      }
+    },
+    {
+      "area": "sky_canal",
+      "state": "canalPath=false",
+      "entry": [
+        4.5,
+        12.5
+      ],
+      "targets": {
+        "violin": {
+          "reachable": true,
+          "minCenterSteps": 8
+        },
+        "rescue": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 0
+        }
+      }
+    },
+    {
+      "area": "sky_canal",
+      "state": "canalPath=true",
+      "entry": [
+        4.5,
+        12.5
+      ],
+      "targets": {
+        "violin": {
+          "reachable": true,
+          "minCenterSteps": 8
+        },
+        "rescue": {
+          "reachable": true,
+          "minCenterSteps": 31
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 0
+        }
+      }
+    },
+    {
+      "area": "cloud_sea",
+      "state": "none",
+      "entry": [
+        5.5,
+        26.5
+      ],
+      "targets": {
+        "A": {
+          "reachable": true,
+          "minCenterSteps": 13
+        },
+        "platform": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "B": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "endGatePhysicalApproach": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 1
+        }
+      }
+    },
+    {
+      "area": "cloud_sea",
+      "state": "A",
+      "entry": [
+        5.5,
+        26.5
+      ],
+      "targets": {
+        "A": {
+          "reachable": true,
+          "minCenterSteps": 13
+        },
+        "platform": {
+          "reachable": true,
+          "minCenterSteps": 33
+        },
+        "B": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "endGatePhysicalApproach": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 1
+        }
+      }
+    },
+    {
+      "area": "cloud_sea",
+      "state": "A+platform",
+      "entry": [
+        5.5,
+        26.5
+      ],
+      "targets": {
+        "A": {
+          "reachable": true,
+          "minCenterSteps": 13
+        },
+        "platform": {
+          "reachable": true,
+          "minCenterSteps": 33
+        },
+        "B": {
+          "reachable": true,
+          "minCenterSteps": 52
+        },
+        "endGatePhysicalApproach": {
+          "reachable": false,
+          "minCenterSteps": null
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 1
+        }
+      }
+    },
+    {
+      "area": "cloud_sea",
+      "state": "A+platform+B",
+      "entry": [
+        5.5,
+        26.5
+      ],
+      "targets": {
+        "A": {
+          "reachable": true,
+          "minCenterSteps": 13
+        },
+        "platform": {
+          "reachable": true,
+          "minCenterSteps": 33
+        },
+        "B": {
+          "reachable": true,
+          "minCenterSteps": 52
+        },
+        "endGatePhysicalApproach": {
+          "reachable": true,
+          "minCenterSteps": 66
+        },
+        "returnGate": {
+          "reachable": true,
+          "minCenterSteps": 1
+        }
+      }
+    }
+  ],
+  "files": {
+    "before": "/private/tmp/torii-cenarios-recovery-20261117/qa/cenarios-v2/antes/MAPAS.json",
+    "after": "/private/tmp/torii-cenarios-recovery-20261117/qa/cenarios-v2/depois/MAPAS.json"
+  },
+  "sourceSha256": "41a7abfe9dac6a8059e488ea1e28ef9f9cd8a43dc796ab2ffbf6c22dcd222528"
+}

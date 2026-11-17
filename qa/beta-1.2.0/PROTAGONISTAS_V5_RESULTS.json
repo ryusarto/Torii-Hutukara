@@ -131,19 +131,27 @@
       "detail": [
         {
           "hero": "synth",
-          "equal": true
+          "equal": true,
+          "changedChannels": 0,
+          "maxDelta": 0
         },
         {
           "hero": "percussion",
-          "equal": true
+          "equal": true,
+          "changedChannels": 0,
+          "maxDelta": 0
         },
         {
           "hero": "alt",
-          "equal": true
+          "equal": true,
+          "changedChannels": 0,
+          "maxDelta": 0
         },
         {
           "hero": "katana",
-          "equal": true
+          "equal": true,
+          "changedChannels": 0,
+          "maxDelta": 0
         }
       ]
     },

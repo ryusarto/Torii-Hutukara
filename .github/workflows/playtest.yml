@@ -10,6 +10,7 @@ on:
       - 'game/source/**'
       - 'game/VERSION.json'
       - 'assets/variantes/ninja-arqueiro-v1/**'
+      - 'assets/cenarios/**'
       - 'assets/protagonistas/v5/**'
       - 'assets/chapter-03/audio/**'
       - 'assets/chapter-03/runtime/**'

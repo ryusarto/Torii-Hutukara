@@ -17,11 +17,12 @@ const playtest=JSON.parse(fs.readFileSync(path.join(root,'web/playtest/build.jso
 const manifestPath=path.join(root,playtest.manifest);
 const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8'));
 const build=path.join(path.dirname(manifestPath),manifest.output.file);
+const buildURL=process.env.TORII_BUILD_URL||pathToFileURL(build).href;
 const versionInfo=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'),'utf8'));
 const outDir=path.join(__dirname,versionInfo.versao);fs.mkdirSync(outDir,{recursive:true});
 const results=[];
 async function main(){
-  const browser=await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9223').catch(()=>chromium.launch());
+  const browser=await (process.env.CHROME_PATH?chromium.launch({executablePath:process.env.CHROME_PATH,headless:true}):chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9223').catch(()=>chromium.launch()));
   const context=await browser.newContext({viewport:{width:1280,height:800}});
   const page=await context.newPage();const errors=[];
   page.on('pageerror',e=>errors.push(e.message));
@@ -31,7 +32,7 @@ async function main(){
     Object.defineProperty(navigator,'getGamepads',{value:()=>window.__pads});
     window.__pad=(index,axes=[0,0],buttons=[])=>({index,id:'DualSense test '+index,connected:true,mapping:'standard',axes,buttons:Array.from({length:18},(_,i)=>({pressed:buttons.includes(i),value:buttons.includes(i)?1:0}))});
   });
-  await page.goto(pathToFileURL(build).href,{waitUntil:'load',timeout:120000});
+  await page.goto(buildURL,{waitUntil:'load',timeout:120000});
   await page.waitForFunction(()=>typeof Input121!=='undefined');
   async function check(name,fn){await fn();results.push({name,passed:true});console.log('OK · '+name)}
   async function arena(){await page.evaluate(()=>{
@@ -148,7 +149,7 @@ async function main(){
   const mobileContext=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,userAgent:'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'});
   const mobile=await mobileContext.newPage();mobile.on('pageerror',e=>errors.push(e.message));
   await mobile.addInitScript(()=>{window.requestAnimationFrame=()=>0;Object.defineProperty(navigator,'getGamepads',{value:()=>[]})});
-  await mobile.goto(pathToFileURL(build).href,{waitUntil:'load',timeout:120000});
+  await mobile.goto(buildURL,{waitUntil:'load',timeout:120000});
   await check('iPhone automatically gets portrait mobile layout with large targets',async()=>{
     assert(await mobile.locator('#mobileDeck121').isVisible());
     const v=await mobile.evaluate(()=>({mobile:Input121.mobile,scroll:document.documentElement.scrollWidth>innerWidth,buttons:[...document.querySelectorAll('.mobileActions121 button')].map(e=>({w:e.getBoundingClientRect().width,h:e.getBoundingClientRect().height}))}));

@@ -10,6 +10,16 @@
 
 Todas as alterações relevantes do projeto são registradas aqui.
 
+## [Beta 1.2] — 2026-11-17
+
+- Revisão dos 25 mapas com direção artística, game design e coordenação. Inventário de baseline: 81 tipos e 1.031 instâncias de props; preservados os bons sprites de casas, árvores e mobiliário.
+- Cenários V2: 12 folhas e 126 recortes/estados PNG RGBA. Materiais de chão sem arquitetura embutida, guias e travessias, três moradias complementares, móveis do Contratempo, mecanismos de Usina/Canal/Nuvens, placas, núcleo final e objetivos/interiores dos capítulos anteriores.
+- Nuvens construídas com topo contínuo e bordas contextuais. Terminal/Elevador usam piso metálico; retirados os painéis de conceito e elipses gigantes usados como chão/volume. Núcleo com basalto discreto, olhos e altar separados por alpha; círculo de ressonância desenhado antes dos atores.
+- Placas junto às fachadas com nomes renderizados pelo jogo, entradas do Clube/Oficina/Usina alinhadas às portas e seis coordenadas de entrada/retorno ajustadas e barreira da Usina representada enquanto os tiles estão bloqueados. Máquinas, válvulas, comportas e beacons reagem às flags de suas áreas.
+- Fechado o anel caminhável excedente do Mar de Nuvens. Saves anteriores sobre essa faixa são recuperados no ponto válido mais próximo conectado à entrada, sem mudar suas relíquias ou progresso.
+- Gravadores, lâmpadas, raízes, cristais, sino, poço, janelas e quadros recebem sprites detalhados; pedestal das máscaras permanece vazio após a aquisição. `rootGate` dos Telhados usa `fogCleared11`, sem herdar a flag do Capítulo 1.
+- Código, atlas, manifestos, exportadores e evidências selecionadas no GitHub; fontes, PNGs individuais, capturas completas e ZIP no Dropbox/T&H. Testes de input podem usar a exportação hospedada via `TORII_BUILD_URL`, preservando a checagem de hash do HTML portátil.
+
 ## Correções do PR #8 integradas na Beta 1.2 — 2026-11-17
 
 - Integra as correções do prólogo, Distrito, XP, recrutamento, saves, colisões, patrulhas, coop e diálogo mobile com Ninja/Arqueiro e os protagonistas V5 da Beta 1.2.
