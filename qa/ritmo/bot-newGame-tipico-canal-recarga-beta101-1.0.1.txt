@@ -1,0 +1,105 @@
+RELATÓRIO DE RITMO · Continuação · 2026-11-17 05:36
+Tempo de jogo medido: 8min 25s
+
+ONDE O TEMPO FOI
+  Andando                    1min 32s   18%
+  Parado (sem diálogo)             1s    0%
+  Lendo diálogo              5min 11s   62%
+  Combate                    1min 36s   19%
+  Menus/mapa/diário                6s    1%
+  Desafio de ritmo                 0s    0%
+  → Jogando de fato (combate + ritmo): 19% · Andando + lendo: 80%
+
+COMBATE
+  Encontros: 9 · Derrotas: 0
+  Primeiro combate em: 3s
+  Maior trecho sem lutar: 1min 24s (terminou em distortion_district)
+
+DIÁLOGO
+  Falas lidas: 61 · Caracteres: 3940 · Narrador: 3%
+  Quem mais fala: FRANCO, THE SIR! 14 · RYUCHI 13 · FRANCO SINTETIZADOR 8 · RYUCHI PERCUSSIONISTA 6 · COLLI 4 · MAZZA 3
+
+ETAPAS MAIS LONGAS (onde cortar primeiro)
+   1.  1min 49s · lendo diálogo 55% · 11 falas · Atravesse o Último Torii e enfrente O Silêncio.
+   2.  1min 34s · lendo diálogo 74% · 11 falas · Encontre Mazza e Colli no Contratempo.
+   3.       59s · lendo diálogo 96% · 16 falas · Volte ao estúdio e abra uma sessão nova.
+   4.       59s · combate 55% · 4 falas · Enfrente O Metrônomo.
+   5.       50s · lendo diálogo 61% · 4 falas · Reabra o Elevador do Céu.
+   6.       38s · lendo diálogo 85% · 5 falas · Comece uma música no palco do Contratempo.
+   7.       33s · lendo diálogo 80% · 4 falas · Forme a primeira passarela de nuvem.
+   8.       26s · lendo diálogo 49% · 4 falas · Interrompa o ciclo da Usina.
+   9.       23s · andando 55% · 1 falas · Mova a plataforma com o Tambor do Horizonte.
+  10.        8s · combate 52% · 0 falas · Forme a última passarela de nuvem.
+
+POR ÁREA
+  silence_core          2min 08s · andando 4% · diálogo 68% · combate 26% · entradas 1
+  power_plant           1min 49s · andando 13% · diálogo 75% · combate 12% · entradas 1
+  contratempo           1min 12s · andando 9% · diálogo 87% · combate 0% · entradas 1
+  cloud_terrace         1min 09s · andando 16% · diálogo 37% · combate 47% · entradas 1
+  cloud_sea                  49s · andando 49% · diálogo 32% · combate 19% · entradas 1
+  distortion_district        31s · andando 71% · diálogo 0% · combate 27% · entradas 3
+  sky_lift                   20s · andando 21% · diálogo 78% · combate 0% · entradas 1
+  last_torii                 18s · andando 23% · diálogo 77% · combate 0% · entradas 1
+  studio                      9s · andando 0% · diálogo 100% · combate 0% · entradas 1
+
+EVENTOS DO ROBÔ
+[0.0 min] Objetivo: Investigue a mesa de produção no estúdio.
+[0.3 min] Objetivo: Siga o som. Encontre a origem da melodia.
+[1.1 min] Objetivo: Converse com a Anciã Ema na praça da cidade.
+[1.7 min] Objetivo: Passe pelo portão leste e explore a floresta.
+[2.2 min] Overlay "DIÁLOGO · ESCOLHA O que vocês querem perguntar à Anciã Ema? A resposta fica reg" → 1. Quem é esse viajante mascarado?
+[2.3 min] Objetivo: Encontre a figura mascarada na floresta.
+[2.4 min] Objetivo: Use o Baixo de Raiz na ponte de frequências.
+[3.1 min] Objetivo: Ative as duas pedras de ressonância nas ruínas.
+[3.5 min] Usou fita: franco 31/50
+[3.8 min] Objetivo: Confronte a fonte do Silêncio.
+[4.5 min] Usou fita: franco 31/55
+[4.6 min] Usou fita: franco 39/55
+[4.6 min] Objetivo: Descubra a identidade do viajante mascarado.
+[4.9 min] Objetivo: Converse com seu novo aliado.
+[5.6 min] Objetivo: Siga a máscara até a próxima realidade.
+[5.6 min] Overlay "CAPÍTULO 01 · CONCLUÍDO A Última Frequência O primeiro doppelgänger foi encontr" → ✦ CONTINUAR · CAPÍTULO 02
+[5.8 min] Objetivo: Encontre Íris na Praça das Antenas.
+[6.3 min] Objetivo: Procure a fita perdida no Mercado das Fitas.
+[7.1 min] Objetivo: Monte o acoplador na Oficina do Belga.
+[7.4 min] Objetivo: Reative o retransmissor da Praça.
+[7.9 min] Objetivo: Reative o retransmissor do Mercado.
+[8.0 min] Objetivo: Recupere a melodia de Lumi e receba o violino.
+[8.4 min] Puzzle Lumi → nota 0
+[8.4 min] Puzzle Lumi → nota 2
+[8.4 min] Puzzle Lumi → nota 0
+[8.4 min] Objetivo: Toque o violino para dissipar a névoa dos telhados.
+[8.7 min] Objetivo: Reative o retransmissor dos Telhados.
+[8.9 min] Usou fita: franco 45/70
+[8.9 min] Objetivo: Suba à Torre de Transmissão e enfrente o Silêncio.
+[9.9 min] Objetivo: Capítulo 02 concluído! Descubra os segredos da cidade.
+[10.5 min] Overlay "CAPÍTULO 02 · CONCLUÍDO A máscara abriu o Lado B O Silêncio recua antes de desa" → ATRAVESSAR AGORA · 5
+[10.5 min] Objetivo: Encontre Belga no Clube Contratempo.
+[11.6 min] Rota escolhida: CANALHá pessoas pres
+[11.6 min] Objetivo: Separe a interferência do canal.
+[12.3 min] Objetivo: Atravesse e liberte a comporta.
+[12.6 min] Objetivo: Abra a trava grave da Usina.
+[13.0 min] Recarregou a página (progresso idêntico)
+[13.0 min] Objetivo: Abra a trava grave da Usina.
+[13.1 min] Objetivo: Interrompa o ciclo da Usina.
+[13.5 min] Objetivo: Encontre Mazza e Colli no Contratempo.
+[15.1 min] Objetivo: Comece uma música no palco do Contratempo.
+[15.7 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♪GRAVE
+[15.7 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♫MÉDIA
+[15.7 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♬AGUDA
+[15.7 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ✦ABERTA
+[15.7 min] Objetivo: Reabra o Elevador do Céu.
+[16.6 min] Objetivo: Forme a primeira passarela de nuvem.
+[17.1 min] Objetivo: Mova a plataforma com o Tambor do Horizonte.
+[17.5 min] Objetivo: Forme a última passarela de nuvem.
+[17.6 min] Objetivo: Enfrente O Metrônomo.
+[18.6 min] Objetivo: Atravesse o Último Torii e enfrente O Silêncio.
+[20.4 min] Objetivo: Volte ao estúdio e abra uma sessão nova.
+[21.0 min] Overlay "ÚLTIMA FASE · CRIAÇÃO Começar Toque quatro notas. Você pode repetir ou transfor" → ♪GRAVE
+[21.0 min] Overlay "ÚLTIMA FASE · CRIAÇÃO Começar Toque quatro notas. Você pode repetir ou transfor" → ♫MÉDIA
+[21.0 min] Overlay "ÚLTIMA FASE · CRIAÇÃO Começar Toque quatro notas. Você pode repetir ou transfor" → ♬AGUDA
+[21.0 min] Overlay "ÚLTIMA FASE · CRIAÇÃO Começar Toque quatro notas. Você pode repetir ou transfor" → ✦ABERTA
+[21.4 min] Objetivo: Crie livremente e revisite os mundos.
+
+RECARGAS: 1 · divergências: 0
+

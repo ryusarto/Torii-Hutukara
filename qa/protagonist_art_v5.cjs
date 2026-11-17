@@ -7,10 +7,16 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
 const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json')));
 const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:true});
 (async()=>{
- const browser=await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9237');
+ const browser=await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9237').catch(()=>chromium.launch());
  const context=await browser.newContext({viewport:{width:1280,height:800}}),page=await context.newPage(),errors=[],checks=[];
  page.on('pageerror',e=>errors.push(e.message));
- await page.addInitScript(()=>{window.requestAnimationFrame=()=>0;window.__pads=[];Object.defineProperty(navigator,'getGamepads',{value:()=>window.__pads});window.__pad=i=>({index:i,id:'DualSense isolated QA '+i,connected:true,mapping:'standard',axes:[0,0],buttons:Array.from({length:18},()=>({pressed:false,value:0}))})});
+ await page.addInitScript(()=>{
+   // Pixel comparisons must stay on the same readback path. Otherwise Chrome
+   // can switch the game canvas from GPU to CPU after the first getImageData.
+   const getContext=HTMLCanvasElement.prototype.getContext;
+   HTMLCanvasElement.prototype.getContext=function(type,options){return getContext.call(this,type,type==='2d'&&this.id==='game'?{...options,willReadFrequently:true}:options)};
+   window.requestAnimationFrame=()=>0;window.__pads=[];Object.defineProperty(navigator,'getGamepads',{value:()=>window.__pads});window.__pad=i=>({index:i,id:'DualSense isolated QA '+i,connected:true,mapping:'standard',axes:[0,0],buttons:Array.from({length:18},()=>({pressed:false,value:0}))})
+ });
  await page.goto(process.argv[2]||'http://127.0.0.1:8767/',{waitUntil:'load',timeout:120000});
  await page.waitForFunction(()=>typeof ProtagonistArtV5!=='undefined');
  async function check(name,fn){const detail=await fn();checks.push({name,passed:true,detail});console.log('OK · '+name)}
@@ -96,15 +102,24 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
    });assert(v.ninja&&v.archer&&v.frozen,JSON.stringify(v));return v;
  });
  await check('Legacy rendering of the musician heroes stays pixel-identical',async()=>{
-   await arena('franco','ryuchi');const v=await page.evaluate(()=>{
+   await arena('franco','ryuchi');
+   // Both draws must use decoded atlases; a background decode between draws
+   // otherwise compares a fallback frame against the final sprite.
+   await page.evaluate(()=>C3.loadDeferredImages());
+   await page.waitForFunction(()=>Object.values(C3.images).every(image=>image.complete&&image.naturalWidth>0),null,{polling:50});
+   await page.evaluate(async()=>{
+     for(const hero of ['alt','katana'])for(const state of ['walk','run','roll','idle'])await NinjaArcherArtV1.image(hero+'_'+state).decode();
+   });
+   const v=await page.evaluate(()=>{
      C3.pad.pads=[];const results=[];
      for(const hero of ['synth','percussion','alt','katana']){
        G.active=hero;act.hit=0;Combat10.dashTime=0;G.flags.masks=true;const p={style:hero,dir:'down'};
+       protagonistActorV5(p,180,180,false); // initialize any legacy canvas cache
        ctx.clearRect(0,0,768,432);protagonistActorV5(p,180,180,false);const before=ctx.getImageData(100,70,180,180).data;
        ctx.clearRect(0,0,768,432);drawActor(p,180,180,false);const after=ctx.getImageData(100,70,180,180).data;
        results.push({hero,equal:before.every((n,i)=>n===after[i])});
      }return results;
-   });assert(v.every(x=>x.equal));return v;
+   });assert(v.every(x=>x.equal),JSON.stringify(v));return v;
  });
  await check('Mask acquisition selects authored rows and matching portraits',async()=>{
    await arena();const v=await page.evaluate(()=>{

@@ -1,0 +1,109 @@
+RELATÓRIO DE RITMO · Nova jornada · 2026-11-17 05:37
+Tempo de jogo medido: 15min 06s
+
+ONDE O TEMPO FOI
+  Andando                    2min 33s   17%
+  Parado (sem diálogo)             1s    0%
+  Lendo diálogo              9min 37s   64%
+  Combate                    2min 46s   18%
+  Menus/mapa/diário                5s    1%
+  Desafio de ritmo                 4s    0%
+  → Jogando de fato (combate + ritmo): 19% · Andando + lendo: 81%
+
+COMBATE
+  Encontros: 21 · Derrotas: 0
+  Primeiro combate em: 2min 05s
+  Maior trecho sem lutar: 2min 05s (terminou em forest)
+
+DIÁLOGO
+  Falas lidas: 138 · Caracteres: 9846 · Narrador: 10%
+  Quem mais fala: RYUCHI 33 · FRANCO, THE SIR! 26 · NARRADOR 14 · RYUCHI PERCUSSIONISTA 9 · BELGA 8 · COLLI 7
+
+ETAPAS MAIS LONGAS (onde cortar primeiro)
+   1.  1min 22s · lendo diálogo 53% · 11 falas · Atravesse o Último Torii e enfrente O Silêncio.
+   2.       57s · combate 68% · 4 falas · Enfrente O Metrônomo.
+   3.       53s · lendo diálogo 78% · 8 falas · Separe a interferência do canal.
+   4.       46s · lendo diálogo 81% · 5 falas · Encontre Belga no Clube Contratempo.
+   5.       45s · lendo diálogo 51% · 5 falas · Suba à Torre de Transmissão e enfrente o Silêncio.
+   6.       43s · lendo diálogo 100% · 15 falas · Volte ao estúdio e abra uma sessão nova.
+   7.       36s · lendo diálogo 48% · 3 falas · Confronte a fonte do Silêncio.
+   8.       36s · lendo diálogo 62% · 4 falas · Reabra o Elevador do Céu.
+   9.       34s · combate 41% · 3 falas · Ative as duas pedras de ressonância nas ruínas.
+  10.       33s · lendo diálogo 71% · 4 falas · Procure a fita perdida no Mercado das Fitas.
+
+POR ÁREA
+  ruins                 1min 53s · andando 8% · diálogo 68% · combate 24% · entradas 1
+  silence_core          1min 36s · andando 3% · diálogo 67% · combate 30% · entradas 1
+  voices                1min 25s · andando 35% · diálogo 45% · combate 18% · entradas 4
+  contratempo           1min 06s · andando 11% · diálogo 84% · combate 0% · entradas 2
+  cloud_terrace         1min 04s · andando 10% · diálogo 29% · combate 60% · entradas 1
+  voice_tower           1min 00s · andando 2% · diálogo 72% · combate 26% · entradas 1
+  sky_canal                  56s · andando 15% · diálogo 71% · combate 13% · entradas 1
+  power_plant                50s · andando 16% · diálogo 64% · combate 20% · entradas 1
+  forest                     47s · andando 12% · diálogo 62% · combate 17% · entradas 1
+  city                       39s · andando 16% · diálogo 84% · combate 0% · entradas 1
+  distortion_district        34s · andando 86% · diálogo 0% · combate 14% · entradas 5
+  studio                     33s · andando 12% · diálogo 88% · combate 0% · entradas 2
+  sky_terminal               30s · andando 8% · diálogo 92% · combate 0% · entradas 1
+  chamber                    27s · andando 2% · diálogo 97% · combate 0% · entradas 1
+  cloud_sea                  22s · andando 37% · diálogo 34% · combate 29% · entradas 1
+  voice_roofs                18s · andando 35% · diálogo 44% · combate 20% · entradas 1
+  sky_lift                   15s · andando 18% · diálogo 82% · combate 0% · entradas 1
+  bento_shop                 14s · andando 11% · diálogo 89% · combate 0% · entradas 1
+  last_torii                 12s · andando 20% · diálogo 80% · combate 0% · entradas 1
+  rain_station               12s · andando 24% · diálogo 75% · combate 0% · entradas 1
+  tape_market                 6s · andando 29% · diálogo 70% · combate 0% · entradas 1
+  corridor                    4s · andando 100% · diálogo 0% · combate 0% · entradas 1
+
+EVENTOS DO ROBÔ
+[0.0 min] Objetivo: Investigue a mesa de produção no estúdio.
+[0.2 min] Objetivo: Siga o som. Encontre a origem da melodia.
+[0.7 min] Objetivo: Converse com a Anciã Ema na praça da cidade.
+[1.2 min] Objetivo: Passe pelo portão leste e explore a floresta.
+[1.5 min] Overlay "DIÁLOGO · ESCOLHA O que vocês querem perguntar à Anciã Ema? A resposta fica reg" → 1. Quem é esse viajante mascarado?
+[1.6 min] Objetivo: Encontre a figura mascarada na floresta.
+[1.7 min] Objetivo: Use o Baixo de Raiz na ponte de frequências.
+[2.2 min] Objetivo: Ative as duas pedras de ressonância nas ruínas.
+[2.8 min] Usou fita: franco 41/55
+[2.8 min] Objetivo: Confronte a fonte do Silêncio.
+[3.4 min] Usou fita: franco 35/55
+[3.4 min] Objetivo: Descubra a identidade do viajante mascarado.
+[3.6 min] Objetivo: Converse com seu novo aliado.
+[4.1 min] Objetivo: Siga a máscara até a próxima realidade.
+[4.1 min] Overlay "CAPÍTULO 01 · CONCLUÍDO A Última Frequência O primeiro doppelgänger foi encontr" → ✦ CONTINUAR · CAPÍTULO 02
+[4.3 min] Objetivo: Encontre Íris na Praça das Antenas.
+[4.6 min] Objetivo: Procure a fita perdida no Mercado das Fitas.
+[5.2 min] Objetivo: Monte o acoplador na Oficina do Belga.
+[5.4 min] Objetivo: Reative o retransmissor da Praça.
+[5.7 min] Objetivo: Reative o retransmissor do Mercado.
+[5.8 min] Objetivo: Recupere a melodia de Lumi e receba o violino.
+[6.0 min] Puzzle Lumi → nota 0
+[6.1 min] Puzzle Lumi → nota 2
+[6.1 min] Puzzle Lumi → nota 0
+[6.1 min] Objetivo: Toque o violino para dissipar a névoa dos telhados.
+[6.3 min] Objetivo: Reative o retransmissor dos Telhados.
+[6.4 min] Objetivo: Suba à Torre de Transmissão e enfrente o Silêncio.
+[7.0 min] Usou fita: franco 40/70
+[7.0 min] Usou fita: franco 46/70
+[7.1 min] Objetivo: Capítulo 02 concluído! Descubra os segredos da cidade.
+[7.5 min] Overlay "CAPÍTULO 02 · CONCLUÍDO A máscara abriu o Lado B O Silêncio recua antes de desa" → ATRAVESSAR AGORA · 5
+[7.5 min] Objetivo: Encontre Belga no Clube Contratempo.
+[8.3 min] Rota escolhida: USINAO grave da rua 
+[8.3 min] Objetivo: Abra a trava grave da Usina.
+[8.5 min] Objetivo: Interrompa o ciclo da Usina.
+[8.8 min] Objetivo: Separe a interferência do canal.
+[9.7 min] Objetivo: Resgate os trabalhadores do canal.
+[9.9 min] Objetivo: Encontre Mazza e Colli no Contratempo.
+[10.4 min] Objetivo: Comece uma música no palco do Contratempo.
+[10.9 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♪GRAVE
+[10.9 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♫MÉDIA
+[10.9 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ♬AGUDA
+[10.9 min] Overlay "CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência " → ✦ABERTA
+[10.9 min] Objetivo: Reabra o Elevador do Céu.
+[11.5 min] Objetivo: Forme a primeira passarela de nuvem.
+[11.9 min] Objetivo: Mova a plataforma com o Tambor do Horizonte.
+[12.0 min] Objetivo: Forme a última passarela de nuvem.
+[12.1 min] Objetivo: Enfrente O Metrônomo.
+[13.0 min] Objetivo: Atravesse o Último Torii e enfrente O Silêncio.
+[14.4 min] Objetivo: Volte ao estúdio e abra uma sessão nova.
+[15.1 min] Objetivo: Crie livremente e revisite os mundos.

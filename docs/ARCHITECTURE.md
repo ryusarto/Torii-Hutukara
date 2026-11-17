@@ -46,6 +46,12 @@ Responsabilidades:
 
 O enquadramento usa dimensões lógicas mutáveis: 768×432 no desktop/paisagem e 512×480 no mobile em retrato. O estado narrativo e o schema de save continuam os mesmos.
 
+Na Beta 1.0.1, diálogo, menus e desafios musicais passam para `#app` no mobile e voltam para `#frame` no desktop. Assim compartilham o contexto de empilhamento do deck e continuam dentro da raiz de fullscreen.
+
+### Progressão compatível
+
+`C3.ensureProgression` atende os três capítulos. `G.progressionRoster` registra recrutamentos já compensados; saves sem esse campo recebem a migração uma vez. A normalização preserva XP dos seis integrantes e recalcula níveis sem repetir a compensação. `G.c3.patrolResetAt` mantém o relógio das patrulhas no próprio save. Os campos são aditivos e mantêm schema 13 e a chave de salvamento existente.
+
 ### Camadas de jogo da Beta
 
 Injetadas pelo gerador, nesta ordem, depois de `input_mobile_combat.js`:

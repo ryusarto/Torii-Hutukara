@@ -207,7 +207,7 @@ C3.coopAttack=function(pad){
 };
 for(const action of ['coopSkill','coopAdvanced','coopSignature']){
   const previous=C3[action];
-  C3[action]=function(pad){if(!C3.coopActive()||C3.coop.dash>0||!combatAreas10.has(G.area))return;return previous(pad)};
+  C3[action]=function(pad){if(!C3.coopActive()||!C3.combatUnlocked()||C3.coop.dash>0||!combatAreas10.has(G.area))return;return previous(pad)};
 }
 const actorBefore121=drawActor;
 drawActor=function(p,x,y,moving=false){
@@ -386,6 +386,13 @@ function updateMobileLayout121(){
   const changed=Input121.mobile!==mobile;Input121.mobile=mobile;
   document.documentElement.classList.toggle('mobile121',mobile);
   document.documentElement.classList.toggle('desktop121',!mobile);
+  // Os painéis precisam compartilhar a camada do deck; z-index não escapa
+  // do contexto criado pelo frame fixo na orientação paisagem.
+  for(const id of ['dialogue','overlay','rhythm']){
+    const panel=$(id);if(!panel)continue;
+    const parent=mobile?$('app'):$('frame');
+    if(panel.parentElement!==parent)parent.appendChild(panel);
+  }
   const physical=C3.pad.pads.length>0&&!Input121.controllerVisible;
   document.documentElement.classList.toggle('physical121',mobile&&physical);
   document.documentElement.classList.toggle('hasGamepad121',mobile&&C3.pad.pads.length>0);
@@ -495,7 +502,7 @@ C3.interactCoop=function(){
   setArea(e.to,e.tx,e.ty);
 };
 C3.coopAttack=function(pad){
-  if(!C3.coopActive()||!activeModes10()||!combatAreas10.has(G.area))return;
+  if(!C3.coopActive()||!C3.combatUnlocked()||!activeModes10()||!combatAreas10.has(G.area))return;
   C3.syncCoop();const c=C3.coop,id=C3.coopMember();if(c.dash>0||c.cool>0)return;
   if(mode==='walk')engage();
   const d=C3.coopVector(),f=feel121(id);

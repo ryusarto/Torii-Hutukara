@@ -161,7 +161,7 @@ signature_new = "const SIGNATURE11=Object.freeze({franco:{name:'Coração grave'
 replace_once!(html, signature_old, signature_new, 'assinaturas dos seis integrantes')
 
 combat_old = "['forest','ruins','voices','voice_roofs','radio9','voice_tower']"
-combat_new = "['forest','ruins','voices','voice_roofs','radio9','voice_tower','power_plant','sky_canal','cloud_sea','cloud_terrace','silence_core']"
+combat_new = "['forest','ruins','voices','voice_roofs','radio9','voice_tower','distortion_district','power_plant','sky_canal','cloud_sea','cloud_terrace','silence_core']"
 combat_count = html.scan(combat_old).length
 raise "Arrays de área de combate não encontrados" if combat_count.zero?
 html.gsub!(combat_old, combat_new)

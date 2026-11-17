@@ -7,10 +7,10 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
 const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json')));
 const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:true});
 (async()=>{
- const browser=await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9237');
+ const browser=await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9237').catch(()=>chromium.launch());
  const context=await browser.newContext({viewport:{width:1280,height:800}}),page=await context.newPage(),errors=[],checks=[];
  page.on('pageerror',e=>errors.push(e.message));
- await page.addInitScript(()=>{window.requestAnimationFrame=()=>0;window.__pads=[];Object.defineProperty(navigator,'getGamepads',{value:()=>window.__pads});window.__pad=i=>({index:i,id:'DualSense isolated QA '+i,connected:true,mapping:'standard',axes:[0,0],buttons:Array.from({length:18},()=>({pressed:false,value:0}))})});
+ await page.addInitScript(()=>{const getContext=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,options){return getContext.call(this,type,type==='2d'&&this.id==='game'?{...options,willReadFrequently:true}:options)};window.requestAnimationFrame=()=>0;window.__pads=[];Object.defineProperty(navigator,'getGamepads',{value:()=>window.__pads});window.__pad=i=>({index:i,id:'DualSense isolated QA '+i,connected:true,mapping:'standard',axes:[0,0],buttons:Array.from({length:18},()=>({pressed:false,value:0}))})});
  await page.goto(process.argv[2]||'http://127.0.0.1:8767/',{waitUntil:'load',timeout:120000});
  await page.waitForFunction(()=>typeof NinjaArcherArtV1!=='undefined');
  async function check(name,fn){const detail=await fn();checks.push({name,passed:true,detail});console.log('OK · '+name)}

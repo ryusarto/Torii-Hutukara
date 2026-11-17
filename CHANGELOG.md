@@ -10,6 +10,13 @@
 
 Todas as alterações relevantes do projeto são registradas aqui.
 
+## Correções do PR #8 integradas na Beta 1.2 — 2026-11-17
+
+- Integra as correções do prólogo, Distrito, XP, recrutamento, saves, colisões, patrulhas, coop e diálogo mobile com Ninja/Arqueiro e os protagonistas V5 da Beta 1.2.
+- Preserva as animações e retratos publicados e o schema 13 de save.
+- Regressão de integração de arte adicionada à validação dos PRs e da publicação.
+- Resultados da build integrada em `qa/beta-1.2.0/PLAYTEST.md`.
+
 ## [Beta 1.1] — 2026-11-17
 
 - Ryuchi Ninja e Franco Arqueiro com 24 atlas de alta resolução e 96 sequências em quatro direções: espera, caminhada, corrida, rolamento, três ataques, técnicas, especial, dano e derrota. São 864 PNGs de animação e 16 retratos no pacote de backup.
@@ -32,6 +39,21 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - Dimensões, transparência, margens, correspondência entre atlas e frames e fechamento verificados. Prévia offline com pausa e avanço de quadros.
 - GitHub mantém os atlas e as ferramentas; Dropbox guarda originais, 1.728 PNGs individuais, ZIP e prévias. Exportador reconstrói os frames a partir dos atlas, evitando duplicação no Git.
 - A integração desses sprites à build jogável é uma etapa separada.
+
+## [Beta 1.0.1] — 2026-11-17
+
+Correções preparadas no PR #8 e integradas junto às novas artes na Beta 1.2.
+
+- Removido o encontro prematuro do corredor. Ameaças e ações de combate dependem da obtenção do Baixo de Raiz; a chegada à floresta permanece segura até a entrega.
+- Distrito da Distorção cadastrado em todos os caminhos de combate, permitindo responder às patrulhas com os seis integrantes e em coop.
+- XP ativo e de reserva unificado nos três capítulos. Saves preservam a experiência de todos os integrantes; compensação de aliados ocorre no recrutamento/migração, uma vez.
+- Colocação de pads e atração do sintetizador respeitam obstáculos e o corpo dos inimigos.
+- Cooldown das patrulhas salvo na partida, sem herdar o relógio de outra jornada nem reiniciar a cada load.
+- Ataques dos três inimigos musicais resolvidos para P1/P2; aura do Abafador bloqueia as técnicas de quem está dentro dela.
+- Share/Create cura o integrante do controle que acionou a fita; consumo simultâneo usa o inventário compartilhado com cooldown por integrante.
+- Diálogo, menus e desafio musical mobile saem do contexto de empilhamento do frame e ficam acima do deck. Alvo de cura com altura mínima de 44 px.
+- Regressões de jogabilidade adicionadas aos PRs e à publicação. Esperas de rotação usam polling temporal porque o simulador desliga requestAnimationFrame.
+- Lista oficial de arte restante e proposta de inimigos em docs/DIRECAO_ARTE_E_INIMIGOS.md. Biblioteca V5 preservada; integração e novos inimigos continuam no ciclo de produção de arte.
 
 ## [Beta 1.0] — 2026-11-14
 

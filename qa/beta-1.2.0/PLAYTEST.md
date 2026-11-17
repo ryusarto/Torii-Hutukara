@@ -12,3 +12,7 @@ Build portátil SHA-256: `ad3a2223423100d6147cc53b6dc71c67e2d9d16a1ad7c5ae7bf8c3
 Evidência remota: [Art integration QA](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44138010896), commit `3c3e9f86c98af27ea63e86f01db8e4f1c64afa3d`. Relatórios JSON copiados do artefato desse run. Captura `PROTAGONISTAS_V5_ENGINE.png` inspecionada: sprites aprovados, escala uniforme e pés alinhados.
 
 Limites: testes com Chromium e dispositivos/controles simulados. Não foi executada uma nova campanha manual completa, nem teste em telefone físico ou dois controles físicos. A derrota mantém a troca automática existente, sem espera nova para exibir a sequência inteira. O navegador local deste ambiente não iniciou; a execução real do navegador ocorreu no CI.
+
+## Correções de gameplay integradas — PR #8
+
+O teste da build combinada, a preservação dos assets publicados e as jornadas com save/load estão registrados em [Integração final de gameplay](GAMEPLAY_INTEGRATION.md). A evidência acima corresponde à integração original de arte; os relatórios atuais identificam a build pelas versões e pelo SHA-256.

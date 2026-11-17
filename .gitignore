@@ -1,9 +1,11 @@
 .DS_Store
+node_modules/
 *.log
 *.tmp
 *.bak
 torii-hutukara-*-salvamento.json
 qa/screenshots-local/
+qa/beta-*/*.png
 production/playtest-dist/
 design/sprites-principais-v4/TORII_SPRITES_PRINCIPAIS_V4.zip
 

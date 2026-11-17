@@ -35,7 +35,7 @@ async function main(){
   await page.waitForFunction(()=>typeof Input121!=='undefined');
   async function check(name,fn){await fn();results.push({name,passed:true});console.log('OK · '+name)}
   async function arena(){await page.evaluate(()=>{
-    G=fresh();G.active='ryuchi';G.formation=['franco','ryuchi'];G.hp.franco=G.hp.ryuchi=100;
+    G=fresh();G.flags.masks=G.flags.bass=true;G.active='ryuchi';G.formation=['franco','ryuchi'];G.hp.franco=G.hp.ryuchi=100;
     current=mk('studio',40,30,'grass');G.area=current.id;G.x=10.5;G.y=12.5;G.dir='right';G.aim091=[1,0];
     mode='walk';battle=null;bossActor=null;act.cool=act.dashCD=act.invuln=0;keys={};
     Input121.pad=[0,0];Input121.touch=[0,0];resetMotion10();Combat10.area=G.area;Combat10.active=G.active;
@@ -169,7 +169,9 @@ async function main(){
     assert.deepEqual(await mobile.evaluate(()=>Input121.touch),[0,0]);
   });
   await check('Rotation switches layout and releases all held touches',async()=>{
-    await mobile.setViewportSize({width:844,height:390});await mobile.waitForTimeout(100);
+    // A simulação desliga requestAnimationFrame: o polling da espera precisa
+    // usar relógio, senão uma condição inicialmente falsa nunca é reavaliada.
+    await mobile.setViewportSize({width:844,height:390});await mobile.waitForFunction(()=>document.documentElement.classList.contains('landscape121'),null,{polling:50});
     const v=await mobile.evaluate(()=>({landscape:document.documentElement.classList.contains('landscape121'),held:Input121.pointers.size,width:document.documentElement.scrollWidth,viewport:innerWidth}));
     assert(v.landscape);assert.equal(v.held,0);assert(v.width<=v.viewport);assert(await mobile.locator('#mobileStick121').isVisible());
   });
@@ -206,7 +208,7 @@ async function main(){
     await mobile.evaluate(()=>{C3.pad.pads=[];updateMobileLayout121()});assert(await mobile.locator('#mobileStick121').isVisible());
   });
   await mobile.evaluate(()=>{for(let i=0;i<30;i++)drawEnv()});await mobile.screenshot({path:path.join(outDir,'mobile-landscape.png')});
-  await mobile.setViewportSize({width:390,height:844});await mobile.waitForTimeout(100);await mobile.evaluate(()=>{for(let i=0;i<30;i++)drawEnv()});await mobile.screenshot({path:path.join(outDir,'mobile-portrait.png')});
+  await mobile.setViewportSize({width:390,height:844});await mobile.waitForFunction(()=>!document.documentElement.classList.contains('landscape121'),null,{polling:50});await mobile.evaluate(()=>{for(let i=0;i<30;i++)drawEnv()});await mobile.screenshot({path:path.join(outDir,'mobile-portrait.png')});
   assert.deepEqual(errors,[],'Browser runtime errors');
   fs.writeFileSync(path.join(outDir,'INPUT_TEST_RESULTS.json'),JSON.stringify({build:path.basename(build),sha256:crypto.createHash('sha256').update(fs.readFileSync(build)).digest('hex'),passed:results.length,checks:results,browserErrors:errors},null,2)+'\n');
   await context.close();await mobileContext.close();await browser.close();

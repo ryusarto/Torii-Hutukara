@@ -1,19 +1,20 @@
 /* Run against local or deployed Pages using isolated, disposable browser contexts.
  * PLAYWRIGHT_CORE=/path/to/playwright-core node qa/playtest_site.cjs [base URL]
- * Connects to a disposable Chrome at CDP_URL (default localhost:9223).
+ * Launches an isolated browser; optional CDP_URL connects to an existing one.
  */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { chromium } = require(process.env.PLAYWRIGHT_CORE || 'playwright-core');
+let chromium;try{({chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core'))}catch{({chromium}=require('playwright'))}
 const base = process.argv[2] || 'http://127.0.0.1:8766/';
 const results = [];
 let testedBuild;
+let browser;
 const uaPhone = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1';
 const uaPad = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15';
 
 async function main() {
-  const browser = await chromium.connectOverCDP(process.env.CDP_URL || 'http://127.0.0.1:9223');
+  browser = process.env.CDP_URL ? await chromium.connectOverCDP(process.env.CDP_URL) : await chromium.launch();
   const cases = [
     { name: 'PC', device: 'pc', viewport: { width: 1280, height: 800 } },
     { name: 'Mobile', device: 'mobile', userAgent: uaPhone, isMobile: true, hasTouch: true, viewport: { width: 390, height: 844 } },
@@ -41,6 +42,7 @@ async function main() {
     assert.equal(await page.evaluate(() => ToriiPlaytest.version), JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'web', 'playtest', 'build.json'), 'utf8')).version);
     await page.waitForLoadState('load');
     // All externally served chapter assets must have decoded, not just returned HTTP 200.
+    await page.evaluate(() => C3.loadDeferredImages());
     await page.waitForFunction(() => Object.values(C3.images).every(img => img.complete && img.naturalWidth > 0));
     await page.waitForSelector('#playtestEntry', { state: 'detached', timeout: 6500 });
     if (name === 'PC') {
@@ -90,4 +92,4 @@ async function main() {
   fs.writeFileSync(path.join(dir, 'SITE_TEST_RESULTS.json'), JSON.stringify({ testedAt: new Date().toISOString(), url: base, build: testedBuild, method: 'Chrome with emulated device profiles; no physical-device validation', results }, null, 2) + '\n');
   console.log(JSON.stringify(results, null, 2));
 }
-main().then(() => process.exit(0)).catch(error => { console.error(error); process.exit(1); });
+main().catch(error => { console.error(error); process.exitCode=1; }).finally(async()=>{if(browser)await browser.close()});

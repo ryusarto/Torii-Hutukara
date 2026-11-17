@@ -56,6 +56,15 @@ Ao conectar dois controles, o segundo jogador assume outro integrante vivo da fo
 
 O menu **Outras opções** permite iniciar diretamente os capítulos 2 e 3 para testes. A jornada normal começa no estúdio.
 
+## Correções de gameplay integradas na Beta 1.2
+
+- Prólogo sem encontros prematuros; combate liberado depois do Baixo de Raiz.
+- Patrulhas do Distrito com ataques funcionais para toda a equipe.
+- XP e saves consistentes, campos do sintetizador com colisão e regras de coop corrigidas.
+- Diálogo mobile acima dos controles e cura por integrante.
+- Testes de controles e jogabilidade antes de publicar; [resultados e reprodução](qa/beta-1.2.0/PLAYTEST.md).
+- [Lista de arte e plano de inimigos](docs/DIRECAO_ARTE_E_INIMIGOS.md).
+
 ## Destaques da Beta 1.0
 
 - Ritmo: diálogos enxutos (225 → 139 falas), mais encontros, primeiro combate em menos de 1 minuto e Capítulo 2 → 3 contínuo.

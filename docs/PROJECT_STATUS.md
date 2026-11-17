@@ -4,7 +4,7 @@ Atualizado em 17 de novembro de 2026.
 
 ## Versão jogável atual
 
-**Beta 1.2** — os três capítulos estão reunidos em um único HTML portátil. A base 1.1.2 permanece preservada. Os resultados de teste estão em `qa/beta-1.0.0/`, `qa/ritmo/` e `qa/combate/`.
+**Beta 1.2** — os três capítulos estão reunidos em um único HTML portátil. A base 1.1.2 permanece preservada. Os resultados de teste estão em `qa/beta-1.2.0/`, `qa/ritmo/` e `qa/combate/`.
 
 Franco e Ryuchi principais usam os atlas V5, com/sem máscara por progressão. Ninja/Arqueiro e músicos preservam suas próprias artes. Resultados da integração em `qa/beta-1.2.0/PLAYTEST.md`.
 
@@ -41,7 +41,7 @@ Site provisório: https://ryusarto.github.io/Torii-Hutukara/. O aviso PC/MOBILE 
 - Recrutamento posterior às cenas e apresentações diferentes conforme a ordem das rotas.
 - Franco Sintetizador com combate territorial próprio: oscilador, pads e filtro.
 
-## Precisa de playtest antes da Beta
+## Playtest humano pendente
 
 - Confirmar ergonomia mobile em iPhone/Safari e Android físicos, em pé e deitado.
 - Confirmar dois controles físicos no mesmo computador e no celular.
@@ -57,12 +57,20 @@ Site provisório: https://ryusarto.github.io/Torii-Hutukara/. O aviso PC/MOBILE 
 
 ## Próximo ciclo
 
-1. Playtest da Beta 1.0 com pessoas de fora (usar `?ritmo` e coletar os relatórios).
+1. Playtest da Beta 1.1.1 com pessoas de fora (usar `?ritmo` e coletar os relatórios).
 2. Discutir os seis kits e as reduções de deslocamento propostas em `design/COMBATE_E_RITMO_PROPOSTA.md`.
 3. Refinar as técnicas completas e encurtar quests preservando as revelações centrais.
 4. Produzir as versões cyberpunk de Belga, Colli e Mazza com identidade preservada e PNG transparente.
-5. Congelar conteúdo e iniciar a fase Beta após o playtest integral.
+5. Estabilizar a Beta e congelar conteúdo antes da candidata a lançamento.
 
 ## Critério de pronto
 
 Uma versão só avança para Beta quando não houver bloqueio de missão, perda de save, personagem sem sprite, objetivo preso em etapa concluída ou necessidade de voltar ao menu para continuar a história.
+
+## Correções de direção da Beta 1.0.1
+
+Prólogo, permissões de combate do Distrito, XP/save, geometria dos campos, patrulhas, dano/aura/cura de P2 e camadas mobile foram corrigidos. Cenários e reprodução em `qa/beta-1.0.1/PLAYTEST.md`. O inventário de arte e os novos inimigos propostos estão em `docs/DIRECAO_ARTE_E_INIMIGOS.md`; a integração V5 está preservada na Beta 1.2.
+
+## Integração de correções de gameplay na Beta 1.2
+
+As correções de progressão e coop foram reconciliadas com a Beta 1.2, preservando tanto os protagonistas V5 como Ninja/Arqueiro e suas animações independentes de P1/P2. Novos inimigos e os demais pacotes em produção continuam separados. Resultados atuais em `qa/beta-1.2.0/PLAYTEST.md`.

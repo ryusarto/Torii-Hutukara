@@ -9,7 +9,7 @@ O projeto usa `MAJOR.MINOR.PATCH` acompanhado do estágio:
 - incremento minor: novo conjunto de assets, cenas ou sistemas;
 - incremento major: mudança incompatível de arquitetura ou save.
 
-O número da build e o schema do save não são a mesma coisa. A Alpha 1.1.0 continua usando schema 11 porque seus novos campos têm defaults compatíveis.
+O número da build e o schema do save não são a mesma coisa. A Beta 1.2 mantém schema 13: os campos de recrutamento e de relógio das patrulhas são aditivos e têm defaults compatíveis.
 
 ## Fonte única da versão
 

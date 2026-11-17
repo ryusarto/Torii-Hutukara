@@ -9,8 +9,7 @@
 // [área, id, x, y, tipo] — posições aproximadas; o jogo procura o chão livre mais próximo.
 // Tipos novos (compasso, espelho, abafador) estão em combat_patterns.js.
 const ENCOUNTERS=[
-  // Capítulo 1: primeiro combate no corredor, antes das máscaras.
-  ['corridor','p4_corridor_hush',20,9,'hush'],
+  // Capítulo 1: encontros apenas depois da entrega do Baixo de Raiz.
   ['forest','p4_forest_path_a',9,22,'hush'],
   ['forest','p4_forest_path_b',26,20,'whisper'],
   ['forest','p4_forest_east',40,19,'hush'],
@@ -65,14 +64,15 @@ hydrateEnemy=function(e,...rest){const fresh=e&&e.hp===undefined;const r=hydrate
 
 // Reaparecimento das patrulhas (só depois de conhecer o Belga e antes do fim).
 const patrolIds=new Set(PATROLS.map(p=>p[1]));
-let lastPatrolReset=-1e9,restoring=false;
+let restoring=false;
 // Depois de uma derrota as patrulhas não reaparecem (evita ciclo de derrotas).
 const restoreBeforePacing=restoreCheckpoint;
 restoreCheckpoint=function(...args){restoring=true;try{return restoreBeforePacing.apply(this,args)}finally{restoring=false}};
 const setAreaBeforePacing=setArea;
 setArea=function(id,...rest){
-  if(id==='distortion_district'&&!restoring&&G&&G.c3&&G.c3.metMaia&&!G.c3.complete&&G.totalSeconds-lastPatrolReset>=PATROL_COOLDOWN){
-    lastPatrolReset=G.totalSeconds;
+  const last=G?.c3?.patrolResetAt,now=G?.totalSeconds||0;
+  if(id==='distortion_district'&&!restoring&&G?.c3?.metMaia&&!G.c3.complete&&(!Number.isFinite(last)||now<last||now-last>=PATROL_COOLDOWN)){
+    G.c3.patrolResetAt=now;
     G.defeated=G.defeated.filter(d=>!patrolIds.has(d));
     for(const e of areas.distortion_district?.enemies||[])if(patrolIds.has(e.id)){delete e.hp;if(e.homeX!==undefined){e.x=e.homeX;e.y=e.homeY}}
   }
@@ -80,9 +80,15 @@ setArea=function(id,...rest){
   relocateFluteKeepers();
   return r;
 };
+// Uma ameaça só existe onde a história e os comandos permitem responder.
+C3.combatUnlocked=function(g=G){return !!g?.flags?.bass};
+const readyBeforePacing=combatReady10;
+combatReady10=function(){return C3.combatUnlocked()&&readyBeforePacing()};
+const engageBeforePacing=engage;
+engage=function(...args){if(!C3.combatUnlocked()||!combatAreas10.has(G?.area))return false;return engageBeforePacing.apply(this,args)};
 // Patrulhas só depois da primeira frente concluída: a chegada ao Distrito fica limpa.
 const actorsBeforePacing=enemyActors;
-enemyActors=function(){const list=actorsBeforePacing();if(G&&G.area==='distortion_district'&&!(G.c3&&(G.c3.usinaDone||G.c3.canalDone)))return list.filter(e=>!patrolIds.has(e.id));return list};
+enemyActors=function(){if(!C3.combatUnlocked()||!combatAreas10.has(G?.area))return [];const list=actorsBeforePacing();if(G.area==='distortion_district'&&!(G.c3&&(G.c3.usinaDone||G.c3.canalDone)))return list.filter(e=>!patrolIds.has(e.id));return list};
 
 // ---------- Capítulo 3: a Flauta chega ao Contratempo ----------
 const fluteAtClub=()=>G&&G.c3&&G.c3.usinaDone&&G.c3.canalDone&&!G.c3.windFlute;
