@@ -29,12 +29,15 @@ fs.mkdirSync(out,{recursive:true});
   await page.waitForFunction(()=>typeof CenariosDesertoV1!=='undefined'&&typeof CenariosV2!=='undefined',null,{timeout:120000});
   report.browser=await browser.version();
   try{const r=await context.request.get(new URL('build-info.json',url).href);if(r.ok()){const b=await r.json();report.build={version:b.version,sourceSha256:b.sourceSha256,indexSha256:b.indexSha256}}}catch{}
+  if(process.env.TORII_EXPECTED_SHA&&report.build?.sourceSha256!==process.env.TORII_EXPECTED_SHA)throw Error('Served build hash does not match TORII_EXPECTED_SHA: '+report.build?.sourceSha256);
   await page.evaluate(async()=>{
    C3.loadDeferredImages();C3.start(true);for(let i=0;mode==='dialogue'&&i<100;i++)advanceDialogue();mode='walk';transitionAlpha=0;screenShake=0;tick=4;keys={};bossActor=null;battle=null;trail=[];C3.pad.pads=[];
    $('start').classList.add('hidden');$('overlay').classList.add('hidden');$('dialogue').classList.add('hidden');$('cinema').style.display='none';$('toast').classList.add('hidden');
    await CenariosV2.ready();await Promise.all(Object.values(C3.images).map(i=>i.decode()));
    for(const hero of ['franco','ryuchi'])await ProtagonistArtV5.image(hero+'_idle').decode();
    for(const hero of ['alt','katana'])await NinjaArcherArtV1.image(hero+'_idle').decode();
+   if(typeof MusicianArtV1==='undefined')throw Error('Reconciled MusicianArtV1 module missing');
+   for(const hero of ['synth','percussion'])for(const variant of ['unmasked','masked']){const image=MusicianArtV1.image(MusicianArtV1.key(hero,variant,'idle'));if(!image)throw Error('Missing musician idle '+hero+'/'+variant);await image.decode();}
    VW=768;VH=432;cv.width=VW;cv.height=VH;ctx.imageSmoothingEnabled=false;
    window.__desertQA={
     pixels(fn){ctx.save();ctx.resetTransform();ctx.globalAlpha=1;ctx.clearRect(0,0,768,432);fn();ctx.restore();return new Uint8ClampedArray(ctx.getImageData(0,0,768,432).data)},
@@ -45,7 +48,7 @@ fs.mkdirSync(out,{recursive:true});
    try{const detail=await fn();report.checks.push({name,passed:true,detail});console.log('OK · '+name)}
    catch(error){report.checks.push({name,passed:false,error:error.message});console.error('FAIL · '+name+' · '+error.message)}
   }
-  await check('Merged desert library: 13 sheets / 134 nonempty cells with true transparent gutters',async()=>{
+  await check('Merged final desert library: 15 sheets / 151 nonempty cells and two decoded backgrounds',async()=>{
    const r=await page.evaluate(()=>{
     const art=CenariosV2,c=document.createElement('canvas'),q=c.getContext('2d',{willReadFrequently:true});let items=0;
     if(art.manifest.theme!=='deserto-v1')throw Error('Wrong compiled theme: '+art.manifest.theme);
@@ -57,8 +60,9 @@ fs.mkdirSync(out,{recursive:true});
      if(a.content[0]<a.cell[0]||a.content[1]<a.cell[1]||a.content[0]+a.content[2]>a.cell[0]+a.cell[2]||a.content[1]+a.content[3]>a.cell[1]+a.cell[3])throw Error('Content escapes cell '+name);
      items++;
     }
-    return {theme:art.manifest.theme,sheets:Object.keys(art.manifest.sheets).length,items,desertExtras:Object.keys(art.manifest.items).filter(k=>k.startsWith('c3_desert_'))};
-   });assert.equal(r.sheets,13);assert.equal(r.items,134);assert.equal(r.desertExtras.length,8);return r;
+    const backgrounds=Object.entries(art.manifest.backgrounds||{}).map(([id,b])=>{const image=art.image(id);if(image.naturalWidth!==b.size[0]||image.naturalHeight!==b.size[1])throw Error('Wrong background dimensions '+id);return {id,width:image.naturalWidth,height:image.naturalHeight}});
+    return {theme:art.manifest.theme,sheets:Object.keys(art.manifest.sheets).length,items,backgrounds,desertExtras:Object.keys(art.manifest.items).filter(k=>k.startsWith('c3_desert_'))};
+   });assert.equal(r.sheets,15);assert.equal(r.items,151);assert.equal(r.desertExtras.length,25);assert.equal(r.backgrounds.length,2);return r;
   });
   await check('All 25 map collision fields and every gate match the already-aligned V2 snapshot',async()=>{
    const currentMaps=await page.evaluate(()=>JSON.parse(JSON.stringify(Object.values(areas).map(a=>({id:a.id,w:a.w,h:a.h,tiles:a.tiles,blocked:[...a.blocked].sort(),gates:a.gates.map(g=>({...g,need:undefined}))})))));
@@ -85,15 +89,69 @@ fs.mkdirSync(out,{recursive:true});
     }finally{CenariosV2.sprite=original}
    });return r;
   });
-  await check('D11 ensure requests stay in their designated C3 areas and never C1/C2',async()=>{
+  await check('D11/D12/D13 ensure requests stay in their designated C3 areas and never C1/C2',async()=>{
    return page.evaluate(()=>{
     const previous=CenariosV2.image,calls=[],result=[];CenariosV2.image=function(id){calls.push(id);return previous.call(this,id)};
-    try{for(const area of ['studio','city','voices','radio9','distortion_district','sky_lift','last_torii']){
+    try{for(const area of ['studio','city','voices','radio9',...C3.AREAS]){
      calls.length=0;CenariosDesertoV1.ensure(area);const extra=calls.filter(id=>/^D\d+$/.test(id));
      if(!C3.AREAS.includes(area)&&extra.length)throw Error('Extra requested outside C3 '+area);
-     if(['distortion_district','sky_lift','last_torii'].includes(area)&&!extra.includes('D11'))throw Error('D11 not requested '+area);
+     const expected={D11:['sky_terminal','distortion_district','sky_lift','cloud_terrace','last_torii'],D12:C3.AREAS,D13:['ciro_workshop','sky_canal','sky_lift']};
+     for(const [id,places]of Object.entries(expected))if(extra.includes(id)!==places.includes(area))throw Error(id+' wrong request scope '+area);
      result.push({area,extra});
     }return result;}finally{CenariosV2.image=previous}
+   });
+  });
+  await check('All nine D12 bindings render at the contracted sizes, including checkpoint 46x60',async()=>{
+   return page.evaluate(()=>{
+    const original=CenariosV2.sprite,calls=[],rows=[];CenariosV2.sprite=function(item,x,y,w,h,...rest){calls.push({item,w,h});return original.call(this,item,x,y,w,h,...rest)};
+    const specs=[['c3_bench','bench',96,58],['c3_planter','planter',96,54],['c3_crates','crates',82,72],['c3_vending','vending',60,88],['c3_railing','railing',106,58],['c3_drain','drain',72,38],['c3_kiosk','kiosk',68,80],['c3_workbench','workbench',154,88],['c3_flute_rack','flute_rack',112,78],['checkpointStone','kiosk',46,60]];
+    try{G.area='ciro_workshop';current=areas.ciro_workshop;for(const [type,key,w,h]of specs){calls.length=0;const pixels=__desertQA.pixels(()=>drawProp({type,x:8,y:10},0,0));const expected='c3_desert_'+key,a=CenariosV2.manifest.items[expected];
+     if(a?.sheet!=='D12'||!calls.some(c=>c.item===expected&&c.w===w&&c.h===h)||!__desertQA.nonempty(pixels))throw Error('D12 contract mismatch '+type);rows.push({type,item:expected,display:[w,h]});
+    }return rows;}finally{CenariosV2.sprite=original}
+   });
+  });
+  await check('D13 renders every functional binding and separates active/calm interference by Canal flags',async()=>{
+   return page.evaluate(()=>{
+    const c=G.c3,old={...c},original=CenariosV2.sprite,calls=[],rows=[];CenariosV2.sprite=function(item,...args){calls.push(item);return original.call(this,item,...args)};
+    function render(area,type,flags,expected){Object.assign(c,{canalPath:false,canalDone:false,usinaGate:false,usinaDone:false},flags);G.area=area;current=areas[area];calls.length=0;const pixels=__desertQA.pixels(()=>drawProp({type,x:8,y:10},0,0));const name='c3_desert_'+expected;
+     if(CenariosV2.manifest.items[name]?.sheet!=='D13'||!calls.includes(name)||!__desertQA.nonempty(pixels))throw Error('D13 mismatch '+type+'/'+JSON.stringify(flags));rows.push({area,type,flags,item:name});}
+    try{
+     for(const [type,key]of [['c3_wind_console','wind_console'],['c3_tuning_machine','tuning_machine'],['c3_broken_pipe','broken_pipe'],['c3_lift_console','lift_console'],['c3_wind_receiver','wind_receiver'],['c3_bass_lock','bass_lock']])render('ciro_workshop',type,{},key);
+     render('sky_canal','c3_interference',{},'interference_active');
+     render('sky_canal','c3_interference',{usinaGate:true,usinaDone:true},'interference_active');
+     render('sky_canal','c3_interference',{canalPath:true},'interference_calm');
+     render('sky_canal','c3_interference',{canalDone:true},'interference_calm');
+     render('sky_canal','c3_interference_calm',{},'interference_calm');return rows;
+    }finally{Object.assign(c,old);CenariosV2.sprite=original}
+   });
+  });
+  await check('Thirteen off/on asset pairs retain common cell dimensions and pivots',async()=>{
+   return page.evaluate(()=>{
+    const pairs=[['stage_idle','stage_active'],['speaker_idle','speaker_active'],['machine_inactive','machine_active'],['pressure_switch_inactive','pressure_switch_active'],['valve_stalled','valve_released'],['canal_gate_closed','canal_gate_open'],['wind_beacon_off','wind_beacon_on'],['condensation_off','condensation_on'],['drum_anchor_off','drum_anchor_on'],['silence_altar_dormant','silence_altar_awake'],['resonance_circle_off','resonance_circle_on'],['c3_desert_elevator_closed','c3_desert_elevator_open'],['c3_desert_interference_active','c3_desert_interference_calm']];
+    return pairs.map(([off,on])=>{const a=CenariosV2.manifest.items[off],b=CenariosV2.manifest.items[on];if(!a||!b||JSON.stringify(a.cell.slice(2))!==JSON.stringify(b.cell.slice(2))||JSON.stringify(a.pivot)!==JSON.stringify(b.pivot))throw Error('State dimensions/pivot drift '+off+'/'+on);return {off,on,cell:a.cell.slice(2),pivot:a.pivot}});
+   });
+  });
+  await check('Two C3 dialogue backgrounds replace old panels, four legacy panels stay identical, and stale loads cannot restore or resurrect',async()=>{
+   return page.evaluate(()=>{
+    const art=CenariosV2,legacy=['studio','chamber','city','ruins'],result={legacy:[],desert:[],lateCallbacks:[]},image=C3.images.prebeta_cinema,descriptor=Object.getOwnPropertyDescriptor(image,'complete'),oldCache={...PB.cinemaCache};
+    function same(a,b,label){if(a!==b)throw Error(label)}
+    try{
+     for(const area of legacy){const before=desertCinemaPanelV1.call(PB,area),after=PB.cinemaPanel(area);if(!before)throw Error('Missing decoded legacy panel '+area);same(after,before,'Legacy panel changed '+area);result.legacy.push({area,pixelSourceIdentical:true,uriBytes:before.length});}
+     for(const area of ['distortion','cloud']){const id='BG_'+area,old=desertCinemaPanelV1.call(PB,area),fresh=PB.cinemaPanel(area);same(fresh,art.assets[id],'Wrong C3 panel '+area);if(fresh===old)throw Error('Old C3 panel retained '+area);result.desert.push({area,asset:id,replaced:true});}
+     // Force a pending-load branch on the real image/renderer. No network timing
+     // or personal UI is involved; dispatch invokes the registered real callbacks.
+     Object.defineProperty(image,'complete',{value:false,configurable:true});
+     showCinema('distortion');showCinema('cloud');const currentImage=$('cinema').style.backgroundImage;
+     if(!currentImage.includes(art.assets.BG_cloud))throw Error('Cloud contextual source missing');
+     const expected=document.createElement('div');expected.style.backgroundImage=`linear-gradient(#28272412,#28272424),url("${art.assets.BG_cloud}")`;
+     same(currentImage,expected.style.backgroundImage,'Desert gradient/source mismatch');
+     image.dispatchEvent(new Event('load'));same($('cinema').style.backgroundImage,currentImage,'Stale load restored source or purple color');
+     result.lateCallbacks.push({case:'old context then new context',backgroundAndGradientUnchanged:true});
+     showCinema('distortion');talk([{who:'narrator',t:'Verificação isolada de encerramento.'}]);for(let i=0;mode==='dialogue'&&i<10;i++)advanceDialogue();
+     if($('cinema').style.display!=='none')throw Error('Real dialogue completion did not close cinema');const closedImage=$('cinema').style.backgroundImage;
+     image.dispatchEvent(new Event('load'));if($('cinema').style.display!=='none'||$('cinema').style.backgroundImage!==closedImage)throw Error('Late image load resurrected/changed closed dialogue');
+     result.lateCallbacks.push({case:'real dialogue completion then late image load',remainedHidden:true,backgroundUnchanged:true});return result;
+    }finally{if(descriptor)Object.defineProperty(image,'complete',descriptor);else delete image.complete;PB.cinemaCache=oldCache;$('cinema').style.display='none';}
    });
   });
   await check('Industrial A07 states depend on their own local progress, never the other route',async()=>{
@@ -139,13 +197,13 @@ fs.mkdirSync(out,{recursive:true});
   });
   await check('All six hero renderers remain pixel-identical with desert theme enabled or disabled',async()=>{
    return page.evaluate(()=>{
-    const theme=CenariosV2.manifest.theme,area=G.area,active=G.active,mask=G.flags.masks,result=[];
-    current=areas.distortion_district;G.area=current.id;act.hit=0;Combat10.dashTime=0;tick=4;ProtagonistArtV5.reset();NinjaArcherArtV1.reset();
+    const theme=CenariosV2.manifest.theme,area=G.area,active=G.active,mask=G.flags.masks,musicianVariants={...MusicianArtV1.variants},result=[];
+    current=areas.distortion_district;G.area=current.id;act.hit=0;Combat10.dashTime=0;tick=4;ProtagonistArtV5.reset();NinjaArcherArtV1.reset();MusicianArtV1.reset();
     try{for(const hero of ['franco','ryuchi','alt','katana','synth','percussion'])for(const masked of [false,true])for(const dir of ['down','left','up','right']){
-     G.active=hero;G.flags.masks=masked;const p={style:hero,dir};CenariosV2.manifest.theme='qa-desert-disabled';const before=__desertQA.pixels(()=>drawActor(p,384,330,false));
+     G.active=hero;G.flags.masks=masked;if(MusicianArtV1.supports(hero))MusicianArtV1.setVariant(hero,masked?'masked':'unmasked');const p={style:hero,dir};CenariosV2.manifest.theme='qa-desert-disabled';const before=__desertQA.pixels(()=>drawActor(p,384,330,false));
      CenariosV2.manifest.theme=theme;const after=__desertQA.pixels(()=>drawActor(p,384,330,false));
      if(!__desertQA.nonempty(before)||!__desertQA.equal(before,after))throw Error('Hero changed or empty '+hero+'/'+masked+'/'+dir);result.push({hero,masked,dir,equal:true});
-    }return {samples:result.length,results:result};}finally{CenariosV2.manifest.theme=theme;G.area=area;G.active=active;G.flags.masks=mask}
+    }return {samples:result.length,results:result};}finally{CenariosV2.manifest.theme=theme;G.area=area;G.active=active;G.flags.masks=mask;Object.assign(MusicianArtV1.variants,musicianVariants)}
    });
   });
   await check('An existing district enemy generates its real combat windup on the desert floor',async()=>{

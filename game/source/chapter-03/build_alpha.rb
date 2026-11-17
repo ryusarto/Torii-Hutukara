@@ -23,6 +23,8 @@ PROTAGONIST_JS = File.join(ROOT, 'protagonist_art_v5.js')
 PROTAGONIST_ASSETS = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v5')
 NINJA_ARCHER_JS = File.join(ROOT, 'ninja_archer_art_v1.js')
 NINJA_ARCHER_ASSETS = File.join(REPO_ROOT, 'assets', 'variantes', 'ninja-arqueiro-v1')
+MUSICIAN_JS = File.join(ROOT, 'musician_art_v1.js')
+MUSICIAN_ASSETS = File.join(REPO_ROOT, 'assets', 'variantes', 'percussao-sintetizador-v1')
 CENARIOS_JS = File.join(ROOT, 'cenarios_v2.js')
 CENARIOS_ASSETS = File.join(REPO_ROOT, 'assets', 'cenarios', 'v2')
 DIALOGUE_EDITS = File.join(REPO_ROOT, 'design', 'dialogo', 'EDICOES_DIALOGO.json')
@@ -249,7 +251,8 @@ raise 'Unknown scenario theme' unless %w[v2 deserto-v1].include?(cenarios_theme)
 desert_manifest_path = File.join(REPO_ROOT, 'assets', 'cenarios', 'deserto-v1', 'manifest.json')
 if cenarios_theme == 'deserto-v1'
   desert = JSON.parse(File.read(desert_manifest_path))
-  %w[sheets items].each do |group|
+  %w[sheets items backgrounds].each do |group|
+    cenarios_manifest[group] ||= {}
     desert.fetch(group).each do |id, record|
       copy = Marshal.load(Marshal.dump(record))
       copy['file'] = '../deserto-v1/' + copy.fetch('file')
@@ -261,8 +264,9 @@ if cenarios_theme == 'deserto-v1'
   cenarios_manifest['theme'] = 'deserto-v1'
   cenarios_manifest['variantStage'] = desert.fetch('stage')
 end
-cenarios_files = cenarios_manifest.fetch('sheets').values.map { |s| s.fetch('file') }
-cenarios_uris = cenarios_manifest.fetch('sheets').to_h { |id, sheet| [id, "data:image/png;base64,#{encode(File.expand_path(sheet.fetch('file'), CENARIOS_ASSETS))}"] }
+cenarios_resources = cenarios_manifest.fetch('sheets').merge(cenarios_manifest.fetch('backgrounds', {}))
+cenarios_files = cenarios_resources.values.map { |s| s.fetch('file') }
+cenarios_uris = cenarios_resources.to_h { |id, sheet| [id, "data:image/png;base64,#{encode(File.expand_path(sheet.fetch('file'), CENARIOS_ASSETS))}"] }
 cenarios_runtime = File.read(CENARIOS_JS, encoding: 'UTF-8')
 replace_once!(cenarios_runtime, '__CENARIOS_V2_MANIFEST__', JSON.generate(cenarios_manifest), 'manifesto de cenários V2')
 replace_once!(cenarios_runtime, '__CENARIOS_V2_ASSETS__', JSON.generate(cenarios_uris), 'PNG de cenários V2')
@@ -279,7 +283,45 @@ end
 protagonist_runtime = File.read(PROTAGONIST_JS, encoding: 'UTF-8')
 replace_once!(protagonist_runtime, '__PROTAGONIST_ASSETS__', JSON.generate(protagonist_uris), 'sprites protagonistas V5')
 replace_once!(protagonist_runtime, '__PROTAGONIST_MANIFEST__', JSON.generate(protagonist_manifest), 'manifesto protagonistas V5')
-html.insert(position, "\n\n#{runtime}\n\n#{input_runtime}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(ACCESS_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n\n#{ninja_archer_runtime}\n\n#{protagonist_runtime}\n\n#{cenarios_runtime}\n")
+musician_manifest = JSON.parse(File.read(File.join(MUSICIAN_ASSETS, 'manifest.json')))
+raise 'Pacote Percussionista/Sintetizador incompleto' unless musician_manifest['complete'] == true
+musician_files = (musician_manifest.fetch('animations').map { |a| a.fetch('atlas') } + musician_manifest.fetch('portraits').map { |p| p.fetch('file') }).uniq
+musician_uris = {}
+musician_manifest.fetch('animations').each do |animation|
+  key = [animation.fetch('hero'), animation.fetch('variant'), animation.fetch('state')].join('_')
+  musician_uris[key] ||= "data:image/png;base64,#{encode(File.join(MUSICIAN_ASSETS, animation.fetch('atlas')))}"
+end
+musician_manifest.fetch('portraits').each do |portrait|
+  key = [portrait.fetch('hero'), portrait.fetch('variant'), 'portrait', portrait.fetch('expression')].join('_')
+  musician_uris[key] = "data:image/png;base64,#{encode(File.join(MUSICIAN_ASSETS, portrait.fetch('file')))}"
+end
+# The earth/scrap palette is canonical; no alternate context images are embedded.
+raise 'Não publicar paleta dupla/contextual' if musician_manifest.fetch('contexts', {}).any?
+%w[paletteRecipe geometryAudit].each do |field|
+  relative = musician_manifest.fetch(field)
+  raise "Metadado de paleta inválido: #{field}" unless relative.is_a?(String) && File.file?(File.join(MUSICIAN_ASSETS, relative))
+  musician_files << relative
+end
+musician_files.uniq!
+musician_runtime = File.read(MUSICIAN_JS, encoding: 'UTF-8')
+replace_once!(musician_runtime, '__MUSICIAN_ASSETS__', JSON.generate(musician_uris), 'sprites Percussionista e Sintetizador com paleta canônica')
+replace_once!(musician_runtime, '__MUSICIAN_MANIFEST__', JSON.generate(musician_manifest), 'manifesto Percussionista e Sintetizador')
+# Embedded runtime strings now own these bytes; release duplicate URI maps
+# before constructing the portable HTML on memory-constrained computers.
+ninja_archer_uris = protagonist_uris = musician_uris = cenarios_uris = nil
+GC.start
+# Insert pieces in reverse at the same anchor: identical bytes without a second
+# full-size concatenation of every embedded PNG/audio runtime.
+parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime]
+runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = nil
+html.insert(position, "\n")
+until parts.empty?
+  part = parts.pop
+  html.insert(position, part)
+  html.insert(position, "\n\n")
+end
+part = nil
+GC.start
 html.gsub!('ALPHA 1.2.0', VERSION.fetch('rotulo'))
 html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
 
@@ -290,10 +332,12 @@ FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
 sources = [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
+sources += [MUSICIAN_JS, File.join(MUSICIAN_ASSETS, 'manifest.json')] + musician_files.map { |relative| File.join(MUSICIAN_ASSETS, relative) }
 sources += [CENARIOS_JS, File.join(CENARIOS_ASSETS, 'manifest.json')] + cenarios_files.map { |relative| File.expand_path(relative, CENARIOS_ASSETS) }
 if cenarios_theme == 'deserto-v1'
   sources += [desert_manifest_path, File.join(ROOT, 'cenarios_deserto_v1.js')]
 end
+
 manifest = {
   game: 'TORII & HUTUKARA',
   build: VERSION.fetch('rotulo'),
@@ -326,7 +370,7 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, CENARIOS_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
     [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end
 }

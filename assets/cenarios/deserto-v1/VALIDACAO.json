@@ -1,6 +1,7 @@
 {
-  "sheets": 10,
-  "cells": 103,
+  "sheets": 13,
+  "cells": 131,
+  "backgrounds": 2,
   "checks": [
     {
       "id": "asfalto_seco",
@@ -616,6 +617,174 @@
     },
     {
       "id": "c3_desert_flute_rack",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_wind_console",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_tuning_machine",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_interference_active",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_interference_calm",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_broken_pipe",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_lift_console",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_wind_receiver",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_bass_lock",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "silence_eye_open",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "silence_eye_half",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "silence_eye_closed",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "silence_altar_dormant",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "silence_altar_awake",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "resonance_circle_off",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "resonance_circle_on",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "last_torii_arch",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "core_entry_bridge",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "core_bridge_edge",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "core_column_left",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "core_column_right",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "wind_beacon_off",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "wind_beacon_on",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "condensation_off",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "condensation_on",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "drum_anchor_off",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "drum_anchor_on",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "wind_current_marker",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_anchor_foundation",
       "transparentGutter": true,
       "nonempty": true,
       "anomalousRedPixels": 0

@@ -16,7 +16,7 @@ const CenariosDesertoV1={
   if(type==='env2_prop'&&p.item==='checkpoint_recorder')return {item:'c3_desert_checkpoint_recorder',display:[p.w,p.h]};
   const simple={c3_club:['club_facade',220,176],c3_workshop:['workshop_facade',190,132],c3_lamp:['lamp',70,126],c3_neon_lamp:['lamp',70,126],c3_neon_utility:['utility',108,144]};
   const v=simple[type];if(v)return {item:'c3_desert_'+v[0],display:v.slice(1)};
-  const extra={"c3_bench":["c3_desert_bench",96,58],"c3_planter":["c3_desert_planter",96,54],"c3_crates":["c3_desert_crates",82,72],"c3_vending":["c3_desert_vending",60,88],"c3_railing":["c3_desert_railing",106,58],"c3_drain":["c3_desert_drain",72,38],"c3_kiosk":["c3_desert_kiosk",68,80],"c3_workbench":["c3_desert_workbench",154,88],"c3_flute_rack":["c3_desert_flute_rack",112,78],"c3_wind_console":["c3_desert_wind_console",82,92],"c3_tuning_machine":["c3_desert_tuning_machine",86,84],"c3_interference / c3_interference_calm":["c3_desert_interference_calm",92,96],"c3_broken_pipe":["c3_desert_broken_pipe",96,76],"c3_lift_console":["c3_desert_lift_console",104,76],"c3_wind_receiver":["c3_desert_wind_receiver",82,98],"c3_bass_lock":["c3_desert_bass_lock",92,68]};
+  const extra={"c3_bench":["c3_desert_bench",96,58],"c3_planter":["c3_desert_planter",96,54],"c3_crates":["c3_desert_crates",82,72],"c3_vending":["c3_desert_vending",60,88],"c3_railing":["c3_desert_railing",106,58],"c3_drain":["c3_desert_drain",72,38],"c3_kiosk":["c3_desert_kiosk",68,80],"c3_workbench":["c3_desert_workbench",154,88],"c3_flute_rack":["c3_desert_flute_rack",112,78],"c3_wind_console":["c3_desert_wind_console",82,92],"c3_tuning_machine":["c3_desert_tuning_machine",86,84],"c3_interference":["c3_desert_interference_active",92,96],"c3_interference_calm":["c3_desert_interference_calm",92,96],"c3_broken_pipe":["c3_desert_broken_pipe",96,76],"c3_lift_console":["c3_desert_lift_console",104,76],"c3_wind_receiver":["c3_desert_wind_receiver",82,98],"c3_bass_lock":["c3_desert_bass_lock",92,68]};
   if(type==='checkpointStone')return {item:'c3_desert_kiosk',display:[46,60]};
   const key=type==='c3_interference'&&(G.c3.canalPath||G.c3.canalDone)?'c3_interference_calm':type,entry=extra[key];
   return entry?{item:entry[0],display:entry.slice(1)}:null;
@@ -33,4 +33,13 @@ drawProp=function(p,cx,cy){
   if(CenariosV2.sprite(binding.item,x,y,...binding.display))return;
  }
  return desertPropV1(p,cx,cy);
+};
+
+// Return contextual background URIs immediately; old image load/cache cannot
+// substitute the shared purple C3 panels or resurrect a closed dialogue.
+const desertCinemaPanelV1=PB.cinemaPanel;
+PB.cinemaPanel=function(area){
+ const id="BG_"+area;
+ if(CenariosV2.manifest.theme==='deserto-v1'&&CenariosV2.manifest.backgrounds?.[id])return CenariosV2.assets[id];
+ return desertCinemaPanelV1.call(this,area);
 };

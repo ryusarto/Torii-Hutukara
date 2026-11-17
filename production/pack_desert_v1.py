@@ -14,9 +14,16 @@ records=json.loads((backup/'fontes.json').read_text())
 # Use the established component/gutter crop contract, not a new painting algorithm.
 tree=ast.parse((root/'production/pack_cenarios_v2.py').read_text());fn=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='isolate')
 namespace={};exec(compile(ast.Module(body=[fn],type_ignores=[]),'<established atlas crop>','exec'),namespace);isolate=namespace['isolate']
-manifest={'version':1,'theme':'deserto-v1','stage':'partial','tile':24,'filter':'nearest-neighbor','sheets':{},'items':{},'sources':[]};checks=[]
+manifest={'version':1,'theme':'deserto-v1','stage':'partial','tile':24,'filter':'nearest-neighbor','sheets':{},'items':{},'backgrounds':{},'sources':[]};checks=[]
 for record in records:
- sid=record['id'];extras=[v for v in extraPlan['extraLegacyVariants'] if v['productionFamily']==sid]
+ sid=record['id']
+ if sid.startswith('BG_'):
+  raw=(backup/record['file']).read_bytes();assert hashlib.sha256(raw).hexdigest()==record['sha256']
+  im=Image.open(backup/record['file']).convert('RGBA');file='backgrounds/c3_desert_cinema_'+sid[3:]+'.png';dest=out/file;dest.parent.mkdir(parents=True,exist_ok=True);im.save(dest)
+  dest=backup/'pacote'/file;dest.parent.mkdir(parents=True,exist_ok=True);im.save(dest)
+  manifest['backgrounds'][sid]={'file':file,'size':list(im.size),'context':sid[3:],'originalId':'PB.cinemaPanel('+sid[3:]+')'}
+  manifest['sources'].append({k:record[k] for k in ['id','file','sha256','prompt']});continue
+ extras=[v for v in extraPlan['extraLegacyVariants'] if v['productionFamily']==sid]
  if sid in old['sheets']:spec=old['sheets'][sid];names=[n for n,d in old['items'].items() if d['sheet']==sid]
  else:
   family=next(v for v in extraPlan['proposedExtraPacking'] if v['id']==sid);spec={'grid':family['grid'],'cell':384 if sid=='D11' else 256,'kind':family['kind'],'file':'D'+sid[1:]+'_COMPLEMENTOS.png'};names=[v['id'] for v in sorted(extras,key=lambda v:v['productionSlot'])]
@@ -56,7 +63,8 @@ for record in records:
   checks.append({'id':name,'transparentGutter':True,'nonempty':True,'anomalousRedPixels':red})
  atlas.save(out/file);dest=backup/'pacote'/file;dest.parent.mkdir(parents=True,exist_ok=True);atlas.save(dest)
  manifest['sheets'][sid]={**spec,'file':file};manifest['sources'].append({k:record[k] for k in ['id','file','sha256','prompt']})
-report={'sheets':len(manifest['sheets']),'cells':len(manifest['items']),'checks':checks,'runtimeIntegrated':False}
+if len(manifest['sheets'])==13 and len(manifest['items'])==131 and len(manifest['backgrounds'])==2:manifest['stage']='complete_assets_pending_final_qa'
+report={'sheets':len(manifest['sheets']),'cells':len(manifest['items']),'backgrounds':len(manifest['backgrounds']),'checks':checks,'runtimeIntegrated':False}
 # Reuse the established inspector with the current pack's data and correct counts.
 html=next(n.value.value for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='html' for t in n.targets));html=html.replace('Cenários V2','C3 · Deserto V1').replace('126 recortes',str(len(manifest['items']))+' recortes')
 for folder in [out,backup/'pacote']:

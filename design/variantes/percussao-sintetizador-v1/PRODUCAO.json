@@ -1,0 +1,1271 @@
+{
+  "date": "2026-11-17",
+  "generationTool": "built-in image_gen",
+  "postprocess": "selective RGB palette lookup per explicit author request",
+  "style": "Chibi, cabeça grande e pernas curtas",
+  "paletteRecipe": "../../../assets/variantes/percussao-sintetizador-v1/PALETA_CANONICA.json",
+  "nativeSources": [
+    {
+      "file": "originais/franco_sintetizador_masked_advanced.png",
+      "sha256": "785975bb0698fe8577c0378f11a5bbec8a210ce0ecb39623cf8b0e7d35c4de1a",
+      "bytes": 2629889,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_attack_1.png",
+      "sha256": "cffe9c13e6ca710a92a5f802a0663f3908d2f3a5671e71e39123d26b3822e0cc",
+      "bytes": 2648167,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_attack_2.png",
+      "sha256": "d031be926a48b1a4836e90006c7f030f3d01196dbdd5d2f31daaa1b632cb71f7",
+      "bytes": 2514451,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_attack_3.png",
+      "sha256": "3be5ea1ff6e76ed4d94bd554aefad2fe945ffde6ea00443a2f67fd78e456b7e5",
+      "bytes": 2445262,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_defeat.png",
+      "sha256": "b01c608b3360128fc6eb541256e35c8bf29971444df39c453d25996f45e445b0",
+      "bytes": 2363325,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_hurt.png",
+      "sha256": "7be07919c79861c518fcac51419d52618e802f74208ceeca3861775bd246ee04",
+      "bytes": 2619430,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_idle.png",
+      "sha256": "f7a7af42566c47dbde49155754336a19868df98b00cb0852c32243e6d13b1763",
+      "bytes": 2508595,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_performance.png",
+      "sha256": "fd1cf0a7f6b2630fee4aebfa833b2c2471cccbca104c81ac28968ed20b576b3f",
+      "bytes": 2587316,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_portrait.png",
+      "sha256": "3cc9743abe4c27e5d577dd84a82d94610e1cb7e7686483f214770689ecbc8b78",
+      "bytes": 2543019,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_roll.png",
+      "sha256": "530970fa4af2234c6c0c3eadddbaf0929c228405fbd752c71be79ef37c4b3fad",
+      "bytes": 2460655,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_run.png",
+      "sha256": "30c822a21c41d0bc815d9c95bd5d55e03cee0d9b7083f953b14fc81addcbe821",
+      "bytes": 2591620,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_signature.png",
+      "sha256": "96d80d93a68dc4ab31f01b317c60ab49e3c0f5ef6021b870305dc99065075ccf",
+      "bytes": 2607885,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_skill.png",
+      "sha256": "438235e5246dd236c603c5060662b1e6de0b39186021163e386a99288c201193",
+      "bytes": 2504491,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_walk.png",
+      "sha256": "3ba5eed03955f12fca6493dbb48bc848cb2c3c3a23637c7baf81da84dac5ae64",
+      "bytes": 2475660,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_advanced.png",
+      "sha256": "18e23392bc235fc401fbfe14ce137eac04269abd19c5793415ad19b62cc639bf",
+      "bytes": 2502822,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_attack_1.png",
+      "sha256": "38fb6e452ac2c4d7a081018be44e109c70a44bc405184e9fbccfafa5dba99b51",
+      "bytes": 2485198,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_attack_2.png",
+      "sha256": "c7890e7568ae0a94c6f86a7b2feed76c3d95be15af481cc544097b778bf15ed1",
+      "bytes": 2422514,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_attack_3.png",
+      "sha256": "d1bd5435f26f2b8b9bb72d761396fb060c57df564aada5350620d50d5f547413",
+      "bytes": 2526290,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_defeat.png",
+      "sha256": "47b51a1549a9afbef6848e4db4016af8f896700f00d628cf12bc6cd6c7a67a40",
+      "bytes": 2326693,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_hurt.png",
+      "sha256": "7482f866921f44421e502a87867dee67173c74d2489402ee18784a6bb05f6022",
+      "bytes": 2536596,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_idle.png",
+      "sha256": "4ebb467420130a4210eda29617f0c125e753f2a44c6c6fa5749fc547a5e50d26",
+      "bytes": 2499325,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_performance.png",
+      "sha256": "e8482b9d835252f33c018aa7747e3c374ed87ce864ef993db395606fb9bd3f5e",
+      "bytes": 2657185,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_portrait.png",
+      "sha256": "b9c84ec9ed106a8bccbdf33785e4af501f45ffebf4a60d08c9d0108473772bee",
+      "bytes": 2650804,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_roll.png",
+      "sha256": "809f7e6edd1fe7e9c783de72cc426f3bf262f9a74ab9ecab61bbb99c02af3a92",
+      "bytes": 2344237,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_run.png",
+      "sha256": "7b86ef12ebf8be228b44999370de1710108b106d2318ee70e66650e9ca5e3f4e",
+      "bytes": 2367500,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_signature.png",
+      "sha256": "29b413d6f4cd200d4b97fee96c9a936b546edf1048a12cbc6f6a8be16cf81298",
+      "bytes": 2693347,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_skill.png",
+      "sha256": "113cf6ddb136f04d8549dffa793c3115bb91c70eb3d9286214228eef86c39bff",
+      "bytes": 2509903,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/franco_sintetizador_unmasked_walk.png",
+      "sha256": "5019acd5d497fb00bc0f6289d54f2fa5d82e674ad6c658caf143dc4704c0de8a",
+      "bytes": 2611965,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_advanced.png",
+      "sha256": "3d59e8487adace3c21dccf8ddb6e51e85c32c9a111ac165cb499dec062d6db54",
+      "bytes": 2395424,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_attack_1.png",
+      "sha256": "655e4ac4438f674aad873775ceeb13ec6ab65da4eccd1db34b7d6bbf325e1391",
+      "bytes": 2517666,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_attack_2.png",
+      "sha256": "7636e0bcd0d5b3a3e5d12582d185ff80acc61fef45f7acd922c91607e4d89bd1",
+      "bytes": 2529697,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_attack_3.png",
+      "sha256": "55dd31511a598158915a7f057c7b9377af69f48c1c82a1fd5a3ca10a247fe074",
+      "bytes": 2437686,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_defeat.png",
+      "sha256": "ae84c5374e6a6c5be9f547a43b761ad30f7339bd12a008d84910aed21a34bcda",
+      "bytes": 2389761,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_hurt.png",
+      "sha256": "d714115055f71389b621a94f4681d2fe1ce4c1ac41eee41028081324a5add950",
+      "bytes": 2621960,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_idle.png",
+      "sha256": "a90730a1064965bc298503cf1b36695714c2b30047d63204fa02aa4fc72e8d3c",
+      "bytes": 2528823,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_performance.png",
+      "sha256": "9ec695771e534873a07162fb011034cb32f155fab1190ae32fca0dc38ec36abb",
+      "bytes": 2710689,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_portrait.png",
+      "sha256": "f020a4a3781d17d22fbb558f5d37cc613d8c05277f3152610543756e74abd842",
+      "bytes": 2588520,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_roll.png",
+      "sha256": "421b5c3701f167486e1441ea52c575ca4e0bf8c01517d5aa3376b03f8f2c9ef0",
+      "bytes": 2071671,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_run.png",
+      "sha256": "ede77b7c7152bfaa7b7206f0ec8fe4be2d36675fe8dc542e69f7fe86715616e1",
+      "bytes": 2499701,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_signature.png",
+      "sha256": "51e71f5dd63be38d8725513694338b437a131f642102165f9f04915a2f583656",
+      "bytes": 2507836,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_skill.png",
+      "sha256": "c56c7f255849f28249187e572efb93d798d1787c69557af4ee2aac4b1c36c71f",
+      "bytes": 2594845,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_walk.png",
+      "sha256": "800c45e5848471e22b1cf2073e418469251ef63735906a0b0d5268933ef2da4b",
+      "bytes": 2302369,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_advanced.png",
+      "sha256": "1a960f740d85f57c2d770b0b396a0fd1f853b046b02c89aac10a2cb8da83e90a",
+      "bytes": 2491280,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_attack_1.png",
+      "sha256": "83756ff00ba1307de9f099e4eab4a28fbed3a1952ef06884a85615f2f8ced123",
+      "bytes": 2474607,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_attack_2.png",
+      "sha256": "93fbad7631ee59de73da8dabfb10b156080e84921b338b12ea66621e784849ab",
+      "bytes": 2508807,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_attack_3.png",
+      "sha256": "c9435fa9f505b7f089067c49e1596e196cedf081982ffa41fc1e0d58f08b88a5",
+      "bytes": 2519786,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_defeat.png",
+      "sha256": "42ce12951f53f87b2cb61bce8146f3221d8dd6c547f652f5ff7192ba5290780b",
+      "bytes": 2248797,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_hurt.png",
+      "sha256": "dea31d6c7ee91b2637331d7cc692cded092f0388f1010882b6e3e0b714d16683",
+      "bytes": 2579271,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_idle.png",
+      "sha256": "dcfaddf6a84c78d4a251c27619ad14dba64cd8154053cdabef7fa79b8f6f6cdd",
+      "bytes": 2520126,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_performance.png",
+      "sha256": "7bf8fbcf3870e891e1cc613ca59021bc1664961c30d0861b33adc338829b67e2",
+      "bytes": 2634997,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_portrait.png",
+      "sha256": "af78c69d8428a5edd3ba8174472cb7c0e9ac70f4a235f74cd0c30af2b87b2bd5",
+      "bytes": 2513754,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_roll.png",
+      "sha256": "1c9f04a76caa3095f4f668fcb8fd47af5a73f57e100092bf140bb7c831197b64",
+      "bytes": 2408332,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_run.png",
+      "sha256": "df3513e0e4f7a0d0afa256b79b408cf7b3214b5ccae5f259e1e47930236e658b",
+      "bytes": 2292479,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_signature.png",
+      "sha256": "8a5cb23fdab1b1043f88694787f1bd881c5925750845105d7e8340640115fc72",
+      "bytes": 2570884,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_skill.png",
+      "sha256": "0357d90409a988e1826ea38f79652220ce57304a0717f74379dbd93e3e24d054",
+      "bytes": 2425379,
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "file": "originais/ryuchi_percussionista_unmasked_walk.png",
+      "sha256": "246ec7b5295f4d52ac4182222f5e79c2b872106e45dafffc314fe457eb86eb77",
+      "bytes": 2288268,
+      "dimensions": [
+        1774,
+        887
+      ]
+    }
+  ],
+  "runtimePngs": [
+    {
+      "file": "atlas/franco_sintetizador_masked_advanced.png",
+      "sha256": "c064c96e56c002dd08fd0b8a1f50076ed805e0ab77e829572c81559e909f13e4",
+      "bytes": 2372333,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_attack_1.png",
+      "sha256": "d19da02f0d85f01ee32735393195ea53a01a79dbbd4dec620cc25295c57f6c93",
+      "bytes": 2276050,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_attack_2.png",
+      "sha256": "7b43b920a5673e03bcd419ccf2fc9c5d29547fda1d9849e8337cbe33a9173845",
+      "bytes": 2214208,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_attack_3.png",
+      "sha256": "cf11c941146e5b3d231925e70e6603af64da7654e7803ecbdbdea93fb5dcfb33",
+      "bytes": 2164728,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_defeat.png",
+      "sha256": "c6ae382aebcbbfb1fd745d867f178cf51cc9a0bbbe95bc5d4584fe7444f3f305",
+      "bytes": 2026143,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_hurt.png",
+      "sha256": "e747891f1ab07d5eed0af285886c45bdab7a6123588e3c64fa4d86cca9fea9c9",
+      "bytes": 2277603,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_idle.png",
+      "sha256": "51265c0d7d957f0dfdebb588fa82646f372def79cc56f37b05e181b1850652e8",
+      "bytes": 2247563,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_performance.png",
+      "sha256": "554b4d37f8de2b8acd7f7b8386e2f5fc9587ab11b416c081bcf773aca5d6cf96",
+      "bytes": 2227221,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_roll.png",
+      "sha256": "d98d4edc5e431c0ddb6aa374c9acee7d940fd271eba70ae3dc8aa86291a97678",
+      "bytes": 2179269,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_run.png",
+      "sha256": "b823f86d66032fb1f8df5bbff26123c92e421ccafac6b3689484e40e6dda207d",
+      "bytes": 2377609,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_signature.png",
+      "sha256": "13b4327f7a6c1a72e46220efbacd04d141876f8e89aefba64b739452853c67a6",
+      "bytes": 2271765,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_skill.png",
+      "sha256": "d297802d6a4685d4ab0932334909d145e7f4fe5b05783cc96936aa3f76aeec18",
+      "bytes": 2275299,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_walk.png",
+      "sha256": "ebc51fccbd2b211e6a877f3a9a1110e6044e1ec49b2e7abb9d79ce4ab619edda",
+      "bytes": 2154262,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_advanced.png",
+      "sha256": "51f52f557c95bb289ab896c5f5912e3c2c660f1233192f606738eabd273d6e6d",
+      "bytes": 1924669,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_attack_1.png",
+      "sha256": "8897cc7c217b0ad86ecd1e57f2c301b65cd5b8f437619bceab9055c0ba86057b",
+      "bytes": 1828675,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_attack_2.png",
+      "sha256": "eb38dca5d5aa843931e8aaf439fe085a484be48c990af20c1a878240fc7f43a1",
+      "bytes": 1886158,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_attack_3.png",
+      "sha256": "9934e801a7403553545516afb1781603a59085d8b15697009cfd91d2816b5421",
+      "bytes": 1964110,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_defeat.png",
+      "sha256": "ebb7a45d83ac8b9d1d9df3a987330761e5b13fcd0645fc7b6a156a527ee3c9db",
+      "bytes": 1726781,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_hurt.png",
+      "sha256": "7d16be7d1114e7e592860e6a22ce0d380329b2e40e286c732d0dd05c4a6a56aa",
+      "bytes": 1964337,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_idle.png",
+      "sha256": "94cf1830b01947544aee1454494044a99a5a2a0672a130edc52ff358e6bde8bf",
+      "bytes": 1949046,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_performance.png",
+      "sha256": "64c28e201bbaa6e794401af363d59e73d461852ace6af937bf556c8b48e8c7a1",
+      "bytes": 2049481,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_roll.png",
+      "sha256": "f4cc588c55d55227710839f8bc9349412347abe56b9978b06de32b43f96231f6",
+      "bytes": 1824023,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_run.png",
+      "sha256": "364fe0a60e0c047fcc00e3ec0851f530f9fa16ddf77bcb7dcba510fbc0f7b8b9",
+      "bytes": 1794262,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_signature.png",
+      "sha256": "582a935665940f0f6112838f20a7d74d1643c3d2e5c395006d2dbce7fd8ec540",
+      "bytes": 1997158,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_skill.png",
+      "sha256": "306dab2dc986246ac51ed9e4acb793f3ef20516f8ac42c87fd2faf902226770e",
+      "bytes": 1965234,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/franco_sintetizador_unmasked_walk.png",
+      "sha256": "458f9116f82922489f91b28189eae5592b73373dfc3bd37ea0c1e91a2647f7f0",
+      "bytes": 1949886,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_advanced.png",
+      "sha256": "b33666d368e0f842589e11a40972019a6846709eb6596945ec1fbc5f392bd68b",
+      "bytes": 2078213,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_attack_1.png",
+      "sha256": "e3cb69bdc33f6d3d98870d8d3ffd9dd5f0112239f498c162d6d36cfceebe46d7",
+      "bytes": 2132474,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_attack_2.png",
+      "sha256": "2c2d8cf796182a1544e8a61d37dc72b677cfab1a2ff33085cbf9360b7d9b1d21",
+      "bytes": 2206904,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_attack_3.png",
+      "sha256": "a2626c7179e3fbfc55a1c245fe483784e64749f813bb685ed56945cc3e132602",
+      "bytes": 2238579,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_defeat.png",
+      "sha256": "11eb170fe160680b79773dcdd1bb753bc63deb31d9327eb02011575e7516181f",
+      "bytes": 2058964,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_hurt.png",
+      "sha256": "1b487ebddc0bfe002bf5f550e975d0041973d18c03a36ae816bf4e85addd87e7",
+      "bytes": 2326082,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_idle.png",
+      "sha256": "4f9e1727c663299ef96824c5e31fb5deda875a3b7ead52a2a708678427b94377",
+      "bytes": 2231506,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_performance.png",
+      "sha256": "8bdbf2ae3586dacd3f143992aa04d94c302f7487d2c32fd746923d640b87052a",
+      "bytes": 2314037,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_roll.png",
+      "sha256": "9f56b0ca2aa1b08b6b524048918801367028fa93b798dd5c1c6b5c7d4389c149",
+      "bytes": 1896134,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_run.png",
+      "sha256": "1971105d0cd83fab82512dd895c0cc07923df4fa2e5b164e1d314204f1baf966",
+      "bytes": 2172489,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_signature.png",
+      "sha256": "34c69d32ca3bec937ab642620ea589f80a96694a98a25bc0b871bb3d5ce5c087",
+      "bytes": 2305047,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_skill.png",
+      "sha256": "0526629480bce7e3a823058d8d396e1003ebc5f73a725ed6020eea35cd1c064d",
+      "bytes": 2348898,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_walk.png",
+      "sha256": "e728527500eb9cb90d61a80d55eb93acbb2939b55cace04cf878fe5009281b01",
+      "bytes": 2075455,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_advanced.png",
+      "sha256": "f1b829100abf555a0618793930dba71d3c040e76b5fff8fb2db80335026c5645",
+      "bytes": 1934676,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_attack_1.png",
+      "sha256": "59e356fc3a1fca49289ad009ed98347de1fc7d365f68e28ac633ad8aa9a8a6dd",
+      "bytes": 1942751,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_attack_2.png",
+      "sha256": "04aa2a1654cc3e1fa414837058811436d11032f3eea7c8e5e1d18270528c8114",
+      "bytes": 1975621,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_attack_3.png",
+      "sha256": "8a1bf4bd70f1b7d52d50be6ac98664415b4d66ecf7e8125dcda37fb591262e55",
+      "bytes": 2057617,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_defeat.png",
+      "sha256": "0bdabaa61b51f2b8fae41907744599ab0678ee58f17ace43572546e6ed8422ff",
+      "bytes": 1756322,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_hurt.png",
+      "sha256": "36b2050dfca285ba7b599761c2bdca147e405e25fbc17ca2cebd8d7a1cbbf549",
+      "bytes": 2014140,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_idle.png",
+      "sha256": "075310dcf8f24e807b52d47b5a251c34ae409cd581686012d7012b9e4e9e1fce",
+      "bytes": 1981599,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_performance.png",
+      "sha256": "dfd0718f343f1e8054ef355ac17227c34effcc7bea52db031482b0a2001a0e83",
+      "bytes": 2030865,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_roll.png",
+      "sha256": "0456278da04cc230dc4524cfdcfa44dbdbb8ca72affafd1c979739ff0cb06bb4",
+      "bytes": 1923333,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_run.png",
+      "sha256": "2d610f7ce5592571b6735938dd7251eaf868a3fc469480f6edcec4913865b5cc",
+      "bytes": 1892893,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_signature.png",
+      "sha256": "85bd7c8f003774e18c20ee7e3aba91775c5bea059071dbef5ea2c6f216399c88",
+      "bytes": 2045788,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_skill.png",
+      "sha256": "d816755e0975aec0e0b662fee9ee7afe1ed83b4c4e4fb6fe1974c43d5e87a584",
+      "bytes": 1915786,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_unmasked_walk.png",
+      "sha256": "148bf398aea93e8fa33cc7ef71a11f673b5bd3c781ffd9a175929da95a43ddb9",
+      "bytes": 1823000,
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/masked/angry.png",
+      "sha256": "46e200219d173ea808e489a73be069b9a20dfe878a84ea11adfbf16c0f15a8eb",
+      "bytes": 103822,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/masked/determined.png",
+      "sha256": "b19bf05d78535cad95814aa7254353476b41e8dee37330c6827d7b176ce62184",
+      "bytes": 101708,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/masked/happy.png",
+      "sha256": "95d752d0bb15cef3d3ce08e8c8a12a5462d25e32caf5265a9c6b19fc8d380e98",
+      "bytes": 102006,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/masked/hurt.png",
+      "sha256": "97d94d7fda0c0548df27855434154ddb96f76c458d8651b83685e8530ef88fe0",
+      "bytes": 103599,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/masked/neutral.png",
+      "sha256": "3fc00bbc9b5a791ae3507c3f2c6c2bc1667b869e8a89220f9fe292c8cae18cf9",
+      "bytes": 101726,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/masked/sad.png",
+      "sha256": "2e35c44af466a9bcbd2112b656756d0f767aaeac3ea902ca3089017a36ecfdaf",
+      "bytes": 102438,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/masked/speaking.png",
+      "sha256": "8a7b4e11fc898a0119575d6f6f46132319a3af30f17fcf444c46747a28f6e02f",
+      "bytes": 102625,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/masked/surprised.png",
+      "sha256": "6a8755650c00da3907844c18b9df13bb0d22188507ae9fe455dead7747065179",
+      "bytes": 103829,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/unmasked/angry.png",
+      "sha256": "2b3b6c3a8d4320d461b6b1eaa2a69fc97827f65b1f177f0b34c39c9c31b32fa9",
+      "bytes": 104221,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/unmasked/determined.png",
+      "sha256": "3b7354f66c82ba0dca8fa1c027a653f122246d06b2df23154fe7671c74beab06",
+      "bytes": 103940,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/unmasked/happy.png",
+      "sha256": "c3c852d7db0e09bba401792e2d427614fec6ee0972dd839e99c4f60ddc6bf548",
+      "bytes": 103812,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/unmasked/hurt.png",
+      "sha256": "e01e66d88e3cfc7d84cd47e83f834e2f5d16d3dd25d7468857f1e7e48e1cbac0",
+      "bytes": 104792,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/unmasked/neutral.png",
+      "sha256": "7e5c16adae966562fbb78ebc19cc3533db8153f81946c366fa699b4b349317d5",
+      "bytes": 104591,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/unmasked/sad.png",
+      "sha256": "cb3b46715be5df529a5b6d18ccea7af8bb3dc35b33f595dfee7bee8d76208b8b",
+      "bytes": 104946,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/unmasked/speaking.png",
+      "sha256": "894160cbca717e81f9393c5cddaf27672a586b1a2f193a18cbfb2efea40f39b2",
+      "bytes": 104687,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/franco_sintetizador/unmasked/surprised.png",
+      "sha256": "4934f374dccf4323d09f217c4ef81a862c16b553c2663ee0238a452cdaf2b1a1",
+      "bytes": 104566,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/masked/angry.png",
+      "sha256": "2b8c3bc536f880f317b11310ec7e791723fe34d1617d03496639d581b57007e5",
+      "bytes": 103113,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/masked/determined.png",
+      "sha256": "be041db25e214c34e64172697e0183b690c5e216efd9189f901cca06528afc4d",
+      "bytes": 102619,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/masked/happy.png",
+      "sha256": "f2af74614dcfe7aded9ba64c47695e673b7805eedaae4667829f5b2caed71692",
+      "bytes": 102316,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/masked/hurt.png",
+      "sha256": "01ee9d66f7c3e020c04708b1699bfe489145b3eb316549b906e39507c4bcabff",
+      "bytes": 103166,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/masked/neutral.png",
+      "sha256": "2a5c9b0731db89e48ba0508ddbab35f9e62b3047ee0082cb9b279249999a6627",
+      "bytes": 102713,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/masked/sad.png",
+      "sha256": "2915f501cca81b21de8980f163b56ed7425d237097e6340fa6475da03a9c35a3",
+      "bytes": 102033,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/masked/speaking.png",
+      "sha256": "919b5aa4102925dff1d190e4b2cdbfcc659856368c28b651367f140e194ce199",
+      "bytes": 102420,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/masked/surprised.png",
+      "sha256": "b061f4270eec49e3fdec9de63211413fbf54a88d63b63cc5fb9de05de5ba6b6d",
+      "bytes": 102836,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/unmasked/angry.png",
+      "sha256": "df08f8c3553688c76f18d503f4e61145107a632ccd4d6dc53a3f62900411e5a0",
+      "bytes": 104598,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/unmasked/determined.png",
+      "sha256": "fa31a3da0dc07bf3ea3cb1e3071275b12affd872157dac3b71bda53f30712336",
+      "bytes": 104245,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/unmasked/happy.png",
+      "sha256": "99c56e598ffc3100e089e563088339e2a4ba66e54486af73240652e0aa0e8afd",
+      "bytes": 102810,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/unmasked/hurt.png",
+      "sha256": "441fb9173e691739af9d14759e7a7d9ef826bafb45cbcc8ba7a5d1599754df9a",
+      "bytes": 104575,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/unmasked/neutral.png",
+      "sha256": "699c9fda1c8eb0a36f27c59e63bc876040e9b44c0a350fbd416ddf5526308115",
+      "bytes": 103927,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/unmasked/sad.png",
+      "sha256": "402b9dbc66a003869ec6da469449c3ed5e595bc7036be4da109260bacd474e2a",
+      "bytes": 105311,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/unmasked/speaking.png",
+      "sha256": "9d61e90aa3a198e921356eca4ca5fc3945c93030bfff950ff63d252b77045d3f",
+      "bytes": 104596,
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "file": "retratos/ryuchi_percussionista/unmasked/surprised.png",
+      "sha256": "f807f195103a35091b7a1a8e292fec0d0a0f58bc089d9c5e4dea73d9a13aaaf3",
+      "bytes": 104210,
+      "dimensions": [
+        256,
+        256
+      ]
+    }
+  ]
+}

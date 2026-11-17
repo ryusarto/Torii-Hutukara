@@ -80,21 +80,30 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
      advanceDialogue();return {ninja,frozen,archer:$('portrait').getAttribute('src')===NinjaArcherArtV1.assets.alt_portrait_speaking};
    });assert(v.ninja&&v.archer&&v.frozen,JSON.stringify(v));return v;
  });
- await check('Legacy rendering of the musician heroes stays pixel-identical',async()=>{
-   await arena('franco','ryuchi');
-   await page.evaluate(async()=>{C3.loadDeferredImages();await Promise.all(Object.values(C3.images).map(image=>image.decode()));if(typeof ProtagonistArtV5!=='undefined')for(const hero of ['alt','katana'])await NinjaArcherArtV1.image(hero+'_idle').decode();if(typeof ProtagonistArtV5!=='undefined')for(const hero of ['franco','ryuchi'])await ProtagonistArtV5.image(hero+'_idle').decode();});
-   const v=await page.evaluate(()=>{
+ await check('Musician renderer preserves the other four authored heroes pixel-identically',async()=>{
+   await arena('franco','ryuchi');const v=await page.evaluate(async()=>{
+     if(typeof MusicianArtV1==='undefined'||typeof ProtagonistArtV5==='undefined')throw Error('Authored art integration missing');
      C3.pad.pads=[];const results=[];
-     // Stabilize Canvas readback (Chrome may switch GPU/CPU raster after repeated reads).
-     ctx.resetTransform();for(let n=0;n<4;n++)ctx.getImageData(100,70,180,180);
-     for(const hero of ['synth','percussion']){
-       G.active=hero;act.hit=0;Combat10.dashTime=0;G.flags.masks=true;const p={style:hero,dir:'down'};
-       ninjaArcherActorV1(p,180,180,false);
-       ctx.clearRect(0,0,768,432);ninjaArcherActorV1(p,180,180,false);const before=ctx.getImageData(100,70,180,180).data;
+     for(const hero of ['franco','ryuchi','alt','katana']){
+       G.active=hero;act.hit=0;Combat10.dashTime=0;G.flags.masks=true;
+       ProtagonistArtV5.reset();NinjaArcherArtV1.reset();MusicianArtV1.reset();
+       const art=ProtagonistArtV5.supports(hero)?ProtagonistArtV5:NinjaArcherArtV1;
+       const p={style:hero,dir:'down'};
+       // Initialize the captured renderer first, then decode its authored idle.
+       ctx.clearRect(0,0,768,432);musicianActorV1(p,180,180,false);
+       await art.image(hero+'_idle').decode();
+       // Repeated identical draws can differ during macOS Chrome's first canvas
+       // readbacks even with identical source image, geometry and ctx state.
+       // Warm those readbacks before comparing stable render paths exactly.
+       for(let warm=0;warm<3;warm++){
+         ctx.clearRect(0,0,768,432);musicianActorV1(p,180,180,false);
+         ctx.getImageData(100,70,180,180);
+       }
+       ctx.clearRect(0,0,768,432);musicianActorV1(p,180,180,false);const before=ctx.getImageData(100,70,180,180).data;
        ctx.clearRect(0,0,768,432);drawActor(p,180,180,false);const after=ctx.getImageData(100,70,180,180).data;
-       results.push({hero,equal:before.every((n,i)=>n===after[i]),changedChannels:before.reduce((n,v,i)=>n+(v!==after[i]),0),maxDelta:before.reduce((n,v,i)=>Math.max(n,Math.abs(v-after[i])),0)});
+       results.push({hero,equal:before.every((n,i)=>n===after[i]),visible:after.some((n,i)=>i%4===3&&n>0)});
      }return results;
-   });assert(v.every(x=>x.equal),JSON.stringify(v));return v;
+   });assert(v.every(x=>x.equal&&x.visible),JSON.stringify(v));return v;
  });
  await check('Full resolution sheet cache remains bounded to eight decoded images',async()=>{
    const size=await page.evaluate(()=>{for(const hero of ['alt','katana'])for(const state of NinjaArcherArtV1.manifest.states)NinjaArcherArtV1.image(hero+'_'+state);return Object.keys(NinjaArcherArtV1.images).length});assert.equal(size,8);return size;
@@ -109,3 +118,4 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'NINJA_ARQUEIRO_RESULTS.json'),JSON.stringify({version:version.versao,passed:checks.length,checks,browserErrors:errors,physicalControllersTested:false},null,2)+'\n');
  await context.close();await browser.close();console.log('PASS · '+checks.length+' checks');
 })().catch(e=>{console.error(e);process.exit(1)});
+

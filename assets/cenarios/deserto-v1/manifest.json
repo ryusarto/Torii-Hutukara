@@ -1,7 +1,7 @@
 {
   "version": 1,
   "theme": "deserto-v1",
-  "stage": "partial",
+  "stage": "complete_assets_pending_final_qa",
   "tile": 24,
   "filter": "nearest-neighbor",
   "sheets": {
@@ -94,6 +94,33 @@
       "cell": 256,
       "kind": "urban_plus_large_workshop_props",
       "file": "atlas/D12_COMPLEMENTOS.png"
+    },
+    "D13": {
+      "grid": [
+        4,
+        2
+      ],
+      "cell": 256,
+      "kind": "mechanisms_and_canal_states",
+      "file": "atlas/D13_COMPLEMENTOS.png"
+    },
+    "A10": {
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "grid": [
+        4,
+        3
+      ],
+      "cell": 256,
+      "kind": "props"
+    },
+    "A09": {
+      "file": "atlas/D09_NUVENS_MECANISMOS.png",
+      "grid": [
+        4,
+        2
+      ],
+      "cell": 256,
+      "kind": "props"
     }
   },
   "items": {
@@ -3589,6 +3616,1049 @@
         112,
         78
       ]
+    },
+    "c3_desert_wind_console": {
+      "sheet": "D13",
+      "file": "atlas/D13_COMPLEMENTOS.png",
+      "cell": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        56,
+        8,
+        144,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "sourceContent": [
+        108,
+        14,
+        365,
+        429
+      ],
+      "originalId": "c3_wind_console",
+      "context": [
+        "ciro_workshop"
+      ],
+      "display": [
+        82,
+        92
+      ]
+    },
+    "c3_desert_tuning_machine": {
+      "sheet": "D13",
+      "file": "atlas/D13_COMPLEMENTOS.png",
+      "cell": [
+        256,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        268,
+        24,
+        232,
+        216
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        444,
+        0,
+        887,
+        444
+      ],
+      "sourceContent": [
+        35,
+        49,
+        439,
+        426
+      ],
+      "originalId": "c3_tuning_machine",
+      "context": [
+        "ciro_workshop"
+      ],
+      "display": [
+        86,
+        84
+      ]
+    },
+    "c3_desert_interference_active": {
+      "sheet": "D13",
+      "file": "atlas/D13_COMPLEMENTOS.png",
+      "cell": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        524,
+        35,
+        232,
+        205
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        887,
+        0,
+        1330,
+        444
+      ],
+      "sourceContent": [
+        45,
+        108,
+        399,
+        421
+      ],
+      "scaleGroup": [
+        "c3_desert_interference_active",
+        "c3_desert_interference_calm"
+      ],
+      "originalId": "c3_interference / c3_interference_calm",
+      "context": [
+        "sky_canal"
+      ],
+      "display": [
+        92,
+        96
+      ]
+    },
+    "c3_desert_interference_calm": {
+      "sheet": "D13",
+      "file": "atlas/D13_COMPLEMENTOS.png",
+      "cell": [
+        768,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        780,
+        35,
+        232,
+        205
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        1330,
+        0,
+        1774,
+        444
+      ],
+      "sourceContent": [
+        46,
+        108,
+        400,
+        421
+      ],
+      "scaleGroup": [
+        "c3_desert_interference_active",
+        "c3_desert_interference_calm"
+      ],
+      "originalId": "c3_interference / c3_interference_calm",
+      "context": [
+        "sky_canal"
+      ],
+      "display": [
+        92,
+        96
+      ]
+    },
+    "c3_desert_broken_pipe": {
+      "sheet": "D13",
+      "file": "atlas/D13_COMPLEMENTOS.png",
+      "cell": [
+        0,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        12,
+        373,
+        232,
+        123
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        0,
+        444,
+        444,
+        887
+      ],
+      "sourceContent": [
+        8,
+        181,
+        436,
+        408
+      ],
+      "originalId": "c3_broken_pipe",
+      "context": [
+        "sky_canal"
+      ],
+      "display": [
+        96,
+        76
+      ]
+    },
+    "c3_desert_lift_console": {
+      "sheet": "D13",
+      "file": "atlas/D13_COMPLEMENTOS.png",
+      "cell": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        268,
+        338,
+        232,
+        158
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        444,
+        444,
+        887,
+        887
+      ],
+      "sourceContent": [
+        9,
+        111,
+        434,
+        401
+      ],
+      "originalId": "c3_lift_console",
+      "context": [
+        "sky_lift"
+      ],
+      "display": [
+        104,
+        76
+      ]
+    },
+    "c3_desert_wind_receiver": {
+      "sheet": "D13",
+      "file": "atlas/D13_COMPLEMENTOS.png",
+      "cell": [
+        512,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        575,
+        264,
+        131,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        887,
+        444,
+        1330,
+        887
+      ],
+      "sourceContent": [
+        107,
+        8,
+        335,
+        412
+      ],
+      "originalId": "c3_wind_receiver",
+      "context": [
+        "sky_lift"
+      ],
+      "display": [
+        82,
+        98
+      ]
+    },
+    "c3_desert_bass_lock": {
+      "sheet": "D13",
+      "file": "atlas/D13_COMPLEMENTOS.png",
+      "cell": [
+        768,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        780,
+        349,
+        232,
+        147
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        1330,
+        444,
+        1774,
+        887
+      ],
+      "sourceContent": [
+        8,
+        133,
+        436,
+        404
+      ],
+      "originalId": "c3_bass_lock",
+      "context": [
+        "sky_lift"
+      ],
+      "display": [
+        92,
+        68
+      ]
+    },
+    "silence_eye_open": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        70,
+        8,
+        117,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        0,
+        0,
+        362,
+        362
+      ],
+      "sourceContent": [
+        103,
+        12,
+        269,
+        341
+      ],
+      "scaleGroup": [
+        "silence_eye_open",
+        "silence_eye_half",
+        "silence_eye_closed"
+      ]
+    },
+    "silence_eye_half": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        256,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        326,
+        8,
+        117,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        362,
+        0,
+        724,
+        362
+      ],
+      "sourceContent": [
+        103,
+        12,
+        268,
+        341
+      ],
+      "scaleGroup": [
+        "silence_eye_open",
+        "silence_eye_half",
+        "silence_eye_closed"
+      ]
+    },
+    "silence_eye_closed": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        582,
+        8,
+        117,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        724,
+        0,
+        1086,
+        362
+      ],
+      "sourceContent": [
+        103,
+        12,
+        269,
+        341
+      ],
+      "scaleGroup": [
+        "silence_eye_open",
+        "silence_eye_half",
+        "silence_eye_closed"
+      ]
+    },
+    "silence_altar_dormant": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        768,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        780,
+        27,
+        232,
+        213
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        1086,
+        0,
+        1448,
+        362
+      ],
+      "sourceContent": [
+        23,
+        49,
+        341,
+        342
+      ],
+      "scaleGroup": [
+        "silence_altar_dormant",
+        "silence_altar_awake"
+      ]
+    },
+    "silence_altar_awake": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        0,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        12,
+        283,
+        232,
+        213
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        0,
+        362,
+        362,
+        724
+      ],
+      "sourceContent": [
+        22,
+        49,
+        341,
+        341
+      ],
+      "scaleGroup": [
+        "silence_altar_dormant",
+        "silence_altar_awake"
+      ]
+    },
+    "resonance_circle_off": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        278,
+        264,
+        212,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        362,
+        362,
+        724,
+        724
+      ],
+      "sourceContent": [
+        36,
+        17,
+        326,
+        334
+      ],
+      "scaleGroup": [
+        "resonance_circle_off",
+        "resonance_circle_on"
+      ]
+    },
+    "resonance_circle_on": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        512,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        534,
+        264,
+        212,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        724,
+        362,
+        1086,
+        724
+      ],
+      "sourceContent": [
+        36,
+        18,
+        326,
+        333
+      ],
+      "scaleGroup": [
+        "resonance_circle_off",
+        "resonance_circle_on"
+      ]
+    },
+    "last_torii_arch": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        768,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        780,
+        298,
+        232,
+        198
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        1086,
+        362,
+        1448,
+        724
+      ],
+      "sourceContent": [
+        21,
+        61,
+        344,
+        337
+      ]
+    },
+    "core_entry_bridge": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        0,
+        512,
+        256,
+        256
+      ],
+      "content": [
+        22,
+        520,
+        213,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        0,
+        724,
+        362,
+        1086
+      ],
+      "sourceContent": [
+        28,
+        11,
+        333,
+        343
+      ]
+    },
+    "core_bridge_edge": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        256,
+        512,
+        256,
+        256
+      ],
+      "content": [
+        268,
+        685,
+        232,
+        67
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        362,
+        724,
+        724,
+        1086
+      ],
+      "sourceContent": [
+        18,
+        246,
+        345,
+        341
+      ]
+    },
+    "core_column_left": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        512,
+        512,
+        256,
+        256
+      ],
+      "content": [
+        598,
+        520,
+        85,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        724,
+        724,
+        1086,
+        1086
+      ],
+      "sourceContent": [
+        120,
+        9,
+        242,
+        343
+      ]
+    },
+    "core_column_right": {
+      "sheet": "A10",
+      "file": "atlas/D10_SANTUARIO_NUCLEO.png",
+      "cell": [
+        768,
+        512,
+        256,
+        256
+      ],
+      "content": [
+        854,
+        520,
+        85,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        1086,
+        724,
+        1448,
+        1086
+      ],
+      "sourceContent": [
+        120,
+        9,
+        242,
+        343
+      ]
+    },
+    "wind_beacon_off": {
+      "sheet": "A09",
+      "file": "atlas/D09_NUVENS_MECANISMOS.png",
+      "cell": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        58,
+        8,
+        140,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "sourceContent": [
+        103,
+        10,
+        344,
+        411
+      ],
+      "scaleGroup": [
+        "wind_beacon_off",
+        "wind_beacon_on"
+      ]
+    },
+    "wind_beacon_on": {
+      "sheet": "A09",
+      "file": "atlas/D09_NUVENS_MECANISMOS.png",
+      "cell": [
+        256,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        314,
+        8,
+        140,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        444,
+        0,
+        887,
+        444
+      ],
+      "sourceContent": [
+        102,
+        10,
+        344,
+        411
+      ],
+      "scaleGroup": [
+        "wind_beacon_off",
+        "wind_beacon_on"
+      ]
+    },
+    "condensation_off": {
+      "sheet": "A09",
+      "file": "atlas/D09_NUVENS_MECANISMOS.png",
+      "cell": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        568,
+        8,
+        144,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        887,
+        0,
+        1330,
+        444
+      ],
+      "sourceContent": [
+        91,
+        14,
+        340,
+        411
+      ],
+      "scaleGroup": [
+        "condensation_off",
+        "condensation_on"
+      ]
+    },
+    "condensation_on": {
+      "sheet": "A09",
+      "file": "atlas/D09_NUVENS_MECANISMOS.png",
+      "cell": [
+        768,
+        0,
+        256,
+        256
+      ],
+      "content": [
+        824,
+        8,
+        144,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        1330,
+        0,
+        1774,
+        444
+      ],
+      "sourceContent": [
+        109,
+        14,
+        328,
+        414
+      ],
+      "scaleGroup": [
+        "condensation_off",
+        "condensation_on"
+      ]
+    },
+    "drum_anchor_off": {
+      "sheet": "A09",
+      "file": "atlas/D09_NUVENS_MECANISMOS.png",
+      "cell": [
+        0,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        12,
+        275,
+        232,
+        221
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        0,
+        444,
+        444,
+        887
+      ],
+      "sourceContent": [
+        30,
+        36,
+        414,
+        402
+      ],
+      "scaleGroup": [
+        "drum_anchor_off",
+        "drum_anchor_on"
+      ]
+    },
+    "drum_anchor_on": {
+      "sheet": "A09",
+      "file": "atlas/D09_NUVENS_MECANISMOS.png",
+      "cell": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        268,
+        275,
+        232,
+        221
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        444,
+        444,
+        887,
+        887
+      ],
+      "sourceContent": [
+        30,
+        36,
+        414,
+        402
+      ],
+      "scaleGroup": [
+        "drum_anchor_off",
+        "drum_anchor_on"
+      ]
+    },
+    "wind_current_marker": {
+      "sheet": "A09",
+      "file": "atlas/D09_NUVENS_MECANISMOS.png",
+      "cell": [
+        512,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        556,
+        264,
+        168,
+        232
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        887,
+        444,
+        1330,
+        887
+      ],
+      "sourceContent": [
+        86,
+        13,
+        371,
+        406
+      ]
+    },
+    "cloud_anchor_foundation": {
+      "sheet": "A09",
+      "file": "atlas/D09_NUVENS_MECANISMOS.png",
+      "cell": [
+        768,
+        256,
+        256,
+        256
+      ],
+      "content": [
+        780,
+        306,
+        232,
+        190
+      ],
+      "pivot": [
+        128,
+        240
+      ],
+      "sourceCell": [
+        1330,
+        444,
+        1774,
+        887
+      ],
+      "sourceContent": [
+        35,
+        97,
+        412,
+        406
+      ]
+    }
+  },
+  "backgrounds": {
+    "BG_distortion": {
+      "file": "backgrounds/c3_desert_cinema_distortion.png",
+      "size": [
+        1672,
+        941
+      ],
+      "context": "distortion",
+      "originalId": "PB.cinemaPanel(distortion)"
+    },
+    "BG_cloud": {
+      "file": "backgrounds/c3_desert_cinema_cloud.png",
+      "size": [
+        1672,
+        941
+      ],
+      "context": "cloud",
+      "originalId": "PB.cinemaPanel(cloud)"
     }
   },
   "sources": [
@@ -3651,6 +4721,36 @@
       "file": "originais/D12_DESERTO.png",
       "sha256": "91b2112428bc65612d0c43f334f7259b102fc5196c1d3c6833c396ab893669e5",
       "prompt": "Use case: stylized-concept. Production isolated sprite sheet for Torii & Hutukara C3 DESERT CYBERPUNK SETTLEMENT. Exactly THREE columns x THREE rows, NINE separate equal invisible square cells, generous transparent margins. Reference image gives old prop silhouettes/ground anchoring and 16bit finish ONLY; use new DESERT materials and FOLLOW NEW ORDER below, not reference order. Crisp visible pixel clusters, top-down JRPG frontal 3/4, no isometric diamond plates, no global tint. Sand #C3A06C,dust #DFC49A,rust #9A5537/#6E3F2A,worn steel #53524A,charcoal #282724,bone #F0E0BD, tiny functional cyan #6CC1BC, warm amber #E7B26B. Objects repaired from scavenged metal, timber and faded canvas, warm human settlement, recognizable silhouettes, coherent contact shadows tightly UNDER the feet. Row1: (1) broad salvaged timber/steel public bench with two low warm marker lights; (2) broad rust metal rectangular planter with a small cared-for olive-green drought plant and sparse muted flowers, no violet neon; (3) stack of three varied reinforced supply crates with worn wood, metal corners and fabric strap. Row2: (4) narrow vertical repaired water/vending dispenser with protected glass, muted bottles, tiny cyan function indicator, sandy rust casing; (5) broad waist-high metal railing with two upright amber lantern posts, lower bars and open gaps; (6) low flat broad rusty slotted canal drainage grate with inset worn concrete rim, top-view floor object. Row3: (7) narrow checkpoint audio kiosk with small cyan waveform display, reel recorder and amber status lamp, no writing; (8) wide workshop repair workbench with shadowed legs, tools, cables, small cyan oscilloscope and hand-restoration details; (9) wide low instrument rack holding three distinct wind flutes/pipes with warm timber and scratched rust supports, musical identity, not masks. Preserve each cell ground baseline, all silhouettes intact, no cropping, no figures, no letters/labels/borders/background scenery. True alpha0 everywhere outside nine props and their small local contact shadows. No huge checkerboard, green chroma, pastel violet metal, saturated magenta or shiny futuristic luxury."
+    },
+    {
+      "id": "D13",
+      "file": "originais/D13_DESERTO.png",
+      "sha256": "a15b101e59045d6ab4ecfcd1c11c54c144ba8a36d5764c986422772a5e04a386",
+      "prompt": "Use case: stylized-concept. Production isolated 16-bit pixel-art game props, Torii & Hutukara Chapter3 desert cyberpunk. EXACT 4 columns x 2 rows, EIGHT equal square cells with transparent gutters. Reference old workshop is a silhouette/function guide ONLY; rebuild in worn steel #53524A, rust #9A5537/#6E3F2A, sand #C3A06C,dust #DFC49A,bone #F0E0BD, charcoal #282724,coolshadow #3F5155; restrained cyan #6CC1BC only function screens, amber #E7B26B where occupied. High-detail square visible pixel clusters, top-down/slight front JRPG 3/4, coherent low contact shadow directly under bases. No figures, writing, labels or background. Row1: (1) narrow upright WIND CONTROL CONSOLE with small screen, repaired gauges, levers, canvas cable sleeve and copper windpipe; (2) squat TUNING MACHINE with hand crank, large central tuning fork, scratched analog dial, tiny active indicator; (3) CANAL INTERFERENCE ACTIVE: paired rusty resonance coils on a narrow metal plinth with irregular LOCAL cyan/amber jagged frequency between them, dangerous distortion confined to prop not huge aura; (4) EXACT SAME COILS/PLINTH proportions, footprint and camera, INTERFERENCE CALM: jagged frequency gone, one quiet low tiny cyan wave, safe mechanical idle. Row2: (5) wide low BROKEN WATER PIPE bent and visibly split with a small pale-blue water/condensation trickle downwards, cracked concrete/rust support, preserve actual WATER and not sand; (6) wide low ELEVATOR CONTROL CONSOLE with six chunky physical selectors and one small turquoise status display, sheet metal bonnet and repaired cables; (7) tall WIND RECEIVER: compact vertical collector/antenna with three cup vanes, pipe resonator and stabilized base, directional silhouette; (8) wide low BASS LOCK actuator: paired chunky speaker/tuning-fork cylinders surrounding a central circular recessed lock, worn copper, rust and structural bolts, tiny cyan functional lamp. Preserve readably distinct silhouette of all eight, same grounded contact and no cropping. Pair3/4 has identical outer dimensions and stands at identical baseline. Transparent alpha0 outside all objects and tightly local shadows; no painted canvas, white/green/gray matte, checkerboard, violet metal or pink neon. Not photorealistic and not high-poly render."
+    },
+    {
+      "id": "A10",
+      "file": "originais/A10_DESERTO.png",
+      "sha256": "4e0674d98512d6f0df5ba49d18fc0a5e6a00c22d98b06d20b963805a49e8a103",
+      "prompt": "Use case: stylized-concept. Production isolated sprite sheet, Torii & Hutukara Chapter3 desert post-apocalyptic cyberpunk sanctuary and Silence core. EXACT FOUR columns x THREE rows, TWELVE equal invisible square cells, matching reference ORDER and silhouettes. Reference supplies only object footprint/scale/pose, discard violet neon and flowers. Fresh detailed 16bit JRPG pixel art with clean square pixel clusters, slight top-down/frontal view. Rust #9A5537/#6E3F2A, weathered sand stone #C3A06C/#DFC49A, charcoal #282724, worn steel #53524A, bone #F0E0BD, coolshadow #3F5155. Muted cyan #6CC1BC ONLY active musical resonance; sanctuary warmth amber #E7B26B; Silence eyes pale dusty amber, ominous but not gore. Row1: (1) narrow ruined stone/metal pillar containing ONE OPEN WATCHING EYE, dusty eroded stone lid, cables entangled as dark roots; (2) IDENTICAL same pillar and dimensions with eye HALF CLOSED; (3) IDENTICAL pillar with eye CLOSED, subtle scar seam, no emitted light; (4) broad recessed SILENCE ALTAR DORMANT, empty circular recess, cracked salvaged resonance rings, stepped stone base and two small warm lamps, no masks or people. Row2: (5) SAME altar outer shape/footprint/base, AWAKE with a faint central amber eye-like recess and subtle pale frequency cracks, no big aura; (6) flat circular MUSICAL RESONANCE floor inlay OFF, fine scratched copper radial inlays on dark worn stone; (7) SAME floor inlay ON with thin quiet functional cyan lines, no ground disc enlargement or aura; (8) final TORII architectural arch made from reclaimed corroded steel with broad curved lintel, sand-worn stone bases, tied faded fabric fragments and a tiny cyan frequency bar, completely OPEN center, no masks, not a new gate design. Row3: (9) short wide raised ENTRY BRIDGE section of worn stone and steel, two low railings with warm corner lamps, walkable clear middle; (10) long low matching BRIDGE EDGE railing, three posts and clear gaps; (11) tall narrow CORE COLUMN LEFT with square stone base, corroded support, small shuttered amber lamp and dark entwined cables; (12) mirrored CORE COLUMN RIGHT, same dimensions. Exact matched state geometry for eyes1/2/3,altars4/5,circles6/7. All twelve complete within separate cells with true transparent alpha outside shapes and minimal contact shadow; no backdrops, checkerboards, writing, labels, figures, iconic face masks, violet/magenta neon or photorealistic render. Distinct structural states, safe central passage preserved."
+    },
+    {
+      "id": "A09",
+      "file": "originais/A09_DESERTO.png",
+      "sha256": "51781a394a36d2a46972eb0e1a3ab5df9574e0af1100f23ee8c4d3b7a2087337",
+      "prompt": "Use case: stylized-concept. Production isolated pixel-art prop sheet, Torii & Hutukara elevated desert/condensation traverse. EXACT FOUR columns x TWO rows, EIGHT equal invisible cells on genuine transparent alpha. Reference supplies object order, footprint and matched state silhouettes, discard flowers, violet metal, fluffy cloud plinths and saturated neon. Desert repaired steel #53524A/rust#9A5537,#6E3F2A, compacted sand#C3A06C,bone#F0E0BD, dustycanvas#DFC49A,charcoal#282724; tiny cyan#6CC1BC indicates active WIND/WATER only, warm small amber lamps. Visible 16bit pixel clusters, slight top-down/frontal JRPG. Row1: (1) WIND BEACON OFF, upright recovered windmill/radio circular vane atop squat weathered rust control base, faded cloth tabs, dormant screen; (2) EXACT SAME structure/scale/base WIND BEACON ON, vane blades rotated a little and tiny cyan wind status on central indicator, no giant aura; (3) CONDENSATION RESONATOR OFF, three unequal upright flute-like copper pipes over a squat rusty collector base, glass window dark, no vapor/cloud path; (4) EXACT SAME pipes/base dimensions CONDENSATION ON, softly cyan illuminated WATER in glass and two thin pale steam curls above outlets, local readable steam only, do not draw the whole bridge. Row2: (5) DRUM ANCHOR OFF, large broad cable/rope winch between two salvage supports, toothed lock disengaged, slack rope loop within base footprint; (6) EXACT SAME winch supports/drum/rope footprint ON, lock seated, rope visibly taut and small cyan status, no base enlargement; (7) WIND CURRENT MARKER, narrow upright repaired pole with faded sandy windsock pointing right and small mechanical direction arrow, restrained turquoise arrow tip, firm base; (8) LOW CLOUD ANCHOR FOUNDATION, shallow broad round worn metal/stone footing with central ring/cable socket, etched quiet resonance lines, no bulky tall tower. Preserve all8 silhouettes and same bottom anchor for each pair. True alpha0 outside props/minimal tight shadows; no detached backdrop floor slab/cloud island, no text, labels, figures, green chroma, checkerboard, magenta/violet neon or photoreal3D. Musical wind and condensation technology in post-apocalyptic desert, water remains water."
+    },
+    {
+      "id": "BG_distortion",
+      "file": "originais/BG_distortion_DESERTO.png",
+      "sha256": "1b107609501f88c83f4a18cec42fc561fb59cb4c25652c753f5a04652b8f1edc",
+      "prompt": "Use case: illustration-story. GAME DIALOGUE BACKGROUND, Torii & Hutukara Chapter3 District of Distortion now a desert post-apocalyptic cyberpunk town. Wide landscape 16:9, polished visible 16-bit pixel art, square stepped clusters, no photography or painterly blur. A warmly inhabited music-and-repair street rebuilt from salvaged steel, rust, eroded sandy plaster, patched sun-faded canvas shades, cables and small cared-for olive-green plants. Foreground quiet compacted sand/stones merging naturally into repaired metal shop thresholds; left recognizable low music club with open door revealing a tiny drum stage and amber upstairs window, center farther rusty workshop tool counter, right distant recovered freight elevator tower with restrained functional cyan strips. Clear street depth and distant dry canyon/dust haze under muted pale sky. Same believable desert materials as current settlement sprites: sand#C3A06C,dust#DFC49A,rust#9A5537/#6E3F2A,steel#53524A,charcoal#282724,bone#F0E0BD,coolshadow#3F5155; amber occupied windows#E7B26B, small cyan#6CC1BC only working devices. Stage curtains can have muted residual rose#C27C85. Perspective eye-level 3/4 street, not a top-down tile sheet. Empty broad lower center for dialogue composition, architectural detail mostly sides/upper half. No people/characters, portraits, faces, masks, logos, signs with letters, UI, text or watermarks. Not night violet/magenta neon, no wet futuristic boulevard, no global sepia wash. Full single coherent rectangular scenic illustration, no collage or sheet. Scene foreground/mid/background connected, clean pixel edges."
+    },
+    {
+      "id": "BG_cloud",
+      "file": "originais/BG_cloud_DESERTO.png",
+      "sha256": "29e72d77256c89531a4e0c5bb855f76289d3d843d1d620a0f97159dc20ec0f5c",
+      "prompt": "Use case: illustration-story. Single wide landscape 16:9 GAME DIALOGUE BACKGROUND for Torii & Hutukara Chapter3 elevated desert route toward final sanctuary. High-quality visible 16bit pixel art, square pixel clusters and crisp stepped edges, not photography/soft illustration. A firm compacted-sand PALE SANDSTONE shelf in foreground, leading via a short REPAIRED METAL/STONE bridge with low rusty safety rails and amber lamps across a DEEP canyon. Steep stratified cliffs clearly drop into a distant moving dust sea; distant eroded mesas rise through dusty pale atmospheric haze, a small reclaimed rusty Torii arch/sanctuary structure at the far end. A tall slender copper WIND-CONDENSATION mechanism near left edge, three flute-like pipes and tiny cyan water window, a delicate localized pale condensation wisp around pipes only. Scavenged steel, rust bolts, faded tied canvas and sparse olive-green cared-for plants by shelter; technological elements small purposeful, not luxury cyberpunk. Palette sand#C3A06C,dust#DFC49A,rust#9A5537/#6E3F2A,steel#53524A,charcoal#282724,bone#F0E0BD,cool shadow#3F5155; tiny cyan#6CC1BC functional lights, warm amber#E7B26B. Clear empty lower center for dialogue actors; no characters/people/portraits/masks/faces, no text, UI, logos, watermarks, sheet or collage. Preserve walkable firm top distinct from precipice and distant dust; NO fluffy purple cloud-floor, no floating buildings without structural support, no dark galaxy, no magenta neon and no global sepia filter. Full single coherent rectangular panoramic scenic illustration, eye-level slightly elevated view with depth, matching settlement materials."
     }
   ]
 }

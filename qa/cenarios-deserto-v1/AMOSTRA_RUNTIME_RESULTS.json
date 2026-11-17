@@ -1,0 +1,817 @@
+{
+  "suite": "cenarios-deserto-v1",
+  "url": "http://127.0.0.1:8791/",
+  "baseline": {
+    "file": "qa/cenarios-v2/depois/MAPAS.json",
+    "sha256": "50b6d7f928e4dd15280f5374c44c4f72afb7947236b24c5378fb8856486a4c2e"
+  },
+  "checks": [
+    {
+      "name": "Merged desert library: 13 sheets / 134 nonempty cells with true transparent gutters",
+      "passed": true,
+      "detail": {
+        "theme": "deserto-v1",
+        "sheets": 13,
+        "items": 134,
+        "desertExtras": [
+          "c3_desert_club_facade",
+          "c3_desert_workshop_facade",
+          "c3_desert_elevator_closed",
+          "c3_desert_elevator_open",
+          "c3_desert_terrace_landmark",
+          "c3_desert_lamp",
+          "c3_desert_utility",
+          "c3_desert_checkpoint_recorder"
+        ]
+      }
+    },
+    {
+      "name": "All 25 map collision fields and every gate match the already-aligned V2 snapshot",
+      "passed": true,
+      "detail": {
+        "maps": 25,
+        "transitions": 43,
+        "newCoordinateAllowlist": false,
+        "collisionChanges": false
+      }
+    },
+    {
+      "name": "Desert binding is used by the real prop renderer only in C3, including elevator states",
+      "passed": true,
+      "detail": {
+        "samples": [
+          {
+            "area": "city",
+            "type": "c3_club",
+            "extra": null
+          },
+          {
+            "area": "city",
+            "type": "c3_workshop",
+            "extra": null
+          },
+          {
+            "area": "city",
+            "type": "c3_lamp",
+            "extra": null
+          },
+          {
+            "area": "city",
+            "type": "c3_neon_lamp",
+            "extra": null
+          },
+          {
+            "area": "city",
+            "type": "c3_neon_utility",
+            "extra": null
+          },
+          {
+            "area": "city",
+            "type": "c3_elevator",
+            "extra": null
+          },
+          {
+            "area": "city",
+            "type": "c3_sanctuary",
+            "extra": null
+          },
+          {
+            "area": "city",
+            "type": "env2_prop",
+            "extra": null
+          },
+          {
+            "area": "voices",
+            "type": "c3_club",
+            "extra": null
+          },
+          {
+            "area": "voices",
+            "type": "c3_workshop",
+            "extra": null
+          },
+          {
+            "area": "voices",
+            "type": "c3_lamp",
+            "extra": null
+          },
+          {
+            "area": "voices",
+            "type": "c3_neon_lamp",
+            "extra": null
+          },
+          {
+            "area": "voices",
+            "type": "c3_neon_utility",
+            "extra": null
+          },
+          {
+            "area": "voices",
+            "type": "c3_elevator",
+            "extra": null
+          },
+          {
+            "area": "voices",
+            "type": "c3_sanctuary",
+            "extra": null
+          },
+          {
+            "area": "voices",
+            "type": "env2_prop",
+            "extra": null
+          },
+          {
+            "area": "distortion_district",
+            "type": "c3_club",
+            "extra": "c3_desert_club_facade"
+          },
+          {
+            "area": "distortion_district",
+            "type": "c3_workshop",
+            "extra": "c3_desert_workshop_facade"
+          },
+          {
+            "area": "distortion_district",
+            "type": "c3_lamp",
+            "extra": "c3_desert_lamp"
+          },
+          {
+            "area": "distortion_district",
+            "type": "c3_neon_lamp",
+            "extra": "c3_desert_lamp"
+          },
+          {
+            "area": "distortion_district",
+            "type": "c3_neon_utility",
+            "extra": "c3_desert_utility"
+          },
+          {
+            "area": "distortion_district",
+            "type": "c3_elevator",
+            "extra": "c3_desert_elevator_closed"
+          },
+          {
+            "area": "distortion_district",
+            "type": "c3_sanctuary",
+            "extra": null
+          },
+          {
+            "area": "distortion_district",
+            "type": "env2_prop",
+            "extra": "c3_desert_checkpoint_recorder"
+          },
+          {
+            "area": "cloud_terrace",
+            "type": "c3_club",
+            "extra": "c3_desert_club_facade"
+          },
+          {
+            "area": "cloud_terrace",
+            "type": "c3_workshop",
+            "extra": "c3_desert_workshop_facade"
+          },
+          {
+            "area": "cloud_terrace",
+            "type": "c3_lamp",
+            "extra": "c3_desert_lamp"
+          },
+          {
+            "area": "cloud_terrace",
+            "type": "c3_neon_lamp",
+            "extra": "c3_desert_lamp"
+          },
+          {
+            "area": "cloud_terrace",
+            "type": "c3_neon_utility",
+            "extra": "c3_desert_utility"
+          },
+          {
+            "area": "cloud_terrace",
+            "type": "c3_elevator",
+            "extra": "c3_desert_elevator_closed"
+          },
+          {
+            "area": "cloud_terrace",
+            "type": "c3_sanctuary",
+            "extra": "c3_desert_terrace_landmark"
+          },
+          {
+            "area": "cloud_terrace",
+            "type": "env2_prop",
+            "extra": "c3_desert_checkpoint_recorder"
+          }
+        ],
+        "elevator": {
+          "closed": "c3_desert_elevator_closed",
+          "open": "c3_desert_elevator_open",
+          "pixelsDiffer": true
+        }
+      }
+    },
+    {
+      "name": "D11 ensure requests stay in their designated C3 areas and never C1/C2",
+      "passed": true,
+      "detail": [
+        {
+          "area": "studio",
+          "extra": []
+        },
+        {
+          "area": "city",
+          "extra": []
+        },
+        {
+          "area": "voices",
+          "extra": []
+        },
+        {
+          "area": "radio9",
+          "extra": []
+        },
+        {
+          "area": "distortion_district",
+          "extra": [
+            "D11"
+          ]
+        },
+        {
+          "area": "sky_lift",
+          "extra": [
+            "D11"
+          ]
+        },
+        {
+          "area": "last_torii",
+          "extra": [
+            "D11"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Industrial A07 states depend on their own local progress, never the other route",
+      "passed": true,
+      "detail": [
+        {
+          "area": "sky_canal",
+          "flags": {
+            "usinaGate": true,
+            "usinaDone": true
+          },
+          "type": "c3_machine",
+          "actual": "machine_inactive"
+        },
+        {
+          "area": "power_plant",
+          "flags": {
+            "canalPath": true,
+            "canalDone": true
+          },
+          "type": "c3_machine",
+          "actual": "machine_inactive"
+        },
+        {
+          "area": "sky_canal",
+          "flags": {
+            "canalPath": true
+          },
+          "type": "c3_machine",
+          "actual": "machine_active"
+        },
+        {
+          "area": "sky_canal",
+          "flags": {
+            "canalDone": true
+          },
+          "type": "c3_machine",
+          "actual": "machine_active"
+        },
+        {
+          "area": "power_plant",
+          "flags": {
+            "usinaGate": true
+          },
+          "type": "c3_machine",
+          "actual": "machine_active"
+        },
+        {
+          "area": "power_plant",
+          "flags": {
+            "usinaDone": true
+          },
+          "type": "c3_machine",
+          "actual": "machine_active"
+        },
+        {
+          "area": "sky_canal",
+          "flags": {
+            "usinaDone": true
+          },
+          "type": "c3_canal_gate",
+          "actual": "canal_gate_closed"
+        },
+        {
+          "area": "sky_canal",
+          "flags": {
+            "canalDone": true
+          },
+          "type": "c3_canal_gate",
+          "actual": "canal_gate_open"
+        },
+        {
+          "area": "sky_canal",
+          "flags": {
+            "canalDone": true
+          },
+          "type": "c3_rescue_barrier",
+          "actual": "canal_gate_open"
+        },
+        {
+          "area": "power_plant",
+          "flags": {
+            "canalDone": true
+          },
+          "type": "c3_pressure_switch",
+          "actual": "pressure_switch_inactive"
+        },
+        {
+          "area": "power_plant",
+          "flags": {
+            "usinaGate": true
+          },
+          "type": "c3_pressure_switch",
+          "actual": "pressure_switch_active"
+        },
+        {
+          "area": "power_plant",
+          "flags": {
+            "usinaGate": true
+          },
+          "type": "c3_valve_station",
+          "actual": "valve_stalled"
+        },
+        {
+          "area": "power_plant",
+          "flags": {
+            "usinaDone": true
+          },
+          "type": "c3_valve_station",
+          "actual": "valve_released"
+        }
+      ]
+    },
+    {
+      "name": "Rendering all 25 areas leaves the serialized save, props and gates unchanged",
+      "passed": true,
+      "detail": {
+        "areas": [
+          "studio",
+          "corridor",
+          "chamber",
+          "city",
+          "forest",
+          "ruins",
+          "rain_station",
+          "voices",
+          "tape_market",
+          "bento_shop",
+          "celina_home",
+          "radio9",
+          "voice_roofs",
+          "voice_tower",
+          "sky_terminal",
+          "distortion_district",
+          "contratempo",
+          "power_plant",
+          "sky_canal",
+          "ciro_workshop",
+          "sky_lift",
+          "cloud_sea",
+          "cloud_terrace",
+          "last_torii",
+          "silence_core"
+        ],
+        "saveUnchanged": true,
+        "propsUnchanged": true,
+        "gatesUnchanged": true
+      }
+    },
+    {
+      "name": "C1/C2 prop and tile pixels match the original V2 wrapper with no desert recoloring",
+      "passed": true,
+      "detail": {
+        "areas": [
+          {
+            "area": "studio",
+            "props": 9,
+            "tileTypes": 2
+          },
+          {
+            "area": "corridor",
+            "props": 15,
+            "tileTypes": 2
+          },
+          {
+            "area": "chamber",
+            "props": 7,
+            "tileTypes": 2
+          },
+          {
+            "area": "city",
+            "props": 84,
+            "tileTypes": 7
+          },
+          {
+            "area": "forest",
+            "props": 664,
+            "tileTypes": 4
+          },
+          {
+            "area": "ruins",
+            "props": 20,
+            "tileTypes": 4
+          },
+          {
+            "area": "rain_station",
+            "props": 11,
+            "tileTypes": 3
+          },
+          {
+            "area": "voices",
+            "props": 52,
+            "tileTypes": 7
+          },
+          {
+            "area": "tape_market",
+            "props": 23,
+            "tileTypes": 2
+          },
+          {
+            "area": "bento_shop",
+            "props": 15,
+            "tileTypes": 3
+          },
+          {
+            "area": "celina_home",
+            "props": 17,
+            "tileTypes": 3
+          },
+          {
+            "area": "radio9",
+            "props": 17,
+            "tileTypes": 3
+          },
+          {
+            "area": "voice_roofs",
+            "props": 14,
+            "tileTypes": 3
+          },
+          {
+            "area": "voice_tower",
+            "props": 11,
+            "tileTypes": 3
+          }
+        ],
+        "propSamples": 959
+      }
+    },
+    {
+      "name": "All six hero renderers remain pixel-identical with desert theme enabled or disabled",
+      "passed": true,
+      "detail": {
+        "samples": 48,
+        "results": [
+          {
+            "hero": "franco",
+            "masked": false,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "franco",
+            "masked": false,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "franco",
+            "masked": false,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "franco",
+            "masked": false,
+            "dir": "right",
+            "equal": true
+          },
+          {
+            "hero": "franco",
+            "masked": true,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "franco",
+            "masked": true,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "franco",
+            "masked": true,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "franco",
+            "masked": true,
+            "dir": "right",
+            "equal": true
+          },
+          {
+            "hero": "ryuchi",
+            "masked": false,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "ryuchi",
+            "masked": false,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "ryuchi",
+            "masked": false,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "ryuchi",
+            "masked": false,
+            "dir": "right",
+            "equal": true
+          },
+          {
+            "hero": "ryuchi",
+            "masked": true,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "ryuchi",
+            "masked": true,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "ryuchi",
+            "masked": true,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "ryuchi",
+            "masked": true,
+            "dir": "right",
+            "equal": true
+          },
+          {
+            "hero": "alt",
+            "masked": false,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "alt",
+            "masked": false,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "alt",
+            "masked": false,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "alt",
+            "masked": false,
+            "dir": "right",
+            "equal": true
+          },
+          {
+            "hero": "alt",
+            "masked": true,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "alt",
+            "masked": true,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "alt",
+            "masked": true,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "alt",
+            "masked": true,
+            "dir": "right",
+            "equal": true
+          },
+          {
+            "hero": "katana",
+            "masked": false,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "katana",
+            "masked": false,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "katana",
+            "masked": false,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "katana",
+            "masked": false,
+            "dir": "right",
+            "equal": true
+          },
+          {
+            "hero": "katana",
+            "masked": true,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "katana",
+            "masked": true,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "katana",
+            "masked": true,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "katana",
+            "masked": true,
+            "dir": "right",
+            "equal": true
+          },
+          {
+            "hero": "synth",
+            "masked": false,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "synth",
+            "masked": false,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "synth",
+            "masked": false,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "synth",
+            "masked": false,
+            "dir": "right",
+            "equal": true
+          },
+          {
+            "hero": "synth",
+            "masked": true,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "synth",
+            "masked": true,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "synth",
+            "masked": true,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "synth",
+            "masked": true,
+            "dir": "right",
+            "equal": true
+          },
+          {
+            "hero": "percussion",
+            "masked": false,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "percussion",
+            "masked": false,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "percussion",
+            "masked": false,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "percussion",
+            "masked": false,
+            "dir": "right",
+            "equal": true
+          },
+          {
+            "hero": "percussion",
+            "masked": true,
+            "dir": "down",
+            "equal": true
+          },
+          {
+            "hero": "percussion",
+            "masked": true,
+            "dir": "left",
+            "equal": true
+          },
+          {
+            "hero": "percussion",
+            "masked": true,
+            "dir": "up",
+            "equal": true
+          },
+          {
+            "hero": "percussion",
+            "masked": true,
+            "dir": "right",
+            "equal": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "An existing district enemy generates its real combat windup on the desert floor",
+      "passed": true,
+      "detail": {
+        "enemyId": "p4_patrol_center",
+        "type": "c3_echo",
+        "enemyPosition": [
+          36.5,
+          25.5
+        ],
+        "playerPosition": [
+          37.5,
+          25.5
+        ],
+        "windKind": "swipe",
+        "wind": 0.52,
+        "mode": "action",
+        "frameRendered": true,
+        "manuallyReviewed": false,
+        "spawnedSyntheticEnemy": false,
+        "preparedRouteState": "usinaDone=true; real enemyActors/hydrateEnemy"
+      }
+    }
+  ],
+  "browserErrors": [],
+  "physicalControllersTested": false,
+  "physicalMobileTested": false,
+  "newManualCampaignPlayed": false,
+  "browser": "158.0.8127.37",
+  "build": {
+    "version": "1.2.0",
+    "sourceSha256": "91ebc8aecb1f27f26cf29a8e72dafdaf66f0b0ff1f66cbdfb62730ba2d0fd3bd",
+    "indexSha256": "a8842ac0a3bac1f623ac3e8540c43cc7f46fdd8198b51a7d110935e8598b2c8c"
+  },
+  "passed": true,
+  "passedChecks": 9,
+  "totalChecks": 9,
+  "limits": [
+    "Headless isolated browser context; no personal save used.",
+    "A rendered combat windup is not proof of manual combat readability or a completed fight.",
+    "No new full campaign, physical mobile, multitouch device or physical controller test."
+  ]
+}

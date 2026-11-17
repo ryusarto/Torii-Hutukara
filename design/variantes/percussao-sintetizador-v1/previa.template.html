@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sprites chibi · Ryuchi & Franco</title>
+<style>
+:root{color-scheme:dark;font:15px system-ui,sans-serif;background:#11101a;color:#f2ecfa}*{box-sizing:border-box}body{margin:0 auto;max-width:1480px;padding:32px}h1{font-size:28px;margin:12px 0}p{line-height:1.6;color:#c2b6cf}.eyebrow{font-size:12px;letter-spacing:.16em;color:#87dfd0;text-transform:uppercase}nav{display:flex;flex-wrap:wrap;gap:16px;margin:24px 0;padding:20px 0;border-block:1px solid #3e314c}label{display:grid;gap:7px;color:#c9b9d8;font-size:12px}select,button{font:inherit;background:#2c2239;color:#f9f5fd;border:1px solid #594569;border-radius:8px;padding:10px 12px}button{cursor:pointer}button:hover,button:focus-visible{border-color:#86e0d0}nav>button{align-self:end}input{accent-color:#86e0d0;width:170px}.frame-label{display:flex;justify-content:space-between;gap:16px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{min-width:0;padding:15px;border:1px solid #40314f;border-radius:15px;background:#21192b}.card h2{font-size:17px;margin:0 0 5px}.variant{font-size:12px;color:#b7a3c7}.stage{display:block;width:100%;aspect-ratio:1;margin:10px auto;image-rendering:pixelated;background-color:#15111f;background-image:linear-gradient(45deg,#211a2e 25%,transparent 25%),linear-gradient(-45deg,#211a2e 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#211a2e 75%),linear-gradient(-45deg,transparent 75%,#211a2e 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}.strip{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:3px}.thumb{min-width:0;padding:0;border:1px solid #574369;border-radius:3px;aspect-ratio:1;background:#17121f}.thumb.selected{border-color:#a7ffe9}.thumb canvas{display:block;width:100%;height:100%;image-rendering:pixelated}.links{display:flex;gap:15px;flex-wrap:wrap;margin-top:13px}a{color:#8ae3d6;font-size:12px}.portraits{display:flex;flex-wrap:wrap;gap:3px;margin-top:14px}.portraits img{width:56px;height:56px;object-fit:contain;image-rendering:pixelated;background:#16111e;border-radius:5px}.notice{margin-top:20px;border:1px solid #705634;background:#32271a;border-radius:8px;padding:12px;font-size:13px}.error{color:#ffc5bd}footer{margin-top:24px;color:#a99bb9;font-size:12px;line-height:1.6}@media(max-width:1100px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:580px){body{padding:18px}.cards{grid-template-columns:1fr}h1{font-size:24px}}
+</style>
+<header><div class="eyebrow">Torii & Hutukara · personagens</div>
+<h1>Ryuchi Percussionista & Franco Sintetizador</h1>
+<p>Compare as animações chibi com e sem máscara. Escolha uma ação, mude a direção ou examine cada frame.</p></header>
+<nav aria-label="Controles da animação">
+<label>Ação<select id="action"></select></label>
+<label>Direção<select id="direction"><option value="down">Frente</option><option value="left">Esquerda</option><option value="up">Costas</option><option value="right">Direita</option></select></label>
+<label>Velocidade<select id="speed"><option value="1">Normal</option><option value="0.5">Metade</option><option value="0.25">Um quarto</option><option value="2">Dobro</option></select></label>
+<button type="button" id="play">Pausar</button><button type="button" id="restart">Reiniciar</button>
+<label><span class="frame-label">Frame <span id="number">1 / 8</span></span><input id="frame" type="range" min="0" max="7" step="1" value="0" aria-label="Frame da animação"></label>
+</nav>
+<main class="cards" id="cards"></main>
+<div id="notice"></div><footer id="status"></footer>
+<script>
+const manifest=__MANIFEST_DATA__;
+const el=id=>document.getElementById(id);
+const heroNames={ryuchi_percussionista:'Ryuchi Percussionista',franco_sintetizador:'Franco Sintetizador'};
+const actionNames={idle:'Espera / respiração',walk:'Caminhada',run:'Corrida',roll:'Esquiva / rolamento',attack_1:'Combo · primeira batida',attack_2:'Combo · segunda batida',attack_3:'Combo · finalização',skill:'Técnica musical',advanced:'Técnica avançada',signature:'Especial',hurt:'Receber dano',defeat:'Derrota',performance:'Tocando instrumento'};
+const expressionNames={neutral:'Neutro',speaking:'Falando',happy:'Feliz',surprised:'Surpreso',determined:'Determinado',angry:'Irritado',hurt:'Ferido',sad:'Triste'};
+const imageCache=new Map();
+function atlasImage(path){if(!imageCache.has(path)){const image=new Image();image.src=path;imageCache.set(path,image)}return imageCache.get(path)}
+function decodeImage(image){return image.complete&&image.naturalWidth?Promise.resolve():image.decode()}
+const cards=[];
+let paused=false,position=0,start=performance.now(),speed=1,selectionVersion=0;
+for(const state of manifest.expectedActions)el('action').add(new Option(actionNames[state]||state,state));
+for(const hero of manifest.heroes)for(const variant of manifest.variants){
+ const card=document.createElement('article');card.className='card';
+ card.innerHTML=`<h2>${heroNames[hero]||hero}</h2><div class="variant">${variant==='masked'?'Com máscara':'Sem máscara'}</div><canvas class="stage" width="256" height="256"></canvas><div class="strip"></div><div class="links"></div><div class="portraits"></div>`;
+ el('cards').append(card);
+ const canvas=card.querySelector('.stage');const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
+ const entry={hero,variant,card,canvas,ctx,animation:null,thumbnails:[],loadError:false};
+ for(let frame=0;frame<8;frame++){
+  const button=document.createElement('button');button.type='button';button.className='thumb';button.setAttribute('aria-label',`Ver frame ${frame+1}`);
+  const thumbnail=document.createElement('canvas');thumbnail.width=64;thumbnail.height=64;button.append(thumbnail);
+  button.onclick=()=>pauseAt(frame);card.querySelector('.strip').append(button);entry.thumbnails.push({button,canvas:thumbnail});
+ }
+ for(const portrait of manifest.portraits.filter(p=>p.hero===hero&&p.variant===variant)){
+  const image=document.createElement('img');image.src=portrait.file;image.alt=expressionNames[portrait.expression]||portrait.expression;image.title=image.alt;card.querySelector('.portraits').append(image);
+ }
+ cards.push(entry);
+}
+function timing(){const a=cards.find(c=>c.animation)?.animation;return {frameMs:a?.frameMs||120,loop:a?.loop??true}}
+function positionAt(time){return position+(paused?0:(time-start)*speed/timing().frameMs)}
+function frameAt(time){const t=timing(),n=Math.max(0,Math.floor(positionAt(time)));return t.loop?n%8:Math.min(n,7)}
+function pauseAt(frame){position=frame;start=performance.now();paused=true;el('play').textContent='Reproduzir'}
+function drawPose(ctx,image,animation,frame,size){ctx.imageSmoothingEnabled=false;ctx.clearRect(0,0,size,size);ctx.drawImage(image,frame*256,animation.row*256,256,256,0,0,size,size)}
+function fillThumbnails(card){const a=card.animation;if(!a)return;const image=atlasImage(a.atlas);if(!image.complete||!image.naturalWidth)return;for(let n=0;n<8;n++)drawPose(card.thumbnails[n].canvas.getContext('2d'),image,a,n,64)}
+async function selectAnimation(){
+ const version=++selectionVersion;position=0;start=performance.now();
+ for(const c of cards){
+  c.animation=manifest.animations.find(a=>a.hero===c.hero&&a.variant===c.variant&&a.state===el('action').value&&a.direction===el('direction').value)||null;c.loadError=false;
+  for(const thumbnail of c.thumbnails)thumbnail.canvas.getContext('2d').clearRect(0,0,64,64);
+  const links=c.card.querySelector('.links');links.replaceChildren();
+  if(c.animation){
+   for(const [label,path] of [['Folha PNG',c.animation.atlas],['Original',c.animation.source]]){const link=document.createElement('a');link.textContent=label;link.href=path;link.target='_blank';link.rel='noopener';links.append(link)}
+   decodeImage(atlasImage(c.animation.atlas)).then(()=>{if(version===selectionVersion)fillThumbnails(c)}).catch(()=>{if(version===selectionVersion)c.loadError=true});
+  }
+ }
+}
+el('action').onchange=selectAnimation;el('direction').onchange=selectAnimation;
+el('frame').oninput=()=>pauseAt(Number(el('frame').value));
+el('play').onclick=()=>{const now=performance.now();position=frameAt(now);start=now;paused=!paused;el('play').textContent=paused?'Reproduzir':'Pausar'};
+el('restart').onclick=()=>{position=0;start=performance.now();paused=false;el('play').textContent='Pausar'};
+el('speed').onchange=()=>{const now=performance.now();position=positionAt(now);start=now;speed=Number(el('speed').value)};
+function render(time){
+ const frame=frameAt(time);el('frame').value=frame;el('number').textContent=`${frame+1} / 8`;
+ for(const c of cards){
+  c.ctx.clearRect(0,0,256,256);const a=c.animation;
+  if(a){const image=atlasImage(a.atlas);if(image.complete&&image.naturalWidth)drawPose(c.ctx,image,a,frame,256)}
+  if(!a||c.loadError){c.ctx.fillStyle=c.loadError?'#ffbcb3':'#bba8cc';c.ctx.font='14px system-ui';c.ctx.textAlign='center';c.ctx.fillText(c.loadError?'Falha ao carregar a folha':'Em geração',128,130)}
+  c.thumbnails.forEach((thumbnail,n)=>thumbnail.button.classList.toggle('selected',n===frame));
+ }
+ requestAnimationFrame(render);
+}
+if(!manifest.complete)el('notice').innerHTML='<div class="notice">Pacote em produção. As sequências ainda pendentes aparecem como “Em geração”.</div>';
+const counts=manifest.counts;el('status').textContent=`${counts.sequences} sequências · ${counts.frames} frames · ${counts.portraits} expressões. As miniaturas e animações usam as folhas PNG; os quadros individuais podem ser exportados localmente.`;
+selectAnimation();requestAnimationFrame(render);
+</script>
+</html>
