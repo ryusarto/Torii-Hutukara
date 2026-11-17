@@ -121,8 +121,8 @@ Escopo decidido pela coordenação: Belga (`spriteKey:'bento'`) e Colli (`sprite
 | Inventariado | Elenco, aparições removidas, variantes, eventos relacionados, sprites selecionados e localizações existentes descritos por inspeção estática no SHA acima. |
 | Planejado | Variações por personalidade e primeira entrega direcional delimitadas. Gestos e destinos futuros são propostas. |
 | Produzido | Este documento. Nenhum sprite novo produzido neste levantamento. |
-| Integrado | Contratos e traslados descritos nas seções anteriores são os do HEAD inspecionado. A primeira entrega direcional deve ter seu próprio registro de implementação/QA. |
-| Testado visualmente | Não realizado neste inventário; não inferir aceite artístico de nomes de arquivos, código ou imagem isolada. |
+| Integrado | Piloto direcional de Belga/Colli integrado na fonte. Build e evidências da revisão em `qa/npcs/REVISAO_2026_11_17.md`. Demais propostas seguem planejadas. |
+| Testado visualmente | Piloto observado em oito capturas dos mapas reais, com limites descritos no relatório QA. Não houve nova campanha ou playtest humano. O restante do elenco não recebeu teste visual nesta entrega. |
 
 Para a primeira entrega: conferir Belga na oficina e Colli na praça dos quatro lados, perto e longe; validar fallback com atlas ausente; comparar Belga/Colli/Mazza no C3 para garantir preservação; registrar build e capturas em escala de jogo. Teste automático de seleção de recorte é evidência funcional, não substitui a revisão visual.
 
