@@ -23,6 +23,8 @@ PROTAGONIST_JS = File.join(ROOT, 'protagonist_art_v5.js')
 PROTAGONIST_ASSETS = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v5')
 NINJA_ARCHER_JS = File.join(ROOT, 'ninja_archer_art_v1.js')
 NINJA_ARCHER_ASSETS = File.join(REPO_ROOT, 'assets', 'variantes', 'ninja-arqueiro-v1')
+CENARIOS_JS = File.join(ROOT, 'cenarios_v2.js')
+CENARIOS_ASSETS = File.join(REPO_ROOT, 'assets', 'cenarios', 'v2')
 DIALOGUE_EDITS = File.join(REPO_ROOT, 'design', 'dialogo', 'EDICOES_DIALOGO.json')
 VERSION = JSON.parse(File.read(File.join(REPO_ROOT, 'game', 'VERSION.json')))
 OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', VERSION.fetch('versao'))
@@ -241,6 +243,12 @@ end
 ninja_archer_runtime = File.read(NINJA_ARCHER_JS, encoding: 'UTF-8')
 replace_once!(ninja_archer_runtime, '__NINJA_ARCHER_ASSETS__', JSON.generate(ninja_archer_uris), 'sprites Ninja e Arqueiro')
 replace_once!(ninja_archer_runtime, '__NINJA_ARCHER_MANIFEST__', JSON.generate(ninja_archer_manifest), 'manifesto Ninja e Arqueiro')
+cenarios_manifest = JSON.parse(File.read(File.join(CENARIOS_ASSETS, 'manifest.json')))
+cenarios_files = cenarios_manifest.fetch('sheets').values.map { |s| s.fetch('file') }
+cenarios_uris = cenarios_manifest.fetch('sheets').to_h { |id, sheet| [id, "data:image/png;base64,#{encode(File.join(CENARIOS_ASSETS, sheet.fetch('file')))}"] }
+cenarios_runtime = File.read(CENARIOS_JS, encoding: 'UTF-8')
+replace_once!(cenarios_runtime, '__CENARIOS_V2_MANIFEST__', JSON.generate(cenarios_manifest), 'manifesto de cenários V2')
+replace_once!(cenarios_runtime, '__CENARIOS_V2_ASSETS__', JSON.generate(cenarios_uris), 'PNG de cenários V2')
 protagonist_manifest = JSON.parse(File.read(File.join(PROTAGONIST_ASSETS, 'manifest.json')))
 protagonist_files = protagonist_manifest.fetch('animations').map { |a| a.fetch('atlas') }.uniq + protagonist_manifest.fetch('portraits').map { |p| p.fetch('file') }
 protagonist_uris = protagonist_files.to_h do |relative|
@@ -251,7 +259,7 @@ end
 protagonist_runtime = File.read(PROTAGONIST_JS, encoding: 'UTF-8')
 replace_once!(protagonist_runtime, '__PROTAGONIST_ASSETS__', JSON.generate(protagonist_uris), 'sprites protagonistas V5')
 replace_once!(protagonist_runtime, '__PROTAGONIST_MANIFEST__', JSON.generate(protagonist_manifest), 'manifesto protagonistas V5')
-html.insert(position, "\n\n#{runtime}\n\n#{input_runtime}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(ACCESS_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n\n#{ninja_archer_runtime}\n\n#{protagonist_runtime}\n")
+html.insert(position, "\n\n#{runtime}\n\n#{input_runtime}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(ACCESS_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n\n#{ninja_archer_runtime}\n\n#{protagonist_runtime}\n\n#{cenarios_runtime}\n")
 html.gsub!('ALPHA 1.2.0', VERSION.fetch('rotulo'))
 html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
 
@@ -262,6 +270,7 @@ FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
 sources = [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
+sources += [CENARIOS_JS, File.join(CENARIOS_ASSETS, 'manifest.json')] + cenarios_files.map { |relative| File.join(CENARIOS_ASSETS, relative) }
 manifest = {
   game: 'TORII & HUTUKARA',
   build: VERSION.fetch('rotulo'),
@@ -294,7 +303,7 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    key = (path.start_with?(NINJA_ARCHER_ASSETS + '/') || path.start_with?(PROTAGONIST_ASSETS + '/')) ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, CENARIOS_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
     [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end
 }
@@ -346,6 +355,8 @@ File.write(File.join(OUTPUT_DIR, "LEIA-ME_#{VERSION.fetch('sufixo')}.txt"), <<~R
   - Ninja e Arqueiro com oito poses por ação, quatro direções, retratos e rolamento próprios.
   - Ninja sem máscara; Arqueiro com a máscara presa ao cinto em todas as ações.
   - Os demais integrantes mantêm suas animações atuais.
+  - Cenários V2: 12 atlas de produção, 126 recortes e estados, pisos sem objetos embutidos.
+  - Nuvens por vizinhança, barreiras visíveis da Usina, sinalização junto às fachadas e móveis próprios do Contratempo.
   - Corrida fluida própria para Franco sintetizador e Ryuchi percussionista.
   - Nuvens volumétricas em 16 bits e fundos cinematográficos próprios por região.
   - Placas, postes e pilares substituídos por sprites detalhados.

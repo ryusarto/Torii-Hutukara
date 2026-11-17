@@ -1,0 +1,611 @@
+{
+  "version": 2,
+  "status": "aceite_visual_beta1_2_aprovado_com_notas_p2",
+  "scope": "cenarios3capitulos_prioridadeC3",
+  "baselineCommit": "dab09c8",
+  "engine": "HTML Canvas2D",
+  "logicalTile": [
+    24,
+    24
+  ],
+  "camera": "existingfrontalthreequarter,noisometricmigration",
+  "recovery": {
+    "reconstructed": true,
+    "source": "own prior authoredcontract/reviewandfinalacceptancemessages; no reread of dataless originals",
+    "note": "IDs/order/grids/126cells recovered; prose/prompts reconstructed, not byte-exact generationlog. Use original generation records for exact prompts.",
+    "preservedAssetBranchReportedByParent": "art/cenarios-v2",
+    "preservedAssetCommitReportedByParent": "a16e275"
+  },
+  "sourceRefs": [
+    "design/chapter-03/RUA_DISTRITO_PROPOSTA.png",
+    "assets/chapter-03/runtime/reference/EDIFICIOS_PERSONAGENS.png",
+    "assets/chapter-03/runtime/ambiente/*.png",
+    "assets/prebeta/runtime/environment/ENVIRONMENT_PROPS_4X2.png"
+  ],
+  "contract": {
+    "format": "PNG RGBA",
+    "atlasGutter": "transparent; exactactualcropmetadata; noassumedperfectgeneratedgrid",
+    "materials": "opaqueswatchcontentinsideRGBAgutters; noobjects orlargemotifsinwalkingfloor",
+    "props": "truealpha; uniformscale; explicitgroundpivot",
+    "filter": "nearest-neighbor",
+    "sourceSize": "integratordecidespacking192/256/384; gameplaytile24",
+    "shadow": "smallcontactshadow,neveropaquefootprintrectangle",
+    "states": "samebase/scale acrosspairedstatesexceptintendedmechanicalopening",
+    "collision": "artdoesnotsilentlychangecollision/quests; sixexplicitdoorportalchangesareseparatelyapproved"
+  },
+  "sheets": [
+    {
+      "id": "A01",
+      "file": "C3_SUPERFICIES_URBANAS.png",
+      "grid": [
+        4,
+        2
+      ],
+      "kind": "material",
+      "priority": "P0",
+      "items": [
+        "asfalto_seco",
+        "asfalto_molhado",
+        "calcada_pedra",
+        "beco_laje",
+        "agua_canal",
+        "metal_industrial",
+        "ceu_nuvens_fundo",
+        "abismo_fundo"
+      ],
+      "cells": 8,
+      "uses": [
+        "c3_asphalt",
+        "c3_street",
+        "c3_metal",
+        "c3_factory",
+        "c3_water",
+        "c3_sky",
+        "voidbackground"
+      ],
+      "brief": "Eight material-only swatches: dry/wet graphiteviolet asphalt, regular stone sidewalk, servicealley slabs, subdued canalwater, copper-steel industrialdeck, quiet paleviolet sky and nearblackviolet abyss. Opaque inside swatch, transparentgutters. No pipes, furniture, buildings, curb, signs, stars or horizon. Lowcontrast, seamless4sides. Logicaltile24px,superpatch96px.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. Eight material-only swatches: dry/wet graphiteviolet asphalt, regular stone sidewalk, servicealley slabs, subdued canalwater, copper-steel industrialdeck, quiet paleviolet sky and nearblackviolet abyss. Opaque inside swatch, transparentgutters. No pipes, furniture, buildings, curb, signs, stars or horizon. Lowcontrast, seamless4sides. Logicaltile24px,superpatch96px. Grid 4columns by2rows; ordered left-to-right top-to-bottom: asfalto_seco, asfalto_molhado, calcada_pedra, beco_laje, agua_canal, metal_industrial, ceu_nuvens_fundo, abismo_fundo."
+    },
+    {
+      "id": "A02",
+      "file": "C3_SUPERFICIES_INTERIORES.png",
+      "grid": [
+        4,
+        2
+      ],
+      "kind": "material",
+      "priority": "P0",
+      "items": [
+        "madeira_clube",
+        "madeira_oficina",
+        "metal_terminal",
+        "pedra_santuario",
+        "basalto_nucleo",
+        "tabuas_ponte",
+        "tapete_palco",
+        "paineis_parede"
+      ],
+      "cells": 8,
+      "uses": [
+        "c3_indoor",
+        "c3_clubfloor",
+        "c3_platform",
+        "c3_sanctuary",
+        "c3_voidfloor",
+        "c3_bridge",
+        "interiorfinishes"
+      ],
+      "brief": "Eight material-only swatches: darkwarm clubwood,worn workshopwood,terminalmetal,quietlavender sanctuarystone,darkviolet basaltcore,bridgeplanks,subdued rugfabric,wood/metal wallpanels. Opaque swatchinteriors with transparentgutters. No furniture, eyes, circles, altar,pipes,flowers orframes. Repeatseamlessly, lowcontrast forcombattelgraphs. Logical24/superpatch96.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. Eight material-only swatches: darkwarm clubwood,worn workshopwood,terminalmetal,quietlavender sanctuarystone,darkviolet basaltcore,bridgeplanks,subdued rugfabric,wood/metal wallpanels. Opaque swatchinteriors with transparentgutters. No furniture, eyes, circles, altar,pipes,flowers orframes. Repeatseamlessly, lowcontrast forcombattelgraphs. Logical24/superpatch96. Grid 4columns by2rows; ordered left-to-right top-to-bottom: madeira_clube, madeira_oficina, metal_terminal, pedra_santuario, basalto_nucleo, tabuas_ponte, tapete_palco, paineis_parede."
+    },
+    {
+      "id": "A03",
+      "file": "C3_BORDAS_RUAS.png",
+      "grid": [
+        4,
+        4
+      ],
+      "kind": "ground-overlay",
+      "priority": "P0",
+      "items": [
+        "curb_n",
+        "curb_e",
+        "curb_s",
+        "curb_w",
+        "curb_outer_ne",
+        "curb_outer_se",
+        "curb_outer_sw",
+        "curb_outer_nw",
+        "curb_inner_ne",
+        "curb_inner_se",
+        "curb_inner_sw",
+        "curb_inner_nw",
+        "crossing_horizontal",
+        "crossing_vertical",
+        "service_drain",
+        "threshold_inlay"
+      ],
+      "cells": 16,
+      "uses": [
+        "distortion_district streets/sidewalkedges",
+        "sky_canal",
+        "terminal"
+      ],
+      "brief": "Sixteen groundoverlay pieces: cardinalcontinuouscurbs,copperdrainage,convex/concavecorners,two worncreamcrossings,flushdrain andentranceinlay. Truealpha outsidegeometry; sameprofile onconnectingedges. No buildings,cables,fullfloorbackdrop ortext. Actual generatedsource containsfilledfloor aroundcurbs: integrationmustextractthinborder,notpastepanelwhole.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. Sixteen groundoverlay pieces: cardinalcontinuouscurbs,copperdrainage,convex/concavecorners,two worncreamcrossings,flushdrain andentranceinlay. Truealpha outsidegeometry; sameprofile onconnectingedges. No buildings,cables,fullfloorbackdrop ortext. Actual generatedsource containsfilledfloor aroundcurbs: integrationmustextractthinborder,notpastepanelwhole. Grid 4columns by4rows; ordered left-to-right top-to-bottom: curb_n, curb_e, curb_s, curb_w, curb_outer_ne, curb_outer_se, curb_outer_sw, curb_outer_nw, curb_inner_ne, curb_inner_se, curb_inner_sw, curb_inner_nw, crossing_horizontal, crossing_vertical, service_drain, threshold_inlay."
+    },
+    {
+      "id": "A04",
+      "file": "C3_NUVENS_ENCAIXES.png",
+      "grid": [
+        4,
+        4
+      ],
+      "kind": "autotile",
+      "priority": "P0",
+      "items": [
+        "cloud_top_a",
+        "cloud_top_b",
+        "cloud_top_c",
+        "cloud_top_d",
+        "cloud_edge_n",
+        "cloud_edge_e",
+        "cloud_edge_s",
+        "cloud_edge_w",
+        "cloud_outer_ne",
+        "cloud_outer_se",
+        "cloud_outer_sw",
+        "cloud_outer_nw",
+        "cloud_inner_ne",
+        "cloud_inner_se",
+        "cloud_inner_sw",
+        "cloud_inner_nw"
+      ],
+      "cells": 16,
+      "uses": [
+        "c3_cloud",
+        "cloud_sea",
+        "cloudboundaries"
+      ],
+      "brief": "Sixteen compatiblecloudautotilepieces:fourquiettops,fourexterioredges,fourconvexcorners,fourconcavecorners. Ivory/palepink walkableface,lavenderbluehanginglobes atoutsideedgesonly. Transparentvoid, nobakedsky,horizon,buildings,pavement,sparklesorblackgrid. Preserveadjacency andlighting; centerisquietandflatterthanborders.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. Sixteen compatiblecloudautotilepieces:fourquiettops,fourexterioredges,fourconvexcorners,fourconcavecorners. Ivory/palepink walkableface,lavenderbluehanginglobes atoutsideedgesonly. Transparentvoid, nobakedsky,horizon,buildings,pavement,sparklesorblackgrid. Preserveadjacency andlighting; centerisquietandflatterthanborders. Grid 4columns by4rows; ordered left-to-right top-to-bottom: cloud_top_a, cloud_top_b, cloud_top_c, cloud_top_d, cloud_edge_n, cloud_edge_e, cloud_edge_s, cloud_edge_w, cloud_outer_ne, cloud_outer_se, cloud_outer_sw, cloud_outer_nw, cloud_inner_ne, cloud_inner_se, cloud_inner_sw, cloud_inner_nw."
+    },
+    {
+      "id": "A05",
+      "file": "C3_FACHADAS_COMPLEMENTARES.png",
+      "grid": [
+        3,
+        2
+      ],
+      "kind": "architecture",
+      "priority": "P1",
+      "items": [
+        "residence_laundry",
+        "residence_roof_garden",
+        "residence_service_window",
+        "plant_entrance",
+        "terminal_canopy",
+        "cloud_arrival_arch"
+      ],
+      "cells": 6,
+      "uses": [
+        "c3_house variants",
+        "powerplantfacade context",
+        "terminal",
+        "arrival"
+      ],
+      "brief": "Six isolatedarchitecturalcomplements inapproved3/4frontview:threeresidences withlaundry,roofgarden,servicewindow; truepowerplantentrance; terminalcanopy; cloudarrivalarch. Frontcenterdoorandgroundcontact. Samegraphitevioletcopperfamily,amberwindows,smallcyan/magentaaccents. Do notreplaceiconicclub,workshoporelevator. Notext,floorbackdroporpeople.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. Six isolatedarchitecturalcomplements inapproved3/4frontview:threeresidences withlaundry,roofgarden,servicewindow; truepowerplantentrance; terminalcanopy; cloudarrivalarch. Frontcenterdoorandgroundcontact. Samegraphitevioletcopperfamily,amberwindows,smallcyan/magentaaccents. Do notreplaceiconicclub,workshoporelevator. Notext,floorbackdroporpeople. Grid 3columns by2rows; ordered left-to-right top-to-bottom: residence_laundry, residence_roof_garden, residence_service_window, plant_entrance, terminal_canopy, cloud_arrival_arch."
+    },
+    {
+      "id": "A06",
+      "file": "C3_CONTRATEMPO_PROPS.png",
+      "grid": [
+        4,
+        3
+      ],
+      "kind": "props",
+      "priority": "P0",
+      "items": [
+        "stage_idle",
+        "stage_active",
+        "speaker_idle",
+        "speaker_active",
+        "bar_counter",
+        "club_table",
+        "club_chair",
+        "club_stool",
+        "projection_console",
+        "projector_rig",
+        "instrument_rack",
+        "acoustic_wallpanel"
+      ],
+      "cells": 12,
+      "uses": [
+        "c3_stage",
+        "c3_speakers",
+        "c3_bar",
+        "c3_table",
+        "contratempo"
+      ],
+      "brief": "Twelve isolateddetailedclubprops:stageoff/on,speakeroff/on,bar,table,chair,stool,Dneyconsole,projector,instrumentrack,acousticpanel. Pairedstateskeepscale/base. Wood/copper,magentalocalstagelight,cyanprojection. Noopaquefootprintsquare,peopleorletters.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. Twelve isolateddetailedclubprops:stageoff/on,speakeroff/on,bar,table,chair,stool,Dneyconsole,projector,instrumentrack,acousticpanel. Pairedstateskeepscale/base. Wood/copper,magentalocalstagelight,cyanprojection. Noopaquefootprintsquare,peopleorletters. Grid 4columns by3rows; ordered left-to-right top-to-bottom: stage_idle, stage_active, speaker_idle, speaker_active, bar_counter, club_table, club_chair, club_stool, projection_console, projector_rig, instrument_rack, acoustic_wallpanel."
+    },
+    {
+      "id": "A07",
+      "file": "C3_INDUSTRIA_ESTADOS.png",
+      "grid": [
+        4,
+        2
+      ],
+      "kind": "props",
+      "priority": "P0",
+      "items": [
+        "machine_inactive",
+        "machine_active",
+        "pressure_switch_inactive",
+        "pressure_switch_active",
+        "valve_stalled",
+        "valve_released",
+        "canal_gate_closed",
+        "canal_gate_open"
+      ],
+      "cells": 8,
+      "uses": [
+        "interiorc3_machine",
+        "c3_pressure_switch",
+        "c3_valve_station",
+        "c3_canal_gate"
+      ],
+      "brief": "Fourpairedphysicalstateprops:industrialharmonicmachineoff/on,pressureconsoleinactive/pressed,valvestalled/released,canalgateclosed/open. Samebaseandscale; gatehasrealtransparentopening,valvephysicallychanges. Machineryissizednearaperson,notbuildingfacade. Wornvioletsteel,copper,cyanfunctional,localizedmagenta interference. Nofloorrectangleortext.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. Fourpairedphysicalstateprops:industrialharmonicmachineoff/on,pressureconsoleinactive/pressed,valvestalled/released,canalgateclosed/open. Samebaseandscale; gatehasrealtransparentopening,valvephysicallychanges. Machineryissizednearaperson,notbuildingfacade. Wornvioletsteel,copper,cyanfunctional,localizedmagenta interference. Nofloorrectangleortext. Grid 4columns by2rows; ordered left-to-right top-to-bottom: machine_inactive, machine_active, pressure_switch_inactive, pressure_switch_active, valve_stalled, valve_released, canal_gate_closed, canal_gate_open."
+    },
+    {
+      "id": "A08",
+      "file": "C3_LETREIROS_SOLEIRAS.png",
+      "grid": [
+        4,
+        3
+      ],
+      "kind": "props",
+      "priority": "P0",
+      "items": [
+        "sign_club",
+        "sign_workshop",
+        "sign_plant",
+        "sign_canal",
+        "sign_lift",
+        "wayfinder_left",
+        "wayfinder_right",
+        "threshold_open",
+        "threshold_closed",
+        "platform_embark",
+        "canal_pier_left",
+        "canal_pier_right"
+      ],
+      "cells": 12,
+      "uses": [
+        "c3_signthemes",
+        "doorwaythresholds",
+        "liftboarding",
+        "canalpier"
+      ],
+      "brief": "Twelvetransparentfinishingpieces:fiveTHINEMPTYsignframes,twowayfinders,twoentrancethresholds,boardingpad,two piercaps. Blankquietpanelsforruntimeletters; functionalcolorsandbrackets. Nofacades,miniaturebuildings,groundscene,writingorwhitebackdrop. Samepairedfootprints. Initialconceptualfacadeattemptwasrejected; finalregeneratedthinframesaccepted.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. Twelvetransparentfinishingpieces:fiveTHINEMPTYsignframes,twowayfinders,twoentrancethresholds,boardingpad,two piercaps. Blankquietpanelsforruntimeletters; functionalcolorsandbrackets. Nofacades,miniaturebuildings,groundscene,writingorwhitebackdrop. Samepairedfootprints. Initialconceptualfacadeattemptwasrejected; finalregeneratedthinframesaccepted. Grid 4columns by3rows; ordered left-to-right top-to-bottom: sign_club, sign_workshop, sign_plant, sign_canal, sign_lift, wayfinder_left, wayfinder_right, threshold_open, threshold_closed, platform_embark, canal_pier_left, canal_pier_right."
+    },
+    {
+      "id": "A09",
+      "file": "C3_NUVENS_MECANISMOS.png",
+      "grid": [
+        4,
+        2
+      ],
+      "kind": "props",
+      "priority": "P1",
+      "items": [
+        "wind_beacon_off",
+        "wind_beacon_on",
+        "condensation_off",
+        "condensation_on",
+        "drum_anchor_off",
+        "drum_anchor_on",
+        "wind_current_marker",
+        "cloud_anchor_foundation"
+      ],
+      "cells": 8,
+      "uses": [
+        "cloudPathA/B eventlandmarks",
+        "cloudPlatform eventlandmark",
+        "routebeacons"
+      ],
+      "brief": "Eightisolatedphysicalcloudnavigationdevices:beaconoff/on,condensationreceiveroff/on,drumanchorloose/secured,windroutemarker,anchorbase. Samepairedscale withmechanicaldifference aswellaslight; copper/steel,sparseivorylavenderclouddustatbase,cyanwind andgoldrhythm. Nocharacters,lettersorcloudphotobackground.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. Eightisolatedphysicalcloudnavigationdevices:beaconoff/on,condensationreceiveroff/on,drumanchorloose/secured,windroutemarker,anchorbase. Samepairedscale withmechanicaldifference aswellaslight; copper/steel,sparseivorylavenderclouddustatbase,cyanwind andgoldrhythm. Nocharacters,lettersorcloudphotobackground. Grid 4columns by2rows; ordered left-to-right top-to-bottom: wind_beacon_off, wind_beacon_on, condensation_off, condensation_on, drum_anchor_off, drum_anchor_on, wind_current_marker, cloud_anchor_foundation."
+    },
+    {
+      "id": "A10",
+      "file": "C3_SANTUARIO_NUCLEO.png",
+      "grid": [
+        4,
+        3
+      ],
+      "kind": "props",
+      "priority": "P0",
+      "items": [
+        "silence_eye_open",
+        "silence_eye_half",
+        "silence_eye_closed",
+        "silence_altar_dormant",
+        "silence_altar_awake",
+        "resonance_circle_off",
+        "resonance_circle_on",
+        "last_torii_arch",
+        "core_entry_bridge",
+        "core_bridge_edge",
+        "core_column_left",
+        "core_column_right"
+      ],
+      "cells": 12,
+      "uses": [
+        "c3_silence_eye",
+        "c3_silence_altar",
+        "c3_resonance_circle",
+        "last_torii",
+        "silence_core"
+      ],
+      "brief": "Twelvefinalregionpieces:peripheraleyeopen/half/closedwithsmallwallfragment,altardormant/awake,SINGLEsixfrequencyfloorsigiloff/on,finalarch,entrybridge/edge,twocolumns. Transparentbackground,quietvioletobsidian,copper/localcyanmagenta; eyesnotrepeatedinfloor,altarawayfrombossplayfield,nonewToriimasks,deities,rectangulargalaxybackdroporletters.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. Twelvefinalregionpieces:peripheraleyeopen/half/closedwithsmallwallfragment,altardormant/awake,SINGLEsixfrequencyfloorsigiloff/on,finalarch,entrybridge/edge,twocolumns. Transparentbackground,quietvioletobsidian,copper/localcyanmagenta; eyesnotrepeatedinfloor,altarawayfrombossplayfield,nonewToriimasks,deities,rectangulargalaxybackdroporletters. Grid 4columns by3rows; ordered left-to-right top-to-bottom: silence_eye_open, silence_eye_half, silence_eye_closed, silence_altar_dormant, silence_altar_awake, resonance_circle_off, resonance_circle_on, last_torii_arch, core_entry_bridge, core_bridge_edge, core_column_left, core_column_right."
+    },
+    {
+      "id": "A11",
+      "file": "LEGADO_OBJETIVOS_C1.png",
+      "grid": [
+        4,
+        3
+      ],
+      "kind": "props",
+      "priority": "P1",
+      "items": [
+        "forest_lamp",
+        "checkpoint_recorder",
+        "root_gate_closed",
+        "root_gate_open",
+        "crystal_pulse",
+        "crystal_timbre",
+        "memory_bell",
+        "pool_stone",
+        "well_stone",
+        "root_totem",
+        "root_wall",
+        "mushroom_cluster"
+      ],
+      "cells": 12,
+      "uses": [
+        "lamp",
+        "checkpointStone",
+        "rootGate",
+        "stoneCrystal",
+        "memoryBell",
+        "pool",
+        "well",
+        "totem",
+        "rootWall",
+        "mushroom"
+      ],
+      "brief": "TwelverusticChapter1props:amberlamppost,taperecordercheckpointwithquietLEDstatearea,livingrootgateclosed/open,cyanPulse andgoldTimbrestones,memorybell,healingpool,well,roottotem,connectedrootwall,mushroomcluster. Truealpha,moss/wood/creamstonefamily. Noprototyperectangles,newmasks,peopleorletters. Mushroomsremainverysmallinworld,gateopenhasphysicalgap,rootwallendsconnect.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. TwelverusticChapter1props:amberlamppost,taperecordercheckpointwithquietLEDstatearea,livingrootgateclosed/open,cyanPulse andgoldTimbrestones,memorybell,healingpool,well,roottotem,connectedrootwall,mushroomcluster. Truealpha,moss/wood/creamstonefamily. Noprototyperectangles,newmasks,peopleorletters. Mushroomsremainverysmallinworld,gateopenhasphysicalgap,rootwallendsconnect. Grid 4columns by3rows; ordered left-to-right top-to-bottom: forest_lamp, checkpoint_recorder, root_gate_closed, root_gate_open, crystal_pulse, crystal_timbre, memory_bell, pool_stone, well_stone, root_totem, root_wall, mushroom_cluster."
+    },
+    {
+      "id": "A12",
+      "file": "LEGADO_TRANSICOES_INTERIORES.png",
+      "grid": [
+        4,
+        2
+      ],
+      "kind": "props",
+      "priority": "P2",
+      "items": [
+        "window_rustic",
+        "door_lit",
+        "window_warm",
+        "frame_landscape",
+        "frame_music",
+        "room_doorway",
+        "rooftop_parapet",
+        "canal_bank"
+      ],
+      "cells": 8,
+      "uses": [
+        "window",
+        "doorLit",
+        "life091/window",
+        "life091/frame",
+        "roomtransitions",
+        "roofedge",
+        "canalbank"
+      ],
+      "brief": "Eightlegacyfinishprops:rusticwindow/litwooddoorforChapter1,warmcopper-mullionChapter2window,two smallwallframeswithlandscape/musicdiagramwithouttext,openinteriordoorway,parapetsegment,canalbanksegment. Matchapprovedwarmdustyvioletstoneandwood,notcyberpunksaturation. Transparentbackground,nopeople,nofullscene; connectedends andrestrainedcontactshadows.",
+      "prompt": "Use case: stylized-concept. Production sprite atlas for Torii & Hutukara, existing2D top-down frontal3/4 16-bitJRPG with axis-aligned squaretileworld. Match approved RUA_DISTRITO_PROPOSTA.png and detailed existing building/prop family. Visible deliberate squarepixelclusters, clean dark outlines, consistent pixel density. Exact invisible equalgrid; real transparentRGBA background and transparentgutters. No characters, text, labels, watermarks, maskdecorations, opaquebackdrops, floatingobjects, photographictextures, smooth3D or blur. Props isolated with consistentgroundcontact. Graphiteviolet,worncopper,localizedcyan/magenta,amber inhabitedlight. Preserve ordereditems. Eightlegacyfinishprops:rusticwindow/litwooddoorforChapter1,warmcopper-mullionChapter2window,two smallwallframeswithlandscape/musicdiagramwithouttext,openinteriordoorway,parapetsegment,canalbanksegment. Matchapprovedwarmdustyvioletstoneandwood,notcyberpunksaturation. Transparentbackground,nopeople,nofullscene; connectedends andrestrainedcontactshadows. Grid 4columns by2rows; ordered left-to-right top-to-bottom: window_rustic, door_lit, window_warm, frame_landscape, frame_music, room_doorway, rooftop_parapet, canal_bank."
+    }
+  ],
+  "totalSheets": 12,
+  "totalCells": 126,
+  "reuse": [
+    "C1/C2housesandtrees",
+    "prebetadetailedpost/column/ruinColumn",
+    "C2stationProps11train/antenna/fountain/relay",
+    "iconicC3club/workshop/elevatorfacades",
+    "goodC3urban/workshop/canal/liftprops"
+  ],
+  "criticalFindings": [
+    {
+      "id": "cloud-precedence",
+      "file": "game/source/chapter-03/chapter3_runtime.js",
+      "line": 351,
+      "finding": "PB.materialV2 interceptedcloud/platformbeforePB.cloudTileedges",
+      "finalState": "resolvedbynewrenderer"
+    },
+    {
+      "id": "floor-object-bake",
+      "finding": "oldsidewalkmaterialcontainedpipes/architecture;cloudpanelswerepanoramas;sanctuaryrepeatedlargemotifs",
+      "finalState": "resolvedbycleanmaterials+separateborders"
+    },
+    {
+      "id": "opaque-resonance",
+      "file": "game/source/chapter-03/chapter3_runtime.js",
+      "line": 365,
+      "finding": "resonancecircleusedopaquesanctuarysquare",
+      "finalState": "resolvedbyonegroundobjectbehindactors"
+    },
+    {
+      "id": "club-rect-props",
+      "file": "game/source/chapter-03/chapter3_runtime.js",
+      "line": 362,
+      "finding": "clubstage/speaker/bar/tablewereproceduralrectangles",
+      "finalState": "resolvedbyPNGprops"
+    }
+  ],
+  "initialGeneratedReview": {
+    "rejected": [
+      {
+        "sheet": "A08",
+        "reason": "facadesinsteadofthinframes,sourcealpha106..253,noalpha0",
+        "finalState": "closedaftertargetedregeneration"
+      }
+    ],
+    "conditional": [
+      {
+        "sheet": "A03",
+        "reason": "filledpavementaroundcurbs;thinborderextractionrequired",
+        "finalState": "acceptedincamera"
+      },
+      {
+        "sheet": "A04",
+        "reason": "cropcenters18percenttoremoveoutline;checkjointdarkgrid",
+        "finalState": "acceptedincamera;P2fringeregularity"
+      },
+      {
+        "sheet": "A06",
+        "reason": "neighborfragmentsat speaker_idle/club_table/projector_rig",
+        "finalState": "cleanedandaccepted"
+      }
+    ],
+    "clarifications": [
+      "A07canal_gate_openhasrealtransparentgap;thumbnailwasmisleading,noregenneeded.",
+      "Normalizedpropspivot128,240wasacceptedwhenrendererhonorsit; architecture384hasownmetadata."
+    ]
+  },
+  "generatedReview": {
+    "stage": "finalintegratedBeta1.2visualreview",
+    "rejected": [],
+    "conditional": [],
+    "acceptedForIntegrationReview": [
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "A06",
+      "A07",
+      "A08",
+      "A09",
+      "A10",
+      "A11",
+      "A12"
+    ],
+    "integratedVisualAcceptance": "acceptedforBeta1.2;noobservedP0/P1artisticblockerintheinspectedcaptures",
+    "closedFindings": [
+      "A08thintransparentframes",
+      "A06neighborfragmentsremoved",
+      "A03norepeatedpipe/wallfloorpanels",
+      "A04continuouscloudtopswithoutdarkinternalgrid",
+      "club/workshop/plantdoorportalsaligned",
+      "quietfinalarenawithperipheraleyesandonegroundcircle"
+    ],
+    "p2": [
+      {
+        "id": "cloud-regularity",
+        "finding": "fringerepeatsandlowerdepthismodest;futurecontourvariation"
+      },
+      {
+        "id": "c3-checkpoint-family",
+        "finding": "lastToriiimageanditemFormapstilluserusticcheckpoint,notmetallickioskdescription;nonblocking"
+      },
+      {
+        "id": "studio-lamp-family",
+        "finding": "rusticforestlampnearstudiosynthlessnatural;futurecontextspecificreuse"
+      }
+    ],
+    "evidenceRoot": "qa/cenarios-v2/depois",
+    "evidence": [
+      "distrito-entradas.png",
+      "distrito-noroeste.png",
+      "contratempo-camera.png",
+      "ciro_workshop-camera.png",
+      "power_plant-camera.png",
+      "sky_canal-camera.png",
+      "sky_terminal-camera.png",
+      "sky_lift-camera.png",
+      "cloud_terrace-camera.png",
+      "nuvens-percurso.png",
+      "silence_core-camera.png",
+      "last_torii-camera.png",
+      "ruinas-pilares.png",
+      "studio-camera.png",
+      "radio9-camera.png"
+    ],
+    "technicalReportsRead": [
+      "assets/cenarios/v2/VALIDACAO.json"
+    ],
+    "gameplay": "notmanuallyplayedbyreviewer",
+    "physicalDevices": "nottestedbyreviewer"
+  },
+  "portalCorrectionsReviewed": {
+    "districtToClub": [
+      13.5,
+      16.5
+    ],
+    "districtToWorkshop": [
+      25.5,
+      12.5
+    ],
+    "districtToPlant": [
+      55.5,
+      12.5
+    ],
+    "returnFromClub": [
+      13.5,
+      17.5
+    ],
+    "returnFromWorkshop": [
+      25.5,
+      13.5
+    ],
+    "returnFromPlant": [
+      55.5,
+      13.5
+    ],
+    "preserve": "missionconditions,collisions,otherportals"
+  },
+  "reviewEvidence": {
+    "before": "all11C3areas+selectedC1/C2enginecaptures;initialstaleHUD/washnotattributedtogameplay",
+    "generatedContact": "assets/cenarios/v2/CONTATO.png",
+    "integratedCaptures": [
+      "distrito-entradas.png",
+      "distrito-noroeste.png",
+      "contratempo-camera.png",
+      "ciro_workshop-camera.png",
+      "power_plant-camera.png",
+      "sky_canal-camera.png",
+      "sky_terminal-camera.png",
+      "sky_lift-camera.png",
+      "cloud_terrace-camera.png",
+      "nuvens-percurso.png",
+      "silence_core-camera.png",
+      "last_torii-camera.png",
+      "ruinas-pilares.png",
+      "studio-camera.png",
+      "radio9-camera.png"
+    ],
+    "captureLimitations": "staticrendererimages;nofullmanualcampaign,nophysicaldevice/controllerplaytestbyreviewer"
+  }
+}

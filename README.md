@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta 1.2 — jogo completo do início ao fim, com os três capítulos. Ninja e Arqueiro usam os novos sprites de movimento e combate em quatro direções. A versão fica em `game/VERSION.json`.
+**Versão atual:** Beta 1.2 — jornada completa em três capítulos, protagonistas V5, Ninja e Arqueiro detalhados e revisão dos cenários do ato final. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -13,6 +13,8 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 - Salvamento local, importação/exportação em JSON e checkpoints.
 - Seis faixas próprias do terceiro capítulo incorporadas à build.
 - Ninja e Arqueiro: 12 estados, oito poses por ação, rolamento, retratos e animações independentes no coop. [Detalhes e prévia dos assets](docs/ARTE_NINJA_ARQUEIRO_V1.md).
+- Franco e Ryuchi principais: 192 sequências V5 com e sem máscara, retratos e ações independentes no co-op. [Integração dos protagonistas](docs/ARTE_PROTAGONISTAS_V5.md).
+- Cenários V2: 12 atlas, 126 recortes/estados, materiais separados de objetos, nuvens por vizinhança e interiores/objetivos detalhados. [Produção e revisão dos mapas](docs/CENARIOS_V2.md).
 - Sprites detalhados para os personagens e NPCs do Capítulo 3.
 - Jogo distribuído como um único HTML portátil, sem instalação.
 - Suporte a DualShock 4, DualSense e controles compatíveis, com coop local para duas pessoas.
