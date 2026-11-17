@@ -13,6 +13,11 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ## [Não lançado]
 
+### NPCs · recorrência direcional · 17/11/2026
+
+- Belga (`bento`) e Colli (`nilo`) usam as quatro direções do atlas canônico nas aparições anteriores ao Capítulo 3, com pose neutra e atenção ao jogador próximo. Sem novos PNGs ou mudança de coordenadas, IDs e saves. Mantido o corpo frontal como fallback durante carregamento.
+- Inventário de NPCs e proposta por contexto em `docs/NPCS_INVENTARIO.md`; regressão do seletor em `qa/npc_recurrence.cjs`.
+
 ### Arte dos protagonistas V5 · 17/11/2026
 
 - 24 atlas, 32 retratos e 192 sequências de Franco e Ryuchi principais, com e sem máscara, nas quatro direções. Inclui locomoção, rolamento, combo, técnicas, especial, dano e derrota.
