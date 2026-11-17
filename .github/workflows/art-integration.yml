@@ -26,7 +26,9 @@ jobs:
           ruby game/source/chapter-03/validate_alpha.rb
           ruby production/build_playtest.rb
       - name: Test protagonist art, variants, input and coop
-        run: node qa/run_art_integration.cjs
+        run: |
+          node qa/protagonist_state.cjs
+          node qa/run_art_integration.cjs
       - name: Retain test evidence
         if: always()
         uses: actions/upload-artifact@v4
