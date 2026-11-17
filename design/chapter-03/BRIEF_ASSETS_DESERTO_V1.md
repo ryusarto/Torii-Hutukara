@@ -24,7 +24,7 @@ Substituir os campos por um item/contexto real e anexar a célula aprovada como 
 
 ### Material
 
-> Torii & Hutukara, existing 2D top-down three-quarter 16-bit JRPG environment material. Post-apocalyptic desert settlement built from salvaged technology. Palette: sand #C3A06C, sunlit dust #DFC49A, rust #9A5537 and #6E3F2A, worn steel #53524A, charcoal #282724, bone #F0E0BD, cool shadows #3F5155. Dry eroded concrete, compacted sand in cracks and restrained rusted flush metal according to <MATERIAL>. Quiet surface, deliberate square pixel clusters, no photographic texture or blur. Seamless statistics across opposite edges, no centered motif, no buildings, pipes, signs, furniture or symbols embedded in the floor. Preserve the material's readable walkable role at a 24-pixel logical tile. Separate transparent gutter from opaque material interior. Avoid general neon reflections.
+> Torii & Hutukara, existing 2D top-down three-quarter 16-bit JRPG environment material. Post-apocalyptic desert settlement built from salvaged technology. Palette: sand #C3A06C, sunlit dust #DFC49A, rust #9A5537 and #6E3F2A, worn steel #53524A, charcoal #282724, bone #F0E0BD, cool shadows #3F5155. Dry eroded concrete, compacted sand in cracks and restrained rusted flush metal according to <MATERIAL>. Quiet surface, deliberate square pixel clusters, no photographic texture or blur. Seamlessly tileable texture with matching opposite edges, no centered motif, no buildings, pipes, signs, furniture or symbols embedded in the floor. Preserve the material's readable walkable role at a 24-pixel logical tile. Separate transparent gutter from opaque material interior. Avoid general neon reflections.
 
 ### Fachada
 

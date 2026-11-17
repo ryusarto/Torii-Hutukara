@@ -67,6 +67,8 @@ Os nomes públicos conhecidos permanecem inicialmente. IDs, flags e conexões s�
 
 Preservar rostos, pele, figurinos reconhecíveis, instrumentos, pivôs e animações aprovadas. Protagonistas V5 e variantes mantêm suas paletas próprias. Desgaste localizado ou acessórios futuros são variantes deliberadas, não uma alteração global do elenco.
 
+Novos pacotes e paletas específicas solicitados/aprovados pelo autor nos chats de personagens continuam válidos. Preservar a identidade e as paletas próprias não congela versões antigas; impede aplicar a paleta ambiental indiscriminadamente ao elenco.
+
 A máscara Torii continua canônica. Não substituí-la por máscara de gás. Ninja permanece sem máscara; Arqueiro mantém a máscara no lado direito do cinto.
 
 Inimigos presentes em vários capítulos precisam de contexto C3 para qualquer variante ambiental. Suas funções musicais, silhuetas de ataque e estatísticas permanecem. Este passe não acrescenta inimigos nem muda HP, dano, recompensas ou quantidade de encontros.
@@ -125,7 +127,7 @@ Manter a base 1.1.2, schema 13, chave de save, IDs, flags, callbacks, dimensões
 | Linguagem visual | th_diretor_artistico | Paleta, materiais, luz, contraste, identidade e revisão de capturas |
 | Especificação de arte | th_artista | Inventário, prompts, fontes/exports e cumprimento do manifesto |
 | Produção e integração de cenários | Chat de cenários Analisar build HTML TORII Hutukara | A01–A10, variantes C3, fachadas e renderer de cenário; esta frente confirmou a posse |
-| NPCs | Frente de NPCs já notificada | Poses, contexto local, continuidade e recorrências; preservar identidade e capítulos anteriores |
+| NPCs e inimigos | Frente de NPCs/inimigos já notificada | Poses, recorrências e sprites de inimigos por capítulo; preservar identidade, funções, revelações e capítulos anteriores |
 | Músicos | Chat Criar sprites de Ryuchi e Franco | Pacotes Sintetizador/Percussionista e integração combinada; preservar figurinos, máscaras, pivôs e ações |
 | Contrato técnico | th_arquiteto | Roteamento por capítulo, manifestos, carregamento, caches e integração; revisão sem sobrepor o escritor do renderer |
 | Continuidade e leitura jogável | th_game_designer | Onze áreas, estados, relíquias, revisão editorial e critérios de exploração/combate |
