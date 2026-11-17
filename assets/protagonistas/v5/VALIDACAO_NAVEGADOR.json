@@ -1,9 +1,12 @@
 {
   "passed": true,
+  "basisCommit": "fc175674714341506da256bfbade5f7cf377b8b0",
+  "source": "Published GitHub PNG atlases; preview HTML identical to official source",
   "combinations": 192,
   "pageErrors": [],
   "pause": true,
   "frameStep": true,
   "mobilePreview": true,
-  "scope": "Asset viewer only; does not validate mobile gameplay."
+  "browser": "158.0.8127.37",
+  "scope": "Asset viewer only; does not validate mobile gameplay or runtime integration."
 }
