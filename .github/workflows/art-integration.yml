@@ -2,8 +2,9 @@ name: Art integration QA
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [feat/protagonistas-v5]
+concurrency:
+  group: art-qa-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:

@@ -137,4 +137,4 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
  await page.locator('canvas').first().screenshot({path:path.join(output,'PROTAGONISTAS_V5_ENGINE.png')});
  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'PROTAGONISTAS_V5_RESULTS.json'),JSON.stringify({version:version.versao,passed:checks.length,checks,browserErrors:errors,physicalControllersTested:false},null,2)+'\n');
  await context.close();await browser.close();console.log('PASS · '+checks.length+' checks');
-})().catch(e=>{console.error(e);process.exitCode=1});
+})().catch(e=>{console.error(e);process.exit(1)});
