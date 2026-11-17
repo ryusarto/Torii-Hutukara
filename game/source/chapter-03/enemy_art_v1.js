@@ -22,7 +22,7 @@ const EnemyArtV1 = {
     if (this.game !== G || this.area !== G?.area) this.reset();
     let r = this.records.get(entity);
     if (!r) { r = {preparing:false, strikeUntil:0}; this.records.set(entity,r); }
-    const preparing = entity.wind > 0 || entity.tele09 > 0 || entity.retaliate > 0 || entity.echoWarning092 > 0;
+    const preparing = entity.wind > 0 || entity.tele09?.time > 0 || entity.retaliate > 0 || entity.echoWarning092 > 0;
     if (r.preparing && !preparing && mode === 'action') r.strikeUntil = this.clock + .22;
     r.preparing = preparing;
     if (entity.flash > 0 || entity.stun > 0) return 3;

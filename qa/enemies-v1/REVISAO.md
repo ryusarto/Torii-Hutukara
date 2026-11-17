@@ -21,7 +21,7 @@ O seletor prioriza ID dos chefes e depois o tipo/variante contextual. Usa `wind`
 
 ## Evidências da mesma build
 
-Build portátil: `game/builds/beta-1.3.0/TORII_HUTUKARA_BETA_1_3_0.html`, **237.628.154 bytes**, SHA-256 `2a6502fa64d1e7d457d54f011512255a2189efc8bf557f167566e50da7ee83da`.
+Build portátil: `game/builds/beta-1.3.0/TORII_HUTUKARA_BETA_1_3_0.html`, **237.628.160 bytes**, SHA-256 `ae12c40b5be906d4017d1d9a6f0c8e4bb20ef8c5b95f11a93bf61a61175bc83d`.
 
 - Validador: **122/122**, incluindo cobertura de 13 pranchas, dimensões/alpha, materiais C3, rota própria do Viajante, base e schema 13 preservados.
 - Regressão NPC: **32** combinações direcionais/tempo e fallback aprovados.
@@ -29,7 +29,7 @@ Build portátil: `game/builds/beta-1.3.0/TORII_HUTUKARA_BETA_1_3_0.html`, **237.
 - Inimigos em navegador: **8/8** verificações; 52 células decodificadas; variantes C1/C2/C3; prioridade dos IDs; poses e ausência de mutação dos atores; pausa/load/área; auras; um desenho por chefe; nenhum desenho do Arqueiro descoberto no Viajante, mesmo com atlas não carregado; retrato `musician` continua mascarado quando a flag de revelação já foi definida.
 - Controles/coop/mobile: **22/22**, `qa/beta-1.3.0/INPUT_TEST_RESULTS.json`.
 - Progressão/XP/saves/combate/diálogos mobile: **20/20**, `qa/beta-1.3.0/GAMEPLAY_TEST_RESULTS.json`.
-- Exportação web local: HTML de **724.712 bytes**, 213 arquivos de mídia em cache; deriva do mesmo hash portátil. Testes web adicionais ficam registrados nos JSONs correspondentes.
+- Exportação web local: HTML de **724.718 bytes**, 213 arquivos de mídia em cache; deriva do mesmo hash portátil. Testes web adicionais ficam registrados nos JSONs correspondentes.
 
 `PORTATIL_RESULTADOS.json` registra a primeira execução isolada contra o HTML portátil; `RESULTADOS.json` registra a conferência reproduzível mais recente. `ELENCO_52_POSES.png` usa composição real no navegador para conferir alpha, recorte e âncora. `CHEFES_MAPAS.png` mostra os quatro renderizadores de chefe nos mapas reais, com posições controladas pelo teste; não é uma caminhada de campanha.
 
@@ -42,3 +42,7 @@ Chrome isolado/headless e perfis emulados não equivalem a telefone físico, con
 PNG runtime total: **3.585.436 bytes**; máximo adicional de RGBA dos 13 atlas decodificados: **13 MiB**. O carregamento é sob demanda por identidade. Não foi feita medição comparativa de FPS/frame time em aparelho físico.
 
 A integração com a main foi feita após inventário de hashes e backups, com comparação de três versões. Mudanças alheias de cenários, progressão e coop foram preservadas; um arquivo local de QA divergente não foi sobrescrito. O PR é montado por lista explícita de arquivos, para não tratar ausências do checkout sparse como exclusões.
+
+### Correção final do aviso do Arauto
+
+A preparação do Arauto usa um objeto `tele09` com campo `time`, diferente do `wind` numérico. O seletor lê `tele09.time`; a regressão usa o formato real `{type, time, x, y}` e verifica também a transição ao limpar o objeto. Build, estrutura, inimigos, controles, jogabilidade e exportação web foram revalidados após esse ajuste. As fontes e os atlas aprovados não mudaram.
