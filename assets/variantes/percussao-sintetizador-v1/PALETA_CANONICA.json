@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "label": "C3 · deserto, poeira e ferrugem",
+  "operation": "selective RGB palette lookup only",
+  "date": "2026-11-17",
+  "anchors": {
+    "areia": "#C3A06C",
+    "poeira": "#DFC49A",
+    "ferrugem": "#9A5537",
+    "ferrugem_escura": "#6E3F2A",
+    "aco": "#53524A",
+    "carvao": "#282724",
+    "osso": "#F0E0BD",
+    "oxidacao": "#626B53",
+    "sombra": "#3F5155",
+    "ciano_funcional": "#6CC1BC",
+    "ambar": "#E7B26B",
+    "rosa_residual": "#C27C85"
+  },
+  "selection": {
+    "blueHue": [
+      205,
+      270
+    ],
+    "purpleHue": [
+      270,
+      315
+    ],
+    "minimumHslSaturation": 0.2,
+    "minimumValue": 0.18823529411764706,
+    "minimumAlpha": 16
+  },
+  "protection": {
+    "warmHueMaximum": 80,
+    "warmHairHueMinimum": 320,
+    "lowSaturationMaximum": 0.2,
+    "darkValueMaximum": 0.18823529411764706,
+    "functionalCyanHue": [
+      155,
+      205
+    ],
+    "brightBlueHue": [
+      205,
+      230
+    ],
+    "brightBlueMinimumValue": 0.72,
+    "brightBlueMinimumHslSaturation": 0.4,
+    "francoHairDominantColors": 32
+  },
+  "heroes": {
+    "ryuchi_percussionista": {
+      "blue": {
+        "anchor": "sombra",
+        "highlightAnchor": "sombra",
+        "strength": 0.5,
+        "saturationSource": 0.55,
+        "saturationAnchor": 0.25,
+        "saturationMinimum": 0.14,
+        "saturationMaximum": 0.4,
+        "lightnessScale": 0.98,
+        "lightnessOffset": 0.002,
+        "hueVariation": 0.1
+      },
+      "purple": {
+        "anchor": "aco",
+        "highlightAnchor": "poeira",
+        "strength": 0.5,
+        "saturationSource": 0.18,
+        "saturationAnchor": 0.4,
+        "saturationMinimum": 0.04,
+        "saturationMaximum": 0.2,
+        "lightnessScale": 0.97,
+        "lightnessOffset": 0.003,
+        "hueVariation": 0.04
+      }
+    },
+    "franco_sintetizador": {
+      "blue": {
+        "anchor": "sombra",
+        "highlightAnchor": "aco",
+        "strength": 0.45,
+        "saturationSource": 0.35,
+        "saturationAnchor": 0.3,
+        "saturationMinimum": 0.08,
+        "saturationMaximum": 0.3,
+        "lightnessScale": 0.98,
+        "lightnessOffset": 0.003,
+        "hueVariation": 0.06
+      },
+      "purple": {
+        "anchor": "ferrugem",
+        "highlightAnchor": "areia",
+        "strength": 0.55,
+        "saturationSource": 0.5,
+        "saturationAnchor": 0.15,
+        "saturationMinimum": 0.18,
+        "saturationMaximum": 0.5,
+        "lightnessScale": 0.98,
+        "lightnessOffset": 0.003,
+        "hueVariation": 0.1
+      }
+    }
+  },
+  "collisionPolicy": "Injective per-hero RGB lookup. Reserve every unchanged visible color; nearest free RGB preserves distinct color clusters.",
+  "geometryPolicy": "Same pixel coordinates/dimensions/alpha byte-for-byte; exact RGBA equality boundaries audited after PNG encoding.",
+  "notes": [
+    "The anchors guide garment ramps; no global sepia filter is applied.",
+    "Warm skin, ivory mask, goggles, dominant warm hair, gold and functional cyan remain unchanged.",
+    "Source shading steps are mapped consistently by RGB, never interpolated across pixels.",
+    "Moderate 0.45–0.55 strengths retain original rich shading ramps, per final direction."
+  ]
+}
