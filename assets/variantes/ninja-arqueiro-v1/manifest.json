@@ -1,0 +1,1826 @@
+{
+  "version": 1,
+  "release": "ninja-arqueiro-v1",
+  "cell": [
+    256,
+    256
+  ],
+  "pivot": [
+    128,
+    224
+  ],
+  "sourceGrid": [
+    8,
+    4
+  ],
+  "directions": [
+    "down",
+    "left",
+    "up",
+    "right"
+  ],
+  "states": [
+    "idle",
+    "walk",
+    "run",
+    "roll",
+    "attack_1",
+    "attack_2",
+    "attack_3",
+    "skill",
+    "advanced",
+    "signature",
+    "hurt",
+    "defeat"
+  ],
+  "heroes": {
+    "katana": "unmasked",
+    "alt": "belt_mask"
+  },
+  "maskLocation": {
+    "katana": "none",
+    "alt": "right_hip"
+  },
+  "animations": [
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "idle",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_idle.png",
+      "frameMs": 140
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "idle",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_idle.png",
+      "frameMs": 140
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "idle",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_idle.png",
+      "frameMs": 140
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "idle",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_idle.png",
+      "frameMs": 140
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "idle",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_idle.png",
+      "frameMs": 140
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "idle",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_idle.png",
+      "frameMs": 140
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "idle",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_idle.png",
+      "frameMs": 140
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "idle",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_idle.png",
+      "frameMs": 140
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_walk.png",
+      "frameMs": 105
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_walk.png",
+      "frameMs": 105
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_walk.png",
+      "frameMs": 105
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_walk.png",
+      "frameMs": 105
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "walk",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_walk.png",
+      "frameMs": 105
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "walk",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_walk.png",
+      "frameMs": 105
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "walk",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_walk.png",
+      "frameMs": 105
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "walk",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_walk.png",
+      "frameMs": 105
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_run.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_run.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_run.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/katana_run.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "run",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_run.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "run",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_run.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "run",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_run.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "run",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/alt_run.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "roll",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_roll.png",
+      "frameMs": 43.75
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "roll",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_roll.png",
+      "frameMs": 43.75
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "roll",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_roll.png",
+      "frameMs": 43.75
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "roll",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_roll.png",
+      "frameMs": 43.75
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "roll",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_roll.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "roll",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_roll.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "roll",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_roll.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "roll",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_roll.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_1",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_1.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_1",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_1.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_1",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_1.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_1",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_1.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_1",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_1.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_1",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_1.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_1",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_1.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_1",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_1.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_2",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_2.png",
+      "frameMs": 50
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_2",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_2.png",
+      "frameMs": 50
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_2",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_2.png",
+      "frameMs": 50
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_2",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_2.png",
+      "frameMs": 50
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_2",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_2.png",
+      "frameMs": 50
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_2",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_2.png",
+      "frameMs": 50
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_2",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_2.png",
+      "frameMs": 50
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_2",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_2.png",
+      "frameMs": 50
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_3",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_3.png",
+      "frameMs": 60
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_3",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_3.png",
+      "frameMs": 60
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_3",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_3.png",
+      "frameMs": 60
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_3",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_attack_3.png",
+      "frameMs": 60
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_3",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_3.png",
+      "frameMs": 60
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_3",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_3.png",
+      "frameMs": 60
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_3",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_3.png",
+      "frameMs": 60
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_3",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_attack_3.png",
+      "frameMs": 60
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "skill",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_skill.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "skill",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_skill.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "skill",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_skill.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "skill",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_skill.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "skill",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_skill.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "skill",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_skill.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "skill",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_skill.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "skill",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_skill.png",
+      "frameMs": 65
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "advanced",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_advanced.png",
+      "frameMs": 75
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "advanced",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_advanced.png",
+      "frameMs": 75
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "advanced",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_advanced.png",
+      "frameMs": 75
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "advanced",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_advanced.png",
+      "frameMs": 75
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "advanced",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_advanced.png",
+      "frameMs": 75
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "advanced",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_advanced.png",
+      "frameMs": 75
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "advanced",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_advanced.png",
+      "frameMs": 75
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "advanced",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_advanced.png",
+      "frameMs": 75
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "signature",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_signature.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "signature",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_signature.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "signature",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_signature.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "signature",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_signature.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "signature",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_signature.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "signature",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_signature.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "signature",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_signature.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "signature",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_signature.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "hurt",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_hurt.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "hurt",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_hurt.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "hurt",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_hurt.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "hurt",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/katana_hurt.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "hurt",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_hurt.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "hurt",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_hurt.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "hurt",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_hurt.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "hurt",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": false,
+      "atlas": "atlas/alt_hurt.png",
+      "frameMs": 45
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "defeat",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": true,
+      "atlas": "atlas/katana_defeat.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "defeat",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": true,
+      "atlas": "atlas/katana_defeat.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "defeat",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": true,
+      "atlas": "atlas/katana_defeat.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "defeat",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": true,
+      "atlas": "atlas/katana_defeat.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "defeat",
+      "direction": "down",
+      "row": 0,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": true,
+      "atlas": "atlas/alt_defeat.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "defeat",
+      "direction": "left",
+      "row": 1,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": true,
+      "atlas": "atlas/alt_defeat.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "defeat",
+      "direction": "up",
+      "row": 2,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": true,
+      "atlas": "atlas/alt_defeat.png",
+      "frameMs": 100
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "defeat",
+      "direction": "right",
+      "row": 3,
+      "frames": 9,
+      "playFrames": 8,
+      "loop": false,
+      "holdLast": true,
+      "atlas": "atlas/alt_defeat.png",
+      "frameMs": 100
+    }
+  ],
+  "portraits": [
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "expression": "neutral",
+      "file": "retratos/katana/neutral.png"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "expression": "speaking",
+      "file": "retratos/katana/speaking.png"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "expression": "happy",
+      "file": "retratos/katana/happy.png"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "expression": "surprised",
+      "file": "retratos/katana/surprised.png"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "expression": "determined",
+      "file": "retratos/katana/determined.png"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "expression": "angry",
+      "file": "retratos/katana/angry.png"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "expression": "hurt",
+      "file": "retratos/katana/hurt.png"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "expression": "sad",
+      "file": "retratos/katana/sad.png"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "expression": "neutral",
+      "file": "retratos/alt/neutral.png"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "expression": "speaking",
+      "file": "retratos/alt/speaking.png"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "expression": "happy",
+      "file": "retratos/alt/happy.png"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "expression": "surprised",
+      "file": "retratos/alt/surprised.png"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "expression": "determined",
+      "file": "retratos/alt/determined.png"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "expression": "angry",
+      "file": "retratos/alt/angry.png"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "expression": "hurt",
+      "file": "retratos/alt/hurt.png"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "expression": "sad",
+      "file": "retratos/alt/sad.png"
+    }
+  ],
+  "sources": [
+    {
+      "hero": "katana",
+      "state": "idle",
+      "sha256": "5dc6323ecacef53111d92e3da6f00210fde9d0a79e31f58ef2431f15169aeb6b",
+      "file": "originais/katana_unmasked_idle.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        224,
+        444,
+        665,
+        887
+      ],
+      "transparentFraction": 0.6568821344003132
+    },
+    {
+      "hero": "alt",
+      "state": "idle",
+      "sha256": "7e3ad31ee39a7f210b5aed41b1a4bbde738dfcefb631151e72e901a6f547eeb5",
+      "file": "originais/alt_belt_mask_idle.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        221,
+        441,
+        664,
+        887
+      ],
+      "transparentFraction": 0.6155822102802728
+    },
+    {
+      "hero": "katana",
+      "state": "walk",
+      "sha256": "579da1f5b7105476a816edc54949da8314ce230ff2d27f4843e56624f1d89287",
+      "file": "originais/katana_unmasked_walk.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        225,
+        444,
+        665,
+        887
+      ],
+      "transparentFraction": 0.6480892104289824
+    },
+    {
+      "hero": "alt",
+      "state": "walk",
+      "sha256": "d0fdc9ce07c9dddf963b4125c26b20fe693b8e721f628ed696b44b12cda406e8",
+      "file": "originais/alt_belt_mask_walk.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        222,
+        441,
+        661,
+        887
+      ],
+      "transparentFraction": 0.6191957232682019
+    },
+    {
+      "hero": "katana",
+      "state": "run",
+      "sha256": "ef12c3a70f1ffbc11d767b0b651de1e9b3c64e4d18816de9c8b95cb19511f31f",
+      "file": "originais/katana_unmasked_run.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        225,
+        443,
+        667,
+        887
+      ],
+      "transparentFraction": 0.6663448864914606
+    },
+    {
+      "hero": "alt",
+      "state": "run",
+      "sha256": "e65c098e9df56dfd89fee2a48da48ef1494d6dffcc88cf7752925e381f409ecb",
+      "file": "originais/alt_belt_mask_run.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        226,
+        445,
+        664,
+        887
+      ],
+      "transparentFraction": 0.5845248096963658
+    },
+    {
+      "hero": "katana",
+      "state": "roll",
+      "sha256": "96bd814bf0fc2269162ac92222ffa0265fbe89a323ae251cd09a13e4d0697acd",
+      "file": "originais/katana_unmasked_roll.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        230,
+        451,
+        669,
+        887
+      ],
+      "transparentFraction": 0.6792165171734016
+    },
+    {
+      "hero": "alt",
+      "state": "roll",
+      "sha256": "cfd3935a8dd58509096f0dae97744fb319f52b56aecf3e1362ee549f4f0fdf9f",
+      "file": "originais/alt_belt_mask_roll.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        227,
+        441,
+        662,
+        887
+      ],
+      "transparentFraction": 0.6357939878159917
+    },
+    {
+      "hero": "katana",
+      "state": "attack_1",
+      "sha256": "9b8423b88c8fd536c950edb76765f09a3a3cddb957f686a0b0f15142e3a1b04e",
+      "file": "originais/katana_unmasked_attack_1.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        226,
+        446,
+        666,
+        887
+      ],
+      "transparentFraction": 0.6163410098771049
+    },
+    {
+      "hero": "alt",
+      "state": "attack_1",
+      "sha256": "8eb0ab1b2accd593d20ee220c6e5514bce3e38e472304ecac9197151f91040dc",
+      "file": "originais/alt_belt_mask_attack_1.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        224,
+        444,
+        662,
+        887
+      ],
+      "transparentFraction": 0.5698947213222687
+    },
+    {
+      "hero": "katana",
+      "state": "attack_2",
+      "sha256": "cc96a4780b32621c774d8aec29723d77db24f9268dcfd8bbde0fdcfdf627c1af",
+      "file": "originais/katana_unmasked_attack_2.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        225,
+        447,
+        668,
+        887
+      ],
+      "transparentFraction": 0.6255489222376581
+    },
+    {
+      "hero": "alt",
+      "state": "attack_2",
+      "sha256": "5bce22051c4a365e2d4b7e920c2658ff0a1832d86b6561033e11867fa95cc5e0",
+      "file": "originais/alt_belt_mask_attack_2.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        223,
+        445,
+        665,
+        887
+      ],
+      "transparentFraction": 0.5880264728274754
+    },
+    {
+      "hero": "katana",
+      "state": "attack_3",
+      "sha256": "611215c251b1cede44d8fb51bf6c55c48f994dd57a69a6dbc31ce37f2aedf892",
+      "file": "originais/katana_unmasked_attack_3.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        227,
+        449,
+        668,
+        887
+      ],
+      "transparentFraction": 0.6338372508322011
+    },
+    {
+      "hero": "alt",
+      "state": "attack_3",
+      "sha256": "f1f5d807f32a0763a00335e7d30d360e4585a5c3026d49710f88cca68facf672",
+      "file": "originais/alt_belt_mask_attack_3.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        226,
+        444,
+        666,
+        887
+      ],
+      "transparentFraction": 0.5823164105347313
+    },
+    {
+      "hero": "katana",
+      "state": "skill",
+      "sha256": "39cbf4a4b5a4b2ed7265b2b133a3385b324026655eda0d0f1a8c6b46fb9c6a6c",
+      "file": "originais/katana_unmasked_skill.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        225,
+        445,
+        666,
+        887
+      ],
+      "transparentFraction": 0.6346519753574429
+    },
+    {
+      "hero": "alt",
+      "state": "skill",
+      "sha256": "bba343daea26d2bcd48e734669a03c263d059b68ce2507e3a01629b9fd24eab2",
+      "file": "originais/alt_belt_mask_skill.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        224,
+        444,
+        664,
+        887
+      ],
+      "transparentFraction": 0.5850630871323095
+    },
+    {
+      "hero": "katana",
+      "state": "advanced",
+      "sha256": "d533fe4bfba8d0224d27d19891d6df070e25bec9c7272fdd6664e6822f5bc9fe",
+      "file": "originais/katana_unmasked_advanced.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        226,
+        446,
+        669,
+        887
+      ],
+      "transparentFraction": 0.6153324546340794
+    },
+    {
+      "hero": "alt",
+      "state": "advanced",
+      "sha256": "0b4c0e416f17f4e85326c0e2779f1d1efdc0bb0b00bfde6d76491d66236da0bb",
+      "file": "originais/alt_belt_mask_advanced.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        224,
+        444,
+        666,
+        887
+      ],
+      "transparentFraction": 0.5831165183173206
+    },
+    {
+      "hero": "katana",
+      "state": "signature",
+      "sha256": "0904682eb962379eeb2cdb00d38d0a8005dfecb0570959f8c7145d2259f4991e",
+      "file": "originais/katana_unmasked_signature.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        225,
+        445,
+        667,
+        887
+      ],
+      "transparentFraction": 0.6376490431117647
+    },
+    {
+      "hero": "alt",
+      "state": "signature",
+      "sha256": "e5d2d3d15b5dc573dd9bce40a8be4c712a38ba0c0e260a77e8108ad7235ff9ea",
+      "file": "originais/alt_belt_mask_signature.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        222,
+        446,
+        665,
+        887
+      ],
+      "transparentFraction": 0.6084231839332764
+    },
+    {
+      "hero": "katana",
+      "state": "hurt",
+      "sha256": "a7f045850d6fa1649cc36b1f690381c3728b7be0f9384b2faff2430c57ec0fba",
+      "file": "originais/katana_unmasked_hurt.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        224,
+        446,
+        666,
+        887
+      ],
+      "transparentFraction": 0.6210653953066275
+    },
+    {
+      "hero": "alt",
+      "state": "hurt",
+      "sha256": "8bd1469ab4d2c4c0f2240d7b8cb800553105c51b092a5e1f10fbed640f3bc120",
+      "file": "originais/alt_belt_mask_hurt.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        224,
+        446,
+        666,
+        887
+      ],
+      "transparentFraction": 0.5991301131590085
+    },
+    {
+      "hero": "katana",
+      "state": "defeat",
+      "sha256": "0cfdf8cf474f68a4d8fec824f922a9bc1dfa3854837a2e352756cc293bc64697",
+      "file": "originais/katana_unmasked_defeat.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        239,
+        455,
+        671,
+        887
+      ],
+      "transparentFraction": 0.7027068936371412
+    },
+    {
+      "hero": "alt",
+      "state": "defeat",
+      "sha256": "77b2862e6ac7a10c0d1214b0ae27f34c365a1d58a8db317c1550887a9ed15a2b",
+      "file": "originais/alt_belt_mask_defeat.png",
+      "size": [
+        1774,
+        887
+      ],
+      "rowEdges": [
+        0,
+        227,
+        446,
+        663,
+        887
+      ],
+      "transparentFraction": 0.7088770655681655
+    }
+  ]
+}

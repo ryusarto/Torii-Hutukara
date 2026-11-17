@@ -19,6 +19,10 @@ HEALING_JS = File.join(ROOT, 'healing.js')
 COMBAT_JS = File.join(ROOT, 'combat_patterns.js')
 FLOW_JS = File.join(ROOT, 'flow_fixes.js')
 ACCESS_JS = File.join(ROOT, 'accessibility.js')
+PROTAGONIST_JS = File.join(ROOT, 'protagonist_art_v5.js')
+PROTAGONIST_ASSETS = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v5')
+NINJA_ARCHER_JS = File.join(ROOT, 'ninja_archer_art_v1.js')
+NINJA_ARCHER_ASSETS = File.join(REPO_ROOT, 'assets', 'variantes', 'ninja-arqueiro-v1')
 DIALOGUE_EDITS = File.join(REPO_ROOT, 'design', 'dialogo', 'EDICOES_DIALOGO.json')
 VERSION = JSON.parse(File.read(File.join(REPO_ROOT, 'game', 'VERSION.json')))
 OUTPUT_DIR = File.join(REPO_ROOT, 'game', 'builds', VERSION.fetch('versao'))
@@ -227,7 +231,27 @@ raise 'Marcador __DIALOGUE_EDITS__ ausente' unless edits_js.include?('__DIALOGUE
 edits_js = edits_js.sub('__DIALOGUE_EDITS__') { edits_json }
 input_runtime = File.read(INPUT_RUNTIME, encoding: 'UTF-8').gsub('__BUILD_LABEL__', VERSION.fetch('rotulo')).gsub('__BUILD_TITLE__', VERSION.fetch('titulo'))
 raise 'Rótulo de versão ausente no runtime' if input_runtime.include?('__BUILD_')
-html.insert(position, "\n\n#{runtime}\n\n#{input_runtime}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(ACCESS_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n")
+ninja_archer_manifest = JSON.parse(File.read(File.join(NINJA_ARCHER_ASSETS, 'manifest.json')))
+ninja_archer_files = ninja_archer_manifest.fetch('animations').map { |a| a.fetch('atlas') }.uniq + ninja_archer_manifest.fetch('portraits').map { |p| p.fetch('file') }
+ninja_archer_uris = ninja_archer_files.to_h do |relative|
+  hero = relative.split('/')[1]
+  key = relative.start_with?('atlas/') ? File.basename(relative, '.png') : "#{hero}_portrait_#{File.basename(relative, '.png')}"
+  [key, "data:image/png;base64,#{encode(File.join(NINJA_ARCHER_ASSETS, relative))}"]
+end
+ninja_archer_runtime = File.read(NINJA_ARCHER_JS, encoding: 'UTF-8')
+replace_once!(ninja_archer_runtime, '__NINJA_ARCHER_ASSETS__', JSON.generate(ninja_archer_uris), 'sprites Ninja e Arqueiro')
+replace_once!(ninja_archer_runtime, '__NINJA_ARCHER_MANIFEST__', JSON.generate(ninja_archer_manifest), 'manifesto Ninja e Arqueiro')
+protagonist_manifest = JSON.parse(File.read(File.join(PROTAGONIST_ASSETS, 'manifest.json')))
+protagonist_files = protagonist_manifest.fetch('animations').map { |a| a.fetch('atlas') }.uniq + protagonist_manifest.fetch('portraits').map { |p| p.fetch('file') }
+protagonist_uris = protagonist_files.to_h do |relative|
+  hero = relative.split('/')[1]
+  key = relative.start_with?('atlas/') ? File.basename(relative, '.png') : "#{hero}_portrait_#{File.basename(relative, '.png')}"
+  [key, "data:image/png;base64,#{encode(File.join(PROTAGONIST_ASSETS, relative))}"]
+end
+protagonist_runtime = File.read(PROTAGONIST_JS, encoding: 'UTF-8')
+replace_once!(protagonist_runtime, '__PROTAGONIST_ASSETS__', JSON.generate(protagonist_uris), 'sprites protagonistas V5')
+replace_once!(protagonist_runtime, '__PROTAGONIST_MANIFEST__', JSON.generate(protagonist_manifest), 'manifesto protagonistas V5')
+html.insert(position, "\n\n#{runtime}\n\n#{input_runtime}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(ACCESS_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n\n#{ninja_archer_runtime}\n\n#{protagonist_runtime}\n")
 html.gsub!('ALPHA 1.2.0', VERSION.fetch('rotulo'))
 html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
 
@@ -237,7 +261,7 @@ html.gsub!("yy=bossActor?.id==='voice_boss'?", "yy=!C3.coopActive()&&bossActor?.
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
-sources = FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES]
+sources = [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
 manifest = {
   game: 'TORII & HUTUKARA',
   build: VERSION.fetch('rotulo'),
@@ -270,7 +294,8 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    [File.basename(path), { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
+    key = (path.start_with?(NINJA_ARCHER_ASSETS + '/') || path.start_with?(PROTAGONIST_ASSETS + '/')) ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end
 }
 
@@ -318,7 +343,9 @@ File.write(File.join(OUTPUT_DIR, "LEIA-ME_#{VERSION.fetch('sufixo')}.txt"), <<~R
   - Pisos do distrito, interiores, canal e nuvens usam texturas detalhadas.
   - Rosto do Franco refeito com referências autorais e identidade consistente nos diálogos.
   - Máscara Torii canônica ampliada sobre testa e cabelo, mantendo a parte inferior do rosto visível.
-  - Rolamento em seis etapas para os seis personagens jogáveis.
+  - Ninja e Arqueiro com oito poses por ação, quatro direções, retratos e rolamento próprios.
+  - Ninja sem máscara; Arqueiro com a máscara presa ao cinto em todas as ações.
+  - Os demais integrantes mantêm suas animações atuais.
   - Corrida fluida própria para Franco sintetizador e Ryuchi percussionista.
   - Nuvens volumétricas em 16 bits e fundos cinematográficos próprios por região.
   - Placas, postes e pilares substituídos por sprites detalhados.

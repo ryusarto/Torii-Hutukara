@@ -1,0 +1,787 @@
+{
+  "atlas": 24,
+  "directionalSequences": 96,
+  "individualFrames": 864,
+  "portraits": 16,
+  "cell": [
+    256,
+    256
+  ],
+  "pivot": [
+    128,
+    224
+  ],
+  "trueAlpha": true,
+  "nearestNeighborOnly": true,
+  "closureValid": true,
+  "checks": [
+    {
+      "hero": "katana",
+      "state": "idle",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "idle",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "idle",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "idle",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "idle",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "idle",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "idle",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "idle",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "walk",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "walk",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "walk",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "walk",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "walk",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "walk",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "walk",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "walk",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "run",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "run",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "run",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "run",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "run",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "run",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "run",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "run",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "roll",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "roll",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "roll",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "roll",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "roll",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "roll",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "roll",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "roll",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_1",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_1",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_1",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_1",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_1",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_1",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_1",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_1",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_2",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_2",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_2",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_2",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_2",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_2",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_2",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_2",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_3",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_3",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_3",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "attack_3",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_3",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_3",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_3",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "attack_3",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "skill",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "skill",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "skill",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "skill",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "skill",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "skill",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "skill",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "skill",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "advanced",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "advanced",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "advanced",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "advanced",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "advanced",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "advanced",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "advanced",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "advanced",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "signature",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "signature",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "signature",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "signature",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "signature",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "signature",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "signature",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "signature",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "hurt",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "hurt",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "hurt",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "hurt",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "hurt",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "hurt",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "hurt",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "hurt",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "defeat",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "defeat",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "defeat",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "katana",
+      "state": "defeat",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "defeat",
+      "direction": "down",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "defeat",
+      "direction": "left",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "defeat",
+      "direction": "up",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    },
+    {
+      "hero": "alt",
+      "state": "defeat",
+      "direction": "right",
+      "uniquePoses": 8,
+      "referenceHeight": 190,
+      "closureValid": true
+    }
+  ]
+}

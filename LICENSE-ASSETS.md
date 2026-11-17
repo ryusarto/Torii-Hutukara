@@ -48,3 +48,6 @@ Arquivos novos com qualquer um desses elementos entram automaticamente nesta lis
 ## Créditos das músicas
 
 As versões 16-bit das faixas do álbum foram produzidas com [Suno](https://suno.com), a partir das músicas originais de Ryuchi e Franco, The Sir, para uso não comercial neste jogo.
+# Pacote Ninja e Arqueiro V1
+
+Os sprites e retratos em `assets/variantes/ninja-arqueiro-v1/` são assets autorais de Torii & Hutukara e seguem as restrições desta licença de assets, incluindo o desenho da máscara. Não estão cobertos pela licença do código.

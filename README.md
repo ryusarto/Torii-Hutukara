@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta 1.0.1 — jogo completo do início ao fim, com os três capítulos. A versão fica em `game/VERSION.json`.
+**Versão atual:** Beta 1.2 — jogo completo do início ao fim, com os três capítulos. Ninja e Arqueiro usam os novos sprites de movimento e combate em quatro direções. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -12,6 +12,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 - Seis personagens jogáveis e formação de até três integrantes.
 - Salvamento local, importação/exportação em JSON e checkpoints.
 - Seis faixas próprias do terceiro capítulo incorporadas à build.
+- Ninja e Arqueiro: 12 estados, oito poses por ação, rolamento, retratos e animações independentes no coop. [Detalhes e prévia dos assets](docs/ARTE_NINJA_ARQUEIRO_V1.md).
 - Sprites detalhados para os personagens e NPCs do Capítulo 3.
 - Jogo distribuído como um único HTML portátil, sem instalação.
 - Suporte a DualShock 4, DualSense e controles compatíveis, com coop local para duas pessoas.
@@ -22,7 +23,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 O link identifica PC ou mobile na entrada e exibe um aviso por quatro segundos. Depois, o aviso some. A interface de toque é automática em celular/tablet. Veja [publicação e testes entre aparelhos](docs/PLAYTEST_SITE.md).
 
-**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/beta-1.0.1/`.
+**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/beta-1.2.0/`.
 
 Controles principais:
 
@@ -55,13 +56,13 @@ Ao conectar dois controles, o segundo jogador assume outro integrante vivo da fo
 
 O menu **Outras opções** permite iniciar diretamente os capítulos 2 e 3 para testes. A jornada normal começa no estúdio.
 
-## Destaques da Beta 1.0.1
+## Correções de gameplay integradas na Beta 1.2
 
 - Prólogo sem encontros prematuros; combate liberado depois do Baixo de Raiz.
 - Patrulhas do Distrito com ataques funcionais para toda a equipe.
 - XP e saves consistentes, campos do sintetizador com colisão e regras de coop corrigidas.
 - Diálogo mobile acima dos controles e cura por integrante.
-- Testes de controles e jogabilidade antes de publicar; [resultados e reprodução](qa/beta-1.0.1/PLAYTEST.md).
+- Testes de controles e jogabilidade antes de publicar; [resultados e reprodução](qa/beta-1.2.0/PLAYTEST.md).
 - [Lista de arte e plano de inimigos](docs/DIRECAO_ARTE_E_INIMIGOS.md).
 
 ## Destaques da Beta 1.0
@@ -172,4 +173,4 @@ Detalhes e lista de arquivos em [LICENSE-ASSETS.md](LICENSE-ASSETS.md).
 
 ## Arte dos protagonistas V5
 
-[Atlas, retratos e prévia offline](assets/protagonistas/v5/) de Franco e Ryuchi principais. [Escopo, produção e exportação dos frames](design/sprites-principais-v5/LEIA-ME.md). A aplicação desses novos sprites à build publicada ainda está pendente.
+[Atlas, retratos e prévia offline](assets/protagonistas/v5/) de Franco e Ryuchi principais. [Escopo, produção e exportação dos frames](design/sprites-principais-v5/LEIA-ME.md). Integrados à fonte da Beta 1.2, com máscaras selecionadas pela progressão, animações independentes no coop e retratos nos diálogos. A promoção da build publicada depende da revisão e do fluxo de publicação.

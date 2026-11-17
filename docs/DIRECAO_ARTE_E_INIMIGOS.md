@@ -1,6 +1,6 @@
 # Direção de arte, inimigos e próximos encontros
 
-Revisado em 17/11/2026. Este plano acompanha as correções da Beta 1.0.1; os inimigos propostos e a produção de arte abaixo continuam pendentes. O GitHub mantém código, manifestos e documentos oficiais. O Dropbox guarda backups, originais, ZIPs e temporários.
+Revisado em 17/11/2026. Este plano acompanha as correções integradas na Beta 1.2; os inimigos propostos e a produção de arte abaixo continuam pendentes. O GitHub mantém código, manifestos e documentos oficiais. O Dropbox guarda backups, originais, ZIPs e temporários.
 
 ## Ordem de progressão
 
@@ -14,8 +14,9 @@ Depois de ensinar uma ação, apresentar um inimigo isolado que permita praticá
 
 | Grupo | Estado rastreado | Próxima entrega |
 |---|---|---|
-| Franco e Ryuchi principais | Pacote V5 publicado em `assets/protagonistas/v5`, com 192 sequências e 32 retratos. Ainda não aplicado ao runtime. | Integrar e verificar máscara, escala, pivô, transições e sincronismo de impacto. Não regenerar o conjunto inteiro. |
-| Arqueiro, Katana, Sintetizador e Percussionista | Locomoção e efeitos existentes; rolada atual usa uma linha por herói e espelhamento lateral. | Completar preparação, impacto, recuperação, dano, derrota e direções de rolamento próprias. |
+| Franco e Ryuchi principais | Pacote V5 integrado na Beta 1.2, com 192 sequências e 32 retratos, com/sem máscara pela progressão e ações independentes no coop. | Preservar o pacote integrado e verificar máscara, escala, pivô, transições e sincronismo em aparelhos físicos. Não regenerar o conjunto inteiro. |
+| Arqueiro e Ryuchi Ninja/Katana | Biblioteca V1 integrada na Beta 1.1: 24 atlas, 16 retratos, 96 sequências, ações em quatro direções e estados separados de P1/P2. | Preservar os assets publicados e verificar a leitura do combate em aparelhos físicos. |
+| Sintetizador e Percussionista | Locomoção e efeitos existentes no runtime publicado; pacotes novos em produção no chat de arte. | Completar e integrar preparação, impacto, recuperação, dano, derrota e direções de rolamento próprias quando o pacote for aprovado. |
 | Metrônomo Menor, Eco Espelho e Abafador | Reaproveitam hush/whisper com aura e marcador de cor. | Silhuetas e estados próprios, reconhecíveis também sem cor. |
 | Eco de Distorção e Drone de Retorno | Usam a mesma célula de imagem, com tamanho diferente. | Diferenciar corpo terrestre e máquina voadora; definir ataque próprio do Drone. |
 | Viajante, Arauto, Metrônomo e Silêncio | Representações existentes. | Ciclos de preparação, ataque, recuperação, reação, fase e encerramento; preservar a revelação do Viajante. |

@@ -1,8 +1,37 @@
+# Beta 1.2 · Protagonistas V5
+
+- Franco e Ryuchi principais: 192 sequências V5, quatro direções e versões com/sem máscara.
+- Retratos V5 nos diálogos e equipe; aquisição das máscaras respeita o save existente.
+- Estados de ação independentes por jogador, sem mudar dano, cooldown, invulnerabilidade ou colisão.
+- Build incorpora os 24 atlas e 32 retratos; exportação web preserva os mesmos pixels.
+- QA automatizado de integração, máscaras, dano, controles e coop; evidências em `qa/beta-1.2.0/`.
+
 # Histórico de versões
 
 Todas as alterações relevantes do projeto são registradas aqui.
 
+## Correções do PR #8 integradas na Beta 1.2 — 2026-11-17
+
+- Integra as correções do prólogo, Distrito, XP, recrutamento, saves, colisões, patrulhas, coop e diálogo mobile com Ninja/Arqueiro e os protagonistas V5 da Beta 1.2.
+- Preserva as animações e retratos publicados e o schema 13 de save.
+- Regressão de integração de arte adicionada à validação dos PRs e da publicação.
+- Resultados da build integrada em `qa/beta-1.2.0/PLAYTEST.md`.
+
+## [Beta 1.1] — 2026-11-17
+
+- Ryuchi Ninja e Franco Arqueiro com 24 atlas de alta resolução e 96 sequências em quatro direções: espera, caminhada, corrida, rolamento, três ataques, técnicas, especial, dano e derrota. São 864 PNGs de animação e 16 retratos no pacote de backup.
+- Ninja sem máscara; Arqueiro com a máscara canônica presa ao lado direito do cinto, acompanhando o corpo nas ações.
+- Sprites integrados ao jogo, aos retratos de diálogo e ao menu de equipe. Animações de combate pertencem a P1 ou P2 e são descartadas ao trocar personagem, área ou save. Ações recusadas não reiniciam o sprite.
+- Escala uniforme e pivô no chão; oito poses para o rolamento, sincronizadas à duração já existente, sem girar a imagem por código. Cache limitado a oito atlas decodificados.
+- Combate, colisões e schema de save preservados. Os quatro outros personagens mantêm o render anterior; seus pacotes de arte são trabalhos separados.
+- GitHub armazena atlas, retratos, ferramentas, documentação e testes. Dropbox/T&H guarda originais, quadros individuais, ZIP e prévias. O Drive foi excluído do escopo pelo autor.
+
 ## [Não lançado]
+
+### NPCs · recorrência direcional · 17/11/2026
+
+- Belga (`bento`) e Colli (`nilo`) usam as quatro direções do atlas canônico nas aparições anteriores ao Capítulo 3, com pose neutra e atenção ao jogador próximo. Sem novos PNGs ou mudança de coordenadas, IDs e saves. Mantido o corpo frontal como fallback durante carregamento.
+- Inventário de NPCs e proposta por contexto em `docs/NPCS_INVENTARIO.md`; regressão do seletor em `qa/npc_recurrence.cjs`.
 
 ### Arte dos protagonistas V5 · 17/11/2026
 
@@ -12,6 +41,8 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - A integração desses sprites à build jogável é uma etapa separada.
 
 ## [Beta 1.0.1] — 2026-11-17
+
+Correções preparadas no PR #8 e integradas junto às novas artes na Beta 1.2.
 
 - Removido o encontro prematuro do corredor. Ameaças e ações de combate dependem da obtenção do Baixo de Raiz; a chegada à floresta permanece segura até a entrega.
 - Distrito da Distorção cadastrado em todos os caminhos de combate, permitindo responder às patrulhas com os seis integrantes e em coop.
