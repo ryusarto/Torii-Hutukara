@@ -1,0 +1,35 @@
+{
+  "stage": "amostra",
+  "renderer": "production tile/prop renderers; full map overview and actual drawEnv viewport",
+  "captures": [
+    {
+      "id": "sky_terminal",
+      "size": [
+        624,
+        432
+      ]
+    },
+    {
+      "id": "distortion_district",
+      "size": [
+        1536,
+        1056
+      ]
+    },
+    {
+      "id": "contratempo",
+      "size": [
+        672,
+        480
+      ]
+    },
+    {
+      "id": "power_plant",
+      "size": [
+        912,
+        600
+      ]
+    }
+  ],
+  "browserErrors": []
+}

@@ -244,11 +244,31 @@ ninja_archer_runtime = File.read(NINJA_ARCHER_JS, encoding: 'UTF-8')
 replace_once!(ninja_archer_runtime, '__NINJA_ARCHER_ASSETS__', JSON.generate(ninja_archer_uris), 'sprites Ninja e Arqueiro')
 replace_once!(ninja_archer_runtime, '__NINJA_ARCHER_MANIFEST__', JSON.generate(ninja_archer_manifest), 'manifesto Ninja e Arqueiro')
 cenarios_manifest = JSON.parse(File.read(File.join(CENARIOS_ASSETS, 'manifest.json')))
+cenarios_theme = ENV.fetch('TORII_CENARIOS_THEME', 'v2')
+raise 'Unknown scenario theme' unless %w[v2 deserto-v1].include?(cenarios_theme)
+desert_manifest_path = File.join(REPO_ROOT, 'assets', 'cenarios', 'deserto-v1', 'manifest.json')
+if cenarios_theme == 'deserto-v1'
+  desert = JSON.parse(File.read(desert_manifest_path))
+  %w[sheets items].each do |group|
+    desert.fetch(group).each do |id, record|
+      copy = Marshal.load(Marshal.dump(record))
+      copy['file'] = '../deserto-v1/' + copy.fetch('file')
+      cenarios_manifest.fetch(group)[id] = copy
+    end
+  end
+  replaced_ids = desert.fetch('sources').map { |s| s.fetch('id') }
+  cenarios_manifest['sources'] = cenarios_manifest.fetch('sources').reject { |s| replaced_ids.include?(s.fetch('id')) } + desert.fetch('sources')
+  cenarios_manifest['theme'] = 'deserto-v1'
+  cenarios_manifest['variantStage'] = desert.fetch('stage')
+end
 cenarios_files = cenarios_manifest.fetch('sheets').values.map { |s| s.fetch('file') }
-cenarios_uris = cenarios_manifest.fetch('sheets').to_h { |id, sheet| [id, "data:image/png;base64,#{encode(File.join(CENARIOS_ASSETS, sheet.fetch('file')))}"] }
+cenarios_uris = cenarios_manifest.fetch('sheets').to_h { |id, sheet| [id, "data:image/png;base64,#{encode(File.expand_path(sheet.fetch('file'), CENARIOS_ASSETS))}"] }
 cenarios_runtime = File.read(CENARIOS_JS, encoding: 'UTF-8')
 replace_once!(cenarios_runtime, '__CENARIOS_V2_MANIFEST__', JSON.generate(cenarios_manifest), 'manifesto de cenários V2')
 replace_once!(cenarios_runtime, '__CENARIOS_V2_ASSETS__', JSON.generate(cenarios_uris), 'PNG de cenários V2')
+if cenarios_theme == 'deserto-v1'
+  cenarios_runtime += "\n" + File.read(File.join(ROOT, 'cenarios_deserto_v1.js'), encoding: 'UTF-8')
+end
 protagonist_manifest = JSON.parse(File.read(File.join(PROTAGONIST_ASSETS, 'manifest.json')))
 protagonist_files = protagonist_manifest.fetch('animations').map { |a| a.fetch('atlas') }.uniq + protagonist_manifest.fetch('portraits').map { |p| p.fetch('file') }
 protagonist_uris = protagonist_files.to_h do |relative|
@@ -270,7 +290,10 @@ FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
 sources = [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
-sources += [CENARIOS_JS, File.join(CENARIOS_ASSETS, 'manifest.json')] + cenarios_files.map { |relative| File.join(CENARIOS_ASSETS, relative) }
+sources += [CENARIOS_JS, File.join(CENARIOS_ASSETS, 'manifest.json')] + cenarios_files.map { |relative| File.expand_path(relative, CENARIOS_ASSETS) }
+if cenarios_theme == 'deserto-v1'
+  sources += [desert_manifest_path, File.join(ROOT, 'cenarios_deserto_v1.js')]
+end
 manifest = {
   game: 'TORII & HUTUKARA',
   build: VERSION.fetch('rotulo'),

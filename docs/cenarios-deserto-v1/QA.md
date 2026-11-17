@@ -1,0 +1,39 @@
+# Cenários desérticos V1 — QA de integração
+
+`qa/cenarios_deserto_v1.cjs` opera um navegador isolado sobre a URL local fornecida pelo agente principal. Não inicia servidor, não usa o perfil do jogador e não altera um save pessoal. A compilação precisa ter sido feita com `TORII_CENARIOS_THEME=deserto-v1`.
+
+```sh
+PLAYWRIGHT_CORE=/caminho/playwright-core \
+CHROME_PATH=/caminho/Chrome \
+node qa/cenarios_deserto_v1.cjs http://127.0.0.1:PORTA/
+```
+
+Sem `CHROME_PATH`, usa `CDP_URL` (padrão `http://127.0.0.1:9238`) e cria contexto separado. A URL também pode vir de `TORII_URL`.
+
+## Contratos verificados
+
+1. Tema compilado, 13 atlas e 134 células nesta amostra integrada; oito extras `c3_desert_*`. Cada célula é não vazia, tem quatro cantos alpha zero, dimensões corretas e conteúdo dentro da célula.
+2. Mesmos tiles, sólidos, dimensões e campos de todos os gates nos 25 mapas em relação a `qa/cenarios-v2/depois/MAPAS.json`. O baseline **já contém** os seis alinhamentos de portas e a remoção do anel; o teste desértico não reaplica uma allowlist nem aceita novo deslocamento.
+3. O renderer real `drawProp` usa os bindings do deserto somente no Capítulo 3. Elevador fechado/aberto escolhe recortes e pixels diferentes conforme `liftOpen`.
+4. Carregamento adicional D11 limitado às áreas designadas do Capítulo 3; nenhuma chamada extra nos mapas amostrados dos capítulos 1/2.
+5. Máquina, pressão, válvula e comporta seguem flags locais de Usina/Canal; progresso na outra rota não os ativa.
+6. Renderizar os 25 mapas conserva estado serializado do jogador, props e gates.
+7. Props e tipos de tiles dos 14 mapas legados têm pixels iguais aos renderers V2 anteriores ao wrapper do deserto.
+8. Os seis personagens, quatro direções e estado de máscara ligado/desligado conservam pixels com tema do deserto ligado/desligado, sem recoloração global.
+9. Um inimigo existente do Distrito, aproximado por uma posição válida, entra em combate e gera seu windup pela função real. A fixture prepara a primeira frente concluída (`usinaDone=true`), pois as patrulhas são ocultadas antes dela, e usa `enemyActors`/`hydrateEnemy` reais para inicialização. Um quadro é renderizado e o JSON registra inimigo, posições e aviso. Nenhum inimigo fictício é adicionado ao produto.
+
+## Evidência e limites
+
+O relatório da execução fica em `qa/cenarios-deserto-v1/RUNTIME_RESULTS.json`, com hash do baseline, build servido quando disponível, versão do navegador, resultados individuais e erros JavaScript. Falha em qualquer contrato dá status de saída 1; exceção fatal também produz relatório.
+
+## Execução da amostra desértica
+
+A build de SHA-256 `91ebc8aecb1f27f26cf29a8e72dafdaf66f0b0ff1f66cbdfb62730ba2d0fd3bd`, servida pelo principal em `http://127.0.0.1:8791/`, passou **9/9 verificações**, sem erros JavaScript. O resultado vale para essa amostra de 13 atlas/134 células; novas folhas ou alterações de runtime exigem nova execução.
+
+Foram conferidas as dimensões/cantos alpha dos 134 recortes, 25 mapas e 43 transições sem diferença geométrica/portais em relação ao baseline, 13 casos de flags A07, 959 instâncias de props dos 14 mapas legados e 48 amostras de render de personagens. O teste compara os campos serializados completos dos gates: remove apenas valores `undefined`/funções que o JSON de referência também não contém, sem dispensar `blocked` ou coordenadas.
+
+O quadro mecânico de combate usa a patrulha real `p4_patrol_center` (`c3_echo`) em `(36.5,25.5)`, jogador em `(37.5,25.5)`, modo `action`, aviso `swipe`, `wind=0.52`. A função real `updateEnemy` produziu o windup e o renderer desenhou o quadro. A suíte registra esses dados no JSON; não salvou PNG nem afirma revisão visual humana desse quadro.
+
+A primeira tentativa detectou duas inadequações de fixture, ambas corrigidas antes da execução aprovada: o transporte Playwright retinha uma propriedade `need: undefined` ausente no JSON e o filtro de patrulhas/hidratação preguiçosa exigia preparar a etapa legítima acima. Nenhuma correção de produção foi necessária.
+
+Comparações de pixels verificam isolamento da alteração, não aprovam artisticamente a areia, as fachadas ou o volume das bordas. Um quadro de windup produzido pelo motor não comprova legibilidade humana, luta vencida ou campanha completa. Não há nesta suíte validação de celular físico, multitouch real ou dois controles físicos.

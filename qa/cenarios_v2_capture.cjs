@@ -4,7 +4,7 @@
 const fs=require('node:fs'),path=require('node:path');
 const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
 const root=path.resolve(__dirname,'..'),stage=process.argv[2]||'antes';
-const output=path.join(root,'qa/cenarios-v2',stage);fs.mkdirSync(output,{recursive:true});
+const output=path.join(root,process.env.TORII_CAPTURE_ROOT||'qa/cenarios-v2',stage);fs.mkdirSync(output,{recursive:true});
 (async()=>{
  const browser=await (process.env.CHROME_PATH?chromium.launch({executablePath:process.env.CHROME_PATH,headless:true}):chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9238')),context=await browser.newContext({viewport:{width:1280,height:800}}),page=await context.newPage(),errors=[];
  page.on('pageerror',e=>errors.push(e.message));
@@ -15,7 +15,7 @@ const output=path.join(root,'qa/cenarios-v2',stage);fs.mkdirSync(output,{recursi
  if(await page.evaluate(()=>typeof CenariosV2!=='undefined'))await page.evaluate(()=>CenariosV2.ready());
  const inventory=await page.evaluate(()=>Object.values(areas).map(a=>({id:a.id,w:a.w,h:a.h,tiles:a.tiles,blocked:[...a.blocked],props:a.props,gates:a.gates.map(g=>({...g,need:undefined})),events:a.events.map(e=>({id:e.id,x:e.x,y:e.y,label:e.label})),npcs:a.npcs.map(n=>({id:n.id,x:n.x,y:n.y,name:n.name,spriteKey:n.spriteKey}))})));
  fs.writeFileSync(path.join(output,'MAPAS.json'),JSON.stringify(inventory,null,2));
- const ids=inventory.map(a=>a.id),captures=[];
+ const selected=process.env.TORII_CAPTURE_AREAS?.split(',');const ids=inventory.map(a=>a.id).filter(id=>!selected||selected.includes(id)),captures=[];
  for(const id of ids){
    const size=await page.evaluate(id=>{
      current=areas[id];G.area=id;G.x=current.w/2;G.y=current.h/2;mode='walk';bossActor=null;cam.x=cam.y=0;tick=4;screenShake=0;transitionAlpha=0;
