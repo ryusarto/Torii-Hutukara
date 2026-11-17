@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta 1.1 — jogo completo do início ao fim, com os três capítulos. Ninja e Arqueiro usam os novos sprites de movimento e combate em quatro direções. A versão fica em `game/VERSION.json`.
+**Versão atual:** Beta 1.2 — jogo completo do início ao fim, com os três capítulos. Ninja e Arqueiro usam os novos sprites de movimento e combate em quatro direções. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -23,7 +23,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 O link identifica PC ou mobile na entrada e exibe um aviso por quatro segundos. Depois, o aviso some. A interface de toque é automática em celular/tablet. Veja [publicação e testes entre aparelhos](docs/PLAYTEST_SITE.md).
 
-**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/beta-1.1.0/`.
+**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/beta-1.2.0/`.
 
 Controles principais:
 
@@ -164,4 +164,4 @@ Detalhes e lista de arquivos em [LICENSE-ASSETS.md](LICENSE-ASSETS.md).
 
 ## Arte dos protagonistas V5
 
-[Atlas, retratos e prévia offline](assets/protagonistas/v5/) de Franco e Ryuchi principais. [Escopo, produção e exportação dos frames](design/sprites-principais-v5/LEIA-ME.md). A aplicação desses novos sprites à build publicada ainda está pendente.
+[Atlas, retratos e prévia offline](assets/protagonistas/v5/) de Franco e Ryuchi principais. [Escopo, produção e exportação dos frames](design/sprites-principais-v5/LEIA-ME.md). Integrados à fonte da Beta 1.2, com máscaras selecionadas pela progressão, animações independentes no coop e retratos nos diálogos. A promoção da build publicada depende da revisão e do fluxo de publicação.

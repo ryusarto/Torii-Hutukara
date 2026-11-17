@@ -20,4 +20,4 @@ A arte foi gerada pela ferramenta integrada de imagens. Os modelos 3D serviram a
 
 CORRECOES_V5.json registra as direções completadas e as montagens; as laterais comprimidas de Franco e o rolamento mascarado de Ryuchi foram refeitos com poses adicionais. O processamento posterior apenas recorta, alinha e empacota os desenhos. As ferramentas que trabalham com originais recebem --base com o caminho do backup.
 
-Estes sprites ainda não foram aplicados à build publicada. A integração precisa sincronizar animações com locomoção, dano e invulnerabilidade.
+Integrados à fonte da Beta 1.2 em `game/source/chapter-03/protagonist_art_v5.js`. A camada acompanha locomoção, ações aceitas, dano e rolamento por jogador, sem alterar invulnerabilidade ou regras de combate. A publicação depende da revisão e do fluxo de publicação.

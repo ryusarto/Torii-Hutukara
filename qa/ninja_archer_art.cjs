@@ -80,10 +80,10 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
      advanceDialogue();return {ninja,frozen,archer:$('portrait').getAttribute('src')===NinjaArcherArtV1.assets.alt_portrait_speaking};
    });assert(v.ninja&&v.archer&&v.frozen,JSON.stringify(v));return v;
  });
- await check('Legacy rendering of the other four heroes stays pixel-identical',async()=>{
+ await check('Legacy rendering of the musician heroes stays pixel-identical',async()=>{
    await arena('franco','ryuchi');const v=await page.evaluate(()=>{
      C3.pad.pads=[];const results=[];
-     for(const hero of ['franco','ryuchi','synth','percussion']){
+     for(const hero of ['synth','percussion']){
        G.active=hero;act.hit=0;Combat10.dashTime=0;G.flags.masks=true;const p={style:hero,dir:'down'};
        ctx.clearRect(0,0,768,432);ninjaArcherActorV1(p,180,180,false);const before=ctx.getImageData(100,70,180,180).data;
        ctx.clearRect(0,0,768,432);drawActor(p,180,180,false);const after=ctx.getImageData(100,70,180,180).data;

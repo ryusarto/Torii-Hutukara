@@ -1,3 +1,11 @@
+# Beta 1.2 · Protagonistas V5
+
+- Franco e Ryuchi principais: 192 sequências V5, quatro direções e versões com/sem máscara.
+- Retratos V5 nos diálogos e equipe; aquisição das máscaras respeita o save existente.
+- Estados de ação independentes por jogador, sem mudar dano, cooldown, invulnerabilidade ou colisão.
+- Build incorpora os 24 atlas e 32 retratos; exportação web preserva os mesmos pixels.
+- QA automatizado de integração, máscaras, dano, controles e coop; evidências em `qa/beta-1.2.0/`.
+
 # Histórico de versões
 
 Todas as alterações relevantes do projeto são registradas aqui.
