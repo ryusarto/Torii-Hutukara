@@ -50,15 +50,15 @@ Amplia o grupo, introduz outras versões dos protagonistas e transforma vozes e 
 
 ### Capítulo 3 — O Som que Ainda Não Existe
 
-O Distrito da Distorção é uma cidade viva acima das nuvens. O jogador ajuda moradores, reabre duas frentes, reúne seis frequências, cria uma frase sem resposta correta e sobe ao confronto final.
+O Distrito da Distorção é uma comunidade musical de tecnologia reaproveitada em um mundo desértico pós-apocalíptico, conforme a revisão artística solicitada pelo autor em 17/11/2026. Estruturas elevadas, condensações específicas e travessias continuam sustentando a progressão atual. O jogador ajuda moradores, reabre duas frentes, reúne seis frequências, cria uma frase sem resposta correta e sobe ao confronto final.
 
 ## Estrutura do Capítulo 3
 
 1. Terminal do Céu e chegada ao Distrito.
-2. Clube Contratempo e encontro com Maia e Vega.
+2. Clube Contratempo e encontro com Belga e Dney.
 3. Escolha de ordem entre Usina e Canal.
 4. Recrutamento de Franco sintetista e Ryuchi percussionista.
-5. Retorno de Nara à oficina e obtenção da Flauta.
+5. Mazza e Colli entregam a Flauta no Contratempo após as duas frentes; a oficina continua opcional.
 6. Frase musical no Contratempo.
 7. Reabertura do Elevador do Céu.
 8. Travessia do Mar de Nuvens.
@@ -67,11 +67,16 @@ O Distrito da Distorção é uma cidade viva acima das nuvens. O jogador ajuda m
 
 ## Identidade visual
 
-- Base: grafite, violeta e metal envelhecido.
-- Ciano: mecanismos, vento e rotas funcionais.
-- Magenta: palco, criação, comércio musical e interferência.
-- Âmbar: hospitalidade, janelas e lugares habitados.
-- Nuvens: marfim e rosa com sombras lavanda/azul.
+A revisão de 17/11/2026 muda a direção ambiental **do Capítulo 3** para deserto pós-apocalíptico cyberpunk: areia, ferrugem, tons terrosos, lona, concreto erodido e eletrônica reaproveitada. A interpretação espacial da equipe conserva estruturas elevadas e condensações da Flauta entre mesetas/cânions e um mar de poeira.
+
+- Predominam areia, aço gasto, carvão e ferrugem; ciano marca tecnologia funcional localizada.
+- Âmbar conserva acolhimento; criação/palco mantém acento musical discreto.
+- Chão, condensação, água e vazio seguem distinguíveis por valor, borda e volume.
+- Protagonistas, máscaras, identidade das seis frequências e capítulos 1/2 preservam suas paletas.
+- Atmosfera e desgaste não encobrem os sinais de combate, P1/P2, interação ou controles mobile.
+- O passe não adiciona sistemas de sobrevivência nem altera regras de combate ou progressão.
+
+[Contrato de direção, paleta, áreas e responsáveis](../design/chapter-03/DIRECAO_DESERTO_POS_APOCALIPTICO.md). O documento registra produção e aceite do novo visual separadamente; sua definição não significa que as variantes já estejam publicadas. As direções anteriores permanecem nos registros históricos da entrega V2.
 
 A leitura não depende apenas da cor: forma, posição, movimento e texto do jogo também identificam função.
 

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "c3-deserto-v1",
+  "status": "production_direction_not_runtime_integration",
+  "date": "2026-11-17",
+  "scope": {
+    "chapters": [
+      3
+    ],
+    "environmentOnly": true,
+    "areas": [
+      "sky_terminal",
+      "distortion_district",
+      "contratempo",
+      "power_plant",
+      "sky_canal",
+      "ciro_workshop",
+      "sky_lift",
+      "cloud_sea",
+      "cloud_terrace",
+      "last_torii",
+      "silence_core"
+    ]
+  },
+  "palette": {
+    "sand": "#C3A06C",
+    "sunlitDust": "#DFC49A",
+    "rust": "#9A5537",
+    "rustShadow": "#6E3F2A",
+    "wornSteel": "#53524A",
+    "charcoal": "#282724",
+    "bone": "#F0E0BD",
+    "oxidizedGreen": "#626B53",
+    "coolMetalShadow": "#3F5155",
+    "functionalTechnology": "#6CC1BC",
+    "hospitality": "#E7B26B",
+    "creationAccent": "#C27C85"
+  },
+  "preserve": [
+    "chapter_1_2_art",
+    "protagonist_identity_and_palettes",
+    "canonical_masks",
+    "p1_p2_identification",
+    "attack_telegraphs",
+    "current_geometry",
+    "save_schema_13",
+    "quest_flags",
+    "water_in_canal",
+    "specific_flute_condensations"
+  ],
+  "contract": "DIRECAO_DESERTO_POS_APOCALIPTICO.md"
+}

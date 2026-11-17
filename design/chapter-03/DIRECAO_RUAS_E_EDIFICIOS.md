@@ -1,5 +1,7 @@
 # Distrito da Distorção — proposta para fechar a arte
 
+> **Direção vigente do C3 — 17/11/2026:** [deserto pós-apocalíptico cyberpunk](DIRECAO_DESERTO_POS_APOCALIPTICO.md). Esta referência de ruas permanece útil para escala, entradas, circulação e construção dos assets; cores, materiais e atmosfera precisam acompanhar o contrato novo. A geometria do baseline V2 atual é preservada.
+
 A referência geral da cidade cyberpunk acima das nuvens foi aprovada pelo autor. Sprites de personagens, postes, mobiliário e objetos interativos foram integrados à Alpha 1.1.0. As imagens de rua e superfícies permanecem como fontes de direção: ainda não constituem um tileset totalmente recortado e validado.
 
 ## Rua principal
