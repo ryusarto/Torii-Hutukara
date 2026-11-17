@@ -16,14 +16,14 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
  async function check(name,fn){const detail=await fn();checks.push({name,passed:true,detail});console.log('OK · '+name)}
  async function arena(p1='ryuchi',p2='franco') {await page.evaluate(({p1,p2})=>{
    G=fresh();G.active=p1;G.formation=[p1,p2];G.flags.voicesAlt=G.flags.voicesKatana=G.flags.bass=true;
-   for(const id of [p1,p2]){G.hp[id]=G.maxhp[id]=100;}
+   for(const id of [p1,p2]){G.hp[id]=G.maxhp[id]=100;G.levels[id]=5;}
    current=mk('forest',40,30,'grass');G.area='forest';G.x=10.5;G.y=12.5;G.dir='right';G.aim091=[1,0];
    mode='walk';battle=null;bossActor=null;keys={};Object.assign(act,{cool:0,skill:0,skillX:0,duo:0,hit:0,dashCD:0,invuln:0});
    resetMotion10();Input121.game=G;Input121.lastArea=G.area;C3.pad.previous.clear();window.__pads=[window.__pad(0),window.__pad(1)];C3.pad.pads=window.__pads;
    C3.coop.member=p2;C3.syncCoop(true);C3.coop.invuln=0;ProtagonistArtV5.reset();
    $('start').classList.add('hidden');$('overlay').classList.add('hidden');$('dialogue').classList.add('hidden');$('cinema').style.display='none';$('toast').classList.add('hidden');cam.x=cam.y=0;
  },{p1,p2});}
- await check('Locked variant sheets do not load on the title screen',async()=>{
+ await check('Protagonist sheets do not load on the title screen',async()=>{
    const count=await page.evaluate(()=>Object.keys(ProtagonistArtV5.images).length);assert.equal(count,0);return count;
  });
  await check('192 directional sequences decode with alpha, common cell and exact closing frame',async()=>{
@@ -63,6 +63,21 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
      const v=await page.evaluate(({fn,state})=>{G.resonance=100;window[fn]();const record=ProtagonistArtV5.players[0];if(!record)throw Error('Missing action record');record.elapsed=.05;window[fn]();return {hero:record.hero,state:record.state,elapsed:record.elapsed,same:record===ProtagonistArtV5.players[0]};},{fn,state});
      assert.equal(v.hero,hero);assert.equal(v.state,state);assert.equal(v.same,true);assert.equal(v.elapsed,.05);result.push(v);
    }return result;
+ });
+ await check('Three combo attacks and all P2 techniques preserve player ownership',async()=>{
+   const result=[];
+   for(const hero of ['franco','ryuchi']){
+     await arena(hero,hero==='franco'?'ryuchi':'franco');
+     result.push(await page.evaluate(()=>{
+       const states=[];for(let i=0;i<3;i++){act.cool=0;act.recovery=0;attackAction();states.push(ProtagonistArtV5.players[0]?.state);}
+       return states;
+     }));
+     for(const [fn,key,state]of [['coopSkill','skill','skill'],['coopAdvanced','advanced','advanced'],['coopSignature','signature','signature']]){
+       await arena(hero==='franco'?'ryuchi':'franco',hero);
+       const v=await page.evaluate(({fn,key})=>{mode='action';G.resonance=100;C3.coop[key]=0;C3[fn](window.__pads[1]);const r=ProtagonistArtV5.players[1];C3[fn](window.__pads[1]);return {hero:r?.hero,state:r?.state,same:r===ProtagonistArtV5.players[1],p1:ProtagonistArtV5.players[0]};},{fn,key});
+       assert.equal(v.hero,hero);assert.equal(v.state,state);assert(v.same);assert.equal(v.p1,null);
+     }
+   }assert.deepEqual(result,[['attack_1','attack_2','attack_3'],['attack_1','attack_2','attack_3']]);return result;
  });
  await check('Switches, loads and area boundaries discard stale animation ownership',async()=>{
    await arena();const v=await page.evaluate(()=>{
