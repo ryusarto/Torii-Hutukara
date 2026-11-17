@@ -20,3 +20,7 @@ A direção artística, game design e coordenação participaram da produção e
 As capturas canônicas, do render e dos layouts mobile foram inspecionadas. Os testes usam Chrome headless e perfis/controles simulados, sem saves pessoais. Não houve teste em telefone ou controle físico nem uma nova jornada manual completa do início ao fim. A entrega adiciona arte e seleção visual; preserva saves, dano, cooldowns, colisão, geometria e os módulos Ninja/Arqueiro, Protagonistas V5 e Cenários V2.
 
 O HTML portátil e os frames individuais são regeneráveis; não são commitados como cópias duplicadas. GitHub contém fontes, atlas, retratos, manifesto, receita, auditoria e ferramentas. Os relatórios desta pasta correspondem à mesma build final.
+
+## Ajuste do executor no CI
+
+O primeiro Art integration QA aprovou os 11 checks V5 e oito checks Ninja/Arqueiro; o subprocesso de controles atingiu seu limite de 180 segundos ao abrir o HTML portátil de 381 MB duas vezes no runner Linux. O executor agora passa `TORII_BUILD_URL` para usar a distribuição hospedada localmente, opção já suportada por `input_regression.cjs`. As 22 verificações permanecem iguais; o HTML portátil continua coberto pela suíte de gameplay e validação. Nenhum limite foi ampliado ou teste removido.
