@@ -1,10 +1,12 @@
 # Estado do projeto
 
-Atualizado em 14 de novembro de 2026.
+Atualizado em 17 de novembro de 2026.
 
 ## Versão jogável atual
 
-**Beta 1.0** — os três capítulos estão reunidos em um único HTML portátil. A base 1.1.2 permanece preservada. Os resultados de teste estão em `qa/beta-1.0.0/`, `qa/ritmo/` e `qa/combate/`.
+**Beta 1.2** — os três capítulos estão reunidos em um único HTML portátil. A base 1.1.2 permanece preservada. Os resultados de teste estão em `qa/beta-1.0.0/`, `qa/ritmo/` e `qa/combate/`.
+
+Franco e Ryuchi principais usam os atlas V5, com/sem máscara por progressão. Ninja/Arqueiro e músicos preservam suas próprias artes. Resultados da integração em `qa/beta-1.2.0/PLAYTEST.md`.
 
 ### Critério de Beta (verificado em 14/11/2026)
 | Critério | Como foi verificado | Resultado |
