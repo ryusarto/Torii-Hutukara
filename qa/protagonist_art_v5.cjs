@@ -18,9 +18,9 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
    G=fresh();G.active=p1;G.formation=[p1,p2];G.flags.voicesAlt=G.flags.voicesKatana=G.flags.bass=true;
    for(const id of [p1,p2]){G.hp[id]=G.maxhp[id]=100;G.levels[id]=5;}
    current=mk('forest',40,30,'grass');G.area='forest';G.x=10.5;G.y=12.5;G.dir='right';G.aim091=[1,0];
-   mode='walk';battle=null;bossActor=null;keys={};Object.assign(act,{cool:0,skill:0,skillX:0,duo:0,hit:0,dashCD:0,invuln:0});
+   mode='walk';battle=null;bossActor=null;keys={};Object.assign(act,{cool:0,skill:0,skillX:0,duo:0,hit:0,dashCD:0,invuln:0,combo:0,comboTime:-10});
    resetMotion10();Input121.game=G;Input121.lastArea=G.area;C3.pad.previous.clear();window.__pads=[window.__pad(0),window.__pad(1)];C3.pad.pads=window.__pads;
-   C3.coop.member=p2;C3.syncCoop(true);C3.coop.invuln=0;ProtagonistArtV5.reset();
+   Object.assign(C3.coop,{member:p2,combo:0,lastAttack:-10,skill:0,advanced:0,signature:0,cool:0,recovery:0});C3.syncCoop(true);C3.coop.invuln=0;ProtagonistArtV5.reset();
    $('start').classList.add('hidden');$('overlay').classList.add('hidden');$('dialogue').classList.add('hidden');$('cinema').style.display='none';$('toast').classList.add('hidden');cam.x=cam.y=0;
  },{p1,p2});}
  await check('Protagonist sheets do not load on the title screen',async()=>{
