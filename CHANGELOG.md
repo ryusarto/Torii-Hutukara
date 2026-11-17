@@ -8,6 +8,14 @@
 
 # Histórico de versões
 
+## Direção do Capítulo 3 — 2026-11-17
+
+- Autor redefine o C3 para deserto pós-apocalíptico cyberpunk, areia/ferrugem/tons terrosos e tecnologia reaproveitada.
+- Coordenação, direção artística, arte, arquitetura e game design consolidam matriz das onze áreas, paleta e contrato de produção.
+- Frentes de cenários, NPCs e músicos alinhadas; preservados capítulos 1/2, personagens, geometria, saves e progressão.
+- Atualizados visão do jogo e avisos nos guias históricos. As variantes do novo visual permanecem em produção; este registro não declara integração de arte ou mudança de runtime.
+
+
 Todas as alterações relevantes do projeto são registradas aqui.
 
 ## [Beta 1.2] — 2026-11-17

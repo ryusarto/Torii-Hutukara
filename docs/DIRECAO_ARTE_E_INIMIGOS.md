@@ -1,5 +1,7 @@
 # Direção de arte, inimigos e próximos encontros
 
+> **Direção ambiental vigente do Capítulo 3 — 17/11/2026:** [deserto pós-apocalíptico cyberpunk, paleta terrosa e tecnologia reaproveitada](../design/chapter-03/DIRECAO_DESERTO_POS_APOCALIPTICO.md). O plano abaixo conserva as funções musicais e a identidade dos personagens. Variantes ambientais C3 não recolorem globalmente inimigos ou NPCs usados nos capítulos anteriores. Produção e integração do novo visual seguem o contrato comum.
+
 Revisado em 17/11/2026. Este plano acompanha as correções integradas na Beta 1.2; os inimigos propostos e a produção de arte abaixo continuam pendentes. O GitHub mantém código, manifestos e documentos oficiais. O Dropbox guarda backups, originais, ZIPs e temporários.
 
 ## Ordem de progressão

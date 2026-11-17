@@ -1,5 +1,7 @@
 # Revisão de cenários V2 — direção e aceite artístico
 
+> **Adendo de direção — 17/11/2026:** o autor redefiniu a aparência do Capítulo 3 para deserto pós-apocalíptico cyberpunk. A paleta e os materiais do C3 passam a seguir o [contrato do deserto](../../design/chapter-03/DIRECAO_DESERTO_POS_APOCALIPTICO.md). Este registro V2 conserva o histórico e os contratos técnicos/geométricos; seus tons grafite/violeta não orientam a próxima variante C3. Capítulos 1/2 e assets compartilhados permanecem preservados. O novo visual está em produção e ainda precisa de integração e aceite.
+
 Documento reconstruído a partir do conteúdo e dos resultados já escritos pelo agente `th_diretor_artistico` nesta tarefa. Não é uma recuperação byte a byte do arquivo anterior. Não foram relidos os arquivos locais dataless, repetidos testes ou reabertos cenários durante esta recuperação. IDs, ordem, grades e os 126 recortes do contrato foram preservados em `design/cenarios-v2/REVISAO_ARTE.json`; a redação dos prompts foi reconstruída e não substitui o registro exato das gerações.
 
 Base da revisão: Beta1.1, commit `dab09c8`. Aceite final: integração visual da Beta1.2, capturas atualizadas de17/11/2026. O principal informou que os PNGs estão preservados no branch `art/cenarios-v2`, commit `a16e275`.

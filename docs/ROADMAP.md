@@ -1,5 +1,16 @@
 # Roadmap
 
+## Revisão artística do Capítulo 3 — deserto pós-apocalíptico
+
+- [x] Reunir coordenação, direção artística, artista, arquitetura e game design; alinhar as frentes de cenários, NPCs e músicos.
+- [x] Definir [contrato comum e paleta](../design/chapter-03/DIRECAO_DESERTO_POS_APOCALIPTICO.md).
+- [ ] Produzir e integrar a amostra Distrito → Contratempo → entrada da Usina.
+- [ ] Validar topo, condensação e vazio na travessia elevada.
+- [ ] Expandir variantes e estados às onze áreas, preservando C1/C2 e os personagens.
+- [ ] Repetir revisão visual, regressões e conferir os aparelhos físicos pertinentes.
+- [ ] Publicar a nova direção somente com arte integrada e evidências da build.
+
+
 ## Agora — estabilizar a Beta 1.2
 
 - [x] Proteger o prólogo e a floresta antes do desbloqueio do baixo.
