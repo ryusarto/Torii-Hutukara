@@ -1,0 +1,28 @@
+{
+  "hero": "ryuchi_percussionista",
+  "variant": "masked",
+  "state": "walk",
+  "name": "ryuchi_percussionista_masked_walk",
+  "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: Complete eight-frame WALK cycle in place: left contact/down/pass/up, right contact/down/pass/up. Opposed leg movement, short legs, slight shoulder counterrotation, instrument bobs on strap. Fixed facing, no turning. Seamless loop.",
+  "layout": [
+    8,
+    4
+  ],
+  "references": [
+    "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+    "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+    "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+    "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+  ],
+  "sourceImage": "exec-4bc6a4ad-cf7e-4881-9fe2-6ce1486887d1.png",
+  "mode": "built-in image_gen",
+  "recovered": true,
+  "promptReconstructed": true,
+  "originalState": "walk",
+  "postprocess": {
+    "operation": "selective RGB palette lookup",
+    "recipe": "../../../../assets/variantes/percussao-sintetizador-v1/PALETA_CANONICA.json",
+    "canonicalPalette": true,
+    "noRedraw": true
+  }
+}

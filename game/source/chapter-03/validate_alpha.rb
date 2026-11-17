@@ -190,6 +190,59 @@ check.call('chefes C3 não são redesenhados após o cenário', !source.include?
 expected_base_hash = File.read(File.join(repo_root, 'game', 'source', 'base', 'SHA256_TRILHAS_1_1_2.txt')).split.first
 check.call('base 1.1.2 preservada', Digest::SHA256.file(base).hexdigest == expected_base_hash)
 
+musician_root = File.join(repo_root, 'assets', 'variantes', 'percussao-sintetizador-v1')
+musician_art = JSON.parse(File.read(File.join(musician_root, 'manifest.json')))
+musician_animations = musician_art.fetch('animations')
+musician_portraits = musician_art.fetch('portraits')
+musician_atlas = musician_animations.to_h { |a| [[a.fetch('hero'), a.fetch('variant'), a.fetch('state')].join('_'), a.fetch('atlas')] }
+musician_faces = musician_portraits.to_h { |p| [[p.fetch('hero'), p.fetch('variant'), 'portrait', p.fetch('expression')].join('_'), p.fetch('file')] }
+check.call('músicos: 208 sequências de oito poses sem reescrever base', musician_art['complete'] == true && musician_animations.size == 208 && musician_animations.all? { |a| a['frames'] == 8 } && musician_atlas.size == 52 && musician_faces.size == 32)
+musician_png_matches = lambda do |relative, expected|
+  path = File.join(musician_root, relative)
+  next false unless File.file?(path)
+  header = File.binread(path, 26)
+  header.byteslice(16, 8).unpack('NN') == expected && header.getbyte(25) == 6
+end
+check.call('84 imagens base dos músicos RGBA com dimensões corretas', musician_atlas.values.all? { |file| musician_png_matches.call(file, [2048, 1024]) } && musician_faces.values.all? { |file| musician_png_matches.call(file, [256, 256]) })
+check.call('músicos: uma paleta canônica sem contextos duplicados', musician_art.fetch('contexts', {}).empty?)
+recipe_path = File.join(musician_root, musician_art.fetch('paletteRecipe'))
+audit_path = File.join(musician_root, musician_art.fetch('geometryAudit'))
+recipe = JSON.parse(File.read(recipe_path))
+audit = JSON.parse(File.read(audit_path))
+audit_entries = audit.fetch('entries')
+canonical_pairs = musician_atlas.map { |key, file| [key, file, [2048, 1024]] } + musician_faces.map { |key, file| [key, file, [256, 256]] }
+geometry_verified = canonical_pairs.all? do |key, relative, expected|
+  entries = audit_entries.select { |entry| (entry['canonicalFile'] || entry['baseFile']) == relative }
+  next false unless entries.size == 1
+  entry = entries.first
+  path = File.join(musician_root, relative)
+  # The approved old palette may be removed after promotion; its hash remains in
+  # the audit. Tie the palette-remapped bytes to the current canonical PNG.
+  entry['geometryEqual'] == true && entry['shadingClustersPreserved'] == true && entry['baseClusterSha256'] == entry['contextClusterSha256'] && entry['baseClusterSha256'].is_a?(String) && entry['baseClusterSha256'].match?(/\A[0-9a-f]{64}\z/) && entry['rgbaAlphaMaxDiff'] == 0 && entry['protectedPixelsChanged'] == 0 &&
+    [entry['width'], entry['height']] == expected &&
+    entry['contextSha256'] == Digest::SHA256.file(path).hexdigest &&
+    entry['baseSha256'].is_a?(String) && entry['baseSha256'].match?(/\A[0-9a-f]{64}\z/) &&
+    entry['baseAlphaSha256'].is_a?(String) && entry['baseAlphaSha256'].match?(/\A[0-9a-f]{64}\z/) &&
+    entry['baseAlphaSha256'] == entry['contextAlphaSha256']
+end
+check.call('paleta canônica: geometria e pixels protegidos auditados nos 84 PNGs atuais', geometry_verified)
+check.call('receita de paleta e auditoria documentadas sem novas poses', !recipe.empty? && audit_entries.size >= 84 && musician_art['animations'].size == 208)
+check.call('músicos integrados sem placeholders ou filtro contextual pendente', built.include?('const MusicianArtV1') && !built.include?('__MUSICIAN_'))
+
+boss_root = File.join(repo_root, 'assets', 'boss-animations', 'v2')
+boss_art = JSON.parse(File.read(File.join(boss_root, 'manifest.json')))
+boss_audit = JSON.parse(File.read(File.join(boss_root, 'VALIDACAO_EXPORTACAO.json')))
+check.call('chefes: cinco sequências de oito quadros', boss_art.fetch('clips').size == 5 && boss_art.fetch('clips').values.all? { |clip| clip['frames'] == 8 })
+check.call('chefes: RGBA e oito quadros distintos auditados', boss_art.fetch('clips').all? do |key, clip|
+  path = File.join(boss_root, clip.fetch('atlas'))
+  header = File.binread(path, 26)
+  record = boss_audit.fetch(key)
+  header.byteslice(16, 8).unpack('NN') == [1280, 640] && header.getbyte(25) == 6 &&
+    record.fetch('frameHashes').uniq.size == 8 && record['atlasSha256'] == Digest::SHA256.file(path).hexdigest
+end)
+check.call('chefes: runtime aditivo integrado sem placeholders', built.include?('const BossChoreographyV2') && !built.include?('__BOSS_ANIMATION_'))
+check.call('chefes: liberação segue evento real de dano', boss_art['preparation'] == [0,1,2,3] && boss_art['release'] == 4 && boss_art['recovery'] == [5,6,7] && built.include?('const bossChoreographyFireV2=C3.fireHazard;'))
+
 passed = checks.count { |(_, ok, _)| ok }
 failed = checks.reject { |(_, ok, _)| ok }
 lines = [

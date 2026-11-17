@@ -110,20 +110,28 @@
       }
     },
     {
-      "name": "Legacy rendering of the musician heroes stays pixel-identical",
+      "name": "Musician renderer preserves the other four authored heroes pixel-identically",
       "passed": true,
       "detail": [
         {
-          "hero": "synth",
+          "hero": "franco",
           "equal": true,
-          "changedChannels": 0,
-          "maxDelta": 0
+          "visible": true
         },
         {
-          "hero": "percussion",
+          "hero": "ryuchi",
           "equal": true,
-          "changedChannels": 0,
-          "maxDelta": 0
+          "visible": true
+        },
+        {
+          "hero": "alt",
+          "equal": true,
+          "visible": true
+        },
+        {
+          "hero": "katana",
+          "equal": true,
+          "visible": true
         }
       ]
     },

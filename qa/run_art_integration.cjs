@@ -13,7 +13,7 @@ const root=path.resolve(__dirname,'..'),dir=path.join(root,'production/playtest-
  const browser=await chromium.launch({headless:true,args:['--remote-debugging-port=9237']});
  try{
   for(const test of ['protagonist_art_v5','ninja_archer_art','input_regression']){
-   await new Promise((resolve,reject)=>{const child=spawn(process.execPath,[path.join(__dirname,test+'.cjs'),'http://127.0.0.1:8767/'],{stdio:'inherit',timeout:180000,env:{...process.env,CDP_URL:'http://127.0.0.1:9237'}});child.on('exit',code=>code===0?resolve():reject(Error(test+' failed: '+code)));});
+   await new Promise((resolve,reject)=>{const child=spawn(process.execPath,[path.join(__dirname,test+'.cjs'),'http://127.0.0.1:8767/'],{stdio:'inherit',timeout:180000,env:{...process.env,CDP_URL:'http://127.0.0.1:9237',TORII_BUILD_URL:'http://127.0.0.1:8767/'}});child.on('exit',code=>code===0?resolve():reject(Error(test+' failed: '+code)));});
   }
  }finally{await browser.close();server.close();}
 })().catch(e=>{console.error(e);process.exitCode=1});

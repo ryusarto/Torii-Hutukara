@@ -126,32 +126,18 @@
       }
     },
     {
-      "name": "Legacy rendering of the musician heroes stays pixel-identical",
+      "name": "Previously integrated Ninja and Archer rendering stays pixel-identical",
       "passed": true,
       "detail": [
         {
-          "hero": "synth",
-          "equal": true,
-          "changedChannels": 0,
-          "maxDelta": 0
-        },
-        {
-          "hero": "percussion",
-          "equal": true,
-          "changedChannels": 0,
-          "maxDelta": 0
-        },
-        {
           "hero": "alt",
           "equal": true,
-          "changedChannels": 0,
-          "maxDelta": 0
+          "visible": true
         },
         {
           "hero": "katana",
           "equal": true,
-          "changedChannels": 0,
-          "maxDelta": 0
+          "visible": true
         }
       ]
     },

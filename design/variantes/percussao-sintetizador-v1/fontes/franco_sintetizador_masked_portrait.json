@@ -1,0 +1,24 @@
+{
+  "hero": "franco_sintetizador",
+  "variant": "masked",
+  "state": "portrait",
+  "name": "franco_sintetizador_masked_portrait",
+  "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nFRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow. WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes. Exactly EIGHT HEAD-AND-SHOULDERS portraits in FOUR COLUMNS by TWO ROWS on landscape canvas, same viewpoint 3/4 front, huge chibi head and tiny torso. Expressions row-major: neutral,speaking,happy,surprised,determined,angry,hurt,sad. Consistent facial geometry/headgear. Large clear faces with padding around hair/maskspikes, real transparent alpha. No full-body poses or text.",
+  "layout": [
+    4,
+    2
+  ],
+  "references": [
+    "originais/franco_sintetizador_masked_idle.png",
+    "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+    "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+  ],
+  "sourceImage": "exec-46b7895e-d8f8-496e-9d87-833a05078d01.png",
+  "mode": "built-in image_gen",
+  "postprocess": {
+    "operation": "selective RGB palette lookup",
+    "recipe": "../../../../assets/variantes/percussao-sintetizador-v1/PALETA_CANONICA.json",
+    "canonicalPalette": true,
+    "noRedraw": true
+  }
+}

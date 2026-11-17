@@ -1,0 +1,1011 @@
+{
+  "version": 3,
+  "date": "2026-11-17",
+  "style": "Chibi compacto conforme referência do usuário, cabeça grande e pernas curtas, pixel art 16-bit",
+  "layout": [
+    8,
+    4
+  ],
+  "heroes": [
+    "ryuchi_percussionista",
+    "franco_sintetizador"
+  ],
+  "variants": [
+    "unmasked",
+    "masked"
+  ],
+  "directions": [
+    "down",
+    "left",
+    "up",
+    "right"
+  ],
+  "cell": [
+    256,
+    256
+  ],
+  "pivot": [
+    128,
+    224
+  ],
+  "frames": 8,
+  "actions": {
+    "idle": [
+      "Eight subtly distinct breathing frames. Small chest rise, soft knee weight shift, elbows settle, one blink, neutral face. Ryuchi holds sticks above pads; Franco hands rest over keys. Seamless eighth-to-first loop.",
+      120,
+      true
+    ],
+    "walk": [
+      "Complete eight-frame WALK cycle in place: left contact/down/pass/up, right contact/down/pass/up. Opposed leg movement, short legs, slight shoulder counterrotation, instrument bobs on strap. Fixed facing, no turning. Seamless loop.",
+      95,
+      true
+    ],
+    "run": [
+      "Complete eight-frame RUN cycle: contact, compress, push, flight, opposite contact, compress, push, flight. Forward lean, clearly alternating stubby legs, brief both-feet-airborne phase. Hold strapped instrument securely. Seamless loop.",
+      65,
+      true
+    ],
+    "roll": [
+      "DODGE/ROLL eight frames: ready, crouch, shoulder drop, tuck, curled midroll, foot plant, rise, ready. Chibi body actually rotates anatomically. Instrument remains strapped close to torso, mask attached in masked variant. Never replace roll with upright slide.",
+      65,
+      false
+    ],
+    "attack_1": [
+      "FIRST COMBO HIT, eight frames ready/anticipate/lift/contact/follow-through/recoil/reset/ready. Ryuchi RIGHT drumstick strikes first pad, left poised. Franco LEFT hand plays low chord, right adjusts knob. Clear hand motion, no visual effects.",
+      65,
+      false
+    ],
+    "attack_2": [
+      "SECOND COMBO HIT, eight frames ready/opposite anticipation/load/contact/follow-through/rebound/reset/ready. Ryuchi LEFT drumstick strikes alternate pad, right rebounds. Franco RIGHT hand plays higher notes, left control sweep. Distinct from hit1; no effects.",
+      65,
+      false
+    ],
+    "attack_3": [
+      "THIRD COMBO FINISHER, eight frames ready/deep knee load/both arms prepare high/forceful double contact/full follow-through/rebound/recover/ready. Ryuchi BOTH sticks strike pads with broad accent. Franco powerful TWO-HANDED wide chord. Instrument stays attached, no effects.",
+      75,
+      false
+    ],
+    "skill": [
+      "TECHNIQUE Z, eight frames ready/anticipate/prepare/contact/sustain/release/recover/ready. Ryuchi rapid controlled ALTERNATING two-stick roll with visible wrist/elbow changes. Franco left-hand sustained chord while right hand smoothly sweeps filter knob. No effects, same instrument.",
+      80,
+      false
+    ],
+    "advanced": [
+      "ADVANCED TECHNIQUE X, eight frames ready/anticipate/guard/respond/peak counter/follow-through/recover/ready. Ryuchi CROSSES both drumsticks defensively above drum then opens arms into strong syncopated double beat. Franco braces keyboard and makes broad control sweep then powerful chord. Clear guarded/contact/recovery differences, no effects.",
+      70,
+      false
+    ],
+    "signature": [
+      "SPECIAL K, eight frames ready/deep crouch charging/arms rise/explosive playing/peak forward lean/resonant follow-through/recover/ready. Ryuchi overhead two-stick flourish then emphatic DOUBLE PAD STRIKE. Franco arm flourish above keyboard then deep TWO-HANDED CHORD, never guitar pose. Large readable chibi gesture, no effects.",
+      90,
+      false
+    ],
+    "hurt": [
+      "HURT eight frames ready/sudden recoil/max recoil with pained face/knees buckle/protect instrument/regain balance/straighten/ready. Instrument and sticks stay attached/held. No blood, no new costume damage. Continuous whole-body recoil.",
+      65,
+      false
+    ],
+    "defeat": [
+      "DEFEAT eight frames ready/stagger/knees collapse/one knee down/fall onto side protecting instrument/reach floor/settle/final SIDE-LYING PRONE pose. Final frame MUST remain on floor, never stand up. All four directions have clearly horizontal final body, instrument still attached beside torso. No blood or effects.",
+      110,
+      false
+    ],
+    "performance": [
+      "PLAYING/INTERACTION eight-frame rhythmic loop. Ryuchi clearly alternating RIGHT raised/contact/rebound then LEFT raised/contact/rebound strokes, head nod and knee bounce. Franco both hands play melodic keyboard phrase, small finger changes and occasional control adjustment, head nods. Instrument shape fixed. Seamless loop.",
+      85,
+      true
+    ]
+  },
+  "expressions": [
+    "neutral",
+    "speaking",
+    "happy",
+    "surprised",
+    "determined",
+    "angry",
+    "hurt",
+    "sad"
+  ],
+  "tasks": [
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "idle",
+      "name": "ryuchi_percussionista_unmasked_idle",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: Eight subtly distinct breathing frames. Small chest rise, soft knee weight shift, elbows settle, one blink, neutral face. Ryuchi holds sticks above pads; Franco hands rest over keys. Seamless eighth-to-first loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "idle",
+      "name": "ryuchi_percussionista_masked_idle",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: Eight subtly distinct breathing frames. Small chest rise, soft knee weight shift, elbows settle, one blink, neutral face. Ryuchi holds sticks above pads; Franco hands rest over keys. Seamless eighth-to-first loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "idle",
+      "name": "franco_sintetizador_unmasked_idle",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: Eight subtly distinct breathing frames. Small chest rise, soft knee weight shift, elbows settle, one blink, neutral face. Ryuchi holds sticks above pads; Franco hands rest over keys. Seamless eighth-to-first loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "idle",
+      "name": "franco_sintetizador_masked_idle",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: Eight subtly distinct breathing frames. Small chest rise, soft knee weight shift, elbows settle, one blink, neutral face. Ryuchi holds sticks above pads; Franco hands rest over keys. Seamless eighth-to-first loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "walk",
+      "name": "ryuchi_percussionista_unmasked_walk",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: Complete eight-frame WALK cycle in place: left contact/down/pass/up, right contact/down/pass/up. Opposed leg movement, short legs, slight shoulder counterrotation, instrument bobs on strap. Fixed facing, no turning. Seamless loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "walk",
+      "name": "ryuchi_percussionista_masked_walk",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: Complete eight-frame WALK cycle in place: left contact/down/pass/up, right contact/down/pass/up. Opposed leg movement, short legs, slight shoulder counterrotation, instrument bobs on strap. Fixed facing, no turning. Seamless loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "walk",
+      "name": "franco_sintetizador_unmasked_walk",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: Complete eight-frame WALK cycle in place: left contact/down/pass/up, right contact/down/pass/up. Opposed leg movement, short legs, slight shoulder counterrotation, instrument bobs on strap. Fixed facing, no turning. Seamless loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "walk",
+      "name": "franco_sintetizador_masked_walk",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: Complete eight-frame WALK cycle in place: left contact/down/pass/up, right contact/down/pass/up. Opposed leg movement, short legs, slight shoulder counterrotation, instrument bobs on strap. Fixed facing, no turning. Seamless loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "run",
+      "name": "ryuchi_percussionista_unmasked_run",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: Complete eight-frame RUN cycle: contact, compress, push, flight, opposite contact, compress, push, flight. Forward lean, clearly alternating stubby legs, brief both-feet-airborne phase. Hold strapped instrument securely. Seamless loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "run",
+      "name": "ryuchi_percussionista_masked_run",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: Complete eight-frame RUN cycle: contact, compress, push, flight, opposite contact, compress, push, flight. Forward lean, clearly alternating stubby legs, brief both-feet-airborne phase. Hold strapped instrument securely. Seamless loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "run",
+      "name": "franco_sintetizador_unmasked_run",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: Complete eight-frame RUN cycle: contact, compress, push, flight, opposite contact, compress, push, flight. Forward lean, clearly alternating stubby legs, brief both-feet-airborne phase. Hold strapped instrument securely. Seamless loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "run",
+      "name": "franco_sintetizador_masked_run",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: Complete eight-frame RUN cycle: contact, compress, push, flight, opposite contact, compress, push, flight. Forward lean, clearly alternating stubby legs, brief both-feet-airborne phase. Hold strapped instrument securely. Seamless loop.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "roll",
+      "name": "ryuchi_percussionista_unmasked_roll",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: DODGE/ROLL eight frames: ready, crouch, shoulder drop, tuck, curled midroll, foot plant, rise, ready. Chibi body actually rotates anatomically. Instrument remains strapped close to torso, mask attached in masked variant. Never replace roll with upright slide.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "roll",
+      "name": "ryuchi_percussionista_masked_roll",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: DODGE/ROLL eight frames: ready, crouch, shoulder drop, tuck, curled midroll, foot plant, rise, ready. Chibi body actually rotates anatomically. Instrument remains strapped close to torso, mask attached in masked variant. Never replace roll with upright slide.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "roll",
+      "name": "franco_sintetizador_unmasked_roll",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: DODGE/ROLL eight frames: ready, crouch, shoulder drop, tuck, curled midroll, foot plant, rise, ready. Chibi body actually rotates anatomically. Instrument remains strapped close to torso, mask attached in masked variant. Never replace roll with upright slide.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "roll",
+      "name": "franco_sintetizador_masked_roll",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: DODGE/ROLL eight frames: ready, crouch, shoulder drop, tuck, curled midroll, foot plant, rise, ready. Chibi body actually rotates anatomically. Instrument remains strapped close to torso, mask attached in masked variant. Never replace roll with upright slide.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "attack_1",
+      "name": "ryuchi_percussionista_unmasked_attack_1",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: FIRST COMBO HIT, eight frames ready/anticipate/lift/contact/follow-through/recoil/reset/ready. Ryuchi RIGHT drumstick strikes first pad, left poised. Franco LEFT hand plays low chord, right adjusts knob. Clear hand motion, no visual effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "attack_1",
+      "name": "ryuchi_percussionista_masked_attack_1",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: FIRST COMBO HIT, eight frames ready/anticipate/lift/contact/follow-through/recoil/reset/ready. Ryuchi RIGHT drumstick strikes first pad, left poised. Franco LEFT hand plays low chord, right adjusts knob. Clear hand motion, no visual effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "attack_1",
+      "name": "franco_sintetizador_unmasked_attack_1",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: FIRST COMBO HIT, eight frames ready/anticipate/lift/contact/follow-through/recoil/reset/ready. Ryuchi RIGHT drumstick strikes first pad, left poised. Franco LEFT hand plays low chord, right adjusts knob. Clear hand motion, no visual effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "attack_1",
+      "name": "franco_sintetizador_masked_attack_1",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: FIRST COMBO HIT, eight frames ready/anticipate/lift/contact/follow-through/recoil/reset/ready. Ryuchi RIGHT drumstick strikes first pad, left poised. Franco LEFT hand plays low chord, right adjusts knob. Clear hand motion, no visual effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "attack_2",
+      "name": "ryuchi_percussionista_unmasked_attack_2",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: SECOND COMBO HIT, eight frames ready/opposite anticipation/load/contact/follow-through/rebound/reset/ready. Ryuchi LEFT drumstick strikes alternate pad, right rebounds. Franco RIGHT hand plays higher notes, left control sweep. Distinct from hit1; no effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "attack_2",
+      "name": "ryuchi_percussionista_masked_attack_2",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: SECOND COMBO HIT, eight frames ready/opposite anticipation/load/contact/follow-through/rebound/reset/ready. Ryuchi LEFT drumstick strikes alternate pad, right rebounds. Franco RIGHT hand plays higher notes, left control sweep. Distinct from hit1; no effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "attack_2",
+      "name": "franco_sintetizador_unmasked_attack_2",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: SECOND COMBO HIT, eight frames ready/opposite anticipation/load/contact/follow-through/rebound/reset/ready. Ryuchi LEFT drumstick strikes alternate pad, right rebounds. Franco RIGHT hand plays higher notes, left control sweep. Distinct from hit1; no effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "attack_2",
+      "name": "franco_sintetizador_masked_attack_2",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: SECOND COMBO HIT, eight frames ready/opposite anticipation/load/contact/follow-through/rebound/reset/ready. Ryuchi LEFT drumstick strikes alternate pad, right rebounds. Franco RIGHT hand plays higher notes, left control sweep. Distinct from hit1; no effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "attack_3",
+      "name": "ryuchi_percussionista_unmasked_attack_3",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: THIRD COMBO FINISHER, eight frames ready/deep knee load/both arms prepare high/forceful double contact/full follow-through/rebound/recover/ready. Ryuchi BOTH sticks strike pads with broad accent. Franco powerful TWO-HANDED wide chord. Instrument stays attached, no effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "attack_3",
+      "name": "ryuchi_percussionista_masked_attack_3",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: THIRD COMBO FINISHER, eight frames ready/deep knee load/both arms prepare high/forceful double contact/full follow-through/rebound/recover/ready. Ryuchi BOTH sticks strike pads with broad accent. Franco powerful TWO-HANDED wide chord. Instrument stays attached, no effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "attack_3",
+      "name": "franco_sintetizador_unmasked_attack_3",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: THIRD COMBO FINISHER, eight frames ready/deep knee load/both arms prepare high/forceful double contact/full follow-through/rebound/recover/ready. Ryuchi BOTH sticks strike pads with broad accent. Franco powerful TWO-HANDED wide chord. Instrument stays attached, no effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "attack_3",
+      "name": "franco_sintetizador_masked_attack_3",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: THIRD COMBO FINISHER, eight frames ready/deep knee load/both arms prepare high/forceful double contact/full follow-through/rebound/recover/ready. Ryuchi BOTH sticks strike pads with broad accent. Franco powerful TWO-HANDED wide chord. Instrument stays attached, no effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "skill",
+      "name": "ryuchi_percussionista_unmasked_skill",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow.\nVARIANT: WITHOUT MASK: natural face visible in all poses, same hair/cap as model.\nACTION: CONTRATEMPO guard/counter: ready, anticipate, raise both sticks, CROSS BOTH drumsticks protectively above drum, guarded hold, open into counter-beat, recover, ready. Sticks stay visible, mask firmly attached.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "skill",
+      "name": "ryuchi_percussionista_masked_skill",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow.\nVARIANT: WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes.\nACTION: CONTRATEMPO guard/counter: ready, anticipate, raise both sticks, CROSS BOTH drumsticks protectively above drum, guarded hold, open into counter-beat, recover, ready. Sticks stay visible, mask firmly attached.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "skill",
+      "name": "franco_sintetizador_unmasked_skill",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: FRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow.\nVARIANT: WITHOUT MASK: natural face visible in all poses, same hair/cap as model.\nACTION: TECHNIQUE Z, eight frames ready/anticipate/prepare/contact/sustain/release/recover/ready. Ryuchi rapid controlled ALTERNATING two-stick roll with visible wrist/elbow changes. Franco left-hand sustained chord while right hand smoothly sweeps filter knob. No effects, same instrument.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/franco_sintetizador_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "skill",
+      "name": "franco_sintetizador_masked_skill",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: FRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow.\nVARIANT: WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes.\nACTION: TECHNIQUE Z, eight frames ready/anticipate/prepare/contact/sustain/release/recover/ready. Ryuchi rapid controlled ALTERNATING two-stick roll with visible wrist/elbow changes. Franco left-hand sustained chord while right hand smoothly sweeps filter knob. No effects, same instrument.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/franco_sintetizador_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "advanced",
+      "name": "ryuchi_percussionista_unmasked_advanced",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: QUEBRA-PULSO / THREE RISING BEATS. Eight frames ready, load wrist, first drum-pad beat, alternating second beat, raise both sticks, strong third double-pad accent, rebound, ready. Runtime supplies three waves, draw no visual effects. Instrument and short legs consistent.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "advanced",
+      "name": "ryuchi_percussionista_masked_advanced",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm medium skin, strong dark brows, subtle moustache/chin stubble simplified in chibi face, black/dark purple fitted cloth cap with white zigzag and tied cloth at back. Blue-purple quilted technical jacket with gold piping and blue shoulder pads, plum trousers, short dark boots, cyan/magenta headphones. TWO wooden golden drumsticks and strapped electronic waist drum with GOLD ROUND PADS, magenta/cyan rim. Instrument/pad arrangement identical across frames. No katana or bow.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: QUEBRA-PULSO / THREE RISING BEATS. Eight frames ready, load wrist, first drum-pad beat, alternating second beat, raise both sticks, strong third double-pad accent, rebound, ready. Runtime supplies three waves, draw no visual effects. Instrument and short legs consistent.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "advanced",
+      "name": "franco_sintetizador_unmasked_advanced",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: UNMASKED in every frame: natural face, cap/hair and headphones clearly visible. Ivory spiked mask may be stowed on hip belt as in image1, NEVER worn on face in this sheet.\nACTION: ADVANCED TECHNIQUE X, eight frames ready/anticipate/guard/respond/peak counter/follow-through/recover/ready. Ryuchi CROSSES both drumsticks defensively above drum then opens arms into strong syncopated double beat. Franco braces keyboard and makes broad control sweep then powerful chord. Clear guarded/contact/recovery differences, no effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "advanced",
+      "name": "franco_sintetizador_masked_advanced",
+      "prompt": "Use case: stylized-concept. Production CHIBI pixel art animation sheet for Torii & Hutukara. Image 1 is the REQUIRED USER STYLE and PROPORTION reference: huge round head, compact tiny torso, VERY SHORT STUBBY LEGS, chunky boots, cute simplified adult face, about 2.2 heads tall. Keep this squat CHIBI silhouette in all poses; NEVER elongated realistic/anime anatomy. Image 2 is costume/instrument reference (Franco synthesizer TOP row, Ryuchi percussionist BOTTOM row). Image 3 supplies facial identity, simplified into the CHIBI style of image 1. Optional image 4 supplies mask geometry.\nExactly EIGHT COLUMNS by FOUR ROWS, landscape canvas, 32 full-body poses, ONE hero, ONE action and ONE mask variant per image. Row1 FRONT/down, row2 LEFT profile, row3 BACK/up, row4 RIGHT profile. Each row has eight consecutive temporal poses read left to right: anticipation, action/contact, follow-through, recovery when relevant. Fixed body scale and ground baseline; complete character, instrument, sticks, mask spikes stay inside each equal invisible cell with generous transparent padding. All four rows same scale. Crisp deliberate square 16-bit pixel clusters, dark outline, limited stepped palette. No smooth painting, gradients, blur, 3D rendering, text, labels, grid, floor, shadow or checkerboard. TRUE TRANSPARENT PNG alpha. Costume, head size, instrument and straps stay consistent. Front-mounted keyboard remains on FRONT of torso, naturally occluded in back view; show strap across back, not a keyboard worn on back. Drum stays strapped at waist. Preserve extremely short legs in every pose.\nCHARACTER: FRANCO SINTETIZADOR: warm brown skin, voluminous dark tight curly hair, strong brows, subtle moustache and short chin beard simplified in cute chibi face. Purple quilted technical jacket with orange/gold shoulder pads and magenta/cyan accents, gold neck chains, dark purple trousers and boots, cyan/magenta headphones. Compact synthesizer keyboard with ivory/black keys and magenta/cyan housing diagonally strapped across FRONT waist by purple shoulder strap. Hands naturally use keys and control knobs. No bow, guitar, sword or katana.\nMASK: MASKED in every frame: ivory stitched cloth helmet ON HEAD, long radial triangular spikes, central vertical stitched seam, round black goggles, lower cutout reveals actual character mouth and chin skin. Headphones at sides. Mask stays firmly attached while bending, rolling or falling. No duplicate mask on hip. Never replace helmet with skull/gas mask. Keep same big chibi head/body scale as unmasked character.\nACTION: ADVANCED TECHNIQUE X, eight frames ready/anticipate/guard/respond/peak counter/follow-through/recover/ready. Ryuchi CROSSES both drumsticks defensively above drum then opens arms into strong syncopated double beat. Franco braces keyboard and makes broad control sweep then powerful chord. Clear guarded/contact/recovery differences, no effects.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/SYNTH_PERCUSSION_RUN_V2_12X2.png",
+        "referencias/PLAYABLE_PORTRAITS_NATURAL_V2.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "signature",
+      "name": "ryuchi_percussionista_unmasked_signature",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow.\nVARIANT: WITHOUT MASK: natural face visible in all poses, same hair/cap as model.\nACTION: PULSO COMUM special: ready, deep knee load, raise BOTH drumsticks overhead, first pad contact, STRONG DOUBLE-PAD beat peak with torso lean, rebound, recover, ready. BOTH hands always hold DRUMSTICKS. Draw no keyboard in ANY direction.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "signature",
+      "name": "ryuchi_percussionista_masked_signature",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow.\nVARIANT: WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes.\nACTION: PULSO COMUM special: ready, deep knee load, raise BOTH drumsticks overhead, first pad contact, STRONG DOUBLE-PAD beat peak with torso lean, rebound, recover, ready. BOTH hands always hold DRUMSTICKS. Draw no keyboard in ANY direction.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "signature",
+      "name": "franco_sintetizador_unmasked_signature",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: FRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow.\nVARIANT: WITHOUT MASK: natural face visible in all poses, same hair/cap as model.\nACTION: CAMADAS VIVAS special: ready, low knee anticipation, lift both hands above keyboard, broad arm flourish, forceful TWO-HANDED KEYBOARD CHORD with torso lean, sustained chord follow-through, recover, ready. Same KEYBOARD in ALL directions; no drumsticks.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/franco_sintetizador_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "signature",
+      "name": "franco_sintetizador_masked_signature",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: FRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow.\nVARIANT: WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes.\nACTION: CAMADAS VIVAS special: ready, low knee anticipation, lift both hands above keyboard, broad arm flourish, forceful TWO-HANDED KEYBOARD CHORD with torso lean, sustained chord follow-through, recover, ready. Same KEYBOARD in ALL directions; no drumsticks.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/franco_sintetizador_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "hurt",
+      "name": "ryuchi_percussionista_unmasked_hurt",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow.\nVARIANT: WITHOUT MASK: natural face visible in all poses, same hair/cap as model.\nACTION: Eight HURT frames ready, sudden torso recoil, peak recoil with pained face, short knees buckle, guard DRUM and hold STICKS, regain balance, straighten, ready. No blood.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "hurt",
+      "name": "ryuchi_percussionista_masked_hurt",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow.\nVARIANT: WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes.\nACTION: Eight HURT frames ready, sudden torso recoil, peak recoil with pained face, short knees buckle, guard DRUM and hold STICKS, regain balance, straighten, ready. No blood.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "hurt",
+      "name": "franco_sintetizador_unmasked_hurt",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: FRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow.\nVARIANT: WITHOUT MASK: natural face visible in all poses, same hair/cap as model.\nACTION: Eight HURT frames ready, sudden torso recoil, peak recoil with pained face, short knees buckle, protect strapped KEYBOARD, regain balance, straighten, ready. No blood.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/franco_sintetizador_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "hurt",
+      "name": "franco_sintetizador_masked_hurt",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: FRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow.\nVARIANT: WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes.\nACTION: Eight HURT frames ready, sudden torso recoil, peak recoil with pained face, short knees buckle, protect strapped KEYBOARD, regain balance, straighten, ready. No blood.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/franco_sintetizador_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "defeat",
+      "name": "ryuchi_percussionista_unmasked_defeat",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow.\nVARIANT: WITHOUT MASK: natural face visible in all poses, same hair/cap as model.\nACTION: Eight DEFEAT frames ready, stagger, knees collapse, one knee down, fall on SIDE protecting DRUM and STICKS, body reaches floor, settles, final fully HORIZONTAL SIDE-LYING PRONE pose on floor. Last pose stays down, NEVER stand back up. Instrument remains attached. No blood.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "defeat",
+      "name": "ryuchi_percussionista_masked_defeat",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow.\nVARIANT: WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes.\nACTION: Eight DEFEAT frames ready, stagger, knees collapse, one knee down, fall on SIDE protecting DRUM and STICKS, body reaches floor, settles, final fully HORIZONTAL SIDE-LYING PRONE pose on floor. Last pose stays down, NEVER stand back up. Instrument remains attached. No blood.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "defeat",
+      "name": "franco_sintetizador_unmasked_defeat",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: FRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow.\nVARIANT: WITHOUT MASK: natural face visible in all poses, same hair/cap as model.\nACTION: Eight DEFEAT frames ready, stagger, knees collapse, one knee down, fall on SIDE protecting KEYBOARD, body reaches floor, settles, final fully HORIZONTAL SIDE-LYING PRONE pose on floor. Last pose stays down, NEVER stand back up. Keyboard remains visibly strapped beside torso. No blood.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/franco_sintetizador_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "defeat",
+      "name": "franco_sintetizador_masked_defeat",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: FRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow.\nVARIANT: WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes.\nACTION: Eight DEFEAT frames ready, stagger, knees collapse, one knee down, fall on SIDE protecting KEYBOARD, body reaches floor, settles, final fully HORIZONTAL SIDE-LYING PRONE pose on floor. Last pose stays down, NEVER stand back up. Keyboard remains visibly strapped beside torso. No blood.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/franco_sintetizador_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "performance",
+      "name": "ryuchi_percussionista_unmasked_performance",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow.\nVARIANT: WITHOUT MASK: natural face visible in all poses, same hair/cap as model.\nACTION: Eight-frame continuous rhythm loop: alternate RIGHT stick raised/contact/rebound, LEFT stick raised/contact/rebound, both wrists settle to ready. Head nod, subtle short-knee bounce. Same DRUM pad arrangement in every frame, no keyboard. Eighth flows into first.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "performance",
+      "name": "ryuchi_percussionista_masked_performance",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: RYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow.\nVARIANT: WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes.\nACTION: Eight-frame continuous rhythm loop: alternate RIGHT stick raised/contact/rebound, LEFT stick raised/contact/rebound, both wrists settle to ready. Head nod, subtle short-knee bounce. Same DRUM pad arrangement in every frame, no keyboard. Eighth flows into first.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "performance",
+      "name": "franco_sintetizador_unmasked_performance",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: FRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow.\nVARIANT: WITHOUT MASK: natural face visible in all poses, same hair/cap as model.\nACTION: Eight-frame performance loop: both hands play a melodic KEYBOARD phrase, fingers visibly move on black/ivory keys, right hand briefly touches synth knob then returns, head nods, short knees bounce. Same keyboard and face in every frame. Eighth flows into first.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/franco_sintetizador_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "performance",
+      "name": "franco_sintetizador_masked_performance",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nExactly EIGHT COLUMNS and FOUR ROWS on a landscape canvas, 32 FULL BODY sprites. Row1front/down, row2LEFT profile, row3BACK/up, row4RIGHT profile. Eight consecutive temporal poses per row, same action, constant scale, common pivot and baseline. Entire figure/prop/maskspikes inside each equal invisiblecell with generous padding. Instrument fixed to straps, consistent anatomy, same head size and SHORT legs in all32poses. In back view front keyboard is naturally hidden, not moved onto back. Clear anticipation/action/recovery. No visual effects; game adds effects separately.\nCHARACTER: FRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow.\nVARIANT: WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes.\nACTION: Eight-frame performance loop: both hands play a melodic KEYBOARD phrase, fingers visibly move on black/ivory keys, right hand briefly touches synth knob then returns, head nods, short knees bounce. Same keyboard and face in every frame. Eighth flows into first.",
+      "layout": [
+        8,
+        4
+      ],
+      "references": [
+        "originais/franco_sintetizador_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "portrait",
+      "name": "ryuchi_percussionista_unmasked_portrait",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nRYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow. WITHOUT MASK: natural face visible in all poses, same hair/cap as model. Exactly EIGHT HEAD-AND-SHOULDERS portraits in FOUR COLUMNS by TWO ROWS on landscape canvas, same viewpoint 3/4 front, huge chibi head and tiny torso. Expressions row-major: neutral,speaking,happy,surprised,determined,angry,hurt,sad. Consistent facial geometry/headgear. Large clear faces with padding around hair/maskspikes, real transparent alpha. No full-body poses or text.",
+      "layout": [
+        4,
+        2
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "portrait",
+      "name": "ryuchi_percussionista_masked_portrait",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nRYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow. WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes. Exactly EIGHT HEAD-AND-SHOULDERS portraits in FOUR COLUMNS by TWO ROWS on landscape canvas, same viewpoint 3/4 front, huge chibi head and tiny torso. Expressions row-major: neutral,speaking,happy,surprised,determined,angry,hurt,sad. Consistent facial geometry/headgear. Large clear faces with padding around hair/maskspikes, real transparent alpha. No full-body poses or text.",
+      "layout": [
+        4,
+        2
+      ],
+      "references": [
+        "originais/ryuchi_percussionista_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "portrait",
+      "name": "franco_sintetizador_unmasked_portrait",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nFRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow. WITHOUT MASK: natural face visible in all poses, same hair/cap as model. Exactly EIGHT HEAD-AND-SHOULDERS portraits in FOUR COLUMNS by TWO ROWS on landscape canvas, same viewpoint 3/4 front, huge chibi head and tiny torso. Expressions row-major: neutral,speaking,happy,surprised,determined,angry,hurt,sad. Consistent facial geometry/headgear. Large clear faces with padding around hair/maskspikes, real transparent alpha. No full-body poses or text.",
+      "layout": [
+        4,
+        2
+      ],
+      "references": [
+        "originais/franco_sintetizador_unmasked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "portrait",
+      "name": "franco_sintetizador_masked_portrait",
+      "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nFRANCO SINTETIZADOR: brown skin, voluminous DARK CURLY HAIR, subtle chin beard, cyan/magenta headphones, purple jacket with ORANGE/GOLD shoulders and gold chains, tiny dark legs and boots. Compact SYNTH KEYBOARD diagonally strapped to FRONT waist with purple strap. No cap, no drumsticks, no drum, no bow. WITH MASK WORN ON HEAD in ALL poses: ivory stitched cloth helmet, long radial spikes, central stitched seam, circular black goggles, lower cutout exposing actual mouth/chin. Mask follows head when rolling/bending/falling; never floats or vanishes. Exactly EIGHT HEAD-AND-SHOULDERS portraits in FOUR COLUMNS by TWO ROWS on landscape canvas, same viewpoint 3/4 front, huge chibi head and tiny torso. Expressions row-major: neutral,speaking,happy,surprised,determined,angry,hurt,sad. Consistent facial geometry/headgear. Large clear faces with padding around hair/maskspikes, real transparent alpha. No full-body poses or text.",
+      "layout": [
+        4,
+        2
+      ],
+      "references": [
+        "originais/franco_sintetizador_masked_idle.png",
+        "referencias/PADRAO_CHIBI_DO_USUARIO.png",
+        "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+      ]
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 {
-  "testedAt": "2026-11-17T20:31:02.046Z",
-  "url": "http://127.0.0.1:8819/",
+  "testedAt": "2026-11-17T20:02:18.568Z",
+  "url": "http://127.0.0.1:63344/",
   "build": {
-    "version": "1.3.0",
-    "sourceSha256": "ae12c40b5be906d4017d1d9a6f0c8e4bb20ef8c5b95f11a93bf61a61175bc83d",
+    "version": "1.2.0",
+    "sourceSha256": "41a7abfe9dac6a8059e488ea1e28ef9f9cd8a43dc796ab2ffbf6c22dcd222528",
     "shellVersion": 1,
-    "builtAt": "2026-11-17T20:29:49Z",
+    "builtAt": "2026-11-17T19:53:11Z",
     "device": "mobile"
   },
   "method": "Chrome with emulated device profiles; no physical-device validation",
