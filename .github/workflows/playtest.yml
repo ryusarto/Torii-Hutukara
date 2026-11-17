@@ -9,6 +9,8 @@ on:
       - 'production/build_playtest.rb'
       - 'game/source/**'
       - 'game/VERSION.json'
+      - 'assets/variantes/ninja-arqueiro-v1/**'
+      - 'game/VERSION.json'
       - 'assets/chapter-03/audio/**'
       - 'assets/chapter-03/runtime/**'
       - 'assets/prebeta/runtime/**'

@@ -1,0 +1,349 @@
+{
+  "scope": [
+    "katana",
+    "alt"
+  ],
+  "approvedDesign": true,
+  "sources": [
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "idle",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale. Character: Ryuchi Katana. Costume: same Ryuchi face as the approved main hero, warm light-brown skin, black cloth headwrap/beanie with folded cuff and small white zigzag, two tied cloth tails at rear; blue and deep-purple ninja jacket, gold waist belt, cyan stitching and small magenta/cyan tech panels, dark trousers and sturdy dark boots; a single curved steel katana in right hand and black/gold scabbard at LEFT hip; NO ivory mask worn, carried, or attached anywhere. Ryuchi Katana has no ivory mask anywhere; keep the black cloth headwrap and bare face. Action: IDLE. Eight subtle genuinely distinct breathing and blinking phases with grounded boots, small natural shoulders/cloth/strap shifts. Do not walk or attack. Katana is sheathed at left hip with right hand calmly resting near its grip; cloth headwrap tails move subtly. Final pose returns seamlessly to first.",
+      "file": "originais/katana_unmasked_idle.png",
+      "sha256": "5dc6323ecacef53111d92e3da6f00210fde9d0a79e31f58ef2431f15169aeb6b",
+      "grid": [
+        8,
+        4
+      ],
+      "approvedDesign": true,
+      "tool": "image_gen built-in"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "idle",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale. Character: Franco Arqueiro. Costume: same Franco face as approved main hero: brown skin, dark brown CURLY hair, subtle moustache and short chin beard, red/cream striped short-brim flat cap from approved archer portrait, rust-orange scarf, warm orange/gold quilted shoulders over dark purple technical jacket, dark trousers and sturdy boots, a compact golden recurved bow in LEFT hand and quiver with cyan/violet-fletched arrows on back; the canonical ivory spiked mask is CARRIED on the RIGHT hip, fastened with a visible short leather belt strap/clasp, at natural helmet size; mask rotates with pelvis and never floats; bare Franco face under the flat cap; the EMPTY mask has no human face inside its opening. Reference3 is the mask design ONLY: it MUST remain clipped to the RIGHT SIDE OF THE WAIST, never over face/head/hat. The face is fully visible in all poses. The belt mask has ivory stitched fabric, radial spikes, black round goggles; its lower opening is empty/transparent with clothing visible behind it, not a second face. Keep the mask at the hip also on side and back views. Action: IDLE. Eight subtle genuinely distinct breathing and blinking phases with grounded boots, small natural shoulders/cloth/strap shifts. Do not walk or attack. Compact bow held in left hand, right hand rests loosely, quiver on back, waist-mask strap flexes subtly while remaining attached. Final pose returns seamlessly to first.",
+      "file": "originais/alt_belt_mask_idle.png",
+      "sha256": "7e3ad31ee39a7f210b5aed41b1a4bbde738dfcefb631151e72e901a6f547eeb5",
+      "grid": [
+        8,
+        4
+      ],
+      "approvedDesign": true,
+      "tool": "image_gen built-in"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "walk",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Ryuchi Katana. No ivory mask is worn or carried anywhere. Preserve the cloth headwrap, white zigzag and tied rear tails. Right-handed katana, black/gold sheath LEFT hip, precise agile ninja posture. ACTION: Eight ordered WALK gait phases: left heel contact, weight down, right leg passing, body up, right heel contact, weight down, left leg passing, body up. Alternate both legs with natural hip and shoulder counter-motion. Boots and hands follow continuous paths; the last phase leads naturally to the first. Keep equipment weight and secure straps visible. Character is actually walking, not breathing in place. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/katana_unmasked_walk.png",
+      "sha256": "579da1f5b7105476a816edc54949da8314ce230ff2d27f4843e56624f1d89287"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "walk",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Franco Arqueiro. There is ONE canonical ivory stitched spiked mask fixed to the RIGHT HIP with the visible belt clasp from approved reference1. It is NEVER on the face/head/cap. Its lower opening is empty/transparent, not another face. It moves with pelvis, with natural occlusion, including during rolls and defeat. Bow held LEFT hand, draw/nock with RIGHT, colorful arrows in the back quiver, striped red/cream cap, curly hair and orange scarf. Compact gear stays inside cells. ACTION: Eight ordered WALK gait phases: left heel contact, weight down, right leg passing, body up, right heel contact, weight down, left leg passing, body up. Alternate both legs with natural hip and shoulder counter-motion. Boots and hands follow continuous paths; the last phase leads naturally to the first. Keep equipment weight and secure straps visible. Character is actually walking, not breathing in place. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/alt_belt_mask_walk.png",
+      "sha256": "d0fdc9ce07c9dddf963b4125c26b20fe693b8e721f628ed696b44b12cda406e8"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "run",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Ryuchi Katana. No ivory mask is worn or carried anywhere. Preserve the cloth headwrap, white zigzag and tied rear tails. Right-handed katana, black/gold sheath LEFT hip, precise agile ninja posture. ACTION: Eight ordered RUN gait phases: left contact, compress/push, right knee passing, short airborne stride, right contact, compress/push, left knee passing, airborne stride. Stronger forward lean and longer stride than WALK; natural cloth/headwrap-tail/scarf follow-through. Weapon/harness/carried mask stays secure and at constant size. Do not repeat just two poses or stretch the body. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/katana_unmasked_run.png",
+      "sha256": "ef12c3a70f1ffbc11d767b0b651de1e9b3c64e4d18816de9c8b95cb19511f31f"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "run",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Franco Arqueiro. There is ONE canonical ivory stitched spiked mask fixed to the RIGHT HIP with the visible belt clasp from approved reference1. It is NEVER on the face/head/cap. Its lower opening is empty/transparent, not another face. It moves with pelvis, with natural occlusion, including during rolls and defeat. Bow held LEFT hand, draw/nock with RIGHT, colorful arrows in the back quiver, striped red/cream cap, curly hair and orange scarf. Compact gear stays inside cells. ACTION: Eight ordered RUN gait phases: left contact, compress/push, right knee passing, short airborne stride, right contact, compress/push, left knee passing, airborne stride. Stronger forward lean and longer stride than WALK; natural cloth/headwrap-tail/scarf follow-through. Weapon/harness/carried mask stays secure and at constant size. Do not repeat just two poses or stretch the body. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/alt_belt_mask_run.png",
+      "sha256": "e65c098e9df56dfd89fee2a48da48ef1494d6dffcc88cf7752925e381f409ecb"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "roll",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Ryuchi Katana. No ivory mask is worn or carried anywhere. Preserve the cloth headwrap, white zigzag and tied rear tails. Right-handed katana, black/gold sheath LEFT hip, precise agile ninja posture. ACTION: Eight ordered ground DODGE SOMERSAULT phases: upright ready, deep knee bend, hands approach ground, forward tuck around90degrees, fully inverted tuck180degrees, unwind toward270degrees, land in a low crouch, rise to the SAME upright ready. Draw actual body and limb rotation, never rotate the entire rectangular sprite as a flat sticker. Maintain the SAME camera-facing direction per row. All strapped equipment rotates with the body and remains connected. No missing intermediate tuck/landing poses. Complete one full roll, without abrupt second spin. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/katana_unmasked_roll.png",
+      "sha256": "96bd814bf0fc2269162ac92222ffa0265fbe89a323ae251cd09a13e4d0697acd"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "roll",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Franco Arqueiro. There is ONE canonical ivory stitched spiked mask fixed to the RIGHT HIP with the visible belt clasp from approved reference1. It is NEVER on the face/head/cap. Its lower opening is empty/transparent, not another face. It moves with pelvis, with natural occlusion, including during rolls and defeat. Bow held LEFT hand, draw/nock with RIGHT, colorful arrows in the back quiver, striped red/cream cap, curly hair and orange scarf. Compact gear stays inside cells. ACTION: Eight ordered ground DODGE SOMERSAULT phases: upright ready, deep knee bend, hands approach ground, forward tuck around90degrees, fully inverted tuck180degrees, unwind toward270degrees, land in a low crouch, rise to the SAME upright ready. Draw actual body and limb rotation, never rotate the entire rectangular sprite as a flat sticker. Maintain the SAME camera-facing direction per row. All strapped equipment rotates with the body and remains connected. No missing intermediate tuck/landing poses. Complete one full roll, without abrupt second spin. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/alt_belt_mask_roll.png",
+      "sha256": "cfd3935a8dd58509096f0dae97744fb319f52b56aecf3e1362ee549f4f0fdf9f"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_1",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Ryuchi Katana. No ivory mask is worn or carried anywhere. Preserve the cloth headwrap, white zigzag and tied rear tails. Right-handed katana, black/gold sheath LEFT hip, precise agile ninja posture. ACTION: First basic sword strike: ready with hand at sheath, grip hilt, draw blade, quick diagonal slash, full diagonal follow-through, decelerate, resheathe/recover, ready. Eight distinct chronological poses. Compact right-handed katana, scabbard always LEFT hip. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/katana_unmasked_attack_1.png",
+      "sha256": "9b8423b88c8fd536c950edb76765f09a3a3cddb957f686a0b0f15142e3a1b04e"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_1",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Franco Arqueiro. There is ONE canonical ivory stitched spiked mask fixed to the RIGHT HIP with the visible belt clasp from approved reference1. It is NEVER on the face/head/cap. Its lower opening is empty/transparent, not another face. It moves with pelvis, with natural occlusion, including during rolls and defeat. Bow held LEFT hand, draw/nock with RIGHT, colorful arrows in the back quiver, striped red/cream cap, curly hair and orange scarf. Compact gear stays inside cells. ACTION: First basic bow shot: ready holding bow LEFT hand, RIGHT hand reaches nock, nock arrow, draw string, RELEASE, string/arm follow-through, recover, ready. Clear bowstring tension and release, arrow nocked only before release, no detached arrow flying into other cells. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/alt_belt_mask_attack_1.png",
+      "sha256": "8eb0ab1b2accd593d20ee220c6e5514bce3e38e472304ecac9197151f91040dc"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_2",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Ryuchi Katana. No ivory mask is worn or carried anywhere. Preserve the cloth headwrap, white zigzag and tied rear tails. Right-handed katana, black/gold sheath LEFT hip, precise agile ninja posture. ACTION: Second sword strike: ready, quick draw, wind up to opposite side, reverse diagonal slash, full follow-through, blade retracts, recover/sheathe, ready. It must visibly differ from strike1 by opposite cutting direction and foot weight shift. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/katana_unmasked_attack_2.png",
+      "sha256": "cc96a4780b32621c774d8aec29723d77db24f9268dcfd8bbde0fdcfdf627c1af"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_2",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Franco Arqueiro. There is ONE canonical ivory stitched spiked mask fixed to the RIGHT HIP with the visible belt clasp from approved reference1. It is NEVER on the face/head/cap. Its lower opening is empty/transparent, not another face. It moves with pelvis, with natural occlusion, including during rolls and defeat. Bow held LEFT hand, draw/nock with RIGHT, colorful arrows in the back quiver, striped red/cream cap, curly hair and orange scarf. Compact gear stays inside cells. ACTION: Second bow shot: ready, take arrow from quiver with RIGHT hand, nock, stronger draw with shifted stance, RELEASE, bow recoil, recover, ready. Distinct foot/shoulder position and preparation from shot1; same left-handed bow and right hand draw. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/alt_belt_mask_attack_2.png",
+      "sha256": "5bce22051c4a365e2d4b7e920c2658ff0a1832d86b6561033e11867fa95cc5e0"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "attack_3",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Ryuchi Katana. No ivory mask is worn or carried anywhere. Preserve the cloth headwrap, white zigzag and tied rear tails. Right-handed katana, black/gold sheath LEFT hip, precise agile ninja posture. ACTION: Third sword strike: ready, draw and pull right elbow back, low thrust preparation, forward stepping THRUST, arm/blade extend, pull blade back, recover/sheathe, ready. Clear linear thrust rather than another diagonal slash. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/katana_unmasked_attack_3.png",
+      "sha256": "611215c251b1cede44d8fb51bf6c55c48f994dd57a69a6dbc31ce37f2aedf892"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "attack_3",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Franco Arqueiro. There is ONE canonical ivory stitched spiked mask fixed to the RIGHT HIP with the visible belt clasp from approved reference1. It is NEVER on the face/head/cap. Its lower opening is empty/transparent, not another face. It moves with pelvis, with natural occlusion, including during rolls and defeat. Bow held LEFT hand, draw/nock with RIGHT, colorful arrows in the back quiver, striped red/cream cap, curly hair and orange scarf. Compact gear stays inside cells. ACTION: Third heavy bow shot: ready, plant boots, low steady nock, draw string fully to cheek, powerful RELEASE, heavier shoulder follow-through, relax/recover, ready. Keep quiver and the SINGLE waist-mounted mask secured throughout; no huge projectile trail. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/alt_belt_mask_attack_3.png",
+      "sha256": "f1f5d807f32a0763a00335e7d30d360e4585a5c3026d49710f88cca68facf672"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "skill",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Ryuchi Katana. No ivory mask is worn or carried anywhere. Preserve the cloth headwrap, white zigzag and tied rear tails. Right-handed katana, black/gold sheath LEFT hip, precise agile ninja posture. ACTION: Technique Z, a controlled sweeping blade strike: ready, grip/draw, lower center of gravity, broad waist-height sweep, sweep extension, blade decelerates, recover/sheathe, ready. The body action is distinct from the basic slashes. No painted giant wave; game VFX are separate. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/katana_unmasked_skill.png",
+      "sha256": "39cbf4a4b5a4b2ed7265b2b133a3385b324026655eda0d0f1a8c6b46fb9c6a6c"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "skill",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Franco Arqueiro. There is ONE canonical ivory stitched spiked mask fixed to the RIGHT HIP with the visible belt clasp from approved reference1. It is NEVER on the face/head/cap. Its lower opening is empty/transparent, not another face. It moves with pelvis, with natural occlusion, including during rolls and defeat. Bow held LEFT hand, draw/nock with RIGHT, colorful arrows in the back quiver, striped red/cream cap, curly hair and orange scarf. Compact gear stays inside cells. ACTION: Technique Z, deliberate focused/charged arrow: ready, plant feet and raise bow, nock, steady full draw, precise RELEASE, controlled bow recoil, lower bow, ready. Distinct clear sustained draw and aimed line, not a melee punch. Projectile/world effects are separate. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/alt_belt_mask_skill.png",
+      "sha256": "bba343daea26d2bcd48e734669a03c263d059b68ce2507e3a01629b9fd24eab2"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "advanced",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Ryuchi Katana. No ivory mask is worn or carried anywhere. Preserve the cloth headwrap, white zigzag and tied rear tails. Right-handed katana, black/gold sheath LEFT hip, precise agile ninja posture. ACTION: Technique X, powerful circular sword action: ready, draw/brace, twist hips, compact circular slash with body pivot, slash completes, blade decelerates, recover/sheathe, ready. Show intermediate limb poses, keep camera fixed and head consistent; no flat-image spin. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/katana_unmasked_advanced.png",
+      "sha256": "d533fe4bfba8d0224d27d19891d6df070e25bec9c7272fdd6664e6822f5bc9fe"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "advanced",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Franco Arqueiro. There is ONE canonical ivory stitched spiked mask fixed to the RIGHT HIP with the visible belt clasp from approved reference1. It is NEVER on the face/head/cap. Its lower opening is empty/transparent, not another face. It moves with pelvis, with natural occlusion, including during rolls and defeat. Bow held LEFT hand, draw/nock with RIGHT, colorful arrows in the back quiver, striped red/cream cap, curly hair and orange scarf. Compact gear stays inside cells. ACTION: Technique X, multi-target fan-shot pose sequence: ready, right hand reaches quiver, nock a compact spread of THREE arrows to the same bow, full draw, release fan, bow follow-through, recover, ready. Only one bow; no extra hands. Arrows remain inside cell while nocked and disappear upon release rather than crossing cells. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/alt_belt_mask_advanced.png",
+      "sha256": "0b4c0e416f17f4e85326c0e2779f1d1efdc0bb0b00bfde6d76491d66236da0bb"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "signature",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Ryuchi Katana. No ivory mask is worn or carried anywhere. Preserve the cloth headwrap, white zigzag and tied rear tails. Right-handed katana, black/gold sheath LEFT hip, precise agile ninja posture. ACTION: Corte do Horizonte, ultimate precise finishing sword strike: ready, deliberate low stance, hand sets on hilt, sudden controlled draw, powerful long horizontal finishing cut, follow-through, recover/sheathe, ready. Make preparation and recovery readable, distinct from the basic combo. No oversized aura or text. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/katana_unmasked_signature.png",
+      "sha256": "0904682eb962379eeb2cdb00d38d0a8005dfecb0570959f8c7145d2259f4991e"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "signature",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Franco Arqueiro. There is ONE canonical ivory stitched spiked mask fixed to the RIGHT HIP with the visible belt clasp from approved reference1. It is NEVER on the face/head/cap. Its lower opening is empty/transparent, not another face. It moves with pelvis, with natural occlusion, including during rolls and defeat. Bow held LEFT hand, draw/nock with RIGHT, colorful arrows in the back quiver, striped red/cream cap, curly hair and orange scarf. Compact gear stays inside cells. ACTION: Chuva de Flechas ultimate: ready, look up and plant feet, lift LEFT-hand bow diagonally skyward, full RIGHT-hand draw, release upward volley, graceful skyward follow-through, lower bow, ready. Distinct upward aim, no giant arrow rain drawn on the body sheet. The waist mask never moves to face or floats. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/alt_belt_mask_signature.png",
+      "sha256": "e5d2d3d15b5dc573dd9bce40a8be4c712a38ba0c0e260a77e8108ad7235ff9ea"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "hurt",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Ryuchi Katana. No ivory mask is worn or carried anywhere. Preserve the cloth headwrap, white zigzag and tied rear tails. Right-handed katana, black/gold sheath LEFT hip, precise agile ninja posture. ACTION: Eight sequential HURT/RECOVERY poses: ready, small hit recoil, deeper recoil, braced low stance, recover halfway, recover farther, almost ready, SAME ready. Face and shoulders react naturally without changing identity. No gore. Maintain all equipment and mask rules, never drop or teleport anything. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/katana_unmasked_hurt.png",
+      "sha256": "a7f045850d6fa1649cc36b1f690381c3728b7be0f9384b2faff2430c57ec0fba"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "hurt",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Franco Arqueiro. There is ONE canonical ivory stitched spiked mask fixed to the RIGHT HIP with the visible belt clasp from approved reference1. It is NEVER on the face/head/cap. Its lower opening is empty/transparent, not another face. It moves with pelvis, with natural occlusion, including during rolls and defeat. Bow held LEFT hand, draw/nock with RIGHT, colorful arrows in the back quiver, striped red/cream cap, curly hair and orange scarf. Compact gear stays inside cells. ACTION: Eight sequential HURT/RECOVERY poses: ready, small hit recoil, deeper recoil, braced low stance, recover halfway, recover farther, almost ready, SAME ready. Face and shoulders react naturally without changing identity. No gore. Maintain all equipment and mask rules, never drop or teleport anything. Exactly eight chronological poses in each of the four rows. A complete action/gait with recovery to the start. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/alt_belt_mask_hurt.png",
+      "sha256": "8bd1469ab4d2c4c0f2240d7b8cb800553105c51b092a5e1f10fbed640f3bc120"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "defeat",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Ryuchi Katana. No ivory mask is worn or carried anywhere. Preserve the cloth headwrap, white zigzag and tied rear tails. Right-handed katana, black/gold sheath LEFT hip, precise agile ninja posture. ACTION: Eight sequential DEFEAT poses: exhausted upright, slump, kneel, collapse forward, hands/side reach ground, settle prone, breathing faintly prone, hold final prone. Final pose remains on ground and must NOT stand up or loop back to upright. Equipment stays strapped/held, the sword safely sheathed and bow connected to its strap; no gore. Exactly eight chronological poses in each of the four rows. One-shot defeat ending prone. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/katana_unmasked_defeat.png",
+      "sha256": "0cfdf8cf474f68a4d8fec824f922a9bc1dfa3854837a2e352756cc293bc64697"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "defeat",
+      "prompt": "Use case: stylized-concept. Production animation sprite sheet for Torii & Hutukara. Preserve approved identity and costume from reference1; reference2 defines ONLY chibi body proportions and detailed visible pixel-cluster 16-bit style; do not copy its main-hero clothes. Exactly EIGHT columns by FOUR rows =32 complete individual full-body poses, no text/grid/captions. WIDE 2:1 canvas with equally tall invisible square cells and generous transparent padding; never squeeze lower rows. Row1 faces DOWN/front, row2 LEFT, row3 BACK/up, row4 RIGHT. Eight consecutive poses per row form one complete smooth cycle. Big chibi head ~half total height, short torso/legs, consistent skeleton and anatomical scale across all cells, same head size, fixed foot baseline. Hard square pixel clusters, dark pixel outlines, coherent limited JRPG shading, detailed but crisp, no smooth painting or 3D render look. Transparent alpha background, no shadows/scenery/particles. Equipment stays physically strapped/held and changes perspective with the body, never floats. Entire body, hair, bow, sword and carried mask must remain inside each cell; compact weapons appropriate to this chibi scale.  LOCKED APPROVED DESIGN: reference1 is the exact character design already approved by the author. Keep its face, clothing palette, cap/headwrap, jacket silhouette, body proportions, weapon, equipment and accessory positions, without redesign. Character: Franco Arqueiro. There is ONE canonical ivory stitched spiked mask fixed to the RIGHT HIP with the visible belt clasp from approved reference1. It is NEVER on the face/head/cap. Its lower opening is empty/transparent, not another face. It moves with pelvis, with natural occlusion, including during rolls and defeat. Bow held LEFT hand, draw/nock with RIGHT, colorful arrows in the back quiver, striped red/cream cap, curly hair and orange scarf. Compact gear stays inside cells. ACTION: Eight sequential DEFEAT poses: exhausted upright, slump, kneel, collapse forward, hands/side reach ground, settle prone, breathing faintly prone, hold final prone. Final pose remains on ground and must NOT stand up or loop back to upright. Equipment stays strapped/held, the sword safely sheathed and bow connected to its strap; no gore. Exactly eight chronological poses in each of the four rows. One-shot defeat ending prone. Maintain crisp square pixels and uniform anatomy; do not squeeze any row.",
+      "grid": [
+        8,
+        4
+      ],
+      "tool": "image_gen built-in",
+      "file": "originais/alt_belt_mask_defeat.png",
+      "sha256": "77b2862e6ac7a10c0d1214b0ae27f34c365a1d58a8db317c1550887a9ed15a2b"
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "state": "portrait",
+      "prompt": "Use case: stylized-concept. Transparent PNG game DIALOGUE PORTRAIT sheet for Ryuchi Katana. Reference1 is the exact approved identity and costume. Preserve its face, skin, hair, headwear, palette and accessories. Detailed visible square-pixel16-bit art matching the main heroes, not smooth3D or photoreal painting. EXACTLY FOUR columns by TWO rows =8 individual square bust portraits, ample transparent gutters. Ordered expressions left-to-right: neutral, speaking, happy, surprised; second row determined, angry, hurt, sad. Same face shape, crop, neck and shoulders, same outfit, subtle natural expressions without distortion. Every portrait is BARE-FACED. Keep black CLOTH headwrap/beanie with white zigzag and tied rear tails, short dark side hair, warm light-brown skin, purple/blue ninja technical jacket and gold trim. No ivory mask anywhere. Head occupies most of each square, expressive detailed face, no text, no borders, no scenes/shadows, transparent alpha.",
+      "grid": [
+        4,
+        2
+      ],
+      "tool": "image_gen built-in",
+      "file": "retratos/katana_unmasked_portrait.png",
+      "sha256": "fb0a2f9545fb03d1f324b0bc9aa7055b293053b97d271b556c2097e8a9210bde"
+    },
+    {
+      "hero": "alt",
+      "variant": "belt_mask",
+      "state": "portrait",
+      "prompt": "Use case: stylized-concept. Transparent PNG game DIALOGUE PORTRAIT sheet for Franco Arqueiro. Reference1 is the exact approved identity and costume. Preserve its face, skin, hair, headwear, palette and accessories. Detailed visible square-pixel16-bit art matching the main heroes, not smooth3D or photoreal painting. EXACTLY FOUR columns by TWO rows =8 individual square bust portraits, ample transparent gutters. Ordered expressions left-to-right: neutral, speaking, happy, surprised; second row determined, angry, hurt, sad. Same face shape, crop, neck and shoulders, same outfit, subtle natural expressions without distortion. Every portrait is BARE-FACED. Keep red/cream striped flat cap, dark CURLY hair, warm brown skin, short moustache/chin beard, orange scarf, purple technical jacket and quiver strap. His ivory mask stays clipped to WAIST outside this shoulder/bust crop, so DO NOT put any mask on face, head, neck or floating beside portrait. Head occupies most of each square, expressive detailed face, no text, no borders, no scenes/shadows, transparent alpha.",
+      "grid": [
+        4,
+        2
+      ],
+      "tool": "image_gen built-in",
+      "file": "retratos/alt_belt_mask_portrait.png",
+      "sha256": "8e4db4061351c5c1c126947380e81111feda832c66d7752394d74b5ed468548b"
+    }
+  ]
+}

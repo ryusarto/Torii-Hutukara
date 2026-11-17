@@ -2,6 +2,15 @@
 
 Todas as alterações relevantes do projeto são registradas aqui.
 
+## [Beta 1.1] — 2026-11-17
+
+- Ryuchi Ninja e Franco Arqueiro com 24 atlas de alta resolução e 96 sequências em quatro direções: espera, caminhada, corrida, rolamento, três ataques, técnicas, especial, dano e derrota. São 864 PNGs de animação e 16 retratos no pacote de backup.
+- Ninja sem máscara; Arqueiro com a máscara canônica presa ao lado direito do cinto, acompanhando o corpo nas ações.
+- Sprites integrados ao jogo, aos retratos de diálogo e ao menu de equipe. Animações de combate pertencem a P1 ou P2 e são descartadas ao trocar personagem, área ou save. Ações recusadas não reiniciam o sprite.
+- Escala uniforme e pivô no chão; oito poses para o rolamento, sincronizadas à duração já existente, sem girar a imagem por código. Cache limitado a oito atlas decodificados.
+- Combate, colisões e schema de save preservados. Os quatro outros personagens mantêm o render anterior; seus pacotes de arte são trabalhos separados.
+- GitHub armazena atlas, retratos, ferramentas, documentação e testes. Dropbox/T&H guarda originais, quadros individuais, ZIP e prévias. O Drive foi excluído do escopo pelo autor.
+
 ## [Não lançado]
 
 ### Arte dos protagonistas V5 · 17/11/2026

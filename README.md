@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta 1.0 — jogo completo do início ao fim, com os três capítulos. A versão fica em `game/VERSION.json`.
+**Versão atual:** Beta 1.1 — jogo completo do início ao fim, com os três capítulos. Ninja e Arqueiro usam os novos sprites de movimento e combate em quatro direções. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -12,6 +12,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 - Seis personagens jogáveis e formação de até três integrantes.
 - Salvamento local, importação/exportação em JSON e checkpoints.
 - Seis faixas próprias do terceiro capítulo incorporadas à build.
+- Ninja e Arqueiro: 12 estados, oito poses por ação, rolamento, retratos e animações independentes no coop. [Detalhes e prévia dos assets](docs/ARTE_NINJA_ARQUEIRO_V1.md).
 - Sprites detalhados para os personagens e NPCs do Capítulo 3.
 - Jogo distribuído como um único HTML portátil, sem instalação.
 - Suporte a DualShock 4, DualSense e controles compatíveis, com coop local para duas pessoas.
@@ -22,7 +23,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 O link identifica PC ou mobile na entrada e exibe um aviso por quatro segundos. Depois, o aviso some. A interface de toque é automática em celular/tablet. Veja [publicação e testes entre aparelhos](docs/PLAYTEST_SITE.md).
 
-**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/alpha-1.2.4/`.
+**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/beta-1.1.0/`.
 
 Controles principais:
 

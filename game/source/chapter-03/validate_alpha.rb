@@ -29,6 +29,19 @@ end)
 
 source = File.read(runtime, encoding: 'UTF-8') + File.read(File.join(root, 'input_mobile_combat.js'), encoding: 'UTF-8')
 built = File.read(alpha, encoding: 'UTF-8')
+ninja_art_root = File.join(repo_root, 'assets', 'variantes', 'ninja-arqueiro-v1')
+ninja_art = JSON.parse(File.read(File.join(ninja_art_root, 'manifest.json')))
+check.call('Ninja e Arqueiro: 96 sequências em quatro direções', ninja_art.fetch('animations').size == 96 && ninja_art.fetch('animations').all? { |a| a['frames'] == 9 && a['playFrames'] == 8 })
+check.call('Ninja sem máscara e Arqueiro com máscara no cinto', ninja_art.fetch('maskLocation') == { 'katana' => 'none', 'alt' => 'right_hip' })
+ninja_files = ninja_art.fetch('animations').map { |a| a.fetch('atlas') }.uniq + ninja_art.fetch('portraits').map { |p| p.fetch('file') }
+check.call('40 imagens Ninja e Arqueiro completas com alpha', ninja_files.size == 40 && ninja_files.all? do |relative|
+  path = File.join(ninja_art_root, relative)
+  next false unless File.file?(path)
+  header = File.binread(path, 26)
+  expected = relative.start_with?('atlas/') ? [2304, 1024] : [256, 256]
+  header.byteslice(16, 8).unpack('NN') == expected && header.getbyte(25) == 6
+end)
+check.call('arte Ninja e Arqueiro integrada sem marcadores pendentes', built.include?('const NinjaArcherArtV1') && !built.include?('__NINJA_ARCHER_'))
 dialogue_ids = JSON.parse(File.read(dialogues, encoding: 'UTF-8')).fetch('scenes').map { |scene| scene.fetch('id') }
 
 expected_areas = %w[
