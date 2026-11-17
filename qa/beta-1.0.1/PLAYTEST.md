@@ -7,6 +7,8 @@ Revisão de 17/11/2026. Os relatórios JSON identificam a build exata por SHA-25
 - Validação estrutural: **103/103**.
 - Controles: **22/22**; jogabilidade: **20/20**; nenhum erro de runtime nos navegadores.
 - Exportação web: **4/4**, cobrindo PC, celular e tablet emulados, rotação, imagens e decodificação de três faixas. Os 92 arquivos de mídia foram reconstruídos para conferir igualdade byte a byte com a build portátil.
+- Rota Canal primeiro, perfil típico: do início ao epílogo; uma recarga real da página, sem divergência de progresso, formação, XP ou níveis. O registro de objetivos chega a 21,4 minutos simulados; o resumo do medidor descreve apenas o último segmento.
+- Rota Usina primeiro, perfil rápido: do início ao epílogo em 15min06s simulados, 21 encontros e zero derrotas; primeira luta aos 2min05s, após o instrumento.
 
 Build portátil: 97.981.731 bytes; SHA-256 `d1968466308048f95347d77e922f27962d93110cda08e1ceadaab45e09e35cd7`.
 
