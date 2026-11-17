@@ -17,6 +17,7 @@ on:
       - 'assets/prebeta/runtime/**'
       - 'design/chapter-03/**'
       - 'design/dialogo/**'
+      - 'qa/*.cjs'
       - '.github/workflows/playtest.yml'
   workflow_dispatch:
 

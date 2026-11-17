@@ -14,7 +14,7 @@ const uaPhone = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWeb
 const uaPad = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15';
 
 async function main() {
-  browser = await (process.env.CHROME_PATH ? chromium.launch({executablePath: process.env.CHROME_PATH, headless:true}) : chromium.connectOverCDP(process.env.CDP_URL || 'http://127.0.0.1:9223'));
+  browser = process.env.CDP_URL ? await chromium.connectOverCDP(process.env.CDP_URL) : await chromium.launch({executablePath:process.env.CHROME_PATH,headless:true});
   try {
   const cases = [
     { name: 'PC', device: 'pc', viewport: { width: 1280, height: 800 } },
