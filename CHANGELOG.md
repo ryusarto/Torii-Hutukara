@@ -1,3 +1,14 @@
+## [Beta 1.3] — 2026-11-17
+
+- Ryuchi Percussionista e Franco Sintetizador com 52 atlas de animação no padrão chibi aprovado, variantes com e sem máscara em folhas separadas, 208 sequências em quatro direções, 1.664 poses e 32 retratos de expressão.
+- Sprites conectados ao render dos integrantes jogáveis, aos encontros de recrutamento, ao menu de equipe e aos diálogos. Ações aceitas determinam as poses; os registros de P1 e P2 permanecem independentes.
+- Oito poses de rolamento acompanhando a esquiva existente; escala uniforme, transparência e pivô comum. Gameplay, colisões, cooldowns, dano e saves permanecem preservados.
+- Variante sem máscara mantém a apresentação padrão dos músicos; ambas as versões ficam disponíveis na prévia e no seletor interno de arte.
+- Folhas-fonte, manifesto e ferramentas preservados no GitHub. Resultados de validação desta entrega em `qa/beta-1.3.0/`.
+
+- Paleta de vestuário e instrumentos adaptada a terra/sucata e promovida como identidade canônica dos dois músicos, substituindo a anterior por autorização do autor. Frames, geometria, alpha, pele e máscara preservados por auditoria; sem filtro global, novos frames ou mudança de gameplay.
+- Integração mantém Protagonistas V5, Ninja/Arqueiro, Cenários V2 e verificações de publicação atuais; receita de cores e auditoria acompanham a entrega.
+
 # Beta 1.2 · Protagonistas V5
 
 - Franco e Ryuchi principais: 192 sequências V5, quatro direções e versões com/sem máscara.

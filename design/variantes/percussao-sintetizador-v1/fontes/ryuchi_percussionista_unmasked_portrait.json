@@ -1,0 +1,23 @@
+{
+  "hero": "ryuchi_percussionista",
+  "variant": "unmasked",
+  "state": "portrait",
+  "name": "ryuchi_percussionista_unmasked_portrait",
+  "prompt": "Use case: stylized-concept. Production CHIBI 16-bit pixel-art sprites. IMAGE1 is the EXACT TARGET CHARACTER MODEL: copy its head, chibi body, outfit, instrument, colors and identity throughout ALL frames. IMAGE2 is only the user STYLE/FORMAT reference; do NOT copy its archer, bow or hat. Optional IMAGE3 is physical mask geometry only. ONE SAME CHARACTER in entire sheet. Huge round head about45% of standing height, tiny torso, VERY SHORT STUBBY LEGS, chunky boots, about2.2heads tall, matching image1. Crisp square pixel clusters, dark outline, limited stepped shading. NO smooth illustration, gradients, 3D, photorealism or elongated anatomy. Real TRANSPARENT PNG alpha, no background, checkerboard, shadows, floor, labels, text or grid.\nRYUCHI PERCUSSIONISTA: warm skin, fitted dark purple/black cap with WHITE ZIGZAG and tied cloth at back, cyan/magenta headphones, blue-purple jacket with gold trim and BLUE shoulders, tiny plum legs and dark boots. TWO GOLDEN DRUMSTICKS and strapped electronic WAIST DRUM. No curly hair, no keyboard, no bow. WITHOUT MASK: natural face visible in all poses, same hair/cap as model. Exactly EIGHT HEAD-AND-SHOULDERS portraits in FOUR COLUMNS by TWO ROWS on landscape canvas, same viewpoint 3/4 front, huge chibi head and tiny torso. Expressions row-major: neutral,speaking,happy,surprised,determined,angry,hurt,sad. Consistent facial geometry/headgear. Large clear faces with padding around hair/maskspikes, real transparent alpha. No full-body poses or text.",
+  "layout": [
+    4,
+    2
+  ],
+  "references": [
+    "originais/ryuchi_percussionista_unmasked_idle.png",
+    "referencias/PADRAO_CHIBI_DO_USUARIO.png"
+  ],
+  "sourceImage": "exec-9f10d27f-a2fa-45bf-8216-33cb8c5fb018.png",
+  "mode": "built-in image_gen",
+  "postprocess": {
+    "operation": "selective RGB palette lookup",
+    "recipe": "../../../../assets/variantes/percussao-sintetizador-v1/PALETA_CANONICA.json",
+    "canonicalPalette": true,
+    "noRedraw": true
+  }
+}
