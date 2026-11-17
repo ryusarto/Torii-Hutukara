@@ -115,17 +115,32 @@ const BEAT=1.6,MUTE_R=3.2;
 const seen=new Set();
 function introduce(e){if(seen.has(e.type))return;seen.add(e.type);try{toast(`NOVO ECO · ${NEW_TYPES[e.type].name.toUpperCase()} · ${NEW_TYPES[e.type].hint}`)}catch{}}
 function moveToward(e,tx,ty,speed,dt,stopAt){const d=Math.hypot(tx-e.x,ty-e.y);if(d<=stopAt)return d;const nx=e.x+(tx-e.x)/d*speed*dt,ny=e.y+(ty-e.y)/d*speed*dt;if(tileWalkable(current,nx,ny)){e.x=nx;e.y=ny}else if(tileWalkable(current,nx,e.y))e.x=nx;else if(tileWalkable(current,e.x,ny))e.y=ny;return d}
+function fighters(){
+  const out=[];
+  if(G&&G.hp[G.active]>0)out.push({x:G.x,y:G.y,player:1});
+  if(C3.coopActive()&&G.hp[C3.coopMember()]>0)out.push({x:C3.coop.x,y:C3.coop.y,player:2});
+  return out;
+}
+function damageAt(e,radius){
+  // Resolver P2 antes do líder evita redirecionar o segundo dano quando a
+  // queda de P1 promove o companheiro a líder durante o mesmo ataque.
+  for(const target of fighters().sort((a,b)=>b.player-a.player))if(Math.hypot(target.x-e.x,target.y-e.y)<radius){
+    if(target.player===2)C3.damageCoop(e.power);else damageHero(e.power,e);
+  }
+}
 function updateNewEnemy(e,dt){
   if(!e||e.hp<=0)return;
   e.flash=Math.max(0,(e.flash||0)-dt);e.stun=Math.max(0,(e.stun||0)-dt);e.cd=Math.max(0,(e.cd||0)-dt);
-  const d=Math.hypot(G.x-e.x,G.y-e.y);
+  const target=fighters().sort((a,b)=>Math.hypot(a.x-e.x,a.y-e.y)-Math.hypot(b.x-e.x,b.y-e.y))[0];
+  if(!target)return;
+  const d=Math.hypot(target.x-e.x,target.y-e.y);
   if(d<7)introduce(e);
   if(e.type==='compasso'){
     // Relógio próprio: prepara 0,6 s antes de cada batida e acerta na batida, sempre.
     e.clock=(e.clock||0)+dt;const t=e.clock%BEAT;
     e.wind=t>BEAT-.6?BEAT-t:0;e.windKind='ring';
-    if(e.lastBeat!==Math.floor(e.clock/BEAT)){e.lastBeat=Math.floor(e.clock/BEAT);if(e.clock>BEAT&&d<2.6&&!(e.stun>0))damageHero(e.power,e);try{addCombatFX(e.x,e.y,'warning',2.6)}catch{}(e.log=e.log||[]).push(+e.clock.toFixed(2))}
-    if(!(e.stun>0))moveToward(e,G.x,G.y,1.15,dt,1.4);
+    if(e.lastBeat!==Math.floor(e.clock/BEAT)){e.lastBeat=Math.floor(e.clock/BEAT);if(e.clock>BEAT&&!(e.stun>0))damageAt(e,2.6);try{addCombatFX(e.x,e.y,'warning',2.6)}catch{}(e.log=e.log||[]).push(+e.clock.toFixed(2))}
+    if(!(e.stun>0))moveToward(e,target.x,target.y,1.15,dt,1.4);
     return;
   }
   if(e.type==='espelho'){
@@ -134,25 +149,34 @@ function updateNewEnemy(e,dt){
     if(e.hp<(e.lastHp??e.hp))e.hits.push(e.clock);
     e.lastHp=e.hp;
     if(!(e.retaliate>0)&&e.mirrorCd<=0&&e.hits.length>=2){e.retaliate=.8;e.hits=[];try{addCombatFX(e.x,e.y,'warning',2)}catch{}}
-    if(e.retaliate>0){e.retaliate-=dt;e.wind=Math.max(0,e.retaliate);e.windKind='ring';if(e.retaliate<=0){e.mirrorCd=2.5;if(Math.hypot(G.x-e.x,G.y-e.y)<2)damageHero(e.power,e);(e.log=e.log||[]).push('onda');try{addCombatFX(e.x,e.y,'strike',2)}catch{}}return}
+    if(e.retaliate>0){e.retaliate-=dt;e.wind=Math.max(0,e.retaliate);e.windKind='ring';if(e.retaliate<=0){e.mirrorCd=2.5;damageAt(e,2);(e.log=e.log||[]).push('onda');try{addCombatFX(e.x,e.y,'strike',2)}catch{}}return}
     if(e.stun>0)return;
-    if(d<1.6&&e.cd<=0){e.cd=1.1;damageHero(e.power,e);(e.log=e.log||[]).push('golpe')}
-    moveToward(e,G.x,G.y,2.3,dt,1.2);
+    if(d<1.6&&e.cd<=0){e.cd=1.1;damageAt(e,1.6);(e.log=e.log||[]).push('golpe')}
+    moveToward(e,target.x,target.y,2.3,dt,1.2);
     return;
   }
   if(e.type==='abafador'){
     if(e.stun>0)return;
-    if(e.wind>0){e.wind-=dt;if(e.wind<=0){if(Math.hypot(G.x-e.x,G.y-e.y)<1.9)damageHero(e.power,e);e.cd=1.4}return}
+    if(e.wind>0){e.wind-=dt;if(e.wind<=0){damageAt(e,1.9);e.cd=1.4}return}
     if(d<1.8&&e.cd<=0){e.wind=.7;e.windKind='swipe';try{addCombatFX(e.x,e.y,'warning',1.6)}catch{}}
-    moveToward(e,G.x,G.y,1.0,dt,1.3);
+    moveToward(e,target.x,target.y,1.0,dt,1.3);
   }
 }
 // Abafador: técnicas bloqueadas dentro da aura.
-function muted(){if(!G||!current)return false;try{return enemyActors().some(e=>e.type==='abafador'&&(e.hp===undefined||e.hp>0)&&Math.hypot(G.x-e.x,G.y-e.y)<MUTE_R)}catch{return false}}
+function muted(x=G?.x,y=G?.y){if(!G||!current)return false;return enemyActors().some(e=>e.type==='abafador'&&(e.hp===undefined||e.hp>0)&&Math.hypot(x-e.x,y-e.y)<MUTE_R)}
 let muteToastAt=0;
+function blockedByMute(x,y){
+  if(!activeModes10()||!muted(x,y))return false;
+  if(performance.now()-muteToastAt>1500){muteToastAt=performance.now();toast('TÉCNICAS ABAFADAS · SAIA DA AURA OU USE O ATAQUE BÁSICO')}
+  window.__mutedBlocks=(window.__mutedBlocks||0)+1;return true;
+}
 for(const name of ['skillAction','advancedSkill','duoAction']){
   const before=window[name];if(typeof before!=='function')continue;
-  window[name]=function(...args){if(mode==='action'&&muted()){if(performance.now()-muteToastAt>1500){muteToastAt=performance.now();toast('TÉCNICAS ABAFADAS · SAIA DA AURA OU USE O ATAQUE BÁSICO')}window.__mutedBlocks=(window.__mutedBlocks||0)+1;return}return before.apply(this,args)};
+  window[name]=function(...args){if(blockedByMute(G?.x,G?.y))return false;return before.apply(this,args)};
+}
+for(const name of ['coopSkill','coopAdvanced','coopSignature']){
+  const before=C3[name];
+  C3[name]=function(...args){if(C3.coopActive()&&blockedByMute(C3.coop.x,C3.coop.y))return false;return before.apply(this,args)};
 }
 // Desenho: arte existente + aura/cor própria.
 const drawBeforePatterns=drawCreature;

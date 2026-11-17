@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta 1.0 — jogo completo do início ao fim, com os três capítulos. A versão fica em `game/VERSION.json`.
+**Versão atual:** Beta 1.0.1 — jogo completo do início ao fim, com os três capítulos. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -22,7 +22,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 O link identifica PC ou mobile na entrada e exibe um aviso por quatro segundos. Depois, o aviso some. A interface de toque é automática em celular/tablet. Veja [publicação e testes entre aparelhos](docs/PLAYTEST_SITE.md).
 
-**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/alpha-1.2.4/`.
+**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/beta-1.0.1/`.
 
 Controles principais:
 
@@ -54,6 +54,15 @@ Controle PlayStation:
 Ao conectar dois controles, o segundo jogador assume outro integrante vivo da formação. Os dois personagens se movem e lutam de modo independente em uma câmera compartilhada.
 
 O menu **Outras opções** permite iniciar diretamente os capítulos 2 e 3 para testes. A jornada normal começa no estúdio.
+
+## Destaques da Beta 1.0.1
+
+- Prólogo sem encontros prematuros; combate liberado depois do Baixo de Raiz.
+- Patrulhas do Distrito com ataques funcionais para toda a equipe.
+- XP e saves consistentes, campos do sintetizador com colisão e regras de coop corrigidas.
+- Diálogo mobile acima dos controles e cura por integrante.
+- Testes de controles e jogabilidade antes de publicar; [resultados e reprodução](qa/beta-1.0.1/PLAYTEST.md).
+- [Lista de arte e plano de inimigos](docs/DIRECAO_ARTE_E_INIMIGOS.md).
 
 ## Destaques da Beta 1.0
 

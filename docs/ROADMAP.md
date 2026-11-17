@@ -1,6 +1,17 @@
 # Roadmap
 
-## Agora — estabilizar a Alpha 1.1.x
+## Agora — estabilizar a Beta 1.0.1
+
+- [x] Proteger o prólogo e a floresta antes do desbloqueio do baixo.
+- [x] Habilitar combate dos seis integrantes no Distrito.
+- [x] Corrigir XP, migração, patrulhas, colisão do sintetizador e regras de P2.
+- [x] Desobstruir os diálogos mobile e automatizar verificações de jogabilidade.
+- [ ] Validar Safari/iPhone, Android e dois controles físicos.
+- [ ] Integrar protagonistas V5 ao runtime e completar os estados prioritários.
+- [ ] Produzir silhuetas próprias e prototipar a variedade de inimigos descrita em [Direção de arte e inimigos](DIRECAO_ARTE_E_INIMIGOS.md).
+- [ ] Fazer playtest humano de clareza dos ataques e equilíbrio entre história e combate.
+
+## Histórico — estabilização da Alpha 1.1.x
 
 - [x] Criar sprites próprios para NPCs do Capítulo 3.
 - [x] Integrar postes e objetos detalhados.
@@ -19,7 +30,7 @@
 - [ ] Ajustar escala e sobreposição de todos os novos props no mapa real.
 - [ ] Verificar contraste dos marcadores em todas as superfícies.
 
-## Próxima versão — Alpha 1.2
+## Histórico — propostas da Alpha 1.2
 
 - Animação narrativa de Nara saindo e chegando ao canal.
 - Mais reações ao encontro das versões de Franco e Ryuchi.

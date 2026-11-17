@@ -5,7 +5,7 @@
 const C3={
   VERSION:13,
   AREAS:['sky_terminal','distortion_district','contratempo','power_plant','sky_canal','ciro_workshop','sky_lift','cloud_sea','cloud_terrace','last_torii','silence_core'],
-  COMBAT_AREAS:['power_plant','sky_canal','cloud_sea','cloud_terrace','silence_core'],
+  COMBAT_AREAS:['distortion_district','power_plant','sky_canal','cloud_sea','cloud_terrace','silence_core'],
   labels:{
     sky_terminal:['TERMINAL DO CÉU','CAPÍTULO 03 · O SOM QUE AINDA NÃO EXISTE'],
     distortion_district:['DISTRITO DA DISTORÇÃO','LADO B · CIDADE ACIMA DAS NUVENS'],
@@ -125,7 +125,21 @@ C3.growth={franco:5,ryuchi:5,alt:4,katana:4,synth:4,percussion:5};
 C3.baseHp={franco:40,ryuchi:38,alt:48,katana:49,synth:44,percussion:46};
 C3.progressionIds=['franco','ryuchi','alt','katana','synth','percussion'];
 C3.unlockedRoster=function(g=G){return ['franco','ryuchi',...(g?.flags?.reveal?['alt']:[]),...(g?.flags?.voicesKatana?['katana']:[]),...(g?.c3?.synthUnlocked?['synth']:[]),...(g?.c3?.percussionUnlocked?['percussion']:[])]};
-C3.ensureProgression=function(g){if(!g)return;g.xp=g.xp||{};g.levels=g.levels||{};g.hp=g.hp||{};g.maxhp=g.maxhp||{};const inherited=Math.max(0,Math.floor(((Number(g.xp.franco)||0)+(Number(g.xp.ryuchi)||0))/2)),catchup=Math.floor(inherited*.75),unlocked=new Set(C3.unlockedRoster(g));for(const id of C3.progressionIds){if(!Number.isFinite(Number(g.xp[id])))g.xp[id]=inherited;if(!['franco','ryuchi'].includes(id)&&unlocked.has(id)&&(Number(g.xp[id])||0)<catchup)g.xp[id]=catchup;g.xp[id]=Math.max(0,Math.floor(Number(g.xp[id])||0));g.levels[id]=calculateLevel(g.xp[id]);const expected=C3.baseHp[id]+C3.growth[id]*(g.levels[id]-1),current=Math.max(1,Number(g.maxhp[id])||C3.baseHp[id]);g.maxhp[id]=Math.max(current,expected);g.hp[id]=clamp(Number(g.hp[id]??g.maxhp[id]),0,g.maxhp[id])}};
+C3.ensureProgression=function(g){
+  if(!g)return;
+  g.xp=g.xp||{};g.levels=g.levels||{};g.hp=g.hp||{};g.maxhp=g.maxhp||{};
+  const inherited=Math.max(0,Math.floor(((Number(g.xp.franco)||0)+(Number(g.xp.ryuchi)||0))/2));
+  const catchup=Math.floor(inherited*.75),unlocked=C3.unlockedRoster(g),known=new Set(g.progressionRoster||[]);
+  for(const id of C3.progressionIds){
+    if(!Number.isFinite(Number(g.xp[id])))g.xp[id]=inherited;
+    // Compensação somente no recrutamento ou migração, nunca em todo load.
+    if(!['franco','ryuchi'].includes(id)&&unlocked.includes(id)&&!known.has(id))g.xp[id]=Math.max(Number(g.xp[id])||0,catchup);
+    g.xp[id]=Math.max(0,Math.floor(Number(g.xp[id])||0));g.levels[id]=calculateLevel(g.xp[id]);
+    const expected=C3.baseHp[id]+C3.growth[id]*(g.levels[id]-1),current=Math.max(1,Number(g.maxhp[id])||C3.baseHp[id]);
+    g.maxhp[id]=Math.max(current,expected);g.hp[id]=clamp(Number(g.hp[id]??g.maxhp[id]),0,g.maxhp[id]);
+  }
+  g.progressionRoster=unlocked;
+};
 for(const id of C3.COMBAT_AREAS)combatAreas10.add(id);
 enemyInfo.c3_echo={name:'Eco de Distorção',hp:76,power:10};
 enemyInfo.c3_drone={name:'Drone de Retorno',hp:92,power:12};
@@ -133,10 +147,17 @@ enemyInfo.c3_drone={name:'Drone de Retorno',hp:92,power:12};
 const C3_freshBase=fresh;
 fresh=function(){const g=C3_freshBase();g.version=13;g.chapter=1;g.c3=C3.defaults();g.hp.synth=44;g.hp.percussion=46;g.maxhp.synth=44;g.maxhp.percussion=46;C3.ensureProgression(g);return g};
 
+const C3_revealAltBase=revealAlt;
+revealAlt=function(...args){const wasUnlocked=!!G?.flags.reveal;const r=C3_revealAltBase.apply(this,args);if(!wasUnlocked&&G?.flags.reveal){C3.ensureProgression(G);G.hp.alt=G.maxhp.alt}return r};
+
 const C3_normalizeBase=normalizeSave;
 normalizeSave=function(raw){
   const original=raw?.progress||raw;if(!original||Number(original.version)>C3.VERSION)return null;const compat=copy(raw),compatProgress=compat?.progress||compat;if(Number(compatProgress.version)>=11)compatProgress.version=10;const g=C3_normalizeBase(compat);if(!g)return g;
   g.version=13;g.c3={...C3.defaults(),...(original?.c3||g.c3||{})};
+  // A base histórica só normaliza XP dos dois protagonistas. Restaurar o
+  // catálogo inteiro antes de calcular níveis mantém save/load idempotente.
+  g.progressionRoster=Array.isArray(original.progressionRoster)?original.progressionRoster.filter(id=>C3.progressionIds.includes(id)):[];
+  for(const id of C3.progressionIds)if(Number.isFinite(Number(original.xp?.[id])))g.xp[id]=Math.max(0,Math.floor(Number(original.xp[id])));
   if(!Array.isArray(g.c3.clubPhrase))g.c3.clubPhrase=[];
   if(!Array.isArray(g.c3.finalPhrase))g.c3.finalPhrase=[];
   for(const [id,fallback] of [['synth',44],['percussion',46]]){g.maxhp[id]=Math.max(1,Math.min(999,Number(original?.maxhp?.[id]??g.maxhp?.[id])||fallback));g.hp[id]=clamp(Number(original?.hp?.[id]??g.hp?.[id]??g.maxhp[id]),0,g.maxhp[id])}
@@ -150,13 +171,21 @@ normalizeSave=function(raw){
 };
 
 const C3_checkpointBase=setCheckpoint;
-setCheckpoint=function(...args){C3_checkpointBase(...args);if(G?.checkpoint?.snapshot){G.checkpoint.snapshot.version=13;G.checkpoint.snapshot.c3=copy(G.c3);G.checkpoint.snapshot.hp.synth=G.maxhp.synth;G.checkpoint.snapshot.hp.percussion=G.maxhp.percussion;G.checkpoint.snapshot.maxhp.synth=G.maxhp.synth;G.checkpoint.snapshot.maxhp.percussion=G.maxhp.percussion;G.checkpoint.snapshot.formation=[...partyMembers()]}};
+setCheckpoint=function(...args){C3.ensureProgression(G);C3_checkpointBase(...args);if(G?.checkpoint?.snapshot){G.checkpoint.snapshot.version=13;G.checkpoint.snapshot.c3=copy(G.c3);G.checkpoint.snapshot.hp.synth=G.maxhp.synth;G.checkpoint.snapshot.hp.percussion=G.maxhp.percussion;G.checkpoint.snapshot.maxhp.synth=G.maxhp.synth;G.checkpoint.snapshot.maxhp.percussion=G.maxhp.percussion;G.checkpoint.snapshot.formation=[...partyMembers()]}};
 
 const C3_checkpointNameBase=checkpointName;
 checkpointName=function(id){return ({c3_terminal:'TERMINAL DO CÉU',c3_district:'CLUBE CONTRATEMPO',c3_clouds:'MAR DE NUVENS',c3_final:'ÚLTIMO TORII',c3_complete:'NOVA SESSÃO'})[id]||C3_checkpointNameBase(id)};
 
-const C3_gainXPBase=gainXP;
-gainXP=function(amount){if(!G?.c3?.started)return C3_gainXPBase(amount);amount=Math.max(0,Math.floor(Number(amount)||0));if(!amount)return;C3.ensureProgression(G);const team=partyMembers(),ups=[];for(const id of C3.unlockedRoster()){const award=team.includes(id)?amount:Math.floor(amount*.75),before=G.levels[id]||1;G.xp[id]=(G.xp[id]||0)+award;const after=calculateLevel(G.xp[id]);if(after>before){G.levels[id]=after;const gain=C3.growth[id]*(after-before);G.maxhp[id]+=gain;G.hp[id]=Math.min(G.maxhp[id],G.hp[id]+8+gain);ups.push(`${C3.names[id]||labels10[id]} NV ${after}`)}}if(ups.length)toast('NÍVEL · '+ups.join(' · '));updateHUD()};
+gainXP=function(amount){
+  if(!G)return;amount=Math.max(0,Math.floor(Number(amount)||0));if(!amount)return;
+  C3.ensureProgression(G);const team=partyMembers(),ups=[];
+  for(const id of C3.unlockedRoster()){
+    const award=team.includes(id)?amount:Math.floor(amount*.75),before=G.levels[id]||1;
+    G.xp[id]=(G.xp[id]||0)+award;const after=calculateLevel(G.xp[id]);
+    if(after>before){const gain=C3.growth[id]*(after-before);G.levels[id]=after;G.maxhp[id]+=gain;G.hp[id]=Math.min(G.maxhp[id],G.hp[id]+8+gain);ups.push(`${C3.names[id]||labels10[id]} NV ${after}`)}
+  }
+  if(ups.length)toast('NÍVEL · '+ups.join(' · '));updateHUD();
+};
 
 const C3_restoreBase=restoreCheckpoint;
 restoreCheckpoint=function(options={}){const id=G?.checkpoint?.id,isC3=!!G?.c3?.started,rest=!!options.c3Rest;if(isC3&&options.toCity)options={c3Rest:rest};const result=C3_restoreBase(options);if(G){for(const hero of ['synth','percussion'])if(G.maxhp[hero])G.hp[hero]=G.maxhp[hero];C3.hazards.length=0;C3.finalPending=false;C3.applyWorld();if(!rest&&id==='c3_clouds'&&!G.c3.metronomeDone)setTimeout(()=>C3.startMetronome(true),100);if(!rest&&id==='c3_final'&&!G.c3.silenceDone)setTimeout(()=>{setArea('silence_core',7.5,20.5,false);C3.startSilence(true)},100)}return result};
@@ -276,7 +305,7 @@ C3.chooseRoute=function(route){G.c3.metMaia=true;G.c3.twoRoutesOpen=true;G.c3.fi
 C3.openPlantGate=function(){if(!G.flags.bass)return talk([{who:'narrator',t:'A trava pede uma frequência grave. O Baixo de Raiz consegue mover o peso por dentro da máquina.'}]);if(G.c3.usinaGate)return toast('PASSARELA GRAVE · ABERTA');G.c3.usinaGate=true;C3.applyWorld();emitMusic(17*T,15*T,28,'gold');playTone(73.42,.7,'triangle',.08);C3.scene('C3_006',()=>{save(true);toast('A NOTA ENTROU NO VÃO')})};
 C3.synthTalk=function(){if(G.c3.synthUnlocked)return talk([{who:'synth',t:'Eu deixei dois canais sem quantizar. Ainda me incomoda. Também ficou melhor.'}]);if(!G.c3.usinaGate)return C3.scene('C3_005');talk([{who:'synth',t:'A sequência continua reiniciando. Se afastarmos os ecos, eu consigo desligar o retorno.'}])};
 C3.plantOperatorTalk=function(){if(G.c3.usinaDone)return talk([{who:'operador',t:'O ciclo parou. Pela primeira vez a usina está esperando uma decisão humana antes de recomeçar.'}]);if(G.c3.usinaGate)return talk([{who:'operador',t:'A trava abriu. O sequenciador fica no outro lado; derrubem os ecos e eu mantenho a pressão estável.'}]);talk([{who:'operador',t:'A nota grave move a trava. Depois disso, não sigam a luz que pisca igual — é o retorno tentando levar vocês de volta ao início.'}])};
-C3.recruit=function(id){G.c3[id==='synth'?'synthUnlocked':'percussionUnlocked']=true;G.hp[id]=G.maxhp[id];const team=partyMembers().slice();if(team.length<3&&!team.includes(id))team.push(id);G.formation=[...new Set(team)].slice(0,3);C3.applyWorld();updateHUD()};
+C3.recruit=function(id){G.c3[id==='synth'?'synthUnlocked':'percussionUnlocked']=true;C3.ensureProgression(G);G.hp[id]=G.maxhp[id];const team=partyMembers().slice();if(team.length<3&&!team.includes(id))team.push(id);G.formation=[...new Set(team)].slice(0,3);C3.applyWorld();updateHUD()};
 C3.completePlant=function(){if(G.c3.usinaDone)return toast('USINA · CICLO INTERROMPIDO');if(!G.c3.usinaGate)return C3.openPlantGate();if(!C3.allDefeated('c3_plant_')){engage();toast('A MÁQUINA AINDA ESTÁ CERCADA POR ECOS');return}const percussionFirst=G.c3.percussionUnlocked;G.c3.usinaDone=true;gainXP(70);const introduce=()=>C3.scene('C3_007',()=>{C3.recruit('synth');save(true);setCheckpoint('c3_district','distortion_district',55.5,15.5,true);toast('FRANCO SINTETIZADOR · DISPONÍVEL NA EQUIPE')});percussionFirst?C3.scene('C3_S04',introduce):introduce()};
 
 C3.openCanal=function(){if(!G.flags.violin11)return talk([{who:'narrator',t:'A passarela existe em várias camadas ao mesmo tempo. O Violino das Vozes poderia separá-las.'}]);if(G.c3.canalPath)return toast('PASSARELA · VISÍVEL');G.c3.canalPath=true;C3.applyWorld();emitMusic(20*T,12*T,26,'green');playTone(440,.65,'triangle',.065);C3.scene('C3_009',()=>save(true))};
@@ -390,15 +419,34 @@ slotSwitch=function(slot){const id=partyMembers()[slot-1];if(id!=='synth'&&id!==
 
 const C3_attackBase=attackAction;
 C3.synthLine=function(d,range,width,damage,stun){let hits=0;for(const e of meleeCandidates()){const dx=e.x-G.x,dy=e.y-G.y,forward=dx*d[0]+dy*d[1],side=Math.abs(dx*d[1]-dy*d[0]);if(forward>.15&&forward<range&&side<width){hitEnemy(e,damage,stun,.08);hits++}}return hits};
-C3.placeSynthZone=function(){const d=combatDirection10();let x=G.x+d[0]*2.8,y=G.y+d[1]*2.8;if(!tileWalkable(current,x,y)){x=G.x+d[0]*1.35;y=G.y+d[1]*1.35}C3.synthZones.push({x,y,area:G.area,left:5.2,next:0,phase:C3.synthWave});while(C3.synthZones.length>2)C3.synthZones.shift();effect10('synthPad',x,y,d,.5,1.35,'#68ecea');playTone(220+C3.synthWave*55,.3,'sine',.065);toast('PAD HARMÔNICO · CAMPO ATIVO')};
+C3.enemyBodyFree=function(x,y){return [[0,0],[-.22,0],[.22,0],[0,-.22],[0,.22]].every(([dx,dy])=>tileWalkable(current,x+dx,y+dy))};
+C3.moveEnemySafe=function(e,dx,dy){
+  const steps=Math.max(1,Math.ceil(Math.hypot(dx,dy)/.08));
+  for(let i=0;i<steps;i++){
+    if(C3.enemyBodyFree(e.x+dx/steps,e.y))e.x+=dx/steps;
+    if(C3.enemyBodyFree(e.x,e.y+dy/steps))e.y+=dy/steps;
+  }
+};
+C3.placeSynthZone=function(){
+  if(!tileWalkable(current,G.x,G.y))return false;
+  const d=combatDirection10();let x=G.x,y=G.y;
+  // Percorrer a direção evita campos na parede e saltos para o outro lado.
+  for(let distance=.1;distance<=2.8001;distance+=.1){
+    const nx=G.x+d[0]*distance,ny=G.y+d[1]*distance;
+    if(!C3.enemyBodyFree(nx,ny))break;x=nx;y=ny;
+  }
+  C3.synthZones.push({x,y,area:G.area,left:5.2,next:0,phase:C3.synthWave});
+  while(C3.synthZones.length>2)C3.synthZones.shift();
+  effect10('synthPad',x,y,d,.5,1.35,'#68ecea');playTone(220+C3.synthWave*55,.3,'sine',.065);toast('PAD HARMÔNICO · CAMPO ATIVO');return true;
+};
 attackAction=function(){if(!G||!['synth','percussion'].includes(G.active))return C3_attackBase();if(!combatReady10()||act.cool>0||Combat10.dashTime>0)return;if(mode==='walk')engage();const d=combatDirection10();act.slash=.2;act.slashMax=.2;act.slashHero=G.active;act.slashDir=G.dir;if(G.active==='synth'){C3.synthWave=(C3.synthWave%3)+1;const stage=C3.synthWave,range=[0,2.7,3.3,3.9][stage],width=[0,.52,.76,1.02][stage],damage=[0,10,12,18][stage],hits=C3.synthLine(d,range,width,damage,stage===3?.5:.2);act.cool=[0,.22,.27,.4][stage]+(hits?0:.11);effect10('synthWave',G.x,G.y,d,.25,stage,'#61e7ed');if(stage===3)for(const z of C3.synthZones)if(z.area===G.area){z.left=Math.min(6,z.left+.8);z.next=0}playTone([0,220,330,440][stage],.1,stage===2?'square':stage===3?'sawtooth':'sine',.06)}else{if(act.comboTime&&tick-act.comboTime<.58)act.combo=(act.combo||0)%3+1;else act.combo=1;act.comboTime=tick;act.cool=act.combo===3?.34:.24;const damage=[0,12,14,18][act.combo];coneHit10(d,2.35+(act.combo===3?.45:0),-.08,damage,.28,.08);if(act.combo===3)for(const e of meleeCandidates())if(Math.hypot(e.x-G.x,e.y-G.y)<2.35)hitEnemy(e,10,.55,.2);C3.setPercussionMotion('strike',act.combo===3?.34:.22);effect10(act.combo===3?'drumFinish':'drumBeat',G.x,G.y,d,.26,act.combo===3?1.45:.9,'#ff82d2');playTone([0,147,196,98][act.combo],.09,act.combo===3?'sawtooth':'triangle',.065)}G.resonance=Math.min(100,G.resonance+5);updateActionHUD()};
 
 const C3_skillBase=skillAction;
-skillAction=function(){if(!G||!['synth','percussion'].includes(G.active))return C3_skillBase();if(!combatReady10()||act.skill>0)return;if(mode==='walk')engage();if(G.active==='synth'){act.skill=3.8;act.cool=.36;C3.placeSynthZone()}else{act.skill=3.2;act.cool=.32;C3.percussionGuard=.72;C3.setPercussionMotion('counter',.72);effect10('drumCounter',G.x,G.y,combatDirection10(),.72,1.05,'#70e8ec');playTone(196,.18,'square',.065);toast('CONTRATEMPO · BATA NO IMPACTO')}updateActionHUD()};
+skillAction=function(){if(!G||!['synth','percussion'].includes(G.active))return C3_skillBase();if(!combatReady10()||act.skill>0)return;if(mode==='walk')engage();if(G.active==='synth'){if(!C3.placeSynthZone())return false;act.skill=3.8;act.cool=.36}else{act.skill=3.2;act.cool=.32;C3.percussionGuard=.72;C3.setPercussionMotion('counter',.72);effect10('drumCounter',G.x,G.y,combatDirection10(),.72,1.05,'#70e8ec');playTone(196,.18,'square',.065);toast('CONTRATEMPO · BATA NO IMPACTO')}updateActionHUD()};
 
 const C3_advancedBase=advancedSkill;
 C3.percussionPulse=function(radius,damage,stun=.55){for(const e of meleeCandidates())if(Math.hypot(e.x-G.x,e.y-G.y)<radius)hitEnemy(e,damage,stun,.18);hostileShots=hostileShots.filter(p=>Math.hypot(p.x-G.x,p.y-G.y)>radius);effect10('drumBreak',G.x,G.y,[0,1],.34,radius/3,'#ff78cc')};
-advancedSkill=function(){if(!G||!['synth','percussion'].includes(G.active))return C3_advancedBase();if(!combatReady10()||act.skillX>0)return;if(mode==='walk')engage();act.skillX=6.2;act.invuln=Math.max(act.invuln,.4);if(G.active==='synth'){if(!C3.synthZones.some(z=>z.area===G.area))C3.synthZones.push({x:G.x,y:G.y,area:G.area,left:2.4,next:0,phase:3});for(const z of C3.synthZones.filter(z=>z.area===G.area)){for(const e of meleeCandidates())if(Math.hypot(e.x-z.x,e.y-z.y)<3.35){hitEnemy(e,24,.72,.16);const dx=z.x-e.x,dy=z.y-e.y,n=Math.max(.01,Math.hypot(dx,dy));e.x+=dx/n*.28;e.y+=dy/n*.28}hostileShots=hostileShots.filter(p=>Math.hypot(p.x-z.x,p.y-z.y)>3.35);effect10('synthFilter',z.x,z.y,[0,1],.48,2.2,'#f06de5')}C3.synthZones.length=0;screenShake=.32;playTone(110,.38,'sawtooth',.075);toast('FILTRO DE CORTE · CAMPOS TRANSPOSTOS')}else{const area=G.area,who=G.active;C3.setPercussionMotion('break',.62);for(let i=0;i<3;i++)setTimeout(()=>{if(G&&activeModes10()&&G.area===area&&G.active===who){C3.percussionPulse(2.4+i*1.25,12+i*5,.45+i*.16);screenShake=.18+i*.08;playTone(98+i*49,.18,i===2?'sawtooth':'triangle',.06)}},i*145)}updateActionHUD()};
+advancedSkill=function(){if(!G||!['synth','percussion'].includes(G.active))return C3_advancedBase();if(!combatReady10()||act.skillX>0)return;if(mode==='walk')engage();act.skillX=6.2;act.invuln=Math.max(act.invuln,.4);if(G.active==='synth'){if(!C3.synthZones.some(z=>z.area===G.area))C3.synthZones.push({x:G.x,y:G.y,area:G.area,left:2.4,next:0,phase:3});for(const z of C3.synthZones.filter(z=>z.area===G.area)){for(const e of meleeCandidates())if(Math.hypot(e.x-z.x,e.y-z.y)<3.35){hitEnemy(e,24,.72,0);const dx=z.x-e.x,dy=z.y-e.y,n=Math.max(.01,Math.hypot(dx,dy));C3.moveEnemySafe(e,dx/n*.28,dy/n*.28)}hostileShots=hostileShots.filter(p=>Math.hypot(p.x-z.x,p.y-z.y)>3.35);effect10('synthFilter',z.x,z.y,[0,1],.48,2.2,'#f06de5')}C3.synthZones.length=0;screenShake=.32;playTone(110,.38,'sawtooth',.075);toast('FILTRO DE CORTE · CAMPOS TRANSPOSTOS')}else{const area=G.area,who=G.active;C3.setPercussionMotion('break',.62);for(let i=0;i<3;i++)setTimeout(()=>{if(G&&activeModes10()&&G.area===area&&G.active===who){C3.percussionPulse(2.4+i*1.25,12+i*5,.45+i*.16);screenShake=.18+i*.08;playTone(98+i*49,.18,i===2?'sawtooth':'triangle',.06)}},i*145)}updateActionHUD()};
 
 const C3_duoBase=duoAction;
 duoAction=function(){if(!G||!['synth','percussion'].includes(G.active))return C3_duoBase();if(!combatReady10()||G.resonance<40||(act.duo||0)>0)return false;G.resonance-=40;act.duo=7;act.invuln=.7;if(G.active==='synth'){for(const e of meleeCandidates()){hitEnemy(e,32,.65,.12);traceSpecial11('chain',G.x,G.y,e.x,e.y,'#59eff1')}for(const id of partyMembers())if(G.hp[id]>0)G.hp[id]=Math.min(G.maxhp[id],G.hp[id]+5);toast('CAMADAS VIVAS · 40 RESSONÂNCIA')}else{C3.setPercussionMotion('break',.72);C3.percussionPulse(5.5,36,1.4);hostileShots=[];for(const id of partyMembers())if(G.hp[id]>0)G.hp[id]=Math.min(G.maxhp[id],G.hp[id]+8);effect10('drumFinish',G.x,G.y,[0,1],.7,2.25,'#ffd477');toast('PULSO COMUM · DANO, LIMPEZA E FÔLEGO')}screenShake=.5;emitMusic(G.x*T,G.y*T,34,G.active==='synth'?'green':'gold');updateActionHUD();return true};

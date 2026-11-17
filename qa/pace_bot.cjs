@@ -26,9 +26,9 @@ async function main(){
   await page.evaluate(()=>{try{localStorage.clear()}catch{}});
   await page.evaluate(installBot);await page.evaluate(o=>{window.__botOpts=o},opts);
   await page.evaluate(s=>window.__bot.begin(s),start);
-  const log=[];let lastLog=0,lastReload=0,reloads=0,saveIssues=[];
+  const log=[];let lastLog=0,lastReload=0,reloads=0,saveIssues=[],completed=false;
   const snapshot=()=>page.evaluate(()=>{const c=G.c3||{};const flags=Object.keys(G.flags||{}).filter(k=>G.flags[k]).sort();const c3=Object.keys(c).filter(k=>c[k]===true).sort();
-    return {objective:(()=>{try{return objectiveData().text}catch{return '?'}})(),area:G.area,flags,c3,defeated:(G.defeated||[]).length,potions:G.potions,shards:G.shards,formation:(G.formation||[]).join(',')}});
+    return {objective:(()=>{try{return objectiveData().text}catch{return '?'}})(),area:G.area,flags,c3,defeated:(G.defeated||[]).length,potions:G.potions,shards:G.shards,formation:partyMembers().join(','),xp:{...G.xp},levels:{...G.levels}}});
   for(;;){
     if(reloadEvery){const st0=await page.evaluate(()=>({t:window.__bot.clock(),mode,area:G&&G.area}));
       if(st0.t-lastReload>=reloadEvery&&st0.mode==='walk'){lastReload=st0.t;
@@ -43,7 +43,7 @@ async function main(){
     const st=await page.evaluate(()=>window.__bot.run(3600)); // 60 s de jogo por lote
     if(st.events.length)log.push(...st.events);
     if(st.time-lastLog>=300){lastLog=st.time;console.log(`${(st.time/60).toFixed(1)} min · ${st.area} · ${st.mode} · ${st.objective}`)}
-    if(st.done||st.stuck||st.time>maxMinutes*60){console.log(st.done?'FIM DA JORNADA':st.stuck?'PRESO: '+st.stuck:'LIMITE DE TEMPO');break}
+    if(st.done||st.stuck||st.time>maxMinutes*60){completed=!!st.done;console.log(st.done?'FIM DA JORNADA':st.stuck?'PRESO: '+st.stuck:'LIMITE DE TEMPO');break}
   }
   const summary=await page.evaluate(()=>window.ToriiRitmo.summary());
   const report=await page.evaluate(()=>window.ToriiRitmo.report());
@@ -55,6 +55,7 @@ async function main(){
   if(reloadEvery){console.log(`RECARGAS: ${reloads} · divergências: ${saveIssues.length}`);saveIssues.forEach(x=>console.log('  '+x));
     fs.appendFileSync(path.join(outDir,`bot-${tag}.txt`),`\nRECARGAS: ${reloads} · divergências: ${saveIssues.length}\n${saveIssues.join('\n')}\n`)}
   await browser.close();
+  if(!completed||errors.length||saveIssues.length)process.exitCode=1;
 }
 
 // Roda dentro da página.

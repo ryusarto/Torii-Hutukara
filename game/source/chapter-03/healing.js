@@ -9,38 +9,51 @@
 (function(){
 const TAPE={pct:.4,min:15,cooldown:1.2};
 const PRICES={one:3,pack:8};
-let tapeCooldown=0;
+const tapeCooldowns=new Map();
+let tapeGame=null;
+function syncTapeSession(){if(tapeGame!==G){tapeGame=G;tapeCooldowns.clear();padHeld.clear()}}
 
 function activeId(){try{return fighterName()}catch{return G&&G.active}}
-function useTape(){
-  if(!G||!['walk','action'].includes(mode)||tapeCooldown>0)return;
-  const id=activeId();if(!id||!G.maxhp[id])return;
+function useTape(target=activeId()){
+  syncTapeSession();
+  if(!G||!['walk','action'].includes(mode)||(tapeCooldowns.get(target)||0)>0)return false;
+  const id=target;if(!id||!partyMembers().includes(id)||!G.maxhp[id]||G.hp[id]<=0)return false;
   if((G.potions||0)<=0){toast('SEM FITAS DE CURA · COMPRE COM UM MERCADOR');return}
   if(G.hp[id]>=G.maxhp[id]){toast('VIDA CHEIA');return}
   const heal=Math.max(TAPE.min,Math.round(G.maxhp[id]*TAPE.pct));
-  G.hp[id]=Math.min(G.maxhp[id],G.hp[id]+heal);G.potions--;tapeCooldown=TAPE.cooldown;
+  G.hp[id]=Math.min(G.maxhp[id],G.hp[id]+heal);G.potions--;tapeCooldowns.set(id,TAPE.cooldown);
   try{playTone(523.3,.12,'triangle',.07);setTimeout(()=>playTone(784,.16,'triangle',.06),90)}catch{}
-  try{addCombatFX(G.x,G.y,'xp',1.2)}catch{}
-  toast(`♥ FITA DE CURA · +${heal} · RESTAM ${G.potions}`);
+  const p2=C3.coopActive()&&id===C3.coopMember();
+  try{addCombatFX(p2?C3.coop.x:G.x,p2?C3.coop.y:G.y,'xp',1.2)}catch{}
+  toast(`♥ ${C3.names[id]||labels10[id]} · FITA +${heal} · RESTAM ${G.potions}`);
   try{updateHUD();if(mode==='action')updateActionHUD()}catch{}
   try{save()}catch{}
   refreshButton();
+  return true;
 }
 
 // ---------- entrada ----------
 addEventListener('keydown',e=>{if((e.key==='r'||e.key==='R')&&!e.repeat&&G&&['walk','action'].includes(mode)){e.preventDefault();useTape()}});
-let padHeld=false;
+const padHeld=new Set();
 function pollPads(){
-  try{const pads=navigator.getGamepads?[...navigator.getGamepads()].filter(Boolean):[];
-    const down=pads.some(p=>p.buttons&&p.buttons[8]&&p.buttons[8].pressed);
-    if(down&&!padHeld)useTape();padHeld=down}catch{}
+  try{const pads=navigator.getGamepads?[...navigator.getGamepads()].filter(p=>p&&p.connected!==false).sort((a,b)=>a.index-b.index):[];
+    for(const [slot,pad] of pads.entries()){
+      const down=!!pad.buttons?.[8]?.pressed;
+      if(down&&!padHeld.has(pad.index)){
+        if(slot===0)useTape();
+        else if(slot===1&&C3.coopActive())useTape(C3.coopMember());
+      }
+      if(down)padHeld.add(pad.index);else padHeld.delete(pad.index);
+    }
+    for(const index of padHeld)if(!pads.some(p=>p.index===index))padHeld.delete(index);
+  }catch{}
 }
 // Cada capítulo novo começa com a equipe recuperada (antes, o Capítulo 3
 // começava com a vida que sobrou da luta na torre do Capítulo 2).
 let lastChapter=null;
 function chapterHeal(){if(!G)return;const c=G.chapter||1;if(lastChapter!==null&&c>lastChapter){healTeam();try{toast('NOVO MUNDO · EQUIPE RECUPERADA');updateHUD()}catch{}}lastChapter=c}
 const updateBeforeHealing=update;
-update=function(dt,...rest){const r=updateBeforeHealing.call(this,dt,...rest);tapeCooldown=Math.max(0,tapeCooldown-(dt||0));pollPads();chapterHeal();return r};
+update=function(dt,...rest){syncTapeSession();const r=updateBeforeHealing.call(this,dt,...rest);for(const [id,left] of tapeCooldowns)tapeCooldowns.set(id,Math.max(0,left-(dt||0)));pollPads();chapterHeal();return r};
 for(const name of ['newGame','continueGame','startChapterTwoPreview']){const before=window[name];if(typeof before==='function')window[name]=function(...args){lastChapter=null;return before.apply(this,args)}}
 
 // Botão na tela (toque e mouse).
@@ -50,6 +63,7 @@ function ensureButton(){
   button=document.createElement('button');button.id='tapeButton';button.type='button';
   button.title='Usar fita de cura (R)';
   button.style.cssText='position:absolute;top:54px;right:14px;z-index:6;pointer-events:auto;background:#2b1d2ee6;color:#ffd9c2;border:1px solid #e9939f;padding:4px 9px;font:11px monospace;cursor:pointer;border-radius:3px';
+  button.style.minHeight='44px';
   button.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();useTape()});
   button.addEventListener('pointerdown',e=>e.stopPropagation());
   document.getElementById('hud').appendChild(button);

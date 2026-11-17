@@ -1,0 +1,61 @@
+name: Gameplay regression
+
+on:
+  pull_request:
+    paths:
+      - 'game/**'
+      - 'assets/**'
+      - 'design/chapter-03/**'
+      - 'design/dialogo/**'
+      - 'web/playtest/**'
+      - 'qa/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gameplay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate and validate build
+        run: |
+          ruby game/source/chapter-03/build_alpha.rb
+          ruby game/source/chapter-03/validate_alpha.rb
+      - name: Install isolated browser
+        run: |
+          npm install --no-save --package-lock=false playwright@1.62.1
+          npx playwright install --with-deps chromium
+      - name: Input and gameplay regression
+        run: |
+          node qa/input_regression.cjs
+          node qa/gameplay_regression.cjs
+      - name: Verify web export on PC, phone and tablet
+        run: |
+          ruby production/build_playtest.rb
+          python3 -m http.server 8771 --bind 127.0.0.1 --directory production/playtest-dist &
+          test_server_pid=$!
+          trap 'kill "$test_server_pid"' EXIT
+          node qa/playtest_site.cjs http://127.0.0.1:8771/
+      - name: Keep reports and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gameplay-regression
+          path: |
+            qa/beta-*/
+            qa/playtest/SITE_TEST_RESULTS.json
+            qa/screenshots-local/pages/
+          retention-days: 30
+      - name: Keep portable preview for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: torii-hutukara-preview
+          path: game/builds/
+          retention-days: 14

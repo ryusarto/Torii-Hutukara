@@ -86,3 +86,7 @@ Gere a build antes: `ruby game/source/chapter-03/build_alpha.rb`.
 | Combate (chefes e inimigos) | `node qa/combat_lab.cjs 8` |
 
 Use `TAG=nome` para separar relatórios de jogadas em paralelo. Os relatórios ficam em `qa/ritmo/` e `qa/combate/`.
+
+## Regressões da Beta 1.0.1
+
+`node qa/gameplay_regression.cjs` cobre liberação narrativa, ataques no Distrito, XP/save, geometria, cooldown de patrulhas, dano e aura por ator, cura e toque sobre diálogo mobile. `qa/input_regression.cjs` conserva os testes de controle e rolada. Ambos são executados nos PRs e antes da publicação. Os JSONs em `qa/beta-1.0.1/` identificam o hash testado. Veja o procedimento e os limites em `qa/beta-1.0.1/PLAYTEST.md`.
