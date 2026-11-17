@@ -1,0 +1,208 @@
+[
+  {
+    "hero": "franco",
+    "state": "attack_3",
+    "file": "originais/franco_attack_3_completo.png",
+    "sha256": "a1c03ae6c1fd09261728fa29b4cfc98fcf80f04cf1ef519ef087a3abb06f98bb",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking AI-authored rows",
+      "base": "franco_attack_3.png",
+      "additional": "franco_attack_3_adicional.png",
+      "additionalRow": 7,
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "ryuchi",
+    "state": "advanced",
+    "file": "originais/ryuchi_advanced_completo.png",
+    "sha256": "813fbce3c49161e1529db51ac8942f7ca2f8f76d05b02c58061d29da7cdd689e",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking AI-authored rows",
+      "base": "ryuchi_advanced.png",
+      "additional": "ryuchi_advanced_adicional.png",
+      "replacedDirections": [
+        "unmasked/right",
+        "masked/up"
+      ],
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "franco",
+    "state": "defeat",
+    "file": "originais/franco_defeat_completo.png",
+    "sha256": "7ca93849b52b898e25c751cb5dee9f7084d0598d2c7056df714e72f17c456e9f",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking AI-authored rows",
+      "base": "franco_defeat.png",
+      "additional": "franco_defeat_adicional.png",
+      "insertedDirection": "masked/up",
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "ryuchi",
+    "state": "defeat",
+    "file": "originais/ryuchi_defeat_completo.png",
+    "sha256": "58175fd5d4cf36be50ca14f151dc007a2b1c623d818c74bc86893a07a82c0936",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking AI-authored rows",
+      "base": "ryuchi_defeat.png",
+      "additional": "ryuchi_defeat_adicional.png",
+      "insertedDirection": "masked/up",
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "franco",
+    "state": "skill",
+    "file": "originais/franco_skill_refinado.png",
+    "sha256": "c8f20684689c40ff901f26faf4d66b677aaca50443d5ee10743d440138335095",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking supplementary AI-authored poses; no painted pixels",
+      "base": "franco_skill.png",
+      "additional": "franco_laterais_chibi_adicional.png",
+      "replacedRows": [
+        7
+      ],
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "franco",
+    "state": "advanced",
+    "file": "originais/franco_advanced_refinado.png",
+    "sha256": "4781ed7124f64dcfabdc4447bd16e568a4874fc822ab6afccff72a76b5c06a78",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking supplementary AI-authored poses; no painted pixels",
+      "base": "franco_advanced.png",
+      "additional": "franco_laterais_chibi_adicional.png",
+      "replacedRows": [
+        7
+      ],
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "franco",
+    "state": "hurt",
+    "file": "originais/franco_hurt_refinado.png",
+    "sha256": "19384840e283c5057a92e4a11e25f5a4c2a402947e411ea3cb220df1867ca1fa",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking supplementary AI-authored poses; no painted pixels",
+      "base": "franco_hurt.png",
+      "additional": "franco_laterais_chibi_adicional.png",
+      "replacedRows": [
+        7
+      ],
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "ryuchi",
+    "state": "roll",
+    "file": "originais/ryuchi_roll_refinado.png",
+    "sha256": "26b80ab33cea3262dd9c0807ba47dd2b21cf3ef69414679e5c1a44568202cfd7",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking supplementary AI-authored poses; no painted pixels",
+      "base": "ryuchi_roll.png",
+      "additional": "ryuchi_roll_masked_adicional.png",
+      "replacedRows": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "noMirroring": true
+    }
+  }
+]

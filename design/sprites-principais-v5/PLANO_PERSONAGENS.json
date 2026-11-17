@@ -1,0 +1,67 @@
+{
+  "heroes": [
+    "franco",
+    "ryuchi"
+  ],
+  "variants": [
+    "unmasked",
+    "masked"
+  ],
+  "directions": [
+    "down",
+    "left",
+    "up",
+    "right"
+  ],
+  "states": [
+    "idle",
+    "walk",
+    "run",
+    "roll",
+    "attack_1",
+    "attack_2",
+    "attack_3",
+    "skill",
+    "advanced",
+    "signature",
+    "hurt",
+    "defeat"
+  ],
+  "existingStates": [
+    "idle",
+    "walk",
+    "run",
+    "roll"
+  ],
+  "grid": [
+    8,
+    8
+  ],
+  "cell": [
+    256,
+    256
+  ],
+  "pivot": [
+    128,
+    224
+  ],
+  "sourceFrames": 8,
+  "closureFrame": 8,
+  "approval": "Preservar pixel art 2D; aguardar limite da ferramenta em 14/11/2026 22:24 America/Sao_Paulo. Modelos 3D são referências, sem substituição do acabamento aprovado.",
+  "status": "consolidado",
+  "initiallyMissingStates": [
+    "attack_1",
+    "attack_2",
+    "attack_3",
+    "skill",
+    "advanced",
+    "signature",
+    "hurt",
+    "defeat"
+  ],
+  "initiallyMissingPortraits": [
+    "franco"
+  ],
+  "missingStates": [],
+  "missingPortraits": []
+}

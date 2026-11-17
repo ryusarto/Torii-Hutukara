@@ -1,0 +1,328 @@
+[
+  {
+    "hero": "franco",
+    "state": "idle",
+    "prompt": "Production pixel-art game sprite atlas: FRANCO MAIN HERO, state idle. Match approved face/wardrobe reference and attached 3D front view ONLY for proportions, NOT smooth 3D rendering. dark curly hair, brown skin, red orange and gold patterned jacket, black crossed-neck undershirt, beige trousers, dark boots. Visible square pixel clusters, consistent dark pixel outlines and palette, crisp 16-bit JRPG sprite texture. Exactly EIGHT columns and EIGHT rows, uniform invisible square cells, no captions, no grid lines, no headers, no text. Every cell contains one complete animation pose. Canvas requested 2048x2048; every cell 256x256 with equal margins. All poses keep the same body proportions, same costume and same pixel scale, foot pivot at horizontal cell center and 87.5% cell height except the deliberate roll/collapse. Row order fixed: rows 1-4 WITHOUT MASK facing down/front, left, up/back, right; rows 5-8 WITH MASK facing down/front, left, up/back, right. Masked row poses match corresponding unmasked row poses EXACTLY except headgear. Mask is the actual canonical ivory cloth helmet with central seam, radial long spikes and black circular goggles in mask reference. It covers top of head and forehead hair/beanie; lower opening reveals the wearer's mouth, cheeks/chin and skin, NEVER a black empty hole, back is ivory helmet shell. In every frame mask stays fitted firmly to head; spikes do not clip cell boundaries. Same skeleton, same scale for both masked/unmasked. Subtle breathing and blink idle, feet planted. Eight genuinely different small poses complete one breathing cycle, final pose returns seamlessly to frame 1. Each row progresses chronologically left to right, no duplicate random unrelated poses, feet and hands have continuous paths. Large high-definition atlas with unmistakable pixel texture, no blur, no smooth painting, no rendered fabric, no giant portraits. REAL transparent alpha background across entire empty canvas; no black background, no checkerboard texture, no drop shadows, no scenery. Generous cell padding keeps all spikes and weapon poses inside their own cell.",
+    "file": "../sprites-principais-v4/originais/franco_idle.png",
+    "sha256": "6731a38683c253f7c08c3e3bf92355d38776b487c25f891b82a52362e233cc63"
+  },
+  {
+    "hero": "franco",
+    "state": "walk",
+    "prompt": "Production pixel-art game sprite atlas: FRANCO MAIN HERO, state walk. Match approved face/wardrobe reference and attached 3D front view ONLY for proportions, NOT smooth 3D rendering. dark curly hair, brown skin, red orange and gold patterned jacket, black crossed-neck undershirt, beige trousers, dark boots. Visible square pixel clusters, consistent dark pixel outlines and palette, crisp 16-bit JRPG sprite texture. Exactly EIGHT columns and EIGHT rows, uniform invisible square cells, no captions, no grid lines, no headers, no text. Every cell contains one complete animation pose. Canvas requested 2048x2048; every cell 256x256 with equal margins. All poses keep the same body proportions, same costume and same pixel scale, foot pivot at horizontal cell center and 87.5% cell height except the deliberate roll/collapse. Row order fixed: rows 1-4 WITHOUT MASK facing down/front, left, up/back, right; rows 5-8 WITH MASK facing down/front, left, up/back, right. Masked row poses match corresponding unmasked row poses EXACTLY except headgear. Mask is the actual canonical ivory cloth helmet with central seam, radial long spikes and black circular goggles in mask reference. It covers top of head and forehead hair/beanie; lower opening reveals the wearer's mouth, cheeks/chin and skin, NEVER a black empty hole, back is ivory helmet shell. In every frame mask stays fitted firmly to head; spikes do not clip cell boundaries. Same skeleton, same scale for both masked/unmasked. Eight evenly spaced walking gait phases: left contact, down, passing, up, right contact, down, passing, up. Alternate both legs. Complete repeating walk loop. Each row progresses chronologically left to right, no duplicate random unrelated poses, feet and hands have continuous paths. Large high-definition atlas with unmistakable pixel texture, no blur, no smooth painting, no rendered fabric, no giant portraits. REAL transparent alpha background across entire empty canvas; no black background, no checkerboard texture, no drop shadows, no scenery. Generous cell padding keeps all spikes and weapon poses inside their own cell.",
+    "file": "../sprites-principais-v4/originais/franco_walk.png",
+    "sha256": "099b6b748a098cec42f88429012db7b7adc2cc7a53fb4a895013e73e68b91766"
+  },
+  {
+    "hero": "franco",
+    "state": "run",
+    "prompt": "Production pixel-art game sprite atlas: FRANCO MAIN HERO, state run. Match approved face/wardrobe reference and attached 3D front view ONLY for proportions, NOT smooth 3D rendering. dark curly hair, brown skin, red orange and gold patterned jacket, black crossed-neck undershirt, beige trousers, dark boots. Visible square pixel clusters, consistent dark pixel outlines and palette, crisp 16-bit JRPG sprite texture. Exactly EIGHT columns and EIGHT rows, uniform invisible square cells, no captions, no grid lines, no headers, no text. Every cell contains one complete animation pose. Canvas requested 2048x2048; every cell 256x256 with equal margins. All poses keep the same body proportions, same costume and same pixel scale, foot pivot at horizontal cell center and 87.5% cell height except the deliberate roll/collapse. Row order fixed: rows 1-4 WITHOUT MASK facing down/front, left, up/back, right; rows 5-8 WITH MASK facing down/front, left, up/back, right. Masked row poses match corresponding unmasked row poses EXACTLY except headgear. Mask is the actual canonical ivory cloth helmet with central seam, radial long spikes and black circular goggles in mask reference. It covers top of head and forehead hair/beanie; lower opening reveals the wearer's mouth, cheeks/chin and skin, NEVER a black empty hole, back is ivory helmet shell. In every frame mask stays fitted firmly to head; spikes do not clip cell boundaries. Same skeleton, same scale for both masked/unmasked. Eight sprint gait phases, forward lean, clear flight phases, alternating legs and arms, jacket and tie follow motion, return to start smoothly. Each row progresses chronologically left to right, no duplicate random unrelated poses, feet and hands have continuous paths. Large high-definition atlas with unmistakable pixel texture, no blur, no smooth painting, no rendered fabric, no giant portraits. REAL transparent alpha background across entire empty canvas; no black background, no checkerboard texture, no drop shadows, no scenery. Generous cell padding keeps all spikes and weapon poses inside their own cell.",
+    "file": "../sprites-principais-v4/originais/franco_run.png",
+    "sha256": "ea6c360e00ae73c5953ef0f63f1bc0dcdc765c6c47620ec3bf0e47e87e3103f1"
+  },
+  {
+    "hero": "franco",
+    "state": "roll",
+    "prompt": "Production pixel-art game sprite atlas: FRANCO MAIN HERO, state roll. Match approved face/wardrobe reference and attached 3D front view ONLY for proportions, NOT smooth 3D rendering. dark curly hair, brown skin, red orange and gold patterned jacket, black crossed-neck undershirt, beige trousers, dark boots. Visible square pixel clusters, consistent dark pixel outlines and palette, crisp 16-bit JRPG sprite texture. Exactly EIGHT columns and EIGHT rows, uniform invisible square cells, no captions, no grid lines, no headers, no text. Every cell contains one complete animation pose. Canvas requested 2048x2048; every cell 256x256 with equal margins. All poses keep the same body proportions, same costume and same pixel scale, foot pivot at horizontal cell center and 87.5% cell height except the deliberate roll/collapse. Row order fixed: rows 1-4 WITHOUT MASK facing down/front, left, up/back, right; rows 5-8 WITH MASK facing down/front, left, up/back, right. Masked row poses match corresponding unmasked row poses EXACTLY except headgear. Mask is the actual canonical ivory cloth helmet with central seam, radial long spikes and black circular goggles in mask reference. It covers top of head and forehead hair/beanie; lower opening reveals the wearer's mouth, cheeks/chin and skin, NEVER a black empty hole, back is ivory helmet shell. In every frame mask stays fitted firmly to head; spikes do not clip cell boundaries. Same skeleton, same scale for both masked/unmasked. Eight dodge somersault stages: crouch anticipation, tuck, shoulder contact, inverted tucked body, back/hip contact, feet return, rise, ready standing. Whole body rotates in travel direction; fitted mask stays attached to head, no flying mask. One complete roll returns to ready pose. Each row progresses chronologically left to right, no duplicate random unrelated poses, feet and hands have continuous paths. Large high-definition atlas with unmistakable pixel texture, no blur, no smooth painting, no rendered fabric, no giant portraits. REAL transparent alpha background across entire empty canvas; no black background, no checkerboard texture, no drop shadows, no scenery. Generous cell padding keeps all spikes and weapon poses inside their own cell.",
+    "file": "../sprites-principais-v4/originais/franco_roll.png",
+    "sha256": "6478a2a20750810e0eace2f245599b0b57ef9ffbcfa77a21700aea0b1f45051a"
+  },
+  {
+    "hero": "franco",
+    "state": "attack_1",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: FRANCO. Dark curly hair, brown skin, red/orange gold-pattern jacket, black crossed-neck shirt, beige trousers, dark boots. ACTION: First basic combo blow. Franco: wide heavy bass-powered arm strike with planted weight. Ryuchi: fast precise straight palm/punch. Ready, anticipate, wind up, strike, follow through, recoil, recover, ready.",
+    "file": "originais/franco_attack_1.png",
+    "sha256": "8864dc2ddc0c5faec200aec068c1d757cc8495d8115b681b17695329525b9c08"
+  },
+  {
+    "hero": "franco",
+    "state": "attack_2",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: FRANCO. Dark curly hair, brown skin, red/orange gold-pattern jacket, black crossed-neck shirt, beige trousers, dark boots. ACTION: Second basic combo blow. Franco: broad reverse/backhand heavy strike, hips rotate. Ryuchi: quick opposite-hand follow-up punch. Ready, anticipate, wind up, strike, follow through, recoil, recover, ready.",
+    "file": "originais/franco_attack_2.png",
+    "sha256": "a5bd02a85ae3d51a2e7ca84fd4937f20477fa8e2f397dbfd7bc17320e905b1fd"
+  },
+  {
+    "hero": "franco",
+    "state": "attack_3",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: FRANCO. Dark curly hair, brown skin, red/orange gold-pattern jacket, black crossed-neck shirt, beige trousers, dark boots. ACTION: Third combo finishing blow. Franco: two-handed powerful downward impact gesture. Ryuchi: sharp fast finishing side kick then catch balance. Ready, deep anticipation, load weight, finishing strike, full follow-through, recoil, recover, ready.",
+    "file": "originais/franco_attack_3_completo.png",
+    "sha256": "a1c03ae6c1fd09261728fa29b4cfc98fcf80f04cf1ef519ef087a3abb06f98bb",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking AI-authored rows",
+      "base": "franco_attack_3.png",
+      "additional": "franco_attack_3_adicional.png",
+      "additionalRow": 7,
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "franco",
+    "state": "skill",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: FRANCO. Dark curly hair, brown skin, red/orange gold-pattern jacket, black crossed-neck shirt, beige trousers, dark boots. ACTION: Z technique from the existing game. Franco releases PULSO GRAVE: brace legs, gather hands low, project a heavy radial bass pulse, recover. Ryuchi releases FLECHAS SONORAS: gather hands, aim forward, flick palms to release three sonic arrows, follow through, recover. Show body gesture, not a large effect; no physical bow.",
+    "file": "originais/franco_skill_refinado.png",
+    "sha256": "c8f20684689c40ff901f26faf4d66b677aaca50443d5ee10743d440138335095",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking supplementary AI-authored poses; no painted pixels",
+      "base": "franco_skill.png",
+      "additional": "franco_laterais_chibi_adicional.png",
+      "replacedRows": [
+        7
+      ],
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "franco",
+    "state": "advanced",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: FRANCO. Dark curly hair, brown skin, red/orange gold-pattern jacket, black crossed-neck shirt, beige trousers, dark boots. ACTION: X advanced technique from the existing game. Franco uses ACORDE DE IMPACTO: grounded wide stance, gather arms, expand both hands strongly outward, release resonant chord, follow through, recover. Ryuchi uses PASSO SÔNICO: crouch anticipation, strong forward lean, explosive low dash pose, maximum extension, brake, regain balance, return ready. Same pivot; actual translation is controlled by the engine.",
+    "file": "originais/franco_advanced_refinado.png",
+    "sha256": "4781ed7124f64dcfabdc4447bd16e568a4874fc822ab6afccff72a76b5c06a78",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking supplementary AI-authored poses; no painted pixels",
+      "base": "franco_advanced.png",
+      "additional": "franco_laterais_chibi_adicional.png",
+      "replacedRows": [
+        7
+      ],
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "franco",
+    "state": "signature",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: FRANCO. Dark curly hair, brown skin, red/orange gold-pattern jacket, black crossed-neck shirt, beige trousers, dark boots. ACTION: K musical resonance special from the existing game. Both heroes prepare, gather hands, raise arms in rhythmic musical gesture, release a powerful resonance, follow through, recover, return ready. Franco feels powerful and grounded; Ryuchi feels quick and precise. Tiny optional sparks only; silhouette must remain fully readable.",
+    "file": "originais/franco_signature.png",
+    "sha256": "c8ca8b4327f657c56486ccc6e801869029fd761e3aa00dcacca3a3bb9178eb6f"
+  },
+  {
+    "hero": "franco",
+    "state": "hurt",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: FRANCO. Dark curly hair, brown skin, red/orange gold-pattern jacket, black crossed-neck shirt, beige trousers, dark boots. ACTION: Taking damage: ready, recoil, maximum flinch, stagger, catch balance, recover, settle, ready. No blood, no broken costume, mask stays fitted.",
+    "file": "originais/franco_hurt_refinado.png",
+    "sha256": "19384840e283c5057a92e4a11e25f5a4c2a402947e411ea3cb220df1867ca1fa",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking supplementary AI-authored poses; no painted pixels",
+      "base": "franco_hurt.png",
+      "additional": "franco_laterais_chibi_adicional.png",
+      "replacedRows": [
+        7
+      ],
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "franco",
+    "state": "defeat",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: FRANCO. Dark curly hair, brown skin, red/orange gold-pattern jacket, black crossed-neck shirt, beige trousers, dark boots. ACTION: One-shot defeat: weakened stance, stagger, lower knee, kneel, collapse, lie on ground, rest, rest. Complete fall with final pose held. Do not resurrect or return upright; never treat this as a locomotion loop.",
+    "file": "originais/franco_defeat_completo.png",
+    "sha256": "7ca93849b52b898e25c751cb5dee9f7084d0598d2c7056df714e72f17c456e9f",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking AI-authored rows",
+      "base": "franco_defeat.png",
+      "additional": "franco_defeat_adicional.png",
+      "insertedDirection": "masked/up",
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "ryuchi",
+    "state": "idle",
+    "prompt": "Production pixel-art game sprite atlas: RYUCHI MAIN HERO, state idle. Match approved face/wardrobe reference and attached 3D front view ONLY for proportions, NOT smooth 3D rendering. fitted black fabric beanie with folded cuff and white zigzag (NEVER fringe/bangs), blue jacket with pale chevrons, white shirt red/gold necktie, plum trousers, dark boots. Visible square pixel clusters, consistent dark pixel outlines and palette, crisp 16-bit JRPG sprite texture. Exactly EIGHT columns and EIGHT rows, uniform invisible square cells, no captions, no grid lines, no headers, no text. Every cell contains one complete animation pose. Canvas requested 2048x2048; every cell 256x256 with equal margins. All poses keep the same body proportions, same costume and same pixel scale, foot pivot at horizontal cell center and 87.5% cell height except the deliberate roll/collapse. Row order fixed: rows 1-4 WITHOUT MASK facing down/front, left, up/back, right; rows 5-8 WITH MASK facing down/front, left, up/back, right. Masked row poses match corresponding unmasked row poses EXACTLY except headgear. Mask is the actual canonical ivory cloth helmet with central seam, radial long spikes and black circular goggles in mask reference. It covers top of head and forehead hair/beanie; lower opening reveals the wearer's mouth, cheeks/chin and skin, NEVER a black empty hole, back is ivory helmet shell. In every frame mask stays fitted firmly to head; spikes do not clip cell boundaries. Same skeleton, same scale for both masked/unmasked. Subtle breathing and blink idle, feet planted. Eight genuinely different small poses complete one breathing cycle, final pose returns seamlessly to frame 1. Each row progresses chronologically left to right, no duplicate random unrelated poses, feet and hands have continuous paths. Large high-definition atlas with unmistakable pixel texture, no blur, no smooth painting, no rendered fabric, no giant portraits. REAL transparent alpha background across entire empty canvas; no black background, no checkerboard texture, no drop shadows, no scenery. Generous cell padding keeps all spikes and weapon poses inside their own cell.",
+    "file": "../sprites-principais-v4/originais/ryuchi_idle.png",
+    "sha256": "50a356038b0c9fed2da73a7cd4a60f33f342a435189affd55782ddecca33fc36"
+  },
+  {
+    "hero": "ryuchi",
+    "state": "walk",
+    "prompt": "Production pixel-art game sprite atlas: RYUCHI MAIN HERO, state walk. Match approved face/wardrobe reference and attached 3D front view ONLY for proportions, NOT smooth 3D rendering. fitted black fabric beanie with folded cuff and white zigzag (NEVER fringe/bangs), blue jacket with pale chevrons, white shirt red/gold necktie, plum trousers, dark boots. Visible square pixel clusters, consistent dark pixel outlines and palette, crisp 16-bit JRPG sprite texture. Exactly EIGHT columns and EIGHT rows, uniform invisible square cells, no captions, no grid lines, no headers, no text. Every cell contains one complete animation pose. Canvas requested 2048x2048; every cell 256x256 with equal margins. All poses keep the same body proportions, same costume and same pixel scale, foot pivot at horizontal cell center and 87.5% cell height except the deliberate roll/collapse. Row order fixed: rows 1-4 WITHOUT MASK facing down/front, left, up/back, right; rows 5-8 WITH MASK facing down/front, left, up/back, right. Masked row poses match corresponding unmasked row poses EXACTLY except headgear. Mask is the actual canonical ivory cloth helmet with central seam, radial long spikes and black circular goggles in mask reference. It covers top of head and forehead hair/beanie; lower opening reveals the wearer's mouth, cheeks/chin and skin, NEVER a black empty hole, back is ivory helmet shell. In every frame mask stays fitted firmly to head; spikes do not clip cell boundaries. Same skeleton, same scale for both masked/unmasked. Eight evenly spaced walking gait phases: left contact, down, passing, up, right contact, down, passing, up. Alternate both legs. Complete repeating walk loop. Each row progresses chronologically left to right, no duplicate random unrelated poses, feet and hands have continuous paths. Large high-definition atlas with unmistakable pixel texture, no blur, no smooth painting, no rendered fabric, no giant portraits. REAL transparent alpha background across entire empty canvas; no black background, no checkerboard texture, no drop shadows, no scenery. Generous cell padding keeps all spikes and weapon poses inside their own cell.",
+    "file": "../sprites-principais-v4/originais/ryuchi_walk.png",
+    "sha256": "3f18ba237e1abee1f132bdf843a5d1ef6967c15a1e1c644253cd4e24d904557a"
+  },
+  {
+    "hero": "ryuchi",
+    "state": "run",
+    "prompt": "Production pixel-art game sprite atlas: RYUCHI MAIN HERO, state run. Match approved face/wardrobe reference and attached 3D front view ONLY for proportions, NOT smooth 3D rendering. fitted black fabric beanie with folded cuff and white zigzag (NEVER fringe/bangs), blue jacket with pale chevrons, white shirt red/gold necktie, plum trousers, dark boots. Visible square pixel clusters, consistent dark pixel outlines and palette, crisp 16-bit JRPG sprite texture. Exactly EIGHT columns and EIGHT rows, uniform invisible square cells, no captions, no grid lines, no headers, no text. Every cell contains one complete animation pose. Canvas requested 2048x2048; every cell 256x256 with equal margins. All poses keep the same body proportions, same costume and same pixel scale, foot pivot at horizontal cell center and 87.5% cell height except the deliberate roll/collapse. Row order fixed: rows 1-4 WITHOUT MASK facing down/front, left, up/back, right; rows 5-8 WITH MASK facing down/front, left, up/back, right. Masked row poses match corresponding unmasked row poses EXACTLY except headgear. Mask is the actual canonical ivory cloth helmet with central seam, radial long spikes and black circular goggles in mask reference. It covers top of head and forehead hair/beanie; lower opening reveals the wearer's mouth, cheeks/chin and skin, NEVER a black empty hole, back is ivory helmet shell. In every frame mask stays fitted firmly to head; spikes do not clip cell boundaries. Same skeleton, same scale for both masked/unmasked. Eight sprint gait phases, forward lean, clear flight phases, alternating legs and arms, jacket and tie follow motion, return to start smoothly. Each row progresses chronologically left to right, no duplicate random unrelated poses, feet and hands have continuous paths. Large high-definition atlas with unmistakable pixel texture, no blur, no smooth painting, no rendered fabric, no giant portraits. REAL transparent alpha background across entire empty canvas; no black background, no checkerboard texture, no drop shadows, no scenery. Generous cell padding keeps all spikes and weapon poses inside their own cell.",
+    "file": "../sprites-principais-v4/originais/ryuchi_run.png",
+    "sha256": "577b5b954df4b9c0f4150649f8d855981bf674cefb44b43b9ec8890c6ac16971"
+  },
+  {
+    "hero": "ryuchi",
+    "state": "roll",
+    "prompt": "Production pixel-art game sprite atlas: RYUCHI MAIN HERO, state roll. Match approved face/wardrobe reference and attached 3D front view ONLY for proportions, NOT smooth 3D rendering. fitted black fabric beanie with folded cuff and white zigzag (NEVER fringe/bangs), blue jacket with pale chevrons, white shirt red/gold necktie, plum trousers, dark boots. Visible square pixel clusters, consistent dark pixel outlines and palette, crisp 16-bit JRPG sprite texture. Exactly EIGHT columns and EIGHT rows, uniform invisible square cells, no captions, no grid lines, no headers, no text. Every cell contains one complete animation pose. Canvas requested 2048x2048; every cell 256x256 with equal margins. All poses keep the same body proportions, same costume and same pixel scale, foot pivot at horizontal cell center and 87.5% cell height except the deliberate roll/collapse. Row order fixed: rows 1-4 WITHOUT MASK facing down/front, left, up/back, right; rows 5-8 WITH MASK facing down/front, left, up/back, right. Masked row poses match corresponding unmasked row poses EXACTLY except headgear. Mask is the actual canonical ivory cloth helmet with central seam, radial long spikes and black circular goggles in mask reference. It covers top of head and forehead hair/beanie; lower opening reveals the wearer's mouth, cheeks/chin and skin, NEVER a black empty hole, back is ivory helmet shell. In every frame mask stays fitted firmly to head; spikes do not clip cell boundaries. Same skeleton, same scale for both masked/unmasked. Eight dodge somersault stages: crouch anticipation, tuck, shoulder contact, inverted tucked body, back/hip contact, feet return, rise, ready standing. Whole body rotates in travel direction; fitted mask stays attached to head, no flying mask. One complete roll returns to ready pose. Each row progresses chronologically left to right, no duplicate random unrelated poses, feet and hands have continuous paths. Large high-definition atlas with unmistakable pixel texture, no blur, no smooth painting, no rendered fabric, no giant portraits. REAL transparent alpha background across entire empty canvas; no black background, no checkerboard texture, no drop shadows, no scenery. Generous cell padding keeps all spikes and weapon poses inside their own cell.",
+    "file": "originais/ryuchi_roll_refinado.png",
+    "sha256": "26b80ab33cea3262dd9c0807ba47dd2b21cf3ef69414679e5c1a44568202cfd7",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking supplementary AI-authored poses; no painted pixels",
+      "base": "ryuchi_roll.png",
+      "additional": "ryuchi_roll_masked_adicional.png",
+      "replacedRows": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "ryuchi",
+    "state": "attack_1",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: RYUCHI. Black fitted cloth beanie with folded cuff and white zigzag, NO bangs or fringe; blue chevron-trimmed jacket, white shirt and red/gold tie, plum trousers, dark boots. ACTION: First basic combo blow. Franco: wide heavy bass-powered arm strike with planted weight. Ryuchi: fast precise straight palm/punch. Ready, anticipate, wind up, strike, follow through, recoil, recover, ready.",
+    "file": "originais/ryuchi_attack_1.png",
+    "sha256": "62fec458faa73fe280a883d3abf8b2b4fe763d6c5d9725fb1a37b08064087b5e"
+  },
+  {
+    "hero": "ryuchi",
+    "state": "attack_2",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: RYUCHI. Black fitted cloth beanie with folded cuff and white zigzag, NO bangs or fringe; blue chevron-trimmed jacket, white shirt and red/gold tie, plum trousers, dark boots. ACTION: Second basic combo blow. Franco: broad reverse/backhand heavy strike, hips rotate. Ryuchi: quick opposite-hand follow-up punch. Ready, anticipate, wind up, strike, follow through, recoil, recover, ready.",
+    "file": "originais/ryuchi_attack_2.png",
+    "sha256": "22a6dc212d35aa016639f6338eb65ee0e8e27c6ebcbe52ef80c09523ed4af46a"
+  },
+  {
+    "hero": "ryuchi",
+    "state": "attack_3",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: RYUCHI. Black fitted cloth beanie with folded cuff and white zigzag, NO bangs or fringe; blue chevron-trimmed jacket, white shirt and red/gold tie, plum trousers, dark boots. ACTION: Third combo finishing blow. Franco: two-handed powerful downward impact gesture. Ryuchi: sharp fast finishing side kick then catch balance. Ready, deep anticipation, load weight, finishing strike, full follow-through, recoil, recover, ready.",
+    "file": "originais/ryuchi_attack_3.png",
+    "sha256": "06577bb6d3c26942fbbd080813e2529a823ef85862ac7410f37402e12c97eb88"
+  },
+  {
+    "hero": "ryuchi",
+    "state": "skill",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: RYUCHI. Black fitted cloth beanie with folded cuff and white zigzag, NO bangs or fringe; blue chevron-trimmed jacket, white shirt and red/gold tie, plum trousers, dark boots. ACTION: Z technique from the existing game. Franco releases PULSO GRAVE: brace legs, gather hands low, project a heavy radial bass pulse, recover. Ryuchi releases FLECHAS SONORAS: gather hands, aim forward, flick palms to release three sonic arrows, follow through, recover. Show body gesture, not a large effect; no physical bow.",
+    "file": "originais/ryuchi_skill.png",
+    "sha256": "23aa795b9e611150e0aa2fd18f9b344fe2eb114fbf1c546a80b827a416770784"
+  },
+  {
+    "hero": "ryuchi",
+    "state": "advanced",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: RYUCHI. Black fitted cloth beanie with folded cuff and white zigzag, NO bangs or fringe; blue chevron-trimmed jacket, white shirt and red/gold tie, plum trousers, dark boots. ACTION: X advanced technique from the existing game. Franco uses ACORDE DE IMPACTO: grounded wide stance, gather arms, expand both hands strongly outward, release resonant chord, follow through, recover. Ryuchi uses PASSO SÔNICO: crouch anticipation, strong forward lean, explosive low dash pose, maximum extension, brake, regain balance, return ready. Same pivot; actual translation is controlled by the engine.",
+    "file": "originais/ryuchi_advanced_completo.png",
+    "sha256": "813fbce3c49161e1529db51ac8942f7ca2f8f76d05b02c58061d29da7cdd689e",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking AI-authored rows",
+      "base": "ryuchi_advanced.png",
+      "additional": "ryuchi_advanced_adicional.png",
+      "replacedDirections": [
+        "unmasked/right",
+        "masked/up"
+      ],
+      "noMirroring": true
+    }
+  },
+  {
+    "hero": "ryuchi",
+    "state": "signature",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: RYUCHI. Black fitted cloth beanie with folded cuff and white zigzag, NO bangs or fringe; blue chevron-trimmed jacket, white shirt and red/gold tie, plum trousers, dark boots. ACTION: K musical resonance special from the existing game. Both heroes prepare, gather hands, raise arms in rhythmic musical gesture, release a powerful resonance, follow through, recover, return ready. Franco feels powerful and grounded; Ryuchi feels quick and precise. Tiny optional sparks only; silhouette must remain fully readable.",
+    "file": "originais/ryuchi_signature.png",
+    "sha256": "12657a982eab39894979e6d5391132f2ba307e60bc0d8bf8a0bd80c285589769"
+  },
+  {
+    "hero": "ryuchi",
+    "state": "hurt",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: RYUCHI. Black fitted cloth beanie with folded cuff and white zigzag, NO bangs or fringe; blue chevron-trimmed jacket, white shirt and red/gold tie, plum trousers, dark boots. ACTION: Taking damage: ready, recoil, maximum flinch, stagger, catch balance, recover, settle, ready. No blood, no broken costume, mask stays fitted.",
+    "file": "originais/ryuchi_hurt.png",
+    "sha256": "8586c4ff73a3ef4c9a9d63625fefc1a94d53695422c2ea107056dc83be5e0c60"
+  },
+  {
+    "hero": "ryuchi",
+    "state": "defeat",
+    "prompt": "Production asset for the MAIN heroes of Torii & Hutukara, not the archer/katana/percussionist/synth variants. Match approved 2D V4 sprite texture, proportions, costume, colors and face. Crisp visible square pixel clusters, dark pixel outlines, limited 16-bit JRPG shading, no blur, no smooth painting, no photoreal fabric, no 3D render look. Exactly EIGHT COLUMNS by EIGHT ROWS of equal invisible square cells, no text, no captions, no grid. Row order: rows 1–4 WITHOUT mask, facing front/down, left, back/up, right; rows 5–8 WITH mask facing front/down, left, back/up, right. Masked rows use the SAME body poses and proportions as unmasked rows. Each cell contains exactly one complete pose, nothing crossing into another cell; ample padding, fixed ground baseline and horizontal pivot, consistent body scale. In masked rows wear the real ivory stitched cloth HELMET with radial long spikes, central stitched seam, round black goggles, and lower opening revealing actual mouth and chin skin. Mask covers the forehead and top of hair/beanie, remains attached through every pose, no floating mask, no black void mouth. Same canonical mask geometry as reference. Eight chronologically ordered poses across each row show anticipation → action → follow-through → recovery. For all actions except defeat, final pose returns to first ready pose for a complete ready-to-ready sequence. True PNG transparent alpha background: no floor, no cast shadow, no colored background and no baked checkerboard. Do not invent weapons or new costume pieces; use empty-hand musical gestures as in the existing game; game handles separate music effects. Requested 2048x2048 square, generous margins. HERO: RYUCHI. Black fitted cloth beanie with folded cuff and white zigzag, NO bangs or fringe; blue chevron-trimmed jacket, white shirt and red/gold tie, plum trousers, dark boots. ACTION: One-shot defeat: weakened stance, stagger, lower knee, kneel, collapse, lie on ground, rest, rest. Complete fall with final pose held. Do not resurrect or return upright; never treat this as a locomotion loop.",
+    "file": "originais/ryuchi_defeat_completo.png",
+    "sha256": "58175fd5d4cf36be50ca14f151dc007a2b1c623d818c74bc86893a07a82c0936",
+    "sourceRowEdges": [
+      0,
+      256,
+      512,
+      768,
+      1024,
+      1280,
+      1536,
+      1792,
+      2048
+    ],
+    "assembly": {
+      "type": "repacking AI-authored rows",
+      "base": "ryuchi_defeat.png",
+      "additional": "ryuchi_defeat_adicional.png",
+      "insertedDirection": "masked/up",
+      "noMirroring": true
+    }
+  }
+]

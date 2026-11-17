@@ -1,0 +1,263 @@
+[
+  {
+    "file": "Belga mazza colli.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 2183957,
+    "size": [
+      1536,
+      1024
+    ],
+    "alpha": true,
+    "alphaRange": [
+      0,
+      254
+    ],
+    "sha256": "395cbb343428dc84a3bfac740c4e27c27ee2023bffd88f3f9ed1b626a335829c"
+  },
+  {
+    "file": "Folha de Sprites do Ryuchi Mascarado.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 2442081,
+    "size": [
+      2172,
+      724
+    ],
+    "alpha": false,
+    "alphaRange": null,
+    "sha256": "c912aef06a8f8d4b1c7628330702dfd9d200370326530a72bef6e8be78b2ed64"
+  },
+  {
+    "file": "Folha de Sprites do Ryuchi em Ação.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 2070308,
+    "size": [
+      2172,
+      724
+    ],
+    "alpha": true,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "5ac3bc971e9b274287b22e530039b7bc85470ff3c9b21d77387f1cb10553b5a9"
+  },
+  {
+    "file": "Folha de Sprites do Ryuchi em Ação2.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 2251779,
+    "size": [
+      2172,
+      724
+    ],
+    "alpha": false,
+    "alphaRange": null,
+    "sha256": "33be19f0fc6101c692bd75082cc816edb72e57aa6b09780e86ee456c90e68647"
+  },
+  {
+    "file": "Folha de sprites do Ryuchi em pixel art.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 1593861,
+    "size": [
+      1536,
+      1024
+    ],
+    "alpha": true,
+    "alphaRange": [
+      0,
+      254
+    ],
+    "sha256": "07f04521e9fd2c05c5434af0966caadd2df77260804ffc301388dd14ef0680c7"
+  },
+  {
+    "file": "Imagem do ChatGPT 14 de nov. de 2026, 06_02_23.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 164733,
+    "size": [
+      512,
+      320
+    ],
+    "alpha": true,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "f85016cdfdf5244a362b848984968ee7b4a4ee9fd2044bc74d7e0cf5f45d2754"
+  },
+  {
+    "file": "Imagem do ChatGPT 14 de nov. de 2026, 06_02_27.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 173788,
+    "size": [
+      512,
+      320
+    ],
+    "alpha": true,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "aff047e48094e5d0df64eb256eb74f5c3eb9bc21e154be8e32091805ad9402ec"
+  },
+  {
+    "file": "Imagem do ChatGPT 14 de nov. de 2026, 06_36_40.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 1107087,
+    "size": [
+      1261,
+      1247
+    ],
+    "alpha": true,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "c598ca2839d99442a5cd24322756699883079955db8ffe78a9e087596455daf0"
+  },
+  {
+    "file": "Imagem do ChatGPT 14 de nov. de 2026, 06_36_46.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 1811797,
+    "size": [
+      1774,
+      887
+    ],
+    "alpha": true,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "41eeed5860928cd8aef6f6e22906b08a811efec0640c0e3cc4df609776da6e44"
+  },
+  {
+    "file": "Sprite em Pixel Art_ Guarda de Ryuchi.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 1564070,
+    "size": [
+      2172,
+      724
+    ],
+    "alpha": false,
+    "alphaRange": null,
+    "sha256": "1f52df7acad8a1665db3b4518e8ab4602d8e83cc298d0855714b858baa5b33c1"
+  },
+  {
+    "file": "Turnaround de Ryuchi em pixel art retro.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 1548919,
+    "size": [
+      1536,
+      1024
+    ],
+    "alpha": true,
+    "alphaRange": [
+      0,
+      254
+    ],
+    "sha256": "994a665ce8d0ee4abef0b51be714b0e0f71d24a42d65fd8c3b73ddec820b67b5"
+  },
+  {
+    "file": "belga dney colli asset.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 2211737,
+    "size": [
+      2048,
+      768
+    ],
+    "alpha": true,
+    "alphaRange": [
+      0,
+      254
+    ],
+    "sha256": "f608d391cadebc9adcd154b12d96718bdbf8c34eeec71f3befb0e96554288da3"
+  },
+  {
+    "file": "dney.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 1214818,
+    "size": [
+      1448,
+      1086
+    ],
+    "alpha": true,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "e837d2a6ef5eeaad70c784d128daf5e90bec4b27aa8346ddcea2d0b9d9223bab"
+  },
+  {
+    "file": "download (1).jpeg",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 79732,
+    "size": [
+      1920,
+      240
+    ],
+    "alpha": false,
+    "alphaRange": null,
+    "sha256": "0474e05b2a1f745c5d5f9444589bffa563fc7ac4efa12a6a552e63b25248f3ba"
+  },
+  {
+    "file": "download.jpeg",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 81970,
+    "size": [
+      1920,
+      240
+    ],
+    "alpha": false,
+    "alphaRange": null,
+    "sha256": "c26b5cdfd21eafa7859f17929b5b6099e27e5c3457a3cb56b91ae0e2cf5694fc"
+  },
+  {
+    "file": "download.png",
+    "sourceFolder": "Torii & Hutukara",
+    "bytes": 354722,
+    "size": [
+      888,
+      444
+    ],
+    "alpha": true,
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sha256": "ca6d7f1b2f4eda1374e4de9937a364a6229bca6f3e1bf6b51ec94b489398305a"
+  },
+  {
+    "file": "Franco the sir chibi 3d.glb",
+    "sourceFolder": "Sprites 3d",
+    "bytes": 2822592,
+    "meshes": 1,
+    "skins": 0,
+    "animations": 0,
+    "sha256": "01303b17711637bc74c55c43296734dbffa77ce555abedeadc83ee5d09133d73"
+  },
+  {
+    "file": "Ryuchi Percussionista.glb",
+    "sourceFolder": "Sprites 3d",
+    "bytes": 8903772,
+    "meshes": 12,
+    "skins": 0,
+    "animations": 0,
+    "sha256": "6b7c1cf197b7f155850f4572731593fd21feb2a0ddcdd1bf9bbdd22dbbf80a45"
+  },
+  {
+    "file": "franco sintetizador.glb",
+    "sourceFolder": "Sprites 3d",
+    "bytes": 8123324,
+    "meshes": 7,
+    "skins": 0,
+    "animations": 0,
+    "sha256": "a7e58aae1240c14c18d6afccce55f593511361761d3d50cf85df3d28646a1bf6"
+  },
+  {
+    "file": "ryuchi 3d 16bit.glb",
+    "sourceFolder": "Sprites 3d",
+    "bytes": 60158240,
+    "meshes": 1,
+    "skins": 0,
+    "animations": 0,
+    "sha256": "0bde87a5128e7ba3bd48724e2844d3c6372878294eb844a6e655b8736b2fd983"
+  }
+]

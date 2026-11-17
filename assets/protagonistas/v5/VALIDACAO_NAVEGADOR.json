@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "combinations": 192,
+  "pageErrors": [],
+  "pause": true,
+  "frameStep": true,
+  "mobilePreview": true,
+  "scope": "Asset viewer only; does not validate mobile gameplay."
+}

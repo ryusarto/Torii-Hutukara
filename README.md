@@ -160,3 +160,7 @@ Torii & Hutukara é gratuito, sem fins comerciais e de código aberto.
 - **Protegidos (não podem ser alterados):** Ryuchi e Franco, The Sir em todas as versões, as máscaras Torii, todas as músicas e as pessoas reais que participaram do álbum. Licença CC BY-NC-ND 4.0.
 
 Detalhes e lista de arquivos em [LICENSE-ASSETS.md](LICENSE-ASSETS.md).
+
+## Arte dos protagonistas V5
+
+[Atlas, retratos e prévia offline](assets/protagonistas/v5/) de Franco e Ryuchi principais. [Escopo, produção e exportação dos frames](design/sprites-principais-v5/LEIA-ME.md). A aplicação desses novos sprites à build publicada ainda está pendente.

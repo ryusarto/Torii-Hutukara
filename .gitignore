@@ -10,3 +10,12 @@ design/sprites-principais-v4/TORII_SPRITES_PRINCIPAIS_V4.zip
 
 # Gerado pelo build (ruby game/source/chapter-03/build_alpha.rb); não versionar.
 game/builds/
+
+# Backups e exportações intermediárias de arte.
+design/sprites-principais-v5/originais/
+design/sprites-principais-v5/retratos/
+design/sprites-principais-v5/modelos-referencia/
+design/sprites-principais-v5/pacote/
+design/sprites-principais-v5/*.zip
+production/__pycache__/
+production/referencias-protagonistas/

@@ -1,0 +1,15 @@
+[
+  {
+    "hero": "ryuchi",
+    "prompt": "Production 16-bit JRPG dialogue portrait atlas for RYUCHI, the MAIN hero of Torii & Hutukara. Match the face in approved face board and costume colors, NOT the alternate heroes. Exactly 4 columns by 4 rows of equal square cells, NO labels or grid, truly transparent empty background. Head and shoulders bust at identical angle/scale/pivot in all cells, detailed visible square pixel clusters and restrained 16-bit shading, no photoreal texture, no blur. First TWO rows eight expressions WITHOUT MASK: neutral, speaking, smiling, surprised, determined, angry, hurt, sad. Last TWO rows SAME eight expressions WITH MASK: the ivory cloth spiked helmet covers forehead and top of hair/beanie, with visible central stitched seam, black circular goggles. Lower mask opening exposes the natural mouth and chin of this hero. Mask must fit face exactly, no floating mask, no empty black mouth hole. Maintain helmet geometry across expressions, expression communicated through exposed mouth and posture. Black fitted fabric beanie with cuff, no bangs; blue jacket white shirt red/gold tie, warm skin, subtle moustache and chin stubble. Keep all spikes within each cell with safe margins. These are detailed PIXEL ART portraits consistent with the game sprites.",
+    "file": "../sprites-principais-v4/retratos/ryuchi_expressoes.png",
+    "sha256": "d728d891a65b4e0bf41107ade7afab9832534466641667efba4d14dc3580309a"
+  },
+  {
+    "hero": "franco",
+    "state": "portrait",
+    "prompt": "Create a detailed crisp 16-bit pixel art DIALOGUE PORTRAIT atlas of MAIN FRANCO in Torii & Hutukara, same approved natural real face and red/orange gold-pattern jacket. Brown skin, dark curly voluminous hair, full lips, strong eyebrows, subtle moustache and chin beard. Match the face identity of the approved reference, avoid generic anime face. Exactly 4 columns x4 rows of equal square cells. First TWO rows: eight expressions UNMASKED: neutral, speaking, happy, surprised, determined, angry, hurt, sad. Last TWO rows SAME expressions MASKED. Mask is real ivory stitched cloth helmet covering forehead AND top of curly hair, thirteen radial spikes, black round goggles, central seam. Lower opening reveals mouth, natural cheeks/chin and beard, never empty black hole. Head-and-shoulders same scale, same direction and pivot, safe padding around every spike. Pixel art only, visible square pixel clusters, no blur, no realistic texture or 3D rendering. True PNG transparent alpha background, no labels, no grid, no background.",
+    "file": "retratos/franco_expressoes.png",
+    "sha256": "8f165861224c06901a4da22f4d0e878be9b2bf76f61efce391b4777f4d9ddba6"
+  }
+]

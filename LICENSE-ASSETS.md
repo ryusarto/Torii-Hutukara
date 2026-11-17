@@ -31,6 +31,8 @@ assets/prebeta/originals/collaborators/        participantes do álbum
 assets/prebeta/runtime/collaborators/
 assets/prebeta/source/                         fotos de referência e máscara física
 web/album/assets/mask-*.webp                   máscaras
+assets/protagonistas/v5/atlas/                 animações dos protagonistas com/sem máscara
+assets/protagonistas/v5/retratos/              retratos dos protagonistas com/sem máscara
 ```
 
 **Builds HTML** (gerados em `game/builds/`, `game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html`) e o site publicado misturam código aberto com materiais protegidos embutidos. O código dentro deles segue a MIT; as músicas, as máscaras e a arte de Ryuchi e Franco embutidas continuam protegidas.

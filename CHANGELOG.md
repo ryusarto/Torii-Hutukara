@@ -4,6 +4,13 @@ Todas as alterações relevantes do projeto são registradas aqui.
 
 ## [Não lançado]
 
+### Arte dos protagonistas V5 · 17/11/2026
+
+- 24 atlas, 32 retratos e 192 sequências de Franco e Ryuchi principais, com e sem máscara, nas quatro direções. Inclui locomoção, rolamento, combo, técnicas, especial, dano e derrota.
+- Dimensões, transparência, margens, correspondência entre atlas e frames e fechamento verificados. Prévia offline com pausa e avanço de quadros.
+- GitHub mantém os atlas e as ferramentas; Dropbox guarda originais, 1.728 PNGs individuais, ZIP e prévias. Exportador reconstrói os frames a partir dos atlas, evitando duplicação no Git.
+- A integração desses sprites à build jogável é uma etapa separada.
+
 ## [Beta 1.0] — 2026-11-14
 
 - Primeira Beta. Versão definida em `game/VERSION.json` (o número deixa de ficar espalhado pelos scripts); a chave de save não muda.
