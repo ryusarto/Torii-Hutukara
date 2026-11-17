@@ -1,0 +1,84 @@
+{
+  "tool": "image_gen.imagegen (built-in)",
+  "referenceBoss": "design/enemies-v1/referencias-originais/VIAJANTE_REFERENCIA_AUTOR.png",
+  "bossPrompt": "Use case: identity-preserve. Asset type: renewed FIRST BOSS sprite sheet for Torii & Hutukara. Image1 is the USER'S AUTHORITATIVE visual target: the CENTRAL boss figure only, not the small cropped hero at left, not ruins, HUD or healthbar. Image2 is ONLY a supporting reference for the modern detailed chibi pixel-art finish and Archer-style clothing; do not copy its unmasked face, cap, bow, quiver or belt mask. Preserve image1's CORPOREAL masked creature silhouette: solid arms and legs, red-orange patterned jacket with gold motifs, dark inner shirt with small pale pendant, tan trousers, dark boots. NOT a ghost, shadow mass, floating ribbons, hooded mage, robe or monster with smoke. The huge ivory mask is the main feature: radiating fan/crown of pointed ivory prongs, central vertical stitched ridge, broad dark opaque eye panels with two small black eye apertures, long lower ivory side pieces and an opaque near-black covered lower face/neck. Keep the graphic mask SHAPE from image1, refined with pixel details. Face must stay COMPLETELY covered: no skin, mouth, chin, beard, nose, human eyes or recognizable face visible in any pose. Mask extends over the entire head front; no recognizable haircut peeking from it. Gloved hands. No mask on belt. Do not add cultural or tribal motifs beyond the precise existing jacket and mask from image1. Four full-body poses of the SAME boss in a precise equal-cell 2x2 layout: top-left idle broad stance, top-right tension/anticipation with hands gathering close to body, bottom-left forceful resonance strike leaning forward with an open gloved palm (no drawn effect/projectile), bottom-right recoiling from impact while the complete mask stays firmly in place. Same body proportions, mask, outfit colors and scale across all four. Clean crisp outlined chibi pixel art readable at about100 screen pixels, warm ochre/red versus ivory/dark mask. TRUE transparent background, ample empty margins at least12percent on every side of each cell, no overlap or any part crossing center lines, no floor shadows, no glow halos, no text or borders. Modernize the polish while faithfully preserving the figure in image1. No human facial identity leaks before the reveal.",
+  "rustPass": [
+    {
+      "id": "c3_echo-rust",
+      "prompt": "Use case: identity-preserve. EDIT the existing four-pose enemy sheet for Torii&Hutukara. USER ART DIRECTION: dusty post-apocalyptic cyberpunk wasteland, rust, salvaged machinery and worn textiles inspired by Mad Max atmosphere, WITHOUT copying franchise characters/vehicles/logos. Preserve this exact enemy's established design, silhouette, props, mask, body, FOUR poses and action roles. Change only material treatment, wear and palette as specified. Keep the small cracked ivory single face plate and simple spectral ribbon silhouette. Reinterpret ribbons as torn dusty dark canvas and frayed cables with oxidized copper fragments, weathered rusty edges, nearly no neon. It is still a small inhuman distortion echo, not a human scavenger. Palette: burnt orange rust #A34E27, dark iron #393531, dusty ochre #BC9262, bone ivory #D4C5A2; only minimal cyan/amber accents for readable energy. Paint visible corrosion and dust ON the creature; NO background dust clouds, ground plane, cast shadow or glow halos. Crisp detailed chibi pixel-art finish. Four complete sprites centered in a strict equal-cell2x2 sheet, same size/ground projection, at least12percent transparent padding per cell and broad transparent gutters; no part crosses a center line. TRUE transparent background. No scenery, labels or gridlines. Keep recognizable original boss/enemy identity; this is a worn-world material pass, not a redesign into a different creature."
+    },
+    {
+      "id": "c3_drone-rust",
+      "prompt": "Use case: identity-preserve. EDIT the existing four-pose enemy sheet for Torii&Hutukara. USER ART DIRECTION: dusty post-apocalyptic cyberpunk wasteland, rust, salvaged machinery and worn textiles inspired by Mad Max atmosphere, WITHOUT copying franchise characters/vehicles/logos. Preserve this exact enemy's established design, silhouette, props, mask, body, FOUR poses and action roles. Change only material treatment, wear and palette as specified. Keep the rounded floating chassis, big circular cyan eye/lens, two antennas and side flaps. Chassis is patched rust-orange and burnt steel plates, sand-encrusted seams, salvaged screws and worn cable loops. Cyan is confined to the lens; side panel amber and dim. No guns or new weapons. Palette: burnt orange rust #A34E27, dark iron #393531, dusty ochre #BC9262, bone ivory #D4C5A2; only minimal cyan/amber accents for readable energy. Paint visible corrosion and dust ON the creature; NO background dust clouds, ground plane, cast shadow or glow halos. Crisp detailed chibi pixel-art finish. Four complete sprites centered in a strict equal-cell2x2 sheet, same size/ground projection, at least12percent transparent padding per cell and broad transparent gutters; no part crosses a center line. TRUE transparent background. No scenery, labels or gridlines. Keep recognizable original boss/enemy identity; this is a worn-world material pass, not a redesign into a different creature."
+    },
+    {
+      "id": "c3_metronome-rust",
+      "prompt": "Use case: identity-preserve. EDIT the existing four-pose enemy sheet for Torii&Hutukara. USER ART DIRECTION: dusty post-apocalyptic cyberpunk wasteland, rust, salvaged machinery and worn textiles inspired by Mad Max atmosphere, WITHOUT copying franchise characters/vehicles/logos. Preserve this exact enemy's established design, silhouette, props, mask, body, FOUR poses and action roles. Change only material treatment, wear and palette as specified. Keep the same heavy robot head/visor, very large feet, same rectangular two-loudspeaker shield on SAME arm, same long other arm in every pose. Replace shiny purple armor with weathered rust-orange plates and matte gunmetal, flaking paint, dust-packed seams, dark speaker cones and frayed canvas straps. Only thin visor and tiny indicators retain a restrained dim cyan or amber glow. No new weapons or changing shield side. Palette: burnt orange rust #A34E27, dark iron #393531, dusty ochre #BC9262, bone ivory #D4C5A2; only minimal cyan/amber accents for readable energy. Paint visible corrosion and dust ON the creature; NO background dust clouds, ground plane, cast shadow or glow halos. Crisp detailed chibi pixel-art finish. Four complete sprites centered in a strict equal-cell2x2 sheet, same size/ground projection, at least12percent transparent padding per cell and broad transparent gutters; no part crosses a center line. TRUE transparent background. No scenery, labels or gridlines. Keep recognizable original boss/enemy identity; this is a worn-world material pass, not a redesign into a different creature."
+    },
+    {
+      "id": "c3_silence-rust",
+      "prompt": "Use case: identity-preserve. EDIT the existing four-pose enemy sheet for Torii&Hutukara. USER ART DIRECTION: dusty post-apocalyptic cyberpunk wasteland, rust, salvaged machinery and worn textiles inspired by Mad Max atmosphere, WITHOUT copying franchise characters/vehicles/logos. Preserve this exact enemy's established design, silhouette, props, mask, body, FOUR poses and action roles. Change only material treatment, wear and palette as specified. Keep BOTH split ivory face masks, black eye voids and same tall asymmetric intertwined ribbon/void silhouette: not a new humanoid robot. Face plates are chipped sand-stained ivory with rusty brackets; ribbons become dark ragged canvas, copper oxidized strips and severed electrical cabling around a deep black void. Fragment signals become small dim amber/cyan broken circuit bits. Rust and soot dominate, no large neon-magenta radiance. Palette: burnt orange rust #A34E27, dark iron #393531, dusty ochre #BC9262, bone ivory #D4C5A2; only minimal cyan/amber accents for readable energy. Paint visible corrosion and dust ON the creature; NO background dust clouds, ground plane, cast shadow or glow halos. Crisp detailed chibi pixel-art finish. Four complete sprites centered in a strict equal-cell2x2 sheet, same size/ground projection, at least12percent transparent padding per cell and broad transparent gutters; no part crosses a center line. TRUE transparent background. No scenery, labels or gridlines. Keep recognizable original boss/enemy identity; this is a worn-world material pass, not a redesign into a different creature."
+    },
+    {
+      "id": "compasso_c3",
+      "prompt": "Use case: identity-preserve. EDIT the existing four-pose enemy sheet for Torii&Hutukara. USER ART DIRECTION: dusty post-apocalyptic cyberpunk wasteland, rust, salvaged machinery and worn textiles inspired by Mad Max atmosphere, WITHOUT copying franchise characters/vehicles/logos. Preserve this exact enemy's established design, silhouette, props, mask, body, FOUR poses and action roles. Change only material treatment, wear and palette as specified. Keep the small trapezoid clock/metronome identity, exposed pendulum, same proportions and four poses. Make a chapter3 salvage variant: rusty orange steel casing, aged tarnished brass pendulum, dust-coated ivory scale, dark gritty purple/brown base, missing paint and small repair bolts. Not a new enemy or new weapon. Palette: burnt orange rust #A34E27, dark iron #393531, dusty ochre #BC9262, bone ivory #D4C5A2; only minimal cyan/amber accents for readable energy. Paint visible corrosion and dust ON the creature; NO background dust clouds, ground plane, cast shadow or glow halos. Crisp detailed chibi pixel-art finish. Four complete sprites centered in a strict equal-cell2x2 sheet, same size/ground projection, at least12percent transparent padding per cell and broad transparent gutters; no part crosses a center line. TRUE transparent background. No scenery, labels or gridlines. Keep recognizable original boss/enemy identity; this is a worn-world material pass, not a redesign into a different creature."
+    },
+    {
+      "id": "abafador_c3",
+      "prompt": "Use case: identity-preserve. EDIT the existing four-pose enemy sheet for Torii&Hutukara. USER ART DIRECTION: dusty post-apocalyptic cyberpunk wasteland, rust, salvaged machinery and worn textiles inspired by Mad Max atmosphere, WITHOUT copying franchise characters/vehicles/logos. Preserve this exact enemy's established design, silhouette, props, mask, body, FOUR poses and action roles. Change only material treatment, wear and palette as specified. Keep the low wide body, two large padded circular side discs and sealed central shell, same four poses. Make a chapter3 salvage variant: heavily rusted iron armor, dusty beige canvas sound insulation, dark rubber discs, copper wire repairs and sand in the joints. Tiny center signal only, no strong neon. Palette: burnt orange rust #A34E27, dark iron #393531, dusty ochre #BC9262, bone ivory #D4C5A2; only minimal cyan/amber accents for readable energy. Paint visible corrosion and dust ON the creature; NO background dust clouds, ground plane, cast shadow or glow halos. Crisp detailed chibi pixel-art finish. Four complete sprites centered in a strict equal-cell2x2 sheet, same size/ground projection, at least12percent transparent padding per cell and broad transparent gutters; no part crosses a center line. TRUE transparent background. No scenery, labels or gridlines. Keep recognizable original boss/enemy identity; this is a worn-world material pass, not a redesign into a different creature."
+    }
+  ],
+  "basePass": [
+    [
+      "hush",
+      "Nó do Silêncio",
+      "Compact round tightly knotted bundle of violet shadow and torn fabric, small ivory face with vertical microphone grille, two short projecting shadow tips. Idle tightly curled, anticipation compresses its core, strike opens the two short tips, hurt twists the knot. Strong round silhouette, NOT the tall hooded ghost."
+    ],
+    [
+      "whisper",
+      "Sombra Disforme",
+      "Preserve the ghost at bottom row third column of reference: narrow elongated tattered violet hood, ivory vertical microphone-grille face, long pale spectral hands, floating tapering ragged tail. Idle hovering, anticipation pulls hands inward, strike extends spectral hands, hurt arches its body. No human skin: its hands are spectral ivory."
+    ],
+    [
+      "compasso",
+      "Metrônomo Menor",
+      "Small animated mechanical musical metronome, trapezoid ivory and aged amber/brass body, one large exposed pendulum clearly visible, dark purple base, no human face. Idle pendulum slightly offset, anticipation pendulum leans far to side, strike pendulum snaps centrally with body open, hurt pendulum tilted askew. NO embedded motion streaks or aura."
+    ],
+    [
+      "espelho",
+      "Eco Espelho",
+      "Narrow supernatural ghost made of large cyan reflective mirror plates, cracked oval mirror as face, two large side shards, hollow dark center, purple small joins. Idle symmetrical, anticipation draws shards inward, strike opens both shards in front, hurt breaks symmetry. No protagonist reflection and no human face."
+    ],
+    [
+      "abafador",
+      "Abafador",
+      "Low wide heavy inhuman purple sound-dampening creature, armored graphite-violet shell, two huge padded circular earmuff discs at its sides, sealed small core, squat base, NO human face. Idle wide and closed, anticipation folds side discs shut around core, strike thrusts discs forward, hurt exposes narrow glowing crack. Clearly wide silhouette not a round fabric knot."
+    ],
+    [
+      "c3_echo",
+      "Eco de Distorção",
+      "Small spectral creature of magenta/cyan twisted cassette ribbons, one cracked ivory face plate (NOT radial Torii mask), few large floating fragments, compact floating tail. Idle loosely curled, anticipation coils ribbons tightly, strike opens ribbon limbs, hurt displaces mask and ribbons. Smaller simpler relative of final Silence boss."
+    ],
+    [
+      "c3_drone",
+      "Drone de Retorno",
+      "Preserve rounded floating robot lower-left of reference enemy roster: weathered graphite and brass shell, one big circular cyan lens, magenta side panel, two antennae, small dangling mechanical tabs. Idle hovering, anticipation closes side flaps, strike opens side emitters WITHOUT projectiles, hurt tilts shell and lens. No legs, no guns, no new weapon."
+    ],
+    [
+      "voice_boss",
+      "Arauto da Estática",
+      "Preserve spectral radio priest at bottom-right of reference 2: burgundy and aged gold vestments, cracked ivory central mask with dark eye sockets, two old radios around shoulders/head, orbital antenna crown, glowing radio emitter chest, trailing cassette ribbons, floating ragged hem. Idle majestic, anticipation lights radio emitters and gathers sleeves, strike spreads sleeves/antennae, hurt contracts entire silhouette. Not a human giant."
+    ],
+    [
+      "c3_metronome",
+      "O Metrônomo",
+      "Preserve heavy robot bottom center of reference1: bulky weathered graphite/violet armor, narrow horizontal magenta visor, huge rectangular shield bearing two round magenta loudspeakers on one arm, long other mechanical arm, large wide feet. Same shield arm in every pose. Idle braced, anticipation locks shield forward, strike opens arm and speaker emitters, hurt leans torso retaining shield. No new weapons."
+    ],
+    [
+      "c3_silence",
+      "O Silêncio",
+      "Preserve final spectral monster bottom-right of reference1: tall open asymmetric body of shadow ribbons violet/magenta, split ivory broken face-mask with deep black voids, floating fragmented cyan signal panels. NOT the radial Torii mask, no human skin/hair/boots/clothing. Idle floating, anticipation contracts ribbons inward, strike opens hollow center and ribbons wide, hurt loses cohesion. Majestic and wider/more complex than masked traveler."
+    ]
+  ],
+  "notes": "Approved corporeal masked boss reference supersedes discarded mage/shadow studies. C3 rust passes supersede neon studies. Grid packing/cropping is deterministic; no procedural painting of sprites."
+}

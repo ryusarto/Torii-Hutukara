@@ -36,6 +36,7 @@ jobs:
         run: |
           node qa/npc_recurrence.cjs
           node qa/protagonist_state.cjs
+          node qa/enemy_art_v1.cjs
           node qa/input_regression.cjs
           node qa/gameplay_regression.cjs
       - name: Verify web export on PC, phone and tablet
@@ -54,6 +55,7 @@ jobs:
           name: gameplay-regression
           path: |
             qa/beta-*/
+            qa/enemies-v1/
             qa/playtest/SITE_TEST_RESULTS.json
             qa/screenshots-local/pages/
           retention-days: 30

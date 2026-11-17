@@ -187,7 +187,7 @@ drawCreature=function(x,y,kind,entity,...rest){
     const r=kind==='abafador'?MUTE_R*T:kind==='compasso'?2.6*T*(entity&&entity.wind>0?1:.55):1.2*T;
     ctx.beginPath();ctx.ellipse(x,y+6,r,r*.55,0,0,Math.PI*2);ctx.fill();ctx.restore();
   }catch{}
-  drawBeforePatterns.call(this,x,y,t.base,entity,...rest);
+  drawBeforePatterns.call(this,x,y,(typeof EnemyArtV1!=='undefined'&&EnemyArtV1.supports(kind))?kind:t.base,entity,...rest);
   try{ctx.save();ctx.strokeStyle=t.color;ctx.lineWidth=2;ctx.globalAlpha=.85;ctx.beginPath();ctx.arc(x,y-34,6+(entity&&entity.wind>0?3:0),0,Math.PI*2);ctx.stroke();ctx.restore()}catch{}
 };
 // Viajante (Cap. 1) levemente mais difícil, a pedido do autor depois do playtest:

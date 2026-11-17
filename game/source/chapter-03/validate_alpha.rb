@@ -173,6 +173,20 @@ check.call('nenhum placeholder', built.scan(/__C3_[A-Z0-9_]+__/).empty?)
 check.call('um init final', built.scan(/\binit\(\);/).length == 1)
 check.call('um bloco script', built.scan(/<script\b/).length == 1 && built.scan(%r{</script>}).length == 1)
 
+enemy_root = File.join(repo_root, 'assets', 'enemies', 'v1')
+enemy_manifest = JSON.parse(File.read(File.join(enemy_root, 'manifest.json')))
+enemy_keys = %w[hush whisper compasso espelho abafador compasso_c3 abafador_c3 c3_echo c3_drone boss voice_boss c3_metronome c3_silence]
+check.call('13 pranchas para 11 inimigos/chefes e duas variantes C3', enemy_manifest.fetch('enemies').keys.sort == enemy_keys.sort)
+check.call('contrato de quatro poses discretas e pivô no chão', enemy_manifest['cell'] == 256 && enemy_manifest['grid'] == [2, 2] && enemy_manifest['pivot'] == [128, 224] && enemy_manifest['states'] == %w[idle prepare strike hurt])
+check.call('13 atlas de inimigos 512x512 com alpha', enemy_manifest.fetch('enemies').values.all? do |entry|
+  path = File.join(enemy_root, entry.fetch('atlas'))
+  File.file?(path) && File.binread(path, 24)[16, 8].unpack('N2') == [512, 512] && [4, 6].include?(File.binread(path, 26).getbyte(25))
+end)
+check.call('C3 usa as fontes aprovadas de ferrugem', %w[c3_echo c3_drone c3_metronome c3_silence].all? { |key| enemy_manifest.fetch('enemies').fetch(key).fetch('source').end_with?('-rust.png') })
+check.call('Viajante tem rota de chefe própria, sem ator alt ampliado', built.include?("['boss','voice_boss','c3_metronome','c3_silence'].includes(bossActor.id)"))
+check.call('sprites de inimigos incluídos sem marcadores pendentes', built.include?('const EnemyArtV1 =') && built.scan(/__ENEMY_ART_[A-Z_]+__/).empty?)
+check.call('chefes C3 não são redesenhados após o cenário', !source.include?("if(bossActor&&['c3_metronome','c3_silence'].includes(bossActor.id))drawCreature"))
+
 expected_base_hash = File.read(File.join(repo_root, 'game', 'source', 'base', 'SHA256_TRILHAS_1_1_2.txt')).split.first
 check.call('base 1.1.2 preservada', Digest::SHA256.file(base).hexdigest == expected_base_hash)
 

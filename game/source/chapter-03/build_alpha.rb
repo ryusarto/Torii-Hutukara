@@ -19,6 +19,8 @@ HEALING_JS = File.join(ROOT, 'healing.js')
 COMBAT_JS = File.join(ROOT, 'combat_patterns.js')
 FLOW_JS = File.join(ROOT, 'flow_fixes.js')
 ACCESS_JS = File.join(ROOT, 'accessibility.js')
+ENEMY_ART_JS = File.join(ROOT, 'enemy_art_v1.js')
+ENEMY_ART_ASSETS = File.join(REPO_ROOT, 'assets', 'enemies', 'v1')
 PROTAGONIST_JS = File.join(ROOT, 'protagonist_art_v5.js')
 PROTAGONIST_ASSETS = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v5')
 NINJA_ARCHER_JS = File.join(ROOT, 'ninja_archer_art_v1.js')
@@ -170,7 +172,7 @@ html.gsub!(combat_old, combat_new)
 
 replace_once!(html,
   "if(bossActor.id==='voice_boss'){drawCreature(bx,by,'boss',bossActor);}else{",
-  "if(['voice_boss','c3_metronome','c3_silence'].includes(bossActor.id)){drawCreature(bx,by,bossActor.id==='voice_boss'?'boss':bossActor.type,bossActor);}else{",
+  "if(['boss','voice_boss','c3_metronome','c3_silence'].includes(bossActor.id)){drawCreature(bx,by,bossActor.type||'boss',bossActor);}else{",
   'render dos chefes C3')
 
 dialogue_document = JSON.parse(File.read(DIALOGUES, encoding: 'UTF-8'))
@@ -259,7 +261,13 @@ end
 protagonist_runtime = File.read(PROTAGONIST_JS, encoding: 'UTF-8')
 replace_once!(protagonist_runtime, '__PROTAGONIST_ASSETS__', JSON.generate(protagonist_uris), 'sprites protagonistas V5')
 replace_once!(protagonist_runtime, '__PROTAGONIST_MANIFEST__', JSON.generate(protagonist_manifest), 'manifesto protagonistas V5')
-html.insert(position, "\n\n#{runtime}\n\n#{input_runtime}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(ACCESS_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n\n#{ninja_archer_runtime}\n\n#{protagonist_runtime}\n\n#{cenarios_runtime}\n")
+enemy_art_manifest = JSON.parse(File.read(File.join(ENEMY_ART_ASSETS, 'manifest.json')))
+enemy_art_files = enemy_art_manifest.fetch('enemies').values.map { |entry| entry.fetch('atlas') }.uniq
+enemy_art_uris = enemy_art_manifest.fetch('enemies').to_h { |key, entry| [key, "data:image/png;base64,#{encode(File.join(ENEMY_ART_ASSETS, entry.fetch('atlas')))}"] }
+enemy_art_runtime = File.read(ENEMY_ART_JS, encoding: 'UTF-8')
+replace_once!(enemy_art_runtime, '__ENEMY_ART_ASSETS__', JSON.generate(enemy_art_uris), 'sprites de inimigos')
+replace_once!(enemy_art_runtime, '__ENEMY_ART_MANIFEST__', JSON.generate(enemy_art_manifest), 'manifesto de inimigos')
+html.insert(position, "\n\n#{runtime}\n\n#{input_runtime}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(ACCESS_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n\n#{ninja_archer_runtime}\n\n#{protagonist_runtime}\n\n#{cenarios_runtime}\n\n#{enemy_art_runtime}\n")
 html.gsub!('ALPHA 1.2.0', VERSION.fetch('rotulo'))
 html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
 
@@ -269,7 +277,7 @@ html.gsub!("yy=bossActor?.id==='voice_boss'?", "yy=!C3.coopActive()&&bossActor?.
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
-sources = [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
+sources = [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_art_files.map { |relative| File.join(ENEMY_ART_ASSETS, relative) } + [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
 sources += [CENARIOS_JS, File.join(CENARIOS_ASSETS, 'manifest.json')] + cenarios_files.map { |relative| File.join(CENARIOS_ASSETS, relative) }
 manifest = {
   game: 'TORII & HUTUKARA',
