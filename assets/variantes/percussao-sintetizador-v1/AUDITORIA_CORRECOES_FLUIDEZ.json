@@ -1,0 +1,3241 @@
+{
+  "version": 1,
+  "date": "2026-11-17",
+  "baseCommit": "fa399a2d98297b759444b243b7b2cbeacaddd1e3",
+  "method": "Built-in image_gen head repair; scoped native copy and frozen transform overlay into the original atlas.",
+  "outsideHashMethod": "RGBA8 decoded, row-major; zero four channels in union of rects; SHA-256 of remaining bytes.",
+  "counts": {
+    "files": 18,
+    "sources": 9,
+    "atlases": 9,
+    "reviewedPoses": 152,
+    "correctedPoses": 143,
+    "unchangedPoses": 9
+  },
+  "entries": [
+    {
+      "canonicalFile": "originais/franco_sintetizador_masked_attack_2.png",
+      "kind": "source",
+      "baseSha256": "d031be926a48b1a4836e90006c7f030f3d01196dbdd5d2f31daaa1b632cb71f7",
+      "correctedSha256": "25af776ea0454bf97315bf011ff004161cde8c035e6cf9d91d617e62acede07b",
+      "width": 1774,
+      "height": 887,
+      "regions": [
+        {
+          "direction": "left",
+          "frame": 0,
+          "rect": [
+            129,
+            239,
+            93,
+            106
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 1,
+          "rect": [
+            351,
+            238,
+            93,
+            105
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 2,
+          "rect": [
+            571,
+            238,
+            95,
+            109
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 3,
+          "rect": [
+            799,
+            240,
+            89,
+            107
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 4,
+          "rect": [
+            1022,
+            242,
+            88,
+            104
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 5,
+          "rect": [
+            1235,
+            241,
+            97,
+            109
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 6,
+          "rect": [
+            1467,
+            239,
+            86,
+            110
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 7,
+          "rect": [
+            1691,
+            239,
+            83,
+            108
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            0,
+            478,
+            222,
+            96
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            222,
+            477,
+            222,
+            96
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            444,
+            476,
+            222,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            666,
+            479,
+            222,
+            96
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            888,
+            483,
+            222,
+            95
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1110,
+            481,
+            222,
+            97
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1332,
+            479,
+            221,
+            96
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1553,
+            477,
+            221,
+            96
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 0,
+          "rect": [
+            0,
+            682,
+            91,
+            109
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 1,
+          "rect": [
+            222,
+            680,
+            92,
+            97
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 2,
+          "rect": [
+            444,
+            681,
+            93,
+            104
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 3,
+          "rect": [
+            666,
+            682,
+            93,
+            103
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 4,
+          "rect": [
+            888,
+            686,
+            91,
+            106
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 5,
+          "rect": [
+            1110,
+            685,
+            95,
+            113
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 6,
+          "rect": [
+            1332,
+            682,
+            95,
+            108
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 7,
+          "rect": [
+            1553,
+            681,
+            89,
+            104
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "d46407077f9becf0da18846cf8e7721095ad96326200052311a175825e996778",
+      "correctedOutsideSha256": "d46407077f9becf0da18846cf8e7721095ad96326200052311a175825e996778",
+      "pixelsChangedInside": 188188
+    },
+    {
+      "canonicalFile": "atlas/franco_sintetizador_masked_attack_2.png",
+      "kind": "atlas",
+      "baseSha256": "7b43b920a5673e03bcd419ccf2fc9c5d29547fda1d9849e8337cbe33a9173845",
+      "correctedSha256": "abf42afbc5d508bcd3a86a53da44e80a10a468013472a71f8195149841f6cf48",
+      "width": 2048,
+      "height": 1024,
+      "regions": [
+        {
+          "direction": "left",
+          "frame": 0,
+          "rect": [
+            135,
+            294,
+            53,
+            100
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 1,
+          "rect": [
+            391,
+            293,
+            53,
+            99
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 2,
+          "rect": [
+            648,
+            293,
+            56,
+            103
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 3,
+          "rect": [
+            908,
+            295,
+            53,
+            101
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 4,
+          "rect": [
+            1162,
+            297,
+            55,
+            98
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 5,
+          "rect": [
+            1413,
+            296,
+            62,
+            102
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 6,
+          "rect": [
+            1676,
+            294,
+            51,
+            103
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 7,
+          "rect": [
+            1937,
+            294,
+            42,
+            102
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            56,
+            569,
+            145,
+            89
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            310,
+            568,
+            147,
+            90
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            569,
+            567,
+            142,
+            88
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            822,
+            570,
+            147,
+            89
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            1078,
+            574,
+            148,
+            88
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1334,
+            572,
+            148,
+            90
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1592,
+            570,
+            145,
+            89
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1848,
+            568,
+            143,
+            89
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 0,
+          "rect": [
+            65,
+            805,
+            46,
+            104
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 1,
+          "rect": [
+            320,
+            803,
+            49,
+            93
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 2,
+          "rect": [
+            575,
+            804,
+            47,
+            99
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 3,
+          "rect": [
+            829,
+            805,
+            48,
+            98
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 4,
+          "rect": [
+            1086,
+            809,
+            47,
+            101
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 5,
+          "rect": [
+            1339,
+            808,
+            51,
+            108
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 6,
+          "rect": [
+            1598,
+            805,
+            51,
+            103
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 7,
+          "rect": [
+            1858,
+            804,
+            44,
+            99
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "9b69aed26e67cdc0bb5aebc22e8b7e6c97107bf6bfa671cccd1cfb57fe12f425",
+      "correctedOutsideSha256": "9b69aed26e67cdc0bb5aebc22e8b7e6c97107bf6bfa671cccd1cfb57fe12f425",
+      "pixelsChangedInside": 154073
+    },
+    {
+      "canonicalFile": "originais/franco_sintetizador_masked_attack_3.png",
+      "kind": "source",
+      "baseSha256": "3be5ea1ff6e76ed4d94bd554aefad2fe945ffde6ea00443a2f67fd78e456b7e5",
+      "correctedSha256": "879d0fd1db88882617ff081dfc3f5bfdbd7d7544b75ebc8be819c84719e3670a",
+      "width": 1774,
+      "height": 887,
+      "regions": [
+        {
+          "direction": "left",
+          "frame": 0,
+          "rect": [
+            135,
+            239,
+            87,
+            104
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 1,
+          "rect": [
+            346,
+            242,
+            98,
+            111
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 2,
+          "rect": [
+            578,
+            252,
+            88,
+            106
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 3,
+          "rect": [
+            800,
+            238,
+            88,
+            104
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 4,
+          "rect": [
+            1019,
+            252,
+            91,
+            118
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 5,
+          "rect": [
+            1248,
+            256,
+            84,
+            109
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 6,
+          "rect": [
+            1471,
+            243,
+            82,
+            106
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 7,
+          "rect": [
+            1688,
+            239,
+            86,
+            104
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            0,
+            476,
+            222,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            222,
+            482,
+            222,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            444,
+            494,
+            222,
+            96
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            666,
+            477,
+            222,
+            92
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            888,
+            495,
+            222,
+            95
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1110,
+            504,
+            222,
+            96
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1332,
+            484,
+            221,
+            96
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1553,
+            477,
+            221,
+            95
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 0,
+          "rect": [
+            0,
+            683,
+            97,
+            106
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 1,
+          "rect": [
+            222,
+            691,
+            90,
+            106
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 2,
+          "rect": [
+            444,
+            698,
+            87,
+            108
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 3,
+          "rect": [
+            666,
+            682,
+            90,
+            105
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 4,
+          "rect": [
+            888,
+            691,
+            80,
+            111
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 5,
+          "rect": [
+            1110,
+            696,
+            79,
+            114
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 6,
+          "rect": [
+            1332,
+            685,
+            85,
+            109
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 7,
+          "rect": [
+            1553,
+            681,
+            86,
+            99
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "1ad29732d73c0a6b8c9daef9f724d19cd69ff6bc65f9ce1fca90a6eb692f710f",
+      "correctedOutsideSha256": "1ad29732d73c0a6b8c9daef9f724d19cd69ff6bc65f9ce1fca90a6eb692f710f",
+      "pixelsChangedInside": 156082
+    },
+    {
+      "canonicalFile": "atlas/franco_sintetizador_masked_attack_3.png",
+      "kind": "atlas",
+      "baseSha256": "cf11c941146e5b3d231925e70e6603af64da7654e7803ecbdbdea93fb5dcfb33",
+      "correctedSha256": "d596991d874735224c6afef1aa9b8ac7caab154fadaabbe7444e63db5606135e",
+      "width": 2048,
+      "height": 1024,
+      "regions": [
+        {
+          "direction": "left",
+          "frame": 0,
+          "rect": [
+            145,
+            293,
+            49,
+            99
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 1,
+          "rect": [
+            391,
+            296,
+            56,
+            106
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 2,
+          "rect": [
+            659,
+            305,
+            46,
+            102
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 3,
+          "rect": [
+            917,
+            292,
+            46,
+            99
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 4,
+          "rect": [
+            1172,
+            306,
+            49,
+            112
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 5,
+          "rect": [
+            1435,
+            309,
+            46,
+            104
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 6,
+          "rect": [
+            1687,
+            297,
+            42,
+            101
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 7,
+          "rect": [
+            1937,
+            293,
+            48,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            58,
+            567,
+            139,
+            86
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            314,
+            573,
+            140,
+            86
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            568,
+            583,
+            143,
+            89
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            828,
+            568,
+            137,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            1079,
+            584,
+            146,
+            88
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1335,
+            593,
+            146,
+            88
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1593,
+            574,
+            142,
+            89
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1849,
+            568,
+            142,
+            87
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 0,
+          "rect": [
+            68,
+            806,
+            54,
+            101
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 1,
+          "rect": [
+            322,
+            814,
+            45,
+            101
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 2,
+          "rect": [
+            574,
+            820,
+            51,
+            103
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 3,
+          "rect": [
+            832,
+            805,
+            46,
+            100
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 4,
+          "rect": [
+            1081,
+            815,
+            49,
+            105
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 5,
+          "rect": [
+            1334,
+            818,
+            47,
+            109
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 6,
+          "rect": [
+            1599,
+            808,
+            45,
+            104
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 7,
+          "rect": [
+            1856,
+            804,
+            40,
+            95
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "76bd934cbfd4c4ec267f3fea793d9d40665a26ffa46548da89074ae5c979e8f2",
+      "correctedOutsideSha256": "76bd934cbfd4c4ec267f3fea793d9d40665a26ffa46548da89074ae5c979e8f2",
+      "pixelsChangedInside": 131658
+    },
+    {
+      "canonicalFile": "originais/franco_sintetizador_masked_skill.png",
+      "kind": "source",
+      "baseSha256": "438235e5246dd236c603c5060662b1e6de0b39186021163e386a99288c201193",
+      "correctedSha256": "42975b871c0d143319e3421daf620a98e55ce0fb3f31494f717979cc29239328",
+      "width": 1774,
+      "height": 887,
+      "regions": [
+        {
+          "direction": "left",
+          "frame": 0,
+          "rect": [
+            143,
+            243,
+            79,
+            114
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 1,
+          "rect": [
+            360,
+            242,
+            84,
+            116
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 2,
+          "rect": [
+            579,
+            242,
+            87,
+            117
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 3,
+          "rect": [
+            796,
+            242,
+            92,
+            116
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 4,
+          "rect": [
+            1007,
+            242,
+            103,
+            123
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 5,
+          "rect": [
+            1229,
+            242,
+            103,
+            117
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 6,
+          "rect": [
+            1431,
+            243,
+            122,
+            118
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 7,
+          "rect": [
+            1661,
+            242,
+            113,
+            116
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            0,
+            481,
+            222,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            222,
+            481,
+            222,
+            98
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            444,
+            481,
+            222,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            666,
+            481,
+            222,
+            98
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            888,
+            481,
+            222,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1110,
+            481,
+            222,
+            98
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1332,
+            481,
+            221,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1553,
+            481,
+            221,
+            98
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 0,
+          "rect": [
+            0,
+            683,
+            117,
+            111
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 1,
+          "rect": [
+            222,
+            684,
+            115,
+            110
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 2,
+          "rect": [
+            444,
+            682,
+            110,
+            111
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 3,
+          "rect": [
+            666,
+            683,
+            102,
+            111
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 4,
+          "rect": [
+            888,
+            681,
+            96,
+            111
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 5,
+          "rect": [
+            1110,
+            684,
+            94,
+            120
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 6,
+          "rect": [
+            1332,
+            684,
+            90,
+            122
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 7,
+          "rect": [
+            1553,
+            684,
+            85,
+            111
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "350f6d2bef232698a4c6e2bb9aee7d224bb9e28744b518b35cb51656b275df51",
+      "correctedOutsideSha256": "350f6d2bef232698a4c6e2bb9aee7d224bb9e28744b518b35cb51656b275df51",
+      "pixelsChangedInside": 194567
+    },
+    {
+      "canonicalFile": "atlas/franco_sintetizador_masked_skill.png",
+      "kind": "atlas",
+      "baseSha256": "d297802d6a4685d4ab0932334909d145e7f4fe5b05783cc96936aa3f76aeec18",
+      "correctedSha256": "cce68cc5664f86553a610d4520c3e937f2346b57c16f6edb8706e2f108f3b9f1",
+      "width": 2048,
+      "height": 1024,
+      "regions": [
+        {
+          "direction": "left",
+          "frame": 0,
+          "rect": [
+            140,
+            295,
+            59,
+            109
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 1,
+          "rect": [
+            394,
+            294,
+            57,
+            111
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 2,
+          "rect": [
+            653,
+            294,
+            54,
+            112
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 3,
+          "rect": [
+            909,
+            294,
+            56,
+            111
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 4,
+          "rect": [
+            1163,
+            294,
+            60,
+            117
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 5,
+          "rect": [
+            1426,
+            294,
+            55,
+            112
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 6,
+          "rect": [
+            1668,
+            295,
+            67,
+            113
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 7,
+          "rect": [
+            1932,
+            294,
+            55,
+            111
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            51,
+            570,
+            154,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            308,
+            570,
+            153,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            564,
+            570,
+            153,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            820,
+            570,
+            153,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            1076,
+            570,
+            153,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1332,
+            570,
+            152,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1588,
+            570,
+            153,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1844,
+            570,
+            153,
+            93
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 0,
+          "rect": [
+            60,
+            807,
+            57,
+            107
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 1,
+          "rect": [
+            317,
+            808,
+            56,
+            106
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 2,
+          "rect": [
+            573,
+            806,
+            56,
+            107
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 3,
+          "rect": [
+            828,
+            807,
+            56,
+            107
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 4,
+          "rect": [
+            1084,
+            805,
+            55,
+            107
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 5,
+          "rect": [
+            1341,
+            808,
+            56,
+            115
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 6,
+          "rect": [
+            1598,
+            808,
+            55,
+            117
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 7,
+          "rect": [
+            1852,
+            808,
+            56,
+            107
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "3bc61d9f972700bd02bd0f713d64f6af11e152f4f36eb9888f2fafe545a46a63",
+      "correctedOutsideSha256": "3bc61d9f972700bd02bd0f713d64f6af11e152f4f36eb9888f2fafe545a46a63",
+      "pixelsChangedInside": 170944
+    },
+    {
+      "canonicalFile": "originais/ryuchi_percussionista_masked_attack_1.png",
+      "kind": "source",
+      "baseSha256": "655e4ac4438f674aad873775ceeb13ec6ab65da4eccd1db34b7d6bbf325e1391",
+      "correctedSha256": "0ded59866d1a78ff08720f2c76646bb3f217a7af8254a72fe233b63cdbbacc0a",
+      "width": 1774,
+      "height": 887,
+      "regions": [
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            0,
+            481,
+            222,
+            103
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            222,
+            475,
+            222,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            444,
+            481,
+            222,
+            104
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            666,
+            480,
+            222,
+            103
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            888,
+            475,
+            222,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1110,
+            475,
+            222,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1332,
+            475,
+            221,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1553,
+            475,
+            221,
+            92
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "159029311359b15b8910ef2c09a4b7732b309bb0e3fb2a9937a4fa7f98a3e3c5",
+      "correctedOutsideSha256": "159029311359b15b8910ef2c09a4b7732b309bb0e3fb2a9937a4fa7f98a3e3c5",
+      "pixelsChangedInside": 92403
+    },
+    {
+      "canonicalFile": "atlas/ryuchi_percussionista_masked_attack_1.png",
+      "kind": "atlas",
+      "baseSha256": "e3cb69bdc33f6d3d98870d8d3ffd9dd5f0112239f498c162d6d36cfceebe46d7",
+      "correctedSha256": "c0f4bfd57db6f3c5ebbfa262dd4874220547102b4fce99cff1cc869d9ac12f83",
+      "width": 2048,
+      "height": 1024,
+      "regions": [
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            58,
+            572,
+            141,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            313,
+            566,
+            142,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            569,
+            572,
+            142,
+            95
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            825,
+            571,
+            142,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            1081,
+            566,
+            142,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1338,
+            566,
+            141,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1594,
+            566,
+            141,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1849,
+            566,
+            142,
+            84
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "5bfd642b0f628bd8e62428d02584ab8a5c2f5a810c7f0ce028f2e8d71cead1cd",
+      "correctedOutsideSha256": "5bfd642b0f628bd8e62428d02584ab8a5c2f5a810c7f0ce028f2e8d71cead1cd",
+      "pixelsChangedInside": 75846
+    },
+    {
+      "canonicalFile": "originais/ryuchi_percussionista_masked_attack_2.png",
+      "kind": "source",
+      "baseSha256": "7636e0bcd0d5b3a3e5d12582d185ff80acc61fef45f7acd922c91607e4d89bd1",
+      "correctedSha256": "d1309931d7542f7a4ce0f3de2a0b352b4cb22466a4510f28eebf7cc2ce7e365f",
+      "width": 1774,
+      "height": 887,
+      "regions": [
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            0,
+            480,
+            222,
+            101
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            222,
+            480,
+            222,
+            101
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            444,
+            479,
+            222,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            666,
+            479,
+            222,
+            100
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            888,
+            480,
+            222,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1110,
+            479,
+            222,
+            101
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1332,
+            479,
+            221,
+            100
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1553,
+            480,
+            221,
+            100
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "6adef3eef48e2b538e46581c0712c16addc57cf8cbf3dc67b47e93150c44a0d8",
+      "correctedOutsideSha256": "6adef3eef48e2b538e46581c0712c16addc57cf8cbf3dc67b47e93150c44a0d8",
+      "pixelsChangedInside": 96169
+    },
+    {
+      "canonicalFile": "atlas/ryuchi_percussionista_masked_attack_2.png",
+      "kind": "atlas",
+      "baseSha256": "2c2d8cf796182a1544e8a61d37dc72b677cfab1a2ff33085cbf9360b7d9b1d21",
+      "correctedSha256": "1b4a525973bd15b0a88e7778da19dde18aa57b3f2c66618198c7f07e607d4d2f",
+      "width": 2048,
+      "height": 1024,
+      "regions": [
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            56,
+            570,
+            145,
+            92
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            313,
+            570,
+            142,
+            92
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            564,
+            569,
+            151,
+            90
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            824,
+            569,
+            143,
+            91
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            1082,
+            570,
+            141,
+            90
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1336,
+            569,
+            143,
+            92
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1594,
+            569,
+            141,
+            91
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1848,
+            570,
+            143,
+            91
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "7da83a2dee907eef95071ba689ead9a70de682920b6812f400916c8b08ebe84f",
+      "correctedOutsideSha256": "7da83a2dee907eef95071ba689ead9a70de682920b6812f400916c8b08ebe84f",
+      "pixelsChangedInside": 77563
+    },
+    {
+      "canonicalFile": "originais/ryuchi_percussionista_masked_attack_3.png",
+      "kind": "source",
+      "baseSha256": "55dd31511a598158915a7f057c7b9377af69f48c1c82a1fd5a3ca10a247fe074",
+      "correctedSha256": "bcacc3bc9e2c0c8ddb442d928e3b42c0ecd0900c11c0b17f448263b9c0859405",
+      "width": 1774,
+      "height": 887,
+      "regions": [
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            0,
+            480,
+            222,
+            96
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            222,
+            486,
+            222,
+            97
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            444,
+            492,
+            222,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            666,
+            478,
+            222,
+            95
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            888,
+            491,
+            222,
+            96
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1110,
+            498,
+            222,
+            96
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1332,
+            478,
+            221,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1553,
+            479,
+            221,
+            97
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "e83af59856a9196b9827cba5eef423488a20a05eb6af774ebc72468e35bb16e9",
+      "correctedOutsideSha256": "e83af59856a9196b9827cba5eef423488a20a05eb6af774ebc72468e35bb16e9",
+      "pixelsChangedInside": 102382
+    },
+    {
+      "canonicalFile": "atlas/ryuchi_percussionista_masked_attack_3.png",
+      "kind": "atlas",
+      "baseSha256": "a2626c7179e3fbfc55a1c245fe483784e64749f813bb685ed56945cc3e132602",
+      "correctedSha256": "6ad1a8fd658a3b43c106c4e6aa0b157d4ce77fec518dd80d076b066617201730",
+      "width": 2048,
+      "height": 1024,
+      "regions": [
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            54,
+            569,
+            149,
+            91
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            308,
+            575,
+            153,
+            92
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            564,
+            580,
+            153,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            822,
+            567,
+            149,
+            90
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            1076,
+            579,
+            153,
+            91
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1332,
+            586,
+            153,
+            91
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1589,
+            567,
+            150,
+            89
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1845,
+            568,
+            150,
+            92
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "1db9318e3a53858932ca775e87a9d7dd43efa454b3058d83cbb4f4ac97e3d78f",
+      "correctedOutsideSha256": "1db9318e3a53858932ca775e87a9d7dd43efa454b3058d83cbb4f4ac97e3d78f",
+      "pixelsChangedInside": 82326
+    },
+    {
+      "canonicalFile": "originais/ryuchi_percussionista_masked_skill.png",
+      "kind": "source",
+      "baseSha256": "c56c7f255849f28249187e572efb93d798d1787c69557af4ee2aac4b1c36c71f",
+      "correctedSha256": "e5fac5dd9ef3d7635d396c5d4122c74f5a061a400782536367b4de6f2c36db76",
+      "width": 1774,
+      "height": 887,
+      "regions": [
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            0,
+            482,
+            223,
+            100
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            223,
+            482,
+            223,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            446,
+            479,
+            223,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            669,
+            479,
+            223,
+            98
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            892,
+            479,
+            223,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1115,
+            479,
+            224,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1339,
+            482,
+            217,
+            99
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1556,
+            482,
+            218,
+            100
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "b7c2210b2a6a59e94d3391cb402da8b434f011fd56c7ff457a317cc687f7bb50",
+      "correctedOutsideSha256": "b7c2210b2a6a59e94d3391cb402da8b434f011fd56c7ff457a317cc687f7bb50",
+      "pixelsChangedInside": 97448
+    },
+    {
+      "canonicalFile": "atlas/ryuchi_percussionista_masked_skill.png",
+      "kind": "atlas",
+      "baseSha256": "0526629480bce7e3a823058d8d396e1003ebc5f73a725ed6020eea35cd1c064d",
+      "correctedSha256": "470fcdf4dfd0e0bf29834d6f3af6475a966f222a4c5159e406bf7b07eb76731e",
+      "width": 2048,
+      "height": 1024,
+      "regions": [
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            52,
+            570,
+            153,
+            95
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            307,
+            570,
+            154,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            561,
+            567,
+            158,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            819,
+            567,
+            154,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            1076,
+            567,
+            153,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1322,
+            567,
+            171,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1588,
+            570,
+            153,
+            94
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1843,
+            570,
+            154,
+            95
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "16e2a4dd870ec9458983f53a0ca792de57d55f4573dd185207c5e56d9120a25d",
+      "correctedOutsideSha256": "16e2a4dd870ec9458983f53a0ca792de57d55f4573dd185207c5e56d9120a25d",
+      "pixelsChangedInside": 86519
+    },
+    {
+      "canonicalFile": "originais/ryuchi_percussionista_masked_advanced.png",
+      "kind": "source",
+      "baseSha256": "3d59e8487adace3c21dccf8ddb6e51e85c32c9a111ac165cb499dec062d6db54",
+      "correctedSha256": "04e2cfee18723bb41036a516c00f32176e36d447800f0354ef639fb245500409",
+      "width": 1774,
+      "height": 887,
+      "regions": [
+        {
+          "direction": "left",
+          "frame": 0,
+          "rect": [
+            131,
+            245,
+            91,
+            134
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 1,
+          "rect": [
+            352,
+            245,
+            92,
+            134
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 2,
+          "rect": [
+            579,
+            245,
+            87,
+            133
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 3,
+          "rect": [
+            805,
+            245,
+            83,
+            132
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 4,
+          "rect": [
+            1029,
+            241,
+            81,
+            110
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 5,
+          "rect": [
+            1253,
+            241,
+            79,
+            109
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 6,
+          "rect": [
+            1474,
+            245,
+            79,
+            133
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 7,
+          "rect": [
+            1696,
+            241,
+            78,
+            109
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            0,
+            476,
+            222,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            222,
+            476,
+            222,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            444,
+            476,
+            222,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            666,
+            476,
+            222,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            888,
+            476,
+            222,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1110,
+            476,
+            222,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1332,
+            476,
+            221,
+            93
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1553,
+            476,
+            221,
+            93
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 0,
+          "rect": [
+            0,
+            682,
+            114,
+            110
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 1,
+          "rect": [
+            222,
+            682,
+            115,
+            110
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 2,
+          "rect": [
+            444,
+            681,
+            113,
+            111
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 3,
+          "rect": [
+            666,
+            682,
+            114,
+            110
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 4,
+          "rect": [
+            888,
+            682,
+            114,
+            110
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 5,
+          "rect": [
+            1110,
+            682,
+            114,
+            110
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 6,
+          "rect": [
+            1332,
+            682,
+            113,
+            110
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 7,
+          "rect": [
+            1553,
+            682,
+            114,
+            110
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "31e84d696b46cfe37b989b6e3ed5ec298c3693240baadaf5d978173ffc87ab52",
+      "correctedOutsideSha256": "31e84d696b46cfe37b989b6e3ed5ec298c3693240baadaf5d978173ffc87ab52",
+      "pixelsChangedInside": 175329
+    },
+    {
+      "canonicalFile": "atlas/ryuchi_percussionista_masked_advanced.png",
+      "kind": "atlas",
+      "baseSha256": "b33666d368e0f842589e11a40972019a6846709eb6596945ec1fbc5f392bd68b",
+      "correctedSha256": "e270b5727f07285b74485069885112492adad7ef7435ba17116c91c11a578e70",
+      "width": 2048,
+      "height": 1024,
+      "regions": [
+        {
+          "direction": "left",
+          "frame": 0,
+          "rect": [
+            134,
+            298,
+            60,
+            126
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 1,
+          "rect": [
+            387,
+            298,
+            62,
+            126
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 2,
+          "rect": [
+            648,
+            298,
+            57,
+            125
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 3,
+          "rect": [
+            909,
+            298,
+            52,
+            124
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 4,
+          "rect": [
+            1166,
+            294,
+            51,
+            104
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 5,
+          "rect": [
+            1424,
+            294,
+            49,
+            103
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 6,
+          "rect": [
+            1681,
+            298,
+            49,
+            125
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 7,
+          "rect": [
+            1936,
+            294,
+            49,
+            103
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            56,
+            566,
+            144,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            312,
+            566,
+            145,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            568,
+            566,
+            145,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            824,
+            566,
+            145,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "rect": [
+            1080,
+            566,
+            145,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "rect": [
+            1336,
+            566,
+            145,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "rect": [
+            1592,
+            566,
+            144,
+            85
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1848,
+            566,
+            144,
+            85
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 0,
+          "rect": [
+            63,
+            806,
+            52,
+            103
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 1,
+          "rect": [
+            318,
+            806,
+            53,
+            103
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 2,
+          "rect": [
+            576,
+            805,
+            51,
+            104
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 3,
+          "rect": [
+            832,
+            806,
+            52,
+            103
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 4,
+          "rect": [
+            1088,
+            806,
+            52,
+            103
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 5,
+          "rect": [
+            1344,
+            806,
+            52,
+            103
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 6,
+          "rect": [
+            1597,
+            806,
+            52,
+            103
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 7,
+          "rect": [
+            1856,
+            806,
+            52,
+            103
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "773b3b1ba16541d03e82e48b9f7a3c59489be8e1b0fd1ebabda0028ac7b68a45",
+      "correctedOutsideSha256": "773b3b1ba16541d03e82e48b9f7a3c59489be8e1b0fd1ebabda0028ac7b68a45",
+      "pixelsChangedInside": 148037
+    },
+    {
+      "canonicalFile": "originais/ryuchi_percussionista_masked_roll.png",
+      "kind": "source",
+      "baseSha256": "421b5c3701f167486e1441ea52c575ca4e0bf8c01517d5aa3376b03f8f2c9ef0",
+      "correctedSha256": "5b8bb51b33ae7c4d26fecef7ff983c442b166463325775d66d354b245e1901ff",
+      "width": 1774,
+      "height": 887,
+      "regions": [
+        {
+          "direction": "left",
+          "frame": 0,
+          "rect": [
+            112,
+            264,
+            87,
+            101
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 1,
+          "rect": [
+            337,
+            276,
+            84,
+            104
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 2,
+          "rect": [
+            564,
+            290,
+            79,
+            107
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 3,
+          "rect": [
+            786,
+            305,
+            76,
+            101
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 7,
+          "rect": [
+            1665,
+            264,
+            87,
+            101
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            52,
+            482,
+            127,
+            97
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            274,
+            491,
+            128,
+            101
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            499,
+            502,
+            129,
+            100
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            759,
+            519,
+            100,
+            65
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1605,
+            482,
+            127,
+            97
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 0,
+          "rect": [
+            23,
+            707,
+            87,
+            101
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 1,
+          "rect": [
+            245,
+            719,
+            84,
+            104
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 2,
+          "rect": [
+            467,
+            733,
+            79,
+            107
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 3,
+          "rect": [
+            692,
+            748,
+            76,
+            101
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 7,
+          "rect": [
+            1575,
+            707,
+            87,
+            101
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "99755ccf5f3a9e2d6b3e67e63366eb9d06c2c112759f4a9b91e807b33fc5946f",
+      "correctedOutsideSha256": "99755ccf5f3a9e2d6b3e67e63366eb9d06c2c112759f4a9b91e807b33fc5946f",
+      "pixelsChangedInside": 102695,
+      "unchangedPoses": [
+        {
+          "direction": "left",
+          "frame": 4,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "left",
+          "frame": 5,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "left",
+          "frame": 6,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "right",
+          "frame": 4,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "right",
+          "frame": 5,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "right",
+          "frame": 6,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        }
+      ]
+    },
+    {
+      "canonicalFile": "atlas/ryuchi_percussionista_masked_roll.png",
+      "kind": "atlas",
+      "baseSha256": "9f56b0ca2aa1b08b6b524048918801367028fa93b798dd5c1c6b5c7d4389c149",
+      "correctedSha256": "4e80fbf31a35e18295808bf8cf32dfb22e1337425625b272542ce61fa019c946",
+      "width": 2048,
+      "height": 1024,
+      "regions": [
+        {
+          "direction": "left",
+          "frame": 0,
+          "rect": [
+            125,
+            314,
+            65,
+            97
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 1,
+          "rect": [
+            384,
+            327,
+            61,
+            99
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 2,
+          "rect": [
+            643,
+            340,
+            65,
+            102
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 3,
+          "rect": [
+            896,
+            354,
+            72,
+            96
+          ]
+        },
+        {
+          "direction": "left",
+          "frame": 7,
+          "rect": [
+            1922,
+            314,
+            59,
+            97
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 0,
+          "rect": [
+            64,
+            567,
+            120,
+            92
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 1,
+          "rect": [
+            318,
+            576,
+            121,
+            95
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 2,
+          "rect": [
+            578,
+            586,
+            123,
+            95
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 3,
+          "rect": [
+            874,
+            603,
+            95,
+            61
+          ]
+        },
+        {
+          "direction": "up",
+          "frame": 7,
+          "rect": [
+            1858,
+            567,
+            120,
+            92
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 0,
+          "rect": [
+            68,
+            828,
+            50,
+            97
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 1,
+          "rect": [
+            318,
+            840,
+            62,
+            99
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 2,
+          "rect": [
+            570,
+            853,
+            69,
+            103
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 3,
+          "rect": [
+            831,
+            867,
+            73,
+            97
+          ]
+        },
+        {
+          "direction": "right",
+          "frame": 7,
+          "rect": [
+            1858,
+            828,
+            53,
+            97
+          ]
+        }
+      ],
+      "outsideRegionsChangedPixels": 0,
+      "outsideRegionsEqual": true,
+      "baseOutsideSha256": "68a82bf7b35e8321f9b070addf72356735b42e0cebd021a2843e9ec63c4d81e4",
+      "correctedOutsideSha256": "68a82bf7b35e8321f9b070addf72356735b42e0cebd021a2843e9ec63c4d81e4",
+      "pixelsChangedInside": 88559,
+      "unchangedPoses": [
+        {
+          "direction": "left",
+          "frame": 4,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "left",
+          "frame": 5,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "left",
+          "frame": 6,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "up",
+          "frame": 4,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "up",
+          "frame": 5,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "up",
+          "frame": 6,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "right",
+          "frame": 4,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "right",
+          "frame": 5,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        },
+        {
+          "direction": "right",
+          "frame": 6,
+          "reason": "Abertura posterior oculta pelo corpo ou rosto da máscara exposto durante o capote; pose original preservada após revisão ampliada."
+        }
+      ]
+    }
+  ]
+}

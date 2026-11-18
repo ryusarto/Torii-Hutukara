@@ -15,3 +15,5 @@ O exportador verifica o round trip dos pixels. `empacotar.py` permite reprocessa
 A arte segue as proteções de `LICENSE-ASSETS.md` do projeto.
 
 A nova paleta canônica de terra e sucata foi aplicada por lookup RGB, preservando alpha, coordenadas e agrupamentos do sombreamento. As 56 folhas-fonte também usam a nova paleta; os PNGs da paleta anterior foram substituídos após a auditoria dos 140 pares. A receita e os hashes da transformação estão no pacote de assets. `gerar_paleta_c3.cjs` documenta a transformação executada uma vez; não aplicá-la novamente às fontes já recoloridas.
+
+A Beta 1.6.1 aplica correções localizadas de continuidade às cabeças mascaradas. As folhas-fonte atuais e os atlas guardam somente a versão corrigida. A origem anterior está no histórico Git; prompts e montagem estão em CORRECOES_FLUIDEZ_PROMPTS.json, e a auditoria encadeada no pacote de assets. Não reescrever a auditoria histórica de paleta ao reprocessar uma nova correção.

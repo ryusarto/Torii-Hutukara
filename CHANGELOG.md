@@ -1,3 +1,12 @@
+## [Beta 1.6.1] — 2026-11-18
+
+- Revisão das 208 sequências dos músicos com/sem máscara: máscaras abertas atrás restauradas em 143 quadros, com corpos e pixels fora da cabeça preservados. Nove poses de rolamento com a cabeça oculta mantidas após revisão.
+- Dano recebido aparece sem atraso durante a esquiva; ações interrompidas não reaparecem depois dela.
+- Pausa mantém estado, quadro e direção; caminhada/corrida preservam fase e cadência.
+- Entrada e troca de máscara antecipam somente os atlas essenciais, com cache limitado a oito imagens e sem alterar input, dano, cooldowns ou saves.
+- QA percorre os oito quadros pelo controlador e renderer reais a 60 Hz em todas as 208 sequências, mais 48 transições. Auditoria encadeada mantém o histórico da paleta e comprova zero alterações fora das regiões corrigidas.
+
+
 ## [Beta 1.6] — 2026-11-17
 
 - Onze áreas do C3 com cenários desérticos pós-apocalípticos cyberpunk: 13 atlas, 131 recortes/estados e dois fundos de diálogo.

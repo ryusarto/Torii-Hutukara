@@ -75,6 +75,7 @@ jobs:
           python3 -m http.server 8771 --bind 127.0.0.1 --directory production/playtest-dist &
           test_server_pid=$!
           trap 'kill "$test_server_pid"' EXIT
+          node qa/musician_fluency.cjs http://127.0.0.1:8771/
           node qa/cenarios_deserto_v1.cjs http://127.0.0.1:8771/
           node qa/cenarios_deserto_states.cjs http://127.0.0.1:8771/
           node qa/musician_art.cjs http://127.0.0.1:8771/

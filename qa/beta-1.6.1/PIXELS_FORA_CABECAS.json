@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "files": 18,
+  "outsideRegionsChangedPixels": 0,
+  "entries": [
+    {
+      "file": "originais/franco_sintetizador_masked_attack_2.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 188188,
+      "outsideSha256": "d46407077f9becf0da18846cf8e7721095ad96326200052311a175825e996778"
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_attack_2.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 154073,
+      "outsideSha256": "9b69aed26e67cdc0bb5aebc22e8b7e6c97107bf6bfa671cccd1cfb57fe12f425"
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_attack_3.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 156082,
+      "outsideSha256": "1ad29732d73c0a6b8c9daef9f724d19cd69ff6bc65f9ce1fca90a6eb692f710f"
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_attack_3.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 131658,
+      "outsideSha256": "76bd934cbfd4c4ec267f3fea793d9d40665a26ffa46548da89074ae5c979e8f2"
+    },
+    {
+      "file": "originais/franco_sintetizador_masked_skill.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 194567,
+      "outsideSha256": "350f6d2bef232698a4c6e2bb9aee7d224bb9e28744b518b35cb51656b275df51"
+    },
+    {
+      "file": "atlas/franco_sintetizador_masked_skill.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 170944,
+      "outsideSha256": "3bc61d9f972700bd02bd0f713d64f6af11e152f4f36eb9888f2fafe545a46a63"
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_attack_1.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 92403,
+      "outsideSha256": "159029311359b15b8910ef2c09a4b7732b309bb0e3fb2a9937a4fa7f98a3e3c5"
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_attack_1.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 75846,
+      "outsideSha256": "5bfd642b0f628bd8e62428d02584ab8a5c2f5a810c7f0ce028f2e8d71cead1cd"
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_attack_2.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 96169,
+      "outsideSha256": "6adef3eef48e2b538e46581c0712c16addc57cf8cbf3dc67b47e93150c44a0d8"
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_attack_2.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 77563,
+      "outsideSha256": "7da83a2dee907eef95071ba689ead9a70de682920b6812f400916c8b08ebe84f"
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_attack_3.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 102382,
+      "outsideSha256": "e83af59856a9196b9827cba5eef423488a20a05eb6af774ebc72468e35bb16e9"
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_attack_3.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 82326,
+      "outsideSha256": "1db9318e3a53858932ca775e87a9d7dd43efa454b3058d83cbb4f4ac97e3d78f"
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_skill.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 97448,
+      "outsideSha256": "b7c2210b2a6a59e94d3391cb402da8b434f011fd56c7ff457a317cc687f7bb50"
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_skill.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 86519,
+      "outsideSha256": "16e2a4dd870ec9458983f53a0ca792de57d55f4573dd185207c5e56d9120a25d"
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_advanced.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 175329,
+      "outsideSha256": "31e84d696b46cfe37b989b6e3ed5ec298c3693240baadaf5d978173ffc87ab52"
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_advanced.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 148037,
+      "outsideSha256": "773b3b1ba16541d03e82e48b9f7a3c59489be8e1b0fd1ebabda0028ac7b68a45"
+    },
+    {
+      "file": "originais/ryuchi_percussionista_masked_roll.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 102695,
+      "outsideSha256": "99755ccf5f3a9e2d6b3e67e63366eb9d06c2c112759f4a9b91e807b33fc5946f"
+    },
+    {
+      "file": "atlas/ryuchi_percussionista_masked_roll.png",
+      "outsideRegionsChangedPixels": 0,
+      "pixelsChangedInside": 88559,
+      "outsideSha256": "68a82bf7b35e8321f9b070addf72356735b42e0cebd021a2843e9ec63c4d81e4"
+    }
+  ]
+}
