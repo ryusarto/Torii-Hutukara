@@ -27,5 +27,11 @@
   "geometryChecks": 88,
   "sceneryAtlases": 13,
   "sceneryCrops": 131,
-  "sceneryBackgrounds": 2
+  "sceneryBackgrounds": 2,
+  "backupCloud": {
+    "file": "TORII_CENARIOS_DESERTO_V1_BETA_1_6.zip",
+    "bytes": 84600121,
+    "uploadConfirmed": true,
+    "path": "/T&H/Assets/Torii & Hutukara/Cenarios/cenarios-deserto-v1/TORII_CENARIOS_DESERTO_V1_BETA_1_6.zip"
+  }
 }

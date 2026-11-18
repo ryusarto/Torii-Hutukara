@@ -1,5 +1,5 @@
 {
-  "file": "TORII_CENARIOS_DESERTO_V1.zip",
+  "file": "TORII_CENARIOS_DESERTO_V1_BETA_1_6.zip",
   "sha256": "28490a1fc9371cb1e7530c8f900be676555db68b5924965905e76242289bbdb1",
   "bytes": 84600121,
   "entries": 253,
@@ -8,5 +8,10 @@
   "rawSources": 15,
   "spriteCrops": 131,
   "atlases": 13,
-  "backgrounds": 2
+  "backgrounds": 2,
+  "localArchive": "TORII_CENARIOS_DESERTO_V1.zip",
+  "cloudPath": "/T&H/Assets/Torii & Hutukara/Cenarios/cenarios-deserto-v1/TORII_CENARIOS_DESERTO_V1_BETA_1_6.zip",
+  "cloudBytes": 84600121,
+  "cloudUploadConfirmed": true,
+  "cloudModifiedUTC": "2026-11-18T03:16:39Z"
 }

@@ -47,4 +47,6 @@ O GitHub é a fonte oficial de código e assets integrados. Originais, PNGs indi
 
 ## Fechamento observado
 
-A direção artística reviu as onze áreas e 19 estados da composição 1.6, sem P0/P1 artístico aberto. Provas em `qa/cenarios-deserto-v1/PUBLICACAO.json` e `ASSETS_PUBLICADOS.json`. O pacote `TORII_CENARIOS_DESERTO_V1.zip` e os originais/quadros individuais estão no backup Dropbox indicado acima; CRC e SHA-256 do ZIP foram verificados. Os metadados finais estão em `qa/cenarios-deserto-v1/BACKUP.json`. Nenhuma dessas verificações representa uma campanha manual nova ou teste físico.
+A direção artística reviu as onze áreas e 19 estados da composição 1.6, sem P0/P1 artístico aberto. Provas em `qa/cenarios-deserto-v1/PUBLICACAO.json` e `ASSETS_PUBLICADOS.json`. O pacote `TORII_CENARIOS_DESERTO_V1_BETA_1_6.zip` e os originais/quadros individuais estão no backup Dropbox indicado acima; CRC e SHA-256 do ZIP foram verificados. Os metadados finais estão em `qa/cenarios-deserto-v1/BACKUP.json`. Nenhuma dessas verificações representa uma campanha manual nova ou teste físico.
+
+O upload do ZIP final foi confirmado diretamente pelo conector Dropbox: 84.600.121 bytes. O SHA-256 do arquivo é `28490a1fc9371cb1e7530c8f900be676555db68b5924965905e76242289bbdb1`. A cópia local de trabalho usa também o nome sem sufixo de versão.
