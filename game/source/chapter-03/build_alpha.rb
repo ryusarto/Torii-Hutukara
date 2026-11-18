@@ -327,6 +327,12 @@ raise 'Não publicar paleta dupla/contextual' if musician_manifest.fetch('contex
   raise "Metadado de paleta inválido: #{field}" unless relative.is_a?(String) && File.file?(File.join(MUSICIAN_ASSETS, relative))
   musician_files << relative
 end
+# Optional evidence for the localized, approved masked-head corrections.
+if musician_manifest.key?('correctionAudit')
+  relative = musician_manifest.fetch('correctionAudit')
+  raise 'Auditoria de correções inválida' unless relative == 'AUDITORIA_CORRECOES_FLUIDEZ.json' && File.file?(File.join(MUSICIAN_ASSETS, relative))
+  musician_files << relative
+end
 musician_files.uniq!
 musician_runtime = File.read(MUSICIAN_JS, encoding: 'UTF-8')
 replace_once!(musician_runtime, '__MUSICIAN_ASSETS__', JSON.generate(musician_uris), 'sprites Percussionista e Sintetizador com paleta canônica')

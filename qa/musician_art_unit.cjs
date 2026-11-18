@@ -6,9 +6,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..');
-const modulePath = fs.existsSync(path.join(root, 'game/source/chapter-03/musician_art_v1.js'))
-  ? path.join(root, 'game/source/chapter-03/musician_art_v1.js')
-  : path.join(root, 'integracao/musician_art_v1.js');
+const modulePath = path.join(root, 'game/source/chapter-03/musician_art_v1.js');
 const source = fs.readFileSync(modulePath, 'utf8');
 const heroes = {synth: 'franco_sintetizador', percussion: 'ryuchi_percussionista'};
 const states = ['idle','walk','run','roll','attack_1','attack_2','attack_3','skill','advanced','signature','hurt','defeat','performance'];
@@ -88,6 +86,14 @@ function harness(options = {}) {
     const id = h.C3.coop.member;
     h.G.hp[id] = Math.max(0, h.G.hp[id] - amount); h.C3.coop.hit = .35;
     return true;
+  };
+  h.startRoll121 = () => {
+    if (!h.activeModes10() || h.Combat10.dashTime > 0) return false;
+    h.Combat10.dashTime = .39; h.Input121.roll = {id:h.G.active,duration:.39}; return true;
+  };
+  h.C3.coopDodge = () => {
+    const c=h.C3.coop; if (!h.activeModes10() || c.dash > 0) return false;
+    c.dash=.38; c.rollDuration=.38; c.rollHero=c.member; return true;
   };
   vm.createContext(h);
   vm.runInContext(source.replace('__MUSICIAN_ASSETS__', JSON.stringify(options.assets || assets))
@@ -230,10 +236,150 @@ for (const failure of ['pending','broken','absent']) {
   assert.equal(stats.actor,0);assert.equal(draws.at(-1)[0].src,'fixture:franco_sintetizador_unmasked_idle');
   assert.equal(draws.at(-1)[1],0);assert.equal(draws.at(-1)[2],768);
 }
+
+// Regressions reproduced against the real game; visual-only behavior.
+for (const hero of ['synth','percussion']) for (const variant of variants) for (const seat of [0,1]) {
+  const {h,art}=harness();
+  if(seat===0){h.G.active=hero;h.C3.coop.member=hero==='synth'?'percussion':'synth';}
+  else {h.C3.coop.member=hero;h.G.active=hero==='synth'?'percussion':'synth';}
+  art.setVariant(hero,variant);art.sync();
+  const roll=()=>seat===0?h.startRoll121():h.C3.coopDodge();
+  art.mark(seat,hero,'signature',.72,'right');
+  assert.equal(roll(),true);
+  assert.equal(art.players[seat],null,'accepted roll cancels earlier cast');
+  art.mark(seat,hero,'skill',.42,'right');
+  assert.equal(art.players[seat],null,'cast accepted during rolling never reappears afterward');
+  art.mark(seat,hero,'hurt',.35,'right');
+  assert.equal(art.pose({style:hero},seat,true).state,'hurt','fresh damage wins over remaining roll');
+  assert.equal(art.pose({style:hero},seat,true).frame,0,'reaction starts at frame0');
+  const reaction=art.players[seat];assert.equal(roll(),false);
+  assert.equal(art.players[seat],reaction,'rejected roll does not cancel reaction');
+  h.G.hp[hero]=0;art.mark(seat,hero,'defeat',.8,'right');
+  assert.equal(art.pose({style:hero},seat,true).state,'defeat','defeat takes priority even if dash fields remain');
+  h.mode='gameover';h.update(1);
+  assert.equal(art.pose({style:hero},seat,true).frame,7);
+}
+{
+  const {h,art}=harness();art.sync();art.clock=.43;
+  const idle=art.pose({style:'synth'},0,false).frame;
+  const performance=art.pose({style:'percussion',musicianState:'performance'},-1,false).frame;
+  assert.equal(idle,3);assert.equal(performance,5);
+  h.mode='dialogue';h.update(.3);
+  assert.equal(art.pose({style:'synth'},0,false).frame,idle);
+  assert.equal(art.pose({style:'percussion',musicianState:'performance'},-1,false).frame,performance);
+  h.mode='action';h.update(.12);
+  assert.notEqual(art.pose({style:'synth'},0,false).frame,idle);
+}
+for (const seat of [0,1,-1]) {
+  const {h,art}=harness();art.sync();
+  const hero=seat===1?'percussion':'synth';h.stride10=10;h.C3.coop.stride=10;
+  const pose=()=>art.pose({style:hero},seat,true);
+  const walk=pose();h.G.isRunning10=true;h.C3.coop.running=true;
+  assert.equal(pose().state,'run');assert.equal(pose().frame,walk.frame,'walk/run keeps phase without displacement');
+  h.stride10+=.5;h.C3.coop.stride+=.5;
+  assert.equal(pose().frame,Math.floor((36+1.6)%8),'run cadence remains 3.2 frames per stride');
+  h.G.isRunning10=false;h.C3.coop.running=false;
+  const stopped=pose().frame;assert.equal(stopped,Math.floor((36+1.6)%8));
+  h.stride10+=.5;h.C3.coop.stride+=.5;
+  assert.equal(pose().frame,Math.floor((36+1.6+1.8)%8),'walk cadence remains 3.6 frames per stride');
+  art.reset();assert.equal(Object.keys(art.strides).length,0);
+}
+{
+  const {h,art}=harness();art.mark(0,'synth','signature',.72,'right');art.players[0].elapsed=.31;
+  const before=art.pose({style:'synth'},0,false);art.setVariant('synth','masked');
+  const after=art.pose({style:'synth'},0,false);
+  assert.equal(after.frame,before.frame);assert.equal(after.state,before.state);assert.equal(after.direction,before.direction);
+  assert.equal(after.variant,'masked');assert.equal(art.variant('percussion'),'unmasked');
+}
+
+// Pause snapshots remain scoped, bounded and independent of gameplay flags.
+for (const hero of ['synth','percussion']) for (const variant of variants)
+for (const seat of [0,1,-1]) for (const running of [false,true]) {
+  const {h,art}=harness();
+  if(seat===1){h.C3.coop.member=hero;h.G.active=hero==='synth'?'percussion':'synth';}
+  else {h.G.active=hero;h.C3.coop.member=hero==='synth'?'percussion':'synth';}
+  art.setVariant(hero,variant);h.stride10=h.C3.coop.stride=10;
+  h.G.isRunning10=h.C3.coop.running=running;
+  const before=art.pose({style:hero,dir:'left'},seat,true);
+  assert.equal(before.state,running?'run':'walk');
+  h.mode='overlay';h.G.isRunning10=h.C3.coop.running=h.C3.coop.moving=false;h.update(.2);
+  const after=art.pose({style:hero,dir:'down'},seat,false);
+  assert.equal(after.state,before.state);assert.equal(after.frame,before.frame);assert.equal(after.direction,'left');
+  art.setVariant(hero,variant==='masked'?'unmasked':'masked');
+  const masked=art.pose({style:hero,dir:'up'},seat,false);
+  assert.equal(masked.state,before.state);assert.equal(masked.frame,before.frame);assert.notEqual(masked.variant,variant);
+  const npc=art.pose({style:hero,dir:'down',musicianNpc:true},-1,false);
+  assert.equal(npc.state,'idle','NPC never inherits the paused player/follower stride');
+  h.mode='action';
+  assert.equal(art.pose({style:hero},seat,false).state,'idle','resuming without input releases locomotion snapshot');
+  art.pose({style:hero,dir:'left'},seat,true);h.mode='overlay';
+  h.G.area='new-area';
+  assert.equal(art.pose({style:hero},seat,false).state,'idle','area change clears frozen locomotion');
+  assert.equal(Object.keys(art.poses).length,0);
+  h.mode='action';art.pose({style:hero},seat,true);h.mode='dialogue';h.G={...h.G};
+  assert.equal(art.pose({style:hero},seat,false).state,'idle','new save clears frozen locomotion');
+}
+{
+  const {h,art}=harness();
+  for(const hero of ['synth','percussion'])art.pose({style:hero},-1,true);
+  art.pose({style:'synth'},0,true);art.pose({style:'percussion'},1,true);
+  assert.equal(Object.keys(art.poses).length,4,'snapshot map has only two seats and two musician followers');
+  h.mode='overlay';h.G.active='percussion';
+  assert.equal(art.pose({style:'percussion'},0,false).state,'idle','role switch cannot reuse former occupant pose');
+  h.C3.coop.member='synth';assert.equal(art.pose({style:'synth'},1,false).state,'idle');
+}
+{
+  const {h,art}=harness();h.stride10=10;art.pose({style:'synth'},0,true);
+  h.damageHero(100);assert.equal(art.pose({style:'synth'},0,false).frame,0);h.mode='gameover';h.update(.4);
+  assert.equal(art.pose({style:'synth'},0,false).state,'defeat');
+  assert.equal(art.pose({style:'synth'},0,false).frame,4,'defeat advances despite earlier walking snapshot');
+  h.update(.5);assert.equal(art.pose({style:'synth'},0,false).frame,7);
+  h.G.hp.synth=20;assert.equal(art.pose({style:'synth'},0,false).state,'idle');
+}
+
+{
+  const {h,art}=harness();h.mode='title';h.G=null;
+  art.setVariant('synth','masked');art.sync();art.prepare('synth',0);
+  assert.equal(Object.keys(art.images).length,0,'no warmup on title');
+  assert.equal(Object.keys(art.prepared).length,0);
+}
+{
+  const {h,art}=harness();h.C3.coop.member=null;h.update(0);
+  assert.deepEqual(Object.keys(art.images).sort(),['franco_sintetizador_unmasked_attack_1','franco_sintetizador_unmasked_idle']);
+  const warm=Object.values(art.images);h.update(.01);h.update(.01);
+  assert.ok(warm.every(image=>Object.values(art.images).includes(image)),'unchanged actor never reloads warmup sheets');
+  art.mark(0,'synth','advanced',.48,'left');art.players[0].elapsed=.2;
+  art.setVariant('synth','masked');
+  assert.ok(art.images.franco_sintetizador_masked_idle);assert.ok(art.images.franco_sintetizador_masked_advanced);
+  assert.equal(art.players[0].elapsed,.2,'mask warmup never restarts action');
+  assert.equal(art.images.franco_sintetizador_masked_attack_1,undefined,'mask in action warms current pose, not extra actions');
+  const masked=art.images.franco_sintetizador_masked_advanced;art.setVariant('synth','masked');h.update(0);
+  assert.equal(art.images.franco_sintetizador_masked_advanced,masked);
+  h.G.area='new-area';art.sync();assert.equal(Object.keys(art.prepared).length,1);
+  h.G.active='franco';art.sync();assert.equal(Object.keys(art.prepared).length,0,'non-musician clears seat preparation');
+}
+{
+  const {h,art}=harness();h.update(0);
+  h.drawActor({style:'synth',musicianVariant:'masked'},72,96,false);
+  const before=art.images.franco_sintetizador_masked_attack_1;
+  for(let i=0;i<3;i++){h.update(.01);h.drawActor({style:'synth',musicianVariant:'masked'},72,96,false)}
+  assert.equal(art.images.franco_sintetizador_masked_attack_1,before,'explicit actor variant does not toggle warmup each sync');
+  h.drawActor({style:'synth'},400,300,false);h.drawActor({style:'percussion'},420,300,false);
+  assert.ok(Object.keys(art.prepared).length<=4,'preparation bounded to two seats plus two musician appearances');
+  assert.ok(Object.keys(art.images).length<=8);art.reset();assert.equal(Object.keys(art.prepared).length,0);
+}
+
+{
+  const {h,art}=harness();h.C3.coop.member=null;h.update(0);
+  for(const state of ['walk','run','roll','attack_2','attack_3','skill','advanced','signature'])art.image(art.key('synth','unmasked',state));
+  assert.equal(art.images.franco_sintetizador_unmasked_attack_1,undefined);
+  h.update(.01);h.drawActor({style:'synth'},72,96,false);
+  assert.equal(art.images.franco_sintetizador_unmasked_attack_1,undefined,'unchanged actor does not pin/re-request evicted warmup every frame');
+}
 const result={passed:true,sequences,poses,checks:['accepted actions P1/P2','blocked actions','direction and dash phase',
   'stride and moving followers','dialogue pause','area/save/role reset','per-character mask API','portraits and NPC masks',
   'NPC state isolation','image pending/broken/absent fallback','bounded decoded cache','unchanged fixture damage/cost',
-  'defeat holds frame7','gameover/retry-overlay visual advance','pause/dialogue freeze','revival releases defeat','hurt still expires']};
+  'defeat holds frame7','gameover/retry-overlay visual advance','pause/dialogue freeze','revival releases defeat','hurt still expires','roll cancels stale cast P1/P2','hurt precedes rolling P1/P2','pause preserves idle/performance phase','walk-run phase and existing cadence','mask swap preserves state and phase','walk/run pause snapshots P1/P2/followers','paused mask remains live','snapshot reset and role isolation','snapshot never blocks defeat','entry warms only idle+attack1','mask warms current action without restart','warmup bounded4 and decoded cache8','no warmup on title','no per-frame warmup churn']};
 fs.mkdirSync(path.join(root,'qa'),{recursive:true});
 fs.writeFileSync(path.join(root,'qa','INTEGRACAO_MODULO.json'),JSON.stringify(result,null,2));
 console.log(JSON.stringify(result));

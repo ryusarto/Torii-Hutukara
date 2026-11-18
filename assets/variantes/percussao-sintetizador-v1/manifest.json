@@ -3415,5 +3415,6 @@
     "sourceBoundaryWarnings": 0
   },
   "paletteRecipe": "PALETA_CANONICA.json",
-  "geometryAudit": "AUDITORIA_GEOMETRIA.json"
+  "geometryAudit": "AUDITORIA_GEOMETRIA.json",
+  "correctionAudit": "AUDITORIA_CORRECOES_FLUIDEZ.json"
 }

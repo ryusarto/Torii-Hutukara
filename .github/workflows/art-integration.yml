@@ -18,7 +18,7 @@ jobs:
           node-version: '22'
       - name: Install isolated browser test dependency
         run: |
-          npm install --no-save --package-lock=false playwright@1.56.1
+          npm install --no-save --package-lock=false playwright@1.62.1
           npx playwright install --with-deps chromium
       - name: Generate, validate and export
         run: |
@@ -28,10 +28,11 @@ jobs:
       - name: Test protagonist art, variants, input and coop
         run: |
           node qa/protagonist_state.cjs
+          node qa/musician_art_unit.cjs
           node qa/run_art_integration.cjs
       - name: Retain test evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: protagonist-v5-qa
-          path: qa/beta-1.2.0/
+          name: art-integration-qa
+          path: qa/beta-*/

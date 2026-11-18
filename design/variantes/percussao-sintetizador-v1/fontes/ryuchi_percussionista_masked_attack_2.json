@@ -24,5 +24,16 @@
     "recipe": "../../../../assets/variantes/percussao-sintetizador-v1/PALETA_CANONICA.json",
     "canonicalPalette": true,
     "noRedraw": true
+  },
+  "frameCorrection": {
+    "tool": "built-in image_gen",
+    "scope": "head regions only",
+    "baseSha256": "7636e0bcd0d5b3a3e5d12582d185ff80acc61fef45f7acd922c91607e4d89bd1",
+    "correctedSha256": "d1309931d7542f7a4ce0f3de2a0b352b4cb22466a4510f28eebf7cc2ce7e365f",
+    "directions": [
+      "up"
+    ],
+    "outsideRegionsChangedPixels": 0,
+    "audit": "AUDITORIA_CORRECOES_FLUIDEZ.json"
   }
 }
