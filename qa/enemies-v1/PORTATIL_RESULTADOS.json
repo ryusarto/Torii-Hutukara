@@ -1,0 +1,131 @@
+{
+  "version": "beta-1.3.0",
+  "passed": 8,
+  "checks": [
+    {
+      "name": "13 identity/variant atlases and all 52 transparent cells decode",
+      "passed": true,
+      "detail": {
+        "keys": [
+          "hush",
+          "whisper",
+          "compasso",
+          "espelho",
+          "abafador",
+          "compasso_c3",
+          "abafador_c3",
+          "c3_echo",
+          "c3_drone",
+          "boss",
+          "voice_boss",
+          "c3_metronome",
+          "c3_silence"
+        ],
+        "frames": 52
+      }
+    },
+    {
+      "name": "Chapter variants preserve C1/C2 and boss IDs precede shared types",
+      "passed": true,
+      "detail": [
+        {
+          "area": "ruins",
+          "type": "compasso",
+          "key": "compasso",
+          "want": "compasso"
+        },
+        {
+          "area": "cloud_sea",
+          "type": "compasso",
+          "key": "compasso_c3",
+          "want": "compasso_c3"
+        },
+        {
+          "area": "voices",
+          "type": "abafador",
+          "key": "abafador",
+          "want": "abafador"
+        },
+        {
+          "area": "distortion_district",
+          "type": "abafador",
+          "key": "abafador_c3",
+          "want": "abafador_c3"
+        },
+        {
+          "key": "boss",
+          "want": "boss"
+        },
+        {
+          "key": "voice_boss",
+          "want": "voice_boss"
+        },
+        {
+          "key": "c3_metronome",
+          "want": "c3_metronome"
+        },
+        {
+          "key": "c3_silence",
+          "want": "c3_silence"
+        }
+      ]
+    },
+    {
+      "name": "Discrete poses, no actor mutation, and preparation includes Arauto tele09",
+      "passed": true,
+      "detail": {
+        "poses": [
+          0,
+          1,
+          2,
+          0,
+          3,
+          1,
+          2
+        ],
+        "unchanged": true
+      }
+    },
+    {
+      "name": "Pause/dialogue freezes cosmetic clock; area and save replacement clear stale pose",
+      "passed": true,
+      "detail": {
+        "frozen": true,
+        "load": true,
+        "area": true
+      }
+    },
+    {
+      "name": "Aura and telegraph wrapper remains active for new musical bodies",
+      "passed": true,
+      "detail": {
+        "ellipses": 1
+      }
+    },
+    {
+      "name": "All four boss maps render once each; first boss never draws exposed Archer",
+      "passed": true,
+      "detail": {
+        "maps": 4,
+        "firstBossExposedArcherCalls": 0
+      }
+    },
+    {
+      "name": "Unloaded boss sheet falls back without using the Archer actor",
+      "passed": true,
+      "detail": {
+        "exposed": 0
+      }
+    },
+    {
+      "name": "Musician remains masked even after reveal flag; normal Archer portrait follows alt speaker",
+      "passed": true,
+      "detail": {
+        "masked": true,
+        "archer": true
+      }
+    }
+  ],
+  "browserErrors": [],
+  "method": "Chrome headless in isolated context; static captures reviewed separately; no human campaign"
+}

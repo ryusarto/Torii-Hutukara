@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "cell": 320,
+  "columns": 4,
+  "rows": 2,
+  "pivot": [
+    160,
+    280
+  ],
+  "filter": "nearest",
+  "frames": 8,
+  "preparation": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "release": 4,
+  "recovery": [
+    5,
+    6,
+    7
+  ],
+  "clips": {
+    "boss_cast": {
+      "boss": "boss",
+      "atlas": "atlas/boss_cast.png",
+      "frames": 8,
+      "scale": 0.5234375,
+      "source": "source/boss_cast-cutout.png"
+    },
+    "boss_charge": {
+      "boss": "boss",
+      "atlas": "atlas/boss_charge.png",
+      "frames": 8,
+      "scale": 0.5234375,
+      "source": "source/boss_charge-cutout.png"
+    },
+    "voice_boss_cast": {
+      "boss": "voice_boss",
+      "atlas": "atlas/voice_boss_cast.png",
+      "frames": 8,
+      "scale": 0.6484375,
+      "source": "source/voice_boss_cast.png"
+    },
+    "c3_metronome_cast": {
+      "boss": "c3_metronome",
+      "atlas": "atlas/c3_metronome_cast.png",
+      "frames": 8,
+      "scale": 0.6484375,
+      "source": "source/c3_metronome_cast.png"
+    },
+    "c3_silence_cast": {
+      "boss": "c3_silence",
+      "atlas": "atlas/c3_silence_cast.png",
+      "frames": 8,
+      "scale": 0.7890625,
+      "source": "source/c3_silence_cast.png"
+    }
+  }
+}

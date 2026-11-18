@@ -58,6 +58,7 @@ jobs:
         run: |
           node qa/npc_recurrence.cjs
           node qa/protagonist_state.cjs
+          node qa/boss_choreography_unit.cjs
           node qa/musician_art_unit.cjs
           node qa/input_regression.cjs
           node qa/gameplay_regression.cjs
@@ -75,6 +76,7 @@ jobs:
           test_server_pid=$!
           trap 'kill "$test_server_pid"' EXIT
           node qa/musician_art.cjs http://127.0.0.1:8771/
+          node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
           node qa/protagonist_art_v5.cjs http://127.0.0.1:8771/
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/

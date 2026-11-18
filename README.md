@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta 1.3 — jornada completa em três capítulos, protagonistas V5, Ninja e Arqueiro detalhados e revisão dos cenários do ato final. A versão fica em `game/VERSION.json`.
+**Versão atual:** Beta 1.5 — jornada completa em três capítulos, protagonistas V5, Ninja e Arqueiro detalhados e revisão dos cenários do ato final. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -177,3 +177,5 @@ Detalhes e lista de arquivos em [LICENSE-ASSETS.md](LICENSE-ASSETS.md).
 ## Arte dos protagonistas V5
 
 [Atlas, retratos e prévia offline](assets/protagonistas/v5/) de Franco e Ryuchi principais. [Escopo, produção e exportação dos frames](design/sprites-principais-v5/LEIA-ME.md). Integrados à fonte da Beta 1.2, com máscaras selecionadas pela progressão, animações independentes no coop e retratos nos diálogos. A promoção da build publicada depende da revisão e do fluxo de publicação.
+
+Os inimigos usam sprites próprios, e os quatro chefes recebem sequências de ataque e marcações sincronizadas com as áreas reais de dano. Consulte `docs/ANIMACOES_BOSSES_V2.md`.

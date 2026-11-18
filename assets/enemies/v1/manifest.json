@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "cell": 256,
+  "grid": [
+    2,
+    2
+  ],
+  "pivot": [
+    128,
+    224
+  ],
+  "states": [
+    "idle",
+    "prepare",
+    "strike",
+    "hurt"
+  ],
+  "filter": "nearest",
+  "notes": "Four discrete front poses, not walk cycles or directional animation.",
+  "enemies": {
+    "hush": {
+      "name": "Nó do Silêncio",
+      "atlas": "atlas/hush.png",
+      "height": 88,
+      "source": "source/hush.png"
+    },
+    "whisper": {
+      "name": "Sombra Disforme",
+      "atlas": "atlas/whisper.png",
+      "height": 96,
+      "source": "source/whisper.png"
+    },
+    "compasso": {
+      "name": "Metrônomo Menor",
+      "atlas": "atlas/compasso.png",
+      "height": 88,
+      "source": "source/compasso.png"
+    },
+    "espelho": {
+      "name": "Eco Espelho",
+      "atlas": "atlas/espelho.png",
+      "height": 96,
+      "source": "source/espelho.png"
+    },
+    "abafador": {
+      "name": "Abafador",
+      "atlas": "atlas/abafador.png",
+      "height": 92,
+      "source": "source/abafador.png"
+    },
+    "compasso_c3": {
+      "name": "Metrônomo Menor · Distrito",
+      "atlas": "atlas/compasso_c3.png",
+      "height": 88,
+      "source": "source/compasso_c3.png"
+    },
+    "abafador_c3": {
+      "name": "Abafador · Distrito",
+      "atlas": "atlas/abafador_c3.png",
+      "height": 92,
+      "source": "source/abafador_c3.png"
+    },
+    "c3_echo": {
+      "name": "Eco de Distorção",
+      "atlas": "atlas/c3_echo.png",
+      "height": 82,
+      "source": "source/c3_echo-rust.png"
+    },
+    "c3_drone": {
+      "name": "Drone de Retorno",
+      "atlas": "atlas/c3_drone.png",
+      "height": 88,
+      "source": "source/c3_drone-rust.png"
+    },
+    "boss": {
+      "name": "O Viajante Mascarado",
+      "atlas": "atlas/boss.png",
+      "height": 134,
+      "source": "source/boss.png"
+    },
+    "voice_boss": {
+      "name": "Arauto da Estática",
+      "atlas": "atlas/voice_boss.png",
+      "height": 166,
+      "source": "source/voice_boss.png"
+    },
+    "c3_metronome": {
+      "name": "O Metrônomo",
+      "atlas": "atlas/c3_metronome.png",
+      "height": 166,
+      "source": "source/c3_metronome-rust.png"
+    },
+    "c3_silence": {
+      "name": "O Silêncio",
+      "atlas": "atlas/c3_silence.png",
+      "height": 202,
+      "source": "source/c3_silence-rust.png"
+    }
+  }
+}

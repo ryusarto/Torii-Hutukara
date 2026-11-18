@@ -36,6 +36,8 @@ jobs:
         run: |
           node qa/npc_recurrence.cjs
           node qa/protagonist_state.cjs
+          node qa/boss_choreography_unit.cjs
+          node qa/enemy_art_v1.cjs
           node qa/input_regression.cjs
           node qa/gameplay_regression.cjs
       - name: Verify web export on PC, phone and tablet
@@ -44,6 +46,7 @@ jobs:
           python3 -m http.server 8771 --bind 127.0.0.1 --directory production/playtest-dist &
           test_server_pid=$!
           trap 'kill "$test_server_pid"' EXIT
+          node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
           node qa/protagonist_art_v5.cjs http://127.0.0.1:8771/
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/
@@ -54,6 +57,8 @@ jobs:
           name: gameplay-regression
           path: |
             qa/beta-*/
+            qa/enemies-v1/
+            qa/boss-animations-v2/
             qa/playtest/SITE_TEST_RESULTS.json
             qa/screenshots-local/pages/
           retention-days: 30

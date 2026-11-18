@@ -1,3 +1,11 @@
+## Beta 1.5 · ataques animados dos chefes
+
+- Cinco sequências de oito quadros desenhados para os quatro chefes, preservando as identidades aprovadas.
+- Preparação, disparo real e recuperação sincronizados; investida instantânea mantém seu percurso e dano originais.
+- Áreas completas com contagem musical, limites corretos, bandas das duas ondas e guias de projéteis.
+- Estado cosmético separado, pausa/load/retry/final e movimento reduzido; regressões geométricas e no navegador.
+- Integra os músicos e a paleta canônica da main, além dos sprites próprios dos inimigos.
+
 ## [Beta 1.3] — 2026-11-17
 
 - Ryuchi Percussionista e Franco Sintetizador com 52 atlas de animação no padrão chibi aprovado, variantes com e sem máscara em folhas separadas, 208 sequências em quatro direções, 1.664 poses e 32 retratos de expressão.
@@ -54,6 +62,15 @@ Todas as alterações relevantes do projeto são registradas aqui.
 - Escala uniforme e pivô no chão; oito poses para o rolamento, sincronizadas à duração já existente, sem girar a imagem por código. Cache limitado a oito atlas decodificados.
 - Combate, colisões e schema de save preservados. Os quatro outros personagens mantêm o render anterior; seus pacotes de arte são trabalhos separados.
 - GitHub armazena atlas, retratos, ferramentas, documentação e testes. Dropbox/T&H guarda originais, quadros individuais, ZIP e prévias. O Drive foi excluído do escopo pelo autor.
+
+## [Não lançado · Beta 1.3 · inimigos] — 2026-11-17
+
+- Sprites próprios para sete inimigos comuns e quatro chefes, com poses discretas de repouso, preparação, execução e reação. Não são ciclos de caminhada ou animação de morte.
+- Viajante Mascarado corpóreo renovado a partir da captura do autor: máscara integral e figurino próximo ao Arqueiro, sem reaproveitar o ator jogável ampliado. Arte do Arqueiro recrutado preservada.
+- Direção do Capítulo 3: ferrugem, sucata cibernética e materiais empoeirados; silhuetas originais dos chefes preservadas. Variantes de Metrônomo Menor/Abafador selecionadas por capítulo.
+- Aura, telegráficos, dano, colisões, recompensas e schema 13 de save preservados. Poses cosméticas não controlam eventos de dano.
+- Inventário, fontes, prompts e evidências em `docs/INIMIGOS_SPRITES_V1.md`, `design/enemies-v1/`, `assets/enemies/v1/` e `qa/enemies-v1/`.
+
 
 ## [Não lançado]
 
