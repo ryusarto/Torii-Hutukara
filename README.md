@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta 1.5 — jornada completa em três capítulos, protagonistas V5, Ninja e Arqueiro detalhados e revisão dos cenários do ato final. A versão fica em `game/VERSION.json`.
+**Versão atual:** Beta 1.6 — jornada completa em três capítulos, protagonistas V5, Ninja e Arqueiro detalhados e revisão dos cenários do ato final. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -14,7 +14,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 - Seis faixas próprias do terceiro capítulo incorporadas à build.
 - Ninja e Arqueiro: 12 estados, oito poses por ação, rolamento, retratos e animações independentes no coop. [Detalhes e prévia dos assets](docs/ARTE_NINJA_ARQUEIRO_V1.md).
 - Franco e Ryuchi principais: 192 sequências V5 com e sem máscara, retratos e ações independentes no co-op. [Integração dos protagonistas](docs/ARTE_PROTAGONISTAS_V5.md).
-- Cenários V2: 12 atlas, 126 recortes/estados, materiais separados de objetos, nuvens por vizinhança e interiores/objetivos detalhados. [Produção e revisão dos mapas](docs/CENARIOS_V2.md).
+- Cenários C3 desérticos: 13 atlas, 131 recortes/estados e dois fundos de diálogo; terra, ferrugem, sucata e passagens elevadas legíveis. C1/C2 mantêm os 20 recortes compartilhados. [Assets e integração](docs/CENARIOS_DESERTO_V1.md).
 - Ryuchi Percussionista e Franco Sintetizador: 208 sequências, 1.664 poses e 32 retratos, com/sem máscara, na paleta canônica de terra e sucata. [Assets, integração e prévia](docs/ARTE_PERCUSSAO_SINTETIZADOR_V1.md).
 - Sprites detalhados para os personagens e NPCs do Capítulo 3.
 - Jogo distribuído como um único HTML portátil, sem instalação.

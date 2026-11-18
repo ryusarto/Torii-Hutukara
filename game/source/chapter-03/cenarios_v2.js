@@ -47,7 +47,9 @@ const CenariosV2={
   },
   cloud(x,y,xx,yy){
     const a=current,at=(cx,cy)=>['c3_cloud','c3_platform'].includes(a?.tiles?.[cy]?.[cx]);
-    const top='cloud_top_'+['a','b','c','d'][((xx%2+2)%2)+((yy%2+2)%2)*2];
+    // Desert shelves sample one continuous authored surface across the map.
+    // Alternating four dune materials every tile created false interior seams.
+    const top=this.manifest.theme==='deserto-v1'?'cloud_top_a':'cloud_top_'+['a','b','c','d'][((xx%2+2)%2)+((yy%2+2)%2)*2];
     if(!this.material(top,x,y,xx,yy))return false;
     const n=!at(xx,yy-1),e=!at(xx+1,yy),s=!at(xx,yy+1),w=!at(xx-1,yy);
     const band=(item,rect)=>{const r=this.available(item);if(!r)return;ctx.save();ctx.beginPath();ctx.rect(x+rect[0],y+rect[1],rect[2],rect[3]);ctx.clip();this.material('ceu_nuvens_fundo',x,y,xx,yy);ctx.imageSmoothingEnabled=false;ctx.drawImage(r.image,...r.a.content,x,y,T,T);ctx.restore()};

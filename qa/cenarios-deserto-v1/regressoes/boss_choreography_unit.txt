@@ -1,0 +1,19 @@
+ok - all five area geometries match real C3 damage predicates across boundary samples
+ok - projectile emission is not circular area damage; live chase aim captured only at release
+ok - fire hook releases C3 at the actual damage instant, while wind is still positive
+ok - rain cluster discharges once per cast without restarting clip for each drop
+ok - traveler corridor prediction and actual instant charge agree, including blocked route
+ok - traveler simulation/damage/state are unchanged by the presentation wrapper
+ok - pause freezes cosmetic clock; new game, area, retry and final phase cancel old states
+ok - clip draws at the ground pivot; missing art and non-bosses retain static fallback
+ok - all eight clip frames are selectable and reduced motion keeps a stable preparation pose
+ok - traveler stun freezes preparation via original wind; recovery is not a hurt animation
+ok - actual Arauto telegraph locks at creation and animation releases with damage, not later
+ok - actual Arauto double-wave release preserves two ring emissions and their delay
+ok - actual phase-II Arauto volley animates at three-shot emission without adding preparation
+ok - ground shapes have no legacy -12 offset, annulus leaves its inner zone safe
+ok - old finalPending never hides other bosses, and generic 320px atlas contract draws
+ok - reduced motion retains stationary countdown pips without the animated center arc
+ok - second real Arauto wave restarts discharge exactly once without changing delays or 14 damage
+ok - ground pass paints original hazards once before actors; late layers neither clone nor repaint them
+18 choreography unit checks passed; no visual/gameplay acceptance claimed.

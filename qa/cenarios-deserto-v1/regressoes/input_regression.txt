@@ -1,0 +1,23 @@
+OK · Desktop starts with keyboard layout and no touch deck
+OK · No gamepad does not erase touch-owned movement or attack
+OK · Circle rolls in peaceful areas; only Options opens pause
+OK · All six rolls have stable distance and duration independent of frame rate
+OK · Roll stops at walls with full body radius at high and low frame rates
+OK · Ryuchi roll completes through the real game update without double displacement
+OK · Player 2 is smoothly pulled around a building without teleport or wall penetration
+OK · Map entry near a wall finds a valid player 2 spawn
+OK · Two controllers do not advance player 2 during pause
+OK · Player 2 can leave a blocked legacy position without disconnecting
+OK · Final bosses expose a recovery window after the pattern resolves
+OK · Final boss alternates its aimed attacks between both players
+OK · P2 identity changes cancel roll and attack state without touching P1
+OK · Six P2 attacks retain character identity and never mutate P1 action state
+OK · P2 interacts at its own position and can travel nine tiles before pull
+OK · iPhone automatically gets portrait mobile layout with large targets
+OK · Real multitouch holds movement and attack; releasing one finger preserves the other
+OK · Rotation switches layout and releases all held touches
+OK · Landscape touch targets receive real simultaneous movement and attack
+OK · Dialogue cancels held touch and roll and cannot move the actor
+OK · Musical challenge stops album and blocks late decoded tracks
+OK · Mobile can connect and disconnect a physical controller and return to touch
+22 verificações funcionais aprovadas.

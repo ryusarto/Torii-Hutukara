@@ -1,6 +1,6 @@
 {
-  "version": "beta-1.5.0",
-  "url": "http://127.0.0.1:8771/",
+  "version": "beta-1.6.0",
+  "url": "http://127.0.0.1:8792/",
   "passed": 8,
   "checks": [
     {
@@ -3650,10 +3650,5 @@
       "method": "Actual updateEnemy/C3.castPattern states rendered to game canvas; after the first recovery the final pose is held, without changing combat cooldowns."
     }
   ],
-  "method": "Isolated Chrome, controlled real simulation calls and actual game canvas captures; no human campaign or physical-device validation.",
-  "buildSha256": "0e5ff738479164854b1ed625464f0704af9bfde833f2221cf67623525bfe8e21",
-  "sourceCommit": "1ccb634da3cad566413868e526fe7e3a5ccee661",
-  "workflowRun": 44206242216,
-  "artifactId": 14385275090,
-  "provenance": "Captured by CI; executable SHA confirmed in the same job log. GIF packs resized screenshots. These are controlled scenarios, not a human campaign. The top of Silence can extend beyond the test viewport during maximum expansion; source atlas is complete."
+  "method": "Isolated Chrome, controlled real simulation calls and actual game canvas captures; no human campaign or physical-device validation."
 }

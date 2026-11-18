@@ -1,0 +1,794 @@
+{
+  "sheets": 13,
+  "cells": 131,
+  "backgrounds": 2,
+  "checks": [
+    {
+      "id": "asfalto_seco",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "asfalto_molhado",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "calcada_pedra",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "beco_laje",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "agua_canal",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "metal_industrial",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "ceu_nuvens_fundo",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "abismo_fundo",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "madeira_clube",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "madeira_oficina",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "metal_terminal",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "pedra_santuario",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "basalto_nucleo",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "tabuas_ponte",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "tapete_palco",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "paineis_parede",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_n",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_e",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_s",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_w",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_outer_ne",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_outer_se",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_outer_sw",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_outer_nw",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_inner_ne",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_inner_se",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_inner_sw",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "curb_inner_nw",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "crossing_horizontal",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "crossing_vertical",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "service_drain",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "threshold_inlay",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "residence_laundry",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "residence_roof_garden",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "residence_service_window",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "plant_entrance",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "terminal_canopy",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_arrival_arch",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "stage_idle",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "stage_active",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "speaker_idle",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "speaker_active",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "bar_counter",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "club_table",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "club_chair",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "club_stool",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "projection_console",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "projector_rig",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "instrument_rack",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "acoustic_wallpanel",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "machine_inactive",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "machine_active",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "pressure_switch_inactive",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "pressure_switch_active",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "valve_stalled",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "valve_released",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "canal_gate_closed",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "canal_gate_open",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "sign_club",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "sign_workshop",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "sign_plant",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "sign_canal",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "sign_lift",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "wayfinder_left",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "wayfinder_right",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "threshold_open",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "threshold_closed",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "platform_embark",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "canal_pier_left",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "canal_pier_right",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_club_facade",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_workshop_facade",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_elevator_closed",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_elevator_open",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_terrace_landmark",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_lamp",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_utility",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_checkpoint_recorder",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_top_a",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_top_b",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_top_c",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_top_d",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_edge_n",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_edge_e",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_edge_s",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_edge_w",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_outer_ne",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_outer_se",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_outer_sw",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_outer_nw",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_inner_ne",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_inner_se",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_inner_sw",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_inner_nw",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_bench",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_planter",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_crates",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_vending",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_railing",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_drain",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_kiosk",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_workbench",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_flute_rack",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_wind_console",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_tuning_machine",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_interference_active",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_interference_calm",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_broken_pipe",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_lift_console",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_wind_receiver",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "c3_desert_bass_lock",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "silence_eye_open",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "silence_eye_half",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "silence_eye_closed",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "silence_altar_dormant",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "silence_altar_awake",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "resonance_circle_off",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "resonance_circle_on",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "last_torii_arch",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "core_entry_bridge",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "core_bridge_edge",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "core_column_left",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "core_column_right",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "wind_beacon_off",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "wind_beacon_on",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "condensation_off",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "condensation_on",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "drum_anchor_off",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "drum_anchor_on",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "wind_current_marker",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    },
+    {
+      "id": "cloud_anchor_foundation",
+      "transparentGutter": true,
+      "nonempty": true,
+      "anomalousRedPixels": 0
+    }
+  ],
+  "runtimeIntegrated": false
+}

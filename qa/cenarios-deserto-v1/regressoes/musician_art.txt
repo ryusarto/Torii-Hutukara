@@ -1,0 +1,9 @@
+OK No musician atlases decoded on title screen
+OK All 208 directional variant sequences decode as eight nonempty RGBA frames
+OK Accepted P1/P2 actions retain separate identities and blocked buttons do not restart
+OK Real techniques and signatures animate without changing their acceptance rules
+OK Defeat completes behind the existing retry overlay and holds the ground pose
+OK Roll phase, direction and clock pause come from the existing controllers
+OK Mask API switches actor, NPC and portraits together for each musician
+OK Decoded musician cache remains at eight sheets
+PASS 8 checks

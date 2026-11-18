@@ -265,11 +265,33 @@ ninja_archer_runtime = File.read(NINJA_ARCHER_JS, encoding: 'UTF-8')
 replace_once!(ninja_archer_runtime, '__NINJA_ARCHER_ASSETS__', JSON.generate(ninja_archer_uris), 'sprites Ninja e Arqueiro')
 replace_once!(ninja_archer_runtime, '__NINJA_ARCHER_MANIFEST__', JSON.generate(ninja_archer_manifest), 'manifesto Ninja e Arqueiro')
 cenarios_manifest = JSON.parse(File.read(File.join(CENARIOS_ASSETS, 'manifest.json')))
-cenarios_files = cenarios_manifest.fetch('sheets').values.map { |s| s.fetch('file') }
-cenarios_uris = cenarios_manifest.fetch('sheets').to_h { |id, sheet| [id, "data:image/png;base64,#{encode(File.join(CENARIOS_ASSETS, sheet.fetch('file')))}"] }
+cenarios_theme = ENV.fetch('TORII_CENARIOS_THEME', 'deserto-v1')
+raise 'Unknown scenario theme' unless %w[v2 deserto-v1].include?(cenarios_theme)
+desert_manifest_path = File.join(REPO_ROOT, 'assets', 'cenarios', 'deserto-v1', 'manifest.json')
+if cenarios_theme == 'deserto-v1'
+  desert = JSON.parse(File.read(desert_manifest_path))
+  %w[sheets items backgrounds].each do |group|
+    cenarios_manifest[group] ||= {}
+    desert.fetch(group).each do |id, record|
+      copy = Marshal.load(Marshal.dump(record))
+      copy['file'] = '../deserto-v1/' + copy.fetch('file')
+      cenarios_manifest.fetch(group)[id] = copy
+    end
+  end
+  replaced_ids = desert.fetch('sources').map { |s| s.fetch('id') }
+  cenarios_manifest['sources'] = cenarios_manifest.fetch('sources').reject { |s| replaced_ids.include?(s.fetch('id')) } + desert.fetch('sources')
+  cenarios_manifest['theme'] = 'deserto-v1'
+  cenarios_manifest['variantStage'] = desert.fetch('stage')
+end
+cenarios_resources = cenarios_manifest.fetch('sheets').merge(cenarios_manifest.fetch('backgrounds', {}))
+cenarios_files = cenarios_resources.values.map { |s| s.fetch('file') }
+cenarios_uris = cenarios_resources.to_h { |id, sheet| [id, "data:image/png;base64,#{encode(File.expand_path(sheet.fetch('file'), CENARIOS_ASSETS))}"] }
 cenarios_runtime = File.read(CENARIOS_JS, encoding: 'UTF-8')
 replace_once!(cenarios_runtime, '__CENARIOS_V2_MANIFEST__', JSON.generate(cenarios_manifest), 'manifesto de cenários V2')
 replace_once!(cenarios_runtime, '__CENARIOS_V2_ASSETS__', JSON.generate(cenarios_uris), 'PNG de cenários V2')
+if cenarios_theme == 'deserto-v1'
+  cenarios_runtime += "\n" + File.read(File.join(ROOT, 'cenarios_deserto_v1.js'), encoding: 'UTF-8')
+end
 protagonist_manifest = JSON.parse(File.read(File.join(PROTAGONIST_ASSETS, 'manifest.json')))
 protagonist_files = protagonist_manifest.fetch('animations').map { |a| a.fetch('atlas') }.uniq + protagonist_manifest.fetch('portraits').map { |p| p.fetch('file') }
 protagonist_uris = protagonist_files.to_h do |relative|
@@ -315,7 +337,23 @@ boss_animation_uris = boss_animation_files.to_h { |file| [file, "data:image/png;
 boss_animation_runtime = File.read(BOSS_ANIMATION_JS, encoding: 'UTF-8')
 replace_once!(boss_animation_runtime, '__BOSS_ANIMATION_ASSETS__', JSON.generate(boss_animation_uris), 'animações dos chefes')
 replace_once!(boss_animation_runtime, '__BOSS_ANIMATION_MANIFEST__', JSON.generate(boss_animation_manifest), 'manifesto de animações dos chefes')
-html.insert(position, "\n\n#{runtime}\n\n#{input_runtime}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(ACCESS_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n\n#{ninja_archer_runtime}\n\n#{protagonist_runtime}\n\n#{cenarios_runtime}\n\n#{musician_runtime}\n\n#{enemy_art_runtime}\n\n#{boss_animation_runtime}\n")
+# Embedded runtime strings now own these bytes; release duplicate URI maps
+# before constructing the portable HTML on memory-constrained computers.
+ninja_archer_uris = protagonist_uris = musician_uris = cenarios_uris = enemy_art_uris = boss_animation_uris = nil
+GC.start
+# Insert pieces in reverse at the same anchor: identical bytes without a second
+# full-size concatenation of every embedded PNG/audio runtime.
+parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime]
+runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = nil
+html.insert(position, "\n")
+until parts.empty?
+  part = parts.pop
+  html.insert(position, part)
+  html.insert(position, "\n\n")
+end
+part = nil
+GC.start
+
 html.gsub!('ALPHA 1.2.0', VERSION.fetch('rotulo'))
 html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
 
@@ -325,8 +363,16 @@ html.gsub!("yy=bossActor?.id==='voice_boss'?", "yy=!C3.coopActive()&&bossActor?.
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
-sources = [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json')] + boss_animation_files.map { |relative| File.join(BOSS_ANIMATION_ASSETS, relative) } + [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_art_files.map { |relative| File.join(ENEMY_ART_ASSETS, relative) } + [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) } + [MUSICIAN_JS, File.join(MUSICIAN_ASSETS, 'manifest.json')] + musician_files.map { |relative| File.join(MUSICIAN_ASSETS, relative) }
-sources += [CENARIOS_JS, File.join(CENARIOS_ASSETS, 'manifest.json')] + cenarios_files.map { |relative| File.join(CENARIOS_ASSETS, relative) }
+sources = [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
+sources += [MUSICIAN_JS, File.join(MUSICIAN_ASSETS, 'manifest.json')] + musician_files.map { |relative| File.join(MUSICIAN_ASSETS, relative) }
+sources += [CENARIOS_JS, File.join(CENARIOS_ASSETS, 'manifest.json')] + cenarios_files.map { |relative| File.expand_path(relative, CENARIOS_ASSETS) }
+if cenarios_theme == 'deserto-v1'
+  sources += [desert_manifest_path, File.join(ROOT, 'cenarios_deserto_v1.js')]
+end
+
+sources += [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_art_files.map { |relative| File.join(ENEMY_ART_ASSETS, relative) }
+sources += [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json')] + boss_animation_files.map { |relative| File.join(BOSS_ANIMATION_ASSETS, relative) }
+
 manifest = {
   game: 'TORII & HUTUKARA',
   build: VERSION.fetch('rotulo'),
@@ -359,7 +405,8 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, CENARIOS_ASSETS, MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+
     [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end
 }

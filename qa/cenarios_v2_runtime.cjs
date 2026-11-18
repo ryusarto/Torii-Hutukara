@@ -1,7 +1,7 @@
 /* Isolated browser verification of scene art, state and collision contracts. */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
-const root=path.resolve(__dirname,'..'),out=path.join(root,'qa/cenarios-v2');
+const root=path.resolve(__dirname,'..'),out=path.join(root,process.env.TORII_SCENE_QA_ROOT||'qa/cenarios-v2');
 fs.mkdirSync(out,{recursive:true});
 (async()=>{
  const browser=await (process.env.CHROME_PATH?chromium.launch({executablePath:process.env.CHROME_PATH,headless:true}):chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9238')),context=await browser.newContext({viewport:{width:1280,height:800}}),page=await context.newPage(),errors=[],checks=[];
@@ -12,7 +12,7 @@ fs.mkdirSync(out,{recursive:true});
   await page.evaluate(async()=>{C3.loadDeferredImages();C3.start(true);for(let i=0;mode==='dialogue'&&i<100;i++)advanceDialogue();mode='walk';transitionAlpha=0;await CenariosV2.ready();$('start').classList.add('hidden');$('overlay').classList.add('hidden');$('dialogue').classList.add('hidden');$('cinema').style.display='none';});
   await page.waitForFunction(()=>Object.values(C3.images).every(i=>i.complete&&i.naturalWidth),null,{timeout:120000});
   async function check(name,fn){const detail=await fn();checks.push({name,passed:true,detail});console.log('OK · '+name)}
-  await check('126 nonempty RGBA crops in 12 correctly sized sheets with transparent gutters',async()=>{
+  await check('Complete nonempty RGBA library with correctly sized sheets and transparent gutters',async()=>{
    const result=await page.evaluate(()=>{
     const art=CenariosV2,c=document.createElement('canvas'),q=c.getContext('2d',{willReadFrequently:true});let items=0;
     for(const [id,s]of Object.entries(art.manifest.sheets)){const im=art.image(id);if(im.naturalWidth!==s.grid[0]*s.cell||im.naturalHeight!==s.grid[1]*s.cell)throw Error('Atlas size '+id)}
@@ -20,8 +20,8 @@ fs.mkdirSync(out,{recursive:true});
      c.width=c.height=a.cell[2];q.drawImage(art.image(a.sheet),...a.cell,0,0,c.width,c.height);const data=q.getImageData(0,0,c.width,c.height).data;
      if(data[3]||data[(c.width*c.height-1)*4+3])throw Error('Opaque gutter '+name);
      if(!data.some((n,i)=>i%4===3&&n))throw Error('Empty crop '+name);items++;
-    }return {sheets:Object.keys(art.manifest.sheets).length,items};
-   });assert.deepEqual(result,{sheets:12,items:126});return result;
+    }return {sheets:Object.keys(art.manifest.sheets).length,items,theme:art.manifest.theme||'v2'};
+   });assert.deepEqual(result,result.theme==='deserto-v1'?{sheets:15,items:151,theme:'deserto-v1'}:{sheets:12,items:126,theme:'v2'});return result;
   });
   await check('Material patches join at mirrored edges without gaps or floor props',async()=>{
    const result=await page.evaluate(()=>{

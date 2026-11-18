@@ -58,6 +58,26 @@ check.call('recortes de cenário contidos no atlas', scene_manifest.fetch('items
 end)
 check.call('cenários integrados sem marcador de dados pendente', built.include?('const CenariosV2=') && !built.include?('__CENARIOS_V2_'))
 check.call('posição de save antigo nas nuvens possui migração', built.include?('repairLegacyCloudPosition') && built.include?('env2RemovedCloudCells'))
+
+if built.include?('const CenariosDesertoV1=')
+  desert_root = File.join(repo_root, 'assets', 'cenarios', 'deserto-v1')
+  desert = JSON.parse(File.read(File.join(desert_root, 'manifest.json')))
+  check.call('deserto C3: 13 atlas, 131 recortes e dois fundos', desert.fetch('sheets').size == 13 && desert.fetch('items').size == 131 && desert.fetch('backgrounds').size == 2)
+  check.call('atlas desérticos RGBA com dimensões contratuais', desert.fetch('sheets').all? do |_id, sheet|
+    header=File.binread(File.join(desert_root,sheet.fetch('file')),26)
+    header.getbyte(25)==6 && header.byteslice(16,8).unpack('NN')==sheet.fetch('grid').map { |n| n*sheet.fetch('cell') }
+  end)
+  check.call('recortes desérticos contidos nos atlas', desert.fetch('items').all? do |_id,item|
+    sheet=desert.fetch('sheets').fetch(item.fetch('sheet'));x,y,w,h=item.fetch('content')
+    x>=0 && y>=0 && w>0 && h>0 && x+w<=sheet['grid'][0]*sheet['cell'] && y+h<=sheet['grid'][1]*sheet['cell']
+  end)
+  check.call('A11 e A12 não substituídos pelo pacote C3',(desert.fetch('sheets').keys & %w[A11 A12]).empty?)
+  check.call('fundos C3 separados, RGBA e dimensões válidas',desert.fetch('backgrounds').all? do |_id,bg|
+    header=File.binread(File.join(desert_root,bg.fetch('file')),26)
+    header.getbyte(25)==6 && header.byteslice(16,8).unpack('NN')==bg.fetch('size')
+  end)
+end
+
 protagonist_root = File.join(repo_root, 'assets', 'protagonistas', 'v5')
 protagonist_manifest = JSON.parse(File.read(File.join(protagonist_root, 'manifest.json')))
 check.call('protagonistas V5: 192 sequências com oito poses e fechamento', protagonist_manifest.fetch('animations').size == 192 && protagonist_manifest.fetch('animations').all? { |a| a['frames'] == 9 && a['playFrames'] == 8 })
