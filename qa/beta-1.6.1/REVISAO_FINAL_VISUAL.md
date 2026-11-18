@@ -9,4 +9,3 @@ Franco preserva cachos atrás dos fones e da máscara em attack_2/3 e skill. A m
 Integridade verificada nesta revisão: os18 arquivos canônicos promovidos têm SHA-256 igual a correctedSha256 da AUDITORIA_CORRECOES_FLUIDEZ.json. A auditoria registra152 poses revisadas,143 corrigidas e9 no-ops deliberados; a prova prévia por RGBA mostrou0 diferenças fora das regiões de cabeça.
 
 Este parecer cobre revisão estática da arte final e continuidade visual das poses. A execução no jogo é a evidência de QA do root; nenhum navegador foi iniciado por este agente. Nenhum PNG canônico, BUILD ou REPO foi modificado nesta etapa.
-

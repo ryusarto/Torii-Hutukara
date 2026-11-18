@@ -21,4 +21,3 @@ REVISAO_UP_QUATRO.png é uma prévia antiga: revelou resíduo vertical dourado d
 
 ## Segundo olhar independente — Franco
 COMPARACAO_UP.png do root, attack_2/attack_3/skill, mostra os cachos restaurados atrás dos fones sem a calota fechada. A solução visual está aprovada quanto à construção da máscara facial e à continuidade da identidade. O volume de abertura varia com o ângulo das poses; não vi necessidade de ampliar o escopo.
-
