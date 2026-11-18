@@ -12,7 +12,7 @@ As fontes foram criadas com o **ImageGen integrado**, a partir dos sprites aprov
 
 ## Leitura das áreas
 
-O contorno mostra a extensão completa desde o início, e a contagem musical indica quando o ataque dispara. O chão usa a mesma coordenada da colisão, sem deslocamento vertical decorativo. Os avisos antigos são suprimidos apenas nos ramos substituídos: barras de vida, projéteis, efeitos dos protagonistas e avisos de inimigos comuns continuam ativos.
+O contorno mostra a extensão completa desde o início, e a contagem musical indica quando o ataque dispara. O chão usa a mesma coordenada da colisão, sem deslocamento vertical decorativo. As áreas são desenhadas uma única vez antes dos personagens: o brilho do impacto não cobre o corpo nem a máscara. Os avisos antigos são suprimidos apenas nos ramos substituídos: barras de vida, projéteis, efeitos dos protagonistas e avisos de inimigos comuns continuam ativos.
 
 | Chefe/padrão | Área representada |
 | --- | --- |

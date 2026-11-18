@@ -129,6 +129,8 @@ replace_once!(html, "addCombatFX(e.x,e.y,'warning',isBoss?2.8:1.5);return;",
   "if(!#{boss_visual_guard})addCombatFX(e.x,e.y,'warning',isBoss?2.8:1.5);return;", 'círculo decorativo do Viajante')
 replace_once!(runtime, "e.facing=base.angle||0;addCombatFX(e.x,e.y,'warning',base.r||3);toast(",
   "e.facing=base.angle||0;if(!#{boss_visual_guard})addCombatFX(e.x,e.y,'warning',base.r||3);toast(", 'círculo decorativo C3')
+replace_once!(html, ' drawable.sort((a,b)=>a.y-b.y);for(let d of drawable)d.draw();',
+  " if(typeof BossChoreographyV2!=='undefined')BossChoreographyV2.drawGround();\n drawable.sort((a,b)=>a.y-b.y);for(let d of drawable)d.draw();", 'áreas dos chefes abaixo dos personagens')
 
 html.sub!('<title>TORII & HUTUKARA — A Última Frequência · 1.1.2 · Pré-alpha</title>',
           '<title>TORII & HUTUKARA — Alpha 1.2.0 · Pré-beta</title>')

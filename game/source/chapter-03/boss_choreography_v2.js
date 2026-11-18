@@ -202,6 +202,16 @@ const BossChoreographyV2 = {
     const span=Math.max(.001,h.max-h.trigger),progress=1-Math.max(0,h.time-h.trigger)/span;
     this.paint(this.geometry(h),progress,!!h.fired);
   },
+  // Called by drawEnv after flat props and before the sorted actor pass.
+  // This is the only pass for the managed ground warnings.
+  drawGround() {
+    this.sync();
+    if(this.cancelled(bossActor)||!this.managesLegacyTelegraph(bossActor))return;
+    if(bossActor.id==='c3_metronome'||bossActor.id==='c3_silence'){
+      for(const h of C3.hazards)this.drawHazard(h);
+    }
+    this.drawLegacyBossTelegraphs();
+  },
   drawLegacyBossTelegraphs() {
     const e=bossActor;if(this.cancelled(e)||!this.managesLegacyTelegraph(e))return;
     const r=this.records.get(e),spec=this.snapshot(e);
@@ -304,14 +314,14 @@ C3.fireHazard=function(h,e,...rest){
   }
   return result;
 };
-C3.drawHazard=function(h){return BossChoreographyV2.drawHazard(h);};
+const bossChoreographyHazardV2=C3.drawHazard;
+C3.drawHazard=function(h,...rest){
+  // Managed hazards have already been painted below the bodies by drawGround.
+  if(BossChoreographyV2.managesLegacyTelegraph(bossActor))return;
+  return bossChoreographyHazardV2.call(this,h,...rest);
+};
 
 const bossChoreographyActorV2=EnemyArtV1.draw;
 EnemyArtV1.draw=function(x,y,kind,e,...rest){
   return BossChoreographyV2.drawActor(x,y,kind,e)||bossChoreographyActorV2.call(this,x,y,kind,e,...rest);
-};
-const bossChoreographyCombatV2=drawCombatLayer;
-drawCombatLayer=function(...args){
-  const result=bossChoreographyCombatV2.apply(this,args);
-  BossChoreographyV2.drawLegacyBossTelegraphs();return result;
 };

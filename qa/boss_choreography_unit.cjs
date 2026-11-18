@@ -41,12 +41,14 @@ function setup(withArt=true){
     damageHero(d,e){s.hits.push({damage:d,source:e?.id})},
     addCombatFX(...a){s.effects.push(a)},toast(){},clamp:(v,a,b)=>Math.max(a,Math.min(b,v)),
     screenShake:0,
-    C3:{hazards:[],finalPending:false,patternLabels:{}},
+    C3:{hazards:[],finalPending:false,patternLabels:{},drawHazard(h){s.fallbackHazards.push(h)}},
+    fallbackHazards:[],
     Image:class{constructor(){this.complete=true;this.naturalWidth=1024;this.naturalHeight=512;}},
     matchMedia:()=>({matches:false}),
     EnemyArtV1:{draw(){return 'static-fallback'}},
     drawCombatLayer(){return 'combat-result'}
   };
+  s.originalCombatLayer=s.drawCombatLayer;
   s.window=s;
   vm.createContext(s);
   vm.runInContext(fire+'\n'+cast+'\n'+legacy+'\n'+arauto+'\n'+echo+'\nfunction update(dt){if(mode==="action"&&bossActor)updateEnemy(bossActor,dt,true);}\n'+waveUpdate,s);
@@ -206,7 +208,8 @@ check('actual phase-II Arauto volley animates at three-shot emission without add
 
 check('ground shapes have no legacy -12 offset, annulus leaves its inner zone safe',()=>{
   const s=setup(),e=boss('c3_silence');s.bossActor=e;
-  s.C3.drawHazard({kind:'pulse',x:10,y:11,r:6.2,inner:2.45,max:1.22,time:.5,trigger:.17});
+  s.C3.hazards=[{kind:'pulse',x:10,y:11,r:6.2,inner:2.45,max:1.22,time:.5,trigger:.17}];
+  s.BossChoreographyV2.drawGround();
   assert(s.arcs.some(a=>a[0]===240&&a[1]===264&&a[2]===6.2*24));
   assert(!s.BossChoreographyV2.contains({kind:'annulus',x:10,y:11,r:6.2,inner:2.45},10,11));
   assert(s.BossChoreographyV2.contains({kind:'wave',x:0,y:0,r:5},5.54,0));
@@ -261,5 +264,24 @@ check('second real Arauto wave restarts discharge exactly once without changing 
   }
   assert(second);assert.deepEqual(decorated.hits,[14,14]);assert.deepEqual(decorated.hits,plain.hits);
   assert.equal(decorated.G.hp.franco,plain.G.hp.franco);
+});
+
+check('ground pass paints original hazards once before actors; late layers neither clone nor repaint them',()=>{
+  const s=setup(),a=s.BossChoreographyV2,e=boss('c3_metronome');s.bossActor=e;
+  const h1={kind:'ring',x:1,y:2},h2={kind:'cross',x:3,y:4};s.C3.hazards=[h1,h2];
+  const events=[],seen=[];a.drawHazard=function(h){events.push('ground');seen.push(h)};
+  a.drawLegacyBossTelegraphs=function(){events.push('legacy-ground')};
+  const before=JSON.stringify(s.C3.hazards);
+  a.drawGround();events.push('sorted-actor');
+  // These are the late calls retained by the original rendering chain.
+  s.C3.drawHazard(h1);s.C3.drawHazard(h2);
+  assert.equal(s.drawCombatLayer,s.originalCombatLayer);assert.equal(s.drawCombatLayer(),'combat-result');
+  assert.deepEqual(events,['ground','ground','legacy-ground','sorted-actor']);
+  assert.equal(seen[0],h1);assert.equal(seen[1],h2);
+  assert.equal(s.fallbackHazards.length,0);assert.equal(JSON.stringify(s.C3.hazards),before);
+  // Unmanaged callers still receive the exact original draw callback/object.
+  s.bossActor={id:'unmanaged',hp:1};s.C3.drawHazard(h1);
+  assert.equal(s.fallbackHazards.length,1);assert.equal(s.fallbackHazards[0],h1);
+  const count=events.length;a.drawGround();assert.equal(events.length,count);
 });
 console.log(`${checks} choreography unit checks passed; no visual/gameplay acceptance claimed.`);

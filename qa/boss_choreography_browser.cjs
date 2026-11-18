@@ -36,12 +36,25 @@ const checks=[],errors=[],animatedSequences=[];let browser,context;
   window.BossQA={
    fixture(id,phase=1){G=fresh();buildMaps();G.area=({boss:'ruins',voice_boss:'voice_tower',c3_metronome:'cloud_terrace',c3_silence:'silence_core'})[id];current=areas[G.area];mode='action';act.invuln=0;G.active='franco';G.formation=['franco','ryuchi'];G.guidance=false;G.options10={...G.options10,reducedMotion:false};G.x=15;G.y=15;G.hp.franco=G.maxhp.franco=1000;bossActor={id,type:'boss',kind:'boss',x:15,y:10,hp:phase===1?1000:400,max:1000,power:10,cd:10,wind:0,windKind:'ring',stun:0,flash:0,phase,facing:Math.PI/2,chargeX:0,chargeY:1};battle={id,boss:true};C3.hazards=[];C3.finalPending=false;hostileShots=[];combatFX=[];if(typeof rings092!=='undefined')rings092=[];ToriiCombate.MODE.mode='padrao';BossChoreographyV2.reset();cam.x=clamp(15*T-VW/2,0,current.w*T-VW);cam.y=clamp(12*T-VH/2,0,current.h*T-VH);return bossActor;},
    step(dt){BossChoreographyV2.clock+=dt;updateEnemy(bossActor,dt,true);return BossChoreographyV2.pose(bossActor);},
-   render(){drawEnv();drawCombatLayer();return cv.toDataURL('image/png');},
+   // drawEnv already invokes the combat layer. Capture exactly one game pass.
+   render(){drawEnv();return cv.toDataURL('image/png');},
    recovery(){const a=BossChoreographyV2,e=bossActor,r=a.records.get(e),frames=[];for(const offset of [0,.101,.201,.301]){a.clock=r.releaseAt+offset;frames.push(a.pose(e)?.frame??null);}return frames;},
    emit(kind){const e=bossActor;C3.castPattern(e,kind);return C3.hazards[0];}
   };
  });
  const shots=[];
+ await check('Danger zones render once on the ground before the boss body',async()=>{
+  const rows=await page.evaluate(()=>['boss','c3_metronome'].map(id=>{
+   const e=BossQA.fixture(id),a=BossChoreographyV2,events=[];
+   if(id==='boss'){e.wind=.5;e.windKind='ring';a.begin(e,a.snapshot(e));}else BossQA.emit('cross');
+   const ground=a.drawGround,paint=a.paint,creature=drawCreature;
+   a.drawGround=function(...args){events.push('ground');return ground.apply(this,args);};
+   a.paint=function(...args){events.push('zone');return paint.apply(this,args);};
+   drawCreature=function(x,y,k,actor,...rest){if(actor===e)events.push('body');return creature.call(this,x,y,k,actor,...rest);};
+   try{BossQA.render();return{id,events};}finally{a.drawGround=ground;a.paint=paint;drawCreature=creature;}
+  }));
+  for(const r of rows){assert.equal(r.events.filter(x=>x==='ground').length,1);assert.equal(r.events.filter(x=>x==='zone').length,1);assert.equal(r.events.filter(x=>x==='body').length,1);assert(r.events.indexOf('zone')<r.events.indexOf('body'));}return rows;
+ });
  await check('Actual C3 cast/update releases all attack patterns at h.fired while wind remains positive',async()=>{
   const r=await page.evaluate(()=>{const rows=[];for(const id of ['c3_metronome','c3_silence'])for(const kind of (id==='c3_metronome'?['ring','cross','fan','pulse']:['ring','cross','fan','pulse','rain','chase','orbit'])){
    const e=BossQA.fixture(id),h=BossQA.emit(kind),a=BossChoreographyV2,frames=[a.pose(e)?.frame];
