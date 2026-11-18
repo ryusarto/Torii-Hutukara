@@ -182,6 +182,9 @@ const BossGroundFXV1={
   }
 };
 window.BossGroundFXV1=BossGroundFXV1;
+// Start the four small sprite requests before the first attack; never block input.
+for(const key of Object.keys(BossGroundFXV1.manifest.clips||{}))BossGroundFXV1.image(key);
+
 
 const bossGroundUpdateV1=update;
 update=function(dt,...rest){

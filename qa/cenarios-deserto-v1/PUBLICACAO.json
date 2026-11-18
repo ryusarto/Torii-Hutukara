@@ -1,0 +1,37 @@
+{
+  "commit": "bf1c2dc45c19216463983bd92f8bcb39216fe4d7",
+  "run": 44227852940,
+  "url": "https://ryusarto.github.io/Torii-Hutukara/?v=bf1c2dc",
+  "version": "1.6.0",
+  "gameSha256": "517715fe2e742bf3e19b2e238f0286378e5c63335002a1e116cf62fe3b10b845",
+  "sourceRoundtrip": true,
+  "media": 307,
+  "indexBytes": 888756,
+  "runtime": {
+    "theme": "deserto-v1",
+    "sheets": 15,
+    "cells": 151,
+    "backgrounds": 2,
+    "area": "distortion_district",
+    "bossModule": true,
+    "enemyModule": true,
+    "musicianModule": true
+  },
+  "browserErrors": [],
+  "isolatedBrowser": true,
+  "physicalHardware": false,
+  "ciConclusion": "success",
+  "ciJob": 134545344242,
+  "staticChecks": 137,
+  "regressionSuites": 14,
+  "geometryChecks": 88,
+  "sceneryAtlases": 13,
+  "sceneryCrops": 131,
+  "sceneryBackgrounds": 2,
+  "backupCloud": {
+    "file": "TORII_CENARIOS_DESERTO_V1_BETA_1_6.zip",
+    "bytes": 84600121,
+    "uploadConfirmed": true,
+    "path": "/T&H/Assets/Torii & Hutukara/Cenarios/cenarios-deserto-v1/TORII_CENARIOS_DESERTO_V1_BETA_1_6.zip"
+  }
+}

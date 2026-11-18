@@ -43,8 +43,18 @@ ruby game/source/chapter-03/build_alpha.rb
 ruby game/source/chapter-03/validate_alpha.rb
 ```
 
-O builder recusa manifesto marcado como incompleto. A build nova usa `game/builds/beta-1.3.0/`; a base 1.1.2 e builds anteriores permanecem preservadas. Build portátil é gerada, validada e publicada pelo workflow; não é commitada como substituição de uma build histórica.
+O builder recusa manifesto marcado como incompleto. A entrega original Beta 1.3 usou `game/builds/beta-1.3.0/`; a base 1.1.2 e builds anteriores permanecem preservadas. Build portátil é gerada, validada e publicada pelo workflow; não é commitada como substituição de uma build histórica.
 
 ## Paleta canônica
 
 As cores finais de terra e sucata substituem as anteriores por decisão do autor. A troca preserva as poses, geometria, alpha, pele e pixels protegidos das máscaras; não cria animações adicionais nem contexto selecionável. O jogo usa os mesmos 52 atlas e 32 retratos com as cores promovidas. Receita e auditoria ficam nos metadados `paletteRecipe`/`geometryAudit`; ver `ADAPTACAO_CONTEXTUAL_C3.md`.
+
+## Revisão de fluidez · Beta 1.6.1
+
+A revisão corrigiu a máscara que fechava indevidamente a parte de trás da cabeça em alguns estados. São nove atlas e nove folhas-fonte, com 143 poses ajustadas somente na cabeça; nove poses de capote onde a região está oculta foram preservadas. `AUDITORIA_CORRECOES_FLUIDEZ.json` encadeia os novos hashes ao resultado histórico da paleta e registra igualdade RGBA fora das regiões autorizadas. A auditoria da troca de paleta permanece imutável.
+
+O controlador visual prioriza dano real sobre o rolamento, descarta ações interrompidas, congela a pose exata durante pausa e conserva a fase entre caminhada/corrida. Um aquecimento mínimo antecipa idle/primeiro ataque e a pose da máscara selecionada, sem carregar todos os atlas no título ou ampliar o LRU de oito imagens.
+
+`qa/musician_fluency.cjs` exercita teclado/funções aceitas, atualização a 60 Hz e desenho real para 208 sequências e 48 transições. Performance é um estado visual de NPC, não um comando novo. `qa/musician_prewarm.cjs` mede uma entrada de 200 ms com atraso de 150 ms no PNG. Latência e FPS baixos ainda podem omitir poses de ações muito curtas; a correção não atrasa dano nem estende cooldowns.
+
+Fontes editadas, prompts e identificadores de geração estão em `design/variantes/percussao-sintetizador-v1/CORRECOES_FLUIDEZ_PROMPTS.json`; resultados finais em `qa/beta-1.6.1/`. A inspeção visual usa capturas do renderer e a referência física da máscara. Não equivale a playtest em telefone/controle físico nem a uma nova jornada manual completa.

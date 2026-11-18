@@ -1,0 +1,127 @@
+{
+  "tool": "built-in image_gen",
+  "baseCommit": "fa399a2d98297b759444b243b7b2cbeacaddd1e3",
+  "references": [
+    "originais/<hero>_masked_<state>.png at baseCommit",
+    "originais/<hero>_masked_idle.png",
+    "referencias/TORII_MASK_PHYSICAL_REFERENCE.png"
+  ],
+  "assembly": "Only scoped head pixels copied into original sources; frozen per-frame transforms overlay original atlases. Body pixels outside head regions preserved; nine occluded roll poses retained.",
+  "records": [
+    {
+      "state": "attack_1",
+      "prompt": "Use case: precise-object-edit. Asset: one 8-column x4-row transparent pixel-art animation sheet, Ryuchi percussionist MASKED ATTACK_1.\nImage1 is the edit TARGET. Image2 is canonical masked idle, used ONLY for open-back headwear construction. Image3 is physical facial-mask reference, NOT a full helmet.\nFix ONLY rear-facing heads in THIRD row of Image1, all8 frames: remove the incorrect ivory back-of-skull panel and show a broad rounded dark plum/charcoal beanie opening with tied cloth at back, as in third row of Image2. Keep ivory facial sun-spike rim and headphones intact; the mask is OPEN BEHIND, not an enclosed helmet. Match head angle/bob separately in each existing pose. Do not replace whole pose with idle.\nPreserve Image1 first, second and fourth rows unchanged. Preserve all bodies, drum, sticks, raised hands, straps, legs, poses, head locations, silhouette spikes, pixel scale, palette, canvas dimensions,32-cell grid and transparent background. Only rear-head anatomy changes. Keep original rich16bit pixel shading, huge chibi heads and short legs. No extra character, no text, no ground, no redesign.",
+      "generated": "exec-6253039a-4270-4ef7-b3a7-86e0cc47b8fe.png",
+      "allowedDirections": [
+        "up"
+      ],
+      "sourceSha256": "655e4ac4438f674aad873775ceeb13ec6ab65da4eccd1db34b7d6bbf325e1391",
+      "generatedSha256": "2df59c1e117163e35e3d7a1a0186482ef67247a9f91f82e57506824d52df0c06",
+      "hero": "ryuchi_percussionista"
+    },
+    {
+      "state": "attack_2",
+      "prompt": "Use case: precise-object-edit. Asset: one 8-column x4-row transparent pixel-art animation sheet, Ryuchi percussionist MASKED ATTACK_2.\nImage1 is the edit TARGET. Image2 is canonical masked idle, used ONLY for open-back headwear construction. Image3 is physical facial-mask reference, NOT a full helmet.\nFix ONLY rear-facing heads in THIRD row of Image1, all8 frames: remove the incorrect ivory back-of-skull panel and show a broad rounded dark plum/charcoal beanie opening with tied cloth at back, as in third row of Image2. Keep ivory facial sun-spike rim and headphones intact; the mask is OPEN BEHIND, not an enclosed helmet. Match head angle/bob separately in each existing pose. Do not replace whole pose with idle.\nPreserve Image1 first, second and fourth rows unchanged. Preserve all bodies, drum, sticks, raised hands, straps, legs, poses, head locations, silhouette spikes, pixel scale, palette, canvas dimensions,32-cell grid and transparent background. Only rear-head anatomy changes. Keep original rich16bit pixel shading, huge chibi heads and short legs. No extra character, no text, no ground, no redesign.",
+      "generated": "exec-0b611d9f-cbcd-4c15-8fee-ec7c325a1267.png",
+      "allowedDirections": [
+        "up"
+      ],
+      "sourceSha256": "7636e0bcd0d5b3a3e5d12582d185ff80acc61fef45f7acd922c91607e4d89bd1",
+      "generatedSha256": "2fd547591b3ab1bc68b5d276128dc94cd16167fd28cac4cc2ea328780bda2a36",
+      "hero": "ryuchi_percussionista"
+    },
+    {
+      "state": "attack_3",
+      "prompt": "Use case: precise-object-edit. Asset: one 8-column x4-row transparent pixel-art animation sheet, Ryuchi percussionist MASKED ATTACK_3.\nImage1 is the edit TARGET. Image2 is canonical masked idle, used ONLY for open-back headwear construction. Image3 is physical facial-mask reference, NOT a full helmet.\nFix ONLY rear-facing heads in THIRD row of Image1, all8 frames: remove the incorrect ivory back-of-skull panel and show a broad rounded dark plum/charcoal beanie opening with tied cloth at back, as in third row of Image2. Keep ivory facial sun-spike rim and headphones intact; the mask is OPEN BEHIND, not an enclosed helmet. Match head angle/bob separately in each existing pose. Do not replace whole pose with idle.\nPreserve Image1 first, second and fourth rows unchanged. Preserve all bodies, drum, sticks, raised hands, straps, legs, poses, head locations, silhouette spikes, pixel scale, palette, canvas dimensions,32-cell grid and transparent background. Only rear-head anatomy changes. Keep original rich16bit pixel shading, huge chibi heads and short legs. No extra character, no text, no ground, no redesign.",
+      "generated": "exec-fb22dfa9-0c05-4117-b852-7a23cf851c9c.png",
+      "allowedDirections": [
+        "up"
+      ],
+      "sourceSha256": "55dd31511a598158915a7f057c7b9377af69f48c1c82a1fd5a3ca10a247fe074",
+      "generatedSha256": "33fc9d584d5fee8caf10bb7e69770fc33d72c058b9be38d9e545dc5de1482cd7",
+      "hero": "ryuchi_percussionista"
+    },
+    {
+      "state": "skill",
+      "prompt": "Use case: precise-object-edit. Asset: one 8-column x4-row transparent pixel-art animation sheet, Ryuchi percussionist MASKED SKILL.\nImage1 is the edit TARGET. Image2 is canonical masked idle, used ONLY for open-back headwear construction. Image3 is physical facial-mask reference, NOT a full helmet.\nFix ONLY rear-facing heads in THIRD row of Image1, all8 frames: remove the incorrect ivory back-of-skull panel and show a broad rounded dark plum/charcoal beanie opening with tied cloth at back, as in third row of Image2. Keep ivory facial sun-spike rim and headphones intact; the mask is OPEN BEHIND, not an enclosed helmet. Match head angle/bob separately in each existing pose. Do not replace whole pose with idle.\nPreserve Image1 first, second and fourth rows unchanged. Preserve all bodies, drum, sticks, raised hands, straps, legs, poses, head locations, silhouette spikes, pixel scale, palette, canvas dimensions,32-cell grid and transparent background. Only rear-head anatomy changes. Keep original rich16bit pixel shading, huge chibi heads and short legs. No extra character, no text, no ground, no redesign.",
+      "generated": "exec-4def3302-1107-487d-b9e9-82f3620406f8.png",
+      "allowedDirections": [
+        "up"
+      ],
+      "sourceSha256": "c56c7f255849f28249187e572efb93d798d1787c69557af4ee2aac4b1c36c71f",
+      "generatedSha256": "39b001f4c9a9f58ce046500ec10afb9a79a7e38e429e1bce120b573ebd4cae6c",
+      "hero": "ryuchi_percussionista"
+    },
+    {
+      "state": "advanced",
+      "prompt": "Use case: precise-object-edit. Edit only Image1, a 32frame 8columns x4rows transparent pixel-art sheet of Ryuchi percussionist masked ADVANCED action. Image2 is canonical masked idle headwear reference ONLY. Image3 is physical facial mask reference ONLY. Correct headwear continuity in rows TWO, THREE and FOUR (left,rear,right), all8 existing poses in each: ivory spiked face mask is OPEN AT BACK, so dark plum/charcoal beanie should be visibly rounded behind the headphones, with existing tied cloth at nape; in rear view a broad rounded dark cloth opening occupies lower back of head instead of continuous ivory helmet. Keep ivory face, spike rim and headphones. Match each original pose and small head bobs. Preserve first row completely unchanged. Preserve every body, hand, stick, drum, straps, legs, positions, canvas dimensions, grid and pixel scale. Keep same chibi proportions, 16bit detailed pixel shading, source palette and transparent background. Change only head back construction, not outfit or animation. No redesign, text, ground or extra characters.",
+      "generated": "exec-157a8306-629b-4984-b029-13f7da9380c9.png",
+      "allowedDirections": [
+        "left",
+        "up",
+        "right"
+      ],
+      "sourceSha256": "3d59e8487adace3c21dccf8ddb6e51e85c32c9a111ac165cb499dec062d6db54",
+      "generatedSha256": "2f465da321563bdb2a35f2decdca9b68fd14bed08c92bec9aeb2a1988cad7ffe",
+      "hero": "ryuchi_percussionista"
+    },
+    {
+      "state": "roll",
+      "prompt": "Use case: precise-object-edit. Edit target Image1: Ryuchi percussionist MASKED ROLL, transparent pixelart animation8columns x4direction rows32frames. Image2 ONLY defines canonical headwear: facial ivory sunspike mask OPEN BEHIND exposing rounded dark plum/charcoal beanie and cloth knot behind headphones. Image3 is physical facial-mask reference, not a closed helmet.\nCorrect ONLY heads in rows2,3,4(left,rear,right), maintaining each original head orientation throughout existing forward roll. Replace incorrect ivory back-of-skull shell with open-back dark beanie volume and tied cloth like idle. In rear view broad dark rounded lower back of head must be visible; in profiles reveal dark cloth behind headphones. HEADS THAT ARE SIDEWAYS OR UPSIDE DOWN MUST REMAIN SIDEWAYS/UPSIDE DOWN with matching body rotation and original location. DO NOT copy standing idle poses into roll.\nPreserve row1(front) entirely. Preserve body/drum/sticks/hands/legs/boots/straps at every pose; rolling trajectory, grounded feet, all8 original steps, canvas dimensions, grid, transparency, palette and detailed16bit pixel scale. Only correct back of head anatomy. Preserve facial mask/spikes/headphones. No new poses, no extra character, no text, no background. Huge chibi head and short legs unchanged.",
+      "generated": "exec-700d116a-cd96-49ca-9551-b136d3c61a0a.png",
+      "allowedDirections": [
+        "left",
+        "up",
+        "right"
+      ],
+      "sourceSha256": "421b5c3701f167486e1441ea52c575ca4e0bf8c01517d5aa3376b03f8f2c9ef0",
+      "generatedSha256": "298662462b37c9b5b4425e20e2423a6b06567ef1e20d1fcdbcc43d654c5638eb",
+      "hero": "ryuchi_percussionista"
+    },
+    {
+      "hero": "franco_sintetizador",
+      "state": "attack_2",
+      "prompt": "Use case: precise-object-edit. Edit target: Image 1, the existing FRANCO SYNTHESIZER attack_2 sprite sheet. Image 2 is the CORRECT anatomy/hairstyle and mask reference; Image 3 is the physical facial mask. This is a surgical continuity repair, NOT a redesign. Keep the exact 1774x887 transparent canvas, eight columns by four rows, all original poses and pixel placement. KEEP FIRST ROW COMPLETELY UNCHANGED. In rows TWO (left), THREE (back), and FOUR (right), change ONLY the HEAD/MASK region in each of the eight frames: restore Franco's dense brown curly hair exposed on the rear half of his head, behind his ears/headphones, exactly as in Image 2. The ivory stitched spiked Torii is a FACIAL MASK open at the back, NOT a closed white helmet. Back view must show brown curls across the back/lower head and only the front mask/crown edge/spikes above. Profile views must show curls behind the cyan/pink earcups. Preserve head size, head tilt, neck position, spikes and mask goggles in the correct perspective for each existing frame. Do not move any head, body, hand, keyboard, boot or sprite. Preserve current muted earth/scrap palette and the exact chibi head-big/legs-short style. KEEP EVERY PIXEL OUTSIDE THE HEAD REGIONS UNCHANGED: original clothes, hands, synth, straps, skull charm, legs and silhouettes. Maintain true transparent PNG alpha. No text, labels, grid, background, floor, blur, smoothing, new accessories or extra poses.",
+      "generated": "exec-a7e36656-5236-4cdc-a630-ad47456cb32a.png",
+      "generatedSha256": "0d5482e86d334f77e6df29e41a74c974744ff7c761871b62f3c23415ff61e51e",
+      "allowedDirections": [
+        "left",
+        "up",
+        "right"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "state": "attack_3",
+      "prompt": "Use case: precise-object-edit. Edit target: Image 1, the existing FRANCO SYNTHESIZER attack_3 sprite sheet. Image 2 is the CORRECT anatomy/hairstyle and mask reference; Image 3 is the physical facial mask. This is a surgical continuity repair, NOT a redesign. Keep the exact 1774x887 transparent canvas, eight columns by four rows, all original poses and pixel placement. KEEP FIRST ROW COMPLETELY UNCHANGED. In rows TWO (left), THREE (back), and FOUR (right), change ONLY the HEAD/MASK region in each of the eight frames: restore Franco's dense brown curly hair exposed on the rear half of his head, behind his ears/headphones, exactly as in Image 2. The ivory stitched spiked Torii is a FACIAL MASK open at the back, NOT a closed white helmet. Back view must show brown curls across the back/lower head and only the front mask/crown edge/spikes above. Profile views must show curls behind the cyan/pink earcups. Preserve head size, head tilt, neck position, spikes and mask goggles in the correct perspective for each existing frame. Do not move any head, body, hand, keyboard, boot or sprite. Preserve current muted earth/scrap palette and the exact chibi head-big/legs-short style. KEEP EVERY PIXEL OUTSIDE THE HEAD REGIONS UNCHANGED: original clothes, hands, synth, straps, skull charm, legs and silhouettes. Maintain true transparent PNG alpha. No text, labels, grid, background, floor, blur, smoothing, new accessories or extra poses.",
+      "generated": "exec-1bb74c30-f49c-4fb1-a051-ef3bcd920a05.png",
+      "generatedSha256": "0219f3b60c0efe828fa012b9041685e46708b88c206371090ef16a19dab63bd1",
+      "allowedDirections": [
+        "left",
+        "up",
+        "right"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "state": "skill",
+      "prompt": "Use case: precise-object-edit. Edit target: Image 1, the existing FRANCO SYNTHESIZER skill sprite sheet. Image 2 is the CORRECT anatomy/hairstyle and mask reference; Image 3 is the physical facial mask. This is a surgical continuity repair, NOT a redesign. Keep the exact 1774x887 transparent canvas, eight columns by four rows, all original poses and pixel placement. KEEP FIRST ROW COMPLETELY UNCHANGED. In rows TWO (left), THREE (back), and FOUR (right), change ONLY the HEAD/MASK region in each of the eight frames: restore Franco's dense brown curly hair exposed on the rear half of his head, behind his ears/headphones, exactly as in Image 2. The ivory stitched spiked Torii is a FACIAL MASK open at the back, NOT a closed white helmet. Back view must show brown curls across the back/lower head and only the front mask/crown edge/spikes above. Profile views must show curls behind the cyan/pink earcups. Preserve head size, head tilt, neck position, spikes and mask goggles in the correct perspective for each existing frame. Do not move any head, body, hand, keyboard, boot or sprite. Preserve current muted earth/scrap palette and the exact chibi head-big/legs-short style. KEEP EVERY PIXEL OUTSIDE THE HEAD REGIONS UNCHANGED: original clothes, hands, synth, straps, skull charm, legs and silhouettes. Maintain true transparent PNG alpha. No text, labels, grid, background, floor, blur, smoothing, new accessories or extra poses.",
+      "generated": "exec-af088d67-09b9-45db-9083-25ea11135b8b.png",
+      "generatedSha256": "cdea99142e6151abb20405d5cc7a3a21d9b36af998d3c4b5b55dde4a9d877141",
+      "allowedDirections": [
+        "left",
+        "up",
+        "right"
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "state": "attack_3",
+      "allowedDirections": [
+        "up"
+      ],
+      "generated": "exec-094a2216-0762-41eb-a43f-024066abd7c9.png",
+      "prompt": "Use case: precise-object-edit. Image 1 is edit target; Image 2 is the required open-back facial-mask anatomy. Make ONE localized improvement to image1: in the THIRD ROW ONLY (eight BACK/up poses), enlarge the visible dark brown curly hair aperture UPWARD so the curls fill the lower HALF of the actual round head, excluding the tall spikes, like image2. Current image1 only has a narrow horizontal band of curls low on the head and still looks too much like a closed white helmet. The Torii is a face mask, NOT a white cap on the rear skull. Keep the mask's spiked top edge and the pose-specific tilt, but reveal a full rounded back-of-head of brown curls behind it, matching image2 and image1's already-correct side views. Preserve each neck, earphone position, hand, torso, synth, strap, legs, boots, pose, scale, pixels and colors outside this rear-head aperture exactly. ALL OTHER ROWS UNCHANGED, all 8 columns and 4 rows unchanged, 1774x887 exact transparent canvas. No new poses, no text, no added objects, no background, no blur."
+    }
+  ]
+}

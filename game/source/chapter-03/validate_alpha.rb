@@ -230,22 +230,138 @@ audit_path = File.join(musician_root, musician_art.fetch('geometryAudit'))
 recipe = JSON.parse(File.read(recipe_path))
 audit = JSON.parse(File.read(audit_path))
 audit_entries = audit.fetch('entries')
+# CORRECOES_FLUIDEZ_V1: historical palette evidence stays immutable.
+musician_correction_scope = {}
+{
+  'franco_sintetizador' => [%w[attack_2 attack_3 skill], %w[left up right]],
+  'ryuchi_percussionista' => [%w[roll attack_1 attack_2 attack_3 skill advanced], %w[up]]
+}.each do |hero, (states, directions)|
+  states.each do |state|
+    allowed_directions = hero == 'ryuchi_percussionista' && %w[roll advanced].include?(state) ? %w[left up right] : directions
+    %w[atlas originais].each do |folder|
+      musician_correction_scope["#{folder}/#{hero}_masked_#{state}.png"] = allowed_directions
+    end
+  end
+end
+musician_sha256_valid = ->(value) { value.is_a?(String) && value.match?(/\A[0-9a-f]{64}\z/) }
+# Pure metadata predicate, also exercised by the audit-contract unit test.
+musician_correction_entry_valid = lambda do |entry, historical, current|
+  next false unless entry.is_a?(Hash) && historical.is_a?(Hash) && current.is_a?(Hash)
+  relative = entry['canonicalFile']
+  directions = musician_correction_scope[relative]
+  next false unless directions
+  kind = relative.start_with?('atlas/') ? 'atlas' : 'source'
+  width, height = entry.values_at('width', 'height')
+  next false unless entry['kind'] == kind && historical['kind'] == kind &&
+    [width, height] == historical.values_at('width', 'height') &&
+    [width, height] == current.values_at('width', 'height') &&
+    width.is_a?(Integer) && height.is_a?(Integer) && width.positive? && height.positive?
+  next false unless %w[baseSha256 correctedSha256 baseOutsideSha256 correctedOutsideSha256].all? { |field| musician_sha256_valid.call(entry[field]) }
+  next false unless entry['baseSha256'] == historical['contextSha256'] &&
+    entry['correctedSha256'] == current['sha256'] && entry['baseSha256'] != entry['correctedSha256'] &&
+    entry['outsideRegionsChangedPixels'] == 0 && entry['outsideRegionsEqual'] == true &&
+    entry['baseOutsideSha256'] == entry['correctedOutsideSha256'] &&
+    entry['pixelsChangedInside'].is_a?(Integer) && entry['pixelsChangedInside'].positive? && entry['pixelsChangedInside'] <= width * height
+  regions = entry['regions']
+  next false unless regions.is_a?(Array) && !regions.empty?
+  next false unless regions.all? do |region|
+    next false unless region.is_a?(Hash) && directions.include?(region['direction']) &&
+      region['frame'].is_a?(Integer) && (0...8).cover?(region['frame'])
+    rect = region['rect']
+    next false unless rect.is_a?(Array) && rect.size == 4 && rect.all? { |n| n.is_a?(Integer) }
+    x, y, w, h = rect
+    next false unless x >= 0 && y >= 0 && w.positive? && h.positive? && x + w <= width && y + h <= height
+    # Runtime regions must stay within their declared 256 x 256 cell.
+    # Native sources use the approved compositor's nonuniform crop coordinates.
+    if kind == 'atlas'
+      cell_x = region['frame'] * 256
+      cell_y = %w[down left up right].index(region['direction']) * 256
+      next false unless [width, height] == [2048, 1024] && x >= cell_x && y >= cell_y && x + w <= cell_x + 256 && y + h <= cell_y + 256
+    end
+    true
+  end
+  expected_poses = directions.flat_map { |direction| (0...8).map { |frame| [direction, frame] } }
+  unchanged = entry.fetch('unchangedPoses', [])
+  next false unless unchanged.is_a?(Array) && unchanged.all? do |pose|
+    pose.is_a?(Hash) && directions.include?(pose['direction']) &&
+      pose['frame'].is_a?(Integer) && (0...8).cover?(pose['frame']) &&
+      pose['reason'].is_a?(String) && !pose['reason'].strip.empty?
+  end
+  region_poses = regions.map { |region| region.values_at('direction', 'frame') }.uniq
+  unchanged_poses = unchanged.map { |pose| pose.values_at('direction', 'frame') }
+  unchanged_poses.uniq.size == unchanged_poses.size && (region_poses & unchanged_poses).empty? &&
+    (region_poses + unchanged_poses).sort == expected_poses.sort
+end
+# END_CORRECTION_PREDICATE
+musician_correction_report_scope_valid = lambda do |report|
+  next false unless report.is_a?(Hash) && report['version'] == 1 && report['entries'].is_a?(Array)
+  entries = report['entries']
+  entries.size == 18 && entries.all? { |entry| entry.is_a?(Hash) && entry['canonicalFile'].is_a?(String) } &&
+    entries.map { |entry| entry['canonicalFile'] }.sort == musician_correction_scope.keys.sort
+end
+musician_correction_pairs_valid = lambda do |entries|
+  entries.select { |entry| entry['canonicalFile'].start_with?('atlas/') }.all? do |atlas|
+    source = entries.find { |entry| entry['canonicalFile'] == atlas['canonicalFile'].sub('atlas/', 'originais/') }
+    next false unless source
+    %w[regions unchangedPoses].all? do |field|
+      atlas.fetch(field, []).map { |pose| pose.values_at('direction', 'frame') }.uniq.sort ==
+        source.fetch(field, []).map { |pose| pose.values_at('direction', 'frame') }.uniq.sort
+    end
+  end
+end
+musician_corrections = []
+musician_corrections_valid = true
+if musician_art.key?('correctionAudit')
+  relative = musician_art.fetch('correctionAudit')
+  musician_corrections_valid = relative == 'AUDITORIA_CORRECOES_FLUIDEZ.json'
+  begin
+    raise 'Nome da auditoria inválido' unless musician_corrections_valid
+    correction_report = JSON.parse(File.read(File.join(musician_root, relative)))
+    musician_corrections_valid = musician_correction_report_scope_valid.call(correction_report)
+    musician_corrections = correction_report.fetch('entries', [])
+    if musician_corrections_valid
+      musician_corrections_valid = musician_corrections.all? do |entry|
+        relative = entry.fetch('canonicalFile')
+        historical = audit_entries.select { |old| (old['canonicalFile'] || old['baseFile']) == relative }
+        next false unless historical.size == 1
+        root = entry['kind'] == 'source' ? File.join(repo_root, 'design', 'variantes', 'percussao-sintetizador-v1') : musician_root
+        path = File.join(root, relative)
+        next false unless File.file?(path)
+        header = File.binread(path, 26)
+        next false unless header.bytesize == 26 && header.byteslice(0, 8) == "\x89PNG\r\n\x1a\n".b && header.getbyte(24) == 8 && header.getbyte(25) == 6
+        width, height = header.byteslice(16, 8).unpack('NN')
+        current = { 'width' => width, 'height' => height, 'sha256' => Digest::SHA256.file(path).hexdigest }
+        musician_correction_entry_valid.call(entry, historical.first, current)
+      end
+      musician_corrections_valid &&= musician_correction_pairs_valid.call(musician_corrections)
+    end
+  rescue JSON::ParserError, KeyError, TypeError, ArgumentError, Errno::ENOENT
+    musician_corrections_valid = false
+  end
+end
+check.call('músicos: correções opcionais restritas a 9 atlas e 9 fontes mascaradas autorizadas', musician_corrections_valid)
+musician_current_sha_matches = lambda do |relative, palette_sha, actual_sha|
+  next true if actual_sha == palette_sha
+  next false unless musician_corrections_valid
+  entries = musician_corrections.select { |entry| entry['canonicalFile'] == relative }
+  entries.size == 1 && entries.first['baseSha256'] == palette_sha && entries.first['correctedSha256'] == actual_sha
+end
 canonical_pairs = musician_atlas.map { |key, file| [key, file, [2048, 1024]] } + musician_faces.map { |key, file| [key, file, [256, 256]] }
 geometry_verified = canonical_pairs.all? do |key, relative, expected|
   entries = audit_entries.select { |entry| (entry['canonicalFile'] || entry['baseFile']) == relative }
   next false unless entries.size == 1
   entry = entries.first
   path = File.join(musician_root, relative)
-  # The approved old palette may be removed after promotion; its hash remains in
-  # the audit. Tie the palette-remapped bytes to the current canonical PNG.
+  # Historical equality applies to the palette transform. Current bytes either
+  # match that result or an independently reported, scoped correction chained to it.
   entry['geometryEqual'] == true && entry['shadingClustersPreserved'] == true && entry['baseClusterSha256'] == entry['contextClusterSha256'] && entry['baseClusterSha256'].is_a?(String) && entry['baseClusterSha256'].match?(/\A[0-9a-f]{64}\z/) && entry['rgbaAlphaMaxDiff'] == 0 && entry['protectedPixelsChanged'] == 0 &&
     [entry['width'], entry['height']] == expected &&
-    entry['contextSha256'] == Digest::SHA256.file(path).hexdigest &&
+    musician_current_sha_matches.call(relative, entry['contextSha256'], Digest::SHA256.file(path).hexdigest) &&
     entry['baseSha256'].is_a?(String) && entry['baseSha256'].match?(/\A[0-9a-f]{64}\z/) &&
     entry['baseAlphaSha256'].is_a?(String) && entry['baseAlphaSha256'].match?(/\A[0-9a-f]{64}\z/) &&
     entry['baseAlphaSha256'] == entry['contextAlphaSha256']
 end
-check.call('paleta canônica: geometria e pixels protegidos auditados nos 84 PNGs atuais', geometry_verified)
+check.call('músicos: paleta histórica válida e integridade atual com correções localizadas encadeadas', geometry_verified)
 check.call('receita de paleta e auditoria documentadas sem novas poses', !recipe.empty? && audit_entries.size >= 84 && musician_art['animations'].size == 208)
 check.call('músicos integrados sem placeholders ou filtro contextual pendente', built.include?('const MusicianArtV1') && !built.include?('__MUSICIAN_'))
 

@@ -1,6 +1,6 @@
-# Cenários desérticos do Capítulo 3 — candidata Beta 1.6
+# Cenários desérticos do Capítulo 3 — Beta 1.6
 
-**Situação:** assets completos e candidata Beta 1.6 reconstruída e revalidada, preservando a Beta 1.5 de inimigos/bosses já incorporada a main. A validação estática passou em 137/137 verificações e as 14 suítes automatizadas terminaram aprovadas; a publicação no GitHub/link público aguarda confirmação do integrador. A recuperação partiu do checkpoint `8ad20909efd72b9f0143da1b9d3163c474dc8f6d`, da branch `art/cenarios-deserto-v1`. Evidências atuais e histórico da candidata 1.4 estão separados em [ENTREGA.md](cenarios-deserto-v1/ENTREGA.md).
+**Situação:** assets completos e candidata Beta 1.6 reconstruída e revalidada, preservando a Beta 1.5 de inimigos/bosses já incorporada a main. A validação estática passou em 137/137 verificações e as 14 suítes automatizadas terminaram aprovadas; a publicação foi concluída na main, commit `bf1c2dc45c19216463983bd92f8bcb39216fe4d7`, e o hash foi conferido no site público. A recuperação partiu do checkpoint `8ad20909efd72b9f0143da1b9d3163c474dc8f6d`, da branch `art/cenarios-deserto-v1`. Evidências atuais e histórico da candidata 1.4 estão separados em [ENTREGA.md](cenarios-deserto-v1/ENTREGA.md).
 
 ## Experiência e escopo
 
@@ -35,7 +35,7 @@ A11/A12, quatro painéis de diálogo legados e a identidade dos seis heróis per
 
 ## Evidência e limites
 
-A candidata **Beta 1.6.0** tem **401.631.199 bytes**, SHA-256 **`517715fe2e742bf3e19b2e238f0286378e5c63335002a1e116cf62fe3b10b845`**. Foram conferidos os relatórios atuais: **137/137 verificações estáticas**, **13/13 checks de cenário**, 19 estados com corpos válidos de P1/P2 e retomada real pelo botão Tentar novamente. A exportação contém HTML de 888.681 bytes e 307 mídias; os relatórios indicam roundtrip SHA-256 e build portátil inalterada. O agregado final contém 14/14 suítes aprovadas, incluindo controles, progressão/saves, estado dos personagens, arte dos seis heróis, inimigos, bosses e site. Esses fatos não declaram uma publicação no link público.
+A candidata **Beta 1.6.0** tem **401.631.199 bytes**, SHA-256 **`517715fe2e742bf3e19b2e238f0286378e5c63335002a1e116cf62fe3b10b845`**. Foram conferidos os relatórios atuais: **137/137 verificações estáticas**, **13/13 checks de cenário**, 19 estados com corpos válidos de P1/P2 e retomada real pelo botão Tentar novamente. A exportação contém HTML de 888.756 bytes e 307 mídias; os relatórios indicam roundtrip SHA-256 e build portátil inalterada. O agregado final contém 14/14 suítes aprovadas, incluindo controles, progressão/saves, estado dos personagens, arte dos seis heróis, inimigos, bosses e site. A execução [44227852940](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44227852940) terminou com sucesso; o [site público](https://ryusarto.github.io/Torii-Hutukara/?v=bf1c2dc) serviu o mesmo SHA-256, 15 atlas/151 recortes e dois fundos, sem erro JavaScript. Quatro PNGs públicos também foram conferidos por hash.
 
 O integrador registrou, antes da interrupção, aprovação visual das onze câmeras e 19 estados para o executável de SHA-256 `222eaeb6bcbc8f21dbee04dc614d3f366009979a3eb03f59a8aedd236d5a2e58`, além das verificações listadas em [ENTREGA.md](cenarios-deserto-v1/ENTREGA.md). Esses resultados históricos não certificam automaticamente uma reconstrução com outro hash.
 
@@ -44,3 +44,9 @@ A direção artística não deixou P0/P1 aberto no escopo de cenário. Registrou
 Não houve nesta entrega uma nova campanha manual completa, telefone físico ou dois controles físicos. Execução automatizada e captura de quadros não comprovam conforto, diversão ou fluidez universal entre aparelhos.
 
 O GitHub é a fonte oficial de código e assets integrados. Originais, PNGs individuais, atlas, prévias e capturas completas têm backup em `Dropbox/T&H/Assets/Torii & Hutukara/Cenarios/cenarios-deserto-v1`. O Dropbox guarda assets e backups; o Google Drive foi retirado desse fluxo. A coordenação não publica a build: o integrador confirma hash, testes, atualização de main e disponibilidade do link.
+
+## Fechamento observado
+
+A direção artística reviu as onze áreas e 19 estados da composição 1.6, sem P0/P1 artístico aberto. Provas em `qa/cenarios-deserto-v1/PUBLICACAO.json` e `ASSETS_PUBLICADOS.json`. O pacote `TORII_CENARIOS_DESERTO_V1_BETA_1_6.zip` e os originais/quadros individuais estão no backup Dropbox indicado acima; CRC e SHA-256 do ZIP foram verificados. Os metadados finais estão em `qa/cenarios-deserto-v1/BACKUP.json`. Nenhuma dessas verificações representa uma campanha manual nova ou teste físico.
+
+O upload do ZIP final foi confirmado diretamente pelo conector Dropbox: 84.600.121 bytes. O SHA-256 do arquivo é `28490a1fc9371cb1e7530c8f900be676555db68b5924965905e76242289bbdb1`. A cópia local de trabalho usa também o nome sem sufixo de versão.

@@ -3140,7 +3140,7 @@
           ]
         ]
       ],
-      "sha256": "421b5c3701f167486e1441ea52c575ca4e0bf8c01517d5aa3376b03f8f2c9ef0",
+      "sha256": "5b8bb51b33ae7c4d26fecef7ff983c442b166463325775d66d354b245e1901ff",
       "visiblePixelsLost": 0,
       "visiblePixelsDuplicated": 0
     },
@@ -3988,7 +3988,7 @@
           ]
         ]
       ],
-      "sha256": "655e4ac4438f674aad873775ceeb13ec6ab65da4eccd1db34b7d6bbf325e1391",
+      "sha256": "0ded59866d1a78ff08720f2c76646bb3f217a7af8254a72fe233b63cdbbacc0a",
       "visiblePixelsLost": 0,
       "visiblePixelsDuplicated": 0
     },
@@ -4836,7 +4836,7 @@
           ]
         ]
       ],
-      "sha256": "7636e0bcd0d5b3a3e5d12582d185ff80acc61fef45f7acd922c91607e4d89bd1",
+      "sha256": "d1309931d7542f7a4ce0f3de2a0b352b4cb22466a4510f28eebf7cc2ce7e365f",
       "visiblePixelsLost": 0,
       "visiblePixelsDuplicated": 0
     },
@@ -5260,7 +5260,7 @@
           ]
         ]
       ],
-      "sha256": "d031be926a48b1a4836e90006c7f030f3d01196dbdd5d2f31daaa1b632cb71f7",
+      "sha256": "25af776ea0454bf97315bf011ff004161cde8c035e6cf9d91d617e62acede07b",
       "visiblePixelsLost": 0,
       "visiblePixelsDuplicated": 0
     },
@@ -5684,7 +5684,7 @@
           ]
         ]
       ],
-      "sha256": "55dd31511a598158915a7f057c7b9377af69f48c1c82a1fd5a3ca10a247fe074",
+      "sha256": "bcacc3bc9e2c0c8ddb442d928e3b42c0ecd0900c11c0b17f448263b9c0859405",
       "visiblePixelsLost": 0,
       "visiblePixelsDuplicated": 0
     },
@@ -6108,7 +6108,7 @@
           ]
         ]
       ],
-      "sha256": "3be5ea1ff6e76ed4d94bd554aefad2fe945ffde6ea00443a2f67fd78e456b7e5",
+      "sha256": "879d0fd1db88882617ff081dfc3f5bfdbd7d7544b75ebc8be819c84719e3670a",
       "visiblePixelsLost": 0,
       "visiblePixelsDuplicated": 0
     },
@@ -6532,7 +6532,7 @@
           ]
         ]
       ],
-      "sha256": "c56c7f255849f28249187e572efb93d798d1787c69557af4ee2aac4b1c36c71f",
+      "sha256": "e5fac5dd9ef3d7635d396c5d4122c74f5a061a400782536367b4de6f2c36db76",
       "visiblePixelsLost": 0,
       "visiblePixelsDuplicated": 0
     },
@@ -6956,7 +6956,7 @@
           ]
         ]
       ],
-      "sha256": "438235e5246dd236c603c5060662b1e6de0b39186021163e386a99288c201193",
+      "sha256": "42975b871c0d143319e3421daf620a98e55ce0fb3f31494f717979cc29239328",
       "visiblePixelsLost": 0,
       "visiblePixelsDuplicated": 0
     },
@@ -7380,7 +7380,7 @@
           ]
         ]
       ],
-      "sha256": "3d59e8487adace3c21dccf8ddb6e51e85c32c9a111ac165cb499dec062d6db54",
+      "sha256": "04e2cfee18723bb41036a516c00f32176e36d447800f0354ef639fb245500409",
       "visiblePixelsLost": 0,
       "visiblePixelsDuplicated": 0
     },
@@ -34366,6 +34366,19 @@
     "pairs": 140,
     "alphaDifference": 0,
     "shadingClustersPreserved": true,
-    "protectedPixelsChanged": 0
+    "protectedPixelsChanged": 0,
+    "historical": true
+  },
+  "frameCorrections": {
+    "file": "AUDITORIA_CORRECOES_FLUIDEZ.json",
+    "counts": {
+      "files": 18,
+      "sources": 9,
+      "atlases": 9,
+      "reviewedPoses": 152,
+      "correctedPoses": 143,
+      "unchangedPoses": 9
+    },
+    "outsideHeadPixelsChanged": 0
   }
 }

@@ -102,8 +102,10 @@ const root=path.resolve(__dirname,'..'),output=process.env.ART_QA_OUTPUT||path.j
   await arena();const result=await page.evaluate(()=>{
    act.dashCD=0;startRoll121();C3.coop.dashCD=0;C3.coopDodge(window.__pads[1]);
    const a=MusicianArtV1.pose({style:'synth',dir:'down'},0,true),b=MusicianArtV1.pose({style:'percussion',dir:'down'},1,true);
-   MusicianArtV1.mark(0,'synth','skill',.42,'right');const clock=MusicianArtV1.clock;
-   mode='dialogue';update(.1);return {a,b,frozen:MusicianArtV1.clock===clock&&MusicianArtV1.players[0].elapsed===0};
+   const art=MusicianArtV1,clock=art.clock;
+   mode='dialogue';update(.1);
+   const paused=art.pose({style:'synth',dir:'down'},0,true);
+   return {a,b,paused,frozen:art.clock===clock&&paused.state===a.state&&paused.frame===a.frame&&paused.direction===a.direction};
   });assert.equal(result.a.state,'roll');assert.equal(result.b.state,'roll');assert.equal(result.a.direction,'right');assert(result.frozen);return result;
  });
  await check('Mask API switches actor, NPC and portraits together for each musician',async()=>{

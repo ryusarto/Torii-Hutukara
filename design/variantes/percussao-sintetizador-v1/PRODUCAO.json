@@ -1,7 +1,7 @@
 {
   "date": "2026-11-17",
   "generationTool": "built-in image_gen",
-  "postprocess": "selective RGB palette lookup per explicit author request",
+  "postprocess": "Historical RGB palette lookup followed by authorized localized head continuity repairs; body pixels outside scoped regions retained.",
   "style": "Chibi, cabeça grande e pernas curtas",
   "paletteRecipe": "../../../assets/variantes/percussao-sintetizador-v1/PALETA_CANONICA.json",
   "nativeSources": [
@@ -25,8 +25,8 @@
     },
     {
       "file": "originais/franco_sintetizador_masked_attack_2.png",
-      "sha256": "d031be926a48b1a4836e90006c7f030f3d01196dbdd5d2f31daaa1b632cb71f7",
-      "bytes": 2514451,
+      "sha256": "25af776ea0454bf97315bf011ff004161cde8c035e6cf9d91d617e62acede07b",
+      "bytes": 2583714,
       "dimensions": [
         1774,
         887
@@ -34,8 +34,8 @@
     },
     {
       "file": "originais/franco_sintetizador_masked_attack_3.png",
-      "sha256": "3be5ea1ff6e76ed4d94bd554aefad2fe945ffde6ea00443a2f67fd78e456b7e5",
-      "bytes": 2445262,
+      "sha256": "879d0fd1db88882617ff081dfc3f5bfdbd7d7544b75ebc8be819c84719e3670a",
+      "bytes": 2496492,
       "dimensions": [
         1774,
         887
@@ -115,8 +115,8 @@
     },
     {
       "file": "originais/franco_sintetizador_masked_skill.png",
-      "sha256": "438235e5246dd236c603c5060662b1e6de0b39186021163e386a99288c201193",
-      "bytes": 2504491,
+      "sha256": "42975b871c0d143319e3421daf620a98e55ce0fb3f31494f717979cc29239328",
+      "bytes": 2543087,
       "dimensions": [
         1774,
         887
@@ -259,8 +259,8 @@
     },
     {
       "file": "originais/ryuchi_percussionista_masked_advanced.png",
-      "sha256": "3d59e8487adace3c21dccf8ddb6e51e85c32c9a111ac165cb499dec062d6db54",
-      "bytes": 2395424,
+      "sha256": "04e2cfee18723bb41036a516c00f32176e36d447800f0354ef639fb245500409",
+      "bytes": 2423604,
       "dimensions": [
         1774,
         887
@@ -268,8 +268,8 @@
     },
     {
       "file": "originais/ryuchi_percussionista_masked_attack_1.png",
-      "sha256": "655e4ac4438f674aad873775ceeb13ec6ab65da4eccd1db34b7d6bbf325e1391",
-      "bytes": 2517666,
+      "sha256": "0ded59866d1a78ff08720f2c76646bb3f217a7af8254a72fe233b63cdbbacc0a",
+      "bytes": 2510206,
       "dimensions": [
         1774,
         887
@@ -277,8 +277,8 @@
     },
     {
       "file": "originais/ryuchi_percussionista_masked_attack_2.png",
-      "sha256": "7636e0bcd0d5b3a3e5d12582d185ff80acc61fef45f7acd922c91607e4d89bd1",
-      "bytes": 2529697,
+      "sha256": "d1309931d7542f7a4ce0f3de2a0b352b4cb22466a4510f28eebf7cc2ce7e365f",
+      "bytes": 2525109,
       "dimensions": [
         1774,
         887
@@ -286,8 +286,8 @@
     },
     {
       "file": "originais/ryuchi_percussionista_masked_attack_3.png",
-      "sha256": "55dd31511a598158915a7f057c7b9377af69f48c1c82a1fd5a3ca10a247fe074",
-      "bytes": 2437686,
+      "sha256": "bcacc3bc9e2c0c8ddb442d928e3b42c0ecd0900c11c0b17f448263b9c0859405",
+      "bytes": 2438149,
       "dimensions": [
         1774,
         887
@@ -340,8 +340,8 @@
     },
     {
       "file": "originais/ryuchi_percussionista_masked_roll.png",
-      "sha256": "421b5c3701f167486e1441ea52c575ca4e0bf8c01517d5aa3376b03f8f2c9ef0",
-      "bytes": 2071671,
+      "sha256": "5b8bb51b33ae7c4d26fecef7ff983c442b166463325775d66d354b245e1901ff",
+      "bytes": 2110994,
       "dimensions": [
         1774,
         887
@@ -367,8 +367,8 @@
     },
     {
       "file": "originais/ryuchi_percussionista_masked_skill.png",
-      "sha256": "c56c7f255849f28249187e572efb93d798d1787c69557af4ee2aac4b1c36c71f",
-      "bytes": 2594845,
+      "sha256": "e5fac5dd9ef3d7635d396c5d4122c74f5a061a400782536367b4de6f2c36db76",
+      "bytes": 2605254,
       "dimensions": [
         1774,
         887
@@ -531,8 +531,8 @@
     },
     {
       "file": "atlas/franco_sintetizador_masked_attack_2.png",
-      "sha256": "7b43b920a5673e03bcd419ccf2fc9c5d29547fda1d9849e8337cbe33a9173845",
-      "bytes": 2214208,
+      "sha256": "abf42afbc5d508bcd3a86a53da44e80a10a468013472a71f8195149841f6cf48",
+      "bytes": 2267730,
       "dimensions": [
         2048,
         1024
@@ -540,8 +540,8 @@
     },
     {
       "file": "atlas/franco_sintetizador_masked_attack_3.png",
-      "sha256": "cf11c941146e5b3d231925e70e6603af64da7654e7803ecbdbdea93fb5dcfb33",
-      "bytes": 2164728,
+      "sha256": "d596991d874735224c6afef1aa9b8ac7caab154fadaabbe7444e63db5606135e",
+      "bytes": 2210043,
       "dimensions": [
         2048,
         1024
@@ -612,8 +612,8 @@
     },
     {
       "file": "atlas/franco_sintetizador_masked_skill.png",
-      "sha256": "d297802d6a4685d4ab0932334909d145e7f4fe5b05783cc96936aa3f76aeec18",
-      "bytes": 2275299,
+      "sha256": "cce68cc5664f86553a610d4520c3e937f2346b57c16f6edb8706e2f108f3b9f1",
+      "bytes": 2306143,
       "dimensions": [
         2048,
         1024
@@ -747,8 +747,8 @@
     },
     {
       "file": "atlas/ryuchi_percussionista_masked_advanced.png",
-      "sha256": "b33666d368e0f842589e11a40972019a6846709eb6596945ec1fbc5f392bd68b",
-      "bytes": 2078213,
+      "sha256": "e270b5727f07285b74485069885112492adad7ef7435ba17116c91c11a578e70",
+      "bytes": 2103105,
       "dimensions": [
         2048,
         1024
@@ -756,8 +756,8 @@
     },
     {
       "file": "atlas/ryuchi_percussionista_masked_attack_1.png",
-      "sha256": "e3cb69bdc33f6d3d98870d8d3ffd9dd5f0112239f498c162d6d36cfceebe46d7",
-      "bytes": 2132474,
+      "sha256": "c0f4bfd57db6f3c5ebbfa262dd4874220547102b4fce99cff1cc869d9ac12f83",
+      "bytes": 2126656,
       "dimensions": [
         2048,
         1024
@@ -765,8 +765,8 @@
     },
     {
       "file": "atlas/ryuchi_percussionista_masked_attack_2.png",
-      "sha256": "2c2d8cf796182a1544e8a61d37dc72b677cfab1a2ff33085cbf9360b7d9b1d21",
-      "bytes": 2206904,
+      "sha256": "1b4a525973bd15b0a88e7778da19dde18aa57b3f2c66618198c7f07e607d4d2f",
+      "bytes": 2204445,
       "dimensions": [
         2048,
         1024
@@ -774,8 +774,8 @@
     },
     {
       "file": "atlas/ryuchi_percussionista_masked_attack_3.png",
-      "sha256": "a2626c7179e3fbfc55a1c245fe483784e64749f813bb685ed56945cc3e132602",
-      "bytes": 2238579,
+      "sha256": "6ad1a8fd658a3b43c106c4e6aa0b157d4ce77fec518dd80d076b066617201730",
+      "bytes": 2235703,
       "dimensions": [
         2048,
         1024
@@ -819,8 +819,8 @@
     },
     {
       "file": "atlas/ryuchi_percussionista_masked_roll.png",
-      "sha256": "9f56b0ca2aa1b08b6b524048918801367028fa93b798dd5c1c6b5c7d4389c149",
-      "bytes": 1896134,
+      "sha256": "4e80fbf31a35e18295808bf8cf32dfb22e1337425625b272542ce61fa019c946",
+      "bytes": 1925035,
       "dimensions": [
         2048,
         1024
@@ -846,8 +846,8 @@
     },
     {
       "file": "atlas/ryuchi_percussionista_masked_skill.png",
-      "sha256": "0526629480bce7e3a823058d8d396e1003ebc5f73a725ed6020eea35cd1c064d",
-      "bytes": 2348898,
+      "sha256": "470fcdf4dfd0e0bf29834d6f3af6475a966f222a4c5159e406bf7b07eb76731e",
+      "bytes": 2359138,
       "dimensions": [
         2048,
         1024
@@ -1267,5 +1267,6 @@
         256
       ]
     }
-  ]
+  ],
+  "frameCorrections": "../../../assets/variantes/percussao-sintetizador-v1/AUDITORIA_CORRECOES_FLUIDEZ.json"
 }
