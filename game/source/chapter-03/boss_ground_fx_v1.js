@@ -113,6 +113,7 @@ const BossGroundFXV1={
     try{
       if(!this.path(g))return false;
       ctx.clip('nonzero');ctx.imageSmoothingEnabled=false;ctx.globalAlpha*=alpha;
+      ctx.shadowColor='#20171dcc';ctx.shadowBlur=0;ctx.shadowOffsetX=1;ctx.shadowOffsetY=1;
       const sx=(frame%cols)*cell,sy=Math.floor(frame/cols)*cell;
       const stamp=(l,t,w,h)=>{
         if(this.inPass&&this.stamps>=this.maxStamps)return;
@@ -125,9 +126,27 @@ const BossGroundFXV1={
           vb=(cam.y+(typeof VH==='number'?VH:432))/T,size=3.2;
         const l=Math.max(b.l,vl),r=Math.min(b.r,vr),t=Math.max(b.t,vt),bottom=Math.min(b.b,vb);
         let count=0;
-        for(let yy=Math.floor(t/size)*size;yy<bottom&&count<this.maxStamps;yy+=size){
-          for(let xx=Math.floor(l/size)*size;xx<r&&count<this.maxStamps;xx+=size){
-            stamp(xx,yy,size,size);count++;
+        if(g.kind==='cross'||g.kind==='lanes'){
+          const half=size/2,seen=new Set();
+          const center=(x,y)=>{
+            if(x+half<l||x-half>r||y+half<t||y-half>bottom||count>=this.maxStamps)return;
+            const key=x+','+y;if(seen.has(key))return;seen.add(key);
+            stamp(x-half,y-half,size,size);count++;
+          };
+          const vertical=x=>{
+            if(x+half<l||x-half>r)return;
+            for(let n=Math.ceil((t-half-g.y)/size);n<=Math.floor((bottom+half-g.y)/size)&&count<this.maxStamps;n++)center(x,g.y+n*size);
+          };
+          if(g.kind==='lanes')for(const dx of [-4,0,4])vertical(g.x+dx);
+          else{
+            vertical(g.x);
+            for(let n=Math.ceil((l-half-g.x)/size);n<=Math.floor((r+half-g.x)/size)&&count<this.maxStamps;n++)center(g.x+n*size,g.y);
+          }
+        }else{
+          for(let yy=Math.floor(t/size)*size;yy<bottom&&count<this.maxStamps;yy+=size){
+            for(let xx=Math.floor(l/size)*size;xx<r&&count<this.maxStamps;xx+=size){
+              stamp(xx,yy,size,size);count++;
+            }
           }
         }
       }else stamp(b.l,b.t,b.r-b.l,b.b-b.t);
@@ -156,7 +175,7 @@ const BossGroundFXV1={
       }
     }else if(released){
       const record=BossChoreographyV2.records.get(bossActor),legacy=this.legacyEvents.get(bossActor);
-      if(legacy?.serial===record?.serial)f=legacy.effect;
+      if(legacy&&record&&legacy.serial===record.serial)f=legacy.effect;
     }
     if(f)this.drawEvent(f,g);
     else if(!released)this.drawClipped(g,this.key(bossActor),this.frame(progress,null),BossChoreographyV2.reduced()?.10:.20);
@@ -194,7 +213,14 @@ BossChoreographyV2.release=function(e,spec,...rest){
 };
 const bossGroundPaintV1=BossChoreographyV2.paint;
 BossChoreographyV2.paint=function(g,progress=0,released=false,...rest){
-  const result=bossGroundPaintV1.call(this,g,progress,released,...rest);
+  const fx=BossGroundFXV1,im=released&&fx.valid()?fx.image(fx.key(bossActor)):null;
+  const cell=fx.manifest.cell||256,cols=fx.manifest.columns||4;
+  const dim=!!im?.complete&&im.naturalWidth>=cols*cell&&im.naturalHeight>=2*cell;
+  let result;
+  if(dim){
+    ctx.save();ctx.globalAlpha*=.5;
+    try{result=bossGroundPaintV1.call(this,g,progress,released,...rest);}finally{ctx.restore();}
+  }else result=bossGroundPaintV1.call(this,g,progress,released,...rest);
   BossGroundFXV1.paint(g,progress,released);return result;
 };
 const bossGroundHazardV1=BossChoreographyV2.drawHazard;

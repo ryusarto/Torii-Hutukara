@@ -10,12 +10,13 @@ const assets=Object.fromEntries(keys.map(k=>[k+'.png','data:image/png;base64,fix
 function fixture(id='c3_metronome'){
   const calls=[],stack=[];
   const ctx={globalAlpha:1,save(){stack.push(this.globalAlpha)},restore(){this.globalAlpha=stack.pop()},
-    drawImage(...args){calls.push({kind:'image',args,alpha:this.globalAlpha})}};
+    drawImage(...args){calls.push({kind:'image',args,alpha:this.globalAlpha,
+      shadow:[this.shadowColor,this.shadowBlur,this.shadowOffsetX,this.shadowOffsetY]})}};
   for(const method of ['beginPath','arc','rect','moveTo','lineTo','closePath','clip'])ctx[method]=function(...args){calls.push({kind:method,args})};
   const s={console,Math,Object,Array,Number,WeakMap,Set,ctx,calls,
     G:{area:'arena'},mode:'action',bossActor:{id,hp:100,x:10,y:10},
     cam:{x:0,y:0},T:24,VW:768,VH:432,current:{w:200,h:200},rings092:[],
-    paintCalls:0,groundCalls:0,emitterCalls:0,fireCalls:0,releaseCalls:0,damage:0,baseUpdates:0,
+    paintCalls:0,paintAlphas:[],groundCalls:0,emitterCalls:0,fireCalls:0,releaseCalls:0,damage:0,baseUpdates:0,
     Image:class{constructor(){this.complete=true;this.naturalWidth=1024;this.naturalHeight=512;}}
   };
   s.window=s;s.update=()=>{s.baseUpdates++};
@@ -26,7 +27,7 @@ function fixture(id='c3_metronome'){
       h.kind==='fan'?{kind:'sector',x:h.x,y:h.y,r:h.r,angle:h.angle,arc:h.arc}:{...h},
     begin(e){const before=this.records.get(e);this.records.set(e,{serial:(before?.serial||0)+1,released:false})},
     release(e,spec){s.releaseCalls++;let r=this.records.get(e);if(!r){this.begin(e);r=this.records.get(e)}if(r.released)return;r.released=true;r.execution=spec;return 'release-original';},
-    paint(){s.paintCalls++;return 'paint-original'},
+    paint(){s.paintCalls++;s.paintAlphas.push(ctx.globalAlpha);return 'paint-original'},
     drawEmitter(){s.emitterCalls++;return 'emitter-original'},
     drawHazard(h){if(h.kind==='chase'||h.kind==='orbit')return this.drawEmitter(h);return this.paint(this.geometry(h),.6,!!h.fired)},
     shapes:[],drawGround(){s.groundCalls++;for(const h of s.C3.hazards)this.drawHazard(h);for(const shape of this.shapes)this.paint(shape.g,shape.progress,shape.released);return 'ground-original'}
@@ -168,5 +169,27 @@ test('impact visibility and residue fade use exact opacity, then stop after .45 
     s.fx.step(.226);s.calls.length=0;s.BossChoreographyV2.drawGround();
     assert.equal(s.fx.effects.length,0);assert.equal(images(s).length,0);assert.equal(s.paintCalls,count);
   }
+});
+
+test('only loaded released sprites dim the original paint; prep and missing-art fallback remain full opacity',()=>{
+  const s=fixture(),a=s.BossChoreographyV2,g={kind:'disk',x:1,y:2,r:3};
+  a.paint(g,.8,false);a.paint(g,1,true);
+  assert.deepEqual(s.paintAlphas,[1,.5]);assert.equal(s.ctx.globalAlpha,1);
+  s.fx.images.scrap.complete=false;a.paint(g,1,true);assert.equal(s.paintAlphas.at(-1),1);
+  assert.equal(s.paintCalls,3);
+  s.fx.images.scrap.complete=true;s.calls.length=0;s.fx.drawClipped(g,'scrap',4,.75);
+  assert.deepEqual(images(s)[0].shadow,['#20171dcc',0,1,1]);
+});
+
+test('cross and lane stamps are centered on their real axes with one deduplicated crossing',()=>{
+  const s=fixture(),fx=s.fx,g={kind:'cross',x:10.25,y:9.5,width:.8};
+  const centers=()=>images(s).map(c=>({x:(c.args[5]+s.cam.x+c.args[7]/2)/24,y:(c.args[6]+s.cam.y+c.args[8]/2)/24}));
+  fx.drawClipped(g,'scrap',4,.75);
+  const cross=centers();assert(cross.length>0&&cross.length<=128);
+  assert(cross.every(p=>Math.abs(p.x-g.x)<1e-10||Math.abs(p.y-g.y)<1e-10));
+  assert.equal(cross.filter(p=>Math.abs(p.x-g.x)<1e-10&&Math.abs(p.y-g.y)<1e-10).length,1);
+  s.calls.length=0;fx.drawClipped({kind:'lanes',x:g.x,y:g.y},'static',4,.75);
+  const lanes=centers();assert(lanes.length>0&&lanes.length<=128);
+  assert(lanes.every(p=>[-4,0,4].some(dx=>Math.abs(p.x-g.x-dx)<1e-10)));
 });
 console.log(`${checks} ground FX unit checks passed; no gameplay/visual acceptance claimed.`);
