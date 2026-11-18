@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "cell": 256,
+  "columns": 4,
+  "rows": 2,
+  "preparation": [
+    0,
+    1,
+    2
+  ],
+  "release": [
+    3,
+    4
+  ],
+  "dissipation": [
+    5,
+    6,
+    7
+  ],
+  "filter": "nearest",
+  "clips": {
+    "pulse": {
+      "atlas": "atlas/pulse.png",
+      "frames": 8,
+      "source": "source/pulse.png"
+    },
+    "static": {
+      "atlas": "atlas/static.png",
+      "frames": 8,
+      "source": "source/static.png"
+    },
+    "scrap": {
+      "atlas": "atlas/scrap.png",
+      "frames": 8,
+      "source": "source/scrap.png"
+    },
+    "void": {
+      "atlas": "atlas/void.png",
+      "frames": 8,
+      "source": "source/void.png"
+    }
+  }
+}

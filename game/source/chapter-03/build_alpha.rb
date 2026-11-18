@@ -21,6 +21,8 @@ FLOW_JS = File.join(ROOT, 'flow_fixes.js')
 ACCESS_JS = File.join(ROOT, 'accessibility.js')
 ENEMY_ART_JS = File.join(ROOT, 'enemy_art_v1.js')
 ENEMY_ART_ASSETS = File.join(REPO_ROOT, 'assets', 'enemies', 'v1')
+BOSS_GROUND_FX_JS = File.join(ROOT, 'boss_ground_fx_v1.js')
+BOSS_GROUND_FX_ASSETS = File.join(REPO_ROOT, 'assets', 'boss-ground-fx', 'v1')
 BOSS_ANIMATION_JS = File.join(ROOT, 'boss_choreography_v2.js')
 BOSS_ANIMATION_ASSETS = File.join(REPO_ROOT, 'assets', 'boss-animations', 'v2')
 PROTAGONIST_JS = File.join(ROOT, 'protagonist_art_v5.js')
@@ -315,7 +317,13 @@ boss_animation_uris = boss_animation_files.to_h { |file| [file, "data:image/png;
 boss_animation_runtime = File.read(BOSS_ANIMATION_JS, encoding: 'UTF-8')
 replace_once!(boss_animation_runtime, '__BOSS_ANIMATION_ASSETS__', JSON.generate(boss_animation_uris), 'animações dos chefes')
 replace_once!(boss_animation_runtime, '__BOSS_ANIMATION_MANIFEST__', JSON.generate(boss_animation_manifest), 'manifesto de animações dos chefes')
-html.insert(position, "\n\n#{runtime}\n\n#{input_runtime}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(ACCESS_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n\n#{ninja_archer_runtime}\n\n#{protagonist_runtime}\n\n#{cenarios_runtime}\n\n#{musician_runtime}\n\n#{enemy_art_runtime}\n\n#{boss_animation_runtime}\n")
+ground_fx_manifest = JSON.parse(File.read(File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json')))
+ground_fx_files = ground_fx_manifest.fetch('clips').values.map { |entry| entry.fetch('atlas') }.uniq
+ground_fx_uris = ground_fx_manifest.fetch('clips').to_h { |key, entry| [key, "data:image/png;base64,#{encode(File.join(BOSS_GROUND_FX_ASSETS, entry.fetch('atlas')))}"] }
+ground_fx_runtime = File.read(BOSS_GROUND_FX_JS, encoding: 'UTF-8')
+replace_once!(ground_fx_runtime, '__BOSS_GROUND_FX_ASSETS__', JSON.generate(ground_fx_uris), 'sprites FX de golpes no chão')
+replace_once!(ground_fx_runtime, '__BOSS_GROUND_FX_MANIFEST__', JSON.generate(ground_fx_manifest), 'manifesto FX de golpes no chão')
+html.insert(position, "\n\n#{runtime}\n\n#{input_runtime}\n\n#{edits_js}\n\n#{File.read(PACING_JS, encoding: 'UTF-8')}\n\n#{File.read(HEALING_JS, encoding: 'UTF-8')}\n\n#{File.read(COMBAT_JS, encoding: 'UTF-8')}\n\n#{File.read(FLOW_JS, encoding: 'UTF-8')}\n\n#{File.read(ACCESS_JS, encoding: 'UTF-8')}\n\n#{File.read(PACE_METER, encoding: 'UTF-8')}\n\n#{ninja_archer_runtime}\n\n#{protagonist_runtime}\n\n#{cenarios_runtime}\n\n#{musician_runtime}\n\n#{enemy_art_runtime}\n\n#{boss_animation_runtime}\n\n#{ground_fx_runtime}\n")
 html.gsub!('ALPHA 1.2.0', VERSION.fetch('rotulo'))
 html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
 
@@ -325,7 +333,7 @@ html.gsub!("yy=bossActor?.id==='voice_boss'?", "yy=!C3.coopActive()&&bossActor?.
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
-sources = [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json')] + boss_animation_files.map { |relative| File.join(BOSS_ANIMATION_ASSETS, relative) } + [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_art_files.map { |relative| File.join(ENEMY_ART_ASSETS, relative) } + [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) } + [MUSICIAN_JS, File.join(MUSICIAN_ASSETS, 'manifest.json')] + musician_files.map { |relative| File.join(MUSICIAN_ASSETS, relative) }
+sources = [BOSS_GROUND_FX_JS, File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json')] + ground_fx_files.map { |relative| File.join(BOSS_GROUND_FX_ASSETS, relative) } + [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json')] + boss_animation_files.map { |relative| File.join(BOSS_ANIMATION_ASSETS, relative) } + [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_art_files.map { |relative| File.join(ENEMY_ART_ASSETS, relative) } + [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) } + [MUSICIAN_JS, File.join(MUSICIAN_ASSETS, 'manifest.json')] + musician_files.map { |relative| File.join(MUSICIAN_ASSETS, relative) }
 sources += [CENARIOS_JS, File.join(CENARIOS_ASSETS, 'manifest.json')] + cenarios_files.map { |relative| File.join(CENARIOS_ASSETS, relative) }
 manifest = {
   game: 'TORII & HUTUKARA',
@@ -359,7 +367,7 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, CENARIOS_ASSETS, MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, CENARIOS_ASSETS, MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
     [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end
 }
