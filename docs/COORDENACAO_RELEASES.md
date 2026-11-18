@@ -1,22 +1,31 @@
 # Coordenação de releases — Torii & Hutukara
 
-Atualizado em 17/11/2026 pela coordenação do jogo. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
+Atualizado em 18/11/2026 pela coordenação do jogo. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
 
 ## Base consultada
 
-Main `47039cdd94f86dd0c9a253bc4fcf4a2c809acb81`: PR #13 integrado, game/VERSION.json declara **Beta 1.5.0** com inimigos e ataques animados dos quatro chefes. Os músicos da Beta 1.3 permanecem no histórico integrado.
+Main funcional `bf1c2dc45c19216463983bd92f8bcb39216fe4d7`: **Beta 1.6.0**, com cenários desérticos, músicos da 1.3 e inimigos/bosses da 1.5 preservados. Publicação e hash do site confirmados em 18/11/2026.
 
-## Estado e próxima entrega
+## Versões integradas
 
 | Versão | Frente responsável | Escopo | Situação |
 |---|---|---|---|
 | Beta 1.3.0 | Músicos | Músicos chibi e paleta canônica | Integrada antes do PR #13; preservar |
-| Beta 1.5.0 | NPCs/inimigos e bosses | Inimigos próprios e ataques animados dos quatro chefes | PR #13 integrado em 47039cdd; confirmar publicação pelo workflow/site |
-| Beta 1.6.0 | Cenários / Analisar build HTML TORII Hutukara | Direção desértica do C3, biblioteca, integração e exportação | Próxima candidata; incorporar main1.5, recompilar e revalidar o conjunto |
+| Beta 1.5.0 | NPCs/inimigos e bosses | Inimigos próprios e ataques animados dos quatro chefes | PR #13 integrado em 47039cdd; incluído na publicação 1.6 |
+| Beta 1.6.0 | Cenários / Analisar build HTML TORII Hutukara | Direção desértica do C3, biblioteca, integração e exportação | Integrada em bf1c2dc; workflow 44227852940 aprovado e site/hash confirmados |
 
 A reserva anterior **1.4.0 para cenários foi realocada para 1.6.0**, pois a main avançou para 1.5 antes da conclusão dos cenários. Os assets recuperados continuam válidos. Não promover a build de cenários1.4 por cima da main1.5 nem simplesmente renomear seu executável.
 
-O checkpoint de cenários permanece recuperável na branch art/cenarios-deserto-v1 e nos backups próprios. Os executáveis e relatórios anteriores são evidências das respectivas fontes, não validação da próxima composição1.6.
+O checkpoint de cenários permanece recuperável na branch art/cenarios-deserto-v1 e nos backups próprios. Os executáveis e relatórios anteriores são evidências das respectivas fontes. A composição final 1.6 foi recompilada e revalidada; seus resultados identificam o hash abaixo.
+
+## Publicação confirmada — Beta 1.6
+
+- [Workflow Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44227852940): concluído com sucesso para o commit bf1c2dc.
+- [Jogo online](https://ryusarto.github.io/Torii-Hutukara/): build-info retornou versão 1.6.0 e SHA-256 `517715fe2e742bf3e19b2e238f0286378e5c63335002a1e116cf62fe3b10b845`.
+- HTML portátil informado pela frente: 401.631.199 bytes. A exportação conserva prova de roundtrip; o site contém o renderer desértico e os protagonistas/variantes.
+- Evidência da frente responsável: 137/137 verificações estáticas, 14/14 suítes, 88 casos de geometria, 13 de compatibilidade, 26 câmeras e 19 estados revisados.
+- Conferência desta coordenação: sucesso do workflow, GET do site/build-info, presença do renderer desértico e ausência do inimigo prematuro do corredor. Revisão visual limitada às capturas consultadas; não foi executada uma nova campanha manual por esta coordenação.
+- Suites em navegador isolado e emulação não equivalem a teste em aparelhos ou controles físicos.
 
 ## Regras de integração
 
@@ -33,10 +42,10 @@ O checkpoint de cenários permanece recuperável na branch art/cenarios-deserto-
 
 A frente de cenários informou recuperação de seus assets após limpeza/reinício de /private/tmp. Seu diretório ativo é /private/tmp/torii-cenarios-final-recovery; a frente continua dona do renderer e dos PNGs. Não modificar nem apagar seu trabalho por esta coordenação.
 
-Combinar o início de builds Ruby, exportações grandes e suites de navegador locais: uma frente pesada por vez. Preparação leve e CI remoto podem prosseguir em paralelo. Cenários tem a próxima rodada pesada para fechar a recuperação/integração1.6; confirmar sua conclusão antes de iniciar outra rodada. Isto é uma fila datada, não um bloqueio permanente.
+Combinar o início de builds Ruby, exportações grandes e suites de navegador locais: uma frente pesada por vez. Preparação leve e CI remoto podem prosseguir em paralelo. A frente informou que encerrou a rodada local pesada da 1.6; a janela foi liberada. Combinar a próxima execução entre as frentes; este registro não é um bloqueio permanente.
 
 Não encerrar processos ou apagar arquivos de outra frente. Limpeza é restrita aos temporários próprios, encerrados e comprovadamente recuperáveis. Conferir espaço disponível ao executar. A amostra antiga em8791 não é a entrega final.
 
 ## Limites
 
-Este arquivo modifica somente a coordenação documental. Não altera game/VERSION.json, runtime, assets ou o site. A Beta1.6 não é declarada publicada aqui. Preservar os avanços da main e confirmar o estado real antes de promover.
+Este arquivo modifica somente a coordenação documental. Não altera game/VERSION.json, runtime, assets ou o site. A publicação 1.6 acima foi confirmada; versões futuras continuam exigindo conferência real antes da promoção.

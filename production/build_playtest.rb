@@ -65,23 +65,39 @@ Dir.mktmpdir('torii-playtest-') do |temp|
   new_decoder = "let bytes;if(ALBUM11[id].startsWith('media/')){const response=await fetch(ALBUM11[id]);if(!response.ok)throw new Error('HTTP '+response.status);bytes=new Uint8Array(await response.arrayBuffer())}else{bytes=Uint8Array.from(atob(ALBUM11[id]),c=>c.charCodeAt(0))}"
   html.sub!(old_decoder, new_decoder)
 
-  # Reconstruct every substituted asset to prove that export preserved its bytes.
+  # Hash the exact reconstructed bytes without allocating the full HTML for
+  # each image. Every extracted asset is also checked independently.
   reconstructed = html.sub(new_decoder, old_decoder)
+  original = nil
+  GC.start
   media.each do |relative, data|
     bytes = File.binread(File.join(temp, relative))
     abort "Asset hash mismatch: #{relative}" unless Digest::SHA256.hexdigest(bytes) == data['sha256']
-    encoded = Base64.strict_encode64(bytes)
-    extension = File.extname(relative).delete('.')
-    replacement = extension == 'mp3' ? encoded : "data:image/#{extension};base64,#{encoded}"
-    reconstructed.gsub!(relative) { replacement }
   end
-  abort 'Hosted export changed game content' unless reconstructed == original
+  digest = Digest::SHA256.new
+  cursor = 0
+  reconstructed.scan(Regexp.union(media.keys)) do
+    match = Regexp.last_match
+    digest << reconstructed[cursor...match.begin(0)]
+    relative = match[0]
+    extension = File.extname(relative).delete('.')
+    digest << "data:image/#{extension};base64," unless extension == 'mp3'
+    digest << Base64.strict_encode64(File.binread(File.join(temp, relative)))
+    cursor = match.end(0)
+  end
+  digest << reconstructed[cursor..]
+  abort 'Hosted export changed game content' unless digest.hexdigest == original_hash
 
   build_info = {
     'version' => config.fetch('version'), 'sourceSha256' => original_hash,
     'shellVersion' => 1, 'builtAt' => Time.now.utc.iso8601
   }
   tags = []
+  # Reuse the project's canonical mask icon; avoid an implicit /favicon.ico
+  # request outside the GitHub Pages project path.
+  if File.file?(File.join(ROOT, 'web', 'album', 'assets', 'mask-original.webp'))
+    tags << %(<link rel="icon" type="image/webp" href="album/assets/mask-original.webp">)
+  end
   %w[css js].each do |extension|
     contents = File.binread(File.join(SOURCE, "entry.#{extension}"))
     name = "entry-#{Digest::SHA256.hexdigest(contents)[0, 12]}.#{extension}"

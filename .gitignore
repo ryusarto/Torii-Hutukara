@@ -28,3 +28,17 @@ qa/cenarios-v2/depois/*.png
 
 # Capturas de diálogo ficam nos artefatos/backup de QA.
 qa/beta-1.2.0/dialogue-*.png
+
+# Full desert QA captures belong to asset backups, not Git.
+qa/cenarios-deserto-v1/amostra/*.png
+qa/cenarios-deserto-v1/altura/*.png
+qa/cenarios-deserto-v1/final/*.png
+qa/cenarios-deserto-v1/amostra/MAPAS.json
+qa/cenarios-deserto-v1/altura/MAPAS.json
+qa/cenarios-deserto-v1/final/MAPAS.json
+
+qa/cenarios-deserto-v1/estados/*.png
+
+# Reproducible full captures accompany the Dropbox backup.
+qa/boss-animations-v2/*.png
+qa/boss-animations-v2/frames/

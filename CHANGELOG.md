@@ -1,3 +1,12 @@
+## [Beta 1.6] — 2026-11-17
+
+- Onze áreas do C3 com cenários desérticos pós-apocalípticos cyberpunk: 13 atlas, 131 recortes/estados e dois fundos de diálogo.
+- Fachadas, mobiliário, palco, elevador, máquinas, comportas, condensação, âncoras e olhos/altar com variantes contextuais e pares de escala/base comuns.
+- Preservados os mapas, 43 gates, missões, saves, músicas, combate, controles e seis personagens. Incorpora os músicos1.3 e todos os novos inimigos/chefes1.5.
+- Cache de cinema contextual e callbacks tardios protegidos. Exportador valida o roundtrip por SHA-256 sequencial; gerador libera cópias redundantes de URIs para reduzir memória.
+- Evidências e limites em `qa/cenarios-deserto-v1/`; sem nova campanha manual ou teste em controles/celulares físicos.
+
+
 ## Beta 1.5 · ataques animados dos chefes
 
 - Cinco sequências de oito quadros desenhados para os quatro chefes, preservando as identidades aprovadas.

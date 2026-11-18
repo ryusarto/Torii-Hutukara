@@ -14,4 +14,4 @@ Os registros são separados do estado salvo. Pausa congela o tempo; mudança de 
 
 ## Integração
 
-A branch usa a candidata **Beta 1.7**, pois a 1.6 está reservada aos cenários. Não publica sobre a Beta 1.5 existente. Antes da promoção, incorporar a entrega dos cenários 1.6 e conciliar o registro em `docs/COORDENACAO_RELEASES.md`; os FX também podem ser absorvidos pela composição da frente responsável. Preservar as animações de personagens e chefes e os avanços atuais da main ao integrar.
+A branch usa a candidata **Beta 1.7**, pois a 1.6 está reservada aos cenários. Não publica sobre a Beta 1.5 existente. Esta candidata incorpora a main 1.6 publicada em `bf1c2dc`, com seu exportador streaming. Conciliar o registro em `docs/COORDENACAO_RELEASES.md`; os FX também podem ser absorvidos pela composição da frente responsável. Preservar as animações de personagens e chefes e os avanços atuais da main ao integrar.

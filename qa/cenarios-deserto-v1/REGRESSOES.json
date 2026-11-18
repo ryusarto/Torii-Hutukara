@@ -1,0 +1,84 @@
+{
+  "version": "beta-1.6.0",
+  "expectedSha256": "517715fe2e742bf3e19b2e238f0286378e5c63335002a1e116cf62fe3b10b845",
+  "url": "http://127.0.0.1:8792/",
+  "checks": [
+    {
+      "suite": "qa/cenarios_deserto_v1.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/cenarios_deserto_v1.txt"
+    },
+    {
+      "suite": "qa/npc_recurrence.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/npc_recurrence.txt"
+    },
+    {
+      "suite": "qa/protagonist_state.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/protagonist_state.txt"
+    },
+    {
+      "suite": "qa/musician_art_unit.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/musician_art_unit.txt"
+    },
+    {
+      "suite": "qa/input_regression.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/input_regression.txt"
+    },
+    {
+      "suite": "qa/gameplay_regression.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/gameplay_regression.txt"
+    },
+    {
+      "suite": "qa/musician_art.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/musician_art.txt"
+    },
+    {
+      "suite": "qa/protagonist_art_v5.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/protagonist_art_v5.txt"
+    },
+    {
+      "suite": "qa/ninja_archer_art.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/ninja_archer_art.txt"
+    },
+    {
+      "suite": "qa/enemy_art_v1.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/enemy_art_v1.txt"
+    },
+    {
+      "suite": "qa/boss_choreography_unit.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/boss_choreography_unit.txt"
+    },
+    {
+      "suite": "qa/cenarios_deserto_states.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/cenarios_deserto_states.txt"
+    },
+    {
+      "suite": "qa/boss_choreography_browser.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/boss_choreography_browser.txt"
+    },
+    {
+      "suite": "qa/playtest_site.cjs",
+      "exit": 0,
+      "log": "qa/cenarios-deserto-v1/regressoes/playtest_site.txt"
+    }
+  ],
+  "limits": [
+    "Isolated headless Chromium. No personal save.",
+    "Simulated controls/emulated viewports do not validate physical mobile or gamepads.",
+    "Not a new manual campaign or proof of seven distinct warning geometries."
+  ],
+  "passed": true,
+  "priorInfrastructureFinding": "First boss-browser run passed eight functional checks but console reported /favicon.ico HTTP404. Exporter now supplies a canonical icon; only affected browser suites repeated."
+}

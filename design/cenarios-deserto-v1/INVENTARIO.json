@@ -1,0 +1,3691 @@
+{
+  "schemaVersion": 1,
+  "title": "Dependências de cenário C3 — variantes deserto V1",
+  "status": "inventario_para_producao_e_integracao; nao_e_contrato_artistico",
+  "basis": {
+    "checkout": "/private/tmp/torii-cenarios-recovery-20261117",
+    "baseCommit": "14923f4",
+    "sourceManifest": "assets/cenarios/v2/manifest.json",
+    "runtime": [
+      "game/source/chapter-03/cenarios_v2.js",
+      "game/source/chapter-03/chapter3_runtime.js"
+    ],
+    "masterDirection": "design/chapter-03/DIRECAO_DESERTO_POS_APOCALIPTICO.md",
+    "masterDirectionStatus": "Contrato consultado em /private/tmp/torii-c3-direcao-deserto, commit ce659e51, juntamente com BRIEF_ASSETS_DESERTO_V1.md; integração do contrato no checkout principal pertence ao root.",
+    "namespace": "assets/cenarios/deserto-v1",
+    "reviewType": "Leitura estática de manifesto e seletores; nenhum novo playtest ou aceite visual implícito.",
+    "masterDirectionCommit": "ce659e51",
+    "extraResourcePrefix": "c3_desert_"
+  },
+  "totals": {
+    "variantSheetsExisting": 10,
+    "variantCellsExisting": 106,
+    "protectedSheets": 2,
+    "protectedCells": 20,
+    "additionalBindingsCells": 27,
+    "targetVariantCellsStates": 133,
+    "proposedProductionFamilies": 14,
+    "proposedPngFilesIfCinemaSeparate": 15,
+    "note": "133 slots de cobertura/revisão, não 133 objetos únicos nem gerações obrigatórias. Reuso/adaptação é permitido. Instâncias reutilizam arte. Checkpoint pode reutilizar desenho de kiosk; consolidar arquivos não altera cobertura.",
+    "targetChapter3Atlases": 13,
+    "separateCinemaBackgrounds": 2
+  },
+  "sheets": [
+    {
+      "id": "A01",
+      "sourceFile": "assets/cenarios/v2/atlas/C3_SUPERFICIES_URBANAS.png",
+      "grid": [
+        4,
+        2
+      ],
+      "cell": 104,
+      "kind": "material",
+      "count": 8,
+      "priority": "P0",
+      "action": "chapter3_variant",
+      "intent": "Terra compactada, areia nos encontros, pedra de reuso, chapa corroída, canal rebaixado e poeira distante. Preservar distinção entre piso, água e vazio.",
+      "areasOrUsage": [
+        "C3:todos"
+      ],
+      "items": [
+        {
+          "id": "asfalto_seco",
+          "sourceCell": [
+            0,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "asfalto_molhado",
+          "sourceCell": [
+            104,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "calcada_pedra",
+          "sourceCell": [
+            208,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "beco_laje",
+          "sourceCell": [
+            312,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "agua_canal",
+          "sourceCell": [
+            0,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "metal_industrial",
+          "sourceCell": [
+            104,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "ceu_nuvens_fundo",
+          "sourceCell": [
+            208,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "abismo_fundo",
+          "sourceCell": [
+            312,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "sourceFile": "assets/cenarios/v2/atlas/C3_SUPERFICIES_INTERIORES.png",
+      "grid": [
+        4,
+        2
+      ],
+      "cell": 104,
+      "kind": "material",
+      "count": 8,
+      "priority": "P0",
+      "action": "chapter3_variant",
+      "intent": "Interiores remendados de madeira e sucata; ponte e plataforma firmes; pedra/metal sóbrios na arena. Piso sem móveis ou fachadas embutidos.",
+      "areasOrUsage": [
+        "C3:todos"
+      ],
+      "items": [
+        {
+          "id": "madeira_clube",
+          "sourceCell": [
+            0,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "madeira_oficina",
+          "sourceCell": [
+            104,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "metal_terminal",
+          "sourceCell": [
+            208,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "pedra_santuario",
+          "sourceCell": [
+            312,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "basalto_nucleo",
+          "sourceCell": [
+            0,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "tabuas_ponte",
+          "sourceCell": [
+            104,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "tapete_palco",
+          "sourceCell": [
+            208,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "paineis_parede",
+          "sourceCell": [
+            312,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "sourceFile": "assets/cenarios/v2/atlas/C3_BORDAS_RUAS.png",
+      "grid": [
+        4,
+        4
+      ],
+      "cell": 104,
+      "kind": "ground-overlay",
+      "count": 16,
+      "priority": "P0",
+      "action": "chapter3_variant",
+      "intent": "Guias gastas, contenções e travessias legíveis com areia nas juntas; overlays de chão e cantos encaixáveis, sem novas barreiras.",
+      "areasOrUsage": [
+        "distortion_district",
+        "sky_terminal",
+        "sky_canal"
+      ],
+      "items": [
+        {
+          "id": "curb_n",
+          "sourceCell": [
+            0,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "curb_e",
+          "sourceCell": [
+            104,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "curb_s",
+          "sourceCell": [
+            208,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "curb_w",
+          "sourceCell": [
+            312,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "curb_outer_ne",
+          "sourceCell": [
+            0,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "curb_outer_se",
+          "sourceCell": [
+            104,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "curb_outer_sw",
+          "sourceCell": [
+            208,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "curb_outer_nw",
+          "sourceCell": [
+            312,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "curb_inner_ne",
+          "sourceCell": [
+            0,
+            208,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            212,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "curb_inner_se",
+          "sourceCell": [
+            104,
+            208,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            212,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "curb_inner_sw",
+          "sourceCell": [
+            208,
+            208,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            212,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "curb_inner_nw",
+          "sourceCell": [
+            312,
+            208,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            212,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "crossing_horizontal",
+          "sourceCell": [
+            0,
+            312,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            316,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "crossing_vertical",
+          "sourceCell": [
+            104,
+            312,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            316,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "service_drain",
+          "sourceCell": [
+            208,
+            312,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            316,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "threshold_inlay",
+          "sourceCell": [
+            312,
+            312,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            316,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "sourceFile": "assets/cenarios/v2/atlas/C3_NUVENS_ENCAIXES.png",
+      "grid": [
+        4,
+        4
+      ],
+      "cell": 104,
+      "kind": "autotile",
+      "count": 16,
+      "priority": "P0",
+      "action": "chapter3_variant",
+      "intent": "Topos de ilhas/plataformas elevadas sobre cânions e poeira distante, com condensações específicas preservadas. As 16 peças mantêm a mesma topologia de suporte, passagem futura e vazio.",
+      "areasOrUsage": [
+        "cloud_sea"
+      ],
+      "items": [
+        {
+          "id": "cloud_top_a",
+          "sourceCell": [
+            0,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_top_b",
+          "sourceCell": [
+            104,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_top_c",
+          "sourceCell": [
+            208,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_top_d",
+          "sourceCell": [
+            312,
+            0,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            4,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_edge_n",
+          "sourceCell": [
+            0,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_edge_e",
+          "sourceCell": [
+            104,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_edge_s",
+          "sourceCell": [
+            208,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_edge_w",
+          "sourceCell": [
+            312,
+            104,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            108,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_outer_ne",
+          "sourceCell": [
+            0,
+            208,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            212,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_outer_se",
+          "sourceCell": [
+            104,
+            208,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            212,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_outer_sw",
+          "sourceCell": [
+            208,
+            208,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            212,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_outer_nw",
+          "sourceCell": [
+            312,
+            208,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            212,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_inner_ne",
+          "sourceCell": [
+            0,
+            312,
+            104,
+            104
+          ],
+          "sourceContent": [
+            4,
+            316,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_inner_se",
+          "sourceCell": [
+            104,
+            312,
+            104,
+            104
+          ],
+          "sourceContent": [
+            108,
+            316,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_inner_sw",
+          "sourceCell": [
+            208,
+            312,
+            104,
+            104
+          ],
+          "sourceContent": [
+            212,
+            316,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        },
+        {
+          "id": "cloud_inner_nw",
+          "sourceCell": [
+            312,
+            312,
+            104,
+            104
+          ],
+          "sourceContent": [
+            316,
+            316,
+            96,
+            96
+          ],
+          "sourcePivot": [
+            52,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "sourceFile": "assets/cenarios/v2/atlas/C3_FACHADAS_COMPLEMENTARES.png",
+      "grid": [
+        3,
+        2
+      ],
+      "cell": 384,
+      "kind": "architecture",
+      "count": 6,
+      "priority": "P0",
+      "action": "chapter3_variant",
+      "intent": "Três moradias habitáveis remendadas, entrada industrial, marquise e arco reaproveitados; portas, bases, escalas e acessos atuais preservados.",
+      "areasOrUsage": [
+        "distortion_district",
+        "sky_terminal",
+        "sky_lift"
+      ],
+      "items": [
+        {
+          "id": "residence_laundry",
+          "sourceCell": [
+            0,
+            0,
+            384,
+            384
+          ],
+          "sourceContent": [
+            30,
+            8,
+            324,
+            360
+          ],
+          "sourcePivot": [
+            192,
+            368
+          ]
+        },
+        {
+          "id": "residence_roof_garden",
+          "sourceCell": [
+            384,
+            0,
+            384,
+            384
+          ],
+          "sourceContent": [
+            425,
+            8,
+            302,
+            360
+          ],
+          "sourcePivot": [
+            192,
+            368
+          ]
+        },
+        {
+          "id": "residence_service_window",
+          "sourceCell": [
+            768,
+            0,
+            384,
+            384
+          ],
+          "sourceContent": [
+            802,
+            8,
+            316,
+            360
+          ],
+          "sourcePivot": [
+            192,
+            368
+          ]
+        },
+        {
+          "id": "plant_entrance",
+          "sourceCell": [
+            0,
+            384,
+            384,
+            384
+          ],
+          "sourceContent": [
+            12,
+            424,
+            360,
+            328
+          ],
+          "sourcePivot": [
+            192,
+            368
+          ]
+        },
+        {
+          "id": "terminal_canopy",
+          "sourceCell": [
+            384,
+            384,
+            384,
+            384
+          ],
+          "sourceContent": [
+            396,
+            435,
+            360,
+            317
+          ],
+          "sourcePivot": [
+            192,
+            368
+          ]
+        },
+        {
+          "id": "cloud_arrival_arch",
+          "sourceCell": [
+            768,
+            384,
+            384,
+            384
+          ],
+          "sourceContent": [
+            780,
+            465,
+            360,
+            287
+          ],
+          "sourcePivot": [
+            192,
+            368
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "sourceFile": "assets/cenarios/v2/atlas/C3_CONTRATEMPO_PROPS.png",
+      "grid": [
+        4,
+        3
+      ],
+      "cell": 256,
+      "kind": "props",
+      "count": 12,
+      "priority": "P1",
+      "action": "chapter3_variant",
+      "intent": "Contratempo habitado: palco, bar e equipamento musical reparados; desgaste material coeso e estados ativos locais, sem suprimir identidade musical.",
+      "areasOrUsage": [
+        "contratempo"
+      ],
+      "items": [
+        {
+          "id": "stage_idle",
+          "sourceCell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            12,
+            20,
+            232,
+            220
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "stage_active",
+          "sourceCell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            268,
+            18,
+            232,
+            222
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "speaker_idle",
+          "sourceCell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            560,
+            8,
+            160,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "speaker_active",
+          "sourceCell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            816,
+            8,
+            161,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "bar_counter",
+          "sourceCell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            12,
+            280,
+            232,
+            216
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "club_table",
+          "sourceCell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            301,
+            264,
+            166,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "club_chair",
+          "sourceCell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            574,
+            264,
+            133,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "club_stool",
+          "sourceCell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            827,
+            264,
+            138,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "projection_console",
+          "sourceCell": [
+            0,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            12,
+            568,
+            232,
+            184
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "projector_rig",
+          "sourceCell": [
+            256,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            310,
+            520,
+            149,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "instrument_rack",
+          "sourceCell": [
+            512,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            524,
+            546,
+            232,
+            206
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "acoustic_wallpanel",
+          "sourceCell": [
+            768,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            785,
+            520,
+            222,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "sourceFile": "assets/cenarios/v2/atlas/C3_INDUSTRIA_ESTADOS.png",
+      "grid": [
+        4,
+        2
+      ],
+      "cell": 256,
+      "kind": "props",
+      "count": 8,
+      "priority": "P1",
+      "action": "chapter3_variant",
+      "intent": "Indústria de sucata reparável; pares mecânicos com bases idênticas e abertura/acionamento perceptíveis por forma, além de luz.",
+      "areasOrUsage": [
+        "power_plant",
+        "sky_canal"
+      ],
+      "items": [
+        {
+          "id": "machine_inactive",
+          "sourceCell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            21,
+            8,
+            215,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "machine_active",
+          "sourceCell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            277,
+            8,
+            215,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "pressure_switch_inactive",
+          "sourceCell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            524,
+            86,
+            232,
+            154
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "pressure_switch_active",
+          "sourceCell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            87,
+            232,
+            153
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "valve_stalled",
+          "sourceCell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            12,
+            285,
+            232,
+            211
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "valve_released",
+          "sourceCell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            268,
+            285,
+            232,
+            211
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "canal_gate_closed",
+          "sourceCell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            524,
+            270,
+            232,
+            226
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "canal_gate_open",
+          "sourceCell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            270,
+            232,
+            226
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A08",
+      "sourceFile": "assets/cenarios/v2/atlas/C3_LETREIROS_SOLEIRAS.png",
+      "grid": [
+        4,
+        3
+      ],
+      "cell": 256,
+      "kind": "props",
+      "count": 12,
+      "priority": "P1",
+      "action": "chapter3_variant",
+      "intent": "Placas reaproveitadas, setas, soleiras e píeres integrados à terra/chapa; campos de texto vazios, mantendo nomes desenhados pelo jogo.",
+      "areasOrUsage": [
+        "C3:todos"
+      ],
+      "items": [
+        {
+          "id": "sign_club",
+          "sourceCell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            12,
+            105,
+            232,
+            135
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "sign_workshop",
+          "sourceCell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            268,
+            104,
+            232,
+            136
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "sign_plant",
+          "sourceCell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            524,
+            104,
+            232,
+            136
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "sign_canal",
+          "sourceCell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            104,
+            232,
+            136
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "sign_lift",
+          "sourceCell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            12,
+            361,
+            232,
+            135
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "wayfinder_left",
+          "sourceCell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            268,
+            319,
+            232,
+            177
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "wayfinder_right",
+          "sourceCell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            524,
+            320,
+            232,
+            176
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "threshold_open",
+          "sourceCell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            417,
+            232,
+            79
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "threshold_closed",
+          "sourceCell": [
+            0,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            12,
+            672,
+            232,
+            80
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "platform_embark",
+          "sourceCell": [
+            256,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            268,
+            660,
+            232,
+            92
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "canal_pier_left",
+          "sourceCell": [
+            512,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            524,
+            643,
+            232,
+            109
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "canal_pier_right",
+          "sourceCell": [
+            768,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            640,
+            232,
+            112
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "sourceFile": "assets/cenarios/v2/atlas/C3_NUVENS_MECANISMOS.png",
+      "grid": [
+        4,
+        2
+      ],
+      "cell": 256,
+      "kind": "props",
+      "count": 8,
+      "priority": "P1",
+      "action": "chapter3_variant",
+      "intent": "Tecnologia de percurso instalada em mesetas/plataformas: balizas, estabilização e âncoras com estados mecânicos legíveis. Poeira nunca desenha apoio falso.",
+      "areasOrUsage": [
+        "cloud_sea"
+      ],
+      "items": [
+        {
+          "id": "wind_beacon_off",
+          "sourceCell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            48,
+            8,
+            161,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "wind_beacon_on",
+          "sourceCell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            304,
+            8,
+            161,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "condensation_off",
+          "sourceCell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            563,
+            8,
+            154,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "condensation_on",
+          "sourceCell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            831,
+            8,
+            131,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "drum_anchor_off",
+          "sourceCell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            12,
+            277,
+            232,
+            219
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "drum_anchor_on",
+          "sourceCell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            268,
+            276,
+            232,
+            220
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "wind_current_marker",
+          "sourceCell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            552,
+            264,
+            176,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "cloud_anchor_foundation",
+          "sourceCell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            312,
+            232,
+            184
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "sourceFile": "assets/cenarios/v2/atlas/C3_SANTUARIO_NUCLEO.png",
+      "grid": [
+        4,
+        3
+      ],
+      "cell": 256,
+      "kind": "props",
+      "count": 12,
+      "priority": "P0",
+      "action": "chapter3_variant",
+      "intent": "Limiar e arena silenciosa em pedra escura, metal gasto e vigilância nas margens; olhos, altar e círculos sem cobrir telegraphs ou reduzir esquiva.",
+      "areasOrUsage": [
+        "cloud_terrace",
+        "last_torii",
+        "silence_core"
+      ],
+      "items": [
+        {
+          "id": "silence_eye_open",
+          "sourceCell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            65,
+            8,
+            127,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "silence_eye_half",
+          "sourceCell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            321,
+            8,
+            127,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "silence_eye_closed",
+          "sourceCell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            577,
+            8,
+            127,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "silence_altar_dormant",
+          "sourceCell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            35,
+            232,
+            205
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "silence_altar_awake",
+          "sourceCell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            12,
+            291,
+            232,
+            205
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "resonance_circle_off",
+          "sourceCell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            275,
+            264,
+            219,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "resonance_circle_on",
+          "sourceCell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            531,
+            264,
+            218,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "last_torii_arch",
+          "sourceCell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            302,
+            232,
+            194
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "core_entry_bridge",
+          "sourceCell": [
+            0,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            19,
+            520,
+            219,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "core_bridge_edge",
+          "sourceCell": [
+            256,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            268,
+            685,
+            232,
+            67
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "core_column_left",
+          "sourceCell": [
+            512,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            598,
+            520,
+            85,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "core_column_right",
+          "sourceCell": [
+            768,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            854,
+            520,
+            84,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "sourceFile": "assets/cenarios/v2/atlas/LEGADO_OBJETIVOS_C1.png",
+      "grid": [
+        4,
+        3
+      ],
+      "cell": 256,
+      "kind": "props",
+      "count": 12,
+      "priority": "PROTEGIDO",
+      "action": "preserve_global_bytes",
+      "intent": "Preservar arquivo e todas as entradas globais. Se um recorte é usado em C3, criar variante contextual em outro namespace.",
+      "areasOrUsage": [
+        "C1/C2 e referências C3 pontuais"
+      ],
+      "items": [
+        {
+          "id": "forest_lamp",
+          "sourceCell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            75,
+            8,
+            107,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "checkpoint_recorder",
+          "sourceCell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            280,
+            8,
+            208,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "root_gate_closed",
+          "sourceCell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            524,
+            42,
+            232,
+            198
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "root_gate_open",
+          "sourceCell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            42,
+            232,
+            198
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "crystal_pulse",
+          "sourceCell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            35,
+            264,
+            187,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "crystal_timbre",
+          "sourceCell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            291,
+            264,
+            187,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "memory_bell",
+          "sourceCell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            548,
+            264,
+            185,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "pool_stone",
+          "sourceCell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            350,
+            232,
+            146
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "well_stone",
+          "sourceCell": [
+            0,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            34,
+            520,
+            188,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "root_totem",
+          "sourceCell": [
+            256,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            314,
+            520,
+            141,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "root_wall",
+          "sourceCell": [
+            512,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            524,
+            651,
+            232,
+            101
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "mushroom_cluster",
+          "sourceCell": [
+            768,
+            512,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            595,
+            232,
+            157
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A12",
+      "sourceFile": "assets/cenarios/v2/atlas/LEGADO_TRANSICOES_INTERIORES.png",
+      "grid": [
+        4,
+        2
+      ],
+      "cell": 256,
+      "kind": "props",
+      "count": 8,
+      "priority": "PROTEGIDO",
+      "action": "preserve_global_bytes",
+      "intent": "Preservar arquivo e todas as entradas globais, incluindo os usos C1/C2 de janelas, portas, parapeitos e margens.",
+      "areasOrUsage": [
+        "C1/C2"
+      ],
+      "items": [
+        {
+          "id": "window_rustic",
+          "sourceCell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            29,
+            8,
+            198,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "door_lit",
+          "sourceCell": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            292,
+            8,
+            184,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "window_warm",
+          "sourceCell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            547,
+            8,
+            187,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "frame_landscape",
+          "sourceCell": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            52,
+            232,
+            188
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "frame_music",
+          "sourceCell": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            12,
+            303,
+            232,
+            193
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "room_doorway",
+          "sourceCell": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            283,
+            264,
+            202,
+            232
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "rooftop_parapet",
+          "sourceCell": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            524,
+            362,
+            232,
+            134
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        },
+        {
+          "id": "canal_bank",
+          "sourceCell": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "sourceContent": [
+            780,
+            338,
+            232,
+            158
+          ],
+          "sourcePivot": [
+            128,
+            240
+          ]
+        }
+      ]
+    }
+  ],
+  "extraLegacyVariants": [
+    {
+      "id": "c3_desert_club_facade",
+      "productionFamily": "D11",
+      "priority": "P0",
+      "runtimeBinding": "c3_club",
+      "sourceFile": "assets/chapter-03/runtime/reference/EDIFICIOS_PERSONAGENS.png",
+      "sourceGrid": [
+        3,
+        2
+      ],
+      "sourceCellIndex": [
+        0,
+        0
+      ],
+      "currentDrawBox": [
+        220,
+        176
+      ],
+      "areas": [
+        "distortion_district"
+      ],
+      "state": null,
+      "notes": "Não coberto por A05. Preservar fachada musical, base e porta ancorada no gate existente. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 0,
+      "productionCellIndex": [
+        0,
+        0
+      ],
+      "originalId": "c3_club"
+    },
+    {
+      "id": "c3_desert_workshop_facade",
+      "productionFamily": "D11",
+      "priority": "P0",
+      "runtimeBinding": "c3_workshop",
+      "sourceFile": "assets/chapter-03/runtime/reference/EDIFICIOS_PERSONAGENS.png",
+      "sourceGrid": [
+        3,
+        2
+      ],
+      "sourceCellIndex": [
+        2,
+        0
+      ],
+      "currentDrawBox": [
+        190,
+        132
+      ],
+      "areas": [
+        "distortion_district"
+      ],
+      "state": null,
+      "notes": "Não coberto por A05. Oficina de Mazza: preservar vínculo com mecânica, acesso e silhueta. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 1,
+      "productionCellIndex": [
+        1,
+        0
+      ],
+      "originalId": "c3_workshop"
+    },
+    {
+      "id": "c3_desert_elevator_closed",
+      "productionFamily": "D11",
+      "priority": "P0",
+      "runtimeBinding": "c3_elevator",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/ELEVADOR_CEU_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        0,
+        0
+      ],
+      "currentDrawBox": [
+        142,
+        132
+      ],
+      "areas": [
+        "sky_terminal",
+        "distortion_district",
+        "sky_lift"
+      ],
+      "state": "!G.c3.liftOpen",
+      "notes": "Três instâncias reutilizam o mesmo par; não produzir três elevadores diferentes. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 2,
+      "productionCellIndex": [
+        2,
+        0
+      ],
+      "originalId": "c3_elevator"
+    },
+    {
+      "id": "c3_desert_elevator_open",
+      "productionFamily": "D11",
+      "priority": "P0",
+      "runtimeBinding": "c3_elevator",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/ELEVADOR_CEU_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        1,
+        0
+      ],
+      "currentDrawBox": [
+        142,
+        132
+      ],
+      "areas": [
+        "sky_terminal",
+        "distortion_district",
+        "sky_lift"
+      ],
+      "state": "G.c3.liftOpen",
+      "notes": "Três instâncias reutilizam o mesmo par; não produzir três elevadores diferentes. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 3,
+      "productionCellIndex": [
+        3,
+        0
+      ],
+      "originalId": "c3_elevator"
+    },
+    {
+      "id": "c3_desert_terrace_landmark",
+      "productionFamily": "D11",
+      "priority": "P0",
+      "runtimeBinding": "c3_sanctuary em cloud_terrace",
+      "sourceFile": "assets/chapter-03/runtime/reference/EDIFICIOS_PERSONAGENS.png",
+      "sourceGrid": [
+        3,
+        2
+      ],
+      "sourceCellIndex": [
+        1,
+        1
+      ],
+      "currentDrawBox": [
+        212,
+        166
+      ],
+      "areas": [
+        "cloud_terrace"
+      ],
+      "state": null,
+      "notes": "Último Torii já usa A10 e Núcleo oculta este prop; só Terraço mantém a fachada antiga. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 4,
+      "productionCellIndex": [
+        0,
+        1
+      ],
+      "originalId": "c3_sanctuary em cloud_terrace"
+    },
+    {
+      "id": "c3_desert_lamp",
+      "productionFamily": "D11",
+      "priority": "P0",
+      "runtimeBinding": "c3_lamp / c3_neon_lamp",
+      "sourceFile": "assets/prebeta/runtime/environment/ENVIRONMENT_PROPS_4X2.png",
+      "sourceGrid": [
+        4,
+        2
+      ],
+      "sourceCellIndex": [
+        0,
+        1
+      ],
+      "currentDrawBox": [
+        70,
+        126
+      ],
+      "areas": [
+        "sky_terminal",
+        "distortion_district"
+      ],
+      "state": null,
+      "notes": "Dez instâncias atuais, uma arte. Não substituir atlas compartilhado: ele também contém postes/pilares de C1. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 5,
+      "productionCellIndex": [
+        1,
+        1
+      ],
+      "originalId": "c3_lamp / c3_neon_lamp"
+    },
+    {
+      "id": "c3_desert_utility",
+      "productionFamily": "D11",
+      "priority": "P1",
+      "runtimeBinding": "c3_neon_utility",
+      "sourceFile": "assets/prebeta/runtime/environment/ENVIRONMENT_PROPS_4X2.png",
+      "sourceGrid": [
+        4,
+        2
+      ],
+      "sourceCellIndex": [
+        2,
+        1
+      ],
+      "currentDrawBox": [
+        108,
+        144
+      ],
+      "areas": [
+        "distortion_district"
+      ],
+      "state": null,
+      "notes": "Três instâncias, uma variante de infraestrutura de sucata. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 6,
+      "productionCellIndex": [
+        2,
+        1
+      ],
+      "originalId": "c3_neon_utility"
+    },
+    {
+      "id": "c3_desert_checkpoint_recorder",
+      "productionFamily": "D11",
+      "priority": "P1",
+      "runtimeBinding": "env2_prop item=checkpoint_recorder",
+      "sourceFile": "assets/cenarios/v2/atlas/LEGADO_OBJETIVOS_C1.png",
+      "sourceGrid": [
+        4,
+        3
+      ],
+      "sourceCellIndex": [
+        1,
+        0
+      ],
+      "currentDrawBox": [
+        46,
+        46
+      ],
+      "areas": [
+        "last_torii"
+      ],
+      "state": null,
+      "notes": "Exceção contextual obrigatória: NÃO substituir entrada/PNG A11 global. Checkpoints C3 comuns usam kiosk; pode reaproveitar desenho deste sem criar função nova. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 7,
+      "productionCellIndex": [
+        3,
+        1
+      ],
+      "originalId": "env2_prop item=checkpoint_recorder"
+    },
+    {
+      "id": "c3_desert_bench",
+      "productionFamily": "D12",
+      "priority": "P1",
+      "runtimeBinding": "c3_bench",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/MOBILIARIO_URBANO_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        0,
+        0
+      ],
+      "currentDrawBox": [
+        96,
+        58
+      ],
+      "areas": [
+        "C3:instâncias existentes"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 0,
+      "productionCellIndex": [
+        0,
+        0
+      ],
+      "originalId": "c3_bench"
+    },
+    {
+      "id": "c3_desert_planter",
+      "productionFamily": "D12",
+      "priority": "P1",
+      "runtimeBinding": "c3_planter",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/MOBILIARIO_URBANO_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        2,
+        0
+      ],
+      "currentDrawBox": [
+        96,
+        54
+      ],
+      "areas": [
+        "C3:instâncias existentes"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 1,
+      "productionCellIndex": [
+        1,
+        0
+      ],
+      "originalId": "c3_planter"
+    },
+    {
+      "id": "c3_desert_crates",
+      "productionFamily": "D12",
+      "priority": "P1",
+      "runtimeBinding": "c3_crates",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/MOBILIARIO_URBANO_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        0,
+        1
+      ],
+      "currentDrawBox": [
+        82,
+        72
+      ],
+      "areas": [
+        "C3:instâncias existentes"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 2,
+      "productionCellIndex": [
+        2,
+        0
+      ],
+      "originalId": "c3_crates"
+    },
+    {
+      "id": "c3_desert_vending",
+      "productionFamily": "D12",
+      "priority": "P1",
+      "runtimeBinding": "c3_vending",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/MOBILIARIO_URBANO_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        1,
+        1
+      ],
+      "currentDrawBox": [
+        60,
+        88
+      ],
+      "areas": [
+        "C3:instâncias existentes"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 3,
+      "productionCellIndex": [
+        0,
+        1
+      ],
+      "originalId": "c3_vending"
+    },
+    {
+      "id": "c3_desert_railing",
+      "productionFamily": "D12",
+      "priority": "P1",
+      "runtimeBinding": "c3_railing",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/MOBILIARIO_URBANO_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        2,
+        1
+      ],
+      "currentDrawBox": [
+        106,
+        58
+      ],
+      "areas": [
+        "C3:instâncias existentes"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 4,
+      "productionCellIndex": [
+        1,
+        1
+      ],
+      "originalId": "c3_railing"
+    },
+    {
+      "id": "c3_desert_drain",
+      "productionFamily": "D12",
+      "priority": "P1",
+      "runtimeBinding": "c3_drain",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/MOBILIARIO_URBANO_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        0,
+        2
+      ],
+      "currentDrawBox": [
+        72,
+        38
+      ],
+      "areas": [
+        "C3:instâncias existentes"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 5,
+      "productionCellIndex": [
+        2,
+        1
+      ],
+      "originalId": "c3_drain"
+    },
+    {
+      "id": "c3_desert_kiosk",
+      "productionFamily": "D12",
+      "priority": "P1",
+      "runtimeBinding": "c3_kiosk",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/MOBILIARIO_URBANO_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        2,
+        2
+      ],
+      "currentDrawBox": [
+        68,
+        80
+      ],
+      "areas": [
+        "C3:instâncias existentes"
+      ],
+      "state": null,
+      "notes": "Kiosk também é sprite dos checkpoints C3 comuns, desenhado nesse contexto em 46×60. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 6,
+      "productionCellIndex": [
+        0,
+        2
+      ],
+      "originalId": "c3_kiosk"
+    },
+    {
+      "id": "c3_desert_workbench",
+      "productionFamily": "D12",
+      "priority": "P1",
+      "runtimeBinding": "c3_workbench",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/OFICINA_CIRO_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        0,
+        0
+      ],
+      "currentDrawBox": [
+        154,
+        88
+      ],
+      "areas": [
+        "ciro_workshop"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 7,
+      "productionCellIndex": [
+        1,
+        2
+      ],
+      "originalId": "c3_workbench"
+    },
+    {
+      "id": "c3_desert_flute_rack",
+      "productionFamily": "D12",
+      "priority": "P1",
+      "runtimeBinding": "c3_flute_rack",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/OFICINA_CIRO_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        2,
+        0
+      ],
+      "currentDrawBox": [
+        112,
+        78
+      ],
+      "areas": [
+        "ciro_workshop"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 8,
+      "productionCellIndex": [
+        2,
+        2
+      ],
+      "originalId": "c3_flute_rack"
+    },
+    {
+      "id": "c3_desert_wind_console",
+      "productionFamily": "D13",
+      "priority": "P1",
+      "runtimeBinding": "c3_wind_console",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/OFICINA_CIRO_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        1,
+        0
+      ],
+      "currentDrawBox": [
+        82,
+        92
+      ],
+      "areas": [
+        "ciro_workshop"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 0,
+      "productionCellIndex": [
+        0,
+        0
+      ],
+      "originalId": "c3_wind_console"
+    },
+    {
+      "id": "c3_desert_tuning_machine",
+      "productionFamily": "D13",
+      "priority": "P1",
+      "runtimeBinding": "c3_tuning_machine",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/OFICINA_CIRO_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        1,
+        2
+      ],
+      "currentDrawBox": [
+        86,
+        84
+      ],
+      "areas": [
+        "ciro_workshop"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 1,
+      "productionCellIndex": [
+        1,
+        0
+      ],
+      "originalId": "c3_tuning_machine"
+    },
+    {
+      "id": "c3_desert_interference_active",
+      "productionFamily": "D13",
+      "priority": "P1",
+      "runtimeBinding": "c3_interference / c3_interference_calm",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/CANAL_INTERFERENCIA_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        1,
+        0
+      ],
+      "currentDrawBox": [
+        92,
+        96
+      ],
+      "areas": [
+        "sky_canal"
+      ],
+      "state": "!G.c3.canalDone",
+      "notes": "Cobrir ambos os ramos, inclusive delegação explícita do estado calmo no wrapper final. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 2,
+      "productionCellIndex": [
+        2,
+        0
+      ],
+      "originalId": "c3_interference / c3_interference_calm"
+    },
+    {
+      "id": "c3_desert_interference_calm",
+      "productionFamily": "D13",
+      "priority": "P1",
+      "runtimeBinding": "c3_interference / c3_interference_calm",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/CANAL_INTERFERENCIA_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        2,
+        2
+      ],
+      "currentDrawBox": [
+        92,
+        96
+      ],
+      "areas": [
+        "sky_canal"
+      ],
+      "state": "G.c3.canalDone",
+      "notes": "Cobrir ambos os ramos, inclusive delegação explícita do estado calmo no wrapper final. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 3,
+      "productionCellIndex": [
+        3,
+        0
+      ],
+      "originalId": "c3_interference / c3_interference_calm"
+    },
+    {
+      "id": "c3_desert_broken_pipe",
+      "productionFamily": "D13",
+      "priority": "P1",
+      "runtimeBinding": "c3_broken_pipe",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/CANAL_INTERFERENCIA_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        1,
+        1
+      ],
+      "currentDrawBox": [
+        96,
+        76
+      ],
+      "areas": [
+        "sky_canal"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 4,
+      "productionCellIndex": [
+        0,
+        1
+      ],
+      "originalId": "c3_broken_pipe"
+    },
+    {
+      "id": "c3_desert_lift_console",
+      "productionFamily": "D13",
+      "priority": "P1",
+      "runtimeBinding": "c3_lift_console",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/ELEVADOR_CEU_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        0,
+        1
+      ],
+      "currentDrawBox": [
+        104,
+        76
+      ],
+      "areas": [
+        "sky_lift"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 5,
+      "productionCellIndex": [
+        1,
+        1
+      ],
+      "originalId": "c3_lift_console"
+    },
+    {
+      "id": "c3_desert_wind_receiver",
+      "productionFamily": "D13",
+      "priority": "P1",
+      "runtimeBinding": "c3_wind_receiver",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/ELEVADOR_CEU_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        1,
+        1
+      ],
+      "currentDrawBox": [
+        82,
+        98
+      ],
+      "areas": [
+        "sky_lift"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 6,
+      "productionCellIndex": [
+        2,
+        1
+      ],
+      "originalId": "c3_wind_receiver"
+    },
+    {
+      "id": "c3_desert_bass_lock",
+      "productionFamily": "D13",
+      "priority": "P1",
+      "runtimeBinding": "c3_bass_lock",
+      "sourceFile": "assets/chapter-03/runtime/ambiente/ELEVADOR_CEU_PROPS_ATLAS.png",
+      "sourceGrid": [
+        3,
+        3
+      ],
+      "sourceCellIndex": [
+        2,
+        1
+      ],
+      "currentDrawBox": [
+        92,
+        68
+      ],
+      "areas": [
+        "sky_lift"
+      ],
+      "state": null,
+      "notes": "Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 7,
+      "productionCellIndex": [
+        3,
+        1
+      ],
+      "originalId": "c3_bass_lock"
+    },
+    {
+      "id": "c3_desert_cinema_distortion",
+      "productionFamily": "D14",
+      "priority": "P0",
+      "runtimeBinding": "PB.cinemaPanel(distortion)",
+      "sourceFile": "assets/prebeta/runtime/dialogue/CINEMATIC_BACKGROUNDS_3X2.png",
+      "sourceGrid": [
+        3,
+        2
+      ],
+      "sourceCellIndex": [
+        1,
+        1
+      ],
+      "currentDrawBox": null,
+      "areas": [
+        "showCinema:distortion"
+      ],
+      "state": null,
+      "notes": "Fundo contextual C3. Preservar quatro painéis C1/C2 e arquivo compartilhado; cache/callback de carregamento não pode restaurar painel antigo. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 0,
+      "productionCellIndex": null,
+      "originalId": "PB.cinemaPanel(distortion)"
+    },
+    {
+      "id": "c3_desert_cinema_cloud",
+      "productionFamily": "D14",
+      "priority": "P0",
+      "runtimeBinding": "PB.cinemaPanel(cloud)",
+      "sourceFile": "assets/prebeta/runtime/dialogue/CINEMATIC_BACKGROUNDS_3X2.png",
+      "sourceGrid": [
+        3,
+        2
+      ],
+      "sourceCellIndex": [
+        2,
+        1
+      ],
+      "currentDrawBox": null,
+      "areas": [
+        "showCinema:cloud"
+      ],
+      "state": null,
+      "notes": "Fundo contextual C3. Preservar quatro painéis C1/C2 e arquivo compartilhado; cache/callback de carregamento não pode restaurar painel antigo. Liaison de recurso contextual: preservar originalId técnico, flags, coordenadas e posição relativa de porta/base.",
+      "action": "new_chapter3_only_variant",
+      "productionSlot": 1,
+      "productionCellIndex": null,
+      "originalId": "PB.cinemaPanel(cloud)"
+    }
+  ],
+  "proposedExtraPacking": [
+    {
+      "id": "D11",
+      "grid": [
+        4,
+        2
+      ],
+      "count": 8,
+      "kind": "iconic_architecture_and_infrastructure"
+    },
+    {
+      "id": "D12",
+      "grid": [
+        3,
+        3
+      ],
+      "count": 9,
+      "kind": "urban_plus_large_workshop_props"
+    },
+    {
+      "id": "D13",
+      "grid": [
+        4,
+        2
+      ],
+      "count": 8,
+      "kind": "mechanisms_and_canal_states"
+    },
+    {
+      "id": "D14",
+      "grid": null,
+      "count": 2,
+      "kind": "cinema_backgrounds",
+      "note": "Dois fundos PNG separados conforme consolidação do contrato; medir aspecto real do painel antes de exportar."
+    }
+  ],
+  "unusedOptionalBindings": {
+    "count": 12,
+    "action": "nao_gerar_neste_lote_sem_instancia_visivel",
+    "items": [
+      "c3_bins",
+      "c3_barricade",
+      "c3_turbine",
+      "c3_toolboard",
+      "c3_drawers",
+      "c3_cables",
+      "c3_workshop_control",
+      "c3_bridge_control",
+      "c3_signal_beacon",
+      "c3_anchor_tower",
+      "c3_cloud_beacon",
+      "c3_arrival_arch"
+    ]
+  },
+  "stateSelectors": [
+    {
+      "bindings": [
+        "c3_elevator"
+      ],
+      "condition": "liftOpen",
+      "family": "D11"
+    },
+    {
+      "bindings": [
+        "c3_machine em sky_canal"
+      ],
+      "condition": "canalPath || canalDone",
+      "family": "A07"
+    },
+    {
+      "bindings": [
+        "c3_machine fora Distrito/Canal"
+      ],
+      "condition": "usinaGate || usinaDone",
+      "family": "A07"
+    },
+    {
+      "bindings": [
+        "c3_pressure_switch"
+      ],
+      "condition": "usinaGate",
+      "family": "A07"
+    },
+    {
+      "bindings": [
+        "c3_valve_station"
+      ],
+      "condition": "usinaDone",
+      "family": "A07"
+    },
+    {
+      "bindings": [
+        "c3_canal_gate",
+        "c3_rescue_barrier",
+        "c3_interference"
+      ],
+      "condition": "canalDone",
+      "family": "A07/D13"
+    },
+    {
+      "bindings": [
+        "c3_stage"
+      ],
+      "condition": "clubPhraseDone",
+      "family": "A06"
+    },
+    {
+      "bindings": [
+        "c3_speakers"
+      ],
+      "condition": "Canal: canalDone; Usina: usinaGate; demais: clubPhraseDone",
+      "family": "A06"
+    },
+    {
+      "bindings": [
+        "c3_resonance_circle"
+      ],
+      "condition": "metronomeDone",
+      "family": "A10"
+    },
+    {
+      "bindings": [
+        "c3_silence_eye",
+        "c3_silence_altar"
+      ],
+      "condition": "silenceDone; olhos também respeitam reducedMotion e ciclo atual",
+      "family": "A10"
+    },
+    {
+      "bindings": [
+        "mecanismos de cloud_sea"
+      ],
+      "condition": "Manter seletores e flags existentes; nenhum caminho aberto pela troca de imagem",
+      "family": "A09"
+    }
+  ],
+  "invariants": [
+    "Não modificar C1/C2, A11/A12 ou arquivos compartilhados globalmente.",
+    "Sem filtros globais de canvas/CSS, sem trocar aparência dos personagens/máscara/música.",
+    "Mesmos mapas, sólidos, coordenadas, portas, gates, flags, recompensas, save schema e co-op.",
+    "Preservar os seis alinhamentos de entrada/retorno já existentes no Distrito.",
+    "Preservar fechamento do anel de cloud_sea e recuperação de saves antigos sobre ele.",
+    "Manter IDs legados; nomenclatura narrativa depende do contrato do outro chat.",
+    "Exportar PNG RGBA: props com fundo alpha zero; materiais com conteúdo opaco e gutters transparentes; nearest-neighbor.",
+    "Mesmas bases, escalas de desenho e pivôs para pares de estado. Alpha do sprite não introduz colisões.",
+    "Preservar passe de chão/props e try/finally existente; não pintar barreiras sobre trajetos livres.",
+    "Água/condensação do Canal permanecem água. Flauta forma passagens em condensações específicas; nomes públicos e IDs permanecem inicialmente."
+  ],
+  "integrationHazards": [
+    {
+      "priority": "P0",
+      "risk": "Trocar só A01–A10 deixa fachadas icônicas, infraestrutura e fundos C3 na identidade anterior.",
+      "coverage": "D11–D14"
+    },
+    {
+      "priority": "P0",
+      "risk": "Substituir atlas prebeta_props/prebeta_cinema ou A11 global altera C1/C2.",
+      "coverage": "Variantes e seletores contextuais C3 separados."
+    },
+    {
+      "priority": "P0",
+      "risk": "Topos claros de poeira parecerem caminháveis sobre c3_sky/c3_water ou nova margem mudar leitura de travessia.",
+      "coverage": "Comparar apoio/vazio com mapa real, mesmas colisões."
+    },
+    {
+      "priority": "P1",
+      "risk": "Cache de imagens/material/cinema e callbacks exibirem arte antiga ou textura de outro contexto.",
+      "coverage": "Namespace separado, cache contextual invalidado na seleção e carregamento comprovado."
+    },
+    {
+      "priority": "P1",
+      "risk": "Ramificação canalDone retornar atlas_canal antigo no estado calmo; elevador aberto só aparecer na arte antiga.",
+      "coverage": "Cobrir todas as variantes dos seletores existentes."
+    },
+    {
+      "priority": "P1",
+      "risk": "Nem toda célula de biblioteca está hoje instanciada; equiparar catálogo a cobertura real gera promessa falsa.",
+      "coverage": "A03 usa principalmente curb_n rotacionado; verificar mapa e seleção reais, não só contact sheet."
+    }
+  ],
+  "acceptance": [
+    "Manifesto lista os 106 recortes variantes e os 27 vínculos extras; nenhum arquivo A11/A12 alterado.",
+    "Validação de PNG, alpha de props, recortes, pivôs e gutters; pares iguais em escala, sem fundo opaco acidental.",
+    "Câmeras reais de todos os mapas C3 e estados antes/depois, incluindo clube/oficina/elevador, canal resolvido, Terraço, Último Torii e arena.",
+    "No combate, chão quieto e bordas legíveis; sombras de contato sustentam móveis e não simulam sólidos novos.",
+    "Comparação estrutural de mapas/gates/flags/solids com baseline; mesma suíte de geometria e testes runtime/save/input/co-op existente.",
+    "Carga inicial, retorno ao menu, load e transições não exibem fundos antigos por callback/cache; C1/C2 preservados.",
+    "Fundos de diálogo C3 coerentes com mapa sem alterar retratos, roupas ou máscara canônica.",
+    "Não declarar campanha completa nem hardware validado a partir desta revisão estática."
+  ],
+  "productionOrder": [
+    "Amostra Distrito → Contratempo → entrada da Usina; superfície/guia/soleira, fachadas icônicas, palco/caixas e mecanismos em dois estados, incluindo combate.",
+    "Amostra de altura com topo, borda, condensação futura e vazio antes de expandir A04/A09.",
+    "Expandir onze áreas, todos os estados, variantes legadas e clímax após avaliação das amostras."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "stage": "altura",
+  "renderer": "production tile/prop renderers; full map overview and actual drawEnv viewport",
+  "captures": [
+    {
+      "id": "cloud_sea",
+      "size": [
+        1392,
+        816
+      ]
+    }
+  ],
+  "browserErrors": []
+}

@@ -1,0 +1,21 @@
+OK · Prólogo sem inimigo, dano ou combate antes do instrumento
+OK · Entrada da floresta segura; entrega do baixo libera a primeira luta
+OK · Save antigo no corredor continua sem o encontro removido
+OK · Distrito permite ataque dos seis integrantes após a primeira frente
+OK · XP ativo e de reserva é igual nos três capítulos e estável ao carregar
+OK · Migração antiga compensa aliados uma vez e checkpoint preserva XP
+OK · Aliados recebem compensação no recrutamento, antes de XP ou recarga
+OK · Patrulhas respeitam cooldown após load e não herdam relógio de outra partida
+OK · Pad para antes da parede e filtro conserva o corpo do inimigo no chão
+OK · compasso: mesmo ataque acerta P1 e P2 e respeita invulnerabilidade
+OK · espelho: mesmo ataque acerta P1 e P2 e respeita invulnerabilidade
+OK · abafador: mesmo ataque acerta P1 e P2 e respeita invulnerabilidade
+OK · Queda do líder durante uma onda não redireciona o dano do companheiro
+OK · Abafador bloqueia as três técnicas de cada ator, mas permite sair da aura
+OK · Share do segundo controle cura P2 e manter pressionado não gasta outra fita
+OK · Cura simultânea usa o inventário compartilhado sem duplicar ou ficar negativo
+OK · Diálogo 390 × 844, texto normal: leitura e toque livres
+OK · Diálogo 390 × 844, texto maior: leitura e toque livres
+OK · Diálogo 844 × 390, texto normal: leitura e toque livres
+OK · Diálogo 844 × 390, texto maior: leitura e toque livres
+20 verificações de jogabilidade aprovadas.

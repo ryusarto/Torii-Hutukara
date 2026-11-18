@@ -1,0 +1,21 @@
+OK · PC
+OK · Mobile
+OK · iPad desktop UA
+[
+  {
+    "name": "Hosted soundtrack fetch and decode (chapter 1, chapter 3, final boss)",
+    "passed": true
+  },
+  {
+    "name": "PC: detection, notice removal, assets, layout and chapter 3 start",
+    "passed": true
+  },
+  {
+    "name": "Mobile: detection, notice removal, assets, layout and chapter 3 start",
+    "passed": true
+  },
+  {
+    "name": "iPad desktop UA: detection, notice removal, assets, layout and chapter 3 start",
+    "passed": true
+  }
+]
