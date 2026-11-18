@@ -1,0 +1,28 @@
+{
+  "version": "1.6.0",
+  "gameSha256": "517715fe2e742bf3e19b2e238f0286378e5c63335002a1e116cf62fe3b10b845",
+  "media": 307,
+  "roundtrip": true,
+  "verifiedPublicPng": [
+    {
+      "asset": "assets/cenarios/deserto-v1/atlas/D04_NUVENS_ENCAIXES.png",
+      "sha256": "068ca93adb6515e164780d17652a78ef6b7322a9819ebbd0752715815a6bd9be",
+      "bytes": 262577
+    },
+    {
+      "asset": "assets/cenarios/deserto-v1/atlas/D05_FACHADAS_COMPLEMENTARES.png",
+      "sha256": "ee9962f451c897e567080ff026439c4f3fb9efff9e08a4d6b9245dfbb28434ae",
+      "bytes": 1400531
+    },
+    {
+      "asset": "assets/cenarios/deserto-v1/atlas/D12_COMPLEMENTOS.png",
+      "sha256": "77aeefe1d90c17c72dbbc0237e9585e0b632a869edfb140ddc0b328ba70c2a48",
+      "bytes": 682075
+    },
+    {
+      "asset": "assets/cenarios/deserto-v1/backgrounds/c3_desert_cinema_cloud.png",
+      "sha256": "f4271c2fac987ca961ea90f4b65a3d8a404cc636b87dd10729d2f50f40a3105d",
+      "bytes": 3055145
+    }
+  ]
+}

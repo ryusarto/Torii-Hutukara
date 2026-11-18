@@ -1,6 +1,6 @@
-# Entrega de cenários C3 — candidata Beta 1.6
+# Entrega de cenários C3 — Beta 1.6
 
-Data: 17/11/2026. Responsabilidade desta revisão: coordenação documental e conferência estática dos artefatos recuperados. **Candidata reconstruída e revalidada: 137/137 verificações estáticas e 14/14 suítes automatizadas aprovadas. Publicação no GitHub/link público: a confirmar pelo integrador.**
+Data: 17/11/2026. Responsabilidade desta revisão: coordenação documental e conferência estática dos artefatos recuperados. **Candidata reconstruída e revalidada: 137/137 verificações estáticas e 14/14 suítes automatizadas aprovadas. Publicação confirmada: commit `bf1c2dc45c19216463983bd92f8bcb39216fe4d7`, execução44227852940 concluída com sucesso e SHA-256 conferido no site público.**
 
 ## Ponto de recuperação e posse
 
@@ -34,7 +34,7 @@ Conferência documental dos arquivos produzidos pelo integrador/tester, sem reex
 | `qa/cenarios-deserto-v1/RUNTIME_RESULTS.json` | 13/13, `passed: true`, SHA servido correspondente à candidata |
 | `qa/cenarios-deserto-v1/estados/ESTADOS.json` | 19 frames; posições válidas de P1/P2; retry com `canMove: true`, modo `action` e boss `c3_silence` |
 | Mesmo relatório de estados | Sete tipos reais solicitados e assertados em modo `padrao`; não são sete geometrias visualmente únicas aprovadas |
-| `production/playtest-dist/build-info.json` | HTML 888.681 bytes, 307 mídias, `gameContentRoundTrip: true`, `portableBuildUnchanged: true` |
+| `production/playtest-dist/build-info.json` | HTML 888.756 bytes, 307 mídias, `gameContentRoundTrip: true`, `portableBuildUnchanged: true` |
 
 O agregado final `REGRESSOES.json` registra **14/14 suítes aprovadas**, todas com saída zero e SHA esperado correspondente ao executável acima. O tester encerrou os navegadores após a rodada.
 
@@ -54,7 +54,7 @@ O agregado final `REGRESSOES.json` registra **14/14 suítes aprovadas**, todas c
 
 A primeira tentativa da suíte de browser dos bosses completou seus oito checks funcionais e falhou pela presença de um único console 404 de `/favicon.ico`. O integrador adicionou um ícone canônico ao exportador e o tester repetiu somente as três suítes afetadas. A rodada final não tem erros; a ocorrência de infraestrutura permanece registrada no agregado, sem ser confundida com falha de gameplay.
 
-A candidata preserva os assets dos seis heróis e a frente publicada de inimigos/bosses. A contagem de cenários permanece 13/131 + dois fundos, compondo 15/151 com A11/A12. A revisão artística de onze câmeras e 19 estados pertence ao histórico 1.4 abaixo; produzir novas capturas 1.6 não substitui automaticamente uma nova avaliação humana.
+A candidata preserva os assets dos seis heróis e a frente publicada de inimigos/bosses. A contagem de cenários permanece 13/131 + dois fundos, compondo 15/151 com A11/A12. A direção artística também reviu as onze áreas e 19 estados da composição 1.6 e registrou o aceite em `REVISAO_FINAL.md`; o histórico 1.4 permanece separado.
 
 ## Histórico anterior à interrupção
 
@@ -81,6 +81,6 @@ A retomada pelo botão real de Tentar novamente foi informada como válida: equi
 
 No escopo artístico anterior, não ficou P0/P1 aberto. Permanece um P2 opcional de repetição simétrica das dunas no topo. Os sete padrões foram solicitados à fixture, mas **sete geometrias distintas de aviso não foram afirmadas pela direção artística**; cross/fan/chase/orbit mostravam sobretudo anéis semelhantes nas capturas avaliadas.
 
-A revalidação automatizada da candidata 1.6 está concluída. O fechamento da entrega exige que o integrador confirme o checkpoint oficial, a publicação do hash atual e o backup final, preservando os resultados anteriores como histórico. A exportação local já registra integridade do roundtrip; a disponibilidade pública ainda precisa ser observada. Não tratar a branch de staging, o nome de um arquivo ou a contagem de atlas como prova de publicação.
+A entrega foi integrada e publicada. O integrador abriu o site em navegador isolado e conferiu versão1.6.0, SHA517715fe…, módulos de músicos/inimigos/chefes presentes e cenário desértico decodificado, sem erros JavaScript. Conferiu ainda quatro PNGs públicos por SHA-256. O backup final no Dropbox inclui originais, 131 PNGs individuais, atlas, dois fundos, documentação e provas; o ZIP foi conferido por CRC e SHA-256. Metadados em `qa/cenarios-deserto-v1/PUBLICACAO.json`, `ASSETS_PUBLICADOS.json` e `BACKUP.json`.
 
-Os limites continuam explícitos: contexto descartável/headless, controles simulados, nenhuma nova campanha manual completa, telefone físico ou dois controles físicos. A coordenação não identificou um novo defeito de produção pela leitura estática e conferiu os relatórios executados da candidata. A publicação e o backup final permanecem a confirmar pelo integrador.
+Os limites continuam explícitos: contexto descartável/headless, controles simulados, nenhuma nova campanha manual completa, telefone físico ou dois controles físicos. A coordenação não identificou um novo defeito de produção pela leitura estática e conferiu os relatórios executados da candidata. Publicação e backup final confirmados pelas evidências acima.
