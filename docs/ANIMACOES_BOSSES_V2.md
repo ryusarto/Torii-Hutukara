@@ -35,3 +35,5 @@ Movimento reduzido mantém os contornos e a informação temporal, reduzindo a t
 ## Validação
 
 `qa/boss_choreography_unit.cjs` compara geometrias com os predicados reais de dano, além de sincronização e preservação do estado. `qa/boss_choreography_browser.cjs` executa os padrões no jogo compilado, verifica os quadros e gera capturas do canvas e sequências temporais. Evidências e limites estão em `qa/boss-animations-v2/REVISAO.md`. Testes controlados não equivalem a uma campanha humana nem a teste em aparelhos físicos.
+
+A Beta 1.5 foi integrada pelo PR #13 e publicada no [GitHub Pages](https://ryusarto.github.io/Torii-Hutukara/). O relatório identifica o hash servido e os limites das capturas. Os cenários desérticos seguem como Beta 1.6 em outra frente.

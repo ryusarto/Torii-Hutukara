@@ -1,8 +1,8 @@
 # Inimigos — inventário e contrato de sprites V1
 
-Registro de 17/11/2026. Base de integração indicada pela coordenação: main `c2a01c7`, Beta 1.2, sincronizada nas fontes locais. Na redação deste documento, o HEAD do checkout local ainda era `dab09c8`, com alterações de sincronização em arquivos de fonte; `game/VERSION.json` local já declara `beta-1.2.0`. Não confundir a versão dos arquivos com um commit local concluído.
+**Integrado e publicado na Beta 1.5 pelo PR #13.** O pacote V1 contém sete tipos comuns, quatro chefes e duas variantes visuais do C3: **11 identidades, 13 pranchas e 52 poses frontais discretas**. Cada prancha contém repouso, preparação, execução e reação; não são ciclos de caminhada ou morte.
 
-**Estado: fontes produzidas e integração em fonte realizada pela coordenação; build e QA em andamento.** Escopo: sete tipos comuns e quatro chefes, mais duas variantes visuais de C3 (`compasso_c3` e `abafador_c3`): **11 identidades, 13 pranchas e 52 poses frontais discretas**. Cada prancha contém repouso, preparação, execução e reação. Não são ciclos de caminhada, múltiplas direções ou animações de morte. Nenhum inimigo, ataque ou regra de combate novo faz parte deste lote. A produção das fontes e a integração foram informadas pela coordenação; não equivalem a validação de build ou aprovação de QA. O registro final das verificações será preenchido pela coordenação.
+Os quatro chefes recebem adicionalmente cinco sequências V2 de oito quadros desenhados para seus ataques, com avisos sincronizados às áreas reais de dano. Consulte [o contrato das animações](ANIMACOES_BOSSES_V2.md) e [o relatório final](../qa/boss-animations-v2/REVISAO.md). O pacote visual não acrescenta inimigos ou regras de combate.
 
 ## Fontes verificadas
 

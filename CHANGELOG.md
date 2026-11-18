@@ -1,6 +1,7 @@
 ## Beta 1.5 · ataques animados dos chefes
 
 - Cinco sequências de oito quadros desenhados para os quatro chefes, preservando as identidades aprovadas.
+- Sprites próprios de todos os inimigos: 11 identidades, 13 atlas e 52 poses estáticas; Viajante com o rosto inteiramente coberto pela máscara autoral.
 - Preparação, disparo real e recuperação sincronizados; investida instantânea mantém seu percurso e dano originais.
 - Áreas completas com contagem musical, limites corretos, bandas das duas ondas e guias de projéteis.
 - Estado cosmético separado, pausa/load/retry/final e movimento reduzido; regressões geométricas e no navegador.
