@@ -21,6 +21,8 @@ FLOW_JS = File.join(ROOT, 'flow_fixes.js')
 ACCESS_JS = File.join(ROOT, 'accessibility.js')
 ENEMY_ART_JS = File.join(ROOT, 'enemy_art_v1.js')
 ENEMY_ART_ASSETS = File.join(REPO_ROOT, 'assets', 'enemies', 'v1')
+BOSS_GROUND_FX_JS = File.join(ROOT, 'boss_ground_fx_v1.js')
+BOSS_GROUND_FX_ASSETS = File.join(REPO_ROOT, 'assets', 'boss-ground-fx', 'v1')
 BOSS_ANIMATION_JS = File.join(ROOT, 'boss_choreography_v2.js')
 BOSS_ANIMATION_ASSETS = File.join(REPO_ROOT, 'assets', 'boss-animations', 'v2')
 PROTAGONIST_JS = File.join(ROOT, 'protagonist_art_v5.js')
@@ -343,14 +345,20 @@ boss_animation_uris = boss_animation_files.to_h { |file| [file, "data:image/png;
 boss_animation_runtime = File.read(BOSS_ANIMATION_JS, encoding: 'UTF-8')
 replace_once!(boss_animation_runtime, '__BOSS_ANIMATION_ASSETS__', JSON.generate(boss_animation_uris), 'animações dos chefes')
 replace_once!(boss_animation_runtime, '__BOSS_ANIMATION_MANIFEST__', JSON.generate(boss_animation_manifest), 'manifesto de animações dos chefes')
+ground_fx_manifest = JSON.parse(File.read(File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json')))
+ground_fx_files = ground_fx_manifest.fetch('clips').values.map { |entry| entry.fetch('atlas') }.uniq
+ground_fx_uris = ground_fx_manifest.fetch('clips').to_h { |key, entry| [key, "data:image/png;base64,#{encode(File.join(BOSS_GROUND_FX_ASSETS, entry.fetch('atlas')))}"] }
+ground_fx_runtime = File.read(BOSS_GROUND_FX_JS, encoding: 'UTF-8')
+replace_once!(ground_fx_runtime, '__BOSS_GROUND_FX_ASSETS__', JSON.generate(ground_fx_uris), 'sprites FX de golpes no chão')
+replace_once!(ground_fx_runtime, '__BOSS_GROUND_FX_MANIFEST__', JSON.generate(ground_fx_manifest), 'manifesto FX de golpes no chão')
 # Embedded runtime strings now own these bytes; release duplicate URI maps
 # before constructing the portable HTML on memory-constrained computers.
-ninja_archer_uris = protagonist_uris = musician_uris = cenarios_uris = enemy_art_uris = boss_animation_uris = nil
+ninja_archer_uris = protagonist_uris = musician_uris = cenarios_uris = enemy_art_uris = boss_animation_uris = ground_fx_uris = nil
 GC.start
 # Insert pieces in reverse at the same anchor: identical bytes without a second
 # full-size concatenation of every embedded PNG/audio runtime.
-parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime]
-runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = nil
+parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime]
+runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = nil
 html.insert(position, "\n")
 until parts.empty?
   part = parts.pop
@@ -379,6 +387,7 @@ end
 sources += [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_art_files.map { |relative| File.join(ENEMY_ART_ASSETS, relative) }
 sources += [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json')] + boss_animation_files.map { |relative| File.join(BOSS_ANIMATION_ASSETS, relative) }
 
+sources += [BOSS_GROUND_FX_JS, File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json')] + ground_fx_files.map { |relative| File.join(BOSS_GROUND_FX_ASSETS, relative) }
 manifest = {
   game: 'TORII & HUTUKARA',
   build: VERSION.fetch('rotulo'),
@@ -411,7 +420,7 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
 
     [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end

@@ -37,6 +37,7 @@ jobs:
           node qa/npc_recurrence.cjs
           node qa/protagonist_state.cjs
           node qa/boss_choreography_unit.cjs
+          node qa/boss_ground_fx_unit.cjs
           node qa/enemy_art_v1.cjs
           node qa/input_regression.cjs
           node qa/gameplay_regression.cjs
@@ -47,6 +48,7 @@ jobs:
           test_server_pid=$!
           trap 'kill "$test_server_pid"' EXIT
           node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
+          node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/
           node qa/protagonist_art_v5.cjs http://127.0.0.1:8771/
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/
@@ -59,6 +61,7 @@ jobs:
             qa/beta-*/
             qa/enemies-v1/
             qa/boss-animations-v2/
+            qa/boss-ground-fx-v1/
             qa/playtest/SITE_TEST_RESULTS.json
             qa/screenshots-local/pages/
           retention-days: 30
