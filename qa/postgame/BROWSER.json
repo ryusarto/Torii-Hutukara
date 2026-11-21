@@ -48,6 +48,7 @@
       "name": "Real final reward and three scenes finish at Torii once without studio transition",
       "passed": true,
       "detail": {
+        "endingTarget": "last_torii",
         "area": "last_torii",
         "complete": true,
         "pending": false,

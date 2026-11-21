@@ -1,8 +1,8 @@
 TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA BETA 1.9.0
 =====================================================
 Resultado: 142/142 verificações aprovadas
-HTML: 420873462 bytes
-SHA-256: 262830b6521cdbb2fd67b7d12cdbb40e2858cb92a7b46676ed261ad0feab5466
+HTML: 420873602 bytes
+SHA-256: 2fd6f7e7437280b74ca61561fc329d4933d26971f3cd05b16626ca857d529710
 
 OK · arquivo TORII_HUTUKARA_1_1_2_TRILHAS.html
 OK · arquivo TORII_HUTUKARA_BETA_1_9_0.html
