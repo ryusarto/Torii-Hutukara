@@ -1,0 +1,40 @@
+{
+  "method": "Isolated Chrome, standalone asset viewer; not gameplay",
+  "passed": true,
+  "state": {
+    "cards": 16,
+    "canvases": 32,
+    "status": "V6 6/11 · 260 ms",
+    "paused": true,
+    "atlases": {
+      "franco": {
+        "v5": [
+          2304,
+          2048
+        ],
+        "v6": [
+          3328,
+          2048
+        ]
+      },
+      "ryuchi": {
+        "v5": [
+          2304,
+          2048
+        ],
+        "v6": [
+          3328,
+          2048
+        ]
+      }
+    }
+  },
+  "browserErrors": [],
+  "engineIntegration": false,
+  "newPoseComparison": {
+    "frame": 1,
+    "phaseMs": 32.5,
+    "cardsShowingNewPose": 16,
+    "screenshot": "/private/tmp/torii-v6-preview-newposes.png"
+  }
+}

@@ -1,0 +1,3678 @@
+{
+  "version": 1,
+  "release": "V6-locomocao",
+  "extends": "V5",
+  "states": [
+    "run"
+  ],
+  "cell": [
+    256,
+    256
+  ],
+  "pivot": [
+    128,
+    224
+  ],
+  "rows": [
+    "unmasked/down",
+    "unmasked/left",
+    "unmasked/up",
+    "unmasked/right",
+    "masked/down",
+    "masked/left",
+    "masked/up",
+    "masked/right"
+  ],
+  "sourceV5Sha256": {
+    "franco": "7ec9db0d6cc2cf91a6d54d39c4f05df47e900e1df41984c61e81646fd73dd192",
+    "ryuchi": "6eedbbda0f697293bd60d98f481849df5c2ca820bba0787d0188d93b4d177bf9"
+  },
+  "animations": [
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "down",
+      "row": 0,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "52cb6c616102c2c3db2a292204f23f6ca20854759c5843b76c9e3edf7f8bc37f",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "left",
+      "row": 1,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "9726d22446161c8595ec2a6dad40cf693626ec38f466e14cf7dcac3b8a2e95da",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "up",
+      "row": 2,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "3a67b207d7006a4325c7ae2e07071fa2c8cf89ed665fee887e826bd3a5d73898",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "right",
+      "row": 3,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "8ecc590b3f18a0f6f5f606aa1f1d6ab5f8b8216691e0c4394e7d96971a619cbe",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "run",
+      "direction": "down",
+      "row": 4,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "9ea6971a8425990d7c295e104bb66af498401e6adbd3a25b24c1ec495e89a145",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "run",
+      "direction": "left",
+      "row": 5,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "c0ac4280003b0447159cfba93fc449f5a45c110a96b655761f5f80f5044b1714",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "run",
+      "direction": "up",
+      "row": 6,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "2ca4da2fde44029c5dd88958f179aa9966cd0bb61cf2c8ba300a788b049c7ebf",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "run",
+      "direction": "right",
+      "row": 7,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "87156fd5478debfbc79006945e147f5dc031a767dcb35958045f8d3db78ad97d",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "down",
+      "row": 0,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "ad1d78b06cad90a76013ad93530cda3fc9f9865185b2436db8916b1d49040d14",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "left",
+      "row": 1,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "ffc670f6caefb1170d19085881eda084a3e9702cac190dd9954d81542f85c9d9",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "up",
+      "row": 2,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "a71b437738047153520bf5552edb0aed08931f6c54568f1052903a86aef35414",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "right",
+      "row": 3,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "fdd0246e002b32fb20aef9491ef5b3ecfcc11ae84284180254275e56a484a215",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "run",
+      "direction": "down",
+      "row": 4,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "d2ae6acbd97423f008ba6ea4bfa2ae0cac4af3b6e5e5af70c3cbaa875894f4fe",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "run",
+      "direction": "left",
+      "row": 5,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "a606cf0df172276d6177f5a7b0b9658bf4a8f79138fb57cb9af3b23cc977b371",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "run",
+      "direction": "up",
+      "row": 6,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "40da4297eb21d92d9a8b720e7ddfd376c9b93826385e734e7a46815c7f8dde4a",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "run",
+      "direction": "right",
+      "row": 7,
+      "frames": 13,
+      "playFrames": 12,
+      "loop": true,
+      "holdLast": false,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 43.333333333333336,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65,
+        32.5,
+        32.5,
+        65
+      ],
+      "cycleMs": 520,
+      "closureSha256": "26bdd59ea72df2b899a004a5ed55aa25324038475156e19fdbddb598008135f8",
+      "frameSources": [
+        {
+          "kind": "original",
+          "index": 0
+        },
+        {
+          "kind": "new",
+          "index": 0
+        },
+        {
+          "kind": "original",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 2
+        },
+        {
+          "kind": "new",
+          "index": 1
+        },
+        {
+          "kind": "original",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 4
+        },
+        {
+          "kind": "new",
+          "index": 2
+        },
+        {
+          "kind": "original",
+          "index": 5
+        },
+        {
+          "kind": "original",
+          "index": 6
+        },
+        {
+          "kind": "new",
+          "index": 3
+        },
+        {
+          "kind": "original",
+          "index": 7
+        }
+      ]
+    }
+  ],
+  "newFrames": [
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "down",
+      "row": 0,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/franco/unmasked/down/run_between_00_01.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        0,
+        0,
+        314,
+        314
+      ],
+      "sourceCrop": [
+        92,
+        66,
+        228,
+        267
+      ],
+      "uniformRowScale": 0.9203539823008849,
+      "translation": [
+        66,
+        36
+      ],
+      "bbox": [
+        68,
+        38,
+        189,
+        219
+      ],
+      "rgbaSha256": "14aa14c282c69de92030e62071f8a3f654c77c8fe0aa8dd88d78182661fd13bb",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "down",
+      "row": 0,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/franco/unmasked/down/run_between_02_03.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        314,
+        0,
+        627,
+        314
+      ],
+      "sourceCrop": [
+        91,
+        65,
+        224,
+        267
+      ],
+      "uniformRowScale": 0.9203539823008849,
+      "translation": [
+        67,
+        34
+      ],
+      "bbox": [
+        69,
+        36,
+        187,
+        218
+      ],
+      "rgbaSha256": "3471f7f6d40c164da411ea8dcb0444d5d446d98a912f2a294b3e756fa2fe586d",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "down",
+      "row": 0,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/franco/unmasked/down/run_between_04_05.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        627,
+        0,
+        940,
+        314
+      ],
+      "sourceCrop": [
+        92,
+        64,
+        224,
+        267
+      ],
+      "uniformRowScale": 0.9203539823008849,
+      "translation": [
+        68,
+        34
+      ],
+      "bbox": [
+        70,
+        36,
+        187,
+        219
+      ],
+      "rgbaSha256": "ca4fdb358fb9e281a43be52b6e6f749ea08e3a5fec289e9f9a5b624185ea5b5c",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "down",
+      "row": 0,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/franco/unmasked/down/run_between_06_07.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        940,
+        0,
+        1254,
+        314
+      ],
+      "sourceCrop": [
+        89,
+        64,
+        224,
+        265
+      ],
+      "uniformRowScale": 0.9203539823008849,
+      "translation": [
+        66,
+        36
+      ],
+      "bbox": [
+        68,
+        38,
+        188,
+        219
+      ],
+      "rgbaSha256": "848f517f23ecc9e90814dc802dbcff37e07a9fa4fd20d595dbacff37f919e676",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "left",
+      "row": 1,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/franco/unmasked/left/run_between_00_01.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        0,
+        314,
+        314,
+        627
+      ],
+      "sourceCrop": [
+        91,
+        65,
+        232,
+        261
+      ],
+      "uniformRowScale": 0.9236739974126779,
+      "translation": [
+        63,
+        40
+      ],
+      "bbox": [
+        65,
+        42,
+        191,
+        219
+      ],
+      "rgbaSha256": "ef7449fe95efd70ff0197736003d6179d7d7c650a11c13e6988b2eadc62ed88f",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "left",
+      "row": 1,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/franco/unmasked/left/run_between_02_03.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        314,
+        314,
+        627,
+        627
+      ],
+      "sourceCrop": [
+        89,
+        65,
+        229,
+        264
+      ],
+      "uniformRowScale": 0.9236739974126779,
+      "translation": [
+        64,
+        36
+      ],
+      "bbox": [
+        66,
+        38,
+        191,
+        218
+      ],
+      "rgbaSha256": "545ffdc1b5ba3d04ec2d26d35735ca664a4bfe2e31db786ff1c7b363664dcf8c",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "left",
+      "row": 1,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/franco/unmasked/left/run_between_04_05.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        627,
+        314,
+        940,
+        627
+      ],
+      "sourceCrop": [
+        89,
+        68,
+        231,
+        265
+      ],
+      "uniformRowScale": 0.9236739974126779,
+      "translation": [
+        63,
+        38
+      ],
+      "bbox": [
+        65,
+        40,
+        192,
+        218
+      ],
+      "rgbaSha256": "f85d57fe40a479e509b17e08dc187a6eb4833f29de9509dc6de0ff5d1070a753",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "left",
+      "row": 1,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/franco/unmasked/left/run_between_06_07.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        940,
+        314,
+        1254,
+        627
+      ],
+      "sourceCrop": [
+        88,
+        68,
+        231,
+        265
+      ],
+      "uniformRowScale": 0.9236739974126779,
+      "translation": [
+        62,
+        38
+      ],
+      "bbox": [
+        64,
+        40,
+        192,
+        218
+      ],
+      "rgbaSha256": "7420f713189cbc163c69798f88a2252443644dc374b498b3bc2a3de0e69b78a1",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "up",
+      "row": 2,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/franco/unmasked/up/run_between_00_01.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        0,
+        627,
+        314,
+        940
+      ],
+      "sourceCrop": [
+        92,
+        66,
+        225,
+        266
+      ],
+      "uniformRowScale": 0.9287531806615776,
+      "translation": [
+        66,
+        34
+      ],
+      "bbox": [
+        68,
+        36,
+        188,
+        218
+      ],
+      "rgbaSha256": "79c475e54259a9e0fce91a41d85624c0cd9a35a4d74ae001f0a6cdf818f6a8bd",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "up",
+      "row": 2,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/franco/unmasked/up/run_between_02_03.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        314,
+        627,
+        627,
+        940
+      ],
+      "sourceCrop": [
+        92,
+        67,
+        224,
+        266
+      ],
+      "uniformRowScale": 0.9287531806615776,
+      "translation": [
+        67,
+        36
+      ],
+      "bbox": [
+        69,
+        38,
+        188,
+        219
+      ],
+      "rgbaSha256": "fe866af58edd553323573d8bc54154a7e2f3754a9c18feb03962f4b14569a2e7",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "up",
+      "row": 2,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/franco/unmasked/up/run_between_04_05.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        627,
+        627,
+        940,
+        940
+      ],
+      "sourceCrop": [
+        92,
+        68,
+        222,
+        269
+      ],
+      "uniformRowScale": 0.9287531806615776,
+      "translation": [
+        68,
+        34
+      ],
+      "bbox": [
+        70,
+        36,
+        187,
+        219
+      ],
+      "rgbaSha256": "2eb19c80b53b7a0106038640f6a66ed0b23e29c8514df61fdb85288b8e464a9e",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "up",
+      "row": 2,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/franco/unmasked/up/run_between_06_07.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        940,
+        627,
+        1254,
+        940
+      ],
+      "sourceCrop": [
+        91,
+        67,
+        220,
+        269
+      ],
+      "uniformRowScale": 0.9287531806615776,
+      "translation": [
+        68,
+        32
+      ],
+      "bbox": [
+        70,
+        34,
+        186,
+        218
+      ],
+      "rgbaSha256": "184e0658a99bd36dbdd75af3fb04ecb615e0b4dd9b077119b3283d864450eba4",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "right",
+      "row": 3,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/franco/unmasked/right/run_between_00_01.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        0,
+        940,
+        314,
+        1254
+      ],
+      "sourceCrop": [
+        91,
+        68,
+        232,
+        264
+      ],
+      "uniformRowScale": 0.9281088082901554,
+      "translation": [
+        63,
+        38
+      ],
+      "bbox": [
+        65,
+        40,
+        192,
+        218
+      ],
+      "rgbaSha256": "57d0c7cac3782c3d60bb405930224ed023292f1e65658c458c8d51c472d732a3",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "right",
+      "row": 3,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/franco/unmasked/right/run_between_02_03.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        314,
+        940,
+        627,
+        1254
+      ],
+      "sourceCrop": [
+        92,
+        68,
+        228,
+        265
+      ],
+      "uniformRowScale": 0.9281088082901554,
+      "translation": [
+        66,
+        38
+      ],
+      "bbox": [
+        68,
+        40,
+        190,
+        219
+      ],
+      "rgbaSha256": "9e8a3745c1ef5249dc3dc454ebd936390ae6ba406eb39ea72b9d91c03e4420ca",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "right",
+      "row": 3,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/franco/unmasked/right/run_between_04_05.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        627,
+        940,
+        940,
+        1254
+      ],
+      "sourceCrop": [
+        96,
+        68,
+        226,
+        265
+      ],
+      "uniformRowScale": 0.9281088082901554,
+      "translation": [
+        68,
+        38
+      ],
+      "bbox": [
+        70,
+        40,
+        187,
+        219
+      ],
+      "rgbaSha256": "db0c2001acee2a26e230f57cf4e060a005f9bd1f8f455fdb23ad524e9006cfdb",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "right",
+      "row": 3,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/franco/unmasked/right/run_between_06_07.png",
+      "source": "originais/franco_unmasked_inbetweens.png",
+      "sourceCell": [
+        940,
+        940,
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        86,
+        70,
+        225,
+        268
+      ],
+      "uniformRowScale": 0.9281088082901554,
+      "translation": [
+        64,
+        36
+      ],
+      "bbox": [
+        66,
+        38,
+        191,
+        218
+      ],
+      "rgbaSha256": "31158b8ea43a2bfc186f90868ea401545014b45bca770077b1c190c26c13b755",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "down",
+      "row": 4,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/franco/masked/down/run_between_00_01.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        0,
+        0,
+        314,
+        314
+      ],
+      "sourceCrop": [
+        84,
+        52,
+        223,
+        268
+      ],
+      "uniformRowScale": 0.9360189573459715,
+      "translation": [
+        63,
+        18
+      ],
+      "bbox": [
+        65,
+        20,
+        191,
+        218
+      ],
+      "rgbaSha256": "8c28dbd00ab56aece590b53d1c0dded4ea01a52733a0b571a60b9398fa48ee50",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "down",
+      "row": 4,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/franco/masked/down/run_between_02_03.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        314,
+        0,
+        627,
+        314
+      ],
+      "sourceCrop": [
+        85,
+        51,
+        226,
+        268
+      ],
+      "uniformRowScale": 0.9360189573459715,
+      "translation": [
+        62,
+        18
+      ],
+      "bbox": [
+        64,
+        20,
+        192,
+        219
+      ],
+      "rgbaSha256": "c7a51503b366e67d231503d1bd8d942071907e26bb04591ed8d8d382725cf60e",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "down",
+      "row": 4,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/franco/masked/down/run_between_04_05.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        627,
+        0,
+        940,
+        314
+      ],
+      "sourceCrop": [
+        88,
+        52,
+        225,
+        268
+      ],
+      "uniformRowScale": 0.9360189573459715,
+      "translation": [
+        64,
+        18
+      ],
+      "bbox": [
+        66,
+        20,
+        190,
+        218
+      ],
+      "rgbaSha256": "9143d1108a75685999a0b687d21f946a4a22766dfd2e1b16e53bb2f6f4a73569",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "down",
+      "row": 4,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/franco/masked/down/run_between_06_07.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        940,
+        0,
+        1254,
+        314
+      ],
+      "sourceCrop": [
+        93,
+        52,
+        225,
+        263
+      ],
+      "uniformRowScale": 0.9360189573459715,
+      "translation": [
+        66,
+        22
+      ],
+      "bbox": [
+        68,
+        24,
+        188,
+        218
+      ],
+      "rgbaSha256": "49261ea33865b2b33ec57a90194a5efe63f72da0be3142935bd9ccb71440594e",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "left",
+      "row": 5,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/franco/masked/left/run_between_00_01.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        0,
+        314,
+        314,
+        627
+      ],
+      "sourceCrop": [
+        84,
+        57,
+        231,
+        265
+      ],
+      "uniformRowScale": 0.9578686493184635,
+      "translation": [
+        58,
+        22
+      ],
+      "bbox": [
+        60,
+        24,
+        197,
+        219
+      ],
+      "rgbaSha256": "b8acb65c23c8da4ba612a81ebaf7a7e3969348d13595def48dbe7f00192c63bf",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "left",
+      "row": 5,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/franco/masked/left/run_between_02_03.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        314,
+        314,
+        627,
+        627
+      ],
+      "sourceCrop": [
+        85,
+        54,
+        233,
+        253
+      ],
+      "uniformRowScale": 0.9578686493184635,
+      "translation": [
+        57,
+        30
+      ],
+      "bbox": [
+        59,
+        32,
+        197,
+        219
+      ],
+      "rgbaSha256": "f2d9a85cd1402c56d30f9995b4bf494adf477ecdfa79be3855bd428ee5343032",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "left",
+      "row": 5,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/franco/masked/left/run_between_04_05.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        627,
+        314,
+        940,
+        627
+      ],
+      "sourceCrop": [
+        84,
+        57,
+        229,
+        265
+      ],
+      "uniformRowScale": 0.9578686493184635,
+      "translation": [
+        58,
+        22
+      ],
+      "bbox": [
+        60,
+        24,
+        195,
+        219
+      ],
+      "rgbaSha256": "72393c599559c5dc1eb0da65495db3343395a0754d438ff47c93c32e058bad4b",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "left",
+      "row": 5,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/franco/masked/left/run_between_06_07.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        940,
+        314,
+        1254,
+        627
+      ],
+      "sourceCrop": [
+        86,
+        58,
+        234,
+        266
+      ],
+      "uniformRowScale": 0.9578686493184635,
+      "translation": [
+        58,
+        22
+      ],
+      "bbox": [
+        60,
+        24,
+        198,
+        219
+      ],
+      "rgbaSha256": "5d5737c84a1c352068f142c6032929494f02b28104d828ae307df682a37bf665",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "up",
+      "row": 6,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/franco/masked/up/run_between_00_01.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        0,
+        627,
+        314,
+        940
+      ],
+      "sourceCrop": [
+        90,
+        54,
+        228,
+        270
+      ],
+      "uniformRowScale": 0.9531059683313033,
+      "translation": [
+        62,
+        14
+      ],
+      "bbox": [
+        64,
+        16,
+        192,
+        218
+      ],
+      "rgbaSha256": "da6b39bbc07948a3f75f1d6e5520c3460462b7bfd08b386777425bb6d4310a2b",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "up",
+      "row": 6,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/franco/masked/up/run_between_02_03.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        314,
+        627,
+        627,
+        940
+      ],
+      "sourceCrop": [
+        90,
+        54,
+        227,
+        253
+      ],
+      "uniformRowScale": 0.9531059683313033,
+      "translation": [
+        63,
+        30
+      ],
+      "bbox": [
+        65,
+        32,
+        192,
+        218
+      ],
+      "rgbaSha256": "5ef0c2dab3a50491c9d3192847a397729a78e4d13cbea7d847c40525703e7af5",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "up",
+      "row": 6,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/franco/masked/up/run_between_04_05.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        627,
+        627,
+        940,
+        940
+      ],
+      "sourceCrop": [
+        89,
+        54,
+        224,
+        266
+      ],
+      "uniformRowScale": 0.9531059683313033,
+      "translation": [
+        64,
+        18
+      ],
+      "bbox": [
+        66,
+        20,
+        191,
+        218
+      ],
+      "rgbaSha256": "231eb6883fba25b2f617fa132aea435e4f5e8f965dcca3d3e478e6a87267a86e",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "up",
+      "row": 6,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/franco/masked/up/run_between_06_07.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        940,
+        627,
+        1254,
+        940
+      ],
+      "sourceCrop": [
+        91,
+        56,
+        224,
+        266
+      ],
+      "uniformRowScale": 0.9531059683313033,
+      "translation": [
+        65,
+        20
+      ],
+      "bbox": [
+        67,
+        22,
+        190,
+        218
+      ],
+      "rgbaSha256": "9df8e2a677d03e08b488849077c9990698f57da86fe3e459568c0a6d6227bd6d",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "right",
+      "row": 7,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/franco/masked/right/run_between_00_01.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        0,
+        940,
+        314,
+        1254
+      ],
+      "sourceCrop": [
+        87,
+        58,
+        231,
+        268
+      ],
+      "uniformRowScale": 0.9515931372549019,
+      "translation": [
+        60,
+        20
+      ],
+      "bbox": [
+        62,
+        22,
+        195,
+        218
+      ],
+      "rgbaSha256": "69d4b952bbfc025077104bfa4eafd7252ca0055f5e0dabe7f67d431271d41d9d",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "right",
+      "row": 7,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/franco/masked/right/run_between_02_03.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        314,
+        940,
+        627,
+        1254
+      ],
+      "sourceCrop": [
+        82,
+        58,
+        229,
+        265
+      ],
+      "uniformRowScale": 0.9515931372549019,
+      "translation": [
+        58,
+        24
+      ],
+      "bbox": [
+        60,
+        26,
+        196,
+        219
+      ],
+      "rgbaSha256": "6d686f64b56651679c960379cdf52d47e426cf42e77ab4ee3f67b94d27eeff48",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "right",
+      "row": 7,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/franco/masked/right/run_between_04_05.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        627,
+        940,
+        940,
+        1254
+      ],
+      "sourceCrop": [
+        84,
+        59,
+        230,
+        268
+      ],
+      "uniformRowScale": 0.9515931372549019,
+      "translation": [
+        59,
+        22
+      ],
+      "bbox": [
+        61,
+        24,
+        196,
+        219
+      ],
+      "rgbaSha256": "8db3a6e9e5551d5263f45c4c4d6020ae94edda7a476031f4b9a9d81ee9c7bcdc",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "right",
+      "row": 7,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/franco/masked/right/run_between_06_07.png",
+      "source": "originais/franco_masked_inbetweens.png",
+      "sourceCell": [
+        940,
+        940,
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        84,
+        59,
+        232,
+        265
+      ],
+      "uniformRowScale": 0.9515931372549019,
+      "translation": [
+        58,
+        24
+      ],
+      "bbox": [
+        60,
+        26,
+        197,
+        218
+      ],
+      "rgbaSha256": "c60cf8b51bd383ed2d8d5566ece73421b0172643fc2bd00ace4b72f1cdaa9ec6",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "down",
+      "row": 0,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/ryuchi/unmasked/down/run_between_00_01.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        0,
+        0,
+        314,
+        314
+      ],
+      "sourceCrop": [
+        84,
+        58,
+        229,
+        273
+      ],
+      "uniformRowScale": 0.8712753277711561,
+      "translation": [
+        66,
+        34
+      ],
+      "bbox": [
+        68,
+        36,
+        190,
+        219
+      ],
+      "rgbaSha256": "5136f56ddd3f29fbf84107d8b38005a720dcef9f36b018026cf24a184df2f85e",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "down",
+      "row": 0,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/ryuchi/unmasked/down/run_between_02_03.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        314,
+        0,
+        627,
+        314
+      ],
+      "sourceCrop": [
+        92,
+        58,
+        227,
+        273
+      ],
+      "uniformRowScale": 0.8712753277711561,
+      "translation": [
+        70,
+        34
+      ],
+      "bbox": [
+        72,
+        36,
+        186,
+        219
+      ],
+      "rgbaSha256": "b1c8ea4c6805651c2ee6f45a8075f445cee7624cb5f6e83bb43b06fd19f47104",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "down",
+      "row": 0,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/ryuchi/unmasked/down/run_between_04_05.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        627,
+        0,
+        940,
+        314
+      ],
+      "sourceCrop": [
+        92,
+        59,
+        226,
+        270
+      ],
+      "uniformRowScale": 0.8712753277711561,
+      "translation": [
+        70,
+        36
+      ],
+      "bbox": [
+        72,
+        38,
+        185,
+        218
+      ],
+      "rgbaSha256": "4781515d3c66417e47318560b9e1ecee5c99b1009c5e8a9e13344240f99b3fc0",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "down",
+      "row": 0,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/ryuchi/unmasked/down/run_between_06_07.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        940,
+        0,
+        1254,
+        314
+      ],
+      "sourceCrop": [
+        87,
+        59,
+        227,
+        273
+      ],
+      "uniformRowScale": 0.8712753277711561,
+      "translation": [
+        68,
+        34
+      ],
+      "bbox": [
+        70,
+        36,
+        188,
+        218
+      ],
+      "rgbaSha256": "52b077cd10c91f911f14b82ade5437fc9dc8afba278bbd36ceeeaae6e994b81a",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "left",
+      "row": 1,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/ryuchi/unmasked/left/run_between_00_01.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        0,
+        314,
+        314,
+        627
+      ],
+      "sourceCrop": [
+        82,
+        57,
+        233,
+        263
+      ],
+      "uniformRowScale": 0.9065656565656566,
+      "translation": [
+        60,
+        34
+      ],
+      "bbox": [
+        62,
+        36,
+        195,
+        219
+      ],
+      "rgbaSha256": "8dcc29c16f52625fd2c23a71af34994d191e21bb76fdf59688f1c745ad3bb5b5",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "left",
+      "row": 1,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/ryuchi/unmasked/left/run_between_02_03.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        314,
+        314,
+        627,
+        627
+      ],
+      "sourceCrop": [
+        81,
+        57,
+        238,
+        262
+      ],
+      "uniformRowScale": 0.9065656565656566,
+      "translation": [
+        58,
+        34
+      ],
+      "bbox": [
+        60,
+        36,
+        198,
+        218
+      ],
+      "rgbaSha256": "d20f4a8271ce0a235d674ddb36cc7cda346013e619366a1574b82db2dd149c17",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "left",
+      "row": 1,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/ryuchi/unmasked/left/run_between_04_05.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        627,
+        314,
+        940,
+        627
+      ],
+      "sourceCrop": [
+        79,
+        60,
+        238,
+        256
+      ],
+      "uniformRowScale": 0.9065656565656566,
+      "translation": [
+        56,
+        42
+      ],
+      "bbox": [
+        58,
+        44,
+        198,
+        218
+      ],
+      "rgbaSha256": "37c55bb00a36fed53cac893d4624a762263b13d50ae3f8c444fd5b2a790ab2e0",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "left",
+      "row": 1,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/ryuchi/unmasked/left/run_between_06_07.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        940,
+        314,
+        1254,
+        627
+      ],
+      "sourceCrop": [
+        79,
+        61,
+        241,
+        262
+      ],
+      "uniformRowScale": 0.9065656565656566,
+      "translation": [
+        55,
+        38
+      ],
+      "bbox": [
+        57,
+        40,
+        200,
+        218
+      ],
+      "rgbaSha256": "2240cc188c6d0fc05a300dddf7c246d3f71e6d8c2b31c3989c56427973592e22",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "up",
+      "row": 2,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/ryuchi/unmasked/up/run_between_00_01.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        0,
+        627,
+        314,
+        940
+      ],
+      "sourceCrop": [
+        89,
+        55,
+        222,
+        265
+      ],
+      "uniformRowScale": 0.8734866828087167,
+      "translation": [
+        70,
+        38
+      ],
+      "bbox": [
+        72,
+        40,
+        184,
+        219
+      ],
+      "rgbaSha256": "862025531bae478d515534677164bdad7c369222612adc0c7c2916110c2476e9",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "up",
+      "row": 2,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/ryuchi/unmasked/up/run_between_02_03.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        314,
+        627,
+        627,
+        940
+      ],
+      "sourceCrop": [
+        85,
+        51,
+        219,
+        263
+      ],
+      "uniformRowScale": 0.8734866828087167,
+      "translation": [
+        70,
+        36
+      ],
+      "bbox": [
+        72,
+        38,
+        185,
+        219
+      ],
+      "rgbaSha256": "dfe6346409e8454b750c5db62cc187342dfc16813720e01efde9d246a7b6b338",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "up",
+      "row": 2,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/ryuchi/unmasked/up/run_between_04_05.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        627,
+        627,
+        940,
+        940
+      ],
+      "sourceCrop": [
+        85,
+        54,
+        223,
+        264
+      ],
+      "uniformRowScale": 0.8734866828087167,
+      "translation": [
+        68,
+        38
+      ],
+      "bbox": [
+        70,
+        40,
+        187,
+        219
+      ],
+      "rgbaSha256": "3f7ba099ef908cb2d663a438656792bc389826c85bb91883ca7cfae2e4388eec",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "up",
+      "row": 2,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/ryuchi/unmasked/up/run_between_06_07.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        940,
+        627,
+        1254,
+        940
+      ],
+      "sourceCrop": [
+        88,
+        55,
+        225,
+        265
+      ],
+      "uniformRowScale": 0.8734866828087167,
+      "translation": [
+        68,
+        38
+      ],
+      "bbox": [
+        70,
+        40,
+        186,
+        219
+      ],
+      "rgbaSha256": "83e0d0ab7b8feede65b4b2bbfbd3e33ef7b106fe0cf411609f521d94d84ca601",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "right",
+      "row": 3,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/ryuchi/unmasked/right/run_between_00_01.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        0,
+        940,
+        314,
+        1254
+      ],
+      "sourceCrop": [
+        82,
+        60,
+        240,
+        260
+      ],
+      "uniformRowScale": 0.9336801040312094,
+      "translation": [
+        54,
+        34
+      ],
+      "bbox": [
+        56,
+        36,
+        200,
+        219
+      ],
+      "rgbaSha256": "11081610e75887bb3c3ab2b2519541e0e72cf48e62628e224202daab171ca846",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "right",
+      "row": 3,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/ryuchi/unmasked/right/run_between_02_03.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        314,
+        940,
+        627,
+        1254
+      ],
+      "sourceCrop": [
+        77,
+        59,
+        235,
+        253
+      ],
+      "uniformRowScale": 0.9336801040312094,
+      "translation": [
+        54,
+        40
+      ],
+      "bbox": [
+        56,
+        42,
+        200,
+        219
+      ],
+      "rgbaSha256": "476ed4a072b4eaf7a157f8bd100726db6f85cc38f8c978afba9aad94e89dfc1c",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "right",
+      "row": 3,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/ryuchi/unmasked/right/run_between_04_05.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        627,
+        940,
+        940,
+        1254
+      ],
+      "sourceCrop": [
+        79,
+        60,
+        234,
+        252
+      ],
+      "uniformRowScale": 0.9336801040312094,
+      "translation": [
+        56,
+        42
+      ],
+      "bbox": [
+        58,
+        44,
+        199,
+        219
+      ],
+      "rgbaSha256": "0a9a37596d09b1862f5c50a390132cfc2f6ea8280f03d9c3a502acb894ed4a86",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "right",
+      "row": 3,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/ryuchi/unmasked/right/run_between_06_07.png",
+      "source": "originais/ryuchi_unmasked_inbetweens.png",
+      "sourceCell": [
+        940,
+        940,
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        80,
+        60,
+        234,
+        259
+      ],
+      "uniformRowScale": 0.9336801040312094,
+      "translation": [
+        56,
+        34
+      ],
+      "bbox": [
+        58,
+        36,
+        198,
+        218
+      ],
+      "rgbaSha256": "741868bd8b695b5e074fe46c38ee4e47c870db1f472257591b992ef4fa669b3a",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "down",
+      "row": 4,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/ryuchi/masked/down/run_between_00_01.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        0,
+        0,
+        314,
+        314
+      ],
+      "sourceCrop": [
+        80,
+        42,
+        242,
+        284
+      ],
+      "uniformRowScale": 0.8307127882599581,
+      "translation": [
+        60,
+        20
+      ],
+      "bbox": [
+        62,
+        22,
+        193,
+        219
+      ],
+      "rgbaSha256": "cde151d31956b6c53babc8838a7fff7dd559c0b251e43118a4e59cc0eb9d14aa",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "down",
+      "row": 4,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/ryuchi/masked/down/run_between_02_03.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        314,
+        0,
+        627,
+        314
+      ],
+      "sourceCrop": [
+        79,
+        41,
+        234,
+        284
+      ],
+      "uniformRowScale": 0.8307127882599581,
+      "translation": [
+        64,
+        18
+      ],
+      "bbox": [
+        66,
+        20,
+        191,
+        218
+      ],
+      "rgbaSha256": "a88675b6d0c0c9b2b4758af6a9b982a5ec4a22894b2434ce577b6200e3e70f21",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "down",
+      "row": 4,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/ryuchi/masked/down/run_between_04_05.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        627,
+        0,
+        940,
+        314
+      ],
+      "sourceCrop": [
+        79,
+        41,
+        233,
+        284
+      ],
+      "uniformRowScale": 0.8307127882599581,
+      "translation": [
+        64,
+        18
+      ],
+      "bbox": [
+        66,
+        20,
+        190,
+        218
+      ],
+      "rgbaSha256": "922b6e16df602e472bf1a9296d5405d22588a35e236abc58bb1469c4af877e52",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "down",
+      "row": 4,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/ryuchi/masked/down/run_between_06_07.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        940,
+        0,
+        1254,
+        314
+      ],
+      "sourceCrop": [
+        75,
+        42,
+        233,
+        284
+      ],
+      "uniformRowScale": 0.8307127882599581,
+      "translation": [
+        63,
+        20
+      ],
+      "bbox": [
+        65,
+        22,
+        192,
+        219
+      ],
+      "rgbaSha256": "0b3c1f281b4dce4f9c1d7043562dd3dbd250e5bdf1c84ae959d048037c4d591a",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "left",
+      "row": 5,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/ryuchi/masked/left/run_between_00_01.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        0,
+        314,
+        314,
+        627
+      ],
+      "sourceCrop": [
+        70,
+        45,
+        254,
+        285
+      ],
+      "uniformRowScale": 0.8356382978723405,
+      "translation": [
+        51,
+        20
+      ],
+      "bbox": [
+        53,
+        22,
+        203,
+        219
+      ],
+      "rgbaSha256": "d147a0b16116c7674c1dba3009fb2a28e2cc7ef23524fbfb943e57b44ba5319c",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "left",
+      "row": 5,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/ryuchi/masked/left/run_between_02_03.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        314,
+        314,
+        627,
+        627
+      ],
+      "sourceCrop": [
+        64,
+        45,
+        238,
+        285
+      ],
+      "uniformRowScale": 0.8356382978723405,
+      "translation": [
+        56,
+        20
+      ],
+      "bbox": [
+        58,
+        22,
+        199,
+        219
+      ],
+      "rgbaSha256": "dcba39a9abd19632248ee068140bdb20f54ecc8a8faf720cc45e98d0cb8fb9f0",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "left",
+      "row": 5,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/ryuchi/masked/left/run_between_04_05.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        627,
+        314,
+        940,
+        627
+      ],
+      "sourceCrop": [
+        64,
+        45,
+        241,
+        285
+      ],
+      "uniformRowScale": 0.8356382978723405,
+      "translation": [
+        54,
+        20
+      ],
+      "bbox": [
+        56,
+        22,
+        200,
+        219
+      ],
+      "rgbaSha256": "7648a0e282e9bc897514e5de7702e4afa6e2d309b6da57b2a08146eb70722ff1",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "left",
+      "row": 5,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/ryuchi/masked/left/run_between_06_07.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        940,
+        314,
+        1254,
+        627
+      ],
+      "sourceCrop": [
+        65,
+        45,
+        251,
+        281
+      ],
+      "uniformRowScale": 0.8356382978723405,
+      "translation": [
+        50,
+        24
+      ],
+      "bbox": [
+        52,
+        26,
+        203,
+        219
+      ],
+      "rgbaSha256": "2b11828677cd8a8d066c2c61450c029b682a3431800012d26eee3067f5390036",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "up",
+      "row": 6,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/ryuchi/masked/up/run_between_00_01.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        0,
+        627,
+        314,
+        940
+      ],
+      "sourceCrop": [
+        91,
+        35,
+        242,
+        286
+      ],
+      "uniformRowScale": 0.787525354969574,
+      "translation": [
+        69,
+        22
+      ],
+      "bbox": [
+        71,
+        24,
+        186,
+        218
+      ],
+      "rgbaSha256": "1e099e7f91a1adf64470d9d0c3f1d882d74110d3b19119d7628392005197febf",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "up",
+      "row": 6,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/ryuchi/masked/up/run_between_02_03.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        314,
+        627,
+        627,
+        940
+      ],
+      "sourceCrop": [
+        81,
+        35,
+        237,
+        283
+      ],
+      "uniformRowScale": 0.787525354969574,
+      "translation": [
+        67,
+        26
+      ],
+      "bbox": [
+        69,
+        28,
+        188,
+        219
+      ],
+      "rgbaSha256": "22a193453fd5c391112c20ef32032aaf6b301ed8db5d53299701994bad9be7b4",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "up",
+      "row": 6,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/ryuchi/masked/up/run_between_04_05.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        627,
+        627,
+        940,
+        940
+      ],
+      "sourceCrop": [
+        79,
+        31,
+        235,
+        283
+      ],
+      "uniformRowScale": 0.787525354969574,
+      "translation": [
+        66,
+        22
+      ],
+      "bbox": [
+        68,
+        24,
+        187,
+        218
+      ],
+      "rgbaSha256": "dde40640e6959e1b9e00cccdc32800dd9f6f53a6688b97b1819bac83c19286b0",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "up",
+      "row": 6,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/ryuchi/masked/up/run_between_06_07.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        940,
+        627,
+        1254,
+        940
+      ],
+      "sourceCrop": [
+        77,
+        28,
+        238,
+        279
+      ],
+      "uniformRowScale": 0.787525354969574,
+      "translation": [
+        64,
+        22
+      ],
+      "bbox": [
+        66,
+        24,
+        189,
+        218
+      ],
+      "rgbaSha256": "cda4e3f63499851e1d8c70901c59f91f17c15077385b9ff56abc86fe3c846e23",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "right",
+      "row": 7,
+      "between": [
+        0,
+        1
+      ],
+      "file": "novos/ryuchi/masked/right/run_between_00_01.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        0,
+        940,
+        314,
+        1254
+      ],
+      "sourceCrop": [
+        68,
+        43,
+        254,
+        284
+      ],
+      "uniformRowScale": 0.8315621679064825,
+      "translation": [
+        50,
+        20
+      ],
+      "bbox": [
+        52,
+        22,
+        203,
+        218
+      ],
+      "rgbaSha256": "a90157f55940154457f75856d34ff1fd78f7aaf2bf675f86073b89c305025536",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "right",
+      "row": 7,
+      "between": [
+        2,
+        3
+      ],
+      "file": "novos/ryuchi/masked/right/run_between_02_03.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        314,
+        940,
+        627,
+        1254
+      ],
+      "sourceCrop": [
+        76,
+        41,
+        252,
+        284
+      ],
+      "uniformRowScale": 0.8315621679064825,
+      "translation": [
+        55,
+        18
+      ],
+      "bbox": [
+        57,
+        20,
+        199,
+        218
+      ],
+      "rgbaSha256": "ba5946f274f521ccd030f6460ffc28503403783c1f100a10335ed69a8d269799",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "right",
+      "row": 7,
+      "between": [
+        4,
+        5
+      ],
+      "file": "novos/ryuchi/masked/right/run_between_04_05.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        627,
+        940,
+        940,
+        1254
+      ],
+      "sourceCrop": [
+        68,
+        42,
+        249,
+        284
+      ],
+      "uniformRowScale": 0.8315621679064825,
+      "translation": [
+        53,
+        20
+      ],
+      "bbox": [
+        55,
+        22,
+        202,
+        219
+      ],
+      "rgbaSha256": "d14d35c5a4e6a4e0711ab1f5e9d1387948fa7007d209857e5947d6f66b555274",
+      "authoredBy": "imagegen built-in"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "right",
+      "row": 7,
+      "between": [
+        6,
+        7
+      ],
+      "file": "novos/ryuchi/masked/right/run_between_06_07.png",
+      "source": "originais/ryuchi_masked_inbetweens.png",
+      "sourceCell": [
+        940,
+        940,
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        60,
+        41,
+        248,
+        272
+      ],
+      "uniformRowScale": 0.8315621679064825,
+      "translation": [
+        50,
+        28
+      ],
+      "bbox": [
+        52,
+        30,
+        204,
+        218
+      ],
+      "rgbaSha256": "7fba07cc74bd36221f3031acbd70fb70103d67204142c0d6c0c58f7cc54d781b",
+      "authoredBy": "imagegen built-in"
+    }
+  ],
+  "production": {
+    "newPoseMethod": "authored with imagegen built-in",
+    "normalization": "crop / uniform row scale / nearest-neighbor / translation",
+    "noPoseBlending": true,
+    "noImageRotation": true,
+    "v5OriginalPixelsUnchanged": true
+  },
+  "validation": {
+    "static": true,
+    "engineIntegration": false,
+    "physicalDevice": false
+  }
+}
