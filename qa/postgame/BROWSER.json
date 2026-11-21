@@ -1,5 +1,5 @@
 {
-  "version": "beta-1.9.0",
+  "version": "beta-1.12.0",
   "passed": 12,
   "checks": [
     {
@@ -61,52 +61,16 @@
       }
     },
     {
-      "name": "M and system menu expose postgame travel; all destinations fit body and reload",
+      "name": "M and system menu expose three chapter hubs; destinations fit body and reload",
       "passed": true,
       "detail": {
         "menu": true,
         "rows": [
           {
-            "id": "studio",
-            "ok": true,
-            "fits": true,
-            "reloaded": "studio"
-          },
-          {
-            "id": "corridor",
-            "ok": true,
-            "fits": true,
-            "reloaded": "corridor"
-          },
-          {
-            "id": "chamber",
-            "ok": true,
-            "fits": true,
-            "reloaded": "chamber"
-          },
-          {
             "id": "city",
             "ok": true,
             "fits": true,
             "reloaded": "city"
-          },
-          {
-            "id": "forest",
-            "ok": true,
-            "fits": true,
-            "reloaded": "forest"
-          },
-          {
-            "id": "ruins",
-            "ok": true,
-            "fits": true,
-            "reloaded": "ruins"
-          },
-          {
-            "id": "rain_station",
-            "ok": true,
-            "fits": true,
-            "reloaded": "rain_station"
           },
           {
             "id": "voices",
@@ -115,106 +79,10 @@
             "reloaded": "voices"
           },
           {
-            "id": "tape_market",
-            "ok": true,
-            "fits": true,
-            "reloaded": "tape_market"
-          },
-          {
-            "id": "bento_shop",
-            "ok": true,
-            "fits": true,
-            "reloaded": "bento_shop"
-          },
-          {
-            "id": "celina_home",
-            "ok": true,
-            "fits": true,
-            "reloaded": "celina_home"
-          },
-          {
-            "id": "radio9",
-            "ok": true,
-            "fits": true,
-            "reloaded": "radio9"
-          },
-          {
-            "id": "voice_roofs",
-            "ok": true,
-            "fits": true,
-            "reloaded": "voice_roofs"
-          },
-          {
-            "id": "voice_tower",
-            "ok": true,
-            "fits": true,
-            "reloaded": "voice_tower"
-          },
-          {
-            "id": "sky_terminal",
-            "ok": true,
-            "fits": true,
-            "reloaded": "sky_terminal"
-          },
-          {
             "id": "distortion_district",
             "ok": true,
             "fits": true,
             "reloaded": "distortion_district"
-          },
-          {
-            "id": "contratempo",
-            "ok": true,
-            "fits": true,
-            "reloaded": "contratempo"
-          },
-          {
-            "id": "power_plant",
-            "ok": true,
-            "fits": true,
-            "reloaded": "power_plant"
-          },
-          {
-            "id": "sky_canal",
-            "ok": true,
-            "fits": true,
-            "reloaded": "sky_canal"
-          },
-          {
-            "id": "ciro_workshop",
-            "ok": true,
-            "fits": true,
-            "reloaded": "ciro_workshop"
-          },
-          {
-            "id": "sky_lift",
-            "ok": true,
-            "fits": true,
-            "reloaded": "sky_lift"
-          },
-          {
-            "id": "cloud_sea",
-            "ok": true,
-            "fits": true,
-            "reloaded": "cloud_sea"
-          },
-          {
-            "id": "cloud_terrace",
-            "ok": true,
-            "fits": true,
-            "reloaded": "cloud_terrace"
-          },
-          {
-            "id": "last_torii",
-            "ok": true,
-            "fits": true,
-            "reloaded": "last_torii"
-          },
-          {
-            "id": "silence_core",
-            "ok": true,
-            "fits": true,
-            "reloaded": "silence_core"
           }
         ]
       }
@@ -231,26 +99,17 @@
             "hp": 44,
             "power": 6,
             "endless": true
-          },
-          {
-            "type": "hush",
-            "hp": 44,
-            "power": 6,
-            "endless": true
-          },
-          {
-            "type": "whisper",
-            "hp": 62,
-            "power": 8,
-            "endless": true
           }
         ],
         "run": {
           "active": true,
+          "rules": 2,
+          "legacy": false,
+          "mode": "solo",
           "seed": 42,
           "wave": 1,
-          "score": 190,
-          "bankedScore": 190,
+          "score": 410,
+          "bankedScore": 410,
           "kills": 3,
           "bankedKills": 3,
           "completedWave": 1,
@@ -262,9 +121,21 @@
             "synth": 100,
             "percussion": 100
           },
+          "campaignPotions": 3,
+          "campaignResonance": 0,
+          "resonanceStart": 100,
+          "potionsStart": 3,
+          "combo": 1,
+          "comboStart": 0,
+          "elapsed": 3.6500000000000035,
+          "bankedElapsed": 3.6500000000000035,
+          "waveSeats": 1,
           "phase": "rest",
           "cursor": 3,
-          "wait": 3,
+          "wait": 4,
+          "pending": null,
+          "clean": true,
+          "knockouts": 0,
           "_resume": false
         },
         "xp": true,
@@ -280,152 +151,152 @@
         "rows": [
           {
             "wave": 2,
-            "score": 190,
+            "score": 410,
             "kills": 3,
             "defeated": 0
           },
           {
             "wave": 3,
-            "score": 530,
-            "kills": 7,
+            "score": 928,
+            "kills": 6,
             "defeated": 0
           },
           {
             "wave": 4,
-            "score": 990,
-            "kills": 11,
+            "score": 1700,
+            "kills": 9,
             "defeated": 0
           },
           {
             "wave": 5,
-            "score": 1615,
-            "kills": 16,
+            "score": 2744,
+            "kills": 13,
             "defeated": 0
           },
           {
             "wave": 6,
-            "score": 2365,
-            "kills": 21,
+            "score": 4376,
+            "kills": 17,
             "defeated": 0
           },
           {
             "wave": 7,
-            "score": 3295,
-            "kills": 27,
+            "score": 5865,
+            "kills": 21,
             "defeated": 0
           },
           {
             "wave": 8,
-            "score": 4355,
-            "kills": 33,
+            "score": 7415,
+            "kills": 26,
             "defeated": 0
           },
           {
             "wave": 9,
-            "score": 5610,
-            "kills": 40,
+            "score": 9235,
+            "kills": 31,
             "defeated": 0
           },
           {
             "wave": 10,
-            "score": 7000,
-            "kills": 47,
+            "score": 11449,
+            "kills": 37,
             "defeated": 0
           },
           {
             "wave": 11,
-            "score": 8600,
-            "kills": 55,
+            "score": 14543,
+            "kills": 43,
             "defeated": 0
           },
           {
             "wave": 12,
-            "score": 10340,
-            "kills": 63,
+            "score": 16864,
+            "kills": 49,
             "defeated": 0
           },
           {
             "wave": 13,
-            "score": 12305,
-            "kills": 72,
+            "score": 19941,
+            "kills": 56,
             "defeated": 0
           },
           {
             "wave": 14,
-            "score": 14415,
-            "kills": 81,
+            "score": 22938,
+            "kills": 63,
             "defeated": 0
           },
           {
             "wave": 15,
-            "score": 16765,
-            "kills": 91,
+            "score": 26321,
+            "kills": 71,
             "defeated": 0
           },
           {
             "wave": 16,
-            "score": 19265,
-            "kills": 101,
+            "score": 31072,
+            "kills": 79,
             "defeated": 0
           },
           {
             "wave": 17,
-            "score": 22020,
-            "kills": 112,
+            "score": 34879,
+            "kills": 87,
             "defeated": 0
           },
           {
             "wave": 18,
-            "score": 24930,
-            "kills": 123,
+            "score": 38815,
+            "kills": 96,
             "defeated": 0
           },
           {
             "wave": 19,
-            "score": 28110,
-            "kills": 135,
+            "score": 42968,
+            "kills": 105,
             "defeated": 0
           },
           {
             "wave": 20,
-            "score": 31450,
-            "kills": 147,
+            "score": 47717,
+            "kills": 115,
             "defeated": 0
           },
           {
             "wave": 21,
-            "score": 35075,
-            "kills": 160,
+            "score": 54191,
+            "kills": 125,
             "defeated": 0
           },
           {
             "wave": 22,
-            "score": 38865,
-            "kills": 173,
+            "score": 59147,
+            "kills": 135,
             "defeated": 0
           },
           {
             "wave": 23,
-            "score": 42955,
-            "kills": 187,
+            "score": 64242,
+            "kills": 146,
             "defeated": 0
           },
           {
             "wave": 24,
-            "score": 47215,
-            "kills": 201,
+            "score": 70163,
+            "kills": 157,
             "defeated": 0
           },
           {
             "wave": 25,
-            "score": 51790,
-            "kills": 216,
+            "score": 76442,
+            "kills": 169,
             "defeated": 0
           },
           {
             "wave": 26,
-            "score": 56540,
-            "kills": 231,
+            "score": 85218,
+            "kills": 181,
             "defeated": 0
           }
         ]
@@ -437,12 +308,15 @@
       "detail": {
         "before": {
           "active": true,
+          "rules": 2,
+          "legacy": false,
+          "mode": "solo",
           "seed": 42,
           "wave": 26,
-          "score": 57005,
-          "bankedScore": 56540,
-          "kills": 234,
-          "bankedKills": 231,
+          "score": 85218,
+          "bankedScore": 85218,
+          "kills": 181,
+          "bankedKills": 181,
           "completedWave": 25,
           "hpStart": {
             "franco": 100,
@@ -452,19 +326,40 @@
             "synth": 100,
             "percussion": 100
           },
+          "campaignPotions": 3,
+          "campaignResonance": 0,
+          "resonanceStart": 100,
+          "potionsStart": 6,
+          "combo": 5,
+          "comboStart": 5,
+          "elapsed": 230.2499999999912,
+          "bankedElapsed": 230.2499999999912,
+          "waveSeats": 1,
           "phase": "fight",
-          "cursor": 3,
+          "cursor": 0,
           "wait": 0,
+          "pending": {
+            "x": 11.5,
+            "y": 15.5,
+            "index": 0,
+            "time": 0.95,
+            "max": 0.95
+          },
+          "clean": true,
+          "knockouts": 0,
           "_resume": false
         },
         "after": {
           "active": true,
+          "rules": 2,
+          "legacy": false,
+          "mode": "solo",
           "seed": 42,
           "wave": 26,
-          "score": 56540,
-          "bankedScore": 56540,
-          "kills": 231,
-          "bankedKills": 231,
+          "score": 85218,
+          "bankedScore": 85218,
+          "kills": 181,
+          "bankedKills": 181,
           "completedWave": 25,
           "hpStart": {
             "franco": 100,
@@ -474,24 +369,43 @@
             "synth": 100,
             "percussion": 100
           },
+          "campaignPotions": 3,
+          "campaignResonance": 0,
+          "resonanceStart": 100,
+          "potionsStart": 6,
+          "combo": 5,
+          "comboStart": 5,
+          "elapsed": 230,
+          "bankedElapsed": 230,
+          "waveSeats": 1,
           "phase": "fight",
-          "cursor": 3,
+          "cursor": 0,
           "wait": 0,
+          "pending": {
+            "x": 11.5,
+            "y": 15.5,
+            "index": 0,
+            "time": 0.95,
+            "max": 0.95
+          },
+          "clean": true,
+          "knockouts": 0,
           "_resume": false
         },
-        "alive": 3
+        "alive": 0,
+        "pending": true
       }
     },
     {
       "name": "Actual defeat results, retry and manual exit keep campaign and record intact",
       "passed": true,
       "detail": {
-        "score": 56540,
+        "score": 85218,
         "result": {
           "area": "last_torii",
           "run": null,
-          "score": 56540,
-          "best": 57005,
+          "score": 85218,
+          "best": 85218,
           "retry": true,
           "reason": "defeat",
           "complete": true
@@ -505,7 +419,7 @@
           "area": "last_torii",
           "reason": "exit",
           "run": null,
-          "best": 57005
+          "best": 85218
         }
       }
     },
@@ -514,7 +428,7 @@
       "passed": true,
       "detail": {
         "moved": true,
-        "steps": 291,
+        "steps": 447,
         "active": false,
         "area": "last_torii",
         "reason": "defeat",
@@ -561,9 +475,9 @@
         "route": 0,
         "objective": "Supere a onda 1.",
         "area": "endless_echo",
-        "enemies": 3,
-        "sprites": 3,
-        "hud": "ONDA 1 · 3 RESTANTES · 0 PTS"
+        "enemies": 1,
+        "sprites": 1,
+        "hud": "ONDA 1 · 3 RESTANTES · 0 PTS · ×1.0"
       }
     },
     {

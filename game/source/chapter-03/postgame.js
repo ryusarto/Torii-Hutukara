@@ -70,8 +70,8 @@ const PostGame={
 
  recovery(wave){return wave%5===0?.25:.10},
  profile(wave,seats=1){
-  const w=Math.max(1,wave),phase=(w-1)%5,names=['Pulso','Contratempo','Interferência','Ressonância','Crescendo'];
-  return {name:names[phase],count:Math.min(seats===2?18:15,Math.ceil((3+Math.floor((w-1)*.55))*(seats===2?1.3:1))),alive:Math.min(seats===2?7:6,(seats===2?4:3)+Math.floor((w-1)/6)),cadence:seats===2?1.05:1.25,warning:.95,hp:(1+.018*(w-1)+.20*Math.log2(1+(w-1)/5))*(seats===2?1.12:1),power:Math.min(3.25,1+.022*(w-1)),rest:w%5===0?8:4};
+  const w=Math.max(1,wave),phase=(w-1)%5,names=['Pulso','Contratempo','Interferência','Ressonância','Crescendo'],intensity=(w-1)*(seats===2?.90:.72);
+  return {name:names[phase],count:Math.min(seats===2?18:15,Math.ceil((3+Math.floor(intensity*.55))*(seats===2?1.3:1))),alive:Math.min(seats===2?7:6,(seats===2?4:3)+Math.floor(intensity/6)),cadence:seats===2?1.05:1.25,warning:.95,hp:(1+.018*intensity+.20*Math.log2(1+intensity/5))*(seats===2?1.12:1),power:Math.min(3.25,1+.022*intensity),rest:w%5===0?8:4};
  },
  record(mode){return this.state().records[mode==='coop'?'coop':'solo']},
  multiplier(r=this.run()){return 1+Math.min(5,r?.combo||0)*.1},
@@ -90,7 +90,7 @@ const PostGame={
 
  buildArena(){
   const a=C3.room(this.AREA,28,23,'c3_voidfloor');for(const [x,y]of [[2,2],[25,2]]){solid(a,x,y);prop(a,'env2_prop',x,y,{item:'core_column_left',w:30,h:88})}prop(a,'env2_prop',13,10,{item:'resonance_circle_on',w:100,h:70,flat:true});
-  evt(a,'endless_exit',14,20,'ENCERRAR EXPEDIÇÃO',()=>this.finishRun('exit'));return a;
+  evt(a,'endless_exit',14,2,'ENCERRAR EXPEDIÇÃO',()=>this.finishRun('exit'));return a;
  },
  startDungeon(seed){
   if(!this.canTravel())return false;closeOverlay();G.chapter=3;this.clearCombat();for(const id of C3.unlockedRoster())G.hp[id]=G.maxhp[id];setArea('last_torii',13.5,13.5,false);setCheckpoint('c3_complete','last_torii',13.5,13.5,true);

@@ -1,3 +1,12 @@
+## [Beta 1.12.0] — 2026-11-21
+
+- Fenda das Ressonâncias com curva gradual para a meta de15–20min, cinco perfis, novas famílias progressivas e ressonante a cada cinco ondas. Limites de6/7inimigos vivos e crescimento moderado de HP; tempos dos golpes preservados.
+- Surgimentos avisados por0,95s, dentro da câmera e afastados de ambos os jogadores, com revalidação antes de nascer.
+- Pontos por família, ritmo por sequência sem KO e bônus por onda sem dano real; nenhum bônus de velocidade. Placar solo/coop separado, histórico antigo preservado e classificação coop irreversível após participação do P2.
+- Recursos temporários, descanso4/8s e recuperação por marco. Save retoma HP, fitas, energia, ritmo, tempo e pontuação juntos; mochila da campanha volta na saída.
+- HUD mobile com onda/pontos/ritmo nas duas orientações e botão de próxima onda44px. Desconexão ajusta fila futura sem remover inimigos vivos. Saída reposicionada para impedir encerramento acidental ao confirmar entrada nos dois controles.
+- Preserva os três destinos de capítulos, combate após import/reload, recuperação de saves, arte e colisões da1.11. Não introduz iluminação. [Regras e limites](design/chapter-03/POS_JOGO_E_FENDA.md); evidências em `qa/dungeon-v2/`.
+
 ## [Beta 1.10.0] — 2026-11-20
 
 - Oito fachadas C1/C2 em perspectiva com telhado e lateral visíveis, soleiras alinhadas às entradas e sombras de contato; C3 preserva as fachadas de sucata aprovadas. Ordenação pela base e transparência diante dos jogadores.
