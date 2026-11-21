@@ -1,0 +1,220 @@
+{
+  "passed": 7,
+  "checks": [
+    {
+      "name": "Warnings precede birth, remain in view and relocate if a player enters them",
+      "passed": true,
+      "detail": {
+        "initial": {
+          "alive": 0,
+          "pending": {
+            "x": 11.5,
+            "y": 13.5,
+            "index": 0,
+            "time": 0.95,
+            "max": 0.95
+          }
+        },
+        "before": 0,
+        "relocated": true,
+        "alive": 1,
+        "valid": true
+      }
+    },
+    {
+      "name": "60 solo waves stay bounded, score grows, supplies do not leak and pause freezes state",
+      "passed": true,
+      "detail": {
+        "paused": true,
+        "waves": 60,
+        "rows": [
+          {
+            "wave": 1,
+            "score": 410,
+            "hp": {
+              "franco": 70,
+              "ryuchi": 68,
+              "alt": 72,
+              "katana": 73,
+              "synth": 68,
+              "percussion": 76
+            },
+            "tapes": 3,
+            "alive": 0,
+            "ids": 29
+          },
+          {
+            "wave": 5,
+            "score": 4376,
+            "hp": {
+              "franco": 70,
+              "ryuchi": 68,
+              "alt": 72,
+              "katana": 73,
+              "synth": 68,
+              "percussion": 76
+            },
+            "tapes": 4,
+            "alive": 0,
+            "ids": 29
+          },
+          {
+            "wave": 10,
+            "score": 14543,
+            "hp": {
+              "franco": 70,
+              "ryuchi": 68,
+              "alt": 72,
+              "katana": 73,
+              "synth": 68,
+              "percussion": 76
+            },
+            "tapes": 5,
+            "alive": 0,
+            "ids": 29
+          },
+          {
+            "wave": 20,
+            "score": 54191,
+            "hp": {
+              "franco": 70,
+              "ryuchi": 68,
+              "alt": 72,
+              "katana": 73,
+              "synth": 68,
+              "percussion": 76
+            },
+            "tapes": 6,
+            "alive": 0,
+            "ids": 29
+          },
+          {
+            "wave": 40,
+            "score": 219000,
+            "hp": {
+              "franco": 70,
+              "ryuchi": 68,
+              "alt": 72,
+              "katana": 73,
+              "synth": 68,
+              "percussion": 76
+            },
+            "tapes": 6,
+            "alive": 0,
+            "ids": 29
+          },
+          {
+            "wave": 60,
+            "score": 480412,
+            "hp": {
+              "franco": 70,
+              "ryuchi": 68,
+              "alt": 72,
+              "katana": 73,
+              "synth": 68,
+              "percussion": 76
+            },
+            "tapes": 6,
+            "alive": 0,
+            "ids": 29
+          }
+        ],
+        "max": 6,
+        "best": 480412,
+        "potions": 12,
+        "resonance": 27
+      }
+    },
+    {
+      "name": "60 coop waves and a mid-wave disconnect keep shared score out of the solo board",
+      "passed": true,
+      "detail": {
+        "waves": 60,
+        "solo": 0,
+        "coop": 545063,
+        "before": 11,
+        "after": 7,
+        "seats": 1,
+        "classification": "coop",
+        "valid": true
+      }
+    },
+    {
+      "name": "A spent tape and resonance rewind with score; exit restores campaign resources",
+      "passed": true,
+      "detail": {
+        "spent": 2,
+        "resumed": {
+          "potions": 3,
+          "resonance": 100,
+          "hp": 70,
+          "start": 70
+        },
+        "campaign": {
+          "potions": 12,
+          "resonance": 27
+        }
+      }
+    },
+    {
+      "name": "P2 movement/roll and reconnection do not pause or trap the actor",
+      "passed": true,
+      "detail": {
+        "moved": 9.503475113865738,
+        "rolling": true,
+        "paused": false,
+        "active": true,
+        "valid": true
+      }
+    },
+    {
+      "name": "Confirming entry with both controllers cannot immediately end the run",
+      "passed": true,
+      "detail": {
+        "active": true,
+        "area": "endless_echo",
+        "overlay": "TORII & HUTUKARAEntre duas cançõesBETA 1.12.07m 24s1 · Franco♥ 70 / 702 · Ryuchi♥ 68 / 683 · Franco · arco♥ 72 / 72Conti"
+      }
+    },
+    {
+      "name": "Portrait and landscape support real multitouch movement/attack, dodge and next-wave button",
+      "passed": true,
+      "detail": [
+        {
+          "size": {
+            "width": 390,
+            "height": 844
+          },
+          "before": {
+            "x": 14.5,
+            "hp": 44
+          },
+          "after": {
+            "x": 15.60223687734333,
+            "hp": 0
+          },
+          "rolled": true,
+          "targetHeight": 44
+        },
+        {
+          "size": {
+            "width": 844,
+            "height": 390
+          },
+          "before": {
+            "x": 14.5,
+            "hp": 44
+          },
+          "after": {
+            "x": 15.60223687734333,
+            "hp": 0
+          },
+          "rolled": true,
+          "targetHeight": 44
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "method": "Chrome isolated runtime; actual CDP touch and simulated gamepads; no physical devices or human duration/fun validation."
+}

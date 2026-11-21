@@ -1,0 +1,225 @@
+{
+  "rows": [
+    {
+      "hero": "franco",
+      "seats": 1,
+      "seconds": 739,
+      "wave": 29,
+      "score": 117605,
+      "kills": 299,
+      "ended": true,
+      "hp": {
+        "franco": 70,
+        "ryuchi": 68,
+        "alt": 72,
+        "katana": 73,
+        "synth": 68,
+        "percussion": 76
+      },
+      "tapes": 12
+    },
+    {
+      "hero": "ryuchi",
+      "seats": 1,
+      "seconds": 659,
+      "wave": 27,
+      "score": 97309,
+      "kills": 264,
+      "ended": true,
+      "hp": {
+        "franco": 70,
+        "ryuchi": 68,
+        "alt": 72,
+        "katana": 73,
+        "synth": 68,
+        "percussion": 76
+      },
+      "tapes": 12
+    },
+    {
+      "hero": "alt",
+      "seats": 1,
+      "seconds": 684,
+      "wave": 27,
+      "score": 97349,
+      "kills": 270,
+      "ended": true,
+      "hp": {
+        "franco": 70,
+        "ryuchi": 68,
+        "alt": 72,
+        "katana": 73,
+        "synth": 68,
+        "percussion": 76
+      },
+      "tapes": 12
+    },
+    {
+      "hero": "katana",
+      "seats": 1,
+      "seconds": 649,
+      "wave": 26,
+      "score": 91353,
+      "kills": 250,
+      "ended": true,
+      "hp": {
+        "franco": 70,
+        "ryuchi": 68,
+        "alt": 72,
+        "katana": 73,
+        "synth": 68,
+        "percussion": 76
+      },
+      "tapes": 12
+    },
+    {
+      "hero": "synth",
+      "seats": 1,
+      "seconds": 651,
+      "wave": 24,
+      "score": 70613,
+      "kills": 220,
+      "ended": true,
+      "hp": {
+        "franco": 70,
+        "ryuchi": 68,
+        "alt": 72,
+        "katana": 73,
+        "synth": 68,
+        "percussion": 76
+      },
+      "tapes": 12
+    },
+    {
+      "hero": "percussion",
+      "seats": 1,
+      "seconds": 1121,
+      "wave": 38,
+      "score": 176950,
+      "kills": 430,
+      "ended": true,
+      "hp": {
+        "franco": 70,
+        "ryuchi": 68,
+        "alt": 72,
+        "katana": 73,
+        "synth": 68,
+        "percussion": 76
+      },
+      "tapes": 12
+    },
+    {
+      "hero": "franco",
+      "seats": 2,
+      "seconds": 1083,
+      "wave": 38,
+      "score": 222689,
+      "kills": 545,
+      "ended": true,
+      "hp": {
+        "franco": 70,
+        "ryuchi": 68,
+        "alt": 72,
+        "katana": 73,
+        "synth": 68,
+        "percussion": 76
+      },
+      "tapes": 12
+    },
+    {
+      "hero": "ryuchi",
+      "seats": 2,
+      "seconds": 1003,
+      "wave": 37,
+      "score": 214723,
+      "kills": 531,
+      "ended": true,
+      "hp": {
+        "franco": 70,
+        "ryuchi": 68,
+        "alt": 72,
+        "katana": 73,
+        "synth": 68,
+        "percussion": 76
+      },
+      "tapes": 12
+    },
+    {
+      "hero": "alt",
+      "seats": 2,
+      "seconds": 1200,
+      "wave": 44,
+      "score": 280255,
+      "kills": 635,
+      "ended": false,
+      "hits": 0,
+      "hp": {
+        "franco": 49,
+        "ryuchi": 24,
+        "alt": 72,
+        "katana": 73,
+        "synth": 68,
+        "percussion": 76
+      },
+      "tapes": 0
+    },
+    {
+      "hero": "katana",
+      "seats": 2,
+      "seconds": 610,
+      "wave": 24,
+      "score": 95874,
+      "kills": 295,
+      "ended": true,
+      "hp": {
+        "franco": 70,
+        "ryuchi": 68,
+        "alt": 72,
+        "katana": 73,
+        "synth": 68,
+        "percussion": 76
+      },
+      "tapes": 12
+    },
+    {
+      "hero": "synth",
+      "seats": 2,
+      "seconds": 1200,
+      "wave": 42,
+      "score": 257395,
+      "kills": 590,
+      "ended": false,
+      "hits": 0,
+      "hp": {
+        "franco": 48,
+        "ryuchi": 68,
+        "alt": 72,
+        "katana": 73,
+        "synth": 65,
+        "percussion": 76
+      },
+      "tapes": 2
+    },
+    {
+      "hero": "percussion",
+      "seats": 2,
+      "seconds": 1200,
+      "wave": 43,
+      "score": 266036,
+      "kills": 608,
+      "ended": false,
+      "hits": 0,
+      "hp": {
+        "franco": 70,
+        "ryuchi": 68,
+        "alt": 72,
+        "katana": 73,
+        "synth": 68,
+        "percussion": 76
+      },
+      "tapes": 5
+    }
+  ],
+  "method": "Deterministic 30Hz rule-based bot, actual movement/AI/damage/skills/healing; simulation duration is not human duration or fun validation.",
+  "sourceSha256": "7f7dbc1318e4b7fffc6111e5f4d6a23097643a0446145757f173e2a523dc7d6d"
+}
