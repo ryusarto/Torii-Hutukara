@@ -1,0 +1,417 @@
+{
+  "bodyDrawings": 640,
+  "comparisons": [
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "left",
+      "originalLowerSpanMinMaxPx": [
+        67,
+        119
+      ],
+      "newLowerSpanMinMaxPx": [
+        75,
+        120
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "direction": "right",
+      "originalLowerSpanMinMaxPx": [
+        83,
+        117
+      ],
+      "newLowerSpanMinMaxPx": [
+        76,
+        138
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "left",
+      "originalLowerSpanMinMaxPx": [
+        70,
+        112
+      ],
+      "newLowerSpanMinMaxPx": [
+        100,
+        156
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "direction": "right",
+      "originalLowerSpanMinMaxPx": [
+        83,
+        131
+      ],
+      "newLowerSpanMinMaxPx": [
+        88,
+        176
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "left",
+      "originalLowerSpanMinMaxPx": [
+        73,
+        132
+      ],
+      "newLowerSpanMinMaxPx": [
+        102,
+        177
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "direction": "right",
+      "originalLowerSpanMinMaxPx": [
+        80,
+        131
+      ],
+      "newLowerSpanMinMaxPx": [
+        83,
+        168
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "left",
+      "originalLowerSpanMinMaxPx": [
+        73,
+        137
+      ],
+      "newLowerSpanMinMaxPx": [
+        88,
+        161
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "direction": "right",
+      "originalLowerSpanMinMaxPx": [
+        110,
+        129
+      ],
+      "newLowerSpanMinMaxPx": [
+        87,
+        162
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "alt",
+      "variant": "unmasked",
+      "direction": "left",
+      "originalLowerSpanMinMaxPx": [
+        98,
+        136
+      ],
+      "newLowerSpanMinMaxPx": [
+        83,
+        174
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "alt",
+      "variant": "unmasked",
+      "direction": "right",
+      "originalLowerSpanMinMaxPx": [
+        84,
+        133
+      ],
+      "newLowerSpanMinMaxPx": [
+        72,
+        153
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "direction": "left",
+      "originalLowerSpanMinMaxPx": [
+        101,
+        132
+      ],
+      "newLowerSpanMinMaxPx": [
+        79,
+        150
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "katana",
+      "variant": "unmasked",
+      "direction": "right",
+      "originalLowerSpanMinMaxPx": [
+        89,
+        137
+      ],
+      "newLowerSpanMinMaxPx": [
+        69,
+        166
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "synth",
+      "variant": "unmasked",
+      "direction": "left",
+      "originalLowerSpanMinMaxPx": [
+        101,
+        113
+      ],
+      "newLowerSpanMinMaxPx": [
+        95,
+        148
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "synth",
+      "variant": "unmasked",
+      "direction": "right",
+      "originalLowerSpanMinMaxPx": [
+        93,
+        106
+      ],
+      "newLowerSpanMinMaxPx": [
+        69,
+        153
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "synth",
+      "variant": "masked",
+      "direction": "left",
+      "originalLowerSpanMinMaxPx": [
+        108,
+        127
+      ],
+      "newLowerSpanMinMaxPx": [
+        94,
+        167
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "synth",
+      "variant": "masked",
+      "direction": "right",
+      "originalLowerSpanMinMaxPx": [
+        110,
+        130
+      ],
+      "newLowerSpanMinMaxPx": [
+        98,
+        176
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "percussion",
+      "variant": "unmasked",
+      "direction": "left",
+      "originalLowerSpanMinMaxPx": [
+        103,
+        119
+      ],
+      "newLowerSpanMinMaxPx": [
+        89,
+        168
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "percussion",
+      "variant": "unmasked",
+      "direction": "right",
+      "originalLowerSpanMinMaxPx": [
+        97,
+        113
+      ],
+      "newLowerSpanMinMaxPx": [
+        79,
+        168
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "percussion",
+      "variant": "masked",
+      "direction": "left",
+      "originalLowerSpanMinMaxPx": [
+        108,
+        121
+      ],
+      "newLowerSpanMinMaxPx": [
+        98,
+        169
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    },
+    {
+      "hero": "percussion",
+      "variant": "masked",
+      "direction": "right",
+      "originalLowerSpanMinMaxPx": [
+        113,
+        123
+      ],
+      "newLowerSpanMinMaxPx": [
+        87,
+        169
+      ],
+      "newContactAndAirBottomsPx": [
+        219,
+        221,
+        222,
+        223,
+        224
+      ]
+    }
+  ],
+  "sources": {
+    "franco_unmasked_generated.png": "59314aff600c9295e4fa520848d42947dbe1953e0b9dd88e62843395284d4808",
+    "franco_masked_generated.png": "75e7f0893c01487b80cee2deab543a7875aca4014324f78f02dce9cf02537c7e",
+    "ryuchi_unmasked_generated.png": "456f6296092b82b6a5dbcca0d0943971da8ebdf9aec6fcec36c43d15bef37882",
+    "ryuchi_masked_generated.png": "5eee69316d8521c1ec0d6eee60ad50a649f22f8547046633b1d0d7670dc03d3c",
+    "alt_unmasked_generated.png": "cddeb7e2937a7912a9d75b51fa44c6465a89708af27ef01b05bcad5cbcd818a6",
+    "katana_unmasked_generated.png": "6848efcc9680bfac4a72c81f4838333397b064e62966e837b87ec8366ffad61f",
+    "synth_unmasked_generated.png": "2b252ec517ce1bbf18f60e617ec57555d513a3f6a92339d6695adb7d7fa2f8df",
+    "synth_masked_generated.png": "5ebae856860ee887a143af447c479b9ba346f962daa0f64e884dd71889748063",
+    "percussion_unmasked_generated.png": "7c3f8fdb87b037e69f729ef1b6e5777f2eff79b02a4f26baeb14f1692859a8f7",
+    "percussion_masked_generated.png": "dd8477fd536492d5e8f236d84e4fe7390cb17a3714914fb01ee3ab7b01ae78c9"
+  }
+}

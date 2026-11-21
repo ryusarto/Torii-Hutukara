@@ -164,7 +164,8 @@ drawActor = function(p, x, y, moving = false) {
   const hit = seat === 1 ? C3.coop.hit : seat === 0 ? act.hit : 0;
   if (hit > 0 && !G?.options10?.reducedMotion && Math.floor(tick * 24) % 2 === 0) ctx.globalAlpha = .48;
   // Uniform square scale. Pivot (128,224) lands at the same ground point as legacy actors.
-  ctx.drawImage(image, pose.frame * 256, pose.row * 256, 256, 256, Math.round(x - 44), Math.round(y + 11 - 77), 88, 88);
+  const bodyFrame = HeroAttackBody.frame(art, pose, seat, image, x, y);
+  ctx.drawImage(...bodyFrame.source, ...bodyFrame.destination);
   ctx.restore();
 };
 

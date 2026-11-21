@@ -80,6 +80,8 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
    function step(){const before={x:G.x,y:G.y};tick+=dt;update(dt);return Math.hypot(G.x-before.x,G.y-before.y)>.00001}
    function advance(seconds){for(let i=0;i<Math.ceil(seconds/dt);i++)step()}
    async function preload(hero,variant,state){
+    await HeroAttackBody.sheet(hero,variant).decode();
+    if(state==='run')assert(await RunStrideV1.image(hero).ready,'Missing running body sheet '+hero);
     for(const name of new Set([state,'idle'])){
      const image=art.image(art.key(hero,variant,name));assert(image,'Missing '+name);await image.decode();
      assert(image.naturalWidth===2048&&image.naturalHeight===1024,'Invalid atlas '+name);
@@ -99,10 +101,20 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
      else drawActor(p,body.x*T-cam.x,body.y*T-cam.y,moving);
     }finally{ctx.drawImage=previous}
     const call=calls.at(-1),image=art.images[art.key(hero,pose.variant,pose.state)];
-    assert(call&&call[0]===image,'drawActor source does not match real pose '+JSON.stringify(pose));
-    assert(call[1]===pose.frame*256&&call[2]===pose.row*256&&call[3]===256&&call[4]===256,
-     'Unexpected actual source rectangle '+JSON.stringify(pose));
-    return {state:pose.state,frame:pose.frame,direction:pose.direction,variant:pose.variant,source:[call[1],call[2],call[3],call[4]]};
+    if(pose.state==='run'&&moving){
+     const run=RunStrideV1.image(hero),cell=run.cell,row=dirs.indexOf(pose.direction)+(pose.variant==='masked'?4:0);
+     assert(call && call[0]===run.bitmap && call[2]===row*cell && call[3]===cell && call[4]===cell,'Wrong running body sheet or direction');
+     return {state:'run',frame:call[1]/cell,direction:pose.direction,variant:pose.variant,source:call.slice(1,5)};
+    }
+    const action=HeroAttackBody.states.includes(pose.state);
+    const contact=action && call?.[0]===HeroAttackBody.sheet(hero,pose.variant);
+    assert(call && (contact || call[0]===image),'Unrecognized body source '+JSON.stringify(pose));
+    const expectedX=contact?HeroAttackBody.states.indexOf(pose.state):pose.frame;
+    assert(call[2]===pose.row*256 && call[3]===256 && call[4]===256,'Wrong row/cell '+JSON.stringify(pose));
+    if(contact || !action)assert(call[1]===expectedX*256,'Wrong action/motion cell '+JSON.stringify(pose));
+    const oldFrame=call[1]/256;
+    const visible=contact?4:action && oldFrame>=4?oldFrame+1:oldFrame;
+    return {state:pose.state,frame:visible,direction:pose.direction,variant:pose.variant,source:[call[1],call[2],call[3],call[4]]};
    }
    function startState(hero,state){
     if(state.startsWith('attack_')){
@@ -132,6 +144,7 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
      arena(hero,variant,direction);await preload(hero,variant,state);
      result.trigger=startState(hero,state);const cyclic=['idle','walk','run','performance'].includes(state);
      if(state==='walk'||state==='run')controls(direction,state==='run');
+     const count=state==='run'?RunStrideV1.manifest.heroes[hero].frames:HeroAttackBody.states.includes(state)?9:8;
      const frames=[],rects=[],seen=new Set();let movement=0,started=false,finished=false;
      for(let n=0;n<240;n++){
       let moving=false;
@@ -145,13 +158,13 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
       started=true;assert(sample.direction===direction,'Direction changed '+JSON.stringify(sample));
       assert(sample.variant===variant,'Requested mask variant not rendered '+JSON.stringify(sample));
       if(frames.at(-1)!==sample.frame){
-       if(frames.length){const previous=frames.at(-1);assert(sample.frame===(cyclic?(previous+1)%8:Math.min(7,previous+1)),'Skipped/reversed pose '+frames+'→'+sample.frame);}
+       if(frames.length){const previous=frames.at(-1);assert(sample.frame===(cyclic?(previous+1)%count:Math.min(count-1,previous+1)),'Skipped/reversed pose '+frames+'→'+sample.frame);}
        frames.push(sample.frame);rects.push(sample.source);seen.add(sample.frame);
       }
-      if(seen.size===8)break;
+      if(seen.size===count)break;
      }
-     assert(seen.size===8,'Not all 8 poses at60Hz: '+frames);
-     if(!cyclic)assert(frames[0]===0&&frames.at(-1)===7,'Action must progress0→7');
+     assert(seen.size===count,'Incomplete body sequence at60Hz: '+frames);
+     if(!cyclic)assert(frames[0]===0&&frames.at(-1)===count-1,'Action must reach its final pose');
      if(['walk','run','roll'].includes(state))assert(movement>.1,'Controller did not move actual actor');
      if(state==='defeat'){advance(1);const held=frame(hero,state,false);assert(held.state==='defeat'&&held.frame===7,'Defeat failed to hold');}
      else if(!cyclic){

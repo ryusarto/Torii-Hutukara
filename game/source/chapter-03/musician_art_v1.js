@@ -270,9 +270,9 @@ drawActor = function(p, x, y, moving = false) {
   // Confirm only a successful action-atlas draw, not a pose query or idle fallback.
   const drawRecord = seat >= 0 ? art.players[seat] : null;
   try {
-    ctx.drawImage(image, pose.frame * 256, pose.row * 256, 256, 256,
-      Math.round(x - 44), Math.round(y + 11 - 77), 88, 88);
-    if (actionAtlasReady && drawRecord?.hero === pose.hero && drawRecord.state === pose.state)
+    const bodyFrame = HeroAttackBody.frame(art, pose, seat, image, x, y);
+    ctx.drawImage(...bodyFrame.source, ...bodyFrame.destination);
+    if (!bodyFrame.contact && actionAtlasReady && drawRecord?.hero === pose.hero && drawRecord.state === pose.state)
       art.confirmPresentation(drawRecord, seat, pose.frame);
     if (activeModes10() && !p.musicianNpc) {
       const poseKey = seat >= 0 ? 'player_' + seat : 'follower_' + pose.hero;
