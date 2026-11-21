@@ -1,0 +1,104 @@
+{
+  "ready": true,
+  "checkedAt": "2026-11-21T02:07:29.534Z",
+  "url": "https://ryusarto.github.io/Torii-Hutukara/",
+  "version": "1.10.0",
+  "sourceSha256": "77c6334bb5d84c62539954376bf44e68db8ffc63e10884b3384c6c11a3689fc8",
+  "indexSha256": "1fb5a12f07cf708f98cea970a216e970e36b958ae91ec2266af4f4656e088c38",
+  "indexVerified": true,
+  "gameContentRoundTrip": true,
+  "portableBuildUnchanged": true,
+  "modulesVerified": true,
+  "assetsVerified": [
+    {
+      "name": "assets/protagonistas/v6-locomocao/atlas/franco_run.png",
+      "sha256": "a86f24f1e1feacba1b94158f485bc93742e3d205946bce209757242572ccce96",
+      "servedPath": "media/a86f24f1e1feacba1b94158f485bc93742e3d205946bce209757242572ccce96.png",
+      "bytes": 3807196
+    },
+    {
+      "name": "assets/protagonistas/v6-locomocao/atlas/ryuchi_run.png",
+      "sha256": "93457ec0f7d6fdf3dc7fa7e26153c5e36bbe86bbeb52d6b64ecd9c4d5a15163b",
+      "servedPath": "media/93457ec0f7d6fdf3dc7fa7e26153c5e36bbe86bbeb52d6b64ecd9c4d5a15163b.png",
+      "bytes": 3664563
+    },
+    {
+      "name": "assets/npcs/vida-v1/city_gestures.png",
+      "sha256": "241aeebbf702cea0ffc6dfaac6218bf66e21cce6806c456bb26901b568a881f9",
+      "servedPath": "media/241aeebbf702cea0ffc6dfaac6218bf66e21cce6806c456bb26901b568a881f9.png",
+      "bytes": 492110
+    },
+    {
+      "name": "assets/studio/v1/sofa_vertical.png",
+      "sha256": "34a20b70d3960b0869ff432eec8b2b977d91bb5743dc5d137d6003107d5a6d42",
+      "servedPath": "media/34a20b70d3960b0869ff432eec8b2b977d91bb5743dc5d137d6003107d5a6d42.png",
+      "bytes": 1463426
+    },
+    {
+      "name": "assets/studio/v1/plant_potted.png",
+      "sha256": "1671505adddc846268c6f8dfdb2fd6c0b874a82b08bb172a12755ee1a686c4f8",
+      "servedPath": "media/1671505adddc846268c6f8dfdb2fd6c0b874a82b08bb172a12755ee1a686c4f8.png",
+      "bytes": 1102849
+    },
+    {
+      "name": "assets/dialogue/v2/forest.png",
+      "sha256": "51889b5bd94b4a07da3e32d14e05a0a32fa6f017d93b6ed872ef6f0e7a9143f8",
+      "servedPath": "media/51889b5bd94b4a07da3e32d14e05a0a32fa6f017d93b6ed872ef6f0e7a9143f8.png",
+      "bytes": 3590952
+    },
+    {
+      "name": "assets/prebeta/originals/dialogue/CINEMATIC_BACKGROUNDS_3X2.png",
+      "sha256": "0093e88a048a210a68b96017dad0f4b7de5fbd74af2357c3378ee8efc0519d13",
+      "servedPath": "media/0093e88a048a210a68b96017dad0f4b7de5fbd74af2357c3378ee8efc0519d13.png",
+      "bytes": 3514931
+    },
+    {
+      "name": "facades_c1",
+      "sha256": "199c62935d6ce98d7bfb9a7bebd1a40552d0f6b2dbb896ded1bc5b61a65cffdd",
+      "servedPath": "media/199c62935d6ce98d7bfb9a7bebd1a40552d0f6b2dbb896ded1bc5b61a65cffdd.png",
+      "bytes": 994701
+    },
+    {
+      "name": "facades_c2",
+      "sha256": "35e6ab23e3b1e0fb30735f9a92d41707c9de564d3d5a917a42720ad1e455738e",
+      "servedPath": "media/35e6ab23e3b1e0fb30735f9a92d41707c9de564d3d5a917a42720ad1e455738e.png",
+      "bytes": 898284
+    },
+    {
+      "name": "cloud_rebuild",
+      "sha256": "46f52e6e4c7952e90fe95ff35aa0a08effdbfa5098aa9347bf3969b040e7df7d",
+      "servedPath": "media/46f52e6e4c7952e90fe95ff35aa0a08effdbfa5098aa9347bf3969b040e7df7d.png",
+      "bytes": 331397
+    },
+    {
+      "name": "cloud_cinema",
+      "sha256": "3e49593af42d190825a3e7537b386eedab938a7421c913bd3102b744f9b988c7",
+      "servedPath": "media/3e49593af42d190825a3e7537b386eedab938a7421c913bd3102b744f9b988c7.png",
+      "bytes": 2507270
+    },
+    {
+      "name": "cloud_original_A01",
+      "sha256": "92e8ebc9927b731a42b0071b4fbf5b3730bcd1fb7eded737fa9914f11276bf1b",
+      "servedPath": "media/92e8ebc9927b731a42b0071b4fbf5b3730bcd1fb7eded737fa9914f11276bf1b.png",
+      "bytes": 139835
+    },
+    {
+      "name": "cloud_original_A04",
+      "sha256": "47422f4caa4f9aea554eefe409a2e459595477008b984acdde8ec92212d939c0",
+      "servedPath": "media/47422f4caa4f9aea554eefe409a2e459595477008b984acdde8ec92212d939c0.png",
+      "bytes": 245697
+    }
+  ],
+  "mergeCommit": "91e8642e28bc882a2645a81cf922a1be87c62cde",
+  "testedHead": "21bb786eea7b2703ddf4dae424f6abe84d4b2aed",
+  "pr": 19,
+  "publicationRun": 44853604429,
+  "publicationAttempt": 1,
+  "preMergeRuns": {
+    "art": 44853202078,
+    "gameplay": 44853202027
+  },
+  "method": "Independent public HTTP byte verification; actual served HTML and13PNG files. Functional browser evidence belongs to the CI and composition reports, not to this network check.",
+  "independentAssetProofBlob": "0b7bdb095b4991bafd6bd772855ee1eac185934d",
+  "independentAssetProof": "qa/environment-world-v1/PAGES_VERIFICACAO.json"
+}

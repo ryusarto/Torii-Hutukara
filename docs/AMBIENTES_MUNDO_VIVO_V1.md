@@ -1,6 +1,6 @@
 # Ambientes vivos, profundidade e nuvens
 
-Pedido do autor de 20/11/2026. Candidata Beta 1.10 construída sobre main `7553828a669d33921940f5b8d1a99923636485a2` (1.7.1), preservando as correções de apresentação dos músicos, os FX dos chefes e os cenários desérticos.
+Pedido do autor de 20/11/2026. Beta1.10 publicada pelo PR#19 sobre a base1.9 `b83314b8b5a46d92a08f80e0cd94679f7840bc7a`, preservando músicos, protagonistas, NPCs, estúdio, pós-jogo, FX dos chefes, cenários desérticos e o reparo do publicador.
 
 A composição 1.10 incorpora também a frente do PR #18 (head bd9992e0): NPCs vivos, estúdio, corrida e cinema. Gerador, workflows e validação foram conciliados por trechos; o sofá conserva seu ponto de ordenação no chão. As evidências finais precisam corresponder ao executável composto.
 
@@ -32,7 +32,7 @@ Sair do chão no Mar de Nuvens inicia uma queda de 0,85 s: o personagem diminui 
 - `production/export_environment_volume_v1.py` e `production/export_cloud_world_v1.py`: exportação determinística com Pillow; células/cortes técnicos, redução por nearest e alpha original preservado. Nenhuma pintura ou remoção de fundo por código.
 - `qa/environment-world-v1/NUVEM_RECONSTRUCAO.gif`: prévia dos sprites; não substitui as capturas reais da integração.
 
-Módulos novos: `environment_depth_v1.js`, `cloud_world_v1.js`, `environment_atmosphere_v1.js`, `cloud_story_v1.js`. A composição preserva também o pós-jogo da 1.9 (PR #20), que deve ser promovido antes desta entrega. O gerador os injeta após a arte/FX existentes e registra os arquivos usados no manifesto. Hooks explícitos posicionam o ground pass e a iluminação. O pós-jogo é o último módulo; a guarda de viagens durante queda é instalada no init, após todos os módulos, sem acesso antecipado a PostGame. As suítes novas estão no CI e no publicador.
+Módulos novos: `environment_depth_v1.js`, `cloud_world_v1.js`, `environment_atmosphere_v1.js`, `cloud_story_v1.js`. A composição preserva também o pós-jogo da 1.9 (PR #20), publicado e conferido antes desta entrega. O gerador os injeta após a arte/FX existentes e registra os arquivos usados no manifesto. Hooks explícitos posicionam o ground pass e a iluminação. O pós-jogo é o último módulo; a guarda de viagens durante queda é instalada no init, após todos os módulos, sem acesso antecipado a PostGame. As suítes novas estão no CI e no publicador.
 
 ## Validação
 
@@ -43,3 +43,9 @@ A conciliação final preserva a main `d75a37b115c73e9f8f6ac84ffe62b7b1e95b2404`
 Na composição final, 38/38 verificações de navegador passaram sem erros: 15 de ambientes/nuvens, 11 de estúdio/cinema e 12 de pós-jogo. A revisão visual independente aprovou os cinco contatos e as capturas novas de nuvens/queda. O teste do mapa durante a queda usa checkpoint genérico e deixa os marcos da campanha semeada serem processados no chão antes da travessia; não altera funções ou HP de produção para obter o resultado.
 
 Não foi executada uma nova campanha humana completa nem teste em aparelhos ou controles físicos nesta entrega. As capturas usam cenas e ações reais em condições controladas no Chrome isolado.
+
+## Publicação confirmada
+
+[PR#19](https://github.com/ryusarto/Torii-Hutukara/pull/19) integrado em `91e8642e28bc882a2645a81cf922a1be87c62cde`. [Art44853202078](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44853202078) e [Gameplay44853202027](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44853202027) aprovados no head selado `21bb786`. [Publish44853604429](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44853604429) aprovado com identidade de artefato porrun/attempt.
+
+Conferência independente no [jogo público](https://ryusarto.github.io/Torii-Hutukara/) confirmou1.10.0, sourceSHA77c6334, hash do index igual ao build-info e13PNGs (sete preservados e seis novos/restaurados), além do roundtrip. [Prova independente](../qa/environment-world-v1/COORDENACAO_PUBLICACAO.json) · [Prova dos seis assets](../qa/environment-world-v1/PAGES_VERIFICACAO.json) · [Relatório final](../qa/environment-world-v1/PLAYTEST.md).

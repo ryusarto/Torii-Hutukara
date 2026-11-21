@@ -1,6 +1,14 @@
 # Coordenação de releases — Torii & Hutukara
 
-Atualizado em 20/11/2026 após a confirmação da Beta1.9 no Pages. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
+Atualizado em 20/11/2026 após a confirmação da Beta1.10 no Pages. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
+
+## Publicação1.10 confirmada
+
+[PR#19](https://github.com/ryusarto/Torii-Hutukara/pull/19) integrado em `91e8642e28bc882a2645a81cf922a1be87c62cde`, sobre a1.9 já publicada e a infraestrutura corrigida. Fachadas, interiores, luz/vento/areia, portal, nuvens reconstruídas e queda segura em solo/coop. PostGame fica por último; a guarda de viagens durante queda é instalada no init. Fontes de1.8/1.9 e suas evidências permanecem preservadas.
+
+Composição selada21bb786:145 verificações estáticas,46 testes unitários dos ambientes e oito da infraestrutura;38 verificações de navegador. Art44853202078 e Gameplay44853202027 aprovados. Publish44853604429/attempt1 aprovado. SourceSHA-256 `77c6334bb5d84c62539954376bf44e68db8ffc63e10884b3384c6c11a3689fc8` e13PNGs conferidos no endereço público, com index e roundtrip válidos. [Publicação e limites](../qa/environment-world-v1/PLAYTEST.md).
+
+Nenhum novo número de versão está reservado por esta coordenação. Novas entregas devem partir desta main, preservar o reparo do publicador e combinar sua janela de publicação.
 
 ## Publicação1.9 confirmada
 
@@ -8,7 +16,7 @@ PR#20 integrado na main18bbb15; correção de infraestrutura d75a37b preserva o 
 
 Fonte SHA-256 `2fd6f7e7437280b74ca61561fc329d4933d26971f3cd05b16626ca857d529710`. Art44849617577, Gameplay44849617423 e Publish44852294347/attempt1 aprovados. Versão1.9.0 e HTML conferidos no endereço público; fluxos de reservas, final, onda, derrota e retry executados em Chrome isolado, com PNGs de inimigos decodificados. [Prova e limites](../qa/postgame/PAGES_VERIFICACAO.json).
 
-A publicação44850130096 falhou por visibilidade dos metadados e duplicação do nome do artefato no retry. O workflow agora usa nome porrun/attempt e espera o ID exato ficar visível, sem apagar artefatos ou enfraquecer testes. Próxima composição de ambientes reservada para1.10 deve incorporar1.9 e o reparo, mantendo postgame.js por último e respeitando postReserve e o novo estado de queda.
+A publicação44850130096 falhou por visibilidade dos metadados e duplicação do nome do artefato no retry. O workflow agora usa nome porrun/attempt e espera o ID exato ficar visível, sem apagar artefatos ou enfraquecer testes. A composição1.10 incorporou1.9 e o reparo, mantendo postgame.js por último e respeitando postReserve e o estado de queda.
 
 ## Publicação1.8 confirmada
 
@@ -34,6 +42,8 @@ Main funcional `3e7ad3f5c9ba484e9e257e016102c19d8389c235`: **Beta 1.7.0**, com F
 | Beta 1.7.1 | Músicos | Corrige apresentação de ataques de Franco/Ryuchi | PR#17 integrado; preservado na1.8 |
 | Beta 1.8.0 | Revisão geral | Estúdio, corrida12poses, cinema, IA/gestosNPC, save no sofá | PR#18 integrado; deploy44849114374 e hashes online confirmados |
 | Beta 1.9.0 | Pós-jogo / cenários | Elenco coerente, viagens, ondas procedurais e pontuação | PR#20 integrado; Publish44852294347 e fluxos online confirmados |
+| Beta 1.10.0 | Ambientes e coordenação | Fachadas, interiores, luz/vento, nuvens e queda, preservando o pós-jogo | PR#19 integrado; Publish44853604429 e conferências públicas aprovadas |
+
 
 A reserva anterior **1.4.0 para cenários foi realocada para 1.6.0**, pois a main avançou para 1.5 antes da conclusão dos cenários. Os assets recuperados continuam válidos. Não promover a build de cenários1.4 por cima da main1.5 nem simplesmente renomear seu executável.
 
