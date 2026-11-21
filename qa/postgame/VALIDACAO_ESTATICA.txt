@@ -1,0 +1,153 @@
+TORII & HUTUKARA — VALIDAÇÃO ESTÁTICA BETA 1.9.0
+=====================================================
+Resultado: 142/142 verificações aprovadas
+HTML: 420873489 bytes
+SHA-256: 822dc91f5b0cdd772d89b3c4f03c37ba7ce63f4e80edd89ac21d52fe0aa1b80f
+
+OK · arquivo TORII_HUTUKARA_1_1_2_TRILHAS.html
+OK · arquivo TORII_HUTUKARA_BETA_1_9_0.html
+OK · arquivo chapter3_runtime.js
+OK · arquivo DIALOGOS_CAPITULO_03.json
+OK · sprites de colaboradores com transparência PNG
+OK · Ninja e Arqueiro: 96 sequências em quatro direções
+OK · Ninja sem máscara e Arqueiro com máscara no cinto
+OK · 40 imagens Ninja e Arqueiro completas com alpha
+OK · arte Ninja e Arqueiro integrada sem marcadores pendentes
+OK · cenários V2: 12 folhas e 126 recortes
+OK · atlas de cenário RGBA com dimensões contratuais
+OK · recortes de cenário contidos no atlas
+OK · cenários integrados sem marcador de dados pendente
+OK · posição de save antigo nas nuvens possui migração
+OK · deserto C3: 13 atlas, 131 recortes e dois fundos
+OK · atlas desérticos RGBA com dimensões contratuais
+OK · recortes desérticos contidos nos atlas
+OK · A11 e A12 não substituídos pelo pacote C3
+OK · fundos C3 separados, RGBA e dimensões válidas
+OK · protagonistas V5: 192 sequências com oito poses e fechamento
+OK · 56 imagens V5 completas com alpha e dimensões corretas
+OK · protagonistas V5 integrados sem marcadores pendentes
+OK · corrida V6: 16 sequências de 12 poses, fechamento e ciclo de 520ms
+OK · corrida V6: dois atlas RGBA 3328x2048
+OK · estúdio, IA e gestos dos NPCs integrados
+OK · floresta cinematográfica em 1672x941
+OK · mapa sky_terminal
+OK · mapa distortion_district
+OK · mapa contratempo
+OK · mapa power_plant
+OK · mapa sky_canal
+OK · mapa ciro_workshop
+OK · mapa sky_lift
+OK · mapa cloud_sea
+OK · mapa cloud_terrace
+OK · mapa last_torii
+OK · mapa silence_core
+OK · referências de diálogo
+OK · trilha c3_100_adsense
+OK · trilha c3_type_shit
+OK · trilha c3_ak_cruzada
+OK · trilha c3_chico_buarque
+OK · trilha c3_passaros_exoticos
+OK · trilha c3_nervos
+OK · função C3.startMetronome
+OK · função C3.startSilence
+OK · função C3.resolveSilence
+OK · função C3.finishMetronome
+OK · função C3.finishSilence
+OK · função C3.returnStudio
+OK · schema 13
+OK · autosave Alpha separado
+OK · migração da 1.1.2
+OK · seis assinaturas
+OK · sete padrões finais
+OK · cinco padrões por tentativa
+OK · frase final
+OK · epílogo
+OK · asset district_materials
+OK · asset sprite_maia
+OK · asset sprite_nara
+OK · asset sprite_ciro
+OK · asset sprite_vega
+OK · asset sprite_dimas
+OK · asset sprite_resident_a
+OK · asset sprite_resident_b
+OK · asset sprite_canal_worker
+OK · asset sprite_plant_operator
+OK · asset atlas_lamps
+OK · asset atlas_urban
+OK · asset atlas_workshop
+OK · asset atlas_canal
+OK · asset atlas_lift
+OK · asset prebeta_roll
+OK · asset prebeta_run
+OK · asset prebeta_portraits
+OK · asset prebeta_mask
+OK · asset prebeta_props
+OK · asset prebeta_clouds
+OK · asset prebeta_cinema
+OK · asset prebeta_run_v2
+OK · asset prebeta_portraits_v2
+OK · asset prebeta_collabs
+OK · asset prebeta_collabs_move
+OK · asset prebeta_dney
+OK · asset prebeta_materials_v2
+OK · rosto autoral do Franco nos diálogos
+OK · máscara canônica com rosto visível
+OK · máscara passa a aparecer depois da aquisição
+OK · rolamento dos seis personagens
+OK · corrida própria da dupla do capítulo 3
+OK · nuvens volumétricas
+OK · placa e pilares detalhados
+OK · colisões alinhadas às fachadas
+OK · fundos cinematográficos próprios
+OK · máscara ancorada sem flutuar
+OK · novos personagens na escala dos protagonistas
+OK · rolamento desacelerado
+OK · retry final reconstrói estado
+OK · colaboradores Belga Colli Mazza
+OK · Dney integrado ao Contratempo
+OK · papéis centrais ocupados pelos colaboradores
+OK · Último Torii sem máscaras aleatórias
+OK · Núcleo observado por olhos
+OK · objetivo do canal por estado
+OK · Colli apresentado no canal
+OK · transição contínua do capítulo 02
+OK · entrada do elevador sem ciclo impossível
+OK · Ryuchi percussionista com golpes próprios
+OK · Franco sintetizador sem flechas recicladas
+OK · recrutamento somente após apresentação
+OK · entrada caminhável do Núcleo
+OK · NPCs com animação ambiente
+OK · equipe com níveis e experiência de reserva
+OK · Gamepad API com mapeamento PlayStation
+OK · coop local com segundo controle
+OK · Jogador 2 com HP e dano próprios
+OK · assistência automática suspensa no coop
+OK · câmera compartilhada com limite
+OK · ajuda de controles dentro do jogo
+OK · nenhum placeholder
+OK · um init final
+OK · um bloco script
+OK · 13 pranchas para 11 inimigos/chefes e duas variantes C3
+OK · contrato de quatro poses discretas e pivô no chão
+OK · 13 atlas de inimigos 512x512 com alpha
+OK · C3 usa as fontes aprovadas de ferrugem
+OK · Viajante tem rota de chefe própria, sem ator alt ampliado
+OK · sprites de inimigos incluídos sem marcadores pendentes
+OK · chefes C3 não são redesenhados após o cenário
+OK · base 1.1.2 preservada
+OK · músicos: 208 sequências de oito poses sem reescrever base
+OK · 84 imagens base dos músicos RGBA com dimensões corretas
+OK · músicos: uma paleta canônica sem contextos duplicados
+OK · músicos: correções opcionais restritas a 9 atlas e 9 fontes mascaradas autorizadas
+OK · músicos: paleta histórica válida e integridade atual com correções localizadas encadeadas
+OK · receita de paleta e auditoria documentadas sem novas poses
+OK · músicos integrados sem placeholders ou filtro contextual pendente
+OK · chefes: cinco sequências de oito quadros
+OK · chefes: RGBA e oito quadros distintos auditados
+OK · chefes: runtime aditivo integrado sem placeholders
+OK · chefes: liberação segue evento real de dano
+
+Playtest visual e funcional desta versão: PENDENTE
+- a validação acima comprova estrutura, referências e integridade da build;
+- a jornada completa ainda deve ser jogada em navegador desktop e móvel;
+- resultados manuais devem ser registrados em qa/beta-1.9.0/PLAYTEST.md.

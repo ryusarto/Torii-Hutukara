@@ -1,0 +1,588 @@
+{
+  "version": "beta-1.9.0",
+  "passed": 12,
+  "checks": [
+    {
+      "name": "Last Torii selects only actual reserves and refreshes when formation changes",
+      "passed": true,
+      "detail": [
+        {
+          "team": [
+            "franco",
+            "alt",
+            "percussion"
+          ],
+          "cast": [
+            "katana",
+            "ryuchi"
+          ],
+          "fixed": 0
+        },
+        {
+          "team": [
+            "ryuchi",
+            "katana",
+            "synth"
+          ],
+          "cast": [
+            "alt",
+            "franco"
+          ],
+          "fixed": 0
+        },
+        {
+          "team": [
+            "alt",
+            "katana",
+            "synth"
+          ],
+          "cast": [
+            "franco",
+            "ryuchi"
+          ],
+          "fixed": 0
+        }
+      ]
+    },
+    {
+      "name": "Real final reward and three scenes finish at Torii once without studio transition",
+      "passed": true,
+      "detail": {
+        "area": "last_torii",
+        "complete": true,
+        "pending": false,
+        "home": false,
+        "checkpoint": "last_torii",
+        "reward": 40,
+        "repeat": 0,
+        "button": true
+      }
+    },
+    {
+      "name": "M and system menu expose postgame travel; all destinations fit body and reload",
+      "passed": true,
+      "detail": {
+        "menu": true,
+        "rows": [
+          {
+            "id": "studio",
+            "ok": true,
+            "fits": true,
+            "reloaded": "studio"
+          },
+          {
+            "id": "corridor",
+            "ok": true,
+            "fits": true,
+            "reloaded": "corridor"
+          },
+          {
+            "id": "chamber",
+            "ok": true,
+            "fits": true,
+            "reloaded": "chamber"
+          },
+          {
+            "id": "city",
+            "ok": true,
+            "fits": true,
+            "reloaded": "city"
+          },
+          {
+            "id": "forest",
+            "ok": true,
+            "fits": true,
+            "reloaded": "forest"
+          },
+          {
+            "id": "ruins",
+            "ok": true,
+            "fits": true,
+            "reloaded": "ruins"
+          },
+          {
+            "id": "rain_station",
+            "ok": true,
+            "fits": true,
+            "reloaded": "rain_station"
+          },
+          {
+            "id": "voices",
+            "ok": true,
+            "fits": true,
+            "reloaded": "voices"
+          },
+          {
+            "id": "tape_market",
+            "ok": true,
+            "fits": true,
+            "reloaded": "tape_market"
+          },
+          {
+            "id": "bento_shop",
+            "ok": true,
+            "fits": true,
+            "reloaded": "bento_shop"
+          },
+          {
+            "id": "celina_home",
+            "ok": true,
+            "fits": true,
+            "reloaded": "celina_home"
+          },
+          {
+            "id": "radio9",
+            "ok": true,
+            "fits": true,
+            "reloaded": "radio9"
+          },
+          {
+            "id": "voice_roofs",
+            "ok": true,
+            "fits": true,
+            "reloaded": "voice_roofs"
+          },
+          {
+            "id": "voice_tower",
+            "ok": true,
+            "fits": true,
+            "reloaded": "voice_tower"
+          },
+          {
+            "id": "sky_terminal",
+            "ok": true,
+            "fits": true,
+            "reloaded": "sky_terminal"
+          },
+          {
+            "id": "distortion_district",
+            "ok": true,
+            "fits": true,
+            "reloaded": "distortion_district"
+          },
+          {
+            "id": "contratempo",
+            "ok": true,
+            "fits": true,
+            "reloaded": "contratempo"
+          },
+          {
+            "id": "power_plant",
+            "ok": true,
+            "fits": true,
+            "reloaded": "power_plant"
+          },
+          {
+            "id": "sky_canal",
+            "ok": true,
+            "fits": true,
+            "reloaded": "sky_canal"
+          },
+          {
+            "id": "ciro_workshop",
+            "ok": true,
+            "fits": true,
+            "reloaded": "ciro_workshop"
+          },
+          {
+            "id": "sky_lift",
+            "ok": true,
+            "fits": true,
+            "reloaded": "sky_lift"
+          },
+          {
+            "id": "cloud_sea",
+            "ok": true,
+            "fits": true,
+            "reloaded": "cloud_sea"
+          },
+          {
+            "id": "cloud_terrace",
+            "ok": true,
+            "fits": true,
+            "reloaded": "cloud_terrace"
+          },
+          {
+            "id": "last_torii",
+            "ok": true,
+            "fits": true,
+            "reloaded": "last_torii"
+          },
+          {
+            "id": "silence_core",
+            "ok": true,
+            "fits": true,
+            "reloaded": "silence_core"
+          }
+        ]
+      }
+    },
+    {
+      "name": "New expedition spawns hydrated scaled enemies and real kills award score without XP/shards",
+      "passed": true,
+      "detail": {
+        "started": true,
+        "area": "endless_echo",
+        "before": [
+          {
+            "type": "hush",
+            "hp": 44,
+            "power": 6,
+            "endless": true
+          },
+          {
+            "type": "hush",
+            "hp": 44,
+            "power": 6,
+            "endless": true
+          },
+          {
+            "type": "whisper",
+            "hp": 62,
+            "power": 8,
+            "endless": true
+          }
+        ],
+        "run": {
+          "active": true,
+          "seed": 42,
+          "wave": 1,
+          "score": 190,
+          "bankedScore": 190,
+          "kills": 3,
+          "bankedKills": 3,
+          "completedWave": 1,
+          "hpStart": {
+            "franco": 100,
+            "ryuchi": 100,
+            "alt": 100,
+            "katana": 100,
+            "synth": 100,
+            "percussion": 100
+          },
+          "phase": "rest",
+          "cursor": 3,
+          "wait": 3,
+          "_resume": false
+        },
+        "xp": true,
+        "shards": true,
+        "defeated": []
+      }
+    },
+    {
+      "name": "Wave timers freeze in menus and advance; enemies remain bounded over 25 real waves",
+      "passed": true,
+      "detail": {
+        "paused": true,
+        "rows": [
+          {
+            "wave": 2,
+            "score": 190,
+            "kills": 3,
+            "defeated": 0
+          },
+          {
+            "wave": 3,
+            "score": 530,
+            "kills": 7,
+            "defeated": 0
+          },
+          {
+            "wave": 4,
+            "score": 990,
+            "kills": 11,
+            "defeated": 0
+          },
+          {
+            "wave": 5,
+            "score": 1615,
+            "kills": 16,
+            "defeated": 0
+          },
+          {
+            "wave": 6,
+            "score": 2365,
+            "kills": 21,
+            "defeated": 0
+          },
+          {
+            "wave": 7,
+            "score": 3295,
+            "kills": 27,
+            "defeated": 0
+          },
+          {
+            "wave": 8,
+            "score": 4355,
+            "kills": 33,
+            "defeated": 0
+          },
+          {
+            "wave": 9,
+            "score": 5610,
+            "kills": 40,
+            "defeated": 0
+          },
+          {
+            "wave": 10,
+            "score": 7000,
+            "kills": 47,
+            "defeated": 0
+          },
+          {
+            "wave": 11,
+            "score": 8600,
+            "kills": 55,
+            "defeated": 0
+          },
+          {
+            "wave": 12,
+            "score": 10340,
+            "kills": 63,
+            "defeated": 0
+          },
+          {
+            "wave": 13,
+            "score": 12305,
+            "kills": 72,
+            "defeated": 0
+          },
+          {
+            "wave": 14,
+            "score": 14415,
+            "kills": 81,
+            "defeated": 0
+          },
+          {
+            "wave": 15,
+            "score": 16765,
+            "kills": 91,
+            "defeated": 0
+          },
+          {
+            "wave": 16,
+            "score": 19265,
+            "kills": 101,
+            "defeated": 0
+          },
+          {
+            "wave": 17,
+            "score": 22020,
+            "kills": 112,
+            "defeated": 0
+          },
+          {
+            "wave": 18,
+            "score": 24930,
+            "kills": 123,
+            "defeated": 0
+          },
+          {
+            "wave": 19,
+            "score": 28110,
+            "kills": 135,
+            "defeated": 0
+          },
+          {
+            "wave": 20,
+            "score": 31450,
+            "kills": 147,
+            "defeated": 0
+          },
+          {
+            "wave": 21,
+            "score": 35075,
+            "kills": 160,
+            "defeated": 0
+          },
+          {
+            "wave": 22,
+            "score": 38865,
+            "kills": 173,
+            "defeated": 0
+          },
+          {
+            "wave": 23,
+            "score": 42955,
+            "kills": 187,
+            "defeated": 0
+          },
+          {
+            "wave": 24,
+            "score": 47215,
+            "kills": 201,
+            "defeated": 0
+          },
+          {
+            "wave": 25,
+            "score": 51790,
+            "kills": 216,
+            "defeated": 0
+          },
+          {
+            "wave": 26,
+            "score": 56540,
+            "kills": 231,
+            "defeated": 0
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reload restores wave start with banked score, not partial kill rewards",
+      "passed": true,
+      "detail": {
+        "before": {
+          "active": true,
+          "seed": 42,
+          "wave": 26,
+          "score": 57005,
+          "bankedScore": 56540,
+          "kills": 234,
+          "bankedKills": 231,
+          "completedWave": 25,
+          "hpStart": {
+            "franco": 100,
+            "ryuchi": 100,
+            "alt": 100,
+            "katana": 100,
+            "synth": 100,
+            "percussion": 100
+          },
+          "phase": "fight",
+          "cursor": 3,
+          "wait": 0,
+          "_resume": false
+        },
+        "after": {
+          "active": true,
+          "seed": 42,
+          "wave": 26,
+          "score": 56540,
+          "bankedScore": 56540,
+          "kills": 231,
+          "bankedKills": 231,
+          "completedWave": 25,
+          "hpStart": {
+            "franco": 100,
+            "ryuchi": 100,
+            "alt": 100,
+            "katana": 100,
+            "synth": 100,
+            "percussion": 100
+          },
+          "phase": "fight",
+          "cursor": 3,
+          "wait": 0,
+          "_resume": false
+        },
+        "alive": 3
+      }
+    },
+    {
+      "name": "Actual defeat results, retry and manual exit keep campaign and record intact",
+      "passed": true,
+      "detail": {
+        "score": 56540,
+        "result": {
+          "area": "last_torii",
+          "run": null,
+          "score": 56540,
+          "best": 57005,
+          "retry": true,
+          "reason": "defeat",
+          "complete": true
+        },
+        "retry": {
+          "area": "endless_echo",
+          "wave": 1,
+          "score": 0
+        },
+        "exit": {
+          "area": "last_torii",
+          "reason": "exit",
+          "run": null,
+          "best": 57005
+        }
+      }
+    },
+    {
+      "name": "Living dungeon enemies move, deal real damage and trigger defeat recovery",
+      "passed": true,
+      "detail": {
+        "moved": true,
+        "steps": 291,
+        "active": false,
+        "area": "last_torii",
+        "reason": "defeat",
+        "hp": {
+          "franco": 100,
+          "ryuchi": 100,
+          "alt": 100,
+          "katana": 100,
+          "synth": 100,
+          "percussion": 100
+        }
+      }
+    },
+    {
+      "name": "Save export keeps active expedition rather than replacing it with campaign checkpoint",
+      "passed": true,
+      "detail": {
+        "area": "endless_echo",
+        "seed": 76
+      }
+    },
+    {
+      "name": "Coop reserve selection excludes P2 and arena sync keeps both players walkable",
+      "passed": true,
+      "detail": {
+        "active": true,
+        "reserves": [
+          "katana",
+          "ryuchi"
+        ],
+        "p2": {
+          "x": 13.85,
+          "y": 19.05
+        },
+        "valid": true,
+        "distance": 6.294839156007087,
+        "area": "endless_echo"
+      }
+    },
+    {
+      "name": "Postgame guidance has no obsolete objective marker and arena draws real scene art",
+      "passed": true,
+      "detail": {
+        "route": 0,
+        "objective": "Supere a onda 1.",
+        "area": "endless_echo",
+        "enemies": 3,
+        "sprites": 3,
+        "hud": "ONDA 1 · 3 RESTANTES · 0 PTS"
+      }
+    },
+    {
+      "name": "Touchscreen contexts use postgame menus in landscape and portrait",
+      "passed": true,
+      "detail": [
+        {
+          "width": 844,
+          "height": 390,
+          "touch": 1,
+          "menu": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "touch": 1,
+          "menu": true
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "method": "Isolated Chrome runtime fixtures; no physical controller/mobile or human full campaign validation."
+}
