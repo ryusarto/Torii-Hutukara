@@ -8,8 +8,8 @@
 
 ## [Beta1.8.0] — 2026-11-20
 
-- Planta do estúdio com vaso próprio; sofá vertical junto ao tapete, com colisão e contato com o chão ajustados.
--64quadros novos de corrida para Franco/Ryuchi:12poses por direção e máscara, fase contínua e ciclo520ms; cópiasV5 preservadas.
+- Planta do estúdio com vaso próprio; sofá vertical junto ao tapete, com colisão e contato com o chão ajustados. Carregamento recupera saves antigos que estavam no novo espaço ocupado.
+- 64 quadros novos de corrida para Franco/Ryuchi:12poses por direção e máscara, fase contínua e ciclo520ms; cópiasV5 preservadas.
 - Fundos dos diálogos recuperados das fontes originais, novo panorama da floresta e remoção do escurecimento duplicado; deserto preservado.
 - NPCs com estados de atenção/trabalho/gesto e pequenos percursos seguros quando há arte de marcha.24gestos novos para seis moradoresC1; Belga fora da bancada, sem alterar suas interações.
 - Testes de geometria, ciclo30/60/120Hz, pausa/load/coop, fontes de cinema e callbacks tardios. Evidências finais e limites em `qa/beta-1.8.0/` e [documentação](docs/REVISAO_MUNDO_VIVO_1_8.md).

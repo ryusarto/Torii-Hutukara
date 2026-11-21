@@ -7,6 +7,18 @@ const WorldPolishV1 = {
     return this.images[key];
   },
   ready() { return Promise.all(['sofa_vertical', 'plant_potted'].map(key => this.image(key).decode())); },
+  repairStudioSpawn() {
+    // A pre-1.8 save may stand on tiles newly occupied by the vertical seat.
+    // Repair only that changed footprint; ordinary positions stay exact.
+    if (G?.area !== 'studio' || !current?.worldPolishV1 ||
+        G.x < 1.7 || G.x > 5.3 || G.y < 5.7 || G.y > 12.3 || canBody121(G.x, G.y)) return false;
+    const safe = safeSpawn121(G.x, G.y);
+    if (!safe) return false;
+    G.x = safe.x; G.y = safe.y; trail = []; resetMotion10();
+    cam.x = current.w * T < VW ? (current.w * T - VW) / 2 : clamp(G.x * T - VW / 2, 0, current.w * T - VW);
+    cam.y = current.h * T < VH ? (current.h * T - VH) / 2 : clamp(G.y * T - VH / 2, 0, current.h * T - VH);
+    return true;
+  },
   installStudio() {
     const studio = areas.studio;
     if (!studio || studio.worldPolishV1) return;
@@ -32,6 +44,8 @@ const WorldPolishV1 = {
 };
 const polishBuildMapsV1 = buildMaps;
 buildMaps = function(...args) { const result = polishBuildMapsV1(...args); WorldPolishV1.installStudio(); return result; };
+const polishSetAreaV1 = setArea;
+setArea = function(...args) { const result = polishSetAreaV1(...args); WorldPolishV1.repairStudioSpawn(); return result; };
 const polishDrawPropV1 = drawProp;
 drawProp = function(p, cx, cy) {
   if (G?.area === 'studio') {
