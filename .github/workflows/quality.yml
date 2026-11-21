@@ -62,6 +62,8 @@ jobs:
           python3 -m http.server 8771 --bind 127.0.0.1 --directory production/playtest-dist &
           test_server_pid=$!
           trap 'kill "$test_server_pid"' EXIT
+          node qa/hero_attack_fx_browser.cjs http://127.0.0.1:8771/
+          node qa/enemy_attack_fx_browser.cjs http://127.0.0.1:8771/
           node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
           node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/
           node qa/environment_world_browser.cjs http://127.0.0.1:8771/
@@ -90,7 +92,7 @@ jobs:
             qa/environment-world-v1/
 
             qa/postgame/
-            qa/dungeon-v2/
+            qa/dungeon-v3/
             qa/playtest/SITE_TEST_RESULTS.json
             qa/screenshots-local/pages/
             qa/screenshots-local/review-110/

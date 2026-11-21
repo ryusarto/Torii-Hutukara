@@ -1,3 +1,10 @@
+## [Beta 1.13.0] — 2026-11-21
+
+- Na Fenda, o dano e as baixas duram até o fim da expedição. A equipe escolhe uma entre três melhorias a cada onda concluída. As ofertas e os níveis escolhidos acompanham o save da tentativa.
+- Seis melhorias permitem especializar a equipe em dano, abertura, finalização, proteção, ressonância ou atordoamento. O inventário e a formação da campanha retornam ao sair.
+- Os seis heróis ganharam sprites de efeitos para os ataques básicos, especiais, avançados e supers, com suporte a combos e coop local. O primeiro corte de Ryuchi usa uma sequência de quatro imagens de arco de espada.
+- Os quatro chefes e as sete famílias de inimigos receberam efeitos vinculados aos movimentos de ataque e aos disparos.
+
 ## [Beta 1.12.0] — 2026-11-21
 
 - Fenda das Ressonâncias com curva gradual para a meta de15–20min, cinco perfis, novas famílias progressivas e ressonante a cada cinco ondas. Limites de6/7inimigos vivos e crescimento moderado de HP; tempos dos golpes preservados.

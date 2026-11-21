@@ -1,0 +1,207 @@
+{
+  "cell": 40,
+  "frames": 8,
+  "rows": [
+    {
+      "row": 0,
+      "attacks": [
+        "boss/ring",
+        "boss/ring/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 1,
+      "attacks": [
+        "boss/fan",
+        "boss/fan/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 2,
+      "attacks": [
+        "boss/charge",
+        "boss/charge/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 3,
+      "attacks": [
+        "voice_boss/lanes",
+        "voice_boss/lanes/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 4,
+      "attacks": [
+        "voice_boss/feedback",
+        "voice_boss/feedback/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 5,
+      "attacks": [
+        "voice_boss/double_wave"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 6,
+      "attacks": [
+        "voice_boss/volley",
+        "voice_boss/volley/shot"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 7,
+      "attacks": [
+        "c3_metronome/ring",
+        "c3_metronome/ring/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 8,
+      "attacks": [
+        "c3_metronome/cross",
+        "c3_metronome/cross/ground",
+        "c3_drone/pistons"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 9,
+      "attacks": [
+        "c3_metronome/fan",
+        "c3_metronome/fan/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 10,
+      "attacks": [
+        "c3_metronome/pulse",
+        "c3_metronome/pulse/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 11,
+      "attacks": [
+        "c3_silence/ring",
+        "c3_silence/ring/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 12,
+      "attacks": [
+        "c3_silence/cross",
+        "c3_silence/cross/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 13,
+      "attacks": [
+        "c3_silence/fan",
+        "c3_silence/fan/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 14,
+      "attacks": [
+        "c3_silence/pulse",
+        "c3_silence/pulse/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 15,
+      "attacks": [
+        "c3_silence/rain",
+        "c3_silence/rain/ground"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 16,
+      "attacks": [
+        "c3_silence/chase",
+        "c3_silence/chase/shot"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 17,
+      "attacks": [
+        "c3_silence/orbit",
+        "c3_silence/orbit/shot"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 18,
+      "attacks": [
+        "hush/claws"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 19,
+      "attacks": [
+        "whisper/wisp",
+        "whisper/shot"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 20,
+      "attacks": [
+        "abafador/bell"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 21,
+      "attacks": [
+        "abafador/aura"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 22,
+      "attacks": [
+        "compasso/pendulum"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 23,
+      "attacks": [
+        "c3_echo/fracture"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 24,
+      "attacks": [
+        "espelho/mirror"
+      ],
+      "distinctFrames": 8
+    },
+    {
+      "row": 25,
+      "attacks": [
+        "espelho/echo"
+      ],
+      "distinctFrames": 8
+    }
+  ]
+}
