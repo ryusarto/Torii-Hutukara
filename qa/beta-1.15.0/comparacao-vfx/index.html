@@ -1,0 +1,11 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Ataques em combate · Comparação</title>
+<style>body{max-width:54rem;margin:2rem auto;padding:0 1rem;background:#181721;color:#f1e5ce;font:16px/1.5 system-ui}a{color:#bce5ed}select{font:inherit;padding:.45rem}img{display:block;width:100%;height:auto;margin-top:.9rem}</style>
+<h1>Ataques em combate</h1><p>Cada ação aparece em duas versões. A 1.14.0 está acima da 1.15.0. O comando acontece em 0,00 s.</p>
+<label>Personagem <select id="hero"><option value="franco">Franco</option><option value="ryuchi">Ryuchi</option><option value="alt">Franco · Arqueiro</option><option value="katana">Ryuchi · Katana</option><option value="synth">Franco · Sintetizador</option><option value="percussion">Ryuchi · Percussionista</option></select></label><img id="preview" src="franco.webp" alt="Franco em combate nas duas versões">
+<script>const hero=document.querySelector('#hero'),preview=document.querySelector('#preview');hero.onchange=()=>{preview.src=hero.value+'.webp';preview.alt=hero.selectedOptions[0].text+' em combate nas duas versões'};</script>
+<p><a href="FLECHA.png">Comparar a flecha em voo</a> · <a href="GOLPES.png">Ver os impactos dos seis personagens</a></p>
+<h2>Super de Franco em grupo</h2>
+<p>Recorte do jogo em escala nativa e velocidade de combate.</p>
+<img style="width:256px;max-width:100%" src="FRANCO-GRUPO.webp" alt="Franco usa seu super perto de dois aliados e um inimigo">
+<p><a href="FRANCO-GRUPO.webp">Abrir a animação</a> · <a href="FRANCO-GRUPO-FASES.png">Ver a saída, a passagem e o contato</a></p></html>

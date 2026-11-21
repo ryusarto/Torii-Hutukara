@@ -132,6 +132,12 @@ def save_group(group_path, sha, out):
     frames = [frame(shot, i) for i in range(COUNT)]
     frames[0].save(out / 'FRANCO-GRUPO.webp', save_all=True, append_images=frames[1:],
                    duration=FRAME_MS, loop=0, lossless=True, method=4)
+    sequence = Image.new('RGB', (3 * WIDTH, HEIGHT + 25), '#17151e')
+    captions = ImageDraw.Draw(sequence)
+    for i, (index, label) in enumerate([(6, 'Saída'), (10, 'Passagem'), (13, 'Contato')]):
+        sequence.paste(frames[index], (i * WIDTH, 25))
+        captions.text((i * WIDTH + 8, 3), label, font=font(15), fill='#ffe6ad')
+    sequence.save(out / 'FRANCO-GRUPO-FASES.png', optimize=True)
     return group_stats
 
 
@@ -140,7 +146,7 @@ def save_page(out, versions, group):
     group_panel = """<h2>Super de Franco em grupo</h2>
 <p>Recorte do jogo em escala nativa e velocidade de combate.</p>
 <img style="width:256px;max-width:100%" src="FRANCO-GRUPO.webp" alt="Franco usa seu super perto de dois aliados e um inimigo">
-<p><a href="FRANCO-GRUPO.webp">Abrir a animação</a></p>""" if group else ''
+<p><a href="FRANCO-GRUPO.webp">Abrir a animação</a> · <a href="FRANCO-GRUPO-FASES.png">Ver a saída, a passagem e o contato</a></p>""" if group else ''
     page = f"""<!doctype html><html lang="pt-BR"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Ataques em combate · Comparação</title>
 <style>body{{max-width:54rem;margin:2rem auto;padding:0 1rem;background:#181721;color:#f1e5ce;font:16px/1.5 system-ui}}a{{color:#bce5ed}}select{{font:inherit;padding:.45rem}}img{{display:block;width:100%;height:auto;margin-top:.9rem}}</style>

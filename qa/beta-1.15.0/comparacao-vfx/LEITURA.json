@@ -1,0 +1,2655 @@
+{
+  "baseline": "2df772eb8f3d5fd019fcd04af72a819ab80008ed534c5edaae61c3fbf88cf7ab",
+  "candidate": "3e3aef74f2033ca540b32e3cba14a068c0c7ab1db707692251689d113e6970e4",
+  "versions": [
+    "1.14.0",
+    "1.15.0"
+  ],
+  "arrowRasterIdentical": true,
+  "arrowHashes": [
+    "0a5b54e3247f42d8e05b774f8e9bd7264bc0bd64e8870c4fb2c21c455c4e14a2",
+    "0a5b54e3247f42d8e05b774f8e9bd7264bc0bd64e8870c4fb2c21c455c4e14a2"
+  ],
+  "arrowTrajectoryIdentical": true,
+  "cases": {
+    "franco_basic": {
+      "oldPeakCastPixels": 336,
+      "newPeakCastPixels": 136,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedBodyStates": [
+        "attack_1"
+      ],
+      "targetDamage": 20,
+      "peakNewArtAgainstFallback": 213,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "franco_second": {
+      "oldPeakCastPixels": 340,
+      "newPeakCastPixels": 314,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "observedBodyStates": [
+        "attack_2"
+      ],
+      "targetDamage": 20,
+      "peakNewArtAgainstFallback": 357,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "franco_third": {
+      "oldPeakCastPixels": 492,
+      "newPeakCastPixels": 561,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "observedBodyStates": [
+        "attack_3"
+      ],
+      "targetDamage": 28,
+      "peakNewArtAgainstFallback": 579,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "franco_skill": {
+      "oldPeakCastPixels": 765,
+      "newPeakCastPixels": 38,
+      "visibleCastFrames": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "observedBodyStates": [
+        "skill"
+      ],
+      "targetDamage": 30,
+      "peakNewArtAgainstFallback": 403,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "franco_advanced": {
+      "oldPeakCastPixels": 1326,
+      "newPeakCastPixels": 53,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "observedBodyStates": [
+        "advanced"
+      ],
+      "targetDamage": 35,
+      "peakNewArtAgainstFallback": 708,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    "franco_super": {
+      "oldPeakCastPixels": 3415,
+      "newPeakCastPixels": 193,
+      "visibleCastFrames": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "observedBodyStates": [
+        "signature"
+      ],
+      "targetDamage": 32,
+      "peakNewArtAgainstFallback": 1347,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "ryuchi_basic": {
+      "oldPeakCastPixels": 1131,
+      "newPeakCastPixels": 56,
+      "visibleCastFrames": [
+        5,
+        6
+      ],
+      "observedBodyStates": [
+        "attack_1"
+      ],
+      "targetDamage": 10,
+      "peakNewArtAgainstFallback": 524,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7
+      ]
+    },
+    "ryuchi_second": {
+      "oldPeakCastPixels": 554,
+      "newPeakCastPixels": 61,
+      "visibleCastFrames": [
+        5,
+        6,
+        7
+      ],
+      "observedBodyStates": [
+        "attack_2"
+      ],
+      "targetDamage": 12,
+      "peakNewArtAgainstFallback": 271,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7
+      ]
+    },
+    "ryuchi_third": {
+      "oldPeakCastPixels": 729,
+      "newPeakCastPixels": 41,
+      "visibleCastFrames": [
+        5,
+        6,
+        7
+      ],
+      "observedBodyStates": [
+        "attack_3"
+      ],
+      "targetDamage": 14,
+      "peakNewArtAgainstFallback": 395,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7
+      ]
+    },
+    "ryuchi_skill": {
+      "oldPeakCastPixels": 215,
+      "newPeakCastPixels": 83,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "observedBodyStates": [
+        "skill"
+      ],
+      "targetDamage": 42,
+      "peakNewArtAgainstFallback": 114,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "ryuchi_advanced": {
+      "oldPeakCastPixels": 715,
+      "newPeakCastPixels": 289,
+      "visibleCastFrames": [
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "observedBodyStates": [
+        "advanced"
+      ],
+      "targetDamage": 29,
+      "peakNewArtAgainstFallback": 859,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    "ryuchi_super": {
+      "oldPeakCastPixels": 988,
+      "newPeakCastPixels": 379,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "observedBodyStates": [
+        "signature"
+      ],
+      "targetDamage": 40,
+      "peakNewArtAgainstFallback": 592,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "alt_basic": {
+      "oldPeakCastPixels": 212,
+      "newPeakCastPixels": 93,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "observedBodyStates": [
+        "attack_1"
+      ],
+      "targetDamage": 23,
+      "peakNewArtAgainstFallback": 0,
+      "newArtFramesAgainstFallback": []
+    },
+    "alt_skill": {
+      "oldPeakCastPixels": 373,
+      "newPeakCastPixels": 253,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "observedBodyStates": [
+        "skill"
+      ],
+      "targetDamage": 39,
+      "peakNewArtAgainstFallback": 0,
+      "newArtFramesAgainstFallback": []
+    },
+    "alt_advanced": {
+      "oldPeakCastPixels": 523,
+      "newPeakCastPixels": 410,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "observedBodyStates": [
+        "advanced"
+      ],
+      "targetDamage": 72,
+      "peakNewArtAgainstFallback": 0,
+      "newArtFramesAgainstFallback": []
+    },
+    "alt_super": {
+      "oldPeakCastPixels": 1045,
+      "newPeakCastPixels": 328,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "observedBodyStates": [
+        "signature"
+      ],
+      "targetDamage": 54,
+      "peakNewArtAgainstFallback": 0,
+      "newArtFramesAgainstFallback": []
+    },
+    "katana_basic": {
+      "oldPeakCastPixels": 447,
+      "newPeakCastPixels": 24,
+      "visibleCastFrames": [
+        5,
+        7
+      ],
+      "observedBodyStates": [
+        "attack_1"
+      ],
+      "targetDamage": 12,
+      "peakNewArtAgainstFallback": 264,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "katana_second": {
+      "oldPeakCastPixels": 428,
+      "newPeakCastPixels": 46,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedBodyStates": [
+        "attack_2"
+      ],
+      "targetDamage": 14,
+      "peakNewArtAgainstFallback": 127,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "katana_third": {
+      "oldPeakCastPixels": 713,
+      "newPeakCastPixels": 89,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedBodyStates": [
+        "attack_3"
+      ],
+      "targetDamage": 23,
+      "peakNewArtAgainstFallback": 127,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "katana_skill": {
+      "oldPeakCastPixels": 404,
+      "newPeakCastPixels": 608,
+      "visibleCastFrames": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "observedBodyStates": [
+        "skill"
+      ],
+      "targetDamage": 34,
+      "peakNewArtAgainstFallback": 837,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "katana_advanced": {
+      "oldPeakCastPixels": 1179,
+      "newPeakCastPixels": 264,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+      ],
+      "observedBodyStates": [
+        "advanced",
+        "attack_3"
+      ],
+      "targetDamage": 40,
+      "peakNewArtAgainstFallback": 367,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "katana_super": {
+      "oldPeakCastPixels": 938,
+      "newPeakCastPixels": 661,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "observedBodyStates": [
+        "signature"
+      ],
+      "targetDamage": 60,
+      "peakNewArtAgainstFallback": 776,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "synth_basic": {
+      "oldPeakCastPixels": 185,
+      "newPeakCastPixels": 268,
+      "visibleCastFrames": [
+        5,
+        6
+      ],
+      "observedBodyStates": [
+        "attack_1"
+      ],
+      "targetDamage": 10,
+      "peakNewArtAgainstFallback": 284,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7
+      ]
+    },
+    "synth_second": {
+      "oldPeakCastPixels": 257,
+      "newPeakCastPixels": 185,
+      "visibleCastFrames": [
+        5
+      ],
+      "observedBodyStates": [
+        "attack_2"
+      ],
+      "targetDamage": 12,
+      "peakNewArtAgainstFallback": 211,
+      "newArtFramesAgainstFallback": [
+        5,
+        7
+      ]
+    },
+    "synth_third": {
+      "oldPeakCastPixels": 324,
+      "newPeakCastPixels": 93,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedBodyStates": [
+        "attack_3"
+      ],
+      "targetDamage": 18,
+      "peakNewArtAgainstFallback": 103,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "synth_skill": {
+      "oldPeakCastPixels": 3640,
+      "newPeakCastPixels": 526,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "observedBodyStates": [
+        "skill"
+      ],
+      "targetDamage": 14,
+      "peakNewArtAgainstFallback": 1879,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ]
+    },
+    "synth_advanced": {
+      "oldPeakCastPixels": 2151,
+      "newPeakCastPixels": 223,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "observedBodyStates": [
+        "advanced"
+      ],
+      "targetDamage": 24,
+      "peakNewArtAgainstFallback": 1238,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "synth_super": {
+      "oldPeakCastPixels": 2033,
+      "newPeakCastPixels": 164,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "observedBodyStates": [
+        "signature"
+      ],
+      "targetDamage": 32,
+      "peakNewArtAgainstFallback": 980,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "percussion_basic": {
+      "oldPeakCastPixels": 286,
+      "newPeakCastPixels": 45,
+      "visibleCastFrames": [
+        5,
+        6,
+        7
+      ],
+      "observedBodyStates": [
+        "attack_1"
+      ],
+      "targetDamage": 12,
+      "peakNewArtAgainstFallback": 66,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7
+      ]
+    },
+    "percussion_second": {
+      "oldPeakCastPixels": 464,
+      "newPeakCastPixels": 169,
+      "visibleCastFrames": [
+        5,
+        6
+      ],
+      "observedBodyStates": [
+        "attack_2"
+      ],
+      "targetDamage": 14,
+      "peakNewArtAgainstFallback": 190,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7
+      ]
+    },
+    "percussion_third": {
+      "oldPeakCastPixels": 514,
+      "newPeakCastPixels": 210,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "observedBodyStates": [
+        "attack_3"
+      ],
+      "targetDamage": 28,
+      "peakNewArtAgainstFallback": 210,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "percussion_skill": {
+      "oldPeakCastPixels": 2453,
+      "newPeakCastPixels": 362,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "observedBodyStates": [
+        "attack_3",
+        "skill"
+      ],
+      "targetDamage": 30,
+      "peakNewArtAgainstFallback": 1609,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "percussion_advanced": {
+      "oldPeakCastPixels": 2715,
+      "newPeakCastPixels": 744,
+      "visibleCastFrames": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "observedBodyStates": [
+        "advanced"
+      ],
+      "targetDamage": 51,
+      "peakNewArtAgainstFallback": 1889,
+      "newArtFramesAgainstFallback": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    "percussion_super": {
+      "oldPeakCastPixels": 2706,
+      "newPeakCastPixels": 935,
+      "visibleCastFrames": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "observedBodyStates": [
+        "signature"
+      ],
+      "targetDamage": 36,
+      "peakNewArtAgainstFallback": 1781,
+      "newArtFramesAgainstFallback": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    }
+  },
+  "groupSupers": {
+    "franco_super": {
+      "peakFaceOverlapFraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peakTorsoOverlapFraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frames": [
+        {
+          "frame": 5,
+          "changedPixels": 16,
+          "aheadOfLeader": 10,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 81
+        },
+        {
+          "frame": 6,
+          "changedPixels": 17,
+          "aheadOfLeader": 17,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 85
+        },
+        {
+          "frame": 7,
+          "changedPixels": 64,
+          "aheadOfLeader": 64,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 89
+        },
+        {
+          "frame": 8,
+          "changedPixels": 118,
+          "aheadOfLeader": 118,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 92
+        },
+        {
+          "frame": 9,
+          "changedPixels": 162,
+          "aheadOfLeader": 162,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 100
+        },
+        {
+          "frame": 10,
+          "changedPixels": 187,
+          "aheadOfLeader": 187,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 108
+        },
+        {
+          "frame": 11,
+          "changedPixels": 201,
+          "aheadOfLeader": 201,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 117
+        },
+        {
+          "frame": 12,
+          "changedPixels": 193,
+          "aheadOfLeader": 193,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 14,
+          "withinFourPixelsOfRenderedTarget": 8,
+          "centerX": 124
+        },
+        {
+          "frame": 13,
+          "changedPixels": 216,
+          "aheadOfLeader": 216,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 38,
+          "withinFourPixelsOfRenderedTarget": 19,
+          "centerX": 129
+        },
+        {
+          "frame": 14,
+          "changedPixels": 168,
+          "aheadOfLeader": 168,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 35,
+          "withinFourPixelsOfRenderedTarget": 17,
+          "centerX": 130
+        },
+        {
+          "frame": 15,
+          "changedPixels": 132,
+          "aheadOfLeader": 132,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 31,
+          "withinFourPixelsOfRenderedTarget": 14,
+          "centerX": 132
+        },
+        {
+          "frame": 16,
+          "changedPixels": 44,
+          "aheadOfLeader": 44,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 8,
+          "withinFourPixelsOfRenderedTarget": 5,
+          "centerX": 133
+        },
+        {
+          "frame": 17,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 18,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 19,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 20,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 21,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 22,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 23,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 24,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 25,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 26,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 27,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 28,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 29,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 30,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 31,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 32,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 33,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 34,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 35,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        }
+      ]
+    },
+    "ryuchi_super": {
+      "peakFaceOverlapFraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peakTorsoOverlapFraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frames": [
+        {
+          "frame": 5,
+          "changedPixels": 268,
+          "aheadOfLeader": 242,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 87
+        },
+        {
+          "frame": 6,
+          "changedPixels": 260,
+          "aheadOfLeader": 260,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 1,
+          "centerX": 99
+        },
+        {
+          "frame": 7,
+          "changedPixels": 338,
+          "aheadOfLeader": 338,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 35,
+          "centerX": 100
+        },
+        {
+          "frame": 8,
+          "changedPixels": 338,
+          "aheadOfLeader": 301,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 45,
+          "centerX": 94
+        },
+        {
+          "frame": 9,
+          "changedPixels": 349,
+          "aheadOfLeader": 315,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 3,
+          "centerX": 89
+        },
+        {
+          "frame": 10,
+          "changedPixels": 336,
+          "aheadOfLeader": 303,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 89
+        },
+        {
+          "frame": 11,
+          "changedPixels": 452,
+          "aheadOfLeader": 396,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 89
+        },
+        {
+          "frame": 12,
+          "changedPixels": 493,
+          "aheadOfLeader": 432,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 88
+        },
+        {
+          "frame": 13,
+          "changedPixels": 215,
+          "aheadOfLeader": 178,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 87
+        },
+        {
+          "frame": 14,
+          "changedPixels": 190,
+          "aheadOfLeader": 150,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 87
+        },
+        {
+          "frame": 15,
+          "changedPixels": 58,
+          "aheadOfLeader": 34,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 86
+        },
+        {
+          "frame": 16,
+          "changedPixels": 8,
+          "aheadOfLeader": 3,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 84
+        },
+        {
+          "frame": 17,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 18,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 19,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 20,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 21,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 22,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 23,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 24,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 25,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 26,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 27,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 28,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 29,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 30,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 31,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 32,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 33,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 34,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 35,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        }
+      ]
+    },
+    "alt_super": {
+      "peakFaceOverlapFraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peakTorsoOverlapFraction": [
+        0.015,
+        0.019,
+        0.003
+      ],
+      "frames": [
+        {
+          "frame": 5,
+          "changedPixels": 161,
+          "aheadOfLeader": 141,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 87
+        },
+        {
+          "frame": 6,
+          "changedPixels": 188,
+          "aheadOfLeader": 173,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 86
+        },
+        {
+          "frame": 7,
+          "changedPixels": 221,
+          "aheadOfLeader": 205,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 86
+        },
+        {
+          "frame": 8,
+          "changedPixels": 262,
+          "aheadOfLeader": 217,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 85
+        },
+        {
+          "frame": 9,
+          "changedPixels": 334,
+          "aheadOfLeader": 284,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 87
+        },
+        {
+          "frame": 10,
+          "changedPixels": 315,
+          "aheadOfLeader": 264,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 87
+        },
+        {
+          "frame": 11,
+          "changedPixels": 307,
+          "aheadOfLeader": 252,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 87
+        },
+        {
+          "frame": 12,
+          "changedPixels": 220,
+          "aheadOfLeader": 199,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 89
+        },
+        {
+          "frame": 13,
+          "changedPixels": 254,
+          "aheadOfLeader": 191,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 87
+        },
+        {
+          "frame": 14,
+          "changedPixels": 318,
+          "aheadOfLeader": 230,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 87
+        },
+        {
+          "frame": 15,
+          "changedPixels": 318,
+          "aheadOfLeader": 230,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 87
+        },
+        {
+          "frame": 16,
+          "changedPixels": 163,
+          "aheadOfLeader": 125,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 85
+        },
+        {
+          "frame": 17,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 18,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 19,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 20,
+          "changedPixels": 342,
+          "aheadOfLeader": 342,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 75,
+          "centerX": 179
+        },
+        {
+          "frame": 21,
+          "changedPixels": 328,
+          "aheadOfLeader": 328,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 89,
+          "centerX": 180
+        },
+        {
+          "frame": 22,
+          "changedPixels": 336,
+          "aheadOfLeader": 336,
+          "atTarget": 1,
+          "atTargetBeforeRecoil": 1,
+          "withinFourPixelsOfRenderedTarget": 43,
+          "centerX": 181
+        },
+        {
+          "frame": 23,
+          "changedPixels": 364,
+          "aheadOfLeader": 364,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 59,
+          "centerX": 181
+        },
+        {
+          "frame": 24,
+          "changedPixels": 390,
+          "aheadOfLeader": 390,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 86,
+          "centerX": 180
+        },
+        {
+          "frame": 25,
+          "changedPixels": 432,
+          "aheadOfLeader": 432,
+          "atTarget": 1,
+          "atTargetBeforeRecoil": 1,
+          "withinFourPixelsOfRenderedTarget": 91,
+          "centerX": 179
+        },
+        {
+          "frame": 26,
+          "changedPixels": 434,
+          "aheadOfLeader": 434,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 59,
+          "centerX": 179
+        },
+        {
+          "frame": 27,
+          "changedPixels": 295,
+          "aheadOfLeader": 295,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 67,
+          "centerX": 179
+        },
+        {
+          "frame": 28,
+          "changedPixels": 340,
+          "aheadOfLeader": 340,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 88,
+          "centerX": 179
+        },
+        {
+          "frame": 29,
+          "changedPixels": 305,
+          "aheadOfLeader": 305,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 66,
+          "centerX": 181
+        },
+        {
+          "frame": 30,
+          "changedPixels": 335,
+          "aheadOfLeader": 335,
+          "atTarget": 1,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 52,
+          "centerX": 181
+        },
+        {
+          "frame": 31,
+          "changedPixels": 360,
+          "aheadOfLeader": 360,
+          "atTarget": 2,
+          "atTargetBeforeRecoil": 1,
+          "withinFourPixelsOfRenderedTarget": 60,
+          "centerX": 181
+        },
+        {
+          "frame": 32,
+          "changedPixels": 424,
+          "aheadOfLeader": 424,
+          "atTarget": 3,
+          "atTargetBeforeRecoil": 1,
+          "withinFourPixelsOfRenderedTarget": 84,
+          "centerX": 180
+        },
+        {
+          "frame": 33,
+          "changedPixels": 427,
+          "aheadOfLeader": 427,
+          "atTarget": 1,
+          "atTargetBeforeRecoil": 1,
+          "withinFourPixelsOfRenderedTarget": 79,
+          "centerX": 180
+        },
+        {
+          "frame": 34,
+          "changedPixels": 436,
+          "aheadOfLeader": 436,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 67,
+          "centerX": 179
+        },
+        {
+          "frame": 35,
+          "changedPixels": 469,
+          "aheadOfLeader": 469,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 109,
+          "centerX": 179
+        }
+      ]
+    },
+    "katana_super": {
+      "peakFaceOverlapFraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peakTorsoOverlapFraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frames": [
+        {
+          "frame": 5,
+          "changedPixels": 1087,
+          "aheadOfLeader": 1087,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 210,
+          "centerX": 108
+        },
+        {
+          "frame": 6,
+          "changedPixels": 1107,
+          "aheadOfLeader": 1107,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 211,
+          "centerX": 107
+        },
+        {
+          "frame": 7,
+          "changedPixels": 1205,
+          "aheadOfLeader": 1205,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 232,
+          "centerX": 108
+        },
+        {
+          "frame": 8,
+          "changedPixels": 1207,
+          "aheadOfLeader": 1207,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 232,
+          "centerX": 108
+        },
+        {
+          "frame": 9,
+          "changedPixels": 1555,
+          "aheadOfLeader": 1555,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 342,
+          "centerX": 113
+        },
+        {
+          "frame": 10,
+          "changedPixels": 1623,
+          "aheadOfLeader": 1612,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 340,
+          "centerX": 112
+        },
+        {
+          "frame": 11,
+          "changedPixels": 1226,
+          "aheadOfLeader": 1226,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 201,
+          "centerX": 112
+        },
+        {
+          "frame": 12,
+          "changedPixels": 1286,
+          "aheadOfLeader": 1286,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 200,
+          "centerX": 111
+        },
+        {
+          "frame": 13,
+          "changedPixels": 758,
+          "aheadOfLeader": 758,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 140,
+          "centerX": 109
+        },
+        {
+          "frame": 14,
+          "changedPixels": 718,
+          "aheadOfLeader": 718,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 134,
+          "centerX": 109
+        },
+        {
+          "frame": 15,
+          "changedPixels": 131,
+          "aheadOfLeader": 131,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 39,
+          "centerX": 110
+        },
+        {
+          "frame": 16,
+          "changedPixels": 9,
+          "aheadOfLeader": 9,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 3,
+          "centerX": 112
+        },
+        {
+          "frame": 17,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 18,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 19,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 20,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 21,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 22,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 23,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 24,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 25,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 26,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 27,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 28,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 29,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 30,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 31,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 32,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 33,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 34,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 35,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        }
+      ]
+    },
+    "synth_super": {
+      "peakFaceOverlapFraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peakTorsoOverlapFraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frames": [
+        {
+          "frame": 5,
+          "changedPixels": 237,
+          "aheadOfLeader": 237,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 98
+        },
+        {
+          "frame": 6,
+          "changedPixels": 254,
+          "aheadOfLeader": 254,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 99
+        },
+        {
+          "frame": 7,
+          "changedPixels": 422,
+          "aheadOfLeader": 422,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 15,
+          "centerX": 103
+        },
+        {
+          "frame": 8,
+          "changedPixels": 417,
+          "aheadOfLeader": 417,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 33,
+          "centerX": 105
+        },
+        {
+          "frame": 9,
+          "changedPixels": 531,
+          "aheadOfLeader": 531,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 58,
+          "centerX": 106
+        },
+        {
+          "frame": 10,
+          "changedPixels": 444,
+          "aheadOfLeader": 444,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 49,
+          "centerX": 107
+        },
+        {
+          "frame": 11,
+          "changedPixels": 322,
+          "aheadOfLeader": 322,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 44,
+          "centerX": 107
+        },
+        {
+          "frame": 12,
+          "changedPixels": 308,
+          "aheadOfLeader": 308,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 32,
+          "centerX": 106
+        },
+        {
+          "frame": 13,
+          "changedPixels": 141,
+          "aheadOfLeader": 141,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 10,
+          "centerX": 105
+        },
+        {
+          "frame": 14,
+          "changedPixels": 126,
+          "aheadOfLeader": 126,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 9,
+          "centerX": 105
+        },
+        {
+          "frame": 15,
+          "changedPixels": 35,
+          "aheadOfLeader": 35,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 17,
+          "centerX": 118
+        },
+        {
+          "frame": 16,
+          "changedPixels": 3,
+          "aheadOfLeader": 3,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 1,
+          "centerX": 116
+        },
+        {
+          "frame": 17,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 18,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 19,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 20,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 21,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 22,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 23,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 24,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 25,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 26,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 27,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 28,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 29,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 30,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 31,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 32,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 33,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 34,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 35,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        }
+      ]
+    },
+    "percussion_super": {
+      "peakFaceOverlapFraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "peakTorsoOverlapFraction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frames": [
+        {
+          "frame": 5,
+          "changedPixels": 140,
+          "aheadOfLeader": 126,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 87
+        },
+        {
+          "frame": 6,
+          "changedPixels": 238,
+          "aheadOfLeader": 224,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 90
+        },
+        {
+          "frame": 7,
+          "changedPixels": 327,
+          "aheadOfLeader": 306,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 91
+        },
+        {
+          "frame": 8,
+          "changedPixels": 531,
+          "aheadOfLeader": 472,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 90
+        },
+        {
+          "frame": 9,
+          "changedPixels": 386,
+          "aheadOfLeader": 305,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 85
+        },
+        {
+          "frame": 10,
+          "changedPixels": 262,
+          "aheadOfLeader": 207,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 84
+        },
+        {
+          "frame": 11,
+          "changedPixels": 197,
+          "aheadOfLeader": 171,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 86
+        },
+        {
+          "frame": 12,
+          "changedPixels": 12,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 58
+        },
+        {
+          "frame": 13,
+          "changedPixels": 11,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 58
+        },
+        {
+          "frame": 14,
+          "changedPixels": 1,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 52
+        },
+        {
+          "frame": 15,
+          "changedPixels": 1,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": 52
+        },
+        {
+          "frame": 16,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 17,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 18,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 19,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 20,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 21,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 22,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 23,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 24,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 25,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 26,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 27,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 28,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 29,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 30,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 31,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 32,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 33,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 34,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        },
+        {
+          "frame": 35,
+          "changedPixels": 0,
+          "aheadOfLeader": 0,
+          "atTarget": 0,
+          "atTargetBeforeRecoil": 0,
+          "withinFourPixelsOfRenderedTarget": 0,
+          "centerX": null
+        }
+      ]
+    }
+  }
+}
