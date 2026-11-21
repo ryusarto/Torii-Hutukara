@@ -1,3 +1,9 @@
+## [Beta 1.15.0] — 2026-11-21
+
+- A vibração das cordas acompanha os golpes de baixo do Franco. No super, um pulso âmbar sai do instrumento na direção dos adversários. A espada do Ryuchi deixa um corte sonoro, e a katana abre um traço de tinta violeta.
+- O sintetizador desenha ondas eletrônicas. Na percussão, as peles dos tambores ondulam a cada batida. As silhuetas dos companheiros ficam à frente dos efeitos. Cada integrante tem desenhos próprios para os três golpes do combo, as duas técnicas e o super.
+- A flecha do Franco arqueiro mantém a trajetória e o rastro que acompanham o projétil durante o voo.
+
 ## [Beta 1.14.0] — 2026-11-21
 
 - Os seis personagens ganharam poses corporais de contato para ataques e técnicas, nas quatro direções. A animação intercala o contato entre a preparação e a recuperação do golpe.

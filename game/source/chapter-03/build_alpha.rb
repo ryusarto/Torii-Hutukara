@@ -294,6 +294,9 @@ leftovers = runtime.scan(/__C3_[A-Z0-9_]+__/).uniq
 raise "Placeholders restantes: #{leftovers.join(', ')}" unless leftovers.empty?
 
 marker = "\ninit();\n</script>"
+require_relative 'hero_legacy_fx'
+install_hero_legacy_fx!(html)
+
 position = html.rindex(marker)
 raise 'Ponto final de injeção não encontrado' unless position
 edits_json = JSON.generate(JSON.parse(File.read(DIALOGUE_EDITS, encoding: 'UTF-8')))
@@ -479,12 +482,18 @@ hero_attack_path = File.join(ROOT, 'hero_attack_fx.js')
 enemy_attack_path = File.join(ROOT, 'enemy_attack_fx.js')
 hero_attack_atlas = File.join(REPO_ROOT, 'assets', 'hero-attack-fx', 'v1', 'hero_attacks.png')
 sword_atlas = File.join(LOCOMOTION_ASSETS, 'ryuchi-sword-swipe.png')
+signature_dir = File.join(REPO_ROOT, 'assets', 'hero-attack-fx', 'v2')
+signature_paths = %w[franco ryuchi katana synth percussion].to_h do |hero|
+  [hero, File.join(signature_dir, 'atlas', "#{hero}.png")]
+end
+bass_pulse_path = File.join(signature_dir, 'atlas', 'onda-do-baixo.png')
 hero_attack_runtime = File.read(hero_attack_path, encoding: 'UTF-8')
-{ '__HERO_ATTACK_ATLAS__' => hero_attack_atlas, '__RYUCHI_SWORD_ATLAS__' => sword_atlas }.each do |token, path|
+replace_once!(hero_attack_runtime, '__HERO_ATTACK_V2_ATLASES__', png_map(signature_paths), 'efeitos próprios dos cinco instrumentos e armas')
+{ '__FRANCO_BASS_PULSE__' => bass_pulse_path, '__HERO_ATTACK_ATLAS__' => hero_attack_atlas, '__RYUCHI_SWORD_ATLAS__' => sword_atlas }.each do |token, path|
   raise "Missing #{token} in hero attack module" unless hero_attack_runtime.include?(token)
   hero_attack_runtime.sub!(token) { JSON.generate("data:image/png;base64,#{encode(path)}") }
 end
-parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, stride_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8'), body_runtime]
+parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, stride_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), File.read(File.join(ROOT,'hero_legacy_fx.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8'), body_runtime]
 runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = polish_runtime = npc_gestures_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
 html.insert(position, "\n")
 until parts.empty?
@@ -519,7 +528,8 @@ end
 sources += [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_art_files.map { |relative| File.join(ENEMY_ART_ASSETS, relative) }
 sources += [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json'), File.join(BOSS_ANIMATION_V3, 'manifest.json')] + boss_animation_paths.values
 
-sources += body_paths.values + stride_paths.values + [body_placement, body_script, stride_script, stride_manifest_path, archer_split_path]
+sources += %w[hero_legacy_fx.rb hero_legacy_fx.js].map { |name| File.join(ROOT, name) }
+sources += [bass_pulse_path] + signature_paths.values + body_paths.values + stride_paths.values + [body_placement, body_script, stride_script, stride_manifest_path, archer_split_path]
 sources += [File.join(ROOT, "postgame.js"), hero_attack_path, enemy_attack_path, hero_attack_atlas, sword_atlas]
 sources += [BOSS_GROUND_FX_JS, File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json'), File.join(BOSS_GROUND_FX_V2, 'manifest.json')] + ground_fx_paths.values
 sources += [ENVIRONMENT_DEPTH_JS, ENVIRONMENT_ATMOSPHERE_JS, CLOUD_WORLD_JS, CLOUD_STORY_JS, File.join(CLOUD_WORLD_ASSETS, 'manifest.json')] + cloud_files.values
@@ -556,7 +566,7 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    key = [body_dir, stride_dir, File.dirname(hero_attack_atlas), BOSS_ANIMATION_V3, BOSS_GROUND_FX_V2, File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2'), NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, LOCOMOTION_ASSETS, WORLD_POLISH_ASSETS, NPC_GESTURES_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS, CLOUD_WORLD_ASSETS, ENVIRONMENT_VOLUME_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    key = [signature_dir, body_dir, stride_dir, File.dirname(hero_attack_atlas), BOSS_ANIMATION_V3, BOSS_GROUND_FX_V2, File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2'), NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, LOCOMOTION_ASSETS, WORLD_POLISH_ASSETS, NPC_GESTURES_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS, CLOUD_WORLD_ASSETS, ENVIRONMENT_VOLUME_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
 
     [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end

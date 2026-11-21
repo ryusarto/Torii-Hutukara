@@ -18,7 +18,7 @@ on:
       - 'assets/variantes/percussao-sintetizador-v1/**'
       - 'assets/cenarios/**'
       - 'assets/protagonistas/**'
-      - 'assets/hero-attack-fx/v1/**'
+      - 'assets/hero-attack-fx/**'
       - 'assets/hero-body/v1/**'
       - 'assets/studio/**'
       - 'assets/dialogue/**'
@@ -120,6 +120,8 @@ jobs:
           node qa/run_stride_browser.cjs http://127.0.0.1:8771/
           node qa/archer_strafe_browser.cjs http://127.0.0.1:8771/
           node qa/hero_attack_fx_browser.cjs http://127.0.0.1:8771/
+          node qa/hero_attack_v2_browser.cjs http://127.0.0.1:8771/
+          node qa/hero_vfx_layers_browser.cjs http://127.0.0.1:8771/
           node qa/enemy_attack_fx_browser.cjs http://127.0.0.1:8771/
           node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
           node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/
