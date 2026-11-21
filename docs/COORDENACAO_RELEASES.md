@@ -4,7 +4,7 @@ Atualizado em 20/11/2026 após a confirmação dos FX no Pages. Reservas de prod
 
 ## Revisão1.8 em integração
 
-Base7553828/Beta1.7.1. Próxima1.8: estúdio, corrida12poses, fundos e IA/gestosNPC. Build local validada142/142; SHA-256`b269abaaa2a6914e8a79d1dcb7a69951de5c7433fd4981fe9660b5ebc0578ef0`. Publicação exige sucesso do PR e workflow antes de marcar online. Pós-jogo de outra frente reservado para1.9, sempre incorporando main1.8; fachadas/nuvens permanecem em produção separada.
+Base7553828/Beta1.7.1. Próxima1.8: estúdio, corrida12poses, fundos e IA/gestosNPC. Build local validada142/142; SHA-256`9d6e2378b689edc2e9347e67b3cf4d0a390c17a763bcbbc83ae1086ea2e4158c`. Publicação exige sucesso do PR e workflow antes de marcar online. Pós-jogo de outra frente reservado para1.9, sempre incorporando main1.8; fachadas/nuvens permanecem em produção separada.
 
 [Resultados e limites](../qa/beta-1.8.0/PLAYTEST.md).
 
