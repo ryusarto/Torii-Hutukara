@@ -1,0 +1,22 @@
+{
+  "tool": "image_gen built-in",
+  "referenceOwnership": "Existing project artwork; author requested these additions; see LICENSE-ASSETS.md",
+  "assets": [
+    {
+      "key": "boss_walk",
+      "prompt": "Use case: identity-preserve. Production pixel-art sprite animation sheet of this exact masked boss, the Viajante from Torii & Hutukara. Keep ivory ceremonial Torii mask with vertical black rectangular lens visor and radial fingers/spikes, dark curlyhair partlybehindmask, orange-red/goldpatternjacket, darkshirt, squarependantnecklace, tanpants, darkgloves/boots, originalchunky16bitstyle. Create a WALK cycle rather than an attack: 8 distinct sequential poses per direction, 32 sprites total in exactly8columns×4rows. Rows facingDOWN(towardviewer),LEFT,UP(away),RIGHT. Equalcells, sameproportions/scale in allframes, slow weighted footroll/alternatingarms, heelslifting, passinglegposes, torso weight transfer and subtle jacket motion. Return smoothly to beginning; do not copy a single pose. No giantjump, no emitting magic/no weapon, no mask change, no exposedface. Fullbody ineachcell generouslypadded with fixedfeetgroundbaseline and center. TransparentRGBA background no text/grid/shadows. Landscape2048x1024 ifpossible, each256squarecell; footanchor128,224.",
+      "path": "/Users/henriqueryusartorelliuchiyama/.codex/generated_images/01a1fbf8-43df-7e40-ac15-f65e96947ff4/exec-8f661631-5116-4b56-8eb6-c7daaec75580.png",
+      "workspaceSource": "assets/boss-animations/v3/source/boss_walk.png",
+      "sha256": "885e129f4b2212e2f5edc982ffef0a6b266dee8ddd02aecfcf57918175b49484",
+      "method": "Built-in image_gen; source copied unchanged; atlas export only crops/scales/registers authored frames"
+    },
+    {
+      "key": "boss_walk_clean",
+      "prompt": "Edit target: this32framepixelartspritesheet. Change ONLY alpha cleanup. Keep EVERY character, pose, identity, color, position, grid andpixelshape exactlyunchanged. REMOVE ALL red/green/gray translucent fringe/spill OUTSIDE the actual silhouette of each character. Those red clouds around maskandhair are unwanted matte artifacts; make them fullytransparent. Preserve actual orange-red jacket/dark hair; do not desaturate/recolor the sprite interior. Absolutely no glow/background/dropshadow. True clean RGBAcutout withsharpalpha at silhouette, uniform8x4layout unchanged.",
+      "path": "/Users/henriqueryusartorelliuchiyama/.codex/generated_images/01a1fbf8-43df-7e40-ac15-f65e96947ff4/exec-9c1e3baf-34db-497b-994e-6cfd1141d161.png",
+      "workspaceSource": "assets/boss-animations/v3/source/boss_walk_clean.png",
+      "sha256": "936642c65430d470d8b64136e316dbb6560751f68870e5e515b2584550e1f97b",
+      "method": "Built-in image_gen; source copied unchanged; atlas export only crops/scales/registers authored frames"
+    }
+  ]
+}

@@ -97,16 +97,20 @@ const homes={};
 function relocateFluteKeepers(){
   if(typeof C3==='undefined'||!areas.contratempo||!areas.ciro_workshop)return;
   for(const id of Object.keys(CLUB_SPOTS)){
-    const inShop=areas.ciro_workshop.npcs.find(n=>n.id===id),inClub=areas.contratempo.npcs.find(n=>n.id===id);
-    const npcObj=inShop||inClub;if(!npcObj)continue;
-    if(!homes[id])homes[id]={x:npcObj.x,y:npcObj.y,say:npcObj.say};
-    if(fluteAtClub()&&inShop){
-      areas.ciro_workshop.npcs=areas.ciro_workshop.npcs.filter(n=>n!==npcObj);
-      const s=freeSpot(areas.contratempo,...CLUB_SPOTS[id])||CLUB_SPOTS[id];npcObj.x=s[0];npcObj.y=s[1];
-      npcObj.say=()=>C3.getFlute();areas.contratempo.npcs.push(npcObj);
-    }else if(!fluteAtClub()&&inClub&&G.area!=='contratempo'){
-      areas.contratempo.npcs=areas.contratempo.npcs.filter(n=>n!==npcObj);
-      Object.assign(npcObj,homes[id]);areas.ciro_workshop.npcs.push(npcObj);
+    const shop=areas.ciro_workshop,club=areas.contratempo;
+    const inShop=shop.npcs.find(n=>n.id===id),inClub=club.npcs.find(n=>n.id===id);
+    // Reapplying story flags used to recreate Colli in the workshop and then
+    // append a second copy to the club. One canonical actor owns both visits.
+    const atClub=fluteAtClub()||(G?.area==='contratempo'&&!!inClub);
+    const npcObj=(atClub?inClub||inShop:inShop||inClub);if(!npcObj)continue;
+    if(!homes[id])homes[id]={x:id==='c3_ciro'?7:18,y:id==='c3_ciro'?13:12,say:id==='c3_ciro'?()=>C3.scene('C3_004'):()=>C3.nara()};
+    const alreadyThere=(atClub?inClub:inShop)===npcObj;
+    shop.npcs=shop.npcs.filter(n=>n.id!==id);club.npcs=club.npcs.filter(n=>n.id!==id);
+    if(atClub){
+      if(!alreadyThere){const s=freeSpot(club,...CLUB_SPOTS[id])||CLUB_SPOTS[id];npcObj.x=s[0];npcObj.y=s[1];}
+      npcObj.say=()=>C3.getFlute();club.npcs.push(npcObj);
+    }else{
+      if(!alreadyThere)Object.assign(npcObj,homes[id]);shop.npcs.push(npcObj);
     }
   }
 }

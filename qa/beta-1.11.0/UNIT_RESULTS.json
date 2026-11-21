@@ -1,0 +1,74 @@
+[
+  {
+    "suite": "npc_recurrence",
+    "exit": 0
+  },
+  {
+    "suite": "protagonist_state",
+    "exit": 0
+  },
+  {
+    "suite": "locomotion_v6",
+    "exit": 0
+  },
+  {
+    "suite": "npc_life_v1",
+    "exit": 0
+  },
+  {
+    "suite": "boss_choreography_unit",
+    "exit": 0
+  },
+  {
+    "suite": "boss_ground_fx_unit",
+    "exit": 0
+  },
+  {
+    "suite": "environment_depth_v1",
+    "exit": 0
+  },
+  {
+    "suite": "environment_atmosphere_v1",
+    "exit": 0
+  },
+  {
+    "suite": "cloud_world_v1",
+    "exit": 0
+  },
+  {
+    "suite": "postgame_unit",
+    "exit": 0
+  },
+  {
+    "suite": "review110_postgame_regression",
+    "exit": 0
+  },
+  {
+    "suite": "review110_cloud_regression",
+    "exit": 0
+  },
+  {
+    "suite": "review110_mobile_regression",
+    "exit": 0
+  },
+  {
+    "suite": "review111_postgame_unit",
+    "exit": 0
+  },
+  {
+    "suite": "review111_world",
+    "exit": 0
+  },
+  {
+    "suite": "review111_npc",
+    "exit": 0
+  },
+  {
+    "suite": "review111_animation",
+    "exit": 0
+  },
+  {
+    "suite": "review111_spacing",
+    "exit": 0
+  }
+]

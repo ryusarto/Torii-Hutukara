@@ -91,9 +91,9 @@ async function capture(name){
   }return rows;
  });
 
- await check('Dim interiors affect real canvas light while outdoor C3 receives bounded warm dust atmosphere',async()=>{
-  const rows=await page.evaluate(()=>{const rows=[];for(const area of ['studio','contratempo','ciro_workshop','power_plant','chamber','distortion_district']){WorldReviewQA.fixture(area,12.5,11.5);EnvironmentDepthV1.enabled=true;EnvironmentAtmosphereV1.enabled=false;const before=WorldReviewQA.pixels();EnvironmentAtmosphereV1.enabled=true;const after=WorldReviewQA.pixels();rows.push({area,before:WorldReviewQA.luminance(before),after:WorldReviewQA.luminance(after),...WorldReviewQA.diff(before,after)});}return rows;});
-  for(const row of rows)assert(row.changed>100,row.area+' atmosphere not rendered');assert(rows.filter(r=>r.area!=='distortion_district').some(r=>r.after<r.before*.96),'No interior actually became dimmer');return rows;
+ await check('Interior colors stay free of lighting overlays while desert dust remains bounded',async()=>{
+  const rows=await page.evaluate(()=>{const rows=[];for(const area of ['studio','contratempo','ciro_workshop','power_plant','chamber','distortion_district']){WorldReviewQA.fixture(area,12.5,11.5);EnvironmentDepthV1.enabled=true;EnvironmentAtmosphereV1.enabled=false;const before=WorldReviewQA.pixels();EnvironmentAtmosphereV1.enabled=true;const after=WorldReviewQA.pixels();EnvironmentAtmosphereV1.drawLighting();const unchanged=ctx.getImageData(0,0,VW,VH).data;rows.push({area,before:WorldReviewQA.luminance(before),after:WorldReviewQA.luminance(after),...WorldReviewQA.diff(before,after),lightingChanged:WorldReviewQA.diff(after,unchanged).changed,profile:EnvironmentAtmosphereV1.profile()});}return rows;});
+  for(const row of rows){assert(row.changed>30,row.area+' ground contact or dust not rendered');assert.equal(row.lightingChanged,0,row.area+' adds a lighting filter');assert.equal(row.profile.ambient,1);assert.equal(row.profile.lights.length,0);}return rows;
  });
 
  await check('Focused city facade captures show volume at their actual footpoint and preserve the front approach',async()=>{

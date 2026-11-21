@@ -20,11 +20,11 @@ const checks=[],errors=[],sequences=[];let browser,context;
  await page.addInitScript(()=>{window.requestAnimationFrame=()=>0;const get=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(k,o){return get.call(this,k,k==='2d'?{...o,willReadFrequently:true}:o);};});
  await page.goto(url,{waitUntil:'load',timeout:120000});
  async function check(name,fn){try{const detail=await fn();checks.push({name,passed:true,detail});console.log('OK · '+name);}catch(e){checks.push({name,passed:false,error:e.stack});throw e;}}
- await check('Four real PNG atlases decode, each with eight distinct transparent sprite frames',async()=>{
+ await check('Six real PNG atlases decode, each with eight distinct transparent sprite frames',async()=>{
   const rows=await page.evaluate(async()=>{const a=BossGroundFXV1,rows=[],cell=a.manifest.cell,cols=a.manifest.columns;if(cell!==256||cols!==4)throw Error('ground FX contract');
    for(const key of Object.keys(a.manifest.clips)){const im=a.image(key);if(!im)throw Error(key+' missing');await im.decode();if(im.naturalWidth!==cell*cols||im.naturalHeight!==cell*2)throw Error(key+' dimensions');const c=document.createElement('canvas');c.width=c.height=cell;const q=c.getContext('2d'),hashes=[];
     for(let f=0;f<8;f++){q.clearRect(0,0,cell,cell);q.drawImage(im,f%cols*cell,Math.floor(f/cols)*cell,cell,cell,0,0,cell,cell);const d=q.getImageData(0,0,cell,cell).data;let h=2166136261,visible=0,transparent=0;for(let j=0;j<d.length;j++){h=Math.imul(h^d[j],16777619);if(j%4===3){if(d[j]>128)visible++;if(d[j]===0)transparent++;}}if(!visible||!transparent)throw Error(key+' frame '+f+' missing alpha or content');hashes.push((h>>>0).toString(16));}rows.push({key,width:im.naturalWidth,height:im.naturalHeight,hashes,unique:new Set(hashes).size});}return rows;});
-  assert.deepEqual(rows.map(r=>r.key).sort(),['pulse','static','scrap','void'].sort());assert(rows.every(r=>r.unique===8));return rows;
+  assert.deepEqual(rows.map(r=>r.key).sort(),['pulse','static','scrap','void','aim','projectile'].sort());assert(rows.every(r=>r.unique===8));return rows;
  });
  await page.evaluate(async()=>{
   G=fresh();buildMaps();if(typeof CenariosV2!=='undefined')await CenariosV2.ready();
@@ -38,6 +38,10 @@ const checks=[],errors=[],sequences=[];let browser,context;
    render(){drawEnv();return cv.toDataURL('image/png');},
    probe(){const before=JSON.stringify(C3.hazards),images=new Set(Object.values(BossGroundFXV1.images)),draw=ctx.drawImage,frames=[];ctx.drawImage=function(im,...args){if(images.has(im))frames.push({sx:args[0],sy:args[1],sw:args[2],sh:args[3],key:Object.keys(BossGroundFXV1.images).find(k=>BossGroundFXV1.images[k]===im)});return draw.call(this,im,...args);};try{BossChoreographyV2.drawGround();return{frames,hazardsUnchanged:before===JSON.stringify(C3.hazards),effects:BossGroundFXV1.effects.length};}finally{ctx.drawImage=draw;}}
   };
+ });
+ await check('All seven final patterns use aim sprites and both projectile volleys draw actual bitmap shots',async()=>{
+  const rows=await page.evaluate(()=>{const rows=[],fx=BossGroundFXV1;for(const kind of ['ring','cross','fan','pulse','rain','chase','orbit']){const start=GroundFXQA.start('c3_silence',kind);GroundFXQA.step(start.total*.45);const before=GroundFXQA.probe();if(!before.frames.some(f=>f.key==='aim'))throw Error(kind+' missing aim sprite');if(['chase','orbit'].includes(kind)){GroundFXQA.step(start.total*.56+.0001);for(let i=0;i<4;i++){tick+=.05;update(.05)}const shots=hostileShots.length,snapshot=JSON.stringify(hostileShots),image=fx.image('projectile'),original=ctx.drawImage;let bitmapShots=0;ctx.drawImage=function(im,...args){if(im===image)bitmapShots++;return original.call(this,im,...args)};try{GroundFXQA.render()}finally{ctx.drawImage=original}rows.push({kind,aim:true,shots,bitmapShots,drawPreservedShots:snapshot===JSON.stringify(hostileShots)});}else rows.push({kind,aim:true});}return rows;});
+  for(const row of rows){assert(row.aim);if(row.shots!==undefined){assert.equal(row.shots,row.kind==='chase'?5:12);assert.equal(row.bitmapShots,row.shots);assert(row.drawPreservedShots)}}return rows;
  });
  await check('Four bosses draw impact sprite images through the real ground paint/fire pipeline',async()=>{
   const rows=await page.evaluate(()=>{const rows=[];for(const[id,kind]of [['boss','ring'],['voice_boss','lanes'],['c3_metronome','cross'],['c3_silence','rain']]){const start=GroundFXQA.start(id,kind),before=GroundFXQA.probe();GroundFXQA.step(start.total+.00001);const after=GroundFXQA.probe();rows.push({...start,before,after,fired:C3.hazards.length?C3.hazards.some(h=>h.fired):BossChoreographyV2.records.get(bossActor)?.released});}return rows;});

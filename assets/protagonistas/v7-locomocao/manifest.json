@@ -1,0 +1,3232 @@
+{
+  "version": 7,
+  "release": "V7-locomocao",
+  "extends": "V5; replaces V6 run",
+  "cell": [
+    256,
+    256
+  ],
+  "pivot": [
+    128,
+    224
+  ],
+  "columns": 16,
+  "transparentPaddingPx": 2,
+  "rows": [
+    "unmasked/down",
+    "unmasked/left",
+    "unmasked/up",
+    "unmasked/right",
+    "masked/down",
+    "masked/left",
+    "masked/up",
+    "masked/right"
+  ],
+  "states": [
+    "walk",
+    "run"
+  ],
+  "filter": "nearest",
+  "animations": [
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "down",
+      "row": 0,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "0eaa1f1f1de2762dec277c0964d178260d6648279678a9e579fb9b6a2cfd605c"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "left",
+      "row": 1,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "0eaa1f1f1de2762dec277c0964d178260d6648279678a9e579fb9b6a2cfd605c"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "up",
+      "row": 2,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "0eaa1f1f1de2762dec277c0964d178260d6648279678a9e579fb9b6a2cfd605c"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "right",
+      "row": 3,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "0eaa1f1f1de2762dec277c0964d178260d6648279678a9e579fb9b6a2cfd605c"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "walk",
+      "direction": "down",
+      "row": 4,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "d662091dbbc7e1fbc312c44ce33165044be93f32a5f4b40e267f8c4bad714576"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "walk",
+      "direction": "left",
+      "row": 5,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "d662091dbbc7e1fbc312c44ce33165044be93f32a5f4b40e267f8c4bad714576"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "walk",
+      "direction": "up",
+      "row": 6,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "d662091dbbc7e1fbc312c44ce33165044be93f32a5f4b40e267f8c4bad714576"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "walk",
+      "direction": "right",
+      "row": 7,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "d662091dbbc7e1fbc312c44ce33165044be93f32a5f4b40e267f8c4bad714576"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "down",
+      "row": 0,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "cf311c46f869bdab83e24dac1299cb1ace0b043498ed633c6d316c40ad6e2d4c"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "left",
+      "row": 1,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "cf311c46f869bdab83e24dac1299cb1ace0b043498ed633c6d316c40ad6e2d4c"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "up",
+      "row": 2,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "cf311c46f869bdab83e24dac1299cb1ace0b043498ed633c6d316c40ad6e2d4c"
+    },
+    {
+      "hero": "franco",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "right",
+      "row": 3,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "cf311c46f869bdab83e24dac1299cb1ace0b043498ed633c6d316c40ad6e2d4c"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "run",
+      "direction": "down",
+      "row": 4,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "ce15614ba32eff50f542f647dd17a32d1b28fe8760c2996e84759727b02fdd1f"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "run",
+      "direction": "left",
+      "row": 5,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "ce15614ba32eff50f542f647dd17a32d1b28fe8760c2996e84759727b02fdd1f"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "run",
+      "direction": "up",
+      "row": 6,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "ce15614ba32eff50f542f647dd17a32d1b28fe8760c2996e84759727b02fdd1f"
+    },
+    {
+      "hero": "franco",
+      "variant": "masked",
+      "state": "run",
+      "direction": "right",
+      "row": 7,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/franco_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "ce15614ba32eff50f542f647dd17a32d1b28fe8760c2996e84759727b02fdd1f"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "down",
+      "row": 0,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "5c9df812161bcb0af5460f9b02ef61c3a5d20f6dfbac6b80f3495b0406c1f5cf"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "left",
+      "row": 1,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "5c9df812161bcb0af5460f9b02ef61c3a5d20f6dfbac6b80f3495b0406c1f5cf"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "up",
+      "row": 2,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "5c9df812161bcb0af5460f9b02ef61c3a5d20f6dfbac6b80f3495b0406c1f5cf"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "walk",
+      "direction": "right",
+      "row": 3,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "5c9df812161bcb0af5460f9b02ef61c3a5d20f6dfbac6b80f3495b0406c1f5cf"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "walk",
+      "direction": "down",
+      "row": 4,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "b2a104adb7a854c8eea6743612153329fd91e1b9365d08b142850915d1c19e12"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "walk",
+      "direction": "left",
+      "row": 5,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "b2a104adb7a854c8eea6743612153329fd91e1b9365d08b142850915d1c19e12"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "walk",
+      "direction": "up",
+      "row": 6,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "b2a104adb7a854c8eea6743612153329fd91e1b9365d08b142850915d1c19e12"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "walk",
+      "direction": "right",
+      "row": 7,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_walk.png",
+      "frameMs": 37.53753753753754,
+      "frameDurationsMs": [
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754,
+        37.53753753753754
+      ],
+      "cycleMs": 600.6006006006006,
+      "strideDistance": 2.2222222222222223,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "b2a104adb7a854c8eea6743612153329fd91e1b9365d08b142850915d1c19e12"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "down",
+      "row": 0,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "34932a6b87af744d73025d42d33a3c2a1f421932a01f44cb193bc1c142610c9b"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "left",
+      "row": 1,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "34932a6b87af744d73025d42d33a3c2a1f421932a01f44cb193bc1c142610c9b"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "up",
+      "row": 2,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "34932a6b87af744d73025d42d33a3c2a1f421932a01f44cb193bc1c142610c9b"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "unmasked",
+      "state": "run",
+      "direction": "right",
+      "row": 3,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "34932a6b87af744d73025d42d33a3c2a1f421932a01f44cb193bc1c142610c9b"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "run",
+      "direction": "down",
+      "row": 4,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "81dd93c019e022103df74eb030233b27d7b4fe4c4830a79ccc8b954e068da747"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "run",
+      "direction": "left",
+      "row": 5,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "81dd93c019e022103df74eb030233b27d7b4fe4c4830a79ccc8b954e068da747"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "run",
+      "direction": "up",
+      "row": 6,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "81dd93c019e022103df74eb030233b27d7b4fe4c4830a79ccc8b954e068da747"
+    },
+    {
+      "hero": "ryuchi",
+      "variant": "masked",
+      "state": "run",
+      "direction": "right",
+      "row": 7,
+      "frames": 16,
+      "playFrames": 16,
+      "loop": true,
+      "closureFrame": 0,
+      "atlas": "atlas/ryuchi_run.png",
+      "frameMs": 32.5,
+      "frameDurationsMs": [
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5,
+        32.5
+      ],
+      "cycleMs": 520.0,
+      "strideDistance": 3.172,
+      "frameSources": [
+        {
+          "kind": "original-v5",
+          "index": 0
+        },
+        {
+          "kind": "authored-v7",
+          "index": 0
+        },
+        {
+          "kind": "original-v5",
+          "index": 1
+        },
+        {
+          "kind": "authored-v7",
+          "index": 1
+        },
+        {
+          "kind": "original-v5",
+          "index": 2
+        },
+        {
+          "kind": "authored-v7",
+          "index": 2
+        },
+        {
+          "kind": "original-v5",
+          "index": 3
+        },
+        {
+          "kind": "authored-v7",
+          "index": 3
+        },
+        {
+          "kind": "original-v5",
+          "index": 4
+        },
+        {
+          "kind": "authored-v7",
+          "index": 4
+        },
+        {
+          "kind": "original-v5",
+          "index": 5
+        },
+        {
+          "kind": "authored-v7",
+          "index": 5
+        },
+        {
+          "kind": "original-v5",
+          "index": 6
+        },
+        {
+          "kind": "authored-v7",
+          "index": 6
+        },
+        {
+          "kind": "original-v5",
+          "index": 7
+        },
+        {
+          "kind": "authored-v7",
+          "index": 7
+        }
+      ],
+      "sourceSha256": "81dd93c019e022103df74eb030233b27d7b4fe4c4830a79ccc8b954e068da747"
+    }
+  ]
+}

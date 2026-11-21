@@ -8,7 +8,7 @@
 'use strict';
 const BossChoreographyV2 = {
   assets: __BOSS_ANIMATION_ASSETS__, manifest: __BOSS_ANIMATION_MANIFEST__,
-  images: {}, records: new WeakMap(), emissions: new WeakMap(), clock: 0,
+  images: {}, records: new WeakMap(), emissions: new WeakMap(), walks: new WeakMap(), clock: 0,
   game: null, area: null, actor: null,
   ids: new Set(['boss','voice_boss','c3_metronome','c3_silence']),
   managesLegacyTelegraph(e) { return !!e && this.ids.has(e.id); },
@@ -19,7 +19,7 @@ const BossChoreographyV2 = {
       matchMedia('(prefers-reduced-motion: reduce)').matches);
   },
   reset() {
-    this.records = new WeakMap(); this.emissions = new WeakMap(); this.clock = 0;
+    this.records = new WeakMap(); this.emissions = new WeakMap(); this.walks = new WeakMap(); this.clock = 0;
     this.game = G; this.area = G?.area; this.actor = bossActor;
   },
   sync() {
@@ -78,6 +78,23 @@ const BossChoreographyV2 = {
     const progress = Math.max(0,Math.min(1,1-remaining/r.total));
     return {frame:this.reduced()?3:Math.min(3,Math.floor(progress*4)), spec:r.prep};
   },
+  observeTravel(e, before) {
+    if(e.id!=='boss')return;this.sync();
+    const dx=e.x-before.x,dy=e.y-before.y,distance=Math.hypot(dx,dy);
+    let r=this.walks.get(e);if(!r){r={phase:0,moving:false,row:0};this.walks.set(e,r)}
+    // A charge is instantaneous gameplay travel, not a walking cycle. Stun and
+    // attack anticipation own their poses even when a hit displaces the body.
+    r.moving=distance>.00001&&distance<.5&&!this.snapshot(e)&&!(e.stun>0);
+    if(!r.moving)return;
+    const entry=this.manifest.clips?.boss_walk;
+    r.phase=(r.phase+distance/(entry?.strideDistance||1.8))%1;
+    r.row=Math.abs(dx)>Math.abs(dy)?(dx<0?1:3):(dy<0?2:0);
+  },
+  walkPose(e) {
+    const r=this.walks.get(e);if(!r?.moving||!['action','overlay','dialogue','rhythm'].includes(mode)||this.cancelled(e))return null;
+    const frames=this.manifest.clips?.boss_walk?.frames||8;
+    return {frame:this.reduced()?0:Math.min(frames-1,Math.floor(r.phase*frames)),row:r.row,walking:true};
+  },
   image(key, entry) {
     const src = this.assets[entry.atlas] || this.assets[key] ||
       (typeof entry.atlas === 'string' && entry.atlas.startsWith('data:') ? entry.atlas : null);
@@ -87,15 +104,16 @@ const BossChoreographyV2 = {
   },
   drawActor(x,y,kind,e) {
     if (!this.managesLegacyTelegraph(e)) return false;
-    const pose = this.pose(e); if (!pose) return false;
-    const key = e.id === 'boss' && pose.spec.kind === 'charge' ? 'boss_charge' : e.id+'_cast';
+    let pose = this.pose(e),key;
+    if(pose)key=e.id==='boss'&&pose.spec.kind==='charge'?'boss_charge':e.id+'_cast';
+    else {pose=this.walkPose(e);key=e.id+'_walk';if(!pose)return false;}
     const entry = this.manifest.clips?.[key]; if (!entry) return false;
-    const im = this.image(key,entry), cell = this.manifest.cell || 256, cols = this.manifest.columns || 4;
-    if (!im?.complete || im.naturalWidth < cols*cell || im.naturalHeight < 2*cell) return false;
-    const pivot = this.manifest.pivot || [128,224];
+    const im = this.image(key,entry), cell = entry.cell || this.manifest.cell || 256, cols = entry.columns || this.manifest.columns || 4;
+    if (!im?.complete || im.naturalWidth < cols*cell || im.naturalHeight < (entry.rows||2)*cell) return false;
+    const pivot = entry.pivot || this.manifest.pivot || [128,224];
     const scale = Number.isFinite(entry.scale) ? entry.scale : (entry.height || cell)/cell;
     ctx.save(); ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(im,(pose.frame%cols)*cell,Math.floor(pose.frame/cols)*cell,cell,cell,
+    ctx.drawImage(im,(pose.frame%cols)*cell,(pose.row??Math.floor(pose.frame/cols))*cell,cell,cell,
       Math.round(x-pivot[0]*scale),Math.round(y-pivot[1]*scale),cell*scale,cell*scale);
     ctx.restore(); return true;
   },
@@ -270,12 +288,13 @@ const bossChoreographyEnemyV2=updateEnemy;
 updateEnemy=function(e,dt,isBoss=false,...rest){
   const art=BossChoreographyV2;
   if(!isBoss||!art.managesLegacyTelegraph(e)||art.cancelled(e)||mode!=='action')return bossChoreographyEnemyV2.call(this,e,dt,isBoss,...rest);
-  const before=art.snapshot(e);
+  const before=art.snapshot(e),beforePosition={x:e.x,y:e.y};
   if(before&&!art.records.get(e)?.prep)art.begin(e,before);
   const trace=before?.kind==='charge'?art.previewCharge(e):null;
   const existingShots=e.id==='voice_boss'?new Set(hostileShots):null;
   const result=bossChoreographyEnemyV2.call(this,e,dt,isBoss,...rest);
   if(art.cancelled(e)) {art.sync();return result;}
+  art.observeTravel(e,beforePosition);
   const after=art.snapshot(e);
   // C3 uses the actual fireHazard hook below; wind reaching zero is deliberately ignored.
   if(e.id==='boss'||e.id==='voice_boss'){

@@ -150,7 +150,7 @@ const NpcLifeV1 = {
     }
     if(state==='return')s.target={x:s.homeX,y:s.homeY};
     if(state==='work'){const p=this.workTarget(n);if(p)this.face(s,p.x-n.x,p.y-n.y);}
-    if(state==='gesture')s.dir=this.directions[(this.directions.indexOf(s.dir)+1)%4];
+    if(state==='gesture')s.dir=this.ambientImage(n)?'down':this.directions[(this.directions.indexOf(s.dir)+1)%4];
   },
   move(n,s,dt) {
     const to=s.target;if(!to)return this.enter(n,s,'idle');
@@ -184,8 +184,8 @@ const NpcLifeV1 = {
   },
   pose(n) {
     const s=this.state(n);if(!s)return null;
-    return {state:s.attending?'look':s.state,dir:s.dir,moving:s.moving&&this.enabled(),frame:s.frame,
-      clock:s.clock,age:s.age,duration:s.duration,gesturePhase:Math.min(1,s.age/Math.max(.001,s.duration)),
+    return {state:s.attending?'look':s.state,dir:s.dir,moving:s.moving&&this.enabled(),walking:s.moving,frame:s.frame,
+      clock:s.clock,phaseOffset:(s.seed%29)/10,age:s.age,duration:s.duration,gesturePhase:Math.min(1,s.age/Math.max(.001,s.duration)),
       blink:(s.clock+(s.seed%53)/10)%5.6>5.44,paused:!this.enabled()};
   },
   ready(image) {return !!image?.complete&&image.naturalWidth>0},
@@ -219,7 +219,7 @@ const NpcLifeV1 = {
     if(row!==null&&c3SheetSprite(C3.images.prebeta_collabs_move,group*2+p.frame,row,8,3,x,y,56,70))return true;
     if(n.id==='c3_vega'&&c3SheetSprite(C3.images.prebeta_dney,group,p.frame,4,3,x,y,56,70))return true;
     const image=this.ambientImage(n);
-    if(image&&c3SheetSprite(C3.images[image],group*2+p.frame,0,8,1,x,y,68,82))return true;
+    if(image&&c3SheetSprite(C3.images[image],group*2+p.frame,0,8,1,x,y,82*(C3.images[image].naturalWidth/8)/C3.images[image].naturalHeight,82))return true;
     if(this.procedural(n))return this.drawGuard(n,x,y,p);
     if(n.spriteKey&&['iris','celina','lumi','katana'].includes(n.spriteKey)&&typeof character092==='function'&&typeof NPC092!=='undefined'&&this.ready(NPC092)){
       character092(n.spriteKey,x,y,p.dir,false);return true;

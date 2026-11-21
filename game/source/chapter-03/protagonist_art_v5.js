@@ -45,7 +45,7 @@ const ProtagonistArtV5 = {
       // The cycle length is independent of the number of authored drawings.
       // Keep foot phase when changing speed; only real travel advances it.
       const cycleMs = sequence?.cycleMs || (sequence?.frameMs || (running ? 65 : 110)) * (sequence?.playFrames || 8);
-      const cycleDistance = running ? 6.1 * cycleMs / 1000 : 8 / 3.6;
+      const cycleDistance = sequence?.strideDistance || (running ? 6.1 * cycleMs / 1000 : 8 / 3.6);
       motion.phase = (motion.phase + distance / cycleDistance) % 1;
     }
   },

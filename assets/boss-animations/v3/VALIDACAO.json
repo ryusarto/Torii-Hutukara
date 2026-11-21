@@ -1,0 +1,30 @@
+{
+  "method": "RGBA/registration/uniqueness only. Browser review separate.",
+  "rows": [
+    {
+      "direction": "down",
+      "row": 0,
+      "uniqueFrames": 8,
+      "uniformScale": 1.1215469613259668
+    },
+    {
+      "direction": "left",
+      "row": 1,
+      "uniqueFrames": 8,
+      "uniformScale": 1.1404494382022472
+    },
+    {
+      "direction": "up",
+      "row": 2,
+      "uniqueFrames": 8,
+      "uniformScale": 1.1277777777777778
+    },
+    {
+      "direction": "right",
+      "row": 3,
+      "uniqueFrames": 8,
+      "uniformScale": 1.1340782122905029
+    }
+  ],
+  "atlasSha256": "40063372374277f7a2216caf0b1957fd368a22552bc1be0701b44b263cc56a86"
+}

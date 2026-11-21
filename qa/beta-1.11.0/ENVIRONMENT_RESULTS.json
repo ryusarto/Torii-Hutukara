@@ -1,0 +1,1789 @@
+{
+  "suite": "environment-world-v1",
+  "version": "1.11.0",
+  "url": "http://127.0.0.1:8782/",
+  "filter": null,
+  "checks": [
+    {
+      "name": "Eight authored facade sprites decode with alpha and their rendered door pivots stay within one pixel of the entrance anchors",
+      "passed": true,
+      "detail": [
+        {
+          "key": "c1_house",
+          "sheet": "c1",
+          "visible": 90071,
+          "transparent": 29049,
+          "draw": [
+            250,
+            208,
+            121,
+            131
+          ],
+          "doorDelta": [
+            0.26706231454005547,
+            0
+          ]
+        },
+        {
+          "key": "c1_shop",
+          "sheet": "c1",
+          "visible": 84799,
+          "transparent": 25185,
+          "draw": [
+            243,
+            213,
+            138,
+            126
+          ],
+          "doorDelta": [
+            -0.15340909090912191,
+            0
+          ]
+        },
+        {
+          "key": "c1_inn",
+          "sheet": "c1",
+          "visible": 93849,
+          "transparent": 30508,
+          "draw": [
+            242,
+            208,
+            131,
+            131
+          ],
+          "doorDelta": [
+            -0.5502793296089408,
+            0
+          ]
+        },
+        {
+          "key": "c1_archive",
+          "sheet": "c1",
+          "visible": 94577,
+          "transparent": 27829,
+          "draw": [
+            244,
+            208,
+            133,
+            131
+          ],
+          "doorDelta": [
+            0.25490196078430927,
+            0
+          ]
+        },
+        {
+          "key": "c2_home",
+          "sheet": "c2",
+          "visible": 86448,
+          "transparent": 20734,
+          "draw": [
+            243,
+            195,
+            136,
+            147
+          ],
+          "doorDelta": [
+            -0.4037267080745437,
+            0
+          ]
+        },
+        {
+          "key": "c2_workshop",
+          "sheet": "c2",
+          "visible": 76570,
+          "transparent": 19931,
+          "draw": [
+            241,
+            216,
+            136,
+            126
+          ],
+          "doorDelta": [
+            -0.4787878787878981,
+            0
+          ]
+        },
+        {
+          "key": "c2_shop",
+          "sheet": "c2",
+          "visible": 87366,
+          "transparent": 16131,
+          "draw": [
+            246,
+            211,
+            128,
+            131
+          ],
+          "doorDelta": [
+            0.35076923076923094,
+            0
+          ]
+        },
+        {
+          "key": "c2_radio",
+          "sheet": "c2",
+          "visible": 90361,
+          "transparent": 23369,
+          "draw": [
+            242,
+            201,
+            136,
+            141
+          ],
+          "doorDelta": [
+            0.22873900293257066,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "City facades and interior zones render differently without mutating maps, interactions or saves",
+      "passed": true,
+      "detail": [
+        {
+          "area": "city",
+          "actor": {
+            "x": 28.5,
+            "y": 22.5
+          },
+          "changed": 47353,
+          "total": 7273928,
+          "profile": null,
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "city-antes.png",
+            "city-depois.png"
+          ]
+        },
+        {
+          "area": "voices",
+          "actor": {
+            "x": 32.5,
+            "y": 26.5
+          },
+          "changed": 12610,
+          "total": 2294945,
+          "profile": null,
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "voices-antes.png",
+            "voices-depois.png"
+          ]
+        },
+        {
+          "area": "distortion_district",
+          "actor": {
+            "x": 22,
+            "y": 20
+          },
+          "changed": 13648,
+          "total": 704759,
+          "profile": null,
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "distortion_district-antes.png",
+            "distortion_district-depois.png"
+          ]
+        },
+        {
+          "area": "studio",
+          "actor": {
+            "x": 12.5,
+            "y": 10.5
+          },
+          "changed": 47008,
+          "total": 1314723,
+          "profile": "recording",
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "studio-antes.png",
+            "studio-depois.png"
+          ]
+        },
+        {
+          "area": "contratempo",
+          "actor": {
+            "x": 14,
+            "y": 11
+          },
+          "changed": 88892,
+          "total": 4827414,
+          "profile": "club",
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "contratempo-antes.png",
+            "contratempo-depois.png"
+          ]
+        },
+        {
+          "area": "ciro_workshop",
+          "actor": {
+            "x": 14,
+            "y": 11
+          },
+          "changed": 78051,
+          "total": 3321764,
+          "profile": "instruments",
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "ciro_workshop-antes.png",
+            "ciro_workshop-depois.png"
+          ]
+        },
+        {
+          "area": "power_plant",
+          "actor": {
+            "x": 12,
+            "y": 13
+          },
+          "changed": 19677,
+          "total": 683579,
+          "profile": "factory",
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "power_plant-antes.png",
+            "power_plant-depois.png"
+          ]
+        },
+        {
+          "area": "chamber",
+          "actor": {
+            "x": 12,
+            "y": 10
+          },
+          "changed": 5390,
+          "total": 277019,
+          "profile": "ceremony",
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "chamber-antes.png",
+            "chamber-depois.png"
+          ]
+        },
+        {
+          "area": "celina_home",
+          "actor": {
+            "x": 8,
+            "y": 8
+          },
+          "changed": 88645,
+          "total": 5428762,
+          "profile": "home",
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "celina_home-antes.png",
+            "celina_home-depois.png"
+          ]
+        },
+        {
+          "area": "bento_shop",
+          "actor": {
+            "x": 8,
+            "y": 8
+          },
+          "changed": 257402,
+          "total": 25771399,
+          "profile": "repair",
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "bento_shop-antes.png",
+            "bento_shop-depois.png"
+          ]
+        },
+        {
+          "area": "tape_market",
+          "actor": {
+            "x": 8,
+            "y": 8
+          },
+          "changed": 251069,
+          "total": 23524123,
+          "profile": "records",
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "tape_market-antes.png",
+            "tape_market-depois.png"
+          ]
+        },
+        {
+          "area": "radio9",
+          "actor": {
+            "x": 10,
+            "y": 10
+          },
+          "changed": 250677,
+          "total": 13551300,
+          "profile": "broadcast",
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "radio9-antes.png",
+            "radio9-depois.png"
+          ]
+        },
+        {
+          "area": "last_torii",
+          "actor": {
+            "x": 13,
+            "y": 10
+          },
+          "changed": 37865,
+          "total": 950870,
+          "profile": "sanctuary",
+          "light": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          },
+          "captures": [
+            "last_torii-antes.png",
+            "last_torii-depois.png"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Interior colors stay free of lighting overlays while desert dust remains bounded",
+      "passed": true,
+      "detail": [
+        {
+          "area": "studio",
+          "before": 60.22427430258823,
+          "after": 60.21762316447098,
+          "changed": 718,
+          "total": 7103,
+          "lightingChanged": 0,
+          "profile": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          }
+        },
+        {
+          "area": "contratempo",
+          "before": 69.67838603342906,
+          "after": 69.6413949496857,
+          "changed": 1790,
+          "total": 36491,
+          "lightingChanged": 0,
+          "profile": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          }
+        },
+        {
+          "area": "ciro_workshop",
+          "before": 86.52346725985501,
+          "after": 86.49505413051473,
+          "changed": 1436,
+          "total": 27441,
+          "lightingChanged": 0,
+          "profile": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          }
+        },
+        {
+          "area": "power_plant",
+          "before": 80.11235857798101,
+          "after": 80.09071556341704,
+          "changed": 1022,
+          "total": 21074,
+          "lightingChanged": 0,
+          "profile": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          }
+        },
+        {
+          "area": "chamber",
+          "before": 62.81317562756846,
+          "after": 62.80589882575036,
+          "changed": 286,
+          "total": 6868,
+          "lightingChanged": 0,
+          "profile": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          }
+        },
+        {
+          "area": "distortion_district",
+          "before": 85.23751998646446,
+          "after": 85.24064313099571,
+          "changed": 39,
+          "total": 2866,
+          "lightingChanged": 0,
+          "profile": {
+            "ambient": 1,
+            "tint": "#000000",
+            "lights": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Focused city facade captures show volume at their actual footpoint and preserve the front approach",
+      "passed": true,
+      "detail": [
+        {
+          "area": "city",
+          "type": "house",
+          "position": {
+            "x": 4,
+            "y": 7
+          },
+          "box": {
+            "x": 101.50852272727272,
+            "y": 136,
+            "w": 157.20170454545456,
+            "h": 155,
+            "bottom": 291,
+            "roof": 192,
+            "side": "#655443",
+            "edge": "#ae8f68",
+            "depth": 15,
+            "newSprite": {
+              "key": "c1_archive",
+              "item": {
+                "sheet": "c1",
+                "frame": 3,
+                "content": [
+                  396,
+                  404,
+                  357,
+                  352
+                ],
+                "pivot": [
+                  151,
+                  352
+                ],
+                "pivotRole": "front doorway threshold"
+              },
+              "image": "ref: <Node>"
+            },
+            "scale": 0.4403409090909091,
+            "doorX": 168
+          },
+          "frontValid": true,
+          "changed": 48492,
+          "total": 8124049
+        },
+        {
+          "area": "voices",
+          "type": "voiceHouse",
+          "position": {
+            "x": 7,
+            "y": 10
+          },
+          "box": {
+            "x": 181.11711711711712,
+            "y": 166,
+            "w": 195.1951951951952,
+            "h": 200,
+            "bottom": 366,
+            "roof": 236,
+            "side": "#65505a",
+            "edge": "#b58b78",
+            "depth": 15,
+            "newSprite": {
+              "key": "c2_shop",
+              "item": {
+                "sheet": "c2",
+                "frame": 2,
+                "content": [
+                  33,
+                  408,
+                  325,
+                  333
+                ],
+                "pivot": [
+                  138,
+                  333
+                ],
+                "pivotRole": "front doorway threshold"
+              },
+              "image": "ref: <Node>"
+            },
+            "scale": 0.6006006006006006,
+            "doorX": 264
+          },
+          "frontValid": true,
+          "changed": 78274,
+          "total": 14239281
+        },
+        {
+          "area": "distortion_district",
+          "type": "c3_club",
+          "position": {
+            "x": 13,
+            "y": 15
+          },
+          "box": {
+            "x": 239.9111111111111,
+            "y": 199.60000000000002,
+            "w": 168.17777777777778,
+            "h": 176,
+            "bottom": 375.6,
+            "roof": 255.92000000000002,
+            "side": "#514d3f",
+            "edge": "#9b895f",
+            "depth": 30.272,
+            "foundation": 8
+          },
+          "frontValid": true,
+          "changed": 16272,
+          "total": 810648
+        }
+      ]
+    },
+    {
+      "name": "Wind animates real tree canopy, keeps its base anchored, and pause freezes the atmosphere clock",
+      "passed": true,
+      "detail": {
+        "pixelsChanged": 3448,
+        "baseChanges": 0,
+        "reducedPixelsChanged": 0,
+        "poses": [
+          {
+            "baseX": 4,
+            "baseY": 0,
+            "bend": -0.002181133638659599,
+            "canopyOffset": 0.16140388926081034
+          },
+          {
+            "baseX": 4,
+            "baseY": 0,
+            "bend": -0.0076791750533036175,
+            "canopyOffset": 0.5682589539444677
+          }
+        ],
+        "pauseFrozen": true
+      }
+    },
+    {
+      "name": "Open lift visibly becomes a portal, preserves its progression gate, and presents the cloud-world narrative",
+      "passed": true,
+      "detail": {
+        "closedBlocked": true,
+        "openAllowed": true,
+        "portalPixels": 2416,
+        "cinemaUsesNewCloudAsset": true,
+        "labels": {
+          "lift": [
+            "ELEVADOR DO CÉU",
+            "PORTAL DE RESSONÂNCIA"
+          ],
+          "cloud": [
+            "MAR DE NUVENS",
+            "ALÉM DA BORDA, NÃO HÁ CHÃO"
+          ]
+        },
+        "introLines": [
+          "A Flauta reúne as nuvens. Esperem a superfície ficar inteira antes de pisar. Fora da borda não há chão: a queda é fatal.",
+          "Dá para ver o deserto entre elas.",
+          "O portal trouxe a gente para o alto do mesmo mundo. Sigam a borda clara e escutem o passo."
+        ]
+      }
+    },
+    {
+      "name": "Reconstruction atlas decodes with eight distinct nonempty alpha sprite frames in the actual browser",
+      "passed": true,
+      "detail": {
+        "width": 1024,
+        "height": 512,
+        "cell": [
+          256,
+          256
+        ],
+        "frames": [
+          {
+            "frame": 0,
+            "hash": "8583be9b",
+            "visible": 594,
+            "transparent": 61252
+          },
+          {
+            "frame": 1,
+            "hash": "cc0c67b",
+            "visible": 3457,
+            "transparent": 53435
+          },
+          {
+            "frame": 2,
+            "hash": "b83e6d34",
+            "visible": 10040,
+            "transparent": 45626
+          },
+          {
+            "frame": 3,
+            "hash": "b4e9747f",
+            "visible": 16642,
+            "transparent": 39990
+          },
+          {
+            "frame": 4,
+            "hash": "d1838cb4",
+            "visible": 22095,
+            "transparent": 37199
+          },
+          {
+            "frame": 5,
+            "hash": "3fab8ac4",
+            "visible": 25843,
+            "transparent": 32368
+          },
+          {
+            "frame": 6,
+            "hash": "8ecbe397",
+            "visible": 24655,
+            "transparent": 34345
+          },
+          {
+            "frame": 7,
+            "hash": "687a0217",
+            "visible": 24316,
+            "transparent": 35389
+          }
+        ]
+      }
+    },
+    {
+      "name": "Real flute interaction reconstructs the cloud bridge progressively and safely resumes from a saved partial bridge",
+      "passed": true,
+      "detail": {
+        "initial": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "states": [
+          {
+            "t": 0,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.05,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.1,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.15000000000000002,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.2,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.25,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.30000000000000004,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.35000000000000003,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.4,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.45,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.5,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.55,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.6000000000000001,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.65,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.7000000000000001,
+            "cells": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.75,
+            "cells": [
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "t": 0.8,
+            "cells": [
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          }
+        ],
+        "pause": true,
+        "flag": true,
+        "resolved": {
+          "area": "cloud_sea",
+          "cells": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "valid": true,
+          "flag": true
+        }
+      }
+    },
+    {
+      "name": "All three musical constructions become fully supported through simulation and repeated interactions do not restart them",
+      "passed": true,
+      "detail": [
+        {
+          "which": "A",
+          "before": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            2,
+            2,
+            3,
+            3,
+            4,
+            4,
+            4,
+            5,
+            5,
+            6,
+            6,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "after": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "pending": 0
+        },
+        {
+          "which": "P",
+          "before": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            2,
+            2,
+            3,
+            3,
+            4,
+            4,
+            5,
+            5,
+            6,
+            6,
+            6,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "after": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "pending": 0
+        },
+        {
+          "which": "B",
+          "before": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            2,
+            2,
+            3,
+            3,
+            4,
+            4,
+            4,
+            5,
+            5,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6
+          ],
+          "after": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "pending": 0
+        }
+      ]
+    },
+    {
+      "name": "Falling hero is visible in the sky and is occluded by actual cloud support instead of becoming a miniature over its floor",
+      "passed": true,
+      "detail": {
+        "edge": {
+          "x": 9.5,
+          "y": 25.5,
+          "dx": 0,
+          "dy": -1
+        },
+        "early": {
+          "elapsed": 0.05,
+          "totalPixels": 1841,
+          "cloudPixels": 0,
+          "skyPixels": 1529
+        },
+        "late": {
+          "elapsed": 0.6,
+          "totalPixels": 0,
+          "cloudPixels": 0,
+          "skyPixels": 0
+        }
+      }
+    },
+    {
+      "name": "Walking beyond an actual cloud edge plays the fall, pauses, causes defeat and retries at a valid checkpoint",
+      "passed": true,
+      "detail": {
+        "start": {
+          "edge": {
+            "x": 9.5,
+            "y": 25.5,
+            "dx": 0,
+            "dy": -1
+          },
+          "started": true,
+          "fall": {
+            "hero": "franco",
+            "coop": false,
+            "elapsed": 0,
+            "duration": 0.85,
+            "x": 9.5,
+            "y": 24.950478974763804
+          }
+        },
+        "paused": {
+          "before": {
+            "hero": "franco",
+            "coop": false,
+            "elapsed": 0.2,
+            "duration": 0.85,
+            "x": 9.5,
+            "y": 24.950478974763804
+          },
+          "after": {
+            "hero": "franco",
+            "coop": false,
+            "elapsed": 0.2,
+            "duration": 0.85,
+            "x": 9.5,
+            "y": 24.950478974763804
+          }
+        },
+        "end": {
+          "mode": "overlay",
+          "hp": 0,
+          "partner": 38,
+          "partnerAfter": 38,
+          "retry": true,
+          "fall": null
+        },
+        "retry": {
+          "mode": "walk",
+          "area": "cloud_sea",
+          "hp": 40,
+          "valid": true,
+          "fall": null,
+          "moved": true
+        }
+      }
+    },
+    {
+      "name": "Dash and the real P2 movement pipeline can leave cloud edges without bypassing fall or killing the other hero",
+      "passed": true,
+      "detail": {
+        "dash": {
+          "roll": true,
+          "fall": {
+            "hero": "franco",
+            "coop": false,
+            "elapsed": 0,
+            "duration": 0.85,
+            "x": 9.5,
+            "y": 24.98888888888888
+          }
+        },
+        "p2": {
+          "edge": {
+            "x": 9.5,
+            "y": 25.5,
+            "dx": 0,
+            "dy": -1
+          },
+          "p1": {
+            "x": 9.5,
+            "y": 26.5,
+            "hp": 40
+          },
+          "states": [
+            {
+              "i": 0,
+              "active": true,
+              "mode": "walk",
+              "x": 9.5,
+              "y": 25.398333333333333,
+              "valid": true,
+              "area": "cloud_sea",
+              "member": "ryuchi"
+            },
+            {
+              "i": 1,
+              "active": true,
+              "mode": "walk",
+              "x": 9.5,
+              "y": 25.296666666666667,
+              "valid": true,
+              "area": "cloud_sea",
+              "member": "ryuchi"
+            },
+            {
+              "i": 2,
+              "active": true,
+              "mode": "walk",
+              "x": 9.5,
+              "y": 25.195,
+              "valid": false,
+              "area": "cloud_sea",
+              "member": "ryuchi"
+            },
+            {
+              "i": 3,
+              "active": true,
+              "mode": "walk",
+              "x": 9.5,
+              "y": 25.093333333333334,
+              "valid": false,
+              "area": "cloud_sea",
+              "member": "ryuchi"
+            },
+            {
+              "i": 4,
+              "active": true,
+              "mode": "cloud_fall",
+              "x": 9.5,
+              "y": 24.991666666666667,
+              "valid": false,
+              "area": "cloud_sea",
+              "member": "ryuchi"
+            }
+          ],
+          "fall": {
+            "hero": "ryuchi",
+            "coop": true,
+            "elapsed": 0,
+            "duration": 0.85,
+            "x": 9.5,
+            "y": 24.991666666666667
+          },
+          "p1After": {
+            "x": 9.5,
+            "y": 26.5,
+            "hp": 40
+          }
+        },
+        "end": {
+          "mode": "overlay",
+          "p1": 40,
+          "p2": 0,
+          "retry": true
+        }
+      }
+    },
+    {
+      "name": "Postgame travel and dungeon entry cannot cancel a real fatal fall, including through the map menu or cosmetic toggle",
+      "passed": true,
+      "detail": [
+        {
+          "coop": false,
+          "edge": {
+            "x": 9.5,
+            "y": 25.5,
+            "dx": 0,
+            "dy": -1
+          },
+          "hero": "franco",
+          "seededCampaignSettledForSeconds": 0.6,
+          "heroHPBeforeFall": 40,
+          "canTravelBefore": true,
+          "beforeM": {
+            "mode": "cloud_fall",
+            "complete": true,
+            "endingPending": false,
+            "elapsed": 0,
+            "dialogueHidden": true,
+            "speaker": "",
+            "words": "",
+            "queue": 0
+          },
+          "blocked": [
+            {
+              "enabled": true,
+              "canTravel": false,
+              "travel": false,
+              "dungeon": false,
+              "area": "cloud_sea",
+              "sameFall": true,
+              "position": {
+                "x": 9.5,
+                "y": 24.950478974763804
+              }
+            },
+            {
+              "enabled": false,
+              "canTravel": false,
+              "travel": false,
+              "dungeon": false,
+              "area": "cloud_sea",
+              "sameFall": true,
+              "position": {
+                "x": 9.5,
+                "y": 24.950478974763804
+              }
+            }
+          ],
+          "menu": {
+            "hero": "franco",
+            "mode": "overlay",
+            "complete": true,
+            "endingPending": false,
+            "beforeM": {
+              "mode": "cloud_fall",
+              "complete": true,
+              "endingPending": false,
+              "elapsed": 0,
+              "dialogueHidden": true,
+              "speaker": "",
+              "words": "",
+              "queue": 0
+            },
+            "travelButtons": 3,
+            "allDisabled": true,
+            "dungeonDisabled": true,
+            "sameFall": true,
+            "dialogueHidden": true,
+            "speaker": "",
+            "words": ""
+          },
+          "age": 0,
+          "resumed": true,
+          "defeat": {
+            "mode": "overlay",
+            "hero": "franco",
+            "hp": 0,
+            "partner": "ryuchi",
+            "partnerHP": 38,
+            "retry": true,
+            "fall": false
+          },
+          "retry": {
+            "area": "cloud_sea",
+            "hero": "franco",
+            "hp": 40,
+            "valid": true,
+            "coopValid": true,
+            "fall": false,
+            "complete": true,
+            "canTravel": true
+          }
+        },
+        {
+          "coop": true,
+          "edge": {
+            "x": 9.5,
+            "y": 25.5,
+            "dx": 0,
+            "dy": -1
+          },
+          "hero": "ryuchi",
+          "seededCampaignSettledForSeconds": 0.6,
+          "heroHPBeforeFall": 38,
+          "canTravelBefore": true,
+          "beforeM": {
+            "mode": "cloud_fall",
+            "complete": true,
+            "endingPending": false,
+            "elapsed": 0,
+            "dialogueHidden": true,
+            "speaker": "",
+            "words": "",
+            "queue": 0
+          },
+          "blocked": [
+            {
+              "enabled": true,
+              "canTravel": false,
+              "travel": false,
+              "dungeon": false,
+              "area": "cloud_sea",
+              "sameFall": true,
+              "position": {
+                "x": 9.5,
+                "y": 26.5
+              }
+            },
+            {
+              "enabled": false,
+              "canTravel": false,
+              "travel": false,
+              "dungeon": false,
+              "area": "cloud_sea",
+              "sameFall": true,
+              "position": {
+                "x": 9.5,
+                "y": 26.5
+              }
+            }
+          ],
+          "menu": {
+            "hero": "ryuchi",
+            "mode": "overlay",
+            "complete": true,
+            "endingPending": false,
+            "beforeM": {
+              "mode": "cloud_fall",
+              "complete": true,
+              "endingPending": false,
+              "elapsed": 0,
+              "dialogueHidden": true,
+              "speaker": "",
+              "words": "",
+              "queue": 0
+            },
+            "travelButtons": 3,
+            "allDisabled": true,
+            "dungeonDisabled": true,
+            "sameFall": true,
+            "dialogueHidden": true,
+            "speaker": "",
+            "words": ""
+          },
+          "age": 0,
+          "resumed": true,
+          "defeat": {
+            "mode": "overlay",
+            "hero": "ryuchi",
+            "hp": 0,
+            "partner": "franco",
+            "partnerHP": 40,
+            "retry": true,
+            "fall": false
+          },
+          "retry": {
+            "area": "cloud_sea",
+            "hero": "ryuchi",
+            "hp": 38,
+            "valid": true,
+            "coopValid": true,
+            "fall": false,
+            "complete": true,
+            "canTravel": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "Real solid walls outside cloud traversal still block movement, and area changes cancel transient falls",
+      "passed": true,
+      "detail": {
+        "cleared": true,
+        "wall": {
+          "before": 1.5,
+          "after": 1.3305084745762712,
+          "valid": true,
+          "fall": false
+        },
+        "hpBefore": 40,
+        "hpAfter": 40,
+        "area": "ciro_workshop"
+      }
+    },
+    {
+      "name": "Reduced effects preserve traversable cloud state, contrast and static readable scenery",
+      "passed": true,
+      "detail": {
+        "valid": true,
+        "fall": false,
+        "first": {
+          "baseX": 10,
+          "baseY": 12,
+          "bend": 0,
+          "canopyOffset": 0
+        },
+        "second": {
+          "baseX": 10,
+          "baseY": 12,
+          "bend": 0,
+          "canopyOffset": 0
+        },
+        "hp": {
+          "franco": 40,
+          "ryuchi": 38,
+          "alt": 48,
+          "katana": 49,
+          "synth": 44,
+          "percussion": 46
+        },
+        "unchanged": true
+      }
+    }
+  ],
+  "captures": [
+    {
+      "file": "city-antes.png",
+      "sha256": "8cd26b868ed948f9a7fe7788a9e9fc00a0ccf7107dd46290e8b96875901536f4",
+      "bytes": 579875
+    },
+    {
+      "file": "city-depois.png",
+      "sha256": "eeef8e5c9a5dceb60b90c5f80c65fb465b6a7cc0a5aadbea3ec90457eab5bcac",
+      "bytes": 554809
+    },
+    {
+      "file": "voices-antes.png",
+      "sha256": "c1ea0e4cb0b889d3da493fb4cdff7add8581fdfb8c6df82665f390a9125d7a0a",
+      "bytes": 929137
+    },
+    {
+      "file": "voices-depois.png",
+      "sha256": "c6fdff6b3903b6cc1c19942561ae5247f0fe5b6c8594bad3bd9f34407082a120",
+      "bytes": 927965
+    },
+    {
+      "file": "distortion_district-antes.png",
+      "sha256": "32c1f280cb5609db77180d00494de19b629061ab376797792f3428b4fc598517",
+      "bytes": 702086
+    },
+    {
+      "file": "distortion_district-depois.png",
+      "sha256": "68ea68b816d1b4e7584d37da549523b8af142eb2bb4fef8ce27c5d5770731964",
+      "bytes": 710860
+    },
+    {
+      "file": "studio-antes.png",
+      "sha256": "897ca50f847baecdc30c238ff545d9e6a5f84b40e0bfe5dbbd18a1da76d89971",
+      "bytes": 359313
+    },
+    {
+      "file": "studio-depois.png",
+      "sha256": "f34b2081da71372614751e26b84af5515535e2d5769f4a2895066e85dd7b4fda",
+      "bytes": 382895
+    },
+    {
+      "file": "contratempo-antes.png",
+      "sha256": "aaacde21d79f105a0d91fdbf8e69e9f5bf9070d0a5911802623b53df18e45ef3",
+      "bytes": 434812
+    },
+    {
+      "file": "contratempo-depois.png",
+      "sha256": "07b7d97aa8a2bc74aa5fef9f0e838b851d801558941c7564c5ca92424f1fbba1",
+      "bytes": 487712
+    },
+    {
+      "file": "ciro_workshop-antes.png",
+      "sha256": "285b59d2148bd8eb7001589dea96e7c7ff8c79236c48cb57d5ac242557521632",
+      "bytes": 380819
+    },
+    {
+      "file": "ciro_workshop-depois.png",
+      "sha256": "b61f102b7b4c676935a1f4c03ec8e538c24f54235d7a3930dce80ea5803851be",
+      "bytes": 435064
+    },
+    {
+      "file": "power_plant-antes.png",
+      "sha256": "592bdc811e90a8dc6c4e6a654473cffb5dd94e26ce3dff49169dd2fbfb2143df",
+      "bytes": 395657
+    },
+    {
+      "file": "power_plant-depois.png",
+      "sha256": "78af24113e53d9ed63ad6e32ece6f36aa50070131465d1c9f6712e874d1b3879",
+      "bytes": 416715
+    },
+    {
+      "file": "chamber-antes.png",
+      "sha256": "509fdc705d9e074d2ad6d1be49aeab4f4833add3e8e32cf0ec6864c6ac474b11",
+      "bytes": 634767
+    },
+    {
+      "file": "chamber-depois.png",
+      "sha256": "31cdb2ea1a9b51843e22b871e335ad1dd96821693195677705d175c857e797d7",
+      "bytes": 636852
+    },
+    {
+      "file": "celina_home-antes.png",
+      "sha256": "64eb4f0710bf406d0e72289ffe86e97fdc6bd26668504a62d13830cbcf9cc1f3",
+      "bytes": 717720
+    },
+    {
+      "file": "celina_home-depois.png",
+      "sha256": "4e778f6485bc7e72d939f7021de5a32a8af2e8526a659f42d953c7b63f077f1c",
+      "bytes": 733179
+    },
+    {
+      "file": "bento_shop-antes.png",
+      "sha256": "ca3a5da154d2ec4bb9712757d56e2899b0c5ccd3f36741c362e8481770a79f3f",
+      "bytes": 689283
+    },
+    {
+      "file": "bento_shop-depois.png",
+      "sha256": "1cf5bbce5fbe7823aabd5a8725964615b4b66d02847ec6d8390d57c9f65062e0",
+      "bytes": 762828
+    },
+    {
+      "file": "tape_market-antes.png",
+      "sha256": "8f1f53d3f5adc424402e07ae841f233d12cdb9bb0135a24c6778a301403f24da",
+      "bytes": 724793
+    },
+    {
+      "file": "tape_market-depois.png",
+      "sha256": "61ada0853e24c0680ace3cd6f5768d2704fdc26e38710b0c9221a1d995c7d9b8",
+      "bytes": 777921
+    },
+    {
+      "file": "radio9-antes.png",
+      "sha256": "f90dee1c8fa53ce442a2de77f6d12601a99cdabf0ba0de51bede25c23a907401",
+      "bytes": 692837
+    },
+    {
+      "file": "radio9-depois.png",
+      "sha256": "36f1982e0bb88ba705d587c6306a37438560c783fa806cd84dd54109accbc8f1",
+      "bytes": 737200
+    },
+    {
+      "file": "last_torii-antes.png",
+      "sha256": "580c755bfb2ebf1933c6e744ad204669f577dad4f53b594d7a21105c16241ac0",
+      "bytes": 344511
+    },
+    {
+      "file": "last_torii-depois.png",
+      "sha256": "9bd23bfefd83aa0c6937e6dde24b58e68eec15dbf2e80b7c1ec4baa6fdafecff",
+      "bytes": 361381
+    },
+    {
+      "file": "city-fachada-antes.png",
+      "sha256": "690d11d5bbe8cc267c78e3115c997a0cf1b7832f336a1a4e2558ba8f36464765",
+      "bytes": 618530
+    },
+    {
+      "file": "city-fachada-depois.png",
+      "sha256": "c4905dd5b927aae8349925f5afc2882be1f6776084cfbaa7cd17166681df6bf8",
+      "bytes": 593474
+    },
+    {
+      "file": "voices-fachada-antes.png",
+      "sha256": "31a920cd7987017ff8a4b20efe5467b8681b3acea5783ce8dc0165b7cbf658c6",
+      "bytes": 945804
+    },
+    {
+      "file": "voices-fachada-depois.png",
+      "sha256": "c7ab3641573ac613e96ba1de30905b2d608f2de709599332a0769d7c57739a49",
+      "bytes": 943739
+    },
+    {
+      "file": "distortion_district-fachada-antes.png",
+      "sha256": "45c45e093d911f177352ead099dc5d94d37c351fba6fdb98884f544ca4a46061",
+      "bytes": 710251
+    },
+    {
+      "file": "distortion_district-fachada-depois.png",
+      "sha256": "74f17163f6f8c9d5bde0953be0cdef54cfcf411383fb05cfe625c4397971dcce",
+      "bytes": 728182
+    },
+    {
+      "file": "portal-aberto.png",
+      "sha256": "5642f18cfccb173d3515cc39f5fb2cfa6a3e5b5d482b1672c5698a8462b93ef8",
+      "bytes": 394910
+    },
+    {
+      "file": "nuvens-00-ausente.png",
+      "sha256": "22ec6dd5aa371c31b3756bd15fdb1b56b0d30b8f5abf2ec19d423f7c9bf320a0",
+      "bytes": 382215
+    },
+    {
+      "file": "nuvens-01-reconstruindo.png",
+      "sha256": "ca1c974df50114b33e9d465ad0ee02c62415d963b124f5d15cb3ba8278335a96",
+      "bytes": 428250
+    },
+    {
+      "file": "nuvens-02-restaurada.png",
+      "sha256": "1963751833ffaa1ababf8d1251ea7023202ddbbc53c0353b7931b937d1c3797b",
+      "bytes": 394587
+    },
+    {
+      "file": "queda-oclusao-nuvem.png",
+      "sha256": "64d4e5c2038fe55e6659c42beb0ebcb66bc00819cc172fe3ed8aa31640356478",
+      "bytes": 383607
+    },
+    {
+      "file": "queda-p1-00-inicio.png",
+      "sha256": "59376be4dbb3204f91141297dc688f63c3610759320da26a158a996dc9eff331",
+      "bytes": 382131
+    },
+    {
+      "file": "queda-p1-01-caindo.png",
+      "sha256": "13adcc32e9d2aa5b3ada8435667500364582d1e3223f1090e27488d6092527d3",
+      "bytes": 381725
+    },
+    {
+      "file": "queda-p1-02-distante.png",
+      "sha256": "56c25b07a21face926a74df04f625b919a963040a1e720e962aff619862640ea",
+      "bytes": 382837
+    },
+    {
+      "file": "queda-p1-03-checkpoint.png",
+      "sha256": "374356e704754dcb2948bb05d7a8edde62f66cf49b6498931c4eefbde2f9d979",
+      "bytes": 383041
+    },
+    {
+      "file": "queda-dash.png",
+      "sha256": "8ef1d995d2f46295f04206058452b23718e75236da750a0de303e27944aea71f",
+      "bytes": 383421
+    },
+    {
+      "file": "queda-p2.png",
+      "sha256": "04def4644628d996fde565d712258808a36b645c536611b3254c5044ac5f4cc5",
+      "bytes": 386512
+    },
+    {
+      "file": "efeitos-suaves-nuvens.png",
+      "sha256": "263406063db18b3f1ff5041733c979db68c22efa7f697c744f68b5fce067e284",
+      "bytes": 386996
+    }
+  ],
+  "browserErrors": [],
+  "method": "Isolated Chrome, controlled real simulation and rendered canvas captures; no human campaign or physical hardware.",
+  "browser": "158.0.8127.37",
+  "build": {
+    "version": "1.11.0",
+    "sourceSha256": "73568a9c76ec3ec029393947753367c0af25843d6c1125fa1baad845d76b6392",
+    "indexSha256": "ee9466b7c2ee52caf7d3b251a910cc1dc31a41c87539a8f651d2c4617cd59924"
+  },
+  "passed": 15,
+  "status": "passed"
+}

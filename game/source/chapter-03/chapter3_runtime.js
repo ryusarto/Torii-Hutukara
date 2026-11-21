@@ -217,7 +217,9 @@ C3.buildMaps=function(){
 
   a=C3.boundary(mk('distortion_district',64,44,'c3_asphalt'));
   fill(a,3,3,58,38,'c3_asphalt');path(a,[[4,37],[18,35],[31,28],[35,19],[35,7]],3,'c3_street');path(a,[[17,35],[17,19],[11,15]],3,'c3_street');path(a,[[31,28],[49,27],[56,13]],3,'c3_street');path(a,[[31,28],[48,35],[57,34]],3,'c3_street');
-  const districtHouses=[[9,9],[21,8],[44,8],[54,22],[7,27],[45,39]];for(const [hx,hy] of districtHouses){prop(a,'c3_house',hx,hy,{w:7,h:5});rectBlock(a,hx-3,hy-5,7,5)}
+  // Keep the club/workshop approaches open: their former backdrop houses
+  // overlapped the taller 2.5D facades. Remove both props and their footprints.
+  const districtHouses=[[44,8],[54,22],[7,27],[45,39]];for(const [hx,hy] of districtHouses){prop(a,'c3_house',hx,hy,{w:7,h:5});rectBlock(a,hx-3,hy-5,7,5)}
   prop(a,'c3_club',13,15,{w:10,h:7});rectBlock(a,9,9,9,6);prop(a,'c3_workshop',25,11,{w:9,h:6});rectBlock(a,21,6,8,5);prop(a,'c3_elevator',35,7);rectBlock(a,32,2,7,4);prop(a,'c3_machine',55,11);rectBlock(a,52,6,7,5);
   prop(a,'c3_sign',13,16,{text:'CONTRATEMPO',theme:'club'});prop(a,'c3_sign',25,12,{text:'OFICINA DE MAZZA',theme:'workshop'});prop(a,'c3_sign',55,12,{text:'USINA DE RETORNO',theme:'plant'});prop(a,'c3_sign',57,32,{text:'CANAL SUSPENSO',theme:'canal'});prop(a,'c3_sign',35,8,{text:'ELEVADOR DO CÉU',theme:'lift'});
   for(const p of [[7,37],[15,34],[24,30],[34,25],[43,28],[51,32],[57,18],[35,13]])prop(a,'c3_neon_lamp',p[0],p[1]);for(const p of [[18,37],[31,30],[48,26]])prop(a,'c3_neon_utility',p[0],p[1]);
@@ -276,7 +278,7 @@ C3.buildMaps=function(){
   prop(a,'c3_sanctuary',17,5);evt(a,'c3_silence_start',17,10,'O SILÊNCIO · COMEÇAR',()=>C3.startSilence(false));link(a,5,21,'last_torii',21.5,14.5);
 };
 
-C3.applyWorld=function(){if(!G?.c3)return;let a=areas.power_plant;if(a){if(G.c3.usinaGate)for(let y=9;y<=19;y++)for(let x=16;x<=18;x++){a.tiles[y][x]='c3_metal';unsolid(a,x,y)}if(G.c3.synthUnlocked)a.npcs=a.npcs.filter(n=>n.id!=='c3_synth_npc')}a=areas.sky_canal;if(a){if(G.c3.canalPath)fill(a,17,10,7,5,'c3_bridge');if(G.c3.percussionUnlocked)a.npcs=a.npcs.filter(n=>n.id!=='c3_percussion_npc');if(G.c3.canalDone)a.npcs=a.npcs.filter(n=>n.id!=='c3_nara_canal')}a=areas.ciro_workshop;if(a){a.npcs=a.npcs.filter(n=>n.id!=='c3_nara');if(G.c3.canalDone)npc(a,'c3_nara',18,12,'Colli · Cartógrafo Sonoro',()=>C3.nara(),'citizen')}a=areas.cloud_sea;if(a){if(G.c3.cloudPathA)fill(a,18,20,7,6,'c3_cloud');if(G.c3.cloudPlatform)fill(a,32,14,7,5,'c3_platform');if(G.c3.cloudPathB)fill(a,45,8,6,6,'c3_cloud')}routeCache.key=''};
+C3.applyWorld=function(){if(!G?.c3)return;let a=areas.power_plant;if(a){if(G.c3.usinaGate)for(let y=9;y<=19;y++)for(let x=16;x<=18;x++){a.tiles[y][x]='c3_metal';unsolid(a,x,y)}if(G.c3.synthUnlocked)a.npcs=a.npcs.filter(n=>n.id!=='c3_synth_npc')}a=areas.sky_canal;if(a){if(G.c3.canalPath)fill(a,17,10,7,5,'c3_bridge');if(G.c3.percussionUnlocked)a.npcs=a.npcs.filter(n=>n.id!=='c3_percussion_npc');if(G.c3.canalDone)a.npcs=a.npcs.filter(n=>n.id!=='c3_nara_canal')}a=areas.ciro_workshop;if(a){if(!G.c3.canalDone||areas.contratempo?.npcs.some(n=>n.id==='c3_nara'))a.npcs=a.npcs.filter(n=>n.id!=='c3_nara');else if(!a.npcs.some(n=>n.id==='c3_nara'))npc(a,'c3_nara',18,12,'Colli · Cartógrafo Sonoro',()=>C3.nara(),'citizen')}a=areas.cloud_sea;if(a){if(G.c3.cloudPathA)fill(a,18,20,7,6,'c3_cloud');if(G.c3.cloudPlatform)fill(a,32,14,7,5,'c3_platform');if(G.c3.cloudPathB)fill(a,45,8,6,6,'c3_cloud')}routeCache.key=''};
 
 const C3_buildMapsBase=buildMaps;
 PB.repairMaps=function(){
