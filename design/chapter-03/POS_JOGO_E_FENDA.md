@@ -29,19 +29,20 @@ Nome: **Fenda das Ressonâncias**. Uma arena fixa usa o piso e os objetos existe
 - Surgimentos avisados no chão por0,95s, dentro da câmera e afastados dos dois jogadores. Posição é revalidada ao nascer; entrar no aviso o desloca. Cadência1,25s solo /1,05scoop, respeitando o limite de vivos.
 - Eliminações têm valores próprios por família, crescem6% poronda e recebem ×1,5 para ressonantes. Ritmo por ondas concluídas sem KO dá até50% adicional; KO reduz dois níveis. Limpar sem perda real de HP dá25% extra sobre o prêmio da onda. Não há bônus por velocidade, para respeitar armas lentas.
 - Prêmio de conclusão: `150+50×onda`, mais `250×floor(onda/5)` em marcos de cinco ondas. Pontuação compartilhada no coop; recordes SOLO/COOP separados. Participação do P2 marca toda a tentativa como coop, mesmo se desconectar depois.
-- Descanso4s, ou8s nos marcos de cinco. Botão de toque PRÓXIMA ONDA com área mínima44px permite antecipar o intervalo. Não reutilizar ataque/esquiva como atalho de confirmação.
-- Recuperar10% do HP ao concluir;25% nos marcos, inclusive aliados derrubados. Iniciar com3fitas temporárias solo /4coop; marcos concedem1/2, até6. Recursos são consolidados na conclusão da onda e não recalculados no carregamento.
+- A cada onda concluída, a equipe escolhe uma de três melhorias. As opções são sorteadas sem repetição entre seis cartas, pela semente da expedição e pelo número da onda. O intervalo dura até a confirmação por teclado, controle ou toque. As escolhas acumulam durante a tentativa e são descartadas ao sair.
+- Amplificador aumenta o dano geral. Ataque de abertura e Último acorde premiam, respectivamente, atingir ecos intactos e finalizar alvos com metade da vida. Abafador de impacto reduz o dano recebido. Compasso quebrado prolonga atordoamentos. Retorno de sinal recarrega a ressonância ao eliminar ecos. Níveis sucessivos têm retornos decrescentes.
+- A equipe entra com vida cheia. Dentro da Fenda, dano e baixas persistem entre ondas e ao retomar o save. Fitas e os efeitos curativos dos supers ficam suspensos até o retorno ao Torii.
 - Pausa, diálogos e menus congelam avisos e tempo de combate. O HUD mobile mostra onda, pontos e ritmo em ambas as orientações. P2 conserva movimento, esquiva, interação e ataques próprios.
 - Desconexão reduz apenas a fila futura ao perfilsolo; preserva inimigos vivos e a classificação coop. Reconectar não amplia a onda em andamento. A saída fica no extremo norte da arena, longe da chegada, para não consumir a confirmação simultânea dos dois controles.
-- Não gerar XP ou fragmentos permanentes. Guardar fitas/ressonância da campanha ao entrar e restaurar ao sair. Derrota ou saída registra resultado/duração e recupera a equipe no Torii. Nova tentativa começa do zero.
+- Não gerar XP ou fragmentos permanentes. Guardar vida, formação, líder, fitas e ressonância da campanha ao entrar. Derrota ou saída registra resultado e duração, devolvendo a equipe ao Torii com os recursos anteriores. Nova tentativa começa do zero.
 
 Não há onda final predefinida. Há limites numéricos defensivos (onda 1 milhão, HP 2 milhões, poder 9999 e pontuação 9 trilhões) para impedir estados inválidos em saves editados ou sessões extremas; não são metas de balanceamento.
 
 ## Save e limites da entrega
 
-O schema geral continua 13. O módulo adiciona apenas `G.postgame.version = 2`, recordes, última tentativa e a tentativa ativa. Saves anteriores recebem os valores padrão. Saves concluídos que estavam no estúdio recebem as opções de pós-jogo sem obrigar a refazer o boss.
+O schema geral continua 13. O módulo adiciona apenas `G.postgame.version = 3`, recordes, última tentativa e a tentativa ativa. Saves anteriores recebem os valores padrão. Saves concluídos que estavam no estúdio recebem as opções de pós-jogo sem obrigar a refazer o boss.
 
-Ao carregar/exportar/importar uma expedição, recomeçar a onda atual com HP, fitas, ressonância, ritmo e tempo do início e os pontos/eliminações consolidados antes dela. Uma onda já concluída segue para a próxima. Não conservar inimigos parcialmente feridos ou permitir duplicação dos pontos parciais. Recordes anteriores permanecem como histórico; tentativas antigas em andamento não entram nos placares das regras novas. O recorde é local ao save, não existe ranking online.
+Ao carregar ou importar, uma onda em combate recomeça com a vida restante do save e com as melhorias escolhidas. A ressonância, os pontos e as eliminações retomam o valor consolidado no começo da onda. Uma rodada concluída e salva antes da escolha reabre as mesmas três opções. Os placares das regras antigas ficam no histórico e as expedições migradas mantêm sua classificação histórica até terminar.
 
 Os testes automatizados usam fixtures do runtime em Chrome isolado. Verificam formações, encerramento, viagens, progressão de ondas, derrota/retry, save e coop simulado. Não substituem balanceamento humano prolongado nem testes em controles ou aparelhos físicos.
 

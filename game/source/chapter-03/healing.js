@@ -17,6 +17,7 @@ function activeId(){try{return fighterName()}catch{return G&&G.active}}
 function useTape(target=activeId()){
   syncTapeSession();
   if(!G||!['walk','action'].includes(mode)||(tapeCooldowns.get(target)||0)>0)return false;
+  if(typeof PostGame!=='undefined'&&PostGame.active()){toast('FENDA · A VIDA PERDIDA NÃO VOLTA');return false}
   const id=target;if(!id||!partyMembers().includes(id)||!G.maxhp[id]||G.hp[id]<=0)return false;
   if((G.potions||0)<=0){toast('SEM FITAS DE CURA · COMPRE COM UM MERCADOR');return}
   if(G.hp[id]>=G.maxhp[id]){toast('VIDA CHEIA');return}
@@ -51,7 +52,7 @@ function pollPads(){
 // Cada capítulo novo começa com a equipe recuperada (antes, o Capítulo 3
 // começava com a vida que sobrou da luta na torre do Capítulo 2).
 let lastChapter=null;
-function chapterHeal(){if(!G)return;const c=G.chapter||1;if(lastChapter!==null&&c>lastChapter){healTeam();try{toast('NOVO MUNDO · EQUIPE RECUPERADA');updateHUD()}catch{}}lastChapter=c}
+function chapterHeal(){if(!G)return;const c=G.chapter||1;if(lastChapter!==null&&c>lastChapter&&!(typeof PostGame!=='undefined'&&PostGame.active())){healTeam();try{toast('NOVO MUNDO · EQUIPE RECUPERADA');updateHUD()}catch{}}lastChapter=c}
 const updateBeforeHealing=update;
 update=function(dt,...rest){syncTapeSession();const r=updateBeforeHealing.call(this,dt,...rest);for(const [id,left] of tapeCooldowns)tapeCooldowns.set(id,Math.max(0,left-(dt||0)));pollPads();chapterHeal();return r};
 for(const name of ['newGame','continueGame','startChapterTwoPreview']){const before=window[name];if(typeof before==='function')window[name]=function(...args){lastChapter=null;return before.apply(this,args)}}
@@ -68,7 +69,7 @@ function ensureButton(){
   button.addEventListener('pointerdown',e=>e.stopPropagation());
   document.getElementById('hud').appendChild(button);
 }
-function refreshButton(){ensureButton();if(!button)return;const n=G?(G.potions||0):0;button.textContent=`♥ FITA ×${n}`;button.style.opacity=n?'1':'.55';button.style.display=G&&mode!=='title'?'block':'none'}
+function refreshButton(){ensureButton();if(!button)return;const n=G?(G.potions||0):0;button.textContent=`♥ FITA ×${n}`;button.style.opacity=n?'1':'.55';button.style.display=G&&mode!=='title'&&!(typeof PostGame!=='undefined'&&PostGame.active())?'block':'none'}
 const hudBeforeHealing=updateHUD;
 updateHUD=function(...args){const r=hudBeforeHealing.apply(this,args);try{refreshButton()}catch{}return r};
 
