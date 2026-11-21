@@ -1,0 +1,83 @@
+{
+  "version": 8,
+  "directions": [
+    "down",
+    "left",
+    "up",
+    "right"
+  ],
+  "heroes": {
+    "franco": {
+      "atlas": "atlas/franco_run.png",
+      "cell": 256,
+      "pivot": [
+        128,
+        224
+      ],
+      "frames": 16,
+      "rows": 8,
+      "strideDistance": 3.172,
+      "scale": 0.34375
+    },
+    "ryuchi": {
+      "atlas": "atlas/ryuchi_run.png",
+      "cell": 256,
+      "pivot": [
+        128,
+        224
+      ],
+      "frames": 16,
+      "rows": 8,
+      "strideDistance": 3.172,
+      "scale": 0.34375
+    },
+    "alt": {
+      "atlas": "atlas/alt_run.png",
+      "cell": 256,
+      "pivot": [
+        128,
+        224
+      ],
+      "frames": 16,
+      "rows": 4,
+      "strideDistance": 3.172,
+      "scale": 0.34375
+    },
+    "katana": {
+      "atlas": "atlas/katana_run.png",
+      "cell": 256,
+      "pivot": [
+        128,
+        224
+      ],
+      "frames": 16,
+      "rows": 4,
+      "strideDistance": 3.172,
+      "scale": 0.34375
+    },
+    "synth": {
+      "atlas": "atlas/synth_run.png",
+      "cell": 256,
+      "pivot": [
+        128,
+        224
+      ],
+      "frames": 16,
+      "rows": 8,
+      "strideDistance": 3.172,
+      "scale": 0.34375
+    },
+    "percussion": {
+      "atlas": "atlas/percussion_run.png",
+      "cell": 256,
+      "pivot": [
+        128,
+        224
+      ],
+      "frames": 16,
+      "rows": 8,
+      "strideDistance": 3.172,
+      "scale": 0.34375
+    }
+  }
+}

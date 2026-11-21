@@ -449,6 +449,32 @@ ninja_archer_uris = protagonist_uris = musician_uris = cenarios_uris = enemy_art
 GC.start
 # Insert pieces in reverse at the same anchor: identical bytes without a second
 # full-size concatenation of every embedded PNG/audio runtime.
+body_dir = File.join(REPO_ROOT, 'assets', 'hero-body', 'v1')
+stride_dir = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v8-corrida')
+hero_variants = %w[franco ryuchi alt katana synth percussion].flat_map do |hero|
+  variants = %w[alt katana].include?(hero) ? %w[unmasked] : %w[unmasked masked]
+  variants.map { |variant| "#{hero}_#{variant}" }
+end
+body_paths = hero_variants.to_h { |key| [key, File.join(body_dir, 'atlas', "#{key}.png")] }
+stride_manifest_path = File.join(stride_dir, 'manifest.json')
+stride_manifest = JSON.parse(File.read(stride_manifest_path))
+archer_split_path = File.join(stride_dir, 'archer-split', 'manifest.json')
+stride_paths = %w[franco ryuchi alt katana synth percussion].to_h do |hero|
+  [hero, File.join(stride_dir, 'atlas', "#{hero}_run.png")]
+end
+def png_map(paths)
+  JSON.generate(paths.transform_values { |path| "data:image/png;base64,#{encode(path)}" })
+end
+body_script = File.join(ROOT, 'hero_attack_body.js')
+stride_script = File.join(ROOT, 'run_stride_v1.js')
+body_runtime = File.read(body_script, encoding: 'UTF-8')
+stride_runtime = File.read(stride_script, encoding: 'UTF-8')
+body_placement = File.join(body_dir, 'placement.json')
+replace_once!(body_runtime, '__HERO_BODY_PLACEMENT__', JSON.generate(JSON.parse(File.read(body_placement))), 'registro horizontal das armas')
+replace_once!(body_runtime, '__HERO_BODY_ATLASES__', png_map(body_paths), 'poses corporais de contato')
+replace_once!(stride_runtime, '__RUN_STRIDE_ASSETS__', png_map(stride_paths), 'sprites de corrida')
+replace_once!(stride_runtime, '__ARCHER_SPLIT_MANIFEST__', JSON.generate(JSON.parse(File.read(archer_split_path))), 'camadas de movimento e tiro do arqueiro')
+replace_once!(stride_runtime, '__RUN_STRIDE_MANIFEST__', JSON.generate(stride_manifest), 'fases da passada')
 hero_attack_path = File.join(ROOT, 'hero_attack_fx.js')
 enemy_attack_path = File.join(ROOT, 'enemy_attack_fx.js')
 hero_attack_atlas = File.join(REPO_ROOT, 'assets', 'hero-attack-fx', 'v1', 'hero_attacks.png')
@@ -458,7 +484,7 @@ hero_attack_runtime = File.read(hero_attack_path, encoding: 'UTF-8')
   raise "Missing #{token} in hero attack module" unless hero_attack_runtime.include?(token)
   hero_attack_runtime.sub!(token) { JSON.generate("data:image/png;base64,#{encode(path)}") }
 end
-parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8')]
+parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, stride_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8'), body_runtime]
 runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = polish_runtime = npc_gestures_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
 html.insert(position, "\n")
 until parts.empty?
@@ -493,6 +519,7 @@ end
 sources += [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_art_files.map { |relative| File.join(ENEMY_ART_ASSETS, relative) }
 sources += [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json'), File.join(BOSS_ANIMATION_V3, 'manifest.json')] + boss_animation_paths.values
 
+sources += body_paths.values + stride_paths.values + [body_placement, body_script, stride_script, stride_manifest_path, archer_split_path]
 sources += [File.join(ROOT, "postgame.js"), hero_attack_path, enemy_attack_path, hero_attack_atlas, sword_atlas]
 sources += [BOSS_GROUND_FX_JS, File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json'), File.join(BOSS_GROUND_FX_V2, 'manifest.json')] + ground_fx_paths.values
 sources += [ENVIRONMENT_DEPTH_JS, ENVIRONMENT_ATMOSPHERE_JS, CLOUD_WORLD_JS, CLOUD_STORY_JS, File.join(CLOUD_WORLD_ASSETS, 'manifest.json')] + cloud_files.values
@@ -529,7 +556,7 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    key = [File.dirname(hero_attack_atlas), BOSS_ANIMATION_V3, BOSS_GROUND_FX_V2, File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2'), NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, LOCOMOTION_ASSETS, WORLD_POLISH_ASSETS, NPC_GESTURES_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS, CLOUD_WORLD_ASSETS, ENVIRONMENT_VOLUME_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    key = [body_dir, stride_dir, File.dirname(hero_attack_atlas), BOSS_ANIMATION_V3, BOSS_GROUND_FX_V2, File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2'), NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, LOCOMOTION_ASSETS, WORLD_POLISH_ASSETS, NPC_GESTURES_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS, CLOUD_WORLD_ASSETS, ENVIRONMENT_VOLUME_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
 
     [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end

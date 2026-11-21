@@ -31,6 +31,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
     const item={hero,variant,seat,stage,profile,frames:[],samples:[],passed:false};
     try{
      arena(hero,variant,seat);const state='attack_'+stage;
+     await HeroAttackBody.sheet(hero,variant).decode();
      await Promise.all(['idle',state].map(s=>art.image(art.key(hero,variant,s)).decode()));
      const body=seat===0?act:C3.coop;
      for(let combo=1;combo<=stage;combo++){
@@ -40,13 +41,13 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
      }
      const record=art.players[seat],duration=record.duration,key=art.key(hero,variant,state);item.duration=duration;let elapsed=0;
      const draw=()=>{const body=seat===0?G:C3.coop,calls=[],prior=ctx.drawImage;ctx.drawImage=function(...a){calls.push(a);return prior.apply(this,a)};try{drawActor({style:hero,dir:'right'},body.x*T-cam.x,body.y*T-cam.y,false)}finally{ctx.drawImage=prior}
-      const action=calls.find(a=>a[0]===art.images[key]);const actual=action?action[1]/256:null;item.samples.push({elapsed,frame:actual,cool:seat===0?act.cool:C3.coop.cool});if(actual!==null&&item.frames.at(-1)!==actual)item.frames.push(actual);};
+      const contact=calls.find(a=>a[0]===HeroAttackBody.sheet(hero,variant));const action=calls.find(a=>a[0]===art.images[key]);const actual=contact?'contact':action?action[1]/256:null;item.samples.push({elapsed,frame:actual,cool:seat===0?act.cool:C3.coop.cool});if(actual!==null&&item.frames.at(-1)!==actual)item.frames.push(actual);};
      draw();for(let n=0;n<120&&elapsed<duration+.25;n++){
       const dt=profile==='30hz'?1/30:profile==='60ms_hitch'&&n===4?.06:1/60;step(dt);elapsed+=dt;draw();
      }
      item.lastActionAt=item.samples.filter(s=>s.frame!==null).at(-1)?.elapsed??null;
-     item.passed=item.frames.join(',')==='0,1,2,3,4,5,6,7'&&item.lastActionAt<=duration+.117;
-     if(!item.passed)item.failure='Expected eight ordered actual source frames and bounded visual tail';
+     item.passed=item.frames.join(',')==='0,1,2,3,contact,4,5,6,7'&&item.lastActionAt<=duration+.117;
+     if(!item.passed)item.failure='Expected eight ordered original frames plus the authored body contact and a bounded visual tail';
     }catch(e){item.failure=e.message}cases.push(item);
    }
    return {cases,metadata:{version:ToriiPlaytest.version,sourceSha:ToriiPlaytest.sourceSha256},method:'accepted real P1/P2 attacks, natural combo cooldowns, actual update/drawActor calls; controlled simulation intervals, not a hardware FPS claim'};

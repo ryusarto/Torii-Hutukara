@@ -1,3 +1,9 @@
+## [Beta 1.14.0] — 2026-11-21
+
+- Os seis personagens ganharam poses corporais de contato para ataques e técnicas, nas quatro direções. A animação intercala o contato entre a preparação e a recuperação do golpe.
+- A corrida ganhou quadros de apoio, compressão, impulsão e voo. A distância percorrida determina a fase da passada.
+- Franco arqueiro combina a passada com o gesto de disparar. A mira acompanha o tiro enquanto os pés seguem o movimento.
+
 ## [Beta 1.13.0] — 2026-11-21
 
 - Na Fenda, o dano e as baixas duram até o fim da expedição. A equipe escolhe uma entre três melhorias a cada onda concluída. As ofertas e os níveis escolhidos acompanham o save da tentativa.

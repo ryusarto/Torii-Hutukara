@@ -95,7 +95,10 @@ function harness(options = {}) {
     const c=h.C3.coop; if (!h.activeModes10() || c.dash > 0) return false;
     c.dash=.38; c.rollDuration=.38; c.rollHero=c.member; return true;
   };
+  // Use the production native fallback while the optional contact atlas is unavailable.
+  h.HeroAttackFX = {follower(){}}; h.effect10 = () => {};
   vm.createContext(h);
+  vm.runInContext(fs.readFileSync(path.join(root,'game/source/chapter-03/hero_attack_body.js'),'utf8').replace('__HERO_BODY_ATLASES__','{}').replace('__HERO_BODY_PLACEMENT__','{}'),h);
   vm.runInContext(source.replace('__MUSICIAN_ASSETS__', JSON.stringify(options.assets || assets))
     .replace('__MUSICIAN_MANIFEST__', JSON.stringify({animations: [], portraits: []})), h);
   return {h, art: vm.runInContext('MusicianArtV1', h), draws, stats, elements};

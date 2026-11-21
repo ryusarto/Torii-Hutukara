@@ -1,0 +1,4413 @@
+{
+  "cell": 256,
+  "pivot": [
+    128,
+    224
+  ],
+  "states": [
+    "attack_1",
+    "attack_2",
+    "attack_3",
+    "skill",
+    "advanced",
+    "signature"
+  ],
+  "directions": [
+    "down",
+    "left",
+    "up",
+    "right"
+  ],
+  "sheets": [
+    {
+      "sheet": "franco_unmasked",
+      "sourceSha256": "a94cb2c49e6e5beb00bb602c908be197b0b73d3ce6ef0c7ffdfdebf153b05ef0",
+      "atlasSha256": "e178f681866bdb054fa170e909adeba1adaaf79c3b12703791f7e10255fd631d",
+      "cells": [
+        {
+          "state": "attack_1",
+          "direction": "down",
+          "targetFoot": [
+            113.9,
+            222.0
+          ],
+          "foot": [
+            114.3,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "f8823c2b355c6db5e8f4ad12d4e4eadbb302c5b982efdaf68ea2b505c22df638"
+        },
+        {
+          "state": "attack_2",
+          "direction": "down",
+          "targetFoot": [
+            115.6,
+            221.0
+          ],
+          "foot": [
+            115.8,
+            220
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "d80c6099ef68c47c7247deac7639225b48ee9087e485f6d3330e4daacc63105e"
+        },
+        {
+          "state": "attack_3",
+          "direction": "down",
+          "targetFoot": [
+            128.9,
+            223.0
+          ],
+          "foot": [
+            129.3,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "e39589f2bb95e36c3b09277d8960ec1aa6f924ccf7e62361e7e1a4675c8ee949"
+        },
+        {
+          "state": "skill",
+          "direction": "down",
+          "targetFoot": [
+            127.4,
+            223.0
+          ],
+          "foot": [
+            127.5,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.996,
+          "sha256": "47ac66f7384b52d915b59caca415cb41d6257784a05c6003e0c58f197df42907"
+        },
+        {
+          "state": "advanced",
+          "direction": "down",
+          "targetFoot": [
+            127.6,
+            223.0
+          ],
+          "foot": [
+            127.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.01,
+          "sha256": "3d25e5808cf5a1822d6b2c1833befb58ca3f00081aa5421c0daa1acb92f0f194"
+        },
+        {
+          "state": "signature",
+          "direction": "down",
+          "targetFoot": [
+            131.7,
+            221.0
+          ],
+          "foot": [
+            131.8,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "3d9fb08015e3d6c2cdc29b463107848d007a8217409739df12789a29fd50493a"
+        },
+        {
+          "state": "attack_1",
+          "direction": "left",
+          "targetFoot": [
+            154.4,
+            222.5
+          ],
+          "foot": [
+            153.2,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "53bf667d5dd3fdfb888e0650c70820a3bb73bfa25dff2ef8d99294184894b5e4"
+        },
+        {
+          "state": "attack_2",
+          "direction": "left",
+          "targetFoot": [
+            150.9,
+            222.0
+          ],
+          "foot": [
+            151.2,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "996613abf8da8601f8a68f4f04c60acc66deec517b90db5c6a9b09d0fd6abd58"
+        },
+        {
+          "state": "attack_3",
+          "direction": "left",
+          "targetFoot": [
+            147.4,
+            223.0
+          ],
+          "foot": [
+            147.1,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "98d10b7495991849a779003f2347794de2de2ca5215ba90ae715d485b66f91bd"
+        },
+        {
+          "state": "skill",
+          "direction": "left",
+          "targetFoot": [
+            140.3,
+            223.0
+          ],
+          "foot": [
+            140.6,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.996,
+          "sha256": "4e66498ccfe3e80469a65dc1d03496fe74d3135882ad5833f66cee050a707cc6"
+        },
+        {
+          "state": "advanced",
+          "direction": "left",
+          "targetFoot": [
+            144.5,
+            223.0
+          ],
+          "foot": [
+            144.6,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "a78a1ef1f4b8a913ffc13cfa91473cf6365c20ce23b600fafa95708bfdf63baf"
+        },
+        {
+          "state": "signature",
+          "direction": "left",
+          "targetFoot": [
+            127.8,
+            222.0
+          ],
+          "foot": [
+            127.9,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "c9397c2ec2b165419e8e6296a9381f9d7d9b91b0fb3649dcbbb62b2bbef0ea7e"
+        },
+        {
+          "state": "attack_1",
+          "direction": "up",
+          "targetFoot": [
+            114.4,
+            223.0
+          ],
+          "foot": [
+            114.5,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "81c0d2dc79fe0f4eac48f289cf6c62f3411992ed42b18f59ea15a119dcf61cc9"
+        },
+        {
+          "state": "attack_2",
+          "direction": "up",
+          "targetFoot": [
+            112.9,
+            221.0
+          ],
+          "foot": [
+            112.5,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "66c65923b563e19698d39f18eded7682f530988f2e7069b57fcf32ca3123d9fa"
+        },
+        {
+          "state": "attack_3",
+          "direction": "up",
+          "targetFoot": [
+            116.1,
+            223.5
+          ],
+          "foot": [
+            115.5,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.991,
+          "sha256": "3a17a05541da3cb19174f4aa959e3411ebc55e1ed7c5d756fb847577c74f8200"
+        },
+        {
+          "state": "skill",
+          "direction": "up",
+          "targetFoot": [
+            129.6,
+            223.5
+          ],
+          "foot": [
+            129.5,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.001,
+          "sha256": "f256924d3471e45c450a510020599b49e2498cf11b6c00e5b0d94db00030304d"
+        },
+        {
+          "state": "advanced",
+          "direction": "up",
+          "targetFoot": [
+            128.3,
+            223.0
+          ],
+          "foot": [
+            128.4,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "b31d6735cc8d54ae9e4e1b880caafa42436fc21f3c2a535d97320887da9f2f1a"
+        },
+        {
+          "state": "signature",
+          "direction": "up",
+          "targetFoot": [
+            131.3,
+            221.0
+          ],
+          "foot": [
+            131.2,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "a7285a7c3af3fda0c9ee0c7674e87c13bb7650f0e8d7f53f75d6d6893bef74e7"
+        },
+        {
+          "state": "attack_1",
+          "direction": "right",
+          "targetFoot": [
+            96.9,
+            222.0
+          ],
+          "foot": [
+            95.6,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.996,
+          "sha256": "0bd93f6a8adce72e4f68ab1fac5a2818df6ca6e6f1ae548cf4005eb0e1281a28"
+        },
+        {
+          "state": "attack_2",
+          "direction": "right",
+          "targetFoot": [
+            111.4,
+            221.0
+          ],
+          "foot": [
+            110.9,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "c6db393ca6458a66d9cf1e735a794c1cf014f08c0a7065258810b759506001a1"
+        },
+        {
+          "state": "attack_3",
+          "direction": "right",
+          "targetFoot": [
+            107.0,
+            223.0
+          ],
+          "foot": [
+            108.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "08575f163b5fd2d7a481a9fb4f825249faa57e137c17a6f9fde3387922e7278b"
+        },
+        {
+          "state": "skill",
+          "direction": "right",
+          "targetFoot": [
+            115.2,
+            223.5
+          ],
+          "foot": [
+            115.5,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.004,
+          "sha256": "df9bab1a296e182fcae2277e0f52c764bfaa4095124ee1350305e93d37f676c9"
+        },
+        {
+          "state": "advanced",
+          "direction": "right",
+          "targetFoot": [
+            114.5,
+            223.0
+          ],
+          "foot": [
+            114.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "e30e6a77f2a28645052085832c3b86df0ca380cb8f0123f84a02b4d32a8b078d"
+        },
+        {
+          "state": "signature",
+          "direction": "right",
+          "targetFoot": [
+            127.1,
+            221.0
+          ],
+          "foot": [
+            126.7,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "9a409ea7a227a15dd0e9f63087740fa7333724568fb14cef60267a2e49272e31"
+        }
+      ]
+    },
+    {
+      "sheet": "franco_masked",
+      "sourceSha256": "b1d40e0b86ad0036dc0380da345079dd79e7bda716b3680fd65506bc89310642",
+      "atlasSha256": "130e283de814f13731883a2ee96fea3fa77529f891ce44b0b7b54187a39524cb",
+      "cells": [
+        {
+          "state": "attack_1",
+          "direction": "down",
+          "targetFoot": [
+            115.2,
+            221.0
+          ],
+          "foot": [
+            114.7,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "2c101e7fa993fc796c3e490d7cdc217552fbca7064f074c8b63f24c93706352d"
+        },
+        {
+          "state": "attack_2",
+          "direction": "down",
+          "targetFoot": [
+            114.2,
+            221.0
+          ],
+          "foot": [
+            115.2,
+            220
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "29f89c036ec3ec36a116c389a17c8ce1b37b47eddd24f135bf6033951807cdae"
+        },
+        {
+          "state": "attack_3",
+          "direction": "down",
+          "targetFoot": [
+            130.9,
+            223.0
+          ],
+          "foot": [
+            131.1,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "a9d1be424975ebb1e109818f99a769986a9f84320390478d3c2873de3dff3b93"
+        },
+        {
+          "state": "skill",
+          "direction": "down",
+          "targetFoot": [
+            128.5,
+            223.0
+          ],
+          "foot": [
+            128.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "5acb1a58b00e1c1f60ee5302705a4721edf9763349755f7b6db4b1ba59e3e24f"
+        },
+        {
+          "state": "advanced",
+          "direction": "down",
+          "targetFoot": [
+            127.6,
+            224.0
+          ],
+          "foot": [
+            128.1,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "e376825a928bc5e26af96bb1f36e6db4df089654f6f5c349a6de46a6bc3c6f76"
+        },
+        {
+          "state": "signature",
+          "direction": "down",
+          "targetFoot": [
+            130.6,
+            221.0
+          ],
+          "foot": [
+            130.3,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "c1144326ca77330483c818c16ab828043aadbab4dfca2712e32d75925588a93f"
+        },
+        {
+          "state": "attack_1",
+          "direction": "left",
+          "targetFoot": [
+            159.2,
+            221.0
+          ],
+          "foot": [
+            159.1,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.001,
+          "sha256": "a0cee10eca7413dada23fbefaecbafc1ed9302d4f2ac80490f3167198d013310"
+        },
+        {
+          "state": "attack_2",
+          "direction": "left",
+          "targetFoot": [
+            153.0,
+            221.0
+          ],
+          "foot": [
+            152.9,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "c3930d70e00f69e07a87702e851794344470fd9ed7521c2ac918d889030d6c24"
+        },
+        {
+          "state": "attack_3",
+          "direction": "left",
+          "targetFoot": [
+            151.1,
+            223.0
+          ],
+          "foot": [
+            151.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "c90207572077d33962d75b3c29254bb6984d6663e16d4dfb667f059c8c754046"
+        },
+        {
+          "state": "skill",
+          "direction": "left",
+          "targetFoot": [
+            140.9,
+            223.0
+          ],
+          "foot": [
+            140.4,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "8ff2ee6753a62404071ce25544e2be07c230917c1436a6e0b3ff276e31a7c259"
+        },
+        {
+          "state": "advanced",
+          "direction": "left",
+          "targetFoot": [
+            149.6,
+            223.0
+          ],
+          "foot": [
+            149.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "2e0393ea0125773806bfaacab016ece2b41acb8ac690f91edde74de1c00076a4"
+        },
+        {
+          "state": "signature",
+          "direction": "left",
+          "targetFoot": [
+            127.6,
+            221.0
+          ],
+          "foot": [
+            127.0,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "028a4a3989c31d3741bcba9cdb2d65872c1e33b8408ddb88665abd1782853d4b"
+        },
+        {
+          "state": "attack_1",
+          "direction": "up",
+          "targetFoot": [
+            108.2,
+            221.5
+          ],
+          "foot": [
+            107.1,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "477484976353dbb1262af7d06a44dfe7e2cff718227abad935e7e3df9f336b54"
+        },
+        {
+          "state": "attack_2",
+          "direction": "up",
+          "targetFoot": [
+            112.5,
+            221.0
+          ],
+          "foot": [
+            111.5,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "26c403218a4fdada3d0520964b1d3a8abc7b58cca9b3a4f400a48dc4470eb3a2"
+        },
+        {
+          "state": "attack_3",
+          "direction": "up",
+          "targetFoot": [
+            117.6,
+            223.0
+          ],
+          "foot": [
+            118.1,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "cd312a63d5eb21c10a944d86c0bde776b261334ee986365b428be209a8a7b471"
+        },
+        {
+          "state": "skill",
+          "direction": "up",
+          "targetFoot": [
+            127.2,
+            223.5
+          ],
+          "foot": [
+            127.4,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "924298a0c32d43bdda73dc63607efa9ff8592c0a90954ed735a3c100a60a492d"
+        },
+        {
+          "state": "advanced",
+          "direction": "up",
+          "targetFoot": [
+            127.3,
+            223.5
+          ],
+          "foot": [
+            126.7,
+            225
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "59bb38e31b39e5b4b05a6fe730ea476619cbe03cf8da0679b1a53947be8699ec"
+        },
+        {
+          "state": "signature",
+          "direction": "up",
+          "targetFoot": [
+            131.3,
+            221.0
+          ],
+          "foot": [
+            131.2,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "ffbc4f4d529331dbb565f51967f203da02327c7e9cedf8ef501f05d73d4bf8d1"
+        },
+        {
+          "state": "attack_1",
+          "direction": "right",
+          "targetFoot": [
+            97.4,
+            224.0
+          ],
+          "foot": [
+            97.7,
+            225
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "f036d44d293f8357b4c4e5299e34e43f2bd7c22e27218b9809404d070072b6aa"
+        },
+        {
+          "state": "attack_2",
+          "direction": "right",
+          "targetFoot": [
+            109.2,
+            222.0
+          ],
+          "foot": [
+            109.9,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "867f7a01f27781b57db2f7d42efedb3a34419068ca19f0727237e8834916f889"
+        },
+        {
+          "state": "attack_3",
+          "direction": "right",
+          "targetFoot": [
+            107.4,
+            223.0
+          ],
+          "foot": [
+            107.2,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.008,
+          "sha256": "e6917bbedb925ba5b123bcc3021028557d56848a64e1ca7f3135ea093da49c10"
+        },
+        {
+          "state": "skill",
+          "direction": "right",
+          "targetFoot": [
+            119.2,
+            224.0
+          ],
+          "foot": [
+            119.7,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.01,
+          "sha256": "0c10d9bd47dc1d6b29d49cfc7f67325a3d4810b8bf932036d1a58ad4b486a30e"
+        },
+        {
+          "state": "advanced",
+          "direction": "right",
+          "targetFoot": [
+            113.4,
+            223.0
+          ],
+          "foot": [
+            113.6,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "b696dc3ef12dabc368cc4cbf2cf5a78f49462809820593e805b29a315d10bdfb"
+        },
+        {
+          "state": "signature",
+          "direction": "right",
+          "targetFoot": [
+            126.7,
+            221.0
+          ],
+          "foot": [
+            126.5,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "f57900bf9798abc1601805646154ef552da68626cb43e0241452a6c2974c57d5"
+        }
+      ]
+    },
+    {
+      "sheet": "ryuchi_unmasked",
+      "sourceSha256": "a42c22ee377cbdcbff4452be5e45268bad53164985d3e5cc40c475f70ebe2e0a",
+      "atlasSha256": "9b1201e264c911e8c1745c711889fad354c2a8104942a2c0ef15737f1cdb92e2",
+      "cells": [
+        {
+          "state": "attack_1",
+          "direction": "down",
+          "targetFoot": [
+            122.5,
+            222.0
+          ],
+          "foot": [
+            122.6,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "a1daf40181f0f9672bf24da5df7a3033ca93832089c2046b764f2213f6d4e2f9"
+        },
+        {
+          "state": "attack_2",
+          "direction": "down",
+          "targetFoot": [
+            131.0,
+            223.0
+          ],
+          "foot": [
+            131.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "a4007b9439d767ea0ec94b335840f94dcb316de1d1efe817de4887141cfb9b6d"
+        },
+        {
+          "state": "attack_3",
+          "direction": "down",
+          "targetFoot": [
+            103.1,
+            222.0
+          ],
+          "foot": [
+            103.1,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "61a915a320060d927a4ab2c3f1e5b5c6d7325a526238d626fae8cccd3d74625d"
+        },
+        {
+          "state": "skill",
+          "direction": "down",
+          "targetFoot": [
+            127.9,
+            222.0
+          ],
+          "foot": [
+            129.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.007,
+          "sha256": "50f6913e45ce7389a32c34fae0f15ca8a0aed7ab3ad95c9575f5374587cbbc6b"
+        },
+        {
+          "state": "advanced",
+          "direction": "down",
+          "targetFoot": [
+            134.7,
+            223.0
+          ],
+          "foot": [
+            135.1,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.996,
+          "sha256": "c97864dbe294dfa99a9721811f64fdb8ae96890ac69bb9d319e5692fe52222f7"
+        },
+        {
+          "state": "signature",
+          "direction": "down",
+          "targetFoot": [
+            126.6,
+            222.0
+          ],
+          "foot": [
+            127.0,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "1e8c3fbc3b74fd52621354eae548ddfd8e720c79c6b02a762515cfe9a8c59280"
+        },
+        {
+          "state": "attack_1",
+          "direction": "left",
+          "targetFoot": [
+            141.5,
+            222.0
+          ],
+          "foot": [
+            141.7,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.001,
+          "sha256": "d6f4553b5526b96ed71e65883773fb7a93293b9304a37840b27d8153b3854f05"
+        },
+        {
+          "state": "attack_2",
+          "direction": "left",
+          "targetFoot": [
+            138.7,
+            221.0
+          ],
+          "foot": [
+            139.4,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "a422bf555f637a8bcd2449392513fde0a6c03d19475136c88cc038587f4a796a"
+        },
+        {
+          "state": "attack_3",
+          "direction": "left",
+          "targetFoot": [
+            120.6,
+            222.0
+          ],
+          "foot": [
+            164.6,
+            223
+          ],
+          "offset": [
+            -44,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "2f1f147191802eb84ecd1882c08f35f4bef5d70f3899700b4f415727da90decc"
+        },
+        {
+          "state": "skill",
+          "direction": "left",
+          "targetFoot": [
+            140.0,
+            222.0
+          ],
+          "foot": [
+            139.7,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "2f1fbee614132e9054481d8c8432b131425556e47430de2d4f7cf142bf5273bd"
+        },
+        {
+          "state": "advanced",
+          "direction": "left",
+          "targetFoot": [
+            171.2,
+            223.0
+          ],
+          "foot": [
+            171.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.995,
+          "sha256": "f0911b8ea6d85db2db49b335c416fd697a3d854a2baedf2ea7556465926fcff3"
+        },
+        {
+          "state": "signature",
+          "direction": "left",
+          "targetFoot": [
+            140.6,
+            221.0
+          ],
+          "foot": [
+            140.5,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "3c89465804268b06b2a977eb9262878e4b84ae4a32b89b524fe8aef0ad2c5b77"
+        },
+        {
+          "state": "attack_1",
+          "direction": "up",
+          "targetFoot": [
+            112.3,
+            222.0
+          ],
+          "foot": [
+            112.2,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.009,
+          "sha256": "7309136ba1423d6aec19a73e66f6f857b36f5a56fc5eff18d64b31cf105bfdc9"
+        },
+        {
+          "state": "attack_2",
+          "direction": "up",
+          "targetFoot": [
+            117.6,
+            221.0
+          ],
+          "foot": [
+            117.9,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "2d13f3e82096e5fc1efbf46f6b798edf60740a5aa87e2a64f6252f98a9f3835f"
+        },
+        {
+          "state": "attack_3",
+          "direction": "up",
+          "targetFoot": [
+            111.3,
+            223.0
+          ],
+          "foot": [
+            111.1,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "807afae26930b7037ed41ce81df8bcdb9d4570053b89847cf3634bec374de025"
+        },
+        {
+          "state": "skill",
+          "direction": "up",
+          "targetFoot": [
+            124.9,
+            221.0
+          ],
+          "foot": [
+            124.9,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.01,
+          "sha256": "38300bd292cc4d79e1912c0aca88872a1c3dea741dc411a2bcf7894188790c81"
+        },
+        {
+          "state": "advanced",
+          "direction": "up",
+          "targetFoot": [
+            98.7,
+            223.0
+          ],
+          "foot": [
+            98.1,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.996,
+          "sha256": "390f7421fe43cc352505910cea200c32dce0601790034564003edc9b5acc112d"
+        },
+        {
+          "state": "signature",
+          "direction": "up",
+          "targetFoot": [
+            128.2,
+            222.0
+          ],
+          "foot": [
+            128.8,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "013a16342df5d709424c8efe1d4cf3595cfa798f0248299b39da8dbc3f8706fc"
+        },
+        {
+          "state": "attack_1",
+          "direction": "right",
+          "targetFoot": [
+            113.3,
+            221.0
+          ],
+          "foot": [
+            113.0,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "6b9ba11a8b35620cde5d810ef147d35642b57395a7ea75ecacc2a4dbba736a95"
+        },
+        {
+          "state": "attack_2",
+          "direction": "right",
+          "targetFoot": [
+            122.9,
+            221.0
+          ],
+          "foot": [
+            123.5,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "1db7a873cd1da88066005def745d4a5ec6321019756b87bab3517298c86d0b1d"
+        },
+        {
+          "state": "attack_3",
+          "direction": "right",
+          "targetFoot": [
+            105.6,
+            221.0
+          ],
+          "foot": [
+            94.5,
+            221
+          ],
+          "offset": [
+            10,
+            0
+          ],
+          "relativeHeight": 1.001,
+          "sha256": "dd791b31fb8b697e865ff89e60b45ef9de68249a71e63ca50f284928fe84827b"
+        },
+        {
+          "state": "skill",
+          "direction": "right",
+          "targetFoot": [
+            117.9,
+            221.5
+          ],
+          "foot": [
+            117.3,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "2e158bd02cbdeb8f850d153074b154a4e8b8165829724220227160d8d7a13787"
+        },
+        {
+          "state": "advanced",
+          "direction": "right",
+          "targetFoot": [
+            54.1,
+            223.0
+          ],
+          "foot": [
+            52.4,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "df559c66df867a66cb440d4174b79923410dcd2301b3d78c3a45c3cd912bbb9a"
+        },
+        {
+          "state": "signature",
+          "direction": "right",
+          "targetFoot": [
+            112.2,
+            222.0
+          ],
+          "foot": [
+            112.2,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "7c022c0e568fb1db6148731cf2c1e88ab7cfe4255b5a442a26f93bbe75d77d04"
+        }
+      ]
+    },
+    {
+      "sheet": "ryuchi_masked",
+      "sourceSha256": "ee2473819262584bcd02b83d3ac6e2b5f24f3c4063c1202f71fc62ea9e0ff9e3",
+      "atlasSha256": "d2753d7f600bab84e87ef970f30ccdfcd8bb6d2110f2b2bf05a5b90094869d90",
+      "cells": [
+        {
+          "state": "attack_1",
+          "direction": "down",
+          "targetFoot": [
+            119.4,
+            221.0
+          ],
+          "foot": [
+            119.0,
+            220
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "78a112b3323c813311882f5e74cd55f35b147edb5e9e6b4c6468aa40187f9ccb"
+        },
+        {
+          "state": "attack_2",
+          "direction": "down",
+          "targetFoot": [
+            126.8,
+            221.0
+          ],
+          "foot": [
+            125.3,
+            221
+          ],
+          "offset": [
+            2,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "48c30cd9cacc709b304e84a238b71cab11e993cff7da7634fcb0d61d66ab561c"
+        },
+        {
+          "state": "attack_3",
+          "direction": "down",
+          "targetFoot": [
+            109.1,
+            223.0
+          ],
+          "foot": [
+            108.6,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "6f1635f95d8d0e7cb31eb3110099de6f83a628bae71c27daeda69f617b4b4091"
+        },
+        {
+          "state": "skill",
+          "direction": "down",
+          "targetFoot": [
+            127.6,
+            223.0
+          ],
+          "foot": [
+            127.1,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.009,
+          "sha256": "74468ac0f1e787951a54b61b3661c24fb2dc8c42ddaa3a7e1906c3d43283770e"
+        },
+        {
+          "state": "advanced",
+          "direction": "down",
+          "targetFoot": [
+            133.1,
+            223.5
+          ],
+          "foot": [
+            133.1,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.996,
+          "sha256": "ae45c9da9e04f5491bbf1cbbfb45d815ca6de8e1cc06f2cace0ba8e02727a4b4"
+        },
+        {
+          "state": "signature",
+          "direction": "down",
+          "targetFoot": [
+            128.6,
+            222.0
+          ],
+          "foot": [
+            129.0,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "3956364ae096eb39c555399332ab2092d2fe5cacf2dc1b5f428b3fa4227d143d"
+        },
+        {
+          "state": "attack_1",
+          "direction": "left",
+          "targetFoot": [
+            144.9,
+            222.0
+          ],
+          "foot": [
+            143.9,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "5d3624d52ee3bc52ccdc23bf62f8b3c547a65005f5d099873e652c5026a4992a"
+        },
+        {
+          "state": "attack_2",
+          "direction": "left",
+          "targetFoot": [
+            138.8,
+            221.0
+          ],
+          "foot": [
+            138.5,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "d592511a5b3773689d25577c191ceac89fae7e6a851b11bf40bfc4429e2f6887"
+        },
+        {
+          "state": "attack_3",
+          "direction": "left",
+          "targetFoot": [
+            121.6,
+            223.5
+          ],
+          "foot": [
+            140.9,
+            224
+          ],
+          "offset": [
+            -21,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "63db50124268aecb27c98415ded3a3fff814fc2a5c9814aa091ad0e6944f2b2b"
+        },
+        {
+          "state": "skill",
+          "direction": "left",
+          "targetFoot": [
+            143.8,
+            221.0
+          ],
+          "foot": [
+            144.0,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "0633dc9ce673205a4a2fe06bae6bb960f6219fb71dfceb2bd821cbbe70528227"
+        },
+        {
+          "state": "advanced",
+          "direction": "left",
+          "targetFoot": [
+            176.5,
+            223.0
+          ],
+          "foot": [
+            175.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "143220a3db8b5014f9c6ad3e0279a1967a9337442cac902a0b4991631c4dbeaf"
+        },
+        {
+          "state": "signature",
+          "direction": "left",
+          "targetFoot": [
+            140.4,
+            222.0
+          ],
+          "foot": [
+            140.7,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "a4f1ec56972068bced23107590192e06da751b38f35eedaa2a490afb76394e8e"
+        },
+        {
+          "state": "attack_1",
+          "direction": "up",
+          "targetFoot": [
+            107.5,
+            223.0
+          ],
+          "foot": [
+            107.7,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "5eda5a45923400c3241e53acffca69250e06b44ff5cad99a9576637fb2669bd7"
+        },
+        {
+          "state": "attack_2",
+          "direction": "up",
+          "targetFoot": [
+            120.2,
+            223.0
+          ],
+          "foot": [
+            120.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "22157e11cd91c2f80dbb58ea3786869c74810700751580e4cebd14dfff5b0477"
+        },
+        {
+          "state": "attack_3",
+          "direction": "up",
+          "targetFoot": [
+            109.6,
+            221.0
+          ],
+          "foot": [
+            109.9,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "780d7189a9dd68ea47a565ab27750b20c79ff17b7c02247cddb03d5e50f5bb47"
+        },
+        {
+          "state": "skill",
+          "direction": "up",
+          "targetFoot": [
+            130.2,
+            222.0
+          ],
+          "foot": [
+            129.4,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "81db3e8deca739a834c6411b37181cb4a4045f79e146cf83cc86216a0e65d08a"
+        },
+        {
+          "state": "advanced",
+          "direction": "up",
+          "targetFoot": [
+            56.6,
+            223.5
+          ],
+          "foot": [
+            56.5,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.996,
+          "sha256": "74376e1f121c4bd01cf01c92eb915829cb605a591fc04ed58b3668268e735d9b"
+        },
+        {
+          "state": "signature",
+          "direction": "up",
+          "targetFoot": [
+            128.9,
+            221.0
+          ],
+          "foot": [
+            128.9,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.999,
+          "sha256": "231baee5961b5c77b56f737566e04ef0ce398ee4027c2fcd4bd231a026effab2"
+        },
+        {
+          "state": "attack_1",
+          "direction": "right",
+          "targetFoot": [
+            107.4,
+            221.5
+          ],
+          "foot": [
+            107.0,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "d4de22cb4f0677d26fe264e73f0a66a0eaaaf48ef6240b558c8206ef1787d484"
+        },
+        {
+          "state": "attack_2",
+          "direction": "right",
+          "targetFoot": [
+            121.6,
+            224.0
+          ],
+          "foot": [
+            121.0,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "68d68beace2b1f40e47c51efde2d6fc752cb1927c75458a01deb423156a138a4"
+        },
+        {
+          "state": "attack_3",
+          "direction": "right",
+          "targetFoot": [
+            103.5,
+            222.0
+          ],
+          "foot": [
+            100.2,
+            222
+          ],
+          "offset": [
+            3,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "4db9ff1fa7cbec76e55ad9ac5d3e062ef01df4589fa42f40a4c50131f09bdbac"
+        },
+        {
+          "state": "skill",
+          "direction": "right",
+          "targetFoot": [
+            112.6,
+            221.0
+          ],
+          "foot": [
+            113.0,
+            221
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "df4492c31730d1e33de689e0ffb86626039539ba7c9ea2d6ac4488db907da589"
+        },
+        {
+          "state": "advanced",
+          "direction": "right",
+          "targetFoot": [
+            70.1,
+            223.5
+          ],
+          "foot": [
+            70.7,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.996,
+          "sha256": "1b167a4fc84f2b8ee402578b5c0a467d58d1ea12129bf19c24133bc478b5ca26"
+        },
+        {
+          "state": "signature",
+          "direction": "right",
+          "targetFoot": [
+            113.1,
+            222.0
+          ],
+          "foot": [
+            113.0,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "723f7b399247acf43186a599fb1b700eb342f62daa150578594010299ad23611"
+        }
+      ]
+    },
+    {
+      "sheet": "alt_unmasked",
+      "sourceSha256": "3c432823a6a8b5344f8d7ed28d48026616c0a8d5207b3889b7387b2dfc48b44b",
+      "atlasSha256": "96965175be3fce8f2681fb6750a67a8f547493134716aaf1b4072b314816e117",
+      "cells": [
+        {
+          "state": "attack_1",
+          "direction": "down",
+          "targetFoot": [
+            121.1,
+            223.0
+          ],
+          "foot": [
+            121.5,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "81fc38b01640fe350f65281f3a3c5b661136dc40c6dbd4e4eb63ad5abd48406e"
+        },
+        {
+          "state": "attack_2",
+          "direction": "down",
+          "targetFoot": [
+            130.7,
+            223.0
+          ],
+          "foot": [
+            130.8,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "05e4832854e079c23aee27deb4a17ef241dee38065332f430dfe7c7b07837366"
+        },
+        {
+          "state": "attack_3",
+          "direction": "down",
+          "targetFoot": [
+            124.5,
+            223.0
+          ],
+          "foot": [
+            124.4,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "da45048db2b193b26d67cd59c0b0871276a3d1d270bf7a971d52b4cfb5587176"
+        },
+        {
+          "state": "skill",
+          "direction": "down",
+          "targetFoot": [
+            129.4,
+            223.0
+          ],
+          "foot": [
+            130.1,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "e242134eeda8c56e518cb0aa41590c9b87e5c57fae6815dcb3095925949d2f37"
+        },
+        {
+          "state": "advanced",
+          "direction": "down",
+          "targetFoot": [
+            131.3,
+            223.0
+          ],
+          "foot": [
+            131.2,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "494d54ee1158d13d2b58eb2325a28eccd8df35b569b93f05d67d4454a6b22ec1"
+        },
+        {
+          "state": "signature",
+          "direction": "down",
+          "targetFoot": [
+            131.2,
+            223.0
+          ],
+          "foot": [
+            131.5,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "2bdd0868129a53920dca6054402b5a7a217fdaf5461d6a5c2418fe985cd4894c"
+        },
+        {
+          "state": "attack_1",
+          "direction": "left",
+          "targetFoot": [
+            137.0,
+            223.0
+          ],
+          "foot": [
+            137.1,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "bbaed4abeb5a838e2c9fd88bca30118796d82fdbee30bc7b302f9d4323905608"
+        },
+        {
+          "state": "attack_2",
+          "direction": "left",
+          "targetFoot": [
+            134.9,
+            223.0
+          ],
+          "foot": [
+            134.5,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "88b2c4b1d027fae99e09778c8bafb936c76773af3fd7004198f20582619a3ff1"
+        },
+        {
+          "state": "attack_3",
+          "direction": "left",
+          "targetFoot": [
+            138.0,
+            223.0
+          ],
+          "foot": [
+            137.8,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.998,
+          "sha256": "94fa77d1eaa005288c49870a9baec4c02aee21485315bc6b6d99c79647d33a63"
+        },
+        {
+          "state": "skill",
+          "direction": "left",
+          "targetFoot": [
+            133.7,
+            223.0
+          ],
+          "foot": [
+            134.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "62cae80861c98d66af468d389fb7b945ba49a534fc91025144391b286ad039c0"
+        },
+        {
+          "state": "advanced",
+          "direction": "left",
+          "targetFoot": [
+            131.5,
+            223.0
+          ],
+          "foot": [
+            134.1,
+            223
+          ],
+          "offset": [
+            -3,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "3e4d6d7add82e5bf254798a484850eb6c9e690456e6b1c415af94460d28d4c95"
+        },
+        {
+          "state": "signature",
+          "direction": "left",
+          "targetFoot": [
+            127.6,
+            223.0
+          ],
+          "foot": [
+            127.6,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "3e024537d741ec1da07d3819f0da190efc4b2fc5a522c06cd10cf53e160171d4"
+        },
+        {
+          "state": "attack_1",
+          "direction": "up",
+          "targetFoot": [
+            125.0,
+            223.0
+          ],
+          "foot": [
+            125.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "e02b8641526dbf69678bdc79d3bc00c088ad85c32534ff93a015d69f849d3809"
+        },
+        {
+          "state": "attack_2",
+          "direction": "up",
+          "targetFoot": [
+            134.6,
+            223.0
+          ],
+          "foot": [
+            135.1,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "47fe54caee51f0854ea3c6fde1226c82d05a30fb4e2a1fe68241dbc75281772f"
+        },
+        {
+          "state": "attack_3",
+          "direction": "up",
+          "targetFoot": [
+            128.7,
+            223.0
+          ],
+          "foot": [
+            129.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "8d6f27d8a3c0dfd67022ca5978cb5015c0ee08a7f0d6513f7d3aef7e95dfbb6a"
+        },
+        {
+          "state": "skill",
+          "direction": "up",
+          "targetFoot": [
+            139.6,
+            223.0
+          ],
+          "foot": [
+            139.5,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "46f8796990ceb05dfbb810939c04f6aab362ad842ae09b39a47f98bc808722da"
+        },
+        {
+          "state": "advanced",
+          "direction": "up",
+          "targetFoot": [
+            129.8,
+            223.0
+          ],
+          "foot": [
+            130.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "0714f7e7d18e1ce4d9151e60cb6ffb5e406bb5f02e39f9eb8ba7fbb118539aa4"
+        },
+        {
+          "state": "signature",
+          "direction": "up",
+          "targetFoot": [
+            129.9,
+            223.0
+          ],
+          "foot": [
+            129.9,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "6c29b6dc88c41d4f28b702f099280b0441341dce92b9bc420e40240f60cae4a4"
+        },
+        {
+          "state": "attack_1",
+          "direction": "right",
+          "targetFoot": [
+            119.5,
+            223.0
+          ],
+          "foot": [
+            119.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "ba25339679c57c00f04c8860e5f094987add09a3fdf3bba863d35f5b240ed4b7"
+        },
+        {
+          "state": "attack_2",
+          "direction": "right",
+          "targetFoot": [
+            124.9,
+            223.0
+          ],
+          "foot": [
+            125.3,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "6d7ed40f196aac5f1a1986e829cc88afbac6553319b207d1757457148a186524"
+        },
+        {
+          "state": "attack_3",
+          "direction": "right",
+          "targetFoot": [
+            119.2,
+            223.0
+          ],
+          "foot": [
+            119.7,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "06b38f862a92b5ed7c4f59c392c5b61fb854de0be09c640bb58c3b694e61fc0c"
+        },
+        {
+          "state": "skill",
+          "direction": "right",
+          "targetFoot": [
+            127.2,
+            223.0
+          ],
+          "foot": [
+            127.4,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.001,
+          "sha256": "97b2d271ef33fd1d8b0fb8d8c9b20cb5e8c69045d894ef7e59af998e9d845bf4"
+        },
+        {
+          "state": "advanced",
+          "direction": "right",
+          "targetFoot": [
+            122.0,
+            223.0
+          ],
+          "foot": [
+            121.7,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "80b9e3e6ae8193a82fcc97b54756f4849fcfe3e3518f760533d1a3c0a94ec801"
+        },
+        {
+          "state": "signature",
+          "direction": "right",
+          "targetFoot": [
+            133.0,
+            223.0
+          ],
+          "foot": [
+            132.6,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "fc0dcf3c1f6a209687639efa5b65448e347d5380a90ed936a032c3f3e523802d"
+        }
+      ]
+    },
+    {
+      "sheet": "katana_unmasked",
+      "sourceSha256": "c8a300e9b05b678586b9997ce8413252ed05b11e6a51d470522f55a1e80935e9",
+      "atlasSha256": "47702eaa9973d412b56979314fbba88fcfe3e3c8d7ca3b93ac4b0216868c1a58",
+      "cells": [
+        {
+          "state": "attack_1",
+          "direction": "down",
+          "targetFoot": [
+            144.9,
+            223.0
+          ],
+          "foot": [
+            145.3,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "31866160626a9f1e0db5023fbf5f350ec449f975fc407b330e5c3d21442ed9f6"
+        },
+        {
+          "state": "attack_2",
+          "direction": "down",
+          "targetFoot": [
+            123.5,
+            223.0
+          ],
+          "foot": [
+            123.6,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "469029b7c136f72c82417883bf1e59e91c4211eca579ddb58b94b3b90327f650"
+        },
+        {
+          "state": "attack_3",
+          "direction": "down",
+          "targetFoot": [
+            132.2,
+            223.0
+          ],
+          "foot": [
+            130.5,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.993,
+          "sha256": "60e074e01270c1641dc902b437d21c62eb70d3718979fac889417e8d14c3c651"
+        },
+        {
+          "state": "skill",
+          "direction": "down",
+          "targetFoot": [
+            156.4,
+            223.0
+          ],
+          "foot": [
+            156.5,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.996,
+          "sha256": "1ff36c3f712d90e43f327547917f29d561e9fd8522ec0bb5dc9dcbfffd918de7"
+        },
+        {
+          "state": "advanced",
+          "direction": "down",
+          "targetFoot": [
+            137.5,
+            223.0
+          ],
+          "foot": [
+            137.7,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "5d379bd45656f322f3d12e0602bac8cc72f8406035c5158390f1dbb808c3fa43"
+        },
+        {
+          "state": "signature",
+          "direction": "down",
+          "targetFoot": [
+            137.4,
+            223.0
+          ],
+          "foot": [
+            136.7,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "48ceddc0ee3ca2edf41bec55dc5f14d2cbeb3840390093501c2919ef78e7d6cf"
+        },
+        {
+          "state": "attack_1",
+          "direction": "left",
+          "targetFoot": [
+            142.0,
+            223.0
+          ],
+          "foot": [
+            141.9,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.999,
+          "sha256": "ae31b9f6b12ed0dd99a47487e54458ce0cc3d2f727cf07353c370ca710a5f641"
+        },
+        {
+          "state": "attack_2",
+          "direction": "left",
+          "targetFoot": [
+            148.9,
+            223.0
+          ],
+          "foot": [
+            148.1,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "1de3ea8c161ca856d6a13afeae72410ae83847248dd01008fc10be406d06b5eb"
+        },
+        {
+          "state": "attack_3",
+          "direction": "left",
+          "targetFoot": [
+            146.4,
+            223.0
+          ],
+          "foot": [
+            146.3,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "7b3702ffef9da10cb9c995caf261ff0db936b9c5ef6d6831dc78b886746a335f"
+        },
+        {
+          "state": "skill",
+          "direction": "left",
+          "targetFoot": [
+            149.4,
+            223.0
+          ],
+          "foot": [
+            150.3,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "c4a8c09b4883db3c476f71674e078b23fc5d211f3a1e90491bc63154eee6057a"
+        },
+        {
+          "state": "advanced",
+          "direction": "left",
+          "targetFoot": [
+            130.2,
+            223.0
+          ],
+          "foot": [
+            130.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "f54e61c88490f7bfb56b7bf75309468e12d46a5f623b5e6a096f16d222c7b0b9"
+        },
+        {
+          "state": "signature",
+          "direction": "left",
+          "targetFoot": [
+            141.6,
+            223.0
+          ],
+          "foot": [
+            156.1,
+            223
+          ],
+          "offset": [
+            -15,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "1acdbf0c51ad85fc5c2370e5ae3c681a712cd84e14c583e70f5bf5261bb1d8e5"
+        },
+        {
+          "state": "attack_1",
+          "direction": "up",
+          "targetFoot": [
+            113.3,
+            223.0
+          ],
+          "foot": [
+            113.1,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "357157b07ca7ca23fccf2217fca3c16613130cbf149315c4db4108be4bb69dbd"
+        },
+        {
+          "state": "attack_2",
+          "direction": "up",
+          "targetFoot": [
+            104.8,
+            223.0
+          ],
+          "foot": [
+            105.3,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "70af017a170dd3f72e0a117834ee9d4203685b59b467ea748974b4db0de842e3"
+        },
+        {
+          "state": "attack_3",
+          "direction": "up",
+          "targetFoot": [
+            102.1,
+            223.0
+          ],
+          "foot": [
+            102.4,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "277060527978607093fba6b734afcb8f3e2d50974a84e1bf135d78d29132608e"
+        },
+        {
+          "state": "skill",
+          "direction": "up",
+          "targetFoot": [
+            110.8,
+            223.0
+          ],
+          "foot": [
+            111.3,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "ffffce2d861875b21a84f9dfd796c13049012bd772096349d58dbddd8a5d8451"
+        },
+        {
+          "state": "advanced",
+          "direction": "up",
+          "targetFoot": [
+            111.5,
+            223.0
+          ],
+          "foot": [
+            111.7,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "72b08b97124d0379d8c75f6dae047d089b3b3c830b314118df3fae2186cb8efe"
+        },
+        {
+          "state": "signature",
+          "direction": "up",
+          "targetFoot": [
+            123.0,
+            223.0
+          ],
+          "foot": [
+            123.0,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "e7fa73427ab92a096f81544bb524f1f70eb037d453552cc47724963ed85f34bb"
+        },
+        {
+          "state": "attack_1",
+          "direction": "right",
+          "targetFoot": [
+            118.3,
+            223.0
+          ],
+          "foot": [
+            118.9,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "7ac13dc0372b1020a739dd4fbcf3b967e7770fe7a014b1231a950d3e899013a4"
+        },
+        {
+          "state": "attack_2",
+          "direction": "right",
+          "targetFoot": [
+            106.4,
+            223.0
+          ],
+          "foot": [
+            106.2,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "6b810ef5f1dade3a3fef144073e6a3e67e787856b00f95560686054edcedda83"
+        },
+        {
+          "state": "attack_3",
+          "direction": "right",
+          "targetFoot": [
+            115.4,
+            223.0
+          ],
+          "foot": [
+            115.8,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "d0b068f462a12731ef1b1c1aece6f6197cd09e70c1509522b24f62110bdeee57"
+        },
+        {
+          "state": "skill",
+          "direction": "right",
+          "targetFoot": [
+            110.5,
+            223.0
+          ],
+          "foot": [
+            110.9,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.993,
+          "sha256": "69fe04de1d6d48e5bb57766e48277f24a2a187baf786b2bc2aa17c1e11c75c3d"
+        },
+        {
+          "state": "advanced",
+          "direction": "right",
+          "targetFoot": [
+            124.6,
+            223.0
+          ],
+          "foot": [
+            124.9,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "3916c27c17606fdbf7bf4923a7d2de8174493079521371684212bdcdc36f2a3f"
+        },
+        {
+          "state": "signature",
+          "direction": "right",
+          "targetFoot": [
+            115.0,
+            223.0
+          ],
+          "foot": [
+            116.0,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "6c6d197391f9da2dd27ee20c4dc3c24fd9b1b223f65836f562e5ca358f4aad96"
+        }
+      ]
+    },
+    {
+      "sheet": "synth_unmasked",
+      "sourceSha256": "ce37b2ee03b5912ad86fc11c9f932db76dc6d29c856556ebc5229f7fad5d81c8",
+      "atlasSha256": "1e47d71505b64e2887e933c3a1aa8c1e5029c5b95b0119567060bc72555ba1d4",
+      "cells": [
+        {
+          "state": "attack_1",
+          "direction": "down",
+          "targetFoot": [
+            126.0,
+            224.0
+          ],
+          "foot": [
+            125.6,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "29922f837aef49bf8f49c04bfd168ce7defcc1ff6c5960f63e58b103a4d3633a"
+        },
+        {
+          "state": "attack_2",
+          "direction": "down",
+          "targetFoot": [
+            124.9,
+            224.0
+          ],
+          "foot": [
+            124.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "d32eeca9256c5fea9e30469ce2911b399547494f61ea53bb43cd59da0227f7fd"
+        },
+        {
+          "state": "attack_3",
+          "direction": "down",
+          "targetFoot": [
+            123.9,
+            223.0
+          ],
+          "foot": [
+            124.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "84e4e1615df78d3a1216300fb03fa39f6927ff8a03a0adbe0e646c2a710992ec"
+        },
+        {
+          "state": "skill",
+          "direction": "down",
+          "targetFoot": [
+            128.9,
+            224.0
+          ],
+          "foot": [
+            129.6,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "b81564d1ca7a45c193c63af37469172e24ff35edd654335c046e612422d3d394"
+        },
+        {
+          "state": "advanced",
+          "direction": "down",
+          "targetFoot": [
+            123.2,
+            224.0
+          ],
+          "foot": [
+            123.5,
+            225
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "373dd13a99705baa9fdaf713080d1f43deb8a2935d4ae4b644da0e463e5243dd"
+        },
+        {
+          "state": "signature",
+          "direction": "down",
+          "targetFoot": [
+            130.6,
+            222.5
+          ],
+          "foot": [
+            130.6,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "60a01d2a12ea044868fe5afef940c97811604dc0a3003a2f754836ec5c07ed21"
+        },
+        {
+          "state": "attack_1",
+          "direction": "left",
+          "targetFoot": [
+            122.4,
+            224.0
+          ],
+          "foot": [
+            121.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "1232f75a499c872b9e36135cb9a310f0cb514c577433732e61b049499422bbb3"
+        },
+        {
+          "state": "attack_2",
+          "direction": "left",
+          "targetFoot": [
+            125.3,
+            224.0
+          ],
+          "foot": [
+            125.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.004,
+          "sha256": "4a68a918779f2d080a75bbc62c1400c314af627465ac73cd36b474aaf6f23301"
+        },
+        {
+          "state": "attack_3",
+          "direction": "left",
+          "targetFoot": [
+            131.8,
+            223.0
+          ],
+          "foot": [
+            132.6,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "0b8043c5e72199d465f6ae24cb01e22b220cf095346290916c033c2388f3a141"
+        },
+        {
+          "state": "skill",
+          "direction": "left",
+          "targetFoot": [
+            127.5,
+            224.0
+          ],
+          "foot": [
+            127.5,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "7c45b351d4001c59d3692c6175f61ed5706dee0a40eb0ef398732c92e17a4bee"
+        },
+        {
+          "state": "advanced",
+          "direction": "left",
+          "targetFoot": [
+            125.2,
+            223.0
+          ],
+          "foot": [
+            124.6,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "91d1309e6e13125069522c968200ac0ab538dcb91542db45378e25d9e4affb75"
+        },
+        {
+          "state": "signature",
+          "direction": "left",
+          "targetFoot": [
+            127.7,
+            223.0
+          ],
+          "foot": [
+            127.9,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "57e1a0d55fc53b976a989c8da4aaf4761f08777a68ba569012fbbd5cfaad669b"
+        },
+        {
+          "state": "attack_1",
+          "direction": "up",
+          "targetFoot": [
+            127.1,
+            223.0
+          ],
+          "foot": [
+            127.0,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "bf64b025c2f6e9a824a92c12c0cf27c2f287af94ffbec7231a1b3960a9064a4a"
+        },
+        {
+          "state": "attack_2",
+          "direction": "up",
+          "targetFoot": [
+            122.7,
+            223.0
+          ],
+          "foot": [
+            123.3,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "4d7840afd189143dba41a8cffdb97a638f8f09b93548f5a99c300905eb50a5c7"
+        },
+        {
+          "state": "attack_3",
+          "direction": "up",
+          "targetFoot": [
+            130.1,
+            223.5
+          ],
+          "foot": [
+            130.2,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "40c703ba812cf5324cf370be2a16df1729413224b07dd82f1c824a3c820a5b92"
+        },
+        {
+          "state": "skill",
+          "direction": "up",
+          "targetFoot": [
+            127.3,
+            224.0
+          ],
+          "foot": [
+            126.8,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "ad16c897c4838521ac2f111e362d3900071c54c6a0d13ce1a1f7a8b26674c5bf"
+        },
+        {
+          "state": "advanced",
+          "direction": "up",
+          "targetFoot": [
+            127.4,
+            224.0
+          ],
+          "foot": [
+            127.0,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "8a22e0764e81617c34749ec90118baaeb545b405c460c654895391b1b83fd7cd"
+        },
+        {
+          "state": "signature",
+          "direction": "up",
+          "targetFoot": [
+            127.9,
+            223.0
+          ],
+          "foot": [
+            127.8,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "926610677c9c954c2bbacf1279b8c6d26870cfd75260710fa196957398c78f73"
+        },
+        {
+          "state": "attack_1",
+          "direction": "right",
+          "targetFoot": [
+            131.9,
+            223.0
+          ],
+          "foot": [
+            132.0,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "d16d1d5acd9120d761daf51a442ea3e305862372563803742c8a3e3360bd2fd8"
+        },
+        {
+          "state": "attack_2",
+          "direction": "right",
+          "targetFoot": [
+            131.4,
+            224.0
+          ],
+          "foot": [
+            130.5,
+            225
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "57259eec2669b21ab48081281b79b72fa7512cfd7a567edfe7c4b221cab90b41"
+        },
+        {
+          "state": "attack_3",
+          "direction": "right",
+          "targetFoot": [
+            125.7,
+            223.0
+          ],
+          "foot": [
+            125.4,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "6b4daf2298c338319bb66fd0696375060ae71e6017c73f2697580c10bbfe520f"
+        },
+        {
+          "state": "skill",
+          "direction": "right",
+          "targetFoot": [
+            130.4,
+            224.0
+          ],
+          "foot": [
+            130.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "50e90deb19b4f662725d84b56177bbd0195eaacde00b78ecc57407c793b4db4f"
+        },
+        {
+          "state": "advanced",
+          "direction": "right",
+          "targetFoot": [
+            130.9,
+            224.0
+          ],
+          "foot": [
+            131.1,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "b85c9bd8abec995accc7709fb5e3a2351e9a6da9f5cd92d384ebc1ed721984c9"
+        },
+        {
+          "state": "signature",
+          "direction": "right",
+          "targetFoot": [
+            124.7,
+            224.0
+          ],
+          "foot": [
+            125.0,
+            225
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "6fc8576a5445ee6bdc286fad6e691bc9f99701c1c047d0fc0e714b19cf52bef1"
+        }
+      ]
+    },
+    {
+      "sheet": "synth_masked",
+      "sourceSha256": "baf733a590c8efea7eaeb711fd5dfb399c7947ed13aca66c0ae42302a5aca344",
+      "atlasSha256": "6113c5dc5a5d9ac6fddd27cda6b0941a7c8ee0813be2f23470661bd6ad53d37d",
+      "cells": [
+        {
+          "state": "attack_1",
+          "direction": "down",
+          "targetFoot": [
+            122.2,
+            224.0
+          ],
+          "foot": [
+            122.2,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "1ac931bb1802e9b2f111a4bf17cf339ef50b8ae6496e8ede6ea915c364ec379b"
+        },
+        {
+          "state": "attack_2",
+          "direction": "down",
+          "targetFoot": [
+            126.9,
+            223.0
+          ],
+          "foot": [
+            126.8,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "9326ceefa85d8640080fe000c60e6902e96aa31eb5048ca910e89309c75bc1c0"
+        },
+        {
+          "state": "attack_3",
+          "direction": "down",
+          "targetFoot": [
+            130.5,
+            223.0
+          ],
+          "foot": [
+            130.6,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "fa9d474daa2365e70f355c054adc3aac65aa9b44a76674f8a46aa4d9b45cecaa"
+        },
+        {
+          "state": "skill",
+          "direction": "down",
+          "targetFoot": [
+            128.2,
+            224.0
+          ],
+          "foot": [
+            128.1,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "a488a446dd1af8e4f1e665c1bc313539150672f3133f373d56dc23ee9654c2e2"
+        },
+        {
+          "state": "advanced",
+          "direction": "down",
+          "targetFoot": [
+            130.4,
+            223.0
+          ],
+          "foot": [
+            131.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "9a486e76d7022db32cea2969c8cd0d5ff73fcca77b70f3f1692871312a05f840"
+        },
+        {
+          "state": "signature",
+          "direction": "down",
+          "targetFoot": [
+            128.5,
+            223.0
+          ],
+          "foot": [
+            128.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "205e116ec6958583758174dd03b8f6d85200bd0efeb76b0ad8721c1d31d9feca"
+        },
+        {
+          "state": "attack_1",
+          "direction": "left",
+          "targetFoot": [
+            120.8,
+            223.0
+          ],
+          "foot": [
+            121.4,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.002,
+          "sha256": "70ef679ecf37a2dbece1ea829805bde9d1cf8ac0299d305ffb10fb03e01a8f15"
+        },
+        {
+          "state": "attack_2",
+          "direction": "left",
+          "targetFoot": [
+            118.3,
+            223.0
+          ],
+          "foot": [
+            118.7,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "528b4a69d710c50ab565ceea173ace2ad63a187c713c8348d069b0be09c73cb0"
+        },
+        {
+          "state": "attack_3",
+          "direction": "left",
+          "targetFoot": [
+            126.5,
+            224.0
+          ],
+          "foot": [
+            126.1,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "8d77118de5f4ccb021210910be3837c6e76c7873f14c33f9496cb56e948760d0"
+        },
+        {
+          "state": "skill",
+          "direction": "left",
+          "targetFoot": [
+            120.3,
+            224.0
+          ],
+          "foot": [
+            120.3,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.998,
+          "sha256": "e056634fd5fbdf1af30b61a083a630cb387e74b8bd4c4eaa0a677468171a87b1"
+        },
+        {
+          "state": "advanced",
+          "direction": "left",
+          "targetFoot": [
+            130.4,
+            224.0
+          ],
+          "foot": [
+            130.8,
+            225
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "b9f7760431fa868d077c24e27c04f9cd4c220558908fc7479ebb11858d4f66bd"
+        },
+        {
+          "state": "signature",
+          "direction": "left",
+          "targetFoot": [
+            133.3,
+            224.0
+          ],
+          "foot": [
+            132.9,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "b114e71556e37921f4682692fe941dcdbc553269422375fabac9a64a914c95d5"
+        },
+        {
+          "state": "attack_1",
+          "direction": "up",
+          "targetFoot": [
+            131.6,
+            223.0
+          ],
+          "foot": [
+            131.4,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "39e0dc17a3a2d1b49909e726c1402ae0fa958b9c570d26a7d6ef0eabb33376bf"
+        },
+        {
+          "state": "attack_2",
+          "direction": "up",
+          "targetFoot": [
+            125.3,
+            223.0
+          ],
+          "foot": [
+            124.9,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "02412aa1eae31659abbf5ad6fab15462a1a510e1d365c185dd2066a1e245d800"
+        },
+        {
+          "state": "attack_3",
+          "direction": "up",
+          "targetFoot": [
+            128.1,
+            223.0
+          ],
+          "foot": [
+            128.2,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "73746e4621ca9f198927c04d99bad7949552ce4dfd7ecff891ed48fd9ecc62c0"
+        },
+        {
+          "state": "skill",
+          "direction": "up",
+          "targetFoot": [
+            128.0,
+            223.0
+          ],
+          "foot": [
+            127.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "302d3f735530291362fab6c0fc70e4fe289027ee2fdf3b6274aae9c6a4ce13fc"
+        },
+        {
+          "state": "advanced",
+          "direction": "up",
+          "targetFoot": [
+            129.2,
+            223.0
+          ],
+          "foot": [
+            129.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "42c18998a9d4cc61013d39fda1cc700e2a03766a72561f6a3b8a4746a76423d9"
+        },
+        {
+          "state": "signature",
+          "direction": "up",
+          "targetFoot": [
+            128.6,
+            224.0
+          ],
+          "foot": [
+            128.4,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "6bd7310592a512e94cd192a7fa3bd90fe8d58e2ab7382b3c87593d5e7ed24e0a"
+        },
+        {
+          "state": "attack_1",
+          "direction": "right",
+          "targetFoot": [
+            134.0,
+            224.0
+          ],
+          "foot": [
+            134.6,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "baf7914a7c690d42185971c23f529c53dc801553d62de7753834b2953a2cb72f"
+        },
+        {
+          "state": "attack_2",
+          "direction": "right",
+          "targetFoot": [
+            133.8,
+            223.0
+          ],
+          "foot": [
+            133.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "743b63e1e3ea214e98be5b75181a5b5241ac3f2ef4eb56b4e0a83916a57aed03"
+        },
+        {
+          "state": "attack_3",
+          "direction": "right",
+          "targetFoot": [
+            133.7,
+            223.0
+          ],
+          "foot": [
+            134.3,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.01,
+          "sha256": "59d9ec22d268c99196847f11b8dcc851748fe292db7fb890de130e9528a58d00"
+        },
+        {
+          "state": "skill",
+          "direction": "right",
+          "targetFoot": [
+            130.4,
+            224.0
+          ],
+          "foot": [
+            130.2,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "ed9d57de9ce7d6567b00ff0755e69c3292096ff2482b480d504911ffe635280c"
+        },
+        {
+          "state": "advanced",
+          "direction": "right",
+          "targetFoot": [
+            133.4,
+            224.0
+          ],
+          "foot": [
+            132.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "c31c3dcbbe498e7eacd00e78dfedbbaae9540c047f8925015e0204ac27c02c87"
+        },
+        {
+          "state": "signature",
+          "direction": "right",
+          "targetFoot": [
+            123.8,
+            224.0
+          ],
+          "foot": [
+            123.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "3d99fb8ee2d76fae571c0bb4a55345c210e478030fa793ec2c496de00eeeff97"
+        }
+      ]
+    },
+    {
+      "sheet": "percussion_unmasked",
+      "sourceSha256": "90765250bc21ed991cf9acbb63f13880d16f5cb3efd7885d80b8b3cb1f69882b",
+      "atlasSha256": "4ed2573f3f34549c23ec7c6e1c19f8d81bb5fbbaa75217140a4a35e4115d70eb",
+      "cells": [
+        {
+          "state": "attack_1",
+          "direction": "down",
+          "targetFoot": [
+            123.5,
+            223.5
+          ],
+          "foot": [
+            124.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "4f3fd73c202829b31dff501453bdd885a8624dda29b0276fdebb950cfe8e7a9f"
+        },
+        {
+          "state": "attack_2",
+          "direction": "down",
+          "targetFoot": [
+            132.7,
+            224.0
+          ],
+          "foot": [
+            133.6,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "b6076bbfdcfad5ca67e44b4ac9b0cba0ec4581df74e7dcbb406d38253bb4fc2a"
+        },
+        {
+          "state": "attack_3",
+          "direction": "down",
+          "targetFoot": [
+            129.1,
+            222.5
+          ],
+          "foot": [
+            129.3,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "ad57612ebe7084e581d1dc9f9768cf88a23d31ca493437c5b614a3a60be7539f"
+        },
+        {
+          "state": "skill",
+          "direction": "down",
+          "targetFoot": [
+            131.3,
+            223.0
+          ],
+          "foot": [
+            132.3,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "38794cb26f323fe06acd32508adf38fca14acf3a931cdb91fbf4fa990abe14c2"
+        },
+        {
+          "state": "advanced",
+          "direction": "down",
+          "targetFoot": [
+            135.1,
+            224.0
+          ],
+          "foot": [
+            135.3,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.993,
+          "sha256": "76f8f1044e606370097dcd4dcddc320ef44b00095408dd80575abd5952466021"
+        },
+        {
+          "state": "signature",
+          "direction": "down",
+          "targetFoot": [
+            129.8,
+            224.0
+          ],
+          "foot": [
+            130.5,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.993,
+          "sha256": "c51af1bc3e6cc25ab4b0aff8051da5a6a5418e3de190392d1a1fed860b6798fc"
+        },
+        {
+          "state": "attack_1",
+          "direction": "left",
+          "targetFoot": [
+            126.8,
+            224.0
+          ],
+          "foot": [
+            127.7,
+            225
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "06b5816185d5b562e022a8f62002c0b34a8e98660637f3a253a60f6dac8a2c0f"
+        },
+        {
+          "state": "attack_2",
+          "direction": "left",
+          "targetFoot": [
+            117.2,
+            223.0
+          ],
+          "foot": [
+            116.8,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "da9cd98bf13f4284df15f346f6d5d63fc45e4b18e084d0f971497a81ceb2f899"
+        },
+        {
+          "state": "attack_3",
+          "direction": "left",
+          "targetFoot": [
+            125.5,
+            223.0
+          ],
+          "foot": [
+            125.4,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "e54fc531aaef8bd392c2d11ae00d9a9cbe7d683f72a642f2579f625bede565af"
+        },
+        {
+          "state": "skill",
+          "direction": "left",
+          "targetFoot": [
+            128.4,
+            224.0
+          ],
+          "foot": [
+            128.5,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "377f65c3a9437af7c482824c6418e0ad09cbe5157f30d52e79e132b7aa686ac2"
+        },
+        {
+          "state": "advanced",
+          "direction": "left",
+          "targetFoot": [
+            128.2,
+            224.0
+          ],
+          "foot": [
+            129.1,
+            225
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "539d9984bae3f4979c7e5d4543d1f51cdedb7f61e9db85a938e205fa46ce5618"
+        },
+        {
+          "state": "signature",
+          "direction": "left",
+          "targetFoot": [
+            120.5,
+            223.0
+          ],
+          "foot": [
+            120.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.01,
+          "sha256": "653546ae988e47ad21dd75d5c72529cb0587e6d823cab83a392e4b4db727374e"
+        },
+        {
+          "state": "attack_1",
+          "direction": "up",
+          "targetFoot": [
+            133.4,
+            223.0
+          ],
+          "foot": [
+            133.1,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "8fe8ee25a52b45fc34c5da8f999e40f69e8d07b5ca1ee87131a039768ebf5291"
+        },
+        {
+          "state": "attack_2",
+          "direction": "up",
+          "targetFoot": [
+            123.1,
+            223.5
+          ],
+          "foot": [
+            123.4,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "8d00090865e4b123a5f68771c600d004c2330390f9becce7d209bf63caf30e12"
+        },
+        {
+          "state": "attack_3",
+          "direction": "up",
+          "targetFoot": [
+            128.5,
+            222.0
+          ],
+          "foot": [
+            128.0,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "7ae384c234dfd12e994ed3ebfd173318e32bdb1efc02fe860b438d8393e7cbc2"
+        },
+        {
+          "state": "skill",
+          "direction": "up",
+          "targetFoot": [
+            127.1,
+            224.0
+          ],
+          "foot": [
+            127.4,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "516d218ad7f747316ba84c4db055d2f453b0e5496aac9ad6f0f97f9892b078e7"
+        },
+        {
+          "state": "advanced",
+          "direction": "up",
+          "targetFoot": [
+            124.8,
+            223.0
+          ],
+          "foot": [
+            125.2,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "1b1e2dd9a94b047032a5a3998976751c949cd8205e5102c34a4471f225a78dd6"
+        },
+        {
+          "state": "signature",
+          "direction": "up",
+          "targetFoot": [
+            126.5,
+            222.5
+          ],
+          "foot": [
+            126.7,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "9c42afc0805034d321e33a9846f304d9c04f394feeadae3b41db9715986d850e"
+        },
+        {
+          "state": "attack_1",
+          "direction": "right",
+          "targetFoot": [
+            127.4,
+            224.0
+          ],
+          "foot": [
+            127.3,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "4a078c0b34fabe8c2c28210084ca42a1eb4601fcb9256c894a9d4a2a7901b285"
+        },
+        {
+          "state": "attack_2",
+          "direction": "right",
+          "targetFoot": [
+            134.3,
+            223.0
+          ],
+          "foot": [
+            134.6,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "fec8da55cfe03a59d4baffee700cbd1308f3303884897076a959b9635c35e9c0"
+        },
+        {
+          "state": "attack_3",
+          "direction": "right",
+          "targetFoot": [
+            133.8,
+            223.0
+          ],
+          "foot": [
+            133.5,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "2819413c67547bff7faca0fa1cf3d964383dec42e9d5f35d40e52a397d8fc1f4"
+        },
+        {
+          "state": "skill",
+          "direction": "right",
+          "targetFoot": [
+            125.0,
+            223.0
+          ],
+          "foot": [
+            124.4,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "89237f1dc880c5a4a12b8bdda88a5482289ed6597cda8b25cb116e9b56dd206f"
+        },
+        {
+          "state": "advanced",
+          "direction": "right",
+          "targetFoot": [
+            127.3,
+            223.0
+          ],
+          "foot": [
+            126.5,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "eaab3ad40f93aeda0afa58ae20e656a5c0131c27f0e9cd2f9356a6f751d2b68a"
+        },
+        {
+          "state": "signature",
+          "direction": "right",
+          "targetFoot": [
+            134.3,
+            223.0
+          ],
+          "foot": [
+            134.6,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "3397c6c771e16ad194cf7b16446fb7a033c1439f4e8f1303147281d07cdc1be7"
+        }
+      ]
+    },
+    {
+      "sheet": "percussion_masked",
+      "sourceSha256": "1a780c39dc1e406cfb43c00f65d4e5e9070c880a459aad16ad3eb99f5223225f",
+      "atlasSha256": "25214db1d51e587e2fa0a88bf43e6c4054b2aa17670b4c180cbb2ddd771d7ecc",
+      "cells": [
+        {
+          "state": "attack_1",
+          "direction": "down",
+          "targetFoot": [
+            126.5,
+            224.0
+          ],
+          "foot": [
+            126.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "98164e0af96bb36cbfad85884776de8a259f12139bd01b047eebca77bb1d736a"
+        },
+        {
+          "state": "attack_2",
+          "direction": "down",
+          "targetFoot": [
+            129.5,
+            223.0
+          ],
+          "foot": [
+            129.3,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "6dc1eee53ffbb80b90451e3311b28061589068cdb5d38d2c53204777d493fe3c"
+        },
+        {
+          "state": "attack_3",
+          "direction": "down",
+          "targetFoot": [
+            126.1,
+            224.0
+          ],
+          "foot": [
+            126.3,
+            225
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.003,
+          "sha256": "78376fe73673c01aa3a94d66343b2e7f4212f952d5f63eb5c4feab6985ae4ff9"
+        },
+        {
+          "state": "skill",
+          "direction": "down",
+          "targetFoot": [
+            126.8,
+            224.0
+          ],
+          "foot": [
+            126.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "f0f08f4fe700d8a9115f586181581646e689950a006330cd19297ecde5307a56"
+        },
+        {
+          "state": "advanced",
+          "direction": "down",
+          "targetFoot": [
+            131.0,
+            224.0
+          ],
+          "foot": [
+            131.2,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "479bc78187c54d93fda224d3b55742f43a04baa4ea426b518741b3d59d39eee7"
+        },
+        {
+          "state": "signature",
+          "direction": "down",
+          "targetFoot": [
+            129.4,
+            223.0
+          ],
+          "foot": [
+            129.2,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "5fe95d289338ac3d89f468d2cb5daf3621f9574fdd2f4bbc0fddb7f626a29729"
+        },
+        {
+          "state": "attack_1",
+          "direction": "left",
+          "targetFoot": [
+            119.7,
+            223.0
+          ],
+          "foot": [
+            120.0,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "48936bfac9c528081df95b8131e839f5a704619c641af1b5fa7d317284e9536d"
+        },
+        {
+          "state": "attack_2",
+          "direction": "left",
+          "targetFoot": [
+            117.6,
+            223.5
+          ],
+          "foot": [
+            118.4,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "b14f21fee5430d3478d36910c9b85f434d2b7eb9262f26788cc5fb49a9faeb78"
+        },
+        {
+          "state": "attack_3",
+          "direction": "left",
+          "targetFoot": [
+            125.8,
+            224.0
+          ],
+          "foot": [
+            126.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "cda902b697f67ae1c0b203a92531e772b7214d95e64d904520d5b3bc27081574"
+        },
+        {
+          "state": "skill",
+          "direction": "left",
+          "targetFoot": [
+            130.9,
+            224.0
+          ],
+          "foot": [
+            131.3,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "8f1520e212353645c9e5577aedd4546bdc8c694372d8ca17f375e86c78adafa1"
+        },
+        {
+          "state": "advanced",
+          "direction": "left",
+          "targetFoot": [
+            119.8,
+            224.0
+          ],
+          "foot": [
+            120.2,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "acfd52da7684aa9cdba4e43eda3bd1596f0b8282b66d59250d822293aeafebc5"
+        },
+        {
+          "state": "signature",
+          "direction": "left",
+          "targetFoot": [
+            124.1,
+            224.0
+          ],
+          "foot": [
+            124.6,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "c7fdd0b9500a22f2b833f59044c52a00f020a5dbbf3f3307d9496501a21d4db6"
+        },
+        {
+          "state": "attack_1",
+          "direction": "up",
+          "targetFoot": [
+            125.6,
+            223.5
+          ],
+          "foot": [
+            125.9,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "c8165395e22291193fc17abe8296df1de469c590382e107865b045e1f77100d2"
+        },
+        {
+          "state": "attack_2",
+          "direction": "up",
+          "targetFoot": [
+            129.7,
+            223.5
+          ],
+          "foot": [
+            129.7,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.006,
+          "sha256": "917761bd7cf0f702d2f2dc168366880c43da6c60f192e5006b7d0c9be57041d7"
+        },
+        {
+          "state": "attack_3",
+          "direction": "up",
+          "targetFoot": [
+            128.4,
+            223.5
+          ],
+          "foot": [
+            128.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "6a1f48e6e865c8255cfcc89dd3f942a0393c07ff4dc70657c1f355c34eb61b15"
+        },
+        {
+          "state": "skill",
+          "direction": "up",
+          "targetFoot": [
+            128.3,
+            224.0
+          ],
+          "foot": [
+            128.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "d4f3d0b449b1c7fc2f08b26422806dc60979cf24d3c76d5855066929dead3429"
+        },
+        {
+          "state": "advanced",
+          "direction": "up",
+          "targetFoot": [
+            127.7,
+            223.0
+          ],
+          "foot": [
+            127.7,
+            222
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "bc3dff6a6f213c889c34b013a8ab24172dcd54e3ae3ad52562d6af427eb2c132"
+        },
+        {
+          "state": "signature",
+          "direction": "up",
+          "targetFoot": [
+            126.6,
+            223.0
+          ],
+          "foot": [
+            126.8,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "313665f4b74fee69f9ba1f92bb36f605ef672a34ee8bdf34bf28ecaf53a4d588"
+        },
+        {
+          "state": "attack_1",
+          "direction": "right",
+          "targetFoot": [
+            138.7,
+            224.0
+          ],
+          "foot": [
+            138.3,
+            223
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.994,
+          "sha256": "822c5e742535a31132b0e3e9202aad1a0fec227cb08a704eb04ef5c683e4b984"
+        },
+        {
+          "state": "attack_2",
+          "direction": "right",
+          "targetFoot": [
+            131.8,
+            224.0
+          ],
+          "foot": [
+            131.5,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "98acc3baf1d85a0d5e55edd33bed4782f07f0a2680a2ffdd31e135b5de562f97"
+        },
+        {
+          "state": "attack_3",
+          "direction": "right",
+          "targetFoot": [
+            125.7,
+            224.0
+          ],
+          "foot": [
+            125.8,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.002,
+          "sha256": "20f36b0ff0f12f6b0178ef9eacb1d0a500939a019e6305952012353a14abea50"
+        },
+        {
+          "state": "skill",
+          "direction": "right",
+          "targetFoot": [
+            123.8,
+            224.0
+          ],
+          "foot": [
+            123.9,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "1e9e4d0eedc06e44c9b18f5881b562871bd36a212c65794252746a9d9c810911"
+        },
+        {
+          "state": "advanced",
+          "direction": "right",
+          "targetFoot": [
+            135.3,
+            224.0
+          ],
+          "foot": [
+            135.5,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 0.997,
+          "sha256": "7e1196f8346fc269f3325c0140ecfaeef1e85e2164d1eb118b72c01ac9e151f1"
+        },
+        {
+          "state": "signature",
+          "direction": "right",
+          "targetFoot": [
+            129.8,
+            223.0
+          ],
+          "foot": [
+            130.3,
+            224
+          ],
+          "offset": [
+            0,
+            0
+          ],
+          "relativeHeight": 1.0,
+          "sha256": "32d7ade8eb98de8984d66d42565c1d66c7d25fbd95781c38f9bffc6df1d9cfd4"
+        }
+      ]
+    }
+  ]
+}
