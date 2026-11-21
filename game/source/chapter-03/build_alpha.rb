@@ -419,6 +419,7 @@ end
 part = nil
 GC.start
 
+html.gsub!('1.0 · PRÉ-ALPHA', VERSION.fetch('rotulo'))
 html.gsub!('ALPHA 1.2.0', VERSION.fetch('rotulo'))
 html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
 

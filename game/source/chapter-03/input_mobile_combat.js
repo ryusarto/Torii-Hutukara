@@ -15,6 +15,7 @@ const CombatFeel121=Object.freeze({
   synth:{roll:.39,distance:2.42,cooldown:.82,grace:.23,recovery:.31,move:.52},
   percussion:{roll:.38,distance:2.53,cooldown:.78,grace:.23,recovery:.30,move:.53}
 });
+function canPause121(){return !!G&&(activeModes10()||mode==='cloud_fall')}
 function feel121(id){return CombatFeel121[id]||CombatFeel121.franco}
 function canBody121(x,y){
   if(!current||!Number.isFinite(x)||!Number.isFinite(y))return false;
@@ -269,7 +270,7 @@ drawCombatLayer=function(){
 C3.handlePrimaryPad=function(pad){
   Input121.pad=C3.padDirection(pad);Input121.padRun=C3.padPressed(pad,6)||C3.padPressed(pad,10)||Math.hypot(...Input121.pad)>.82;
   Input121.padAttack=C3.padPressed(pad,2)&&!!G&&activeModes10();mergeInput121();
-  if(C3.padEdge(pad,9)&&G){if(mode==='overlay')closeOverlay();else if(activeModes10())openSystem();return}
+  if(C3.padEdge(pad,9)&&G){if(mode==='overlay')closeOverlay();else if(canPause121())openSystem();return}
   if(!G||['title','overlay'].includes(mode))return C3.handleMenuPad(pad);
   if(mode==='rhythm'){
     [0,2,3].forEach((b,i)=>{if(C3.padEdge(pad,b))rhythmPush(i)});return;
@@ -284,7 +285,7 @@ C3.handlePrimaryPad=function(pad){
 C3.handleSecondPad=function(pad){
   if(!C3.coopActive())return;
   C3.syncCoop();
-  if(C3.padEdge(pad,9)&&G){if(mode==='overlay')closeOverlay();else if(activeModes10())openSystem();return}
+  if(C3.padEdge(pad,9)&&G){if(mode==='overlay')closeOverlay();else if(canPause121())openSystem();return}
   if(mode==='dialogue'){if(C3.padEdge(pad,0))advanceDialogue();return}
   if(!activeModes10())return;
   if(C3.padEdge(pad,0))C3.interactCoop();
@@ -341,16 +342,18 @@ function mobileStick121(e){
   mergeInput121();
 }
 function mobileAction121(action){
-  if(action==='pause'){if(G&&activeModes10())openSystem();return}
+  if(action==='pause'){if(canPause121())openSystem();return}
   if(action==='full'){const app=$('app');if(!document.fullscreenElement)app.requestFullscreen?.().catch(()=>{});else document.exitFullscreen?.();return}
   if(action==='interact'){if(mode==='dialogue')advanceDialogue();else interact();return}
   if(!G||!activeModes10())return;
   ({attack:attackAction,dodge:dodgeAction,skill:skillAction,advanced:advancedSkill,signature:duoAction,switch:switchHero})[action]?.();
 }
 function bindMobile121(deck){
+  let pendingPause=null;
   deck.addEventListener('contextmenu',e=>e.preventDefault());
   deck.addEventListener('pointerdown',e=>{
     const target=e.target.closest('[data-mobile-action],#mobileStick121');if(!target)return;
+    pendingPause=null;
     e.preventDefault();enableAudio();Input121.lastSource='touch';
     if(target.id==='mobileStick121'){
       if(!activeModes10())return;
@@ -359,7 +362,7 @@ function bindMobile121(deck){
       Input121.stickOrigin={x:box.left+box.width/2,y:box.top+box.height/2,radius:box.width*.32};
       Input121.pointers.set(e.pointerId,{action:'stick'});mobileStick121(e);
     }else{
-      const action=target.dataset.mobileAction;Input121.pointers.set(e.pointerId,{action,target});target.classList.add('pressed');mobileAction121(action);mergeInput121();
+      const action=target.dataset.mobileAction;Input121.pointers.set(e.pointerId,{action,target});target.classList.add('pressed');if(action!=='pause')mobileAction121(action);mergeInput121();
     }
     target.setPointerCapture?.(e.pointerId);
   },{passive:false});
@@ -370,8 +373,17 @@ function bindMobile121(deck){
     if(e.pointerId===Input121.stickPointer){Input121.stickPointer=null;Input121.stickOrigin=null;Input121.touch=[0,0];Input121.touchRun=false;$('mobileKnob121').style.transform='translate(-50%,-50%)'}
     if(p.target&&![...Input121.pointers.values()].some(x=>x.target===p.target))p.target.classList.remove('pressed');
     mergeInput121();
+    if(p.action==='pause')pendingPause=e.type==='pointerup'?{target:p.target,pointerId:e.pointerId}:null;
   };
   ['pointerup','pointercancel','lostpointercapture'].forEach(name=>deck.addEventListener(name,release));
+  // Open the overlay inside its native click, after that click's target has
+  // been chosen. Opening it on down/up can send the click into the new menu.
+  deck.addEventListener('click',e=>{
+    const target=e.target.closest('[data-mobile-action="pause"]');if(!target)return;
+    e.preventDefault();e.stopPropagation();
+    const allowed=e.detail===0||pendingPause?.target===target&&(!Number.isFinite(e.pointerId)||e.pointerId===pendingPause.pointerId);
+    pendingPause=null;if(allowed)mobileAction121('pause');
+  });
 }
 function updateMobileReadout121(){
   if(!Input121.mobile)return;

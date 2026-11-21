@@ -1,0 +1,30 @@
+{
+  "testedAt": "2026-11-21T02:35:00.716Z",
+  "url": "http://127.0.0.1:8782/",
+  "build": {
+    "version": "1.10.1",
+    "sourceSha256": "3c9198a7505a5b01c3a8af93f7adfae421c3a0df713e523d5ffe6f1d2e86f939",
+    "shellVersion": 1,
+    "builtAt": "2026-11-21T02:32:27Z",
+    "device": "mobile"
+  },
+  "method": "Chrome with emulated device profiles; no physical-device validation",
+  "results": [
+    {
+      "name": "Hosted soundtrack fetch and decode (chapter 1, chapter 3, final boss)",
+      "passed": true
+    },
+    {
+      "name": "PC: detection, notice removal, assets, layout and chapter 3 start",
+      "passed": true
+    },
+    {
+      "name": "Mobile: detection, notice removal, assets, layout and chapter 3 start",
+      "passed": true
+    },
+    {
+      "name": "iPad desktop UA: detection, notice removal, assets, layout and chapter 3 start",
+      "passed": true
+    }
+  ]
+}

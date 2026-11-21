@@ -1,0 +1,193 @@
+{
+  "version": "1.10.1",
+  "url": "http://127.0.0.1:8782/",
+  "checks": [
+    {
+      "name": "Actual exported expedition imports through FileReader in a fresh browser",
+      "passed": true,
+      "detail": {
+        "area": "endless_echo",
+        "active": true,
+        "enemies": 3,
+        "toast": "PROGRESSO IMPORTADO"
+      }
+    },
+    {
+      "name": "Continue preserves the only surviving musician, leader and expedition",
+      "passed": true,
+      "detail": {
+        "normalized": {
+          "area": "endless_echo",
+          "active": "synth",
+          "hp": {
+            "franco": 0,
+            "ryuchi": 0,
+            "alt": 48,
+            "katana": 49,
+            "synth": 20,
+            "percussion": 46
+          },
+          "hpStart": {
+            "franco": 40,
+            "ryuchi": 38,
+            "alt": 48,
+            "katana": 49,
+            "synth": 44,
+            "percussion": 46
+          }
+        },
+        "resumed": {
+          "area": "endless_echo",
+          "active": "synth",
+          "hp": {
+            "franco": 40,
+            "ryuchi": 38,
+            "alt": 48,
+            "katana": 49,
+            "synth": 44,
+            "percussion": 46
+          },
+          "run": true
+        }
+      }
+    },
+    {
+      "name": "MAPA and system preserve defeat instead of granting dungeon healing",
+      "passed": true,
+      "detail": [
+        {
+          "defeated": "all",
+          "retry": true,
+          "unchanged": true,
+          "hpUnchanged": true,
+          "canTravel": false,
+          "started": false
+        },
+        {
+          "defeated": "franco",
+          "retry": true,
+          "unchanged": true,
+          "hpUnchanged": true,
+          "canTravel": false,
+          "started": false
+        },
+        {
+          "defeated": "ryuchi",
+          "retry": true,
+          "unchanged": true,
+          "hpUnchanged": true,
+          "canTravel": false,
+          "started": false
+        }
+      ]
+    },
+    {
+      "name": "Disconnected falling P2 draws one captured sprite and autopull recovers overhang",
+      "passed": true,
+      "detail": {
+        "before": {
+          "x": 17.95,
+          "y": 26.5
+        },
+        "recovered": {
+          "x": 17.5,
+          "y": 26.5,
+          "fits": true
+        },
+        "sprites": 1
+      }
+    },
+    {
+      "name": "Importing an earlier save rebuilds recruited NPCs and closed cloud routes",
+      "passed": true,
+      "detail": {
+        "expected": {
+          "synth": true,
+          "percussion": true,
+          "bridge": false
+        },
+        "advanced": {
+          "synth": false,
+          "percussion": false,
+          "bridge": true
+        },
+        "restored": {
+          "synth": true,
+          "percussion": true,
+          "bridge": false
+        }
+      }
+    },
+    {
+      "name": "Touch PAUSA freezes and resumes the same cloud fall",
+      "passed": true,
+      "detail": {
+        "r": {
+          "paused": true,
+          "same": true,
+          "frozen": true,
+          "page": "main"
+        },
+        "resumed": {
+          "mode": "cloud_fall",
+          "elapsed": 0.21666666666666667
+        }
+      }
+    },
+    {
+      "name": "Rotation while stick and attack are held clears both real touch pointers",
+      "passed": true,
+      "detail": {
+        "held": {
+          "pointers": 2,
+          "attack": true,
+          "touch": [
+            1,
+            0
+          ]
+        },
+        "released": {
+          "pointers": 0,
+          "attack": false,
+          "touch": [
+            0,
+            0
+          ],
+          "stopped": true,
+          "wave": 1
+        },
+        "layout": {
+          "classes": "mobile121",
+          "deck": {
+            "x": 8,
+            "y": 592,
+            "width": 374,
+            "height": 230,
+            "top": 592,
+            "right": 382,
+            "bottom": 822,
+            "left": 8
+          },
+          "display": "grid",
+          "appScroll": 0
+        }
+      }
+    },
+    {
+      "name": "Postgame menu remains usable across portrait/landscape rotation and pauses wave timer",
+      "passed": true,
+      "detail": {
+        "wave": 1,
+        "score": 0,
+        "resumed": "action"
+      }
+    }
+  ],
+  "errors": [],
+  "method": "Actual exported/portable runtime, FileReader and isolated touch/mobile emulation. Fixtures target edge cases; not a continuous campaign or physical device.",
+  "build": {
+    "version": "1.10.1",
+    "sourceSha256": "3c9198a7505a5b01c3a8af93f7adfae421c3a0df713e523d5ffe6f1d2e86f939",
+    "indexSha256": "e07aa627aee83f3008f1f9c3a77c2f7a0b38964ba00883dad2342e2041f09af6"
+  }
+}

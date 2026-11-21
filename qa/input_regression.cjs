@@ -172,7 +172,13 @@ async function main(){
   await check('Rotation switches layout and releases all held touches',async()=>{
     // A simulação desliga requestAnimationFrame: o polling da espera precisa
     // usar relógio, senão uma condição inicialmente falsa nunca é reavaliada.
+    const stick=await mobile.locator('#mobileStick121').boundingBox(),attack=await mobile.locator('[data-mobile-action="attack"]').boundingBox();
+    const a={x:stick.x+stick.width*.8,y:stick.y+stick.height*.5,id:11},b={x:attack.x+attack.width/2,y:attack.y+attack.height/2,id:12};
+    await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[a,b]});
+    assert.equal(await mobile.evaluate(()=>Input121.pointers.size),2);
     await mobile.setViewportSize({width:844,height:390});await mobile.waitForFunction(()=>document.documentElement.classList.contains('landscape121'),null,{polling:50});
+    assert.deepEqual(await mobile.evaluate(()=>({touch:Input121.touch,attack:attackHeld})),{touch:[0,0],attack:false});
+    await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
     const v=await mobile.evaluate(()=>({landscape:document.documentElement.classList.contains('landscape121'),held:Input121.pointers.size,width:document.documentElement.scrollWidth,viewport:innerWidth}));
     assert(v.landscape);assert.equal(v.held,0);assert(v.width<=v.viewport);assert(await mobile.locator('#mobileStick121').isVisible());
   });

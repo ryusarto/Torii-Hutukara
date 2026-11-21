@@ -1,0 +1,1432 @@
+{
+  "version": "1.10.1",
+  "url": "http://127.0.0.1:8782/",
+  "route": "canal",
+  "reloadInterval": 120,
+  "device": "mobile-emulated",
+  "rotations": [
+    {
+      "time": 91.99999999999606,
+      "portrait": true,
+      "area": "ruins"
+    },
+    {
+      "time": 182.00000000003698,
+      "portrait": false,
+      "area": "voice_roofs"
+    },
+    {
+      "time": 272.0000000000813,
+      "portrait": true,
+      "area": "power_plant"
+    },
+    {
+      "time": 363.9999999999976,
+      "portrait": false,
+      "area": "cloud_sea"
+    },
+    {
+      "time": 455.99999999991394,
+      "portrait": true,
+      "area": "silence_core"
+    }
+  ],
+  "errors": [],
+  "events": [
+    "[0.0 min] Objetivo: Investigue a mesa de produção no estúdio.",
+    "[0.1 min] Objetivo: Siga o som. Encontre a origem da melodia.",
+    "[0.3 min] Objetivo: Converse com a Anciã Ema na praça da cidade.",
+    "[0.4 min] Objetivo: Passe pelo portão leste e explore a floresta.",
+    "[0.4 min] Overlay \"DIÁLOGO · ESCOLHA O que vocês querem perguntar à Anciã Ema? A resposta fica reg\" → 1. Quem é esse viajante mascarado?",
+    "[0.5 min] Objetivo: Encontre a figura mascarada na floresta.",
+    "[0.6 min] Objetivo: Use o Baixo de Raiz na ponte de frequências.",
+    "[0.8 min] Objetivo: Ative as duas pedras de ressonância nas ruínas.",
+    "[1.1 min] Usou fita: franco 36/55",
+    "[1.2 min] Objetivo: Confronte a fonte do Silêncio.",
+    "[1.6 min] Usou fita: franco 35/55",
+    "[1.6 min] Objetivo: Descubra a identidade do viajante mascarado.",
+    "[1.7 min] Objetivo: Converse com seu novo aliado.",
+    "[1.8 min] Objetivo: Siga a máscara até a próxima realidade.",
+    "[1.8 min] Overlay \"CAPÍTULO 01 · CONCLUÍDO A Última Frequência O primeiro doppelgänger foi encontr\" → ✦ CONTINUAR · CAPÍTULO 02",
+    "[1.8 min] Objetivo: Encontre Íris na Praça das Antenas.",
+    "[2.0 min] Objetivo: Procure a fita perdida no Mercado das Fitas.",
+    "[2.1 min] Objetivo: Procure a fita perdida no Mercado das Fitas.",
+    "[2.2 min] Objetivo: Monte o acoplador na Oficina do Belga.",
+    "[2.4 min] Objetivo: Reative o retransmissor da Praça.",
+    "[2.6 min] Objetivo: Reative o retransmissor do Mercado.",
+    "[2.6 min] Objetivo: Recupere a melodia de Lumi e receba o violino.",
+    "[2.7 min] Puzzle Lumi → nota 0",
+    "[2.7 min] Puzzle Lumi → nota 2",
+    "[2.7 min] Puzzle Lumi → nota 0",
+    "[2.7 min] Objetivo: Toque o violino para dissipar a névoa dos telhados.",
+    "[2.9 min] Objetivo: Reative o retransmissor dos Telhados.",
+    "[3.1 min] Objetivo: Suba à Torre de Transmissão e enfrente o Silêncio.",
+    "[3.3 min] Usou fita: franco 36/70",
+    "[3.4 min] Usou fita: franco 42/70",
+    "[3.5 min] Objetivo: Capítulo 02 concluído! Descubra os segredos da cidade.",
+    "[3.5 min] Overlay \"CAPÍTULO 02 · CONCLUÍDO A máscara abriu o Lado B O Silêncio recua antes de desa\" → ATRAVESSAR AGORA · 5",
+    "[3.5 min] Objetivo: Encontre Belga no Clube Contratempo.",
+    "[3.8 min] Rota escolhida: CANALHá pessoas pres",
+    "[3.8 min] Objetivo: Separe a interferência do canal.",
+    "[4.1 min] Objetivo: Atravesse e liberte a comporta.",
+    "[4.1 min] Objetivo: Atravesse e liberte a comporta.",
+    "[4.2 min] Objetivo: Abra a trava grave da Usina.",
+    "[4.5 min] Objetivo: Interrompa o ciclo da Usina.",
+    "[4.7 min] Objetivo: Encontre Mazza e Colli no Contratempo.",
+    "[5.1 min] Objetivo: Comece uma música no palco do Contratempo.",
+    "[5.2 min] Overlay \"CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência \" → ♪GRAVE",
+    "[5.2 min] Overlay \"CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência \" → ♫MÉDIA",
+    "[5.2 min] Overlay \"CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência \" → ♬AGUDA",
+    "[5.2 min] Overlay \"CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência \" → ✦ABERTA",
+    "[5.2 min] Objetivo: Reabra o Elevador do Céu.",
+    "[5.4 min] Objetivo: Forme a primeira passarela de nuvem.",
+    "[5.6 min] Objetivo: Mova a plataforma com o Tambor do Horizonte.",
+    "[5.7 min] Objetivo: Forme a última passarela de nuvem.",
+    "[6.1 min] Objetivo: Enfrente O Metrônomo.",
+    "[6.1 min] Objetivo: Enfrente O Metrônomo.",
+    "[6.8 min] Objetivo: Atravesse o Último Torii e enfrente O Silêncio.",
+    "[7.6 min] Objetivo: Escute a última frequência.",
+    "[7.7 min] Overlay \"ÚLTIMA FASE · CRIAÇÃO Começar Toque quatro notas. Você pode repetir ou transfor\" → ♪GRAVE",
+    "[7.7 min] Overlay \"ÚLTIMA FASE · CRIAÇÃO Começar Toque quatro notas. Você pode repetir ou transfor\" → ♫MÉDIA",
+    "[7.7 min] Overlay \"ÚLTIMA FASE · CRIAÇÃO Começar Toque quatro notas. Você pode repetir ou transfor\" → ♬AGUDA",
+    "[7.7 min] Overlay \"ÚLTIMA FASE · CRIAÇÃO Começar Toque quatro notas. Você pode repetir ou transfor\" → ✦ABERTA",
+    "[7.8 min] Objetivo: Hutukara continua aberto."
+  ],
+  "states": [
+    {
+      "time": 1.9999999999999978,
+      "area": "studio",
+      "mode": "dialogue",
+      "objective": "Investigue a mesa de produção no estúdio.",
+      "events": [
+        "[0.0 min] Objetivo: Investigue a mesa de produção no estúdio."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 3.9999999999999907,
+      "area": "studio",
+      "mode": "dialogue",
+      "objective": "Siga o som. Encontre a origem da melodia.",
+      "events": [
+        "[0.1 min] Objetivo: Siga o som. Encontre a origem da melodia."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 7.999999999999977,
+      "area": "corridor",
+      "mode": "walk",
+      "objective": "Siga o som. Encontre a origem da melodia.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 14.000000000000275,
+      "area": "chamber",
+      "mode": "dialogue",
+      "objective": "Siga o som. Encontre a origem da melodia.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 18.00000000000026,
+      "area": "chamber",
+      "mode": "dialogue",
+      "objective": "Converse com a Anciã Ema na praça da cidade.",
+      "events": [
+        "[0.3 min] Objetivo: Converse com a Anciã Ema na praça da cidade."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 20.000000000000146,
+      "area": "city",
+      "mode": "dialogue",
+      "objective": "Converse com a Anciã Ema na praça da cidade.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 23.99999999999992,
+      "area": "city",
+      "mode": "dialogue",
+      "objective": "Passe pelo portão leste e explore a floresta.",
+      "events": [
+        "[0.4 min] Objetivo: Passe pelo portão leste e explore a floresta."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 31.999999999999464,
+      "area": "forest",
+      "mode": "walk",
+      "objective": "Encontre a figura mascarada na floresta.",
+      "events": [
+        "[0.5 min] Objetivo: Encontre a figura mascarada na floresta."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 33.99999999999935,
+      "area": "forest",
+      "mode": "dialogue",
+      "objective": "Use o Baixo de Raiz na ponte de frequências.",
+      "events": [
+        "[0.6 min] Objetivo: Use o Baixo de Raiz na ponte de frequências."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 47.99999999999856,
+      "area": "forest",
+      "mode": "walk",
+      "objective": "Ative as duas pedras de ressonância nas ruínas.",
+      "events": [
+        "[0.8 min] Objetivo: Ative as duas pedras de ressonância nas ruínas."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 55.9999999999981,
+      "area": "ruins",
+      "mode": "action",
+      "objective": "Ative as duas pedras de ressonância nas ruínas.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 71.9999999999972,
+      "area": "ruins",
+      "mode": "dialogue",
+      "objective": "Confronte a fonte do Silêncio.",
+      "events": [
+        "[1.2 min] Objetivo: Confronte a fonte do Silêncio."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 97.99999999999572,
+      "area": "ruins",
+      "mode": "dialogue",
+      "objective": "Descubra a identidade do viajante mascarado.",
+      "events": [
+        "[1.6 min] Objetivo: Descubra a identidade do viajante mascarado."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 99.99999999999561,
+      "area": "ruins",
+      "mode": "dialogue",
+      "objective": "Converse com seu novo aliado.",
+      "events": [
+        "[1.7 min] Objetivo: Converse com seu novo aliado."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 105.99999999999527,
+      "area": "ruins",
+      "mode": "dialogue",
+      "objective": "Siga a máscara até a próxima realidade.",
+      "events": [
+        "[1.8 min] Objetivo: Siga a máscara até a próxima realidade.",
+        "[1.8 min] Overlay \"CAPÍTULO 01 · CONCLUÍDO A Última Frequência O primeiro doppelgänger foi encontr\" → ✦ CONTINUAR · CAPÍTULO 02"
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 107.99999999999515,
+      "area": "rain_station",
+      "mode": "dialogue",
+      "objective": "Encontre Íris na Praça das Antenas.",
+      "events": [
+        "[1.8 min] Objetivo: Encontre Íris na Praça das Antenas."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 113.99999999999481,
+      "area": "voices",
+      "mode": "walk",
+      "objective": "Encontre Íris na Praça das Antenas.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 121.99999999999436,
+      "area": "voices",
+      "mode": "dialogue",
+      "objective": "Procure a fita perdida no Mercado das Fitas.",
+      "events": [
+        "[2.0 min] Objetivo: Procure a fita perdida no Mercado das Fitas."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 133.99999999999878,
+      "area": "tape_market",
+      "mode": "walk",
+      "objective": "Procure a fita perdida no Mercado das Fitas.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 136.00000000000037,
+      "area": "tape_market",
+      "mode": "walk",
+      "objective": "Monte o acoplador na Oficina do Belga.",
+      "events": [
+        "[2.2 min] Objetivo: Monte o acoplador na Oficina do Belga."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 138.00000000000196,
+      "area": "voices",
+      "mode": "action",
+      "objective": "Monte o acoplador na Oficina do Belga.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 142.00000000000514,
+      "area": "bento_shop",
+      "mode": "walk",
+      "objective": "Monte o acoplador na Oficina do Belga.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 144.00000000000674,
+      "area": "bento_shop",
+      "mode": "dialogue",
+      "objective": "Reative o retransmissor da Praça.",
+      "events": [
+        "[2.4 min] Objetivo: Reative o retransmissor da Praça."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 146.00000000000833,
+      "area": "voices",
+      "mode": "walk",
+      "objective": "Reative o retransmissor da Praça.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 154.0000000000147,
+      "area": "voices",
+      "mode": "walk",
+      "objective": "Reative o retransmissor do Mercado.",
+      "events": [
+        "[2.6 min] Objetivo: Reative o retransmissor do Mercado."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 160.00000000001947,
+      "area": "voices",
+      "mode": "walk",
+      "objective": "Recupere a melodia de Lumi e receba o violino.",
+      "events": [
+        "[2.6 min] Objetivo: Recupere a melodia de Lumi e receba o violino."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 166.00000000002424,
+      "area": "voices",
+      "mode": "walk",
+      "objective": "Toque o violino para dissipar a névoa dos telhados.",
+      "events": [
+        "[2.7 min] Puzzle Lumi → nota 2",
+        "[2.7 min] Puzzle Lumi → nota 0",
+        "[2.7 min] Objetivo: Toque o violino para dissipar a névoa dos telhados."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 172.00000000002902,
+      "area": "voice_roofs",
+      "mode": "walk",
+      "objective": "Toque o violino para dissipar a névoa dos telhados.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 174.0000000000306,
+      "area": "voice_roofs",
+      "mode": "dialogue",
+      "objective": "Reative o retransmissor dos Telhados.",
+      "events": [
+        "[2.9 min] Objetivo: Reative o retransmissor dos Telhados."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 184.00000000003857,
+      "area": "voice_roofs",
+      "mode": "walk",
+      "objective": "Suba à Torre de Transmissão e enfrente o Silêncio.",
+      "events": [
+        "[3.1 min] Objetivo: Suba à Torre de Transmissão e enfrente o Silêncio."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 188.00000000004175,
+      "area": "voices",
+      "mode": "walk",
+      "objective": "Suba à Torre de Transmissão e enfrente o Silêncio.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 190.00000000004334,
+      "area": "voice_tower",
+      "mode": "walk",
+      "objective": "Suba à Torre de Transmissão e enfrente o Silêncio.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 210.00000000005926,
+      "area": "voice_tower",
+      "mode": "dialogue",
+      "objective": "Capítulo 02 concluído! Descubra os segredos da cidade.",
+      "events": [
+        "[3.5 min] Objetivo: Capítulo 02 concluído! Descubra os segredos da cidade."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 214.00000000006244,
+      "area": "sky_terminal",
+      "mode": "dialogue",
+      "objective": "Encontre Belga no Clube Contratempo.",
+      "events": [
+        "[3.5 min] Overlay \"CAPÍTULO 02 · CONCLUÍDO A máscara abriu o Lado B O Silêncio recua antes de desa\" → ATRAVESSAR AGORA · 5",
+        "[3.5 min] Objetivo: Encontre Belga no Clube Contratempo."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 220.00000000006722,
+      "area": "distortion_district",
+      "mode": "walk",
+      "objective": "Encontre Belga no Clube Contratempo.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 224.0000000000704,
+      "area": "contratempo",
+      "mode": "walk",
+      "objective": "Encontre Belga no Clube Contratempo.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 228.00000000007358,
+      "area": "contratempo",
+      "mode": "walk",
+      "objective": "Separe a interferência do canal.",
+      "events": [
+        "[3.8 min] Rota escolhida: CANALHá pessoas pres",
+        "[3.8 min] Objetivo: Separe a interferência do canal."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 230.00000000007518,
+      "area": "distortion_district",
+      "mode": "walk",
+      "objective": "Separe a interferência do canal.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 238.00000000008154,
+      "area": "sky_canal",
+      "mode": "dialogue",
+      "objective": "Separe a interferência do canal.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 244.00000000008632,
+      "area": "sky_canal",
+      "mode": "dialogue",
+      "objective": "Atravesse e liberte a comporta.",
+      "events": [
+        "[4.1 min] Objetivo: Atravesse e liberte a comporta."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 254.00000000009427,
+      "area": "sky_canal",
+      "mode": "dialogue",
+      "objective": "Abra a trava grave da Usina.",
+      "events": [
+        "[4.2 min] Objetivo: Abra a trava grave da Usina."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 262.0000000000904,
+      "area": "distortion_district",
+      "mode": "walk",
+      "objective": "Abra a trava grave da Usina.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 266.00000000008674,
+      "area": "power_plant",
+      "mode": "walk",
+      "objective": "Abra a trava grave da Usina.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 270.0000000000831,
+      "area": "power_plant",
+      "mode": "dialogue",
+      "objective": "Interrompa o ciclo da Usina.",
+      "events": [
+        "[4.5 min] Objetivo: Interrompa o ciclo da Usina."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 284.0000000000704,
+      "area": "power_plant",
+      "mode": "dialogue",
+      "objective": "Encontre Mazza e Colli no Contratempo.",
+      "events": [
+        "[4.7 min] Objetivo: Encontre Mazza e Colli no Contratempo."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 298.00000000005764,
+      "area": "distortion_district",
+      "mode": "walk",
+      "objective": "Encontre Mazza e Colli no Contratempo.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 306.00000000005036,
+      "area": "contratempo",
+      "mode": "walk",
+      "objective": "Encontre Mazza e Colli no Contratempo.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 308.00000000004854,
+      "area": "contratempo",
+      "mode": "dialogue",
+      "objective": "Comece uma música no palco do Contratempo.",
+      "events": [
+        "[5.1 min] Objetivo: Comece uma música no palco do Contratempo."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 316.00000000004127,
+      "area": "contratempo",
+      "mode": "dialogue",
+      "objective": "Reabra o Elevador do Céu.",
+      "events": [
+        "[5.2 min] Overlay \"CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência \" → ♬AGUDA",
+        "[5.2 min] Overlay \"CONTRATEMPO · FRASE LIVRE Uma música que ainda não existe Não existe sequência \" → ✦ABERTA",
+        "[5.2 min] Objetivo: Reabra o Elevador do Céu."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 320.00000000003763,
+      "area": "distortion_district",
+      "mode": "walk",
+      "objective": "Reabra o Elevador do Céu.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 326.0000000000322,
+      "area": "sky_lift",
+      "mode": "dialogue",
+      "objective": "Forme a primeira passarela de nuvem.",
+      "events": [
+        "[5.4 min] Objetivo: Forme a primeira passarela de nuvem."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 332.0000000000267,
+      "area": "cloud_sea",
+      "mode": "dialogue",
+      "objective": "Forme a primeira passarela de nuvem.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 338.00000000002126,
+      "area": "cloud_sea",
+      "mode": "walk",
+      "objective": "Mova a plataforma com o Tambor do Horizonte.",
+      "events": [
+        "[5.6 min] Objetivo: Mova a plataforma com o Tambor do Horizonte."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 346.000000000014,
+      "area": "cloud_sea",
+      "mode": "walk",
+      "objective": "Forme a última passarela de nuvem.",
+      "events": [
+        "[5.7 min] Objetivo: Forme a última passarela de nuvem."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 365.9999999999958,
+      "area": "cloud_sea",
+      "mode": "walk",
+      "objective": "Enfrente O Metrônomo.",
+      "events": [
+        "[6.1 min] Objetivo: Enfrente O Metrônomo."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 369.99999999999216,
+      "area": "cloud_terrace",
+      "mode": "walk",
+      "objective": "Enfrente O Metrônomo.",
+      "events": [
+        "[6.1 min] Objetivo: Enfrente O Metrônomo."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 405.9999999999594,
+      "area": "cloud_terrace",
+      "mode": "dialogue",
+      "objective": "Atravesse o Último Torii e enfrente O Silêncio.",
+      "events": [
+        "[6.8 min] Objetivo: Atravesse o Último Torii e enfrente O Silêncio."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 411.99999999995396,
+      "area": "last_torii",
+      "mode": "dialogue",
+      "objective": "Atravesse o Último Torii e enfrente O Silêncio.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 415.9999999999503,
+      "area": "silence_core",
+      "mode": "walk",
+      "objective": "Atravesse o Último Torii e enfrente O Silêncio.",
+      "events": [],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 455.99999999991394,
+      "area": "silence_core",
+      "mode": "dialogue",
+      "objective": "Escute a última frequência.",
+      "events": [
+        "[7.6 min] Objetivo: Escute a última frequência."
+      ],
+      "stuck": null,
+      "done": false
+    },
+    {
+      "time": 469.04999999990207,
+      "area": "last_torii",
+      "mode": "overlay",
+      "objective": "Hutukara continua aberto.",
+      "events": [
+        "[7.8 min] Objetivo: Hutukara continua aberto."
+      ],
+      "stuck": null,
+      "done": true
+    }
+  ],
+  "reloads": [
+    {
+      "time": 125.99999999999413,
+      "area": "voices",
+      "differences": []
+    },
+    {
+      "time": 246.0000000000879,
+      "area": "sky_canal",
+      "differences": []
+    },
+    {
+      "time": 367.999999999994,
+      "area": "cloud_sea",
+      "differences": []
+    }
+  ],
+  "done": true,
+  "stuck": null,
+  "method": "Continuous newGame, actual 60Hz update/movement/combat/interactions, accelerated dialogue and render sampling. No position/HP/flags bypass. Not human/hardware validation.",
+  "build": {
+    "version": "1.10.1",
+    "sourceSha256": "3c9198a7505a5b01c3a8af93f7adfae421c3a0df713e523d5ffe6f1d2e86f939",
+    "shellVersion": 1,
+    "builtAt": "2026-11-21T02:32:27Z"
+  },
+  "final": {
+    "area": "last_torii",
+    "active": "franco",
+    "position": {
+      "x": 13.5,
+      "y": 13.5
+    },
+    "inventory": {
+      "potions": 0,
+      "shards": 194,
+      "resonance": 100
+    },
+    "defeated": [
+      "c3_canal_echo_1",
+      "c3_canal_echo_2",
+      "c3_cloud_echo_1",
+      "c3_cloud_echo_2",
+      "c3_plant_echo_1",
+      "c3_plant_echo_2",
+      "c3_plant_echo_3",
+      "forest_hush_a",
+      "forest_hush_b",
+      "p4_canal_entry",
+      "p4_cloud_mid",
+      "p4_forest_east",
+      "p4_forest_path_b",
+      "p4_plant_entry",
+      "p4_roofs_end",
+      "p4_ruins_entry",
+      "p4_ruins_gate",
+      "p4_ruins_mid",
+      "p4_voices_center",
+      "p4_voices_market",
+      "p4_voices_west",
+      "relayMarket_guard_0",
+      "relayMarket_guard_1",
+      "relayPlaza_guard_0",
+      "relayPlaza_guard_1",
+      "relayRoof_guard_0",
+      "relayRoof_guard_1",
+      "ruin_hush_a",
+      "ruin_hush_b",
+      "ruin_hush_c"
+    ],
+    "discovered": [
+      "bento_shop",
+      "chamber",
+      "city",
+      "cloud_sea",
+      "cloud_terrace",
+      "contratempo",
+      "corridor",
+      "distortion_district",
+      "forest",
+      "last_torii",
+      "power_plant",
+      "rain_station",
+      "ruins",
+      "silence_core",
+      "sky_canal",
+      "sky_lift",
+      "sky_terminal",
+      "studio",
+      "tape_market",
+      "voice_roofs",
+      "voice_tower",
+      "voices"
+    ],
+    "choices": {
+      "ema": "traveler"
+    },
+    "checkpoint": {
+      "id": "c3_complete",
+      "area": "last_torii",
+      "x": 13.5,
+      "y": 13.5
+    },
+    "hp": {
+      "franco": 70,
+      "ryuchi": 68,
+      "alt": 72
+    },
+    "formation": [
+      "franco",
+      "ryuchi",
+      "alt"
+    ],
+    "flags": {
+      "arrived": true,
+      "bass": true,
+      "boss": true,
+      "bridge": true,
+      "console": true,
+      "ema": true,
+      "ending": true,
+      "fogCleared11": true,
+      "forestGuide": true,
+      "lumiSong": true,
+      "masks": true,
+      "relayMarket": true,
+      "relayMarketAwake": true,
+      "relayPlaza": true,
+      "relayPlazaAwake": true,
+      "relayRoof": true,
+      "relayRoofAwake": true,
+      "reveal": true,
+      "ruinA": true,
+      "ruinB": true,
+      "violin11": true,
+      "voicesArrived": true,
+      "voicesBoss": true,
+      "voicesCoupler": true,
+      "voicesDone": true,
+      "voicesIris": true,
+      "voicesKatana": true,
+      "voicesTape": true,
+      "voicesTech": true,
+      "worldHint": true
+    },
+    "c3": {
+      "started": true,
+      "metMaia": true,
+      "twoRoutesOpen": true,
+      "firstDestination": "canal",
+      "usinaGate": true,
+      "usinaDone": true,
+      "canalPath": true,
+      "canalDone": true,
+      "synthUnlocked": true,
+      "percussionUnlocked": true,
+      "windFlute": true,
+      "horizonDrum": true,
+      "clubPhrase": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "clubPhraseDone": true,
+      "liftOpen": true,
+      "cloudPathA": true,
+      "cloudPathB": true,
+      "cloudPlatform": true,
+      "metronomeDone": true,
+      "silenceDone": true,
+      "complete": true,
+      "returnHome": false,
+      "bossAttempts": 1,
+      "cassetteQuest": false,
+      "cassetteFound": false,
+      "cassetteChoice": null,
+      "keptFirstShow": false,
+      "smallLight": false,
+      "cloudWindow": false,
+      "arrivalSeen": false,
+      "canalIntro": true,
+      "cloudIntro": true,
+      "toriiSeen": true,
+      "metronomeSeen": true,
+      "liftSeen": true,
+      "endingPending": false,
+      "finalPhrase": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "patrolResetAt": 296.2333333333926,
+      "canalSceneSeen": true
+    },
+    "xp": {
+      "franco": 1486,
+      "ryuchi": 1486,
+      "alt": 1408
+    },
+    "levels": {
+      "franco": 7,
+      "ryuchi": 7,
+      "alt": 7
+    }
+  },
+  "mode": "overlay",
+  "save": {
+    "area": "last_torii",
+    "x": 13.5,
+    "y": 13.5,
+    "dir": "down",
+    "flags": {
+      "console": true,
+      "masks": true,
+      "arrived": true,
+      "ema": true,
+      "tree": false,
+      "forestGuide": true,
+      "bass": true,
+      "bridge": true,
+      "bell": false,
+      "roots": false,
+      "rootSecret": false,
+      "ruinA": true,
+      "ruinB": true,
+      "boss": true,
+      "reveal": true,
+      "ending": true,
+      "worldHint": true,
+      "voicesArrived": true,
+      "voicesIris": true,
+      "voicesTape": true,
+      "voicesCoupler": true,
+      "voicesTech": true,
+      "voicesKatana": true,
+      "relayPlaza": true,
+      "relayMarket": true,
+      "relayRoof": true,
+      "voicesTower": false,
+      "voicesBoss": true,
+      "voicesDone": true,
+      "celinaSong": false,
+      "lumiSong": true,
+      "nilo1": false,
+      "nilo2": false,
+      "niloReward": false,
+      "voicesShortcut": false,
+      "voicesArchive": false,
+      "violin11": true,
+      "fogCleared11": true,
+      "bassBridge11": false,
+      "relayPlazaGuard": false,
+      "relayMarketGuard": false,
+      "relayRoofGuard": false,
+      "relayPlazaAwake": true,
+      "relayMarketAwake": true,
+      "relayRoofAwake": true
+    },
+    "hp": {
+      "franco": 70,
+      "ryuchi": 68,
+      "alt": 72,
+      "katana": 73,
+      "synth": 68,
+      "percussion": 76
+    },
+    "maxhp": {
+      "franco": 70,
+      "ryuchi": 68,
+      "alt": 72,
+      "katana": 73,
+      "synth": 68,
+      "percussion": 76
+    },
+    "resonance": 100,
+    "potions": 0,
+    "shards": 194,
+    "discovered": [
+      "studio",
+      "corridor",
+      "chamber",
+      "city",
+      "forest",
+      "ruins",
+      "rain_station",
+      "voices",
+      "tape_market",
+      "bento_shop",
+      "voice_roofs",
+      "voice_tower",
+      "sky_terminal",
+      "distortion_district",
+      "contratempo",
+      "sky_canal",
+      "power_plant",
+      "sky_lift",
+      "cloud_sea",
+      "cloud_terrace",
+      "last_torii",
+      "silence_core"
+    ],
+    "defeated": [
+      "forest_hush_a",
+      "p4_forest_path_b",
+      "p4_forest_east",
+      "forest_hush_b",
+      "p4_ruins_entry",
+      "p4_ruins_gate",
+      "ruin_hush_a",
+      "p4_ruins_mid",
+      "ruin_hush_b",
+      "ruin_hush_c",
+      "p4_voices_center",
+      "p4_voices_market",
+      "p4_voices_west",
+      "relayPlaza_guard_1",
+      "relayPlaza_guard_0",
+      "relayMarket_guard_1",
+      "relayMarket_guard_0",
+      "relayRoof_guard_0",
+      "relayRoof_guard_1",
+      "p4_roofs_end",
+      "p4_canal_entry",
+      "c3_canal_echo_1",
+      "c3_canal_echo_2",
+      "p4_plant_entry",
+      "c3_plant_echo_1",
+      "c3_plant_echo_2",
+      "c3_plant_echo_3",
+      "c3_cloud_echo_1",
+      "p4_cloud_mid",
+      "c3_cloud_echo_2"
+    ],
+    "started": 1795228408666,
+    "totalSeconds": 461.8499999999086,
+    "spawn": 0,
+    "ryuchiStyle": "durag",
+    "active": "franco",
+    "party3": true,
+    "guidance": true,
+    "choices": {
+      "ema": "traveler"
+    },
+    "version": 13,
+    "xp": {
+      "franco": 1486,
+      "ryuchi": 1486,
+      "alt": 1408,
+      "katana": 1113,
+      "synth": 1114,
+      "percussion": 1114
+    },
+    "levels": {
+      "franco": 7,
+      "ryuchi": 7,
+      "alt": 7,
+      "katana": 7,
+      "synth": 7,
+      "percussion": 7
+    },
+    "checkpoint": {
+      "id": "c3_complete",
+      "area": "last_torii",
+      "x": 13.5,
+      "y": 13.5,
+      "snapshot": {
+        "area": "last_torii",
+        "x": 13.5,
+        "y": 13.5,
+        "dir": "down",
+        "flags": {
+          "console": true,
+          "masks": true,
+          "arrived": true,
+          "ema": true,
+          "tree": false,
+          "forestGuide": true,
+          "bass": true,
+          "bridge": true,
+          "bell": false,
+          "roots": false,
+          "rootSecret": false,
+          "ruinA": true,
+          "ruinB": true,
+          "boss": true,
+          "reveal": true,
+          "ending": true,
+          "worldHint": true,
+          "voicesArrived": true,
+          "voicesIris": true,
+          "voicesTape": true,
+          "voicesCoupler": true,
+          "voicesTech": true,
+          "voicesKatana": true,
+          "relayPlaza": true,
+          "relayMarket": true,
+          "relayRoof": true,
+          "voicesTower": false,
+          "voicesBoss": true,
+          "voicesDone": true,
+          "celinaSong": false,
+          "lumiSong": true,
+          "nilo1": false,
+          "nilo2": false,
+          "niloReward": false,
+          "voicesShortcut": false,
+          "voicesArchive": false,
+          "violin11": true,
+          "fogCleared11": true,
+          "bassBridge11": false,
+          "relayPlazaGuard": false,
+          "relayMarketGuard": false,
+          "relayRoofGuard": false,
+          "relayPlazaAwake": true,
+          "relayMarketAwake": true,
+          "relayRoofAwake": true
+        },
+        "hp": {
+          "franco": 70,
+          "ryuchi": 68,
+          "alt": 72,
+          "katana": 73,
+          "synth": 68,
+          "percussion": 76
+        },
+        "maxhp": {
+          "franco": 70,
+          "ryuchi": 68,
+          "alt": 72,
+          "katana": 73,
+          "synth": 68,
+          "percussion": 76
+        },
+        "resonance": 100,
+        "potions": 0,
+        "shards": 194,
+        "discovered": [
+          "studio",
+          "corridor",
+          "chamber",
+          "city",
+          "forest",
+          "ruins",
+          "rain_station",
+          "voices",
+          "tape_market",
+          "bento_shop",
+          "voice_roofs",
+          "voice_tower",
+          "sky_terminal",
+          "distortion_district",
+          "contratempo",
+          "sky_canal",
+          "power_plant",
+          "sky_lift",
+          "cloud_sea",
+          "cloud_terrace",
+          "last_torii",
+          "silence_core"
+        ],
+        "defeated": [
+          "forest_hush_a",
+          "p4_forest_path_b",
+          "p4_forest_east",
+          "forest_hush_b",
+          "p4_ruins_entry",
+          "p4_ruins_gate",
+          "ruin_hush_a",
+          "p4_ruins_mid",
+          "ruin_hush_b",
+          "ruin_hush_c",
+          "p4_voices_center",
+          "p4_voices_market",
+          "p4_voices_west",
+          "relayPlaza_guard_1",
+          "relayPlaza_guard_0",
+          "relayMarket_guard_1",
+          "relayMarket_guard_0",
+          "relayRoof_guard_0",
+          "relayRoof_guard_1",
+          "p4_roofs_end",
+          "p4_canal_entry",
+          "c3_canal_echo_1",
+          "c3_canal_echo_2",
+          "p4_plant_entry",
+          "c3_plant_echo_1",
+          "c3_plant_echo_2",
+          "c3_plant_echo_3",
+          "c3_cloud_echo_1",
+          "p4_cloud_mid",
+          "c3_cloud_echo_2"
+        ],
+        "started": 1795228408666,
+        "totalSeconds": 461.8499999999086,
+        "spawn": 0,
+        "ryuchiStyle": "durag",
+        "active": "franco",
+        "party3": true,
+        "guidance": true,
+        "choices": {
+          "ema": "traveler"
+        },
+        "version": 13,
+        "xp": {
+          "franco": 1486,
+          "ryuchi": 1486,
+          "alt": 1408,
+          "katana": 1113,
+          "synth": 1114,
+          "percussion": 1114
+        },
+        "levels": {
+          "franco": 7,
+          "ryuchi": 7,
+          "alt": 7,
+          "katana": 7,
+          "synth": 7,
+          "percussion": 7
+        },
+        "checkpoint": null,
+        "thirdSlot": "alt",
+        "chapter": 3,
+        "options10": {
+          "reducedMotion": false
+        },
+        "c3": {
+          "started": true,
+          "metMaia": true,
+          "twoRoutesOpen": true,
+          "firstDestination": "canal",
+          "usinaGate": true,
+          "usinaDone": true,
+          "canalPath": true,
+          "canalDone": true,
+          "synthUnlocked": true,
+          "percussionUnlocked": true,
+          "windFlute": true,
+          "horizonDrum": true,
+          "clubPhrase": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "clubPhraseDone": true,
+          "liftOpen": true,
+          "cloudPathA": true,
+          "cloudPathB": true,
+          "cloudPlatform": true,
+          "metronomeDone": true,
+          "silenceDone": true,
+          "complete": true,
+          "returnHome": false,
+          "bossAttempts": 1,
+          "cassetteQuest": false,
+          "cassetteFound": false,
+          "cassetteChoice": null,
+          "keptFirstShow": false,
+          "smallLight": false,
+          "cloudWindow": false,
+          "arrivalSeen": false,
+          "canalIntro": true,
+          "cloudIntro": true,
+          "toriiSeen": true,
+          "metronomeSeen": true,
+          "liftSeen": true,
+          "endingPending": false,
+          "finalPhrase": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "patrolResetAt": 296.2333333333926,
+          "canalSceneSeen": true
+        },
+        "progressionRoster": [
+          "franco",
+          "ryuchi",
+          "alt",
+          "katana",
+          "synth",
+          "percussion"
+        ],
+        "postgame": {
+          "version": 1,
+          "bestScore": 0,
+          "bestWave": 0,
+          "lastRun": null,
+          "run": null
+        },
+        "moveSpeed10": 0,
+        "isRunning10": false,
+        "aim091": [
+          0,
+          1
+        ],
+        "formation": [
+          "franco",
+          "ryuchi",
+          "alt"
+        ],
+        "knownMembers": [
+          "franco",
+          "ryuchi",
+          "alt",
+          "katana",
+          "synth",
+          "percussion"
+        ]
+      }
+    },
+    "thirdSlot": "alt",
+    "chapter": 3,
+    "options10": {
+      "reducedMotion": false
+    },
+    "c3": {
+      "started": true,
+      "metMaia": true,
+      "twoRoutesOpen": true,
+      "firstDestination": "canal",
+      "usinaGate": true,
+      "usinaDone": true,
+      "canalPath": true,
+      "canalDone": true,
+      "synthUnlocked": true,
+      "percussionUnlocked": true,
+      "windFlute": true,
+      "horizonDrum": true,
+      "clubPhrase": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "clubPhraseDone": true,
+      "liftOpen": true,
+      "cloudPathA": true,
+      "cloudPathB": true,
+      "cloudPlatform": true,
+      "metronomeDone": true,
+      "silenceDone": true,
+      "complete": true,
+      "returnHome": false,
+      "bossAttempts": 1,
+      "cassetteQuest": false,
+      "cassetteFound": false,
+      "cassetteChoice": null,
+      "keptFirstShow": false,
+      "smallLight": false,
+      "cloudWindow": false,
+      "arrivalSeen": false,
+      "canalIntro": true,
+      "cloudIntro": true,
+      "toriiSeen": true,
+      "metronomeSeen": true,
+      "liftSeen": true,
+      "endingPending": false,
+      "finalPhrase": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "patrolResetAt": 296.2333333333926,
+      "canalSceneSeen": true
+    },
+    "progressionRoster": [
+      "franco",
+      "ryuchi",
+      "alt",
+      "katana",
+      "synth",
+      "percussion"
+    ],
+    "postgame": {
+      "version": 1,
+      "bestScore": 0,
+      "bestWave": 0,
+      "lastRun": null,
+      "run": null
+    },
+    "moveSpeed10": 0,
+    "isRunning10": false,
+    "aim091": [
+      0,
+      1
+    ],
+    "formation": [
+      "franco",
+      "ryuchi",
+      "alt"
+    ],
+    "knownMembers": [
+      "franco",
+      "ryuchi",
+      "alt",
+      "katana",
+      "synth",
+      "percussion"
+    ]
+  }
+}
