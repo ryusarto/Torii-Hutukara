@@ -163,7 +163,7 @@ const PostGame={
   // A fresh expedition starts with both seats' actions available.
   Object.assign(act,{skill:0,skillX:0,duo:0,dashCD:0});
   Object.assign(C3.coop,{skill:0,advanced:0,signature:0,dash:0,dashCD:0,cool:0});
-  const p=this.state(),value=Number.isFinite(seed)?seed>>>0:(Date.now()^Math.floor(Math.random()*4294967295))>>>0,seats=C3.coopActive()?2:1,campaignPotions=G.potions||0,campaignResonance=G.resonance||0;G.potions=0;G.resonance=100;
+  const p=this.state(),value=Number.isFinite(seed)?seed>>>0:((typeof ToriiSorte!=='undefined'&&ToriiSorte.fixa()?0:Date.now())^Math.floor(Math.random()*4294967295))>>>0,seats=C3.coopActive()?2:1,campaignPotions=G.potions||0,campaignResonance=G.resonance||0;G.potions=0;G.resonance=100;
   p.run={active:true,campaignHP,campaignLeader,campaignFormation,upgrades:{},rules:3,legacy:false,mode:seats===2?'coop':'solo',seed:value||1,wave:1,score:0,bankedScore:0,kills:0,bankedKills:0,completedWave:0,hpStart:{...G.hp},campaignPotions,campaignResonance,resonanceStart:100,potionsStart:G.potions,combo:0,comboStart:0,elapsed:0,bankedElapsed:0,waveSeats:seats,phase:'fight',cursor:0,wait:0,pending:null,clean:true,knockouts:0,_resume:true};
   this.buildArena();setArea(this.AREA,14.5,18.5,false);toast('FENDA · VIDA PERDIDA É PERMANENTE NESTA TENTATIVA');return true;
  },

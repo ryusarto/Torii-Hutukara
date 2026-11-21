@@ -293,6 +293,11 @@ FILES.each { |placeholder, path| replace_once!(runtime, placeholder, encode(path
 leftovers = runtime.scan(/__C3_[A-Z0-9_]+__/).uniq
 raise "Placeholders restantes: #{leftovers.join(', ')}" unless leftovers.empty?
 
+# Sorte com semente: primeiro código do jogo, antes da base 1.1.2.
+SORTE_JS = File.join(REPO_ROOT, 'game', 'source', 'engine', 'sorte.js')
+raise 'Esperado um único <script> de jogo na base' unless html.scan('<script>').length == 1
+html.sub!('<script>') { "<script>\n#{File.read(SORTE_JS, encoding: 'UTF-8')}\n" }
+
 marker = "\ninit();\n</script>"
 require_relative 'hero_legacy_fx'
 install_hero_legacy_fx!(html)
@@ -514,7 +519,7 @@ html.gsub!("yy=bossActor?.id==='voice_boss'?", "yy=!C3.coopActive()&&bossActor?.
 FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
-sources = [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
+sources = [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, SORTE_JS, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
 sources += [File.join(LOCOMOTION_ASSETS, 'manifest.json')] + locomotion_files.map { |relative| File.join(LOCOMOTION_ASSETS, relative) }
 sources += [NPC_GESTURES_JS, File.join(NPC_GESTURES_ASSETS, 'city_gestures.png'), File.join(NPC_GESTURES_ASSETS, 'manifest.json')]
 sources += Dir[File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2', '*.png')] + [File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2', 'manifest.json')]
