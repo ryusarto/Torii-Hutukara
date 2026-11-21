@@ -111,4 +111,11 @@ check('Elite modifiers: shield blocks three hits, split leaves two echoes, frene
  r=fixture(5);c.current.enemies=[];const s={endless:true,endlessElite:true,endlessMod:'divisao',hp:1,max:100,type:'hush',x:9,y:9,id:'endless_3'};c.current.enemies=[s];c.hitEnemy(s,50);assert.equal(c.current.enemies.filter(n=>n.hp>0).length,2);
  r=fixture(5);const f={endless:true,endlessMod:'frenetico',hp:50,max:50,cd:1,type:'hush'},n={endless:true,hp:50,max:50,cd:1,type:'hush'};c.current.enemies=[f,n];p.plan=[1,2,3];r.cursor=0;const spawn=p.spawn;p.spawn=()=>false;p.update(.5);p.spawn=spawn;assert(f.cd<n.cd+1e-9&&f.cd<1);
 });
+check('Biomes change every 10 waves with a seeded obstacle layout; hazards wait in the Fenda',()=>{
+ assert.equal(p.biomeFor(1).id,'fenda');assert.equal(p.biomeFor(10).id,'fenda');assert.equal(p.biomeFor(11).id,'floresta');assert.equal(p.biomeFor(21).id,'cidade');assert.equal(p.biomeFor(31).id,'usina');assert.equal(p.biomeFor(41).id,'fenda');
+ const layouts=new Set();for(let seed=1;seed<=12;seed++)layouts.add(p.layouts.indexOf(p.layoutFor({seed,wave:11})));assert(layouts.size>=3);
+ for(const l of p.layouts)for(const [x,y] of l){assert(!(Math.abs(x-14.5)<2&&Math.abs(y-18.5)<2),'ponto de partida livre');assert(x>1&&x<26&&y>1&&y<21)}
+ let r=fixture(3);p.hazard=null;p.hazardClock=0;p.updateHazard(r,60);assert.equal(p.hazard,null,'a Fenda não tem perigo');
+ r=fixture(12);p.hazard=null;p.hazardClock=0;p.updateHazard(r,p.HAZARD_EVERY);assert(p.hazard&&p.hazard.name==='RAÍZES');const h=p.hazard;c.G.x=h.x;c.G.y=h.y;const hp=c.G.hp.franco;p.updateHazard(r,p.HAZARD_WARN);assert(c.G.hp.franco<hp);assert.equal(p.hazard,null);
+});
 const report={passed:rows.length,checks:rows,method:'VM of real dungeon functions; combat and DOM dependencies stubbed. Not a human comfort/fun test.'};fs.mkdirSync(path.join(root,'qa/dungeon-v3'),{recursive:true});fs.writeFileSync(path.join(root,'qa/dungeon-v3/UNIT.json'),JSON.stringify(report,null,2)+'\n');

@@ -1,3 +1,10 @@
+## [Calabouço · biomas] — 2026-11-21
+
+- **Quatro biomas que trocam a cada 10 ondas**, com piso e objetos dos capítulos: *Fenda* (ondas 1–10, aberta), *Floresta do Silêncio* (11–20, árvores), *Cidade das Vozes* (21–30, postes e barracas) e *Usina* (31–40, máquinas). Depois a sequência recomeça.
+- Fora da Fenda, os obstáculos seguem um de 4 arranjos, sorteado pela semente a cada bioma. O centro e o ponto de partida ficam sempre livres.
+- **Perigo de cada bioma**: a cada 5,5 s, uma área marcada perto de um jogador (*Raízes*, *Estática* ou *Vapor*) estoura em 1,3 s e fere quem estiver dentro. A esquiva protege.
+- O painel da onda mostra o nome do bioma.
+
 ## [Calabouço · mini-chefes e elites] — 2026-11-21
 
 - **Mini-chefe a cada 10 ondas:** ecos do *Viajante Mascarado* (ondas 10, 30…) e da *Voz* (20, 40…), com a coreografia e a arte da campanha. A onda traz metade dos ecos comuns e só termina quando o mini-chefe cai. A queda não dispara cenas nem marcas da campanha e vale 900 pontos ou mais.

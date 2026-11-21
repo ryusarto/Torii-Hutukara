@@ -1,5 +1,5 @@
 {
-  "passed": 24,
+  "passed": 25,
   "checks": [
     "Progressive pressure stays bounded and HP at wave20 is less than legacy sponge growth",
     "Procedural plans vary without early controllers or multiple mute auras",
@@ -24,7 +24,8 @@
     "One reroll per attempt changes the offers; skipping banks points and starts the next wave",
     "New card effects: drum shield, overdrive, crowd, chain, pierce, war drum, synth wave, Franco stun, encore",
     "Every 10 waves a campaign boss echo leads half a wave; the wave ends only after it falls",
-    "Elite modifiers: shield blocks three hits, split leaves two echoes, frenetic recovers faster"
+    "Elite modifiers: shield blocks three hits, split leaves two echoes, frenetic recovers faster",
+    "Biomes change every 10 waves with a seeded obstacle layout; hazards wait in the Fenda"
   ],
   "method": "VM of real dungeon functions; combat and DOM dependencies stubbed. Not a human comfort/fun test."
 }

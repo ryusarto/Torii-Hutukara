@@ -73,7 +73,7 @@ const PostGame={
   enterMenu10(`<div class="eyebrow">HUTUKARA · CAMINHOS ABERTOS</div><h2>Escolha um capítulo</h2><p>${this.active()?'Encerre a expedição para viajar. Sua pontuação será registrada.':allowed?'Volte ao centro de um capítulo e continue explorando. Sua equipe, história e progresso permanecem preservados.':'Conclua o combate para atravessar outra passagem.'}</p><div class="row">${rows}</div><hr class="divider"><div class="row"><button class="action strong" id="postDungeon" ${allowed?'':'disabled'}>CALABOUÇO INFINITO</button>${this.active()?'<button class="action" id="postAbandon">ENCERRAR EXPEDIÇÃO</button>':''}<button class="action" id="postMapClose">VOLTAR</button></div>`,'postgame');
   document.querySelectorAll('[data-post-area]').forEach(b=>b.onclick=()=>this.travel(b.dataset.postArea));$('postDungeon').onclick=()=>this.startDungeon();$('postMapClose').onclick=closeOverlay;if($('postAbandon'))$('postAbandon').onclick=()=>this.confirmExit(()=>this.openTravel());return true;
  },
- clearCombat(){battle=bossActor=null;hostileShots=[];projectiles=[];combatFX.length=0;C3.hazards=[];C3.synthZones=[];C3.finalPending=false;C3.percussionGuard=0;resetMotion10();act.slash=act.hit=act.cool=0;act.invuln=1;C3.coop.area='';$('actionHUD').classList.add('hidden')},
+ clearCombat(){this.hazard=null;battle=bossActor=null;hostileShots=[];projectiles=[];combatFX.length=0;C3.hazards=[];C3.synthZones=[];C3.finalPending=false;C3.percussionGuard=0;resetMotion10();act.slash=act.hit=act.cool=0;act.invuln=1;C3.coop.area='';$('actionHUD').classList.add('hidden')},
  complete(){
   this.clearCombat();G.c3.silenceDone=true;G.c3.complete=true;G.c3.endingPending=false;G.c3.returnHome=false;this.state();for(const id of C3.unlockedRoster())G.hp[id]=G.maxhp[id];
   setArea('last_torii',13.5,13.5,false);setCheckpoint('c3_complete','last_torii',13.5,13.5,true);save(true);this.showEnding();
@@ -118,6 +118,17 @@ const PostGame={
  },
  level(id,run=this.run()){return run?.upgrades?.[id]||0},
  // Dano extra das cartas (atravessar, tambor, cadeia): não repete efeitos nem críticos.
+ // Perigo do bioma: uma área marcada no chão perto de um jogador estoura depois de
+ // HAZARD_WARN s e fere quem estiver dentro (a esquiva protege, como num golpe).
+ HAZARD_EVERY:5.5,HAZARD_WARN:1.3,HAZARD_RADIUS:1.3,
+ updateHazard(r,dt){
+  const biome=this.biomeFor(r.wave);if(!biome.hazard)return;
+  if(this.hazard){this.hazard.time=Math.max(0,this.hazard.time-dt);if(!this.hazard.time){const h=this.hazard,dmg=Math.round(5+r.wave*.25);this.hazard=null;addCombatFX(h.x,h.y,'hit',1.6);if(Math.hypot(G.x-h.x,G.y-h.y)<=h.radius&&G.hp[G.active]>0)damageHero(dmg);if(C3.coopActive()&&Math.hypot(C3.coop.x-h.x,C3.coop.y-h.y)<=h.radius)C3.damageCoop(dmg)}return}
+  this.hazardClock=(this.hazardClock||0)+dt;if(this.hazardClock<this.HAZARD_EVERY)return;this.hazardClock=0;
+  const actors=[G,...(C3.coopActive()?[C3.coop]:[])],who=actors[Math.floor(Math.random()*actors.length)],a=Math.random()*Math.PI*2,d=Math.random()*1.2;
+  const x=who.x+Math.cos(a)*d,y=who.y+Math.sin(a)*d;if(canBody121(x,y))this.hazard={x,y,time:this.HAZARD_WARN,max:this.HAZARD_WARN,radius:this.HAZARD_RADIUS,name:biome.hazard.name,color:biome.hazard.color};
+ },
+ drawHazard(){const h=this.hazard;if(!h)return;const x=h.x*T-cam.x,y=h.y*T-cam.y,k=1-h.time/h.max;ctx.save();ctx.globalAlpha=.25+.35*k;ctx.fillStyle=h.color;ctx.beginPath();ctx.ellipse(x,y,h.radius*T,h.radius*T*.55,0,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;ctx.strokeStyle=h.color;ctx.lineWidth=2;ctx.setLineDash([5,4]);ctx.beginPath();ctx.ellipse(x,y,h.radius*T,h.radius*T*.55,0,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);ctx.beginPath();ctx.ellipse(x,y,h.radius*T*k,h.radius*T*.55*k,0,0,Math.PI*2);ctx.stroke();ctx.restore();this.label(h.name,x,y-h.radius*T*.55-6,h.color)},
  // Divisão: a elite vira dois ecos menores no mesmo lugar.
  split(e){const r=this.run(),profile=this.profile(r.wave,r.waveSeats);for(const k of [-1,1]){const x=e.x+k*.8,y=e.y,n={id:e.id+'_'+(k<0?'a':'b'),type:'hush',x:canBody121(x,y)?x:e.x,y,endless:true};hydrateEnemy(n);n.hp=n.max=Math.round(n.max*profile.hp*.6);n.power=Math.round(n.power*profile.power);n.cd=.8;n.aware=1;current.enemies.push(n)}engage()},
  splash(e,damage){if(this.splashing||!(damage>=1))return;this.splashing=true;try{hitEnemy(e,Math.round(damage),.1,0)}finally{this.splashing=false}},
@@ -252,8 +263,29 @@ const PostGame={
   return Array.from({length:profile.count},(_,i)=>{let type=deck[Math.floor(rand()*deck.length)];if(i===0)type=preferred[0]||'hush';if(i===1)type=({3:'compasso',4:'c3_drone',6:'espelho',8:'c3_echo',10:'abafador'})[wave]||pool[(wave+(seed>>>0))%pool.length];if(type==='abafador'&&controllers++)type='hush';return {type,x:3.5+Math.floor(rand()*21),y:4.5+Math.floor(rand()*13),elite:wave%5===0&&i===profile.count-1}});
  },
 
+ // Biomas: a cada BIOME_EVERY ondas a arena troca de piso, obstáculos e perigo,
+ // reaproveitando a arte dos capítulos. O arranjo dos obstáculos sai da semente.
+ BIOME_EVERY:10,
+ biomes:[
+  {id:'fenda',name:'Fenda',floor:'c3_voidfloor',obstacle:(a,x,y)=>prop(a,'env2_prop',x,y,{item:'core_column_left',w:30,h:88}),hazard:null},
+  {id:'floresta',name:'Floresta do Silêncio',floor:'forest',obstacle:(a,x,y)=>prop(a,'tree',x,y),hazard:{name:'RAÍZES',color:'#8fd16a'}},
+  {id:'cidade',name:'Cidade das Vozes',floor:'wetstone',obstacle:(a,x,y,i)=>prop(a,i%2?'stall':'lamp',x,y),hazard:{name:'ESTÁTICA',color:'#7fd0f0'}},
+  {id:'usina',name:'Usina',floor:'c3_factory',obstacle:(a,x,y)=>prop(a,'c3_machine',x,y),hazard:{name:'VAPOR',color:'#f0a46a'}}
+ ],
+ // Arranjos de obstáculos na arena 28×23 (o centro e o ponto de partida ficam livres).
+ layouts:[
+  [[6,6],[21,6],[6,15],[21,15]],
+  [[5,9],[8,9],[19,9],[22,9],[5,13],[22,13]],
+  [[9,5],[18,5],[5,11],[22,11],[9,16],[18,16]],
+  [[4,5],[11,7],[17,6],[23,9],[6,14],[20,15]]
+ ],
+ biomeFor(wave){return this.biomes[Math.floor((Math.max(1,wave)-1)/this.BIOME_EVERY)%this.biomes.length]},
+ layoutFor(r){const block=Math.floor((Math.max(1,r?.wave||1)-1)/this.BIOME_EVERY);return this.layouts[((r?.seed>>>0||0)+block*3)%this.layouts.length]},
  buildArena(){
-  const a=C3.room(this.AREA,28,23,'c3_voidfloor');for(const [x,y]of [[2,2],[25,2]]){solid(a,x,y);prop(a,'env2_prop',x,y,{item:'core_column_left',w:30,h:88})}prop(a,'env2_prop',13,10,{item:'resonance_circle_on',w:100,h:70,flat:true});
+  const r=this.run(),biome=this.biomeFor(r?.wave||1),a=C3.room(this.AREA,28,23,biome.floor);this.arenaKey=biome.id+':'+this.layouts.indexOf(this.layoutFor(r));
+  for(const [x,y]of [[2,2],[25,2]]){solid(a,x,y);prop(a,'env2_prop',x,y,{item:'core_column_left',w:30,h:88})}prop(a,'env2_prop',13,10,{item:'resonance_circle_on',w:100,h:70,flat:true});
+  // A Fenda (primeiro bioma) fica aberta; os obstáculos começam na Floresta.
+  if(r&&biome.id!=='fenda')this.layoutFor(r).forEach(([x,y],i)=>{solid(a,x,y);biome.obstacle(a,x,y,i)});
   // Sem ponto de saída na arena: encostar nele no meio da luta encerrava a tentativa.
   // Para sair: painel entre ondas, M (viagens) ou menu do sistema, sempre com confirmação.
   return a;
@@ -291,6 +323,8 @@ const PostGame={
   else{r.hpStart={...G.hp};r.potionsStart=G.potions;r.resonanceStart=G.resonance;r.comboStart=r.combo}
   if(!G.hp[G.active])G.active=partyMembers().find(id=>G.hp[id]>0)||partyMembers()[0];r.waveSeats=C3.coopActive()?2:1;if(r.waveSeats===2)r.mode='coop';r.phase='fight';r.cursor=0;r.wait=0;r.pending=null;r.drum=this.amount('drum',this.level('drum',r));r.clean=true;r.knockouts=0;r._resume=false;this.plan=this.wavePlan(r.seed,r.wave,r.waveSeats);this.spawnClock=0;
   if(typeof EnemyArtV1!=='undefined')for(const spec of this.plan){const image=EnemyArtV1.image(EnemyArtV1.key(spec.type,spec));image?.decode?.().catch(()=>{})}
+  const biome=this.biomeFor(r.wave);if(typeof C3.room==='function'&&this.arenaKey!==biome.id+':'+this.layouts.indexOf(this.layoutFor(r))){this.buildArena();setArea(this.AREA,14.5,18.5,false);if(!resuming)toast('NOVO BIOMA · '+biome.name.toUpperCase()+(biome.hazard?' · CUIDADO COM '+biome.hazard.name:''))}
+  this.hazard=null;this.hazardClock=0;
   if(this.bossWave(r.wave)){this.plan=this.plan.slice(0,Math.ceil(this.plan.length/2));this.spawnBoss(r)}
   if(C3.coopActive())C3.syncCoop(true);this.spawn();save(true);updateHUD();const boss=this.bossWave(r.wave)&&this.bossFor(r.wave);toast('ONDA '+r.wave+' · '+(boss?'MINI-CHEFE · '+boss.name:this.profile(r.wave,r.waveSeats).name.toUpperCase()+(r.wave%5===0?' · ECO RESSONANTE · '+this.mods[this.eliteMod(r)].name.toUpperCase():'')));
  },
@@ -333,6 +367,7 @@ const PostGame={
   if(r._resume){this.beginWave(true);return}
   if(C3.coopActive())r.mode='coop';
   r.elapsed=Math.min(this.MAX_SCORE,r.elapsed+dt);
+  this.updateHazard(r,dt);
   for(const e of current.enemies)if(e.endlessMod==='frenetico'&&e.hp>0&&e.cd>0)e.cd=Math.max(0,e.cd-dt*.6);
   const quick=this.bonus('tempo',r)*dt;if(quick>0){for(const k of ['skill','skillX','duo','dashCD','advanced'])if(act[k]>0)act[k]=Math.max(0,act[k]-quick);if(C3.coop)for(const k of ['skill','advanced','signature','dashCD'])if(C3.coop[k]>0)C3.coop[k]=Math.max(0,C3.coop[k]-quick)}
   this.sinceSave=(this.sinceSave||0)+dt;if(this.dirty&&this.sinceSave>=this.SAVE_EVERY)this.flush();
@@ -371,12 +406,12 @@ const PostGame={
   if(sx<190&&sy<155||sx>VW-115&&sy<80||sy>VH-105&&(sx<165||sx>VW-200))return false;return true;
  },
  drawWarnings(){
-  if(!this.active())return;for(const p of this.warnings())this.drawWarning(p);
+  if(!this.active())return;this.drawHazard();for(const p of this.warnings())this.drawWarning(p);
  },
  drawWarning(p){
   const x=p.x*T-cam.x,y=p.y*T-cam.y,spec=this.plan[p.index];ctx.save();ctx.strokeStyle=spec?.elite?'#d6a56c':'#c4c7b0';ctx.lineWidth=2;ctx.setLineDash([4,3]);ctx.beginPath();ctx.ellipse(x,y,18,10,0,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);PostGame.label(spec?.elite?'RESSONANTE':'ECO',x,y-16,spec?.elite?'#f3c98a':'#f0ddba');ctx.restore();
  },
- hud(){if(!G)return;if(this.active()){const r=this.run(),left=this.plan.length-r.cursor+this.warnings(r).length+(bossActor?.endlessBoss&&bossActor.hp>0?1:0)+current.enemies.filter(e=>e.hp>0).length;$('quest').textContent='ONDA '+r.wave+' · '+(r.phase==='rest'?'Escolha uma melhoria':left+' inimigos restantes');$('questHint').textContent=r.score+' PTS · SEM DANO ×'+this.multiplier(r).toFixed(1)+' · '+this.profile(r.wave,r.waveSeats).name+' · M: encerrar';$('bMap').textContent='EXPEDIÇÃO [M]'}else if(G.c3?.complete){$('quest').textContent='Hutukara continua aberto.';$('questHint').textContent='M: escolher um capítulo ou entrar no calabouço infinito.';$('bMap').textContent='CAPÍTULOS [M]'}else $('bMap').textContent='MAPA [M]';if(G.c3?.complete){if($('mobileObjective'))$('mobileObjective').textContent=$('quest').textContent;if($('guideChip'))$('guideChip').textContent=$('questHint').textContent}this.mobileHUD()}
+ hud(){if(!G)return;if(this.active()){const r=this.run(),left=this.plan.length-r.cursor+this.warnings(r).length+(bossActor?.endlessBoss&&bossActor.hp>0?1:0)+current.enemies.filter(e=>e.hp>0).length;$('quest').textContent='ONDA '+r.wave+' · '+(r.phase==='rest'?'Escolha uma melhoria':left+' inimigos restantes');$('questHint').textContent=r.score+' PTS · SEM DANO ×'+this.multiplier(r).toFixed(1)+' · '+this.biomeFor(r.wave).name+' · M: encerrar';$('bMap').textContent='EXPEDIÇÃO [M]'}else if(G.c3?.complete){$('quest').textContent='Hutukara continua aberto.';$('questHint').textContent='M: escolher um capítulo ou entrar no calabouço infinito.';$('bMap').textContent='CAPÍTULOS [M]'}else $('bMap').textContent='MAPA [M]';if(G.c3?.complete){if($('mobileObjective'))$('mobileObjective').textContent=$('quest').textContent;if($('guideChip'))$('guideChip').textContent=$('questHint').textContent}this.mobileHUD()}
 };
 C3.AREAS.push(PostGame.AREA);C3.COMBAT_AREAS.push(PostGame.AREA);combatAreas10.add(PostGame.AREA);C3.labels[PostGame.AREA]=['FENDA DAS RESSONÂNCIAS','CALABOUÇO INFINITO'];
 const postFresh=fresh;fresh=function(...args){const g=postFresh(...args);g.postgame=PostGame.defaults();return g};
