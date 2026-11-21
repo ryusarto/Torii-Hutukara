@@ -20,6 +20,17 @@ jobs:
         run: |
           npm install --no-save --package-lock=false playwright@1.62.1
           npx playwright install --with-deps chromium
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image optimizer dependencies
+        run: python3 -m pip install --disable-pip-version-check pillow==12.3.0 numpy==2.5.3
+      - name: Reuse converted images
+        uses: actions/cache@v4
+        with:
+          path: production/.media-cache
+          key: media-webp-${{ hashFiles('production/otimizar_media.py') }}-${{ github.sha }}
+          restore-keys: media-webp-${{ hashFiles('production/otimizar_media.py') }}-
       - name: Generate, validate and export
         run: |
           ruby game/source/chapter-03/build_alpha.rb
