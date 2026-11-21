@@ -12,6 +12,10 @@ Os registros são separados do estado salvo. Pausa congela o tempo; mudança de 
 
 `qa/boss_ground_fx_unit.cjs` verifica recorte, disparos, passagem original única, descarte de resíduos e preservação dos callbacks da simulação. `qa/boss_ground_fx_browser.cjs` decodifica as quatro folhas no jogo compilado, verifica os impactos e a paridade de dano, e registra capturas reais. Evidências de execução pertencem ao artefato de CI; a prévia do atlas sozinha comprova apenas a arte exportada.
 
-## Integração
+## Publicação e integração
 
-A branch usa a candidata **Beta 1.7**, pois a 1.6 está reservada aos cenários. Não publica sobre a Beta 1.5 existente. Esta candidata incorpora a main 1.6.1 publicada em `86e3085`, preservando os cenários, o exportador streaming e as correções de fluidez dos músicos. Conciliar o registro em `docs/COORDENACAO_RELEASES.md`; os FX também podem ser absorvidos pela composição da frente responsável. Preservar as animações de personagens e chefes e os avanços atuais da main ao integrar.
+**Beta 1.7.0 publicada** pelo [PR #15](https://github.com/ryusarto/Torii-Hutukara/pull/15), merge `3e7ad3f5c9ba484e9e257e016102c19d8389c235`. Incorpora a main 1.6.1, preservando cenários desérticos, geração/exportação streaming, máscaras e fluidez dos músicos, protagonistas e inimigos.
+
+[Publish playtest 44232084397](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44232084397) aprovado. [Jogo online](https://ryusarto.github.io/Torii-Hutukara/) conferido em 20/11/2026: versão 1.7.0, SHA-256 da fonte `5af9381eddcafa26fd671adbca39cc27bb879549f8e4a85500db962ac151a6d7`, hash do HTML e os quatro atlas publicados idênticos aos validados. Roundtrip da exportação e preservação do HTML portátil aprovados.
+
+[Relatório, evidências e limites](../qa/boss-ground-fx-v1/PLAYTEST.md). A prévia GIF representa os atlas; as capturas e o relatório de navegador comprovam a integração no jogo.

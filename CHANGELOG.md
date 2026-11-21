@@ -1,3 +1,11 @@
+## [Beta 1.7.0] — 2026-11-18
+
+- Quatro sequências de oito sprites animados para os golpes no chão: onda âmbar do Viajante, interferência elétrica do Arauto, poeira/sucata do Metrônomo e vórtice oxidado do Silêncio.
+- Preparação, impacto disparado pelo evento real e dissipação de textura por até 0,45 s. Recorte nas áreas reais, incluindo centros seguros; atores sobre o FX e contornos legíveis.
+- Estado cosmético separado, pausa e cancelamentos, movimento reduzido, carregamento inicial sem bloqueio e limite de 128 carimbos por passagem.
+- Fontes PNG, atlas RGBA, prompts completos do ImageGen integrado, manifesto e exportação por células inteiras versionados.
+- Composição 1.6.1 + FX publicada e verificada: 138 verificações estáticas, 14 testes unitários de FX, seis verificações de FX no navegador e regressões de coreografia, personagens, cenários, controles, gameplay e site aprovadas. [Evidências e limites](qa/boss-ground-fx-v1/PLAYTEST.md).
+
 ## [Beta 1.6.1] — 2026-11-18
 
 - Revisão das 208 sequências dos músicos com/sem máscara: máscaras abertas atrás restauradas em 143 quadros, com corpos e pixels fora da cabeça preservados. Nove poses de rolamento com a cabeça oculta mantidas após revisão.
