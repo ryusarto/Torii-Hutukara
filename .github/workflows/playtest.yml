@@ -7,6 +7,8 @@ on:
       - 'web/playtest/**'
       - 'web/album/**'
       - 'production/build_playtest.rb'
+      - 'production/wait_pages_artifact.py'
+      - 'qa/postgame/test_pages_artifact.py'
       - 'game/source/**'
       - 'game/VERSION.json'
       - 'assets/boss-ground-fx/v1/**'
@@ -28,6 +30,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -39,11 +42,15 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+      - name: Verify Pages artifact selection
+        run: python3 -m unittest discover -s qa/postgame -p test_pages_artifact.py
       - uses: actions/configure-pages@v5
       - uses: actions/setup-node@v4
         with:
@@ -100,8 +107,18 @@ jobs:
           node qa/postgame_browser.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/
       - uses: actions/upload-pages-artifact@v4
+        id: pages_upload
         with:
+          name: ${{ env.PAGES_ARTIFACT_NAME }}
           path: production/playtest-dist
+      - name: Wait for the exact uploaded Pages artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_ARTIFACT_ID: ${{ steps.pages_upload.outputs.artifact_id }}
+        run: python3 production/wait_pages_artifact.py
       - name: Publish
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
+
