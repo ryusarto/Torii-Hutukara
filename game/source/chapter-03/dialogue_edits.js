@@ -22,6 +22,8 @@ function editLines(lines){
       const next={...l,__edited:true};
       if(e.quem)next.who=e.quem;
       if(e.novo)next.t=e.novo;
+      // Fase 4: o narrador que descrevia a tela vira legenda de cenário (narrativa_v1.js).
+      if(e.cena){next.who='narrator';next.cena=true;if(e.efeito)next.efeito=e.efeito}
       out.push(next);
     }
     for(const extra of e.depois||[])out.push({who:extra.quem,t:extra.t,__edited:true});

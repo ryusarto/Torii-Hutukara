@@ -1,5 +1,5 @@
 {
- "sobre": "Edições de diálogo aplicadas na hora de exibir (game/source/chapter-03/dialogue_edits.js). Cada entrada encontra a fala pelo texto original exato. Ações: cortar, aviso (vira notificação rápida), trocar (quem/novo), manter (com 'depois' para acrescentar falas). 'linha' é o número na lista qa/ritmo/antes/falas-newGame-rapido-1.2.4.json.",
+ "sobre": "Edições de diálogo aplicadas na hora de exibir (game/source/chapter-03/dialogue_edits.js). Cada entrada encontra a fala pelo texto original exato. Ações: cortar, aviso (vira notificação rápida), trocar (quem/novo), manter (com 'depois' para acrescentar falas). 'linha' é o número na lista qa/ritmo/antes/falas-newGame-rapido-1.2.4.json. Fase 4: 'cena': true transforma a fala em legenda de cenário (não trava o jogo); 'efeito' pode ser 'tremor' ou 'clarao'.",
  "edicoes": [
   {
    "linha": 4,
@@ -25,8 +25,9 @@
    "linha": 7,
    "t": "O som vem da porta que leva para a rua.",
    "acao": "trocar",
-   "motivo": "funde 7–9",
-   "novo": "O som vem da porta. Onde antes havia uma escada para a rua, agora há um corredor de pedra."
+   "motivo": "funde 7–9 · Fase 4: narrador vira legenda de cenário",
+   "novo": "Onde havia uma escada, agora há um corredor de pedra.",
+   "cena": true
   },
   {
    "linha": 8,
@@ -56,8 +57,9 @@
    "linha": 20,
    "t": "A claridade toma conta de tudo. O chão do estúdio desaparece. Vocês estão em outro lugar.",
    "acao": "trocar",
-   "motivo": "funde 20–22",
-   "novo": "A claridade toma conta de tudo. O estúdio desaparece. Diante de vocês, uma cidade onde até o vento parece ter ritmo."
+   "motivo": "funde 20–22 · Fase 4: narrador vira legenda de cenário",
+   "novo": "Uma cidade onde até o vento tem ritmo.",
+   "cena": true
   },
   {
    "linha": 21,
@@ -184,9 +186,8 @@
   {
    "linha": 62,
    "t": "Quando a criatura se desfaz, o músico mascarado aparece entre os fragmentos. Ele segura a própria máscara pelas bordas.",
-   "acao": "trocar",
-   "motivo": "corrige a abertura duplicada da revelação",
-   "novo": "O músico se levanta entre os fragmentos e segura a própria máscara pelas bordas."
+   "acao": "cortar",
+   "motivo": "corrige a abertura duplicada da revelação · Fase 4: narrador vira cortar"
   },
   {
    "linha": 63,
@@ -631,6 +632,112 @@
    "acao": "trocar",
    "novo": "Lá em cima, toca uma nota e vê onde o vapor segura.",
    "motivo": "Fase 4: a cena da flauta acontece no Contratempo, sem o duto da oficina"
+  },
+  {
+   "t": "Duas máscaras repousam sobre a pedra: tecido marfim costurado, treze pontas e lentes negras.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "Duas máscaras Torii sobre a pedra: marfim costurado, treze pontas, lentes negras.",
+   "cena": true
+  },
+  {
+   "t": "As máscaras se prendem aos rostos sem apagar quem existe por baixo delas. O mundo se dobra em luz.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "As máscaras se prendem aos rostos. O mundo se dobra em luz.",
+   "cena": true,
+   "efeito": "clarao"
+  },
+  {
+   "t": "A máscara não oferece escolhas. Foi o próprio Hutukara que trouxe vocês até aqui.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "A máscara não oferece escolhas. Foi o Hutukara que trouxe vocês até aqui.",
+   "cena": true
+  },
+  {
+   "t": "Uma criatura sem forma avança entre os galhos. Antes que atinja Franco, um estranho mascarado toca uma nota grave.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "Uma nota grave corta a floresta.",
+   "cena": true,
+   "efeito": "tremor"
+  },
+  {
+   "t": "No centro das ruínas, uma figura com a mesma máscara Torii aguarda imóvel. O Silêncio está grudado à sua sombra.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "Uma figura com a mesma máscara espera. O Silêncio está grudado à sombra dela.",
+   "cena": true
+  },
+  {
+   "t": "O mascarado cai de joelhos. A sombra do Silêncio se desprende dele e se desfaz.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "A sombra do Silêncio se desprende do mascarado e se desfaz.",
+   "cena": true,
+   "efeito": "tremor"
+  },
+  {
+   "t": "O viajante retira a máscara.",
+   "acao": "cortar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira cortar"
+  },
+  {
+   "t": "O rosto é o de Franco. O mesmo rosto, mas marcado por uma vida completamente diferente.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "O mesmo rosto de Franco, marcado por outra vida.",
+   "cena": true
+  },
+  {
+   "t": "Os olhos negros das três máscaras refletem uma cidade de telhados banhados de sol. A travessia começa.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "A travessia começa.",
+   "cena": true,
+   "efeito": "clarao"
+  },
+  {
+   "t": "No topo da torre, uma enorme sombra de estática ocupa a antena principal.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "Uma sombra de estática ocupa a antena.",
+   "cena": true,
+   "efeito": "tremor"
+  },
+  {
+   "t": "A estática se dissolve. A prisão da antena se abre: o técnico é livre. Ele retira a máscara — outro Ryuchi, com uma katana entre as ferramentas.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "A estática se desfaz. O técnico tira a máscara: outro Ryuchi, com uma katana entre as ferramentas.",
+   "cena": true
+  },
+  {
+   "t": "O gravador salva esta frequência. A equipe recupera as forças.",
+   "acao": "aviso",
+   "motivo": "Fase 4: narrador descrevia a tela; vira aviso"
+  },
+  {
+   "t": "Ryuchi · Katana e Franco · Sintetizador aguardam junto ao Torii. Quem seguiu com a formação permanece ao seu lado; as outras vozes vieram sustentar a passagem.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "As outras versões vieram sustentar a passagem.",
+   "cena": true
+  },
+  {
+   "t": "Quando o último eco cai, Ryuchi Percussionista não segue para a saída. Ele escuta três notas escapando de uma sala de controle que deveria estar vazia.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "Três notas escapam de uma sala de controle que devia estar vazia.",
+   "cena": true
+  },
+  {
+   "t": "O sintetizador portátil capta uma batida impossível: ela continua mesmo quando a água cobre a passarela. Franco vira o visor para o grupo.",
+   "acao": "trocar",
+   "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
+   "novo": "O sintetizador capta uma batida que continua mesmo debaixo d'água.",
+   "cena": true
   }
  ]
 }

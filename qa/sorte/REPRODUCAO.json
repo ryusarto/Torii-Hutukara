@@ -3,34 +3,34 @@
  "a": {
   "seed": 1234,
   "fixa": true,
-  "usos": 9286,
-  "save": "{\"hp\":{\"franco\":70,\"ryuchi\":68,\"alt\":72,\"katana\":73,\"synth\":68,\"percussion\":76},\"xp\":{\"franco\":1460,\"ryuchi\":1460,\"alt\":1382,\"katana\":1093,\"synth\":1094,\"percussion\":1095},\"levels\":{\"franco\":7,\"ryuchi\":7,\"alt\":7,\"katana\":7,\"synth\":7,\"percussion\":7},\"defeated\":[\"c3_canal_echo_1\",\"c3_canal_echo_2\",\"c3_cloud_echo_1\",\"c3_cloud_echo_2\",\"c3_plant_echo_1\",\"c3_plant_echo_2\",\"c3_plant_echo_3\",\"forest_hush_a\",\"forest_hush_b\",\"p4_canal_entry\",\"p4_cloud_mid\",\"p4_forest_east\",\"p4_forest_path_b\",\"p4_plant_entry\",\"p4_ruins_entry\",\"p4_ruins_gate\",\"p4_ruins_mid\",\"p4_voices_center\",\"p4_voices_market\",\"p4_voices_west\",\"relayMarket_guard_0\",\"relayMarket_guard_1\",\"relayPlaza_guard_0\",\"relayPlaza_guard_1\",\"relayRoof_guard_0\",\"relayRoof_guard_1\",\"ruin_hush_a\",\"ruin_hush_b\",\"ruin_hush_c\"],\"potions\":0,\"shards\":191,\"resonance\":100,\"area\":\"last_torii\"}",
+  "usos": 9174,
+  "save": "{\"hp\":{\"franco\":70,\"ryuchi\":68,\"alt\":72,\"katana\":73,\"synth\":68,\"percussion\":76},\"xp\":{\"franco\":1486,\"ryuchi\":1486,\"alt\":1408,\"katana\":1113,\"synth\":1114,\"percussion\":1114},\"levels\":{\"franco\":7,\"ryuchi\":7,\"alt\":7,\"katana\":7,\"synth\":7,\"percussion\":7},\"defeated\":[\"c3_canal_echo_1\",\"c3_canal_echo_2\",\"c3_cloud_echo_1\",\"c3_cloud_echo_2\",\"c3_plant_echo_1\",\"c3_plant_echo_2\",\"c3_plant_echo_3\",\"forest_hush_a\",\"forest_hush_b\",\"p4_canal_entry\",\"p4_cloud_mid\",\"p4_forest_east\",\"p4_forest_path_b\",\"p4_plant_entry\",\"p4_roofs_end\",\"p4_ruins_entry\",\"p4_ruins_gate\",\"p4_ruins_mid\",\"p4_voices_center\",\"p4_voices_market\",\"p4_voices_west\",\"relayMarket_guard_0\",\"relayMarket_guard_1\",\"relayPlaza_guard_0\",\"relayPlaza_guard_1\",\"relayRoof_guard_0\",\"relayRoof_guard_1\",\"ruin_hush_a\",\"ruin_hush_b\",\"ruin_hush_c\"],\"potions\":0,\"shards\":194,\"resonance\":100,\"area\":\"last_torii\"}",
   "derrotas": [],
   "done": true,
   "stuck": null,
-  "time": 471,
+  "time": 431,
   "errors": []
  },
  "b": {
   "seed": 1234,
   "fixa": true,
-  "usos": 9286,
-  "save": "{\"hp\":{\"franco\":70,\"ryuchi\":68,\"alt\":72,\"katana\":73,\"synth\":68,\"percussion\":76},\"xp\":{\"franco\":1460,\"ryuchi\":1460,\"alt\":1382,\"katana\":1093,\"synth\":1094,\"percussion\":1095},\"levels\":{\"franco\":7,\"ryuchi\":7,\"alt\":7,\"katana\":7,\"synth\":7,\"percussion\":7},\"defeated\":[\"c3_canal_echo_1\",\"c3_canal_echo_2\",\"c3_cloud_echo_1\",\"c3_cloud_echo_2\",\"c3_plant_echo_1\",\"c3_plant_echo_2\",\"c3_plant_echo_3\",\"forest_hush_a\",\"forest_hush_b\",\"p4_canal_entry\",\"p4_cloud_mid\",\"p4_forest_east\",\"p4_forest_path_b\",\"p4_plant_entry\",\"p4_ruins_entry\",\"p4_ruins_gate\",\"p4_ruins_mid\",\"p4_voices_center\",\"p4_voices_market\",\"p4_voices_west\",\"relayMarket_guard_0\",\"relayMarket_guard_1\",\"relayPlaza_guard_0\",\"relayPlaza_guard_1\",\"relayRoof_guard_0\",\"relayRoof_guard_1\",\"ruin_hush_a\",\"ruin_hush_b\",\"ruin_hush_c\"],\"potions\":0,\"shards\":191,\"resonance\":100,\"area\":\"last_torii\"}",
+  "usos": 9174,
+  "save": "{\"hp\":{\"franco\":70,\"ryuchi\":68,\"alt\":72,\"katana\":73,\"synth\":68,\"percussion\":76},\"xp\":{\"franco\":1486,\"ryuchi\":1486,\"alt\":1408,\"katana\":1113,\"synth\":1114,\"percussion\":1114},\"levels\":{\"franco\":7,\"ryuchi\":7,\"alt\":7,\"katana\":7,\"synth\":7,\"percussion\":7},\"defeated\":[\"c3_canal_echo_1\",\"c3_canal_echo_2\",\"c3_cloud_echo_1\",\"c3_cloud_echo_2\",\"c3_plant_echo_1\",\"c3_plant_echo_2\",\"c3_plant_echo_3\",\"forest_hush_a\",\"forest_hush_b\",\"p4_canal_entry\",\"p4_cloud_mid\",\"p4_forest_east\",\"p4_forest_path_b\",\"p4_plant_entry\",\"p4_roofs_end\",\"p4_ruins_entry\",\"p4_ruins_gate\",\"p4_ruins_mid\",\"p4_voices_center\",\"p4_voices_market\",\"p4_voices_west\",\"relayMarket_guard_0\",\"relayMarket_guard_1\",\"relayPlaza_guard_0\",\"relayPlaza_guard_1\",\"relayRoof_guard_0\",\"relayRoof_guard_1\",\"ruin_hush_a\",\"ruin_hush_b\",\"ruin_hush_c\"],\"potions\":0,\"shards\":194,\"resonance\":100,\"area\":\"last_torii\"}",
   "derrotas": [],
   "done": true,
   "stuck": null,
-  "time": 471,
+  "time": 431,
   "errors": []
  },
  "c": {
   "seed": 99,
   "fixa": true,
-  "usos": 9600,
+  "usos": 9259,
   "save": "{\"hp\":{\"franco\":70,\"ryuchi\":68,\"alt\":72,\"katana\":73,\"synth\":68,\"percussion\":76},\"xp\":{\"franco\":1460,\"ryuchi\":1460,\"alt\":1382,\"katana\":1093,\"synth\":1094,\"percussion\":1095},\"levels\":{\"franco\":7,\"ryuchi\":7,\"alt\":7,\"katana\":7,\"synth\":7,\"percussion\":7},\"defeated\":[\"c3_canal_echo_1\",\"c3_canal_echo_2\",\"c3_cloud_echo_1\",\"c3_cloud_echo_2\",\"c3_plant_echo_1\",\"c3_plant_echo_2\",\"c3_plant_echo_3\",\"forest_hush_a\",\"forest_hush_b\",\"p4_canal_entry\",\"p4_cloud_mid\",\"p4_forest_east\",\"p4_forest_path_b\",\"p4_plant_entry\",\"p4_ruins_entry\",\"p4_ruins_gate\",\"p4_ruins_mid\",\"p4_voices_center\",\"p4_voices_market\",\"p4_voices_west\",\"relayMarket_guard_0\",\"relayMarket_guard_1\",\"relayPlaza_guard_0\",\"relayPlaza_guard_1\",\"relayRoof_guard_0\",\"relayRoof_guard_1\",\"ruin_hush_a\",\"ruin_hush_b\",\"ruin_hush_c\"],\"potions\":0,\"shards\":191,\"resonance\":100,\"area\":\"last_torii\"}",
   "derrotas": [],
   "done": true,
   "stuck": null,
-  "time": 449,
+  "time": 443,
   "errors": []
  },
  "checks": {
