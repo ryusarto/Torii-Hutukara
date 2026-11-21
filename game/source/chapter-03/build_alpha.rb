@@ -357,7 +357,7 @@ ninja_archer_uris = protagonist_uris = musician_uris = cenarios_uris = enemy_art
 GC.start
 # Insert pieces in reverse at the same anchor: identical bytes without a second
 # full-size concatenation of every embedded PNG/audio runtime.
-parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime]
+parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, File.read(File.join(ROOT, "postgame.js"), encoding: "UTF-8")]
 runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = nil
 html.insert(position, "\n")
 until parts.empty?
@@ -387,6 +387,7 @@ end
 sources += [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_art_files.map { |relative| File.join(ENEMY_ART_ASSETS, relative) }
 sources += [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json')] + boss_animation_files.map { |relative| File.join(BOSS_ANIMATION_ASSETS, relative) }
 
+sources += [File.join(ROOT, "postgame.js")]
 sources += [BOSS_GROUND_FX_JS, File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json')] + ground_fx_files.map { |relative| File.join(BOSS_GROUND_FX_ASSETS, relative) }
 manifest = {
   game: 'TORII & HUTUKARA',
