@@ -2,7 +2,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const source=fs.readFileSync(path.join(__dirname,'../game/source/chapter-03/cloud_world_v1.js'),'utf8');
-function fixture(){
+function fixture(options={}){
   const a={id:'cloud_sea',w:58,h:34,tiles:Array.from({length:34},()=>Array(58).fill('c3_sky')),blocked:new Set()};
   for(let y=0;y<34;y++)for(let x=0;x<58;x++)a.blocked.add(x+','+y);
   for(let y=24;y<=28;y++)for(let x=3;x<=17;x++){a.tiles[y][x]='c3_cloud';a.blocked.delete(x+','+y)}
@@ -25,10 +25,13 @@ function fixture(){
   s.restoreCheckpoint=()=>{s.G.x=8.5;s.G.y=26.5;s.G.hp.franco=s.G.hp.ryuchi=100;s.mode='walk'};
   s.save=()=>s.saves.push({x:s.G.x,y:s.G.y,c3:{...s.G.c3}});s.showDefeat=()=>{s.defeats++;s.mode='overlay';s.save(true)};
   s.exportSave=()=>{s.exported={x:s.G.x,y:s.G.y};return 'exported'};s.openParty=()=>{s.partyOpened=true};s.C3.cycleCoop=()=>{s.member='alt'};
+  s.travelCalls=[];if(!options.latePostgame&&!options.noPostgame)s.PostGame={allowed:true,canTravel(...args){s.travelCalls.push({context:this,args});return this.allowed}};
+  s.initCalls=[];s.init=function(...args){s.initCalls.push({context:this,args});return 'original-init'};
   s.drawTile=()=>{s.baseTiles=(s.baseTiles||0)+1};s.drawActor=(...args)=>calls.push(['actor',...args]);
   s.CenariosV2={cloud(){s.cloudDraws=(s.cloudDraws||0)+1;return true}};
   const assets={rebuild:'data:image/png;base64,fixture',originalA01:'data:image/png;base64,fixture',originalA04:'data:image/png;base64,fixture'},manifest={rebuild:{cols:4,rows:2,frames:8,cellWidth:256,cellHeight:256,fps:8},original:{items:{ceu_nuvens_fundo:{sheet:'A01',content:[0,0,96,96]}}}};
-  vm.createContext(s);vm.runInContext(source.replace('__CLOUD_WORLD_ASSETS__',JSON.stringify(assets)).replace('__CLOUD_WORLD_MANIFEST__',JSON.stringify(manifest)),s);
+  const boot=options.latePostgame?'\nconst PostGame={allowed:true,canTravel(...args){window.travelCalls.push({context:this,args});return this.allowed}};window.latePostGame=PostGame;init();':'\ninit();';
+  vm.createContext(s);vm.runInContext(source.replace('__CLOUD_WORLD_ASSETS__',JSON.stringify(assets)).replace('__CLOUD_WORLD_MANIFEST__',JSON.stringify(manifest))+boot,s);
   s.world=s.CloudWorldV1;s.world.sync();return s;
 }
 let count=0;function test(name,fn){fn();count++;console.log('ok - '+name)}
@@ -52,4 +55,7 @@ test('followers never receive the player-only void collision or spawn over the g
 test('disabling cosmetic rendering leaves progressive support and fatal edges active',()=>{const s=fixture();s.world.enabled=false;s.C3.cloudPath('A');step(s,.72);assert.equal(s.current.tiles[20][18],'c3_cloud');fall(s);assert(s.world.fall);s.drawActor({style:'franco'},s.G.x*24,s.G.y*24);assert(!s.calls.some(c=>c[0]==='scale'))});
 test('real reconstruction sprites advance through the declared eight atlas cells',()=>{const s=fixture();s.C3.cloudPath('A');const j=s.world.builds[0],c=j.cells[0];for(let f=0;f<8;f++){s.world.clock=f/8;s.world.drawRebuild(c,j,0,0);const draw=s.calls.filter(c=>c[0]==='image').at(-1);assert.deepEqual(draw.slice(2,6),[(f%4)*256,Math.floor(f/4)*256,256,256])}});
 test('fall clipping is viewport-bounded sky geometry applied before the actor transform',()=>{const s=fixture();fall(s);step(s,.4);s.cam={x:13,y:24*23+7};s.VW=240;s.VH=144;s.calls.length=0;s.drawActor({style:'franco'},s.G.x*24-s.cam.x,s.G.y*24-s.cam.y);const rects=s.calls.filter(c=>c[0]==='rect');assert(rects.length>0);assert(rects.length<=12*8);for(const [,x,y,w,h]of rects){assert.equal(w,24);assert.equal(h,24);assert(x>=-24&&x<=s.VW);assert(y>=-24&&y<=s.VH);const xx=Math.round((x+s.cam.x)/24),yy=Math.round((y+s.cam.y)/24);assert(['c3_sky','void'].includes(s.current.tiles[yy][xx]),'never admit a support tile into the actor mask')}const clip=s.calls.findIndex(c=>c[0]==='clip'),translate=s.calls.findIndex(c=>c[0]==='translate'),actor=s.calls.findIndex(c=>c[0]==='actor');assert(clip>=0&&clip<translate&&translate<actor);assert.equal(s.calls[0][0],'save');assert.equal(s.calls.at(-1)[0],'restore')});
+test('postgame travel preserves original context and arguments, but cannot escape a fall with visual FX disabled',()=>{const s=fixture(),receiver={allowed:'original-context'};assert.equal(s.PostGame.canTravel.call(receiver,'destination',7),'original-context');assert.equal(s.travelCalls[0].context,receiver);assert.deepEqual(Array.from(s.travelCalls[0].args),['destination',7]);fall(s);assert.equal(s.PostGame.canTravel('travel'),false);s.world.enabled=false;s.mode='overlay';assert.equal(s.PostGame.canTravel('dungeon'),false);assert.equal(s.travelCalls.length,1,'the original travel predicate is never invoked during falling');s.world.reset();assert.equal(s.PostGame.canTravel('after-reset'),true);assert.equal(s.travelCalls.length,2);assert.equal(s.travelCalls[1].context,s.PostGame);assert.deepEqual(Array.from(s.travelCalls[1].args),['after-reset'])});
+test('a later const PostGame in the same script remains untouched until init, avoiding its temporal dead zone',()=>{let s;assert.doesNotThrow(()=>{s=fixture({latePostgame:true})});assert(s.latePostGame.canTravel.cloudWorldGuardV1);assert.equal(s.initCalls.length,1);assert.equal(s.latePostGame.canTravel(),true);fall(s);assert.equal(s.latePostGame.canTravel(),false)});
+test('late guard installation is idempotent and init preserves its context, arguments and return',()=>{const s=fixture(),guard=s.PostGame.canTravel;assert.equal(s.world.installPostgameGuard(),true);assert.equal(s.world.installPostgameGuard(),true);assert.equal(s.PostGame.canTravel,guard);const receiver={marker:'init-context'};assert.equal(s.init.call(receiver,'first',2),'original-init');assert.equal(s.initCalls.at(-1).context,receiver);assert.deepEqual(Array.from(s.initCalls.at(-1).args),['first',2]);assert.equal(s.PostGame.canTravel,guard);const without=fixture({noPostgame:true});assert.equal(without.world.installPostgameGuard(),false);assert.equal(without.init(),'original-init')});
 console.log(JSON.stringify({passed:count,layer:'isolated runtime rule tests; browser/canvas integration is separate'}));

@@ -18,6 +18,8 @@ Durante a queda, movimento e ações ficam suspensos; é possível pausar. A for
 
 Ao terminar, somente o HP da vítima é zerado e a tentativa compartilhada termina pelo `showDefeat()` existente. O menu de derrota oferece o fluxo normal de checkpoint/restauração. Os outros integrantes mantêm seus HP até esse fluxo. A coordenada registrada ao salvar/exportar durante a queda e ao exibir derrota é um ponto de apoio seguro, nunca o céu usado pela animação.
 
+No pós-jogo, viagens e entrada no calabouço ficam bloqueadas enquanto há queda, mesmo com os FX desligados. A guarda de PostGame.canTravel é instalada de modo idempotente no init, depois da inicialização do último módulo, preservando contexto, argumentos e retorno fora da queda. O carregamento também é testado com a declaração const PostGame posterior ao módulo Cloud, sem acesso antecipado à sua zona temporal.
+
 ## Ciclo de vida e API
 
 `CloudWorldV1` expõe `ready()`, `clock`, `builds`, `fall`, `active()`, `sync()`, `isFalling(body)` e `startBridge(which)`. `enabled=false` desativa apenas o desenho do incremento; a construção física e as quedas continuam ativas. O estado temporário é limpo ao mudar mapa, jogo ou checkpoint. Pausa congela construção e queda.
@@ -27,7 +29,7 @@ Integração de assets: `__CLOUD_WORLD_ASSETS__` recebe `rebuild`, `originalA01`
 ## Evidências deste módulo
 
 - Parsing com `node --check`: aprovado.
-- `node qa/cloud_world_v1.cjs`: **17 testes de regras aprovados**. Abrangem relíquias, persistência, apoio gradual, atualização de mundo, repetição, pausa, bordas por caminhada/esquiva, paredes, P2 em passos pequenos com sincronização entre quadros, recuperação fora da borda permitida, derrota/retry, export seguro, formação, seguidores e oito células do atlas.
+- `node qa/cloud_world_v1.cjs`: **20 testes de regras aprovados**. Abrangem relíquias, persistência, apoio gradual, atualização de mundo, repetição, pausa, bordas por caminhada/esquiva, paredes, P2 em passos pequenos com sincronização entre quadros, recuperação fora da borda permitida, derrota/retry, export seguro, formação, seguidores e oito células do atlas.
 - Testes isolados de regras não comprovam integração visual ou gameplay completo. A revisão independente usa a build compilada e o navegador real em `qa/environment_world_browser.cjs`; os resultados finais e o hash do executável pertencem ao relatório de integração.
 
 Não foi realizada campanha humana completa nem validação em controles/celulares físicos por esta implementação.

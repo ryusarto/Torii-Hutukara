@@ -11,3 +11,12 @@ Método: Chrome isolado, runtime efetivo da build, fixtures de estado e simulaç
 Regras: arena fixa, inimigos/posições procedurais por semente, oito vivos e até 18 por onda, HP/poder crescentes e recorde local. Ao carregar, reiniciar a onda com seus pontos/HP iniciais. Concluir uma onda consolida os pontos; derrota e saída registram o resultado e recuperam a equipe no Torii. Não há XP/fragmentos permanentes ou ranking online.
 
 Ainda avaliar em playtest humano: curva de dificuldade após muitas ondas, legibilidade no telefone físico e conforto com dois controles reais. O funcionamento automatizado não deve ser apresentado como balanceamento final aprovado.
+
+
+## Publicação confirmada — 20/11/2026
+
+PR#20 integrado em18bbb15. Art integration44849617577 e Gameplay44849617423 aprovados. A publicação foi concluída no run44852294347, attempt1, commitd75a37b, preservando a fonte SHA-256 `2fd6f7e7437280b74ca61561fc329d4933d26971f3cd05b16626ca857d529710`.
+
+O run anterior44850130096 falhou primeiro por visibilidade tardia dos metadados e depois por duas cópias com nomegithub-pages no mesmo run. O reparo usa nomes porrun/attempt, confere oartifact_id exato e aguarda a listagemREST, com8testes próprios. Nenhuma regra de gameplay ou check foi removido.
+
+Conferência pública: versão1.9.0, hash do HTML igual ao build-info,315arquivos de mídia declarados e PNGs dos inimigos decodificados. Chrome isolado confirmou elenco sem duplicar o Arqueiro, permanência no Torii, onda/190pontos, derrota e nova tentativa. Prova em [PAGES_VERIFICACAO.json](PAGES_VERIFICACAO.json), produzida por [live_probe.cjs](live_probe.cjs). Não substitui campanha humana ou hardware físico.

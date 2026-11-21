@@ -38,6 +38,7 @@ async function capture(name){
   VW=768;VH=432;cv.width=VW;cv.height=VH;ctx.imageSmoothingEnabled=false;
   window.WorldReviewQA={
    clearUI(){for(const id of ['start','overlay','dialogue','toast'])$(id)?.classList.add('hidden');$('cinema').style.display='none';},
+   checkpoint(id='post_travel'){if(['c3_clouds','c3_final'].includes(id))throw Error('World fixture cannot use a reserved boss checkpoint '+id);setCheckpoint(id,G.area,G.x,G.y,true);},
    pad(index,axes=[0,0]){return {index,id:'Controlled QA '+index,connected:true,mapping:'standard',axes:[...axes,0,0],buttons:Array.from({length:18},()=>({pressed:false,value:0}))};},
    fixture(area,x,y,{coop=false,bridges=true}={}){
     G=fresh();G.c3={...C3.defaults(),started:true,arrivalSeen:true,cloudIntro:true,toriiSeen:true,windFlute:true,horizonDrum:true,clubPhraseDone:true,liftOpen:true,cloudPathA:bridges,cloudPathB:bridges,cloudPlatform:bridges};
@@ -46,7 +47,7 @@ async function capture(name){
     keys={};touchDir={};trail=[];mode='walk';menuOpen=false;battle=bossActor=null;C3.hazards=[];hostileShots=[];projectiles=[];combatFX.length=0;attackHeld=false;lastStep=1;tick=4;
     act.cool=act.dashCD=act.dash=act.invuln=0;resetMotion10();Input121.pad=[0,0];Input121.touch=[0,0];Input121.focused=true;
     __worldPads=coop?[this.pad(0),this.pad(1)]:[];C3.pad.pads=__worldPads;Input121.wasCoop=coop;C3.coop.member=coop?'ryuchi':null;if(coop)C3.syncCoop(true);Input121.game=G;Input121.lastArea=G.area;
-    G.hp.franco=G.maxhp.franco;G.hp.ryuchi=G.maxhp.ryuchi;setCheckpoint('c3_clouds',area,G.x,G.y,true);this.clearUI();transitionAlpha=screenShake=0;
+    G.hp.franco=G.maxhp.franco;G.hp.ryuchi=G.maxhp.ryuchi;this.checkpoint();this.clearUI();transitionAlpha=screenShake=0;
     EnvironmentDepthV1.enabled=EnvironmentAtmosphereV1.enabled=CloudWorldV1.enabled=true;EnvironmentAtmosphereV1.clock=0;
     this.camera();return {area:G.area,x:G.x,y:G.y};
    },
@@ -57,7 +58,7 @@ async function capture(name){
    luminance(a){let sum=0;for(let i=0;i<a.length;i+=4)sum+=a[i]*.2126+a[i+1]*.7152+a[i+2]*.0722;return sum/(a.length/4);},
    step(dt,count=1){for(let i=0;i<count;i++){tick+=dt;update(dt);}},
    edges(){const a=current,rows=[];for(let y=3;y<a.h-3;y++)for(let x=3;x<a.w-3;x++){if(!canBody121(x+.5,y+.5))continue;for(const [dx,dy]of [[1,0],[-1,0],[0,1],[0,-1]])if(a.tiles[y+dy]?.[x+dx]==='c3_sky'&&!a.gates.some(g=>Math.hypot(g.x-x,g.y-y)<3))rows.push({x:x+.5,y:y+.5,dx,dy});}return rows.sort((a,b)=>Math.hypot(a.x-10,a.y-27)-Math.hypot(b.x-10,b.y-27));},
-   edge(coop=false){this.fixture('cloud_sea',10.5,27.5,{coop,bridges:true});const edge=this.edges()[0];if(!edge)throw Error('No walkable cloud edge next to actual sky');Object.assign(coop?C3.coop:G,{x:edge.x,y:edge.y});if(coop){G.x=edge.x-edge.dx;G.y=edge.y-edge.dy;C3.coop.lastGood={x:edge.x,y:edge.y};}setCheckpoint('c3_clouds','cloud_sea',G.x,G.y,true);this.camera();return edge;},
+   edge(coop=false){this.fixture('cloud_sea',10.5,27.5,{coop,bridges:true});const edge=this.edges()[0];if(!edge)throw Error('No walkable cloud edge next to actual sky');Object.assign(coop?C3.coop:G,{x:edge.x,y:edge.y});if(coop){G.x=edge.x-edge.dx;G.y=edge.y-edge.dy;C3.coop.lastGood={x:edge.x,y:edge.y};}this.checkpoint();this.camera();return edge;},
    walk(edge){keys={[edge.dx===1?'d':edge.dx===-1?'a':edge.dy===1?'s':'w']:true};for(let i=0;i<20&&!CloudWorldV1.fall;i++)this.step(1/60);keys={};return !!CloudWorldV1.fall;},
    fallState(){const f=CloudWorldV1.fall;return f?{hero:f.hero,coop:f.coop,elapsed:f.elapsed,duration:f.duration,x:f.x,y:f.y}:null;},
    cloudCells(){const a=areas.cloud_sea,rows=[];for(let x=18;x<25;x++)rows.push(tileWalkable(a,x+.5,23.5));return rows;},
@@ -196,6 +197,45 @@ async function capture(name){
   const dash=await page.evaluate(()=>{const edge=WorldReviewQA.edge();G.aim091=[edge.dx,edge.dy];keys={[edge.dx===1?'d':edge.dx===-1?'a':edge.dy===1?'s':'w']:true};const started=startRoll121();for(let i=0;i<45&&!CloudWorldV1.fall;i++)WorldReviewQA.step(1/60);keys={};return {roll:started,fall:WorldReviewQA.fallState()};});assert(dash.roll&&dash.fall,'Dash still stops at an invisible cloud wall');await capture('queda-dash');
   const p2=await page.evaluate(()=>{const edge=WorldReviewQA.edge(true);const p1={x:G.x,y:G.y,hp:G.hp.franco},states=[];__worldPads[1].axes=[edge.dx,edge.dy,0,0];for(let i=0;i<20&&!CloudWorldV1.fall;i++){WorldReviewQA.step(1/60);states.push({i,active:C3.coopActive(),mode,x:C3.coop.x,y:C3.coop.y,valid:canBody121(C3.coop.x,C3.coop.y),area:C3.coop.area,member:C3.coopMember()});}__worldPads[1].axes=[0,0,0,0];return {edge,p1,states,fall:WorldReviewQA.fallState(),p1After:{x:G.x,y:G.y,hp:G.hp.franco}};});assert(p2.fall?.coop&&p2.fall.hero==='ryuchi','P2 did not enter fall: '+JSON.stringify(p2));assert.deepEqual(p2.p1,p2.p1After,'P2 fall moved or damaged P1');await capture('queda-p2');
   const end=await page.evaluate(()=>{WorldReviewQA.step(.05,22);return {mode,p1:G.hp.franco,p2:G.hp.ryuchi,retry:!!$('retryCheckpoint')};});assert.equal(end.p2,0);assert.equal(end.p1,p2.p1.hp);assert(end.retry);return {dash,p2,end};
+ });
+
+ await check('Postgame travel and dungeon entry cannot cancel a real fatal fall, including through the map menu or cosmetic toggle',async()=>{
+  const rows=[];for(const coop of [false,true]){
+   const start=await page.evaluate(coop=>{
+    const edge=WorldReviewQA.edge(coop);Object.assign(G.c3,{complete:true,metronomeDone:true,silenceDone:true,synthUnlocked:true,percussionUnlocked:true});Object.assign(G.flags,{reveal:true,voicesKatana:true});
+    // A real completed campaign has already polled its earned milestones. Let
+    // the unchanged milestone/recruitment logic observe this seeded state on
+    // safe ground, rather than awarding its synthetic pending revive after death.
+    WorldReviewQA.step(.05,12);const hero=coop?C3.coopMember():G.active;if(G.hp[hero]!==G.maxhp[hero]||!canBody121(G.x,G.y)||coop&&!canBody121(C3.coop.x,C3.coop.y))throw Error('Completed campaign did not settle safely before the fall');
+    const before=PostGame.canTravel();if(!before)throw Error('Completed safe campaign cannot travel before the fall');WorldReviewQA.checkpoint('c3_complete');
+    if(coop){__worldPads[1].axes=[edge.dx,edge.dy,0,0];for(let i=0;i<20&&!CloudWorldV1.fall;i++)WorldReviewQA.step(1/60);__worldPads[1].axes=[0,0,0,0];}else WorldReviewQA.walk(edge);
+    if(!CloudWorldV1.fall||!!CloudWorldV1.fall.coop!==coop)throw Error('Completed campaign did not enter the requested real cloud fall');
+    const fall=CloudWorldV1.fall,area=G.area,position={x:G.x,y:G.y},partner=coop?G.active:'ryuchi',blocked=[];window.__travelFallQA={fall,hero:fall.hero,partner,partnerHP:G.hp[partner]};
+    for(const enabled of [true,false]){
+     CloudWorldV1.enabled=enabled;const canTravel=PostGame.canTravel(),travel=PostGame.travel('city'),dungeon=PostGame.startDungeon(197);blocked.push({enabled,canTravel,travel,dungeon,area:G.area,sameFall:CloudWorldV1.fall===fall,position:{x:G.x,y:G.y}});
+     if(canTravel||travel!==false||dungeon!==false||G.area!==area||CloudWorldV1.fall!==fall||G.x!==position.x||G.y!==position.y)throw Error('Postgame navigation bypassed fatality '+JSON.stringify(blocked.at(-1)));
+    }
+    CloudWorldV1.enabled=true;const beforeM={mode,complete:G.c3.complete,endingPending:G.c3.endingPending,elapsed:fall.elapsed,dialogueHidden:$('dialogue').classList.contains('hidden'),speaker:$('speaker').textContent,words:$('words').textContent,queue:dialogueQueue.length};__travelFallQA.beforeM=beforeM;return {coop,edge,hero:fall.hero,seededCampaignSettledForSeconds:.6,heroHPBeforeFall:G.hp[hero],canTravelBefore:before,beforeM,blocked};
+   },coop);
+   await page.keyboard.press('m');
+   const paused=await page.evaluate(()=>{
+    const state=__travelFallQA,buttons=[...document.querySelectorAll('[data-post-area]')],menu={hero:state.hero,mode,complete:G.c3.complete,endingPending:G.c3.endingPending,beforeM:state.beforeM,travelButtons:buttons.length,allDisabled:buttons.length>0&&buttons.every(b=>b.disabled),dungeonDisabled:!!$('postDungeon')?.disabled,sameFall:CloudWorldV1.fall===state.fall,dialogueHidden:$('dialogue').classList.contains('hidden'),speaker:$('speaker').textContent,words:$('words').textContent};
+    if(menu.mode!=='overlay'||!menu.allDisabled||!menu.dungeonDisabled||!menu.sameFall)throw Error('M map leaves an escape from the fall '+JSON.stringify(menu));
+    const age=state.fall.elapsed;WorldReviewQA.step(.05,8);if(!CloudWorldV1.fall||CloudWorldV1.fall.elapsed!==age)throw Error('Map did not pause the original fall');return {menu,age};
+   });
+   await page.locator('#postMapClose').click();
+   const end=await page.evaluate(age=>{
+    const state=__travelFallQA;WorldReviewQA.step(.05);const resumed=CloudWorldV1.fall?.elapsed>age;if(!resumed)throw Error('Closing map failed to resume original fatal fall');
+    WorldReviewQA.step(.05,20);const defeat={mode,hero:state.hero,hp:G.hp[state.hero],partner:state.partner,partnerHP:G.hp[state.partner],retry:!!$('retryCheckpoint'),fall:!!CloudWorldV1.fall};
+    if(defeat.hp!==0||defeat.partnerHP!==state.partnerHP||!defeat.retry||defeat.mode!=='overlay'||defeat.fall)throw Error('Fatality lost after map attempt '+JSON.stringify(defeat));return {resumed,defeat};
+   },paused.age);
+   await page.locator('#retryCheckpoint').click();
+   const retry=await page.evaluate(()=>{
+    const state=__travelFallQA;for(let i=0;mode==='dialogue'&&i<100;i++)advanceDialogue();WorldReviewQA.step(1/60);
+    const result={area:G.area,hero:state.hero,hp:G.hp[state.hero],valid:canBody121(G.x,G.y),coopValid:!C3.coopActive()||canBody121(C3.coop.x,C3.coop.y),fall:!!CloudWorldV1.fall,complete:G.c3.complete,canTravel:PostGame.canTravel()};
+    if(!result.valid||!result.coopValid||result.hp<=0||result.fall||!result.complete||!result.canTravel)throw Error('Travel did not recover after legitimate retry '+JSON.stringify(result));delete window.__travelFallQA;return result;
+   });rows.push({...start,...paused,...end,retry});
+  }return rows;
  });
 
  await check('Real solid walls outside cloud traversal still block movement, and area changes cancel transient falls',async()=>{

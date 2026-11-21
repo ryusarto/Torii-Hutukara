@@ -408,7 +408,7 @@ ninja_archer_uris = protagonist_uris = musician_uris = cenarios_uris = enemy_art
 GC.start
 # Insert pieces in reverse at the same anchor: identical bytes without a second
 # full-size concatenation of every embedded PNG/audio runtime.
-parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), environment_depth_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime]
+parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8')]
 runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = polish_runtime = npc_gestures_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
 html.insert(position, "\n")
 until parts.empty?

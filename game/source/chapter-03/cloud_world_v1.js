@@ -16,6 +16,16 @@ const CloudWorldV1={
     if(!this.images[key]){const im=new Image();im.src=this.assets[key];this.images[key]=im}
     return this.images[key];
   },
+  installPostgameGuard(){
+    // Executed by init only after all modules, including the later const PostGame.
+    // Do not read that binding at source evaluation time: it may still be in its TDZ.
+    if(typeof PostGame==='undefined'||typeof PostGame.canTravel!=='function')return false;
+    if(PostGame.canTravel.cloudWorldGuardV1)return true;
+    const original=PostGame.canTravel;
+    const guarded=function(...args){if(CloudWorldV1.fall)return false;return original.apply(this,args)};
+    Object.defineProperty(guarded,'cloudWorldGuardV1',{value:true});
+    PostGame.canTravel=guarded;return true;
+  },
   async ready(){await Promise.all(Object.keys(this.assets).map(k=>this.image(k).decode()))},
   invalidate(){if(typeof routeCache!=='undefined')routeCache.key=''},
   finishBuild(job){
@@ -248,6 +258,10 @@ if(typeof openParty==='function'){
 if(typeof C3.cycleCoop==='function'){
   const cloudCycleV1=C3.cycleCoop;
   C3.cycleCoop=function(...args){if(CloudWorldV1.fall)return false;return cloudCycleV1.apply(this,args)};
+}
+if(typeof init==='function'){
+  const cloudInitV1=init;
+  init=function(...args){CloudWorldV1.installPostgameGuard();return cloudInitV1.apply(this,args)};
 }
 const cloudTileV1=drawTile;
 drawTile=function(...args){if(!CloudWorldV1.tile(...args))return cloudTileV1(...args)};
