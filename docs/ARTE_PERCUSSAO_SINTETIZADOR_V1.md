@@ -58,3 +58,11 @@ O controlador visual prioriza dano real sobre o rolamento, descarta ações inte
 `qa/musician_fluency.cjs` exercita teclado/funções aceitas, atualização a 60 Hz e desenho real para 208 sequências e 48 transições. Performance é um estado visual de NPC, não um comando novo. `qa/musician_prewarm.cjs` mede uma entrada de 200 ms com atraso de 150 ms no PNG. Latência e FPS baixos ainda podem omitir poses de ações muito curtas; a correção não atrasa dano nem estende cooldowns.
 
 Fontes editadas, prompts e identificadores de geração estão em `design/variantes/percussao-sintetizador-v1/CORRECOES_FLUIDEZ_PROMPTS.json`; resultados finais em `qa/beta-1.6.1/`. A inspeção visual usa capturas do renderer e a referência física da máscara. Não equivale a playtest em telefone/controle físico nem a uma nova jornada manual completa.
+
+## Apresentação de ataques · Beta 1.7.1
+
+A seleção por tempo podia saltar uma pose após um update maior. Attack_1/2/3 agora confirmam um cursor somente após o desenho real do atlas, no máximo uma pose por tick visual. Consultar pose, desenhar idle de fallback ou repetir o mesmo ator no mesmo tick não consome poses. A pausa guarda o último corpo realmente desenhado; a máscara mantém o cursor. A decodificação dos atlas preparados começa sem aguardar input.
+
+Uma ação já apresentada pode concluir um trecho visual de até100ms de tempo ativo de simulação; dano, esquiva, novo ataque e mudança de área/save/personagem continuam interrompendo-a. Movimento cancela permanentemente apenas a cauda, e um atlas que só chega após o prazo original não ressuscita um golpe inédito. Dano, cooldowns e movimentação continuam nos tempos do controlador original. Interrupções intencionais e FPS extremamente baixo não criam filas de golpes cosméticos.
+
+`qa/musician_frame_hitches.cjs` cobre72 casos reais de ataque P1/P2, três etapas, duas máscaras,60Hz/30Hz e um update60ms. `qa/musician_presentation_unit.cjs` cobre111 casos focados. O diagnóstico nativo aceita MUSICIAN_COLD_HITCH_MS=180 para provocar uma travada no segundo quadro; MUSICIAN_COLD_STRICT=1 exige as oito poses. Resultados e comparação anterior em `qa/beta-1.7.1/`.

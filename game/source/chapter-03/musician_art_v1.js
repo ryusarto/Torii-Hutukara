@@ -47,8 +47,11 @@ const MusicianArtV1 = {
     const entry = this.prepared[key] = {hero: id, variant, state: state || 'attack_1'};
     // Only entry/selection/mask changes warm sheets. Reuse the existing LRU8;
     // never hold input, restart an action or load the full animation collection.
-    this.image(this.key(id, variant, 'idle'));
-    this.image(this.key(id, variant, this.states.includes(state) && state !== 'idle' ? state : 'attack_1'));
+    for (const name of ['idle', this.states.includes(state) && state !== 'idle' ? state : 'attack_1']) {
+      const image = this.image(this.key(id, variant, name));
+      // Request decoding ahead of first presentation; never wait on input.
+      if (typeof image?.decode === 'function') image.decode().catch(() => {});
+    }
     return entry;
   },
   reset() { this.players = [null, null]; this.strides = {}; this.poses = {}; this.prepared = {}; this.game = G; this.area = G?.area; },
@@ -106,7 +109,29 @@ const MusicianArtV1 = {
     delete this.poses['player_' + seat];
     this.image(this.key(hero, this.variant(hero), state));
     this.players[seat] = {hero, state, duration: Math.max(.05, Number(duration) || .3),
-      elapsed: 0, direction: this.directions.includes(direction) ? direction : 'down'};
+      elapsed: 0, startedClock: this.clock, presentedFrame: -1, presentedClock: null, tailCancelled: false, direction: this.directions.includes(direction) ? direction : 'down'};
+  },
+  presentedAttack(record) { return !!record && /^attack_[123]$/.test(record.state); },
+  attackVisible(record, moving) {
+    if (record.elapsed < record.duration) return true;
+    if (this.presentedAttack(record) && moving) record.tailCancelled = true;
+    // Never start a never-seen attack after its gameplay window. A short,
+    // interruptible tail can finish an already-presented accent, not queue one.
+    return this.presentedAttack(record) && !record.tailCancelled && record.presentedFrame >= 0 &&
+      (record.presentedFrame < 7 || record.presentedClock === this.clock) && !moving &&
+      this.clock - record.startedClock <= record.duration + .1;
+  },
+  recordFrame(record) {
+    const target = Math.min(7, Math.floor(record.elapsed / record.duration * 8));
+    if (!this.presentedAttack(record)) return target;
+    if (record.presentedClock === this.clock) return record.presentedFrame;
+    return Math.min(target, (record.presentedFrame ?? -1) + 1);
+  },
+  confirmPresentation(record, seat, frame) {
+    if (activeModes10() && this.players[seat] === record && this.presentedAttack(record) &&
+        record.presentedClock !== this.clock) {
+      record.presentedFrame = frame; record.presentedClock = this.clock;
+    }
   },
   playerAt(p, x, y) {
     if (!G || p.musicianNpc) return -1;
@@ -134,9 +159,9 @@ const MusicianArtV1 = {
     if (roll && !reacting) {
       state = 'roll'; direction = roll.direction;
       frame = Math.min(7, Math.max(0, Math.floor((1 - roll.left / Math.max(.01, roll.duration)) * 8)));
-    } else if (record?.hero === hero && (record.elapsed < record.duration || record.state === 'defeat')) {
+    } else if (record?.hero === hero && (record.state === 'defeat' || this.attackVisible(record, moving))) {
       state = record.state; direction = record.direction;
-      frame = Math.min(7, Math.floor(record.elapsed / record.duration * 8));
+      frame = this.recordFrame(record);
     } else if (p.musicianState === 'performance') {
       state = 'performance'; frame = Math.floor(this.clock / .085) % 8;
     } else if (playing && moving && !p.musicianNpc) {
@@ -147,7 +172,7 @@ const MusicianArtV1 = {
     direction = this.directions.includes(direction) ? direction : 'down';
     const pose = {hero, variant: this.variant(hero, p.musicianVariant), state, direction, frame,
       row: this.directions.indexOf(direction)};
-    if (playing && !p.musicianNpc) this.poses[poseKey] = pose;
+    if (playing && !p.musicianNpc && !/^attack_[123]$/.test(state)) this.poses[poseKey] = pose;
     return pose;
   },
   portrait(id, expression = 'neutral') {
@@ -234,6 +259,7 @@ drawActor = function(p, x, y, moving = false) {
   const prepared = art.prepare(pose.hero, art.playerAt(p, x, y), pose.variant);
   if (prepared) prepared.state = pose.state;
   let image = art.image(art.key(pose.hero, pose.variant, pose.state));
+  const actionAtlasReady = !!(image?.complete && image.naturalWidth);
   if (!image?.complete || !image.naturalWidth) {
     image = art.image(art.key(pose.hero, pose.variant, 'idle')); pose.frame = 0;
   }
@@ -241,10 +267,18 @@ drawActor = function(p, x, y, moving = false) {
   ctx.save(); ctx.imageSmoothingEnabled = false;
   const seat = art.playerAt(p, x, y), hit = seat === 1 ? C3.coop.hit : seat === 0 ? act.hit : 0;
   if (hit > 0 && !G?.options10?.reducedMotion && Math.floor(tick * 24) % 2 === 0) ctx.globalAlpha = .48;
-  // Uniform square draw: (128,224) meets the legacy ground point at (x,y+11).
-  ctx.drawImage(image, pose.frame * 256, pose.row * 256, 256, 256,
-    Math.round(x - 44), Math.round(y + 11 - 77), 88, 88);
-  ctx.restore();
+  // Confirm only a successful action-atlas draw, not a pose query or idle fallback.
+  const drawRecord = seat >= 0 ? art.players[seat] : null;
+  try {
+    ctx.drawImage(image, pose.frame * 256, pose.row * 256, 256, 256,
+      Math.round(x - 44), Math.round(y + 11 - 77), 88, 88);
+    if (actionAtlasReady && drawRecord?.hero === pose.hero && drawRecord.state === pose.state)
+      art.confirmPresentation(drawRecord, seat, pose.frame);
+    if (activeModes10() && !p.musicianNpc) {
+      const poseKey = seat >= 0 ? 'player_' + seat : 'follower_' + pose.hero;
+      art.poses[poseKey] = {...pose, state: actionAtlasReady ? pose.state : 'idle'};
+    }
+  } finally { ctx.restore(); }
 };
 
 const musicianNpcV1 = drawDetailedNPC;

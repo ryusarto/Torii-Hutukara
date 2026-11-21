@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta 1.6.1 — jornada completa em três capítulos, protagonistas V5, Ninja e Arqueiro detalhados e revisão dos cenários do ato final. A versão fica em `game/VERSION.json`.
+**Versão atual:** Beta 1.7.1 — jornada completa em três capítulos, protagonistas V5, Ninja e Arqueiro detalhados e revisão dos cenários do ato final. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
