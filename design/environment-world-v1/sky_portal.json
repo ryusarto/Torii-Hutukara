@@ -1,0 +1,9 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "mode": "generate",
+  "transparent_background": false,
+  "prompt": "Use case: stylized-concept. Asset type: widescreen dialogue background for a detailed 16-bit pixel-art top-down RPG. Primary request: a sea of volumetric ivory and dusty-pink clouds high above the same rusted cyberpunk postapocalyptic desert world. Scene: viewpoint from a modest salvaged steel portal/elevator platform in the lower foreground, a clear luminous turquoise resonance doorway built from welded scrap on its left side, suspended walkable cloud platforms leading toward a distant rusted industrial sanctuary. Far below, barely visible through openings in the clouds, a sandy ochre wasteland and small scrap-metal settlement. This is high altitude, a real dangerous abyss, not floating sand dunes. Clouds form coherent broad cushions, pale cream highlights and lavender shaded undersides, grounded warm dusty palette; reclaimed machines, cables and bolted amber steel preserve the established postapocalyptic identity. Crisp pixel-art craftsmanship and clear depth planes, atmospheric perspective, wide cinematic composition. Quiet wonder, late afternoon warm light, no photorealism, no characters or portraits, no text, no logos, no checkerboard. 16:9 landscape, usable subdued center for dialogue overlay.",
+  "original": "/Users/henriqueryusartorelliuchiyama/.codex/generated_images/01a1e8a1-4b14-7760-8015-2611f7b1c12e/exec-87189d25-c7c6-4414-960e-f0eeba37ab27.png",
+  "selectedSource": "assets/cloud-world/v1/source/sky_portal.png",
+  "runtime": "assets/cloud-world/v1/backgrounds/sky_portal.png"
+}

@@ -23,6 +23,12 @@ ENEMY_ART_JS = File.join(ROOT, 'enemy_art_v1.js')
 ENEMY_ART_ASSETS = File.join(REPO_ROOT, 'assets', 'enemies', 'v1')
 BOSS_GROUND_FX_JS = File.join(ROOT, 'boss_ground_fx_v1.js')
 BOSS_GROUND_FX_ASSETS = File.join(REPO_ROOT, 'assets', 'boss-ground-fx', 'v1')
+ENVIRONMENT_DEPTH_JS = File.join(ROOT, 'environment_depth_v1.js')
+ENVIRONMENT_ATMOSPHERE_JS = File.join(ROOT, 'environment_atmosphere_v1.js')
+ENVIRONMENT_VOLUME_ASSETS = File.join(REPO_ROOT, 'assets', 'environment-volume', 'v1')
+CLOUD_WORLD_JS = File.join(ROOT, 'cloud_world_v1.js')
+CLOUD_STORY_JS = File.join(ROOT, 'cloud_story_v1.js')
+CLOUD_WORLD_ASSETS = File.join(REPO_ROOT, 'assets', 'cloud-world', 'v1')
 BOSS_ANIMATION_JS = File.join(ROOT, 'boss_choreography_v2.js')
 BOSS_ANIMATION_ASSETS = File.join(REPO_ROOT, 'assets', 'boss-animations', 'v2')
 PROTAGONIST_JS = File.join(ROOT, 'protagonist_art_v5.js')
@@ -132,7 +138,13 @@ replace_once!(html, "addCombatFX(e.x,e.y,'warning',isBoss?2.8:1.5);return;",
 replace_once!(runtime, "e.facing=base.angle||0;addCombatFX(e.x,e.y,'warning',base.r||3);toast(",
   "e.facing=base.angle||0;if(!#{boss_visual_guard})addCombatFX(e.x,e.y,'warning',base.r||3);toast(", 'círculo decorativo C3')
 replace_once!(html, ' drawable.sort((a,b)=>a.y-b.y);for(let d of drawable)d.draw();',
-  " if(typeof BossChoreographyV2!=='undefined')BossChoreographyV2.drawGround();\n drawable.sort((a,b)=>a.y-b.y);for(let d of drawable)d.draw();", 'áreas dos chefes abaixo dos personagens')
+  " if(typeof EnvironmentDepthV1!=='undefined')EnvironmentDepthV1.drawGround();\n if(typeof EnvironmentAtmosphereV1!=='undefined')EnvironmentAtmosphereV1.drawGround();\n if(typeof BossChoreographyV2!=='undefined')BossChoreographyV2.drawGround();\n drawable.sort((a,b)=>a.y-b.y);for(let d of drawable)d.draw();", 'chão e áreas dos chefes abaixo dos personagens')
+replace_once!(html, 'drawable.push({x:p.x,y:p.y+.5,draw:()=>drawProp(p,cam.x,cam.y)})',
+  "drawable.push({x:p.x,y:(typeof EnvironmentDepthV1!=='undefined'?EnvironmentDepthV1.sortY(p):p.y+.5),draw:()=>drawProp(p,cam.x,cam.y)})", 'fachadas ordenadas pela base física')
+replace_once!(html, "drawCombatLayer();if(mode!=='action')drawGuideMarker();drawVfx(0);",
+  "if(typeof EnvironmentAtmosphereV1!=='undefined')EnvironmentAtmosphereV1.drawLighting();drawCombatLayer();if(mode!=='action')drawGuideMarker();drawVfx(0);", 'luz antes dos avisos de combate e missão')
+replace_once!(runtime, "C3_drawEnvBase();if(!G||!C3.AREAS.includes(G.area))return;",
+  "C3_drawEnvBase();if(!G||!C3.AREAS.includes(G.area)||(typeof EnvironmentAtmosphereV1!=='undefined'&&EnvironmentAtmosphereV1.enabled))return;", 'atmosfera contextual substitui névoa rosa legada')
 
 html.sub!('<title>TORII & HUTUKARA — A Última Frequência · 1.1.2 · Pré-alpha</title>',
           '<title>TORII & HUTUKARA — Alpha 1.2.0 · Pré-beta</title>')
@@ -228,7 +240,7 @@ line_overrides = {
   'C3_013.01' => 'O pulso voltou. Colli trouxe os nomes de todo mundo que atravessou a comporta — ninguém vira só número no arquivo do Contratempo.',
   'C3_014.01' => 'Agora a imagem tem harmonia e pulso. Eu consigo projetar a intenção de vocês até o Elevador, mas a frase precisa vir da banda.',
   'C3_015.01' => 'A frase entrou no sistema. Eu deixei as imperfeições visíveis — foram elas que mostraram ao Elevador que havia gente tocando.',
-  'C3_018.01' => 'A Flauta revela onde o ar sustenta peso. O Tambor ancora o passo. Sigam minhas marcas claras; são o mapa que a cidade não conseguiu apagar.',
+  'C3_018.01' => 'A Flauta reúne as nuvens. Esperem a superfície ficar inteira antes de pisar. Fora da borda não há chão: a queda é fatal.',
   'C3_020.01' => 'O sinal chegou inteiro. Eu reconheci cada frequência — até as que vocês quase esconderam.',
   'C3_026.01' => 'Vocês vão voltar? Eu ainda quero redesenhar este mapa quando ele deixar de ser uma fuga.',
   'C3_S01.01' => 'Não precisa mexer na projeção. Só me ajuda a encontrar uma fita sem rótulo que caiu perto do canal.',
@@ -351,14 +363,33 @@ ground_fx_uris = ground_fx_manifest.fetch('clips').to_h { |key, entry| [key, "da
 ground_fx_runtime = File.read(BOSS_GROUND_FX_JS, encoding: 'UTF-8')
 replace_once!(ground_fx_runtime, '__BOSS_GROUND_FX_ASSETS__', JSON.generate(ground_fx_uris), 'sprites FX de golpes no chão')
 replace_once!(ground_fx_runtime, '__BOSS_GROUND_FX_MANIFEST__', JSON.generate(ground_fx_manifest), 'manifesto FX de golpes no chão')
+cloud_manifest = JSON.parse(File.read(File.join(CLOUD_WORLD_ASSETS, 'manifest.json')))
+cloud_files = {
+  'rebuild' => File.join(CLOUD_WORLD_ASSETS, cloud_manifest.fetch('rebuild').fetch('atlas')),
+  'originalA01' => File.join(CENARIOS_ASSETS, 'atlas', 'C3_SUPERFICIES_URBANAS.png'),
+  'originalA04' => File.join(CENARIOS_ASSETS, 'atlas', 'C3_NUVENS_ENCAIXES.png'),
+  'cinema' => File.join(CLOUD_WORLD_ASSETS, 'backgrounds', 'sky_portal.png')
+}
+cloud_uris = cloud_files.to_h { |id, path| [id, "data:image/png;base64,#{encode(path)}"] }
+cloud_runtime = File.read(CLOUD_WORLD_JS, encoding: 'UTF-8')
+replace_once!(cloud_runtime, '__CLOUD_WORLD_ASSETS__', JSON.generate(cloud_uris), 'sprites de reconstrução e nuvens originais')
+replace_once!(cloud_runtime, '__CLOUD_WORLD_MANIFEST__', JSON.generate(cloud_manifest), 'manifesto das nuvens')
+environment_depth_runtime = File.read(ENVIRONMENT_DEPTH_JS, encoding: 'UTF-8')
+volume_manifest = JSON.parse(File.read(File.join(ENVIRONMENT_VOLUME_ASSETS, 'manifest.json')))
+volume_files = volume_manifest.fetch('sheets').to_h { |id, item| [id, File.join(ENVIRONMENT_VOLUME_ASSETS, item.fetch('file'))] }
+volume_uris = volume_files.to_h { |id, path| [id, "data:image/png;base64,#{encode(path)}"] }
+replace_once!(environment_depth_runtime, '__ENVIRONMENT_VOLUME_ASSETS__', JSON.generate(volume_uris), 'fachadas com volume dos capítulos 1 e 2')
+replace_once!(environment_depth_runtime, '__ENVIRONMENT_VOLUME_MANIFEST__', JSON.generate(volume_manifest), 'manifesto de fachadas com soleira')
+environment_atmosphere_runtime = File.read(ENVIRONMENT_ATMOSPHERE_JS, encoding: 'UTF-8')
+cloud_story_runtime = File.read(CLOUD_STORY_JS, encoding: 'UTF-8')
 # Embedded runtime strings now own these bytes; release duplicate URI maps
 # before constructing the portable HTML on memory-constrained computers.
-ninja_archer_uris = protagonist_uris = musician_uris = cenarios_uris = enemy_art_uris = boss_animation_uris = ground_fx_uris = nil
+ninja_archer_uris = protagonist_uris = musician_uris = cenarios_uris = enemy_art_uris = boss_animation_uris = ground_fx_uris = cloud_uris = volume_uris = nil
 GC.start
 # Insert pieces in reverse at the same anchor: identical bytes without a second
 # full-size concatenation of every embedded PNG/audio runtime.
-parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime]
-runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = nil
+parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, environment_depth_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime]
+runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
 html.insert(position, "\n")
 until parts.empty?
   part = parts.pop
@@ -388,6 +419,8 @@ sources += [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_
 sources += [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json')] + boss_animation_files.map { |relative| File.join(BOSS_ANIMATION_ASSETS, relative) }
 
 sources += [BOSS_GROUND_FX_JS, File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json')] + ground_fx_files.map { |relative| File.join(BOSS_GROUND_FX_ASSETS, relative) }
+sources += [ENVIRONMENT_DEPTH_JS, ENVIRONMENT_ATMOSPHERE_JS, CLOUD_WORLD_JS, CLOUD_STORY_JS, File.join(CLOUD_WORLD_ASSETS, 'manifest.json')] + cloud_files.values
+sources += [File.join(ENVIRONMENT_VOLUME_ASSETS, 'manifest.json')] + volume_files.values
 manifest = {
   game: 'TORII & HUTUKARA',
   build: VERSION.fetch('rotulo'),

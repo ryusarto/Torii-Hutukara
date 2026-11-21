@@ -1,0 +1,27 @@
+{
+  "sourceSha256": "e82e14d6e3b629cc9c764883ea5f796d2e05a49e737cd77c3f147f2b35af1396",
+  "atlasSha256": "46f52e6e4c7952e90fe95ff35aa0a08effdbfa5098aa9347bf3969b040e7df7d",
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "atlasSize": [
+    1024,
+    512
+  ],
+  "frameHashes": [
+    "87dbbeacd1c9e34be95532285bd7f7082c5443f8b7926f56ee007eba10398fdc",
+    "012890d3e5ebc177e4a81d474af1a471e4d130000bf8cd1fd3a57457580e0f21",
+    "33404aeea77a74b0664f2872c84f900242cf058741729f140d3209c8070caed0",
+    "e29444a13a6d99538e5248bab2799280c0b0eb9804dd08ae8145d2de3d07f9ca",
+    "7fcc91efea611eda8d05e0bb57e92fa6b4f11b17edcce1afa7bbc607ae1e87e0",
+    "adf17ec0e50f7eaaed1ec2a9cbd489b5f00cf03c07dfcd8f5ec1cd79af769c67",
+    "7ebd7afc47474660739804b05a0087d23e528050a1be72d247fdc8663de53c49",
+    "2313b2bb90f408394d2163de514691c0827804e3d5845e69a10169f36bfd6342"
+  ],
+  "uniqueFrames": 8,
+  "alpha": "original generated alpha preserved; no background removal",
+  "packing": "whole cells, common canvas; no independent tight crop",
+  "cinemaSourceSha256": "a39a0d7b122f748ec123a4a4066c7be28a7a1d19373af4f88efeef8bb9739848",
+  "cinemaSha256": "7ce6b266960ceed88fe2c5be793d04a17f76380196330155d1f0b236e601a35f"
+}

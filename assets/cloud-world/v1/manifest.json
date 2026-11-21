@@ -1,0 +1,578 @@
+{
+  "version": "cloud-world-v1",
+  "rebuild": {
+    "atlas": "atlas/rebuild.png",
+    "cols": 4,
+    "rows": 2,
+    "frames": 8,
+    "cellWidth": 256,
+    "cellHeight": 256,
+    "pivot": [
+      128,
+      128
+    ],
+    "fps": 8,
+    "loop": false,
+    "filtering": "nearest",
+    "alpha": true
+  },
+  "original": {
+    "items": {
+      "ceu_nuvens_fundo": {
+        "sheet": "A01",
+        "file": "atlas/C3_SUPERFICIES_URBANAS.png",
+        "cell": [
+          208,
+          104,
+          104,
+          104
+        ],
+        "content": [
+          212,
+          108,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          887,
+          444,
+          1330,
+          887
+        ],
+        "sourceContent": [
+          28,
+          25,
+          414,
+          411
+        ]
+      },
+      "cloud_top_a": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          0,
+          0,
+          104,
+          104
+        ],
+        "content": [
+          4,
+          4,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          0,
+          0,
+          316,
+          311
+        ],
+        "sourceContent": [
+          32,
+          28,
+          283,
+          269
+        ]
+      },
+      "cloud_top_b": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          104,
+          0,
+          104,
+          104
+        ],
+        "content": [
+          108,
+          4,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          316,
+          0,
+          632,
+          311
+        ],
+        "sourceContent": [
+          31,
+          27,
+          283,
+          268
+        ]
+      },
+      "cloud_top_c": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          208,
+          0,
+          104,
+          104
+        ],
+        "content": [
+          212,
+          4,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          632,
+          0,
+          947,
+          311
+        ],
+        "sourceContent": [
+          32,
+          29,
+          282,
+          267
+        ]
+      },
+      "cloud_top_d": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          312,
+          0,
+          104,
+          104
+        ],
+        "content": [
+          316,
+          4,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          947,
+          0,
+          1263,
+          311
+        ],
+        "sourceContent": [
+          34,
+          28,
+          284,
+          269
+        ]
+      },
+      "cloud_edge_n": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          0,
+          104,
+          104,
+          104
+        ],
+        "content": [
+          4,
+          108,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          0,
+          311,
+          316,
+          622
+        ],
+        "sourceContent": [
+          28,
+          14,
+          287,
+          270
+        ]
+      },
+      "cloud_edge_e": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          104,
+          104,
+          104,
+          104
+        ],
+        "content": [
+          108,
+          108,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          316,
+          311,
+          632,
+          622
+        ],
+        "sourceContent": [
+          30,
+          29,
+          296,
+          268
+        ]
+      },
+      "cloud_edge_s": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          208,
+          104,
+          104,
+          104
+        ],
+        "content": [
+          212,
+          108,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          632,
+          311,
+          947,
+          622
+        ],
+        "sourceContent": [
+          31,
+          27,
+          286,
+          277
+        ]
+      },
+      "cloud_edge_w": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          312,
+          104,
+          104,
+          104
+        ],
+        "content": [
+          316,
+          108,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          947,
+          311,
+          1263,
+          622
+        ],
+        "sourceContent": [
+          17,
+          27,
+          284,
+          268
+        ]
+      },
+      "cloud_outer_ne": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          0,
+          208,
+          104,
+          104
+        ],
+        "content": [
+          4,
+          212,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          0,
+          622,
+          316,
+          934
+        ],
+        "sourceContent": [
+          27,
+          17,
+          287,
+          270
+        ]
+      },
+      "cloud_outer_se": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          104,
+          208,
+          104,
+          104
+        ],
+        "content": [
+          108,
+          212,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          316,
+          622,
+          632,
+          934
+        ],
+        "sourceContent": [
+          29,
+          31,
+          285,
+          271
+        ]
+      },
+      "cloud_outer_sw": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          208,
+          208,
+          104,
+          104
+        ],
+        "content": [
+          212,
+          212,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          632,
+          622,
+          947,
+          934
+        ],
+        "sourceContent": [
+          26,
+          32,
+          284,
+          270
+        ]
+      },
+      "cloud_outer_nw": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          312,
+          208,
+          104,
+          104
+        ],
+        "content": [
+          316,
+          212,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          947,
+          622,
+          1263,
+          934
+        ],
+        "sourceContent": [
+          25,
+          18,
+          290,
+          270
+        ]
+      },
+      "cloud_inner_ne": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          0,
+          312,
+          104,
+          104
+        ],
+        "content": [
+          4,
+          316,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          0,
+          934,
+          316,
+          1245
+        ],
+        "sourceContent": [
+          32,
+          30,
+          283,
+          273
+        ]
+      },
+      "cloud_inner_se": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          104,
+          312,
+          104,
+          104
+        ],
+        "content": [
+          108,
+          316,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          316,
+          934,
+          632,
+          1245
+        ],
+        "sourceContent": [
+          32,
+          31,
+          284,
+          271
+        ]
+      },
+      "cloud_inner_sw": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          208,
+          312,
+          104,
+          104
+        ],
+        "content": [
+          212,
+          316,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          632,
+          934,
+          947,
+          1245
+        ],
+        "sourceContent": [
+          31,
+          30,
+          280,
+          270
+        ]
+      },
+      "cloud_inner_nw": {
+        "sheet": "A04",
+        "file": "atlas/C3_NUVENS_ENCAIXES.png",
+        "cell": [
+          312,
+          312,
+          104,
+          104
+        ],
+        "content": [
+          316,
+          316,
+          96,
+          96
+        ],
+        "pivot": [
+          52,
+          100
+        ],
+        "sourceCell": [
+          947,
+          934,
+          1263,
+          1245
+        ],
+        "sourceContent": [
+          33,
+          30,
+          284,
+          269
+        ]
+      }
+    },
+    "sheets": {
+      "A01": "assets/cenarios/v2/atlas/C3_SUPERFICIES_URBANAS.png",
+      "A04": "assets/cenarios/v2/atlas/C3_NUVENS_ENCAIXES.png"
+    }
+  },
+  "cinema": {
+    "file": "backgrounds/sky_portal.png",
+    "size": [
+      1024,
+      576
+    ]
+  }
+}

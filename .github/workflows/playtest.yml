@@ -10,6 +10,8 @@ on:
       - 'game/source/**'
       - 'game/VERSION.json'
       - 'assets/boss-ground-fx/v1/**'
+      - 'assets/cloud-world/v1/**'
+      - 'assets/environment-volume/v1/**'
       - 'assets/variantes/ninja-arqueiro-v1/**'
       - 'assets/variantes/percussao-sintetizador-v1/**'
       - 'assets/cenarios/**'
@@ -61,6 +63,9 @@ jobs:
           node qa/protagonist_state.cjs
           node qa/boss_choreography_unit.cjs
           node qa/boss_ground_fx_unit.cjs
+          node qa/environment_depth_v1.cjs
+          node qa/environment_atmosphere_v1.cjs
+          node qa/cloud_world_v1.cjs
           node qa/musician_art_unit.cjs
           node qa/musician_presentation_unit.cjs
           node qa/input_regression.cjs
@@ -85,6 +90,7 @@ jobs:
           node qa/musician_art.cjs http://127.0.0.1:8771/
           node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
           node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/
+          node qa/environment_world_browser.cjs http://127.0.0.1:8771/
           node qa/protagonist_art_v5.cjs http://127.0.0.1:8771/
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/

@@ -549,22 +549,22 @@
         {
           "id": "C3_016.01",
           "speaker": "Ryuchi percussionista",
-          "text": "Esse Tambor do Horizonte ancorava as plataformas de carga. A frase abre o Elevador; ele impede que o caminho de nuvens se desfaça."
+          "text": "Esse elevador virou um portal de ressonância. A frase abre a passagem acima do deserto; o Tambor ancora as nuvens do outro lado."
         },
         {
           "id": "C3_016.02",
           "speaker": "Ryuchi",
-          "text": "E você quer subir de novo?"
+          "text": "A gente atravessa e continua no mesmo mundo?"
         },
         {
           "id": "C3_016.03",
           "speaker": "Ryuchi percussionista",
-          "text": "Não quero continuar tocando só pra não cair."
+          "text": "No mesmo céu. Só que agora a gente escolhe o caminho."
         },
         {
           "id": "C3_016.04",
           "speaker": "Franco",
-          "text": "Então dessa vez a gente toca pra ir a algum lugar."
+          "text": "Então abre a passagem. A rua fica com a gente."
         }
       ],
       "onComplete": [
@@ -582,12 +582,12 @@
         {
           "id": "C3_017.01",
           "speaker": "Ryuchi",
-          "text": "Daqui dá pra ver o clube."
+          "text": "O portal deixou a poeira lá embaixo."
         },
         {
           "id": "C3_017.02",
           "speaker": "Franco",
-          "text": "A porta parece pequena."
+          "text": "E trouxe o clube junto, bem pequeno."
         },
         {
           "id": "C3_017.03",
@@ -612,17 +612,17 @@
         {
           "id": "C3_018.01",
           "speaker": "Nara",
-          "text": "A Flauta revela onde o ar sustenta peso. O Tambor ancora cada passo. A borda clara mostra a próxima nota do caminho."
+          "text": "A Flauta reúne as nuvens. Esperem a superfície ficar inteira antes de pisar. Fora da borda não há chão: a queda é fatal."
         },
         {
           "id": "C3_018.02",
           "speaker": "Ryuchi",
-          "text": "E se não segurar?"
+          "text": "Dá para ver o deserto entre elas."
         },
         {
           "id": "C3_018.03",
           "speaker": "Nara",
-          "text": "Eu amarrei um cabo na primeira plataforma. A gente testa antes de sair andando por aí."
+          "text": "O portal trouxe a gente para o alto do mesmo mundo. Sigam a borda clara e escutem o passo."
         }
       ],
       "onComplete": [],

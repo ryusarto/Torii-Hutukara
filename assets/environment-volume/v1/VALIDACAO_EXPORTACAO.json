@@ -1,0 +1,32 @@
+{
+  "c1": {
+    "sourceSha256": "def956a4264f1d9da028edc9369e93d3117521e3578e442e65fe5d64b247505a",
+    "atlasSha256": "199c62935d6ce98d7bfb9a7bebd1a40552d0f6b2dbb896ded1bc5b61a65cffdd",
+    "frameHashes": [
+      "ccaedc72f3bea2afe33f966ccf2e4ee3972eb86a4966f8be9349723eec8b8644",
+      "22cd4cb5215e7011425eef8e09be6b635f670fef071e4973f493602cc44f560a",
+      "4e5c2ea9d1888b51c64b35aa55e18a9db85e2b5afe8828fb1338857ebc3e400d",
+      "e7cbf8d4c26ec627b5df7cd2e6cf509b47ab02e77b21b2824b1c3de8eaeb5cad"
+    ],
+    "alpha": "preserved",
+    "sourceSize": [
+      1254,
+      1254
+    ]
+  },
+  "c2": {
+    "sourceSha256": "6d8f5b8eb807a09cb487897debae8f0fcaa599367ba82747f87df49e2ae75a45",
+    "atlasSha256": "35e6ab23e3b1e0fb30735f9a92d41707c9de564d3d5a917a42720ad1e455738e",
+    "frameHashes": [
+      "532ecd7a17dba8c66e00df47fae898861c6b390f95489e6eb506c5a453897080",
+      "6f6383f1d8b88c296a876c68d07e8cc0625171fce45f53e6ee515c43e460f7cf",
+      "ed58e2c769145226e6477f5ff2c125d4f0ea105c32423f8ad75c249d23bec88d",
+      "3261aa1fefdc0264f38ed0ae47a6b4ef54bd3358fd60a84062a22db87cb8e285"
+    ],
+    "alpha": "preserved",
+    "sourceSize": [
+      1254,
+      1254
+    ]
+  }
+}
