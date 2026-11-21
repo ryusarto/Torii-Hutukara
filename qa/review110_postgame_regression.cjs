@@ -107,7 +107,7 @@ function harness() {
   context.fresh = () => ({ maxhp: {}, hp: {}, xp: {}, flags: {} });
   for (const name of ['revealAlt', 'drawDetailedNPC', 'openMap', 'enemyActors',
     'gainXP', 'hitEnemy', 'save', 'showDefeat', 'restoreCheckpoint', 'update', 'updateHUD',
-    'objectiveData', 'getRoute', 'drawGuideMarker', 'updateActionHUD']) context[name] = noop;
+    'objectiveData', 'getRoute', 'drawGuideMarker', 'updateActionHUD','damageHero']) context[name] = noop;
   // The legacy system deliberately refuses to replace a defeat overlay.
   context.openSystem = () => {
     if (observed.retryVisible) return;
