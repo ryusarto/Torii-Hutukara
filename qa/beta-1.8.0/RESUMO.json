@@ -1,6 +1,6 @@
 {
   "version": "beta-1.8.0",
-  "sourceSha256": "b269abaaa2a6914e8a79d1dcb7a69951de5c7433fd4981fe9660b5ebc0578ef0",
+  "sourceSha256": "9d6e2378b689edc2e9347e67b3cf4d0a390c17a763bcbbc83ae1086ea2e4158c",
   "staticChecks": 142,
   "independentReview": {
     "passedNodeChecks": 50,
@@ -19,7 +19,7 @@
     ]
   },
   "browser": {
-    "worldPolishChecks": 10,
+    "worldPolishChecks": 11,
     "npcChecks": 3,
     "realInputRunSequences": 32,
     "inputChecks": 22,
@@ -32,13 +32,14 @@
     "musicianTransitions": 48
   },
   "portableExport": {
-    "bytes": 420850907,
-    "sha256": "b269abaaa2a6914e8a79d1dcb7a69951de5c7433fd4981fe9660b5ebc0578ef0",
+    "bytes": 420851765,
+    "sha256": "9d6e2378b689edc2e9347e67b3cf4d0a390c17a763bcbbc83ae1086ea2e4158c",
     "gameContentRoundTrip": true
   },
   "limitations": [
     "Chrome isolado com input injetado e viewports emulados",
     "Sem campanha humana completa ou teste em telefone/controle físico",
     "Detalhes finos de máscara entre poses novas podem se beneficiar do playtest perceptivo do autor"
-  ]
+  ],
+  "saveMigration": "ContinueGame tested inside/new sofa edge and at an unchanged valid position"
 }

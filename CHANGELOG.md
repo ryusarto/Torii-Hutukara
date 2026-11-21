@@ -1,4 +1,4 @@
-## [Beta 1.9.0] — 2026-11-20
+## [Beta 1.10.0] — 2026-11-20
 
 - Oito fachadas C1/C2 em perspectiva com telhado e lateral visíveis, soleiras alinhadas às entradas e sombras de contato; C3 preserva as fachadas de sucata aprovadas. Ordenação pela base e transparência diante dos jogadores.
 - Treze interiores com materiais, zoneamento e paredes próprios, preservando texturas autorais, móveis, interações e rotas.
@@ -10,8 +10,8 @@
 
 ## [Beta1.8.0] — 2026-11-20
 
-- Planta do estúdio com vaso próprio; sofá vertical junto ao tapete, com colisão e contato com o chão ajustados.
--64quadros novos de corrida para Franco/Ryuchi:12poses por direção e máscara, fase contínua e ciclo520ms; cópiasV5 preservadas.
+- Planta do estúdio com vaso próprio; sofá vertical junto ao tapete, com colisão e contato com o chão ajustados. Carregamento recupera saves antigos que estavam no novo espaço ocupado.
+- 64 quadros novos de corrida para Franco/Ryuchi:12poses por direção e máscara, fase contínua e ciclo520ms; cópiasV5 preservadas.
 - Fundos dos diálogos recuperados das fontes originais, novo panorama da floresta e remoção do escurecimento duplicado; deserto preservado.
 - NPCs com estados de atenção/trabalho/gesto e pequenos percursos seguros quando há arte de marcha.24gestos novos para seis moradoresC1; Belga fora da bancada, sem alterar suas interações.
 - Testes de geometria, ciclo30/60/120Hz, pausa/load/coop, fontes de cinema e callbacks tardios. Evidências finais e limites em `qa/beta-1.8.0/` e [documentação](docs/REVISAO_MUNDO_VIVO_1_8.md).

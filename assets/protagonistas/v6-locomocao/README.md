@@ -1,6 +1,6 @@
 # V6 — poses intermediárias de corrida
 
-Produção de 20/11/2026 para Franco e Ryuchi principais. O pacote adiciona quatro poses desenhadas por direção/estado de máscara, mantendo os oito quadros originais V5 em cada ciclo.
+Produção de 20/11/2026 para Franco e Ryuchi principais. O pacote adiciona quatro poses desenhadas por direção/estado de máscara, mantendo os oito quadros originais V5 em cada ciclo. A integração1.8 exercita32combinações de direção/máscara/herói/jogador no pipeline real de input/update/draw; resultados em qa/beta-1.8.0/LOCOMOTION_BROWSER_RESULTS.json.
 
 - 64 poses novas, geradas pela ferramenta embutida `imagegen` a partir dos atlas V5 existentes.
 - Dois atlas RGBA de 3328×2048: 13 colunas × 8 linhas de 256×256.
@@ -12,7 +12,7 @@ Sequência: `V5_0, novo_0-1, V5_1, V5_2, novo_2-3, V5_3, V5_4, novo_4-5, V5_5, V
 
 ## Arquivos
 
-- `atlas/`: atlas candidatos à integração.
+- `atlas/`: atlas integrados à Beta1.8.
 - `manifest.json`: somente os dezesseis registros `run` que substituem a seleção correspondente de V5.
 - `novos/`: quadros novos isolados e normalizados.
 - `originais/`: quatro fontes RGBA da geração, sem sobrescrever as fontes V5.

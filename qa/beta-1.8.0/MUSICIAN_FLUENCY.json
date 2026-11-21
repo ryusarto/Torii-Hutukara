@@ -15660,13 +15660,13 @@
   },
   "cacheSize": 8,
   "version": "1.8.0",
-  "sourceSha": "b269abaaa2a6914e8a79d1dcb7a69951de5c7433fd4981fe9660b5ebc0578ef0",
-  "servedHtmlSha": "c4c125900bae40e272b5fcb07fef56600619b983891b683fd9f8681dfccde2d3",
+  "sourceSha": "9d6e2378b689edc2e9347e67b3cf4d0a390c17a763bcbbc83ae1086ea2e4158c",
+  "servedHtmlSha": "ad8410fbf162520f5a7ef180f7bb815d4ac75fca3fd834a00ba9580466c8e74b",
   "source": {
-    "sha256": "c4c125900bae40e272b5fcb07fef56600619b983891b683fd9f8681dfccde2d3",
-    "bytes": 937276,
+    "sha256": "ad8410fbf162520f5a7ef180f7bb815d4ac75fca3fd834a00ba9580466c8e74b",
+    "bytes": 938134,
     "url": "http://127.0.0.1:8788/",
-    "lastModified": "Sat, 21 Nov 2026 00:59:32 GMT",
+    "lastModified": "Sat, 21 Nov 2026 01:09:51 GMT",
     "title": "Torii & Hutukara · Beta 1.8.0",
     "sourceShaKind": "ToriiPlaytest.sourceSha256 portable HTML",
     "method": "portable source metadata when exported; raw HTTP hash recorded separately and Last-Modified compared to navigation"

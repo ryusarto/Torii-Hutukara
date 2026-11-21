@@ -1,8 +1,8 @@
 # Ambientes vivos, profundidade e nuvens
 
-Pedido do autor de 20/11/2026. Candidata Beta 1.9 construída sobre main `7553828a669d33921940f5b8d1a99923636485a2` (1.7.1), preservando as correções de apresentação dos músicos, os FX dos chefes e os cenários desérticos.
+Pedido do autor de 20/11/2026. Candidata Beta 1.10 construída sobre main `7553828a669d33921940f5b8d1a99923636485a2` (1.7.1), preservando as correções de apresentação dos músicos, os FX dos chefes e os cenários desérticos.
 
-A composição 1.9 incorpora também a frente do PR #18 (head 62fdce53): NPCs vivos, estúdio, corrida e cinema. Gerador, workflows e validação foram conciliados por trechos; o sofá conserva seu ponto de ordenação no chão. As evidências finais precisam corresponder ao executável composto.
+A composição 1.10 incorpora também a frente do PR #18 (head bd9992e0): NPCs vivos, estúdio, corrida e cinema. Gerador, workflows e validação foram conciliados por trechos; o sofá conserva seu ponto de ordenação no chão. As evidências finais precisam corresponder ao executável composto.
 
 ## Arquitetura e interiores
 
