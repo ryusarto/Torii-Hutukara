@@ -25,6 +25,8 @@ Decisão do autor (21/11/2026): **o jogo roda sempre no navegador, como página.
   - a ordem é a do primeiro uso medido na campanha (`web/playtest/media_priority.json`);
   - qualquer imagem que o jogo tente desenhar (`drawImage`/`createPattern`) ou consultar (`complete`, `naturalWidth`…) passa à frente na hora;
   - no máximo 6 downloads ao mesmo tempo, e tudo termina carregado: só muda a ordem;
+  - assim que cada imagem chega, ela é decodificada fora da thread principal (`img.decode()`). Sem isso, o primeiro desenho de um atlas grande trava o quadro por 80 a 105 ms em PNG e por 100 a 140 ms em WebP. Um teste de tempo real (`hero_attack_v2_browser`) pegou isso;
+  - imagens que estão ou entram na página (retrato do diálogo, menus) trocam na hora, fora da fila;
   - `ToriiMedia.stats()` mostra a fila no console.
 - A música já era baixada sob demanda (`ALBUM11` via `fetch`), duas faixas por vez em memória.
 
@@ -33,7 +35,7 @@ Decisão do autor (21/11/2026): **o jogo roda sempre no navegador, como página.
 | | Antes | Depois |
 |---|---|---|
 | Tela de título pronta | 1,1 s · 1,3 MB | 1,1 s · 1,3 MB |
-| Estúdio com todas as imagens que ele usa | **44 s · 66 MB** | **13,7 s · 18 MB** |
+| Estúdio com todas as imagens que ele usa | **44 s · 66 MB** | **14,4 s · 18 MB** |
 | Mídia total no servidor | 366 MB | 277 MB |
 
 O teste falha se o título passar de 5 s ou se o estúdio não completar.

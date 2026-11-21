@@ -29,7 +29,10 @@
       img.removeEventListener('error', onError);
       pump();
     };
-    const onLoad = done(true), onError = done(false);
+    // Decodifica fora da thread principal assim que chega, para o primeiro
+    // drawImage não travar o quadro (atlas grandes levam 80–140 ms).
+    const onLoad = () => { if (decode) decode.call(img).catch(() => {}).finally(finish); else finish(); };
+    const finish = done(true), onError = done(false);
     img.addEventListener('load', onLoad);
     img.addEventListener('error', onError);
     srcDesc.set.call(img, entry.url);

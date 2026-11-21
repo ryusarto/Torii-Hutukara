@@ -1,6 +1,6 @@
 ## [Fase 0 · fundação, primeira etapa] — 2026-11-21
 
-- O site baixa primeiro o que a tela usa. Num celular com 4G, o estúdio fica completo em 13,7 s em vez de 44 s, e baixa 18 MB em vez de 66 MB. A tela de título continua em 1,1 s.
+- O site baixa primeiro o que a tela usa. Num celular com 4G, o estúdio fica completo em 14 s em vez de 44 s, e baixa 18 MB em vez de 66 MB. A tela de título continua em 1,1 s.
 - Imagens do site em WebP sem perda, com pixels idênticos aos originais: 366 → 277 MB de mídia no servidor. O HTML portátil não muda. O jogo continua sendo uma página no navegador, sem instalação.
 - Sorte com semente: `?semente=123` repete a mesma partida. Jogando normalmente, cada abertura sorteia uma semente nova.
 - O CI roda a verificação de jogo em todo PR e em todo push no main, mais dois testes novos: a campanha se repete com a mesma semente, e o carregamento no 4G (título em até 5 s). O relatório conta as derrotas do robô (hoje 0).

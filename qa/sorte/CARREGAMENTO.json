@@ -1,0 +1,28 @@
+{
+ "url": "http://127.0.0.1:8771/",
+ "network": {
+  "mbps": 12,
+  "rttMs": 70
+ },
+ "title": {
+  "s": 1.097,
+  "mb": 1.273274
+ },
+ "studio": {
+  "files": 16,
+  "de": 24,
+  "lastMs": 14430,
+  "s": 14.43,
+  "mb": 18.117326
+ },
+ "media": {
+  "queued": 87,
+  "promoted": 14,
+  "loaded": 23,
+  "failed": 0,
+  "firstPromotion": 1185,
+  "pending": 58,
+  "active": 6
+ },
+ "errors": []
+}
