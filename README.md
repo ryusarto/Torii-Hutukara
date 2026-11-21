@@ -4,12 +4,13 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta1.8.0 — estúdio corrigido, corrida com12poses, fundos com mais definição e NPCs com atenção, gestos e deslocamento local seguro. Jornada em três capítulos, cenários desérticos, músicos e FX dos chefes preservados. A versão fica em `game/VERSION.json`.
+**Versão atual:** Beta 1.9.0 — Último Torii com aliados da reserva, encerramento em Hutukara, viagens após zerar e Fenda das Ressonâncias com ondas procedurais e recorde local. Inclui as melhorias de arte, corrida e NPCs da Beta 1.8. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
 - Capítulo 3: Distrito da Distorção, Clube Contratempo, Usina de Retorno, Canal Suspenso, Mar de Nuvens, O Metrônomo e a luta final.
 - Seis personagens jogáveis e formação de até três integrantes.
+- Pós-jogo: M, MAPA ou menu para viajar; expedição por ondas sem final predefinido, solo ou coop, com pontuação e retomada segura do save. [Regras e limites](design/chapter-03/POS_JOGO_E_FENDA.md).
 - Salvamento local, importação/exportação em JSON e checkpoints.
 - Seis faixas próprias do terceiro capítulo incorporadas à build.
 - Ninja e Arqueiro: 12 estados, oito poses por ação, rolamento, retratos e animações independentes no coop. [Detalhes e prévia dos assets](docs/ARTE_NINJA_ARQUEIRO_V1.md).

@@ -78,7 +78,7 @@ const PostGame={
  beginWave(resuming=false){
   const r=this.run();if(!r?.active||G.area!==this.AREA)return;this.clearCombat();current.enemies=[];G.defeated=G.defeated.filter(id=>!id.startsWith('endless_'));
   if(resuming){G.hp={...G.hp,...r.hpStart};r.score=r.bankedScore;r.kills=r.bankedKills}else{for(const id of C3.unlockedRoster())G.hp[id]=Math.min(G.maxhp[id],G.hp[id]+Math.max(1,Math.ceil(G.maxhp[id]*.2)));r.hpStart={...G.hp}}
-  if(!G.hp[G.active])G.active=partyMembers().find(id=>G.hp[id]>0)||partyMembers()[0];r.phase='fight';r.cursor=0;r.wait=0;r._resume=false;this.plan=this.wavePlan(r.seed,r.wave);this.spawnClock=0;
+  if(!G.hp[G.active])G.active=partyMembers().find(id=>G.hp[id]>0)||partyMembers()[0];r.phase='fight';r.cursor=0;r.wait=0;r._resume=false;this.plan=this.wavePlan(r.seed,r.wave);this.spawnClock=0;if(typeof EnemyArtV1!=='undefined')for(const spec of this.plan){const image=EnemyArtV1.image(EnemyArtV1.key(spec.type,spec));image?.decode?.().catch(()=>{})}
   for(let i=0;i<Math.min(3,this.plan.length);i++)this.spawn();if(C3.coopActive())C3.syncCoop(true);engage();save(true);updateHUD();toast('FENDA DAS RESSONÂNCIAS · ONDA '+r.wave);
  },
  spawn(){
