@@ -10,28 +10,17 @@ const assert=require('node:assert/strict');
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(()=>{requestAnimationFrame=()=>0;Object.defineProperty(navigator,'getGamepads',{value:()=>[]})});
   await page.goto(process.argv[2],{waitUntil:'load',timeout:120000});
+  await page.evaluate(require('./hero_attack_fixture.cjs'));
   const result=await page.evaluate(async()=>{
    HeroAttackFX.prepare();
    await Promise.all([HeroAttackFX.atlas.decode(),HeroAttackFX.sword.decode()]);
+   for(const hero of Object.keys(HeroAttackFX.v2Sources)){HeroAttackFX.ready(hero);await HeroAttackFX.v2Images[hero].decode()}
+   await HeroAttackFX.bass.decode();
    const actors=['franco','ryuchi','alt','katana','synth','percussion'];
    const p1=[()=>attackAction(),()=>skillAction(),()=>advancedSkill(),()=>duoAction()];
    const p2=[()=>C3.coopAttack(),()=>C3.coopSkill(),()=>C3.coopAdvanced(),()=>C3.coopSignature()];
    const rows=[];
-   function arena(hero,seat){
-    G=fresh();const other=hero==='franco'?'ryuchi':'franco';
-    G.active=seat?other:hero;G.formation=[G.active,seat?hero:other];
-    G.flags.reveal=G.flags.voicesKatana=G.flags.bass=true;
-    G.c3.synthUnlocked=G.c3.percussionUnlocked=true;
-    for(const id of G.formation){G.hp[id]=G.maxhp[id]=100;G.levels[id]=5}
-    G.resonance=100;current=mk('forest',40,30,'grass');G.area='forest';
-    G.x=10.5;G.y=12.5;G.dir='right';G.aim091=[1,0];
-    mode='action';battle={boss:false,id:'field'};bossActor=null;keys={};tick=8;menuOpen=false;
-    C3.synthWave=0;C3.synthZones=[];C3.percussionGuard=0;
-    resetMotion10();Object.assign(act,{cool:0,skill:0,skillX:0,duo:0,hit:0,combo:0,comboTime:0});
-    C3.pad.pads=[{index:0},{index:1}];C3.coop.member=G.formation[1];C3.syncCoop(true);
-    Object.assign(C3.coop,{x:14,y:15,dir:'left',cool:0,skill:0,advanced:0,signature:0,combo:0,lastAttack:-20});
-    HeroAttackFX.sync();cam.x=cam.y=0;
-   }
+   const arena=window.heroAttackArena;
    for(let h=0;h<actors.length;h++)for(let seat=0;seat<2;seat++)for(let action=0;action<4;action++){
     const hero=actors[h];arena(hero,seat);
     const invoke=(seat?p2:p1)[action];invoke();
@@ -41,9 +30,9 @@ const assert=require('node:assert/strict');
     const count=HeroAttackFX.events.length;
     invoke();if(HeroAttackFX.events.length!==count)throw Error('Rejected action restarted '+[hero,seat,action]);
     const images=[],original=ctx.drawImage;
-    try{ctx.drawImage=function(bitmap,...args){images.push({bitmap:bitmap===HeroAttackFX.sword?'sword':'atlas',tile:args.slice(0,4)});return original.call(this,bitmap,...args)};HeroAttackFX.draw()}
+    try{ctx.drawImage=function(bitmap,...args){images.push({bitmap:bitmap===HeroAttackFX.bass?'bass':bitmap===HeroAttackFX.v2Images[hero]?'v2':bitmap===HeroAttackFX.sword?'sword':'atlas',tile:args.slice(0,4)});return original.call(this,bitmap,...args)};HeroAttackFX.draw()}
     finally{ctx.drawImage=original}
-    if(!images.length)throw Error('Accepted action not drawn '+[hero,seat,action]);
+    if(images.at(-1)?.bitmap!==(hero==='alt'?'atlas':hero==='franco'&&action===3?'bass':'v2'))throw Error('Accepted action lacks its own bitmap '+[hero,seat,action]);
     rows.push({hero,seat,action,row:event.row,bitmap:images.at(-1).bitmap});
    }
    const combos=[];

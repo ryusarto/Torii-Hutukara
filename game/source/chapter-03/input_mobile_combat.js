@@ -534,9 +534,10 @@ C3.coopAttack=function(pad){
   G.resonance=Math.min(100,G.resonance+4);playTone(id==='percussion'?147:id==='synth'?330:220,.09,'triangle',.05);C3.padPulse(pad,.16,.1,70);updateActionHUD();
 };
 const combatDrawBefore123=drawCombatLayer;
-drawCombatLayer=function(){
-  combatDrawBefore123();const c=C3.coop;if(!C3.coopActive()||!activeModes10()||c.attackHero!==C3.coopMember()||tick>=c.attackUntil)return;
-  const id=c.attackHero;if(!['franco','ryuchi','katana'].includes(id))return;
+drawCombatLayer=function(){combatDrawBefore123();if(!HeroLegacyFX.worldOverlay)drawCoopWeaponCue()};
+function drawCoopWeaponCue(){
+  const c=C3.coop;if(!C3.coopActive()||!activeModes10()||c.attackHero!==C3.coopMember()||tick>=c.attackUntil)return;
+  const id=c.attackHero;if(!['franco','ryuchi','katana'].includes(id)||HeroLegacyFX.ready(id))return;
   const d=c.attackDir,a=Math.atan2(d[1],d[0]),phase=1-(c.attackUntil-tick)/.24;
   ctx.save();ctx.translate(c.x*T-cam.x,c.y*T-cam.y-20);ctx.strokeStyle=id==='ryuchi'?'#9ee2ff':id==='franco'?'#ffcc86':'#e2b4ff';ctx.lineWidth=id==='franco'?5:3;
   ctx.beginPath();if(id==='ryuchi'){ctx.moveTo(d[0]*8,d[1]*8);ctx.lineTo(d[0]*(28+phase*30),d[1]*(28+phase*30))}else{ctx.arc(0,0,id==='franco'?44:36,a-.9+phase,a+.5+phase)}ctx.stroke();ctx.restore();

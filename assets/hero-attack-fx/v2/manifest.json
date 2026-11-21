@@ -1,0 +1,732 @@
+{
+  "cell": 128,
+  "frames": 6,
+  "rows": 6,
+  "sheets": [
+    {
+      "hero": "franco",
+      "sourceSha256": "92a5071780e581e3a53b85bfde77c042721635a17e59b8d768c9ffe16bdc3fb5",
+      "atlasSha256": "a59638c43be421e1738936c8385bd99831451396c180232c635bc7d59cd57baf",
+      "rows": [
+        {
+          "state": "attack_1",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "f496f6b1a6c06284f5c4345ba1e718667c4e75d76672c6a8b911e367a3aac046",
+            "08e029f5f34de42468ba9089f4e85030a72ff7cdbd33339dda90a9de919440a9",
+            "cbec3d8388dc9794d6a9856e939a18b6158d9e30237015fe3310a2f07f528328",
+            "c4749fc7b2fbb65bc6d50a0956d13895968689cc262f5e4a8b9aad3d2399b0e0",
+            "bf7f1f79cf20edd42db3fb198998d5f38fc228f56a97d00428124aff7a79e10b",
+            "02e17127d8129d37cdb9699b90cf20064af572bb54a79567cc66d77315787b46"
+          ],
+          "visiblePixels": [
+            3052,
+            3362,
+            3190,
+            3707,
+            2146,
+            1347
+          ]
+        },
+        {
+          "state": "attack_2",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "a4651b81874a8821af2916fc6039f8040194e8335e1d232f88bfbc7cd9abd026",
+            "8fb09efcfd7a3212c5c3b57d450f6839982b073bed01e67b2d94e74f4b2d01b5",
+            "6652e91a707a2eb148e154aab4b3934b2bbe3a0c4ff7983515a58785327e5fce",
+            "8cc972ee218683186a9b111e3f090e8b6aa81d7afd22bac262985b6a2e1d68b3",
+            "8280a06fea2caa281cccdef823d216f4d287a79b30e72fe9a1bc5bfe8507a4dd",
+            "f2bbcb996d43dec1ab1e07bf703cd743285a18a38777ab54a4e8262d0214911a"
+          ],
+          "visiblePixels": [
+            5612,
+            5601,
+            4610,
+            4350,
+            3362,
+            2516
+          ]
+        },
+        {
+          "state": "attack_3",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "a3458269f310377a710f32f8609f10344574b70a09ae7d538e919fdc997f99df",
+            "0a36322616289399f4067cc042fc5e5cfe3bdd099562a4da009046fbf06279cf",
+            "27f6dc820f611015876cd28d873c50dde95ae855df667bd072ff469eec0ed9fb",
+            "6192a85aec713bf7927b18f1f8e39c9248e4593bc749e63e34a56694b15752e0",
+            "f2dcbd002a26a59ca15598b38bacc2a89d95c9ba63e1f6eeca5a0bcb99a80841",
+            "de28d5ac5d9d48fc0f013948bf8eec98618816b1ad46c50b53c11dcddfbfe1c6"
+          ],
+          "visiblePixels": [
+            6784,
+            6861,
+            5844,
+            6431,
+            4951,
+            3650
+          ]
+        },
+        {
+          "state": "skill",
+          "pivot": [
+            64,
+            64
+          ],
+          "frameHashes": [
+            "d8ab48d5bb497cded37cccddc8b0dc96ec73c2e241134bcafdd7bb8e87d14f0b",
+            "d004f82747f91a25b55a8c9de580144cbde3af35fa0cb87906c3e686077f5080",
+            "43a853a1f040eea9cab641e7cb128482e4b874bdd4e9cb5f19475b8e024221fd",
+            "536338edf9cde4b1bbb03a35ebc4c72ab33e8fe76b3d9382da8fb72a2a6bb5bf",
+            "7298b03a4f453cd821039258cfc3fe5557656af7184c444f29528d76b9d7de4c",
+            "c5e7e60d99490e99da0a9c6cf861e2ed12a57849e6a6e36352d693ea5f760b3e"
+          ],
+          "visiblePixels": [
+            3312,
+            3841,
+            6242,
+            4597,
+            2241,
+            806
+          ]
+        },
+        {
+          "state": "advanced",
+          "pivot": [
+            64,
+            64
+          ],
+          "frameHashes": [
+            "1b5739bb2f011085d45a010c46e2f06dfae359cb6f1147ea75e5cdfba6a2de7b",
+            "e94cf1aad47c172fa7286072cf2bb9736204e8823a93477a7e8feae10d59b605",
+            "ece0c305de6c06c1488efde00221d2ffe16af787f1fb5df24b9ffa3d453de25d",
+            "9992771557aac905bde5ba9a216c090b3afa34fd6d73ce95863bccb40f62cda2",
+            "e638f54101b4b55763cd2d0c4486f44eb41d0bc93243242d8b1a13a21b3fd4b9",
+            "f280418df19fd9fd8bfb5c0c2b9567e9c9b7917068a520cce253d489f77da65d"
+          ],
+          "visiblePixels": [
+            6022,
+            6018,
+            6984,
+            5739,
+            4186,
+            3171
+          ]
+        },
+        {
+          "state": "signature",
+          "pivot": [
+            64,
+            64
+          ],
+          "frameHashes": [
+            "e8ca9f0bc7a0b662e41467c8bbd4aa51d2f392bb546433ed704d6b86a5b2cab8",
+            "544087e2128bf66fe1ab884010ac45271709fa24131e03bb383a25ab9af60b55",
+            "d19cbf622a1a6672ff92c67493692e577b5527704ad99613da90849516b76fa1",
+            "b9c9222b9e78046eecb648aef0bc379a3e2a0d4ea9d7a5b7adccf8aa395e386a",
+            "fb912bfb46582e02f5709029a6cf559ed933369de3f957472dc0b92795fd71dd",
+            "4d0cf754370d5292199e380f21d1d3b5c43b46c4df3a429353a246450e8526f5"
+          ],
+          "visiblePixels": [
+            4163,
+            3747,
+            4724,
+            6079,
+            3012,
+            2338
+          ]
+        }
+      ]
+    },
+    {
+      "hero": "ryuchi",
+      "sourceSha256": "8fc8045ba3aab80559afa0c887c687b0bef398d8464600ce30327b2ba3252bd3",
+      "atlasSha256": "992c030949c1d715495d9092743ac0ab0f8f5f6c67d789ee40fca4c216d1988f",
+      "rows": [
+        {
+          "state": "attack_1",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "9aaf19edeca62a324e98b2c7ad7fd71f4d5b531a9a4393ea9d62f7a525c985d6",
+            "57f0465ababecb4cceac746db04718bbfccab15a5652b8b64f239555a9854b8f",
+            "ef3c29cc9ae06e692db30b7a66504701b45f5c8ceb269e75c081694ea0605050",
+            "fec5c3cfd7b3e826b44c42137c2774f99ace7d2b569db73fc53a87ca8b4438d8",
+            "cdca499d07d2587952bebee24de8981e32e15027c15d52d9bc1201df63b6e14b",
+            "3acf2569391bc30e9c4f9058b90d99bd0051f969a0fb20a99c35796c432b8ff4"
+          ],
+          "visiblePixels": [
+            1140,
+            1660,
+            3481,
+            3353,
+            1394,
+            604
+          ]
+        },
+        {
+          "state": "attack_2",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "1ba30bb94da664bf88597ea5c003d7c4d19e3af9ea78b55a0b4b3df56554341f",
+            "26730c801897a95cc47db407a371901f49b26d5c7644376f7b4334f2fb647909",
+            "df728d0167007c354472a81f3757dae5d2f1d9c4e1eeff433d69f0a83056d2ad",
+            "c89aa0a0f6116ce43177e46a151183d09f31600a94ce33d263136fbe8f5fff76",
+            "0126842406fa7d3f922982e95e67542393d51d47826892235468b68e5a551606",
+            "75bf7c278c29d76527693ae99a921ed6cbea33e62203c6ca1ee8df4151920d1a"
+          ],
+          "visiblePixels": [
+            1200,
+            1839,
+            2625,
+            1977,
+            1113,
+            873
+          ]
+        },
+        {
+          "state": "attack_3",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "728798b6a3b593b84b5d741d01f7580a63843810c98b14e0034ec4d4faf5d25b",
+            "605eaf1cce13950a4e56c8e83c385d00fe3316dfb88e9f2496b43db4e53f204e",
+            "b4de23208758e90d47d8f0d52fa219f634968ab505ab58a2d34f863b95e4ba4c",
+            "eee3a0faf1025fa56d89030f0efde8bfd051cf434d07a340edb7668189c9e968",
+            "b2d62fa2f8a42c1a9e0c343b2f71fcb1ffcb785da01f781b101016829396da3c",
+            "56c67ba6f07caa16692ac9af86cde4caf48d88a03b0864d0041a5c15029cb13e"
+          ],
+          "visiblePixels": [
+            962,
+            1395,
+            1910,
+            1561,
+            845,
+            510
+          ]
+        },
+        {
+          "state": "skill",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "15a8f840fbb219363650bed4fafd333c1d5ab362b9cd6442466670de4dea7190",
+            "4731f940a30dd5560a7e0253524f6cafed3c81cabcceefe8ccbc9dba175f4f20",
+            "0ed42b49778d6a62d4b52f43b89665fafd5b6339de2689729169b17cfde05908",
+            "0dd8a63a394138385124610328e5f65bde242cf90b6d7cc49a5d1d0883ad6134",
+            "5f04e5465ccc25d52bd3e32e25977bdd87145720b867f0fb522e256a4b659615",
+            "1d9e9aa4b53828ba1ad3ced5188494b85c63f6bc8005b9e32cd5f6334f28ca97"
+          ],
+          "visiblePixels": [
+            975,
+            1550,
+            2143,
+            2129,
+            926,
+            567
+          ]
+        },
+        {
+          "state": "advanced",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "040866345e6ecf4efac833a9cfcfa989e91539c7b6598c3b2b5f8afb5ca36f3c",
+            "87c2f09f823682520a2a8e2451fa7a6a7a0da33825567c3037091d4511176384",
+            "981e80d00e724cc58fd72ae77f64bfff000514e8d7d96bfe50634aaf24313a43",
+            "4425ad2628868b8b505641fe932cb7a650cfd460d833a785e5bb3d0b2b362e9e",
+            "15f5ce9b6c65d6ec3fab710dbe1efc99e4335784ba9fb4301535720da58b21f4",
+            "fc68b148faded1e9ca8908fa7b37b98dae441e0ebdc9ab97ffc9b6429817618f"
+          ],
+          "visiblePixels": [
+            1077,
+            1426,
+            2273,
+            2023,
+            1092,
+            730
+          ]
+        },
+        {
+          "state": "signature",
+          "pivot": [
+            64,
+            64
+          ],
+          "frameHashes": [
+            "f7bfa931835f745ddb042b15796897fba2e7e8a8a4cf4ab54d16cdd776782f22",
+            "59aa642ac455b28c5147fd595ec9e14643b9d0604859b51b3251026dd38b2941",
+            "ef792e92dd41d7aa610ef2becc4323615def6ba8f6bffa914608ccc83ab3b17a",
+            "b6eb89dba8e53b17646e44aebfcf136db3d2f2186780fcea59203c7bf8cb2504",
+            "d807a9250838cf5276e15609023233486ecdae2839d39c178b918d15d3801037",
+            "9a8192fabfdd757f75920a9b61dda660f38b8b7a0850c3470467566b62c15fbc"
+          ],
+          "visiblePixels": [
+            1747,
+            2277,
+            2650,
+            3561,
+            1993,
+            1427
+          ]
+        }
+      ]
+    },
+    {
+      "hero": "katana",
+      "sourceSha256": "2359ce065d843a9f20b39fef01f41e31c04eff85d2df80dc0313d71c14e7be7b",
+      "atlasSha256": "ec3b774e59399d8eb727d5202d5b7c8f3198aa4bd5d70f83ee67b8c23904dc02",
+      "rows": [
+        {
+          "state": "attack_1",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "79e0e77bb932ac9bb219f65a363f3b1598e5c32e499bbe3d90486310b17bc2c2",
+            "e6a412f6bf574e6505576bc120a31170d2c13fd47f6fae292457c9f350fccbe3",
+            "c0ace83a5d1056015f0d4242566eaa9cd5b850364fca3f36f89c6690b4780021",
+            "8a72195ce4b4f7e1f04c31b7c42844a26b83c5003b7778efed878302532633f4",
+            "9aa27ec8450bbf109175ad0773f94d1b8f5999419f4c8cdbe6c5b0f34d5cef40",
+            "7c9d741f5fcea5fddf3604c2a253f5a0da6ab411a1c355526c30c7993ab89695"
+          ],
+          "visiblePixels": [
+            1350,
+            2294,
+            3317,
+            3264,
+            1362,
+            426
+          ]
+        },
+        {
+          "state": "attack_2",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "03c0e322cfe439ae9fe7fcb6414e027de7da9ee79f393e13a066b3edf1c98ba2",
+            "b3b3fd5b7c84f6290be9be023364a66e824af521600a508195e35194f9a313f6",
+            "398eb9b28fa7c9a1951663e402546e3988ef6d04d0908fa13631a280cbd15466",
+            "1f2e912de8f83d8ca72b5ccdb941fb095d496cb9a02e1bb739f1f4cbaf0da98a",
+            "1259cd5d9d675ac80d5993bd3be577194c94db5f64a0abeb9950cd367f3081bc",
+            "8dc8adaa90ec7260ee4a1f6bc0b071c309c499b6ade60399ae107728d7862200"
+          ],
+          "visiblePixels": [
+            1306,
+            2337,
+            2944,
+            3708,
+            1557,
+            603
+          ]
+        },
+        {
+          "state": "attack_3",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "eeea435534df29e3ec316eab72b0a4d6772775fe78e0164cf15b7998b62268f6",
+            "190180e2d96e2336470865db41ec6cefc231661a02779f56fad81ad1ea0cfdcf",
+            "a9ad7d2722626f33b54b2ae70861d9163ac5925b2034c6073f90d441167616f1",
+            "46b9dc131d41261e40146c2cd1c860b498f839836bd34c169165a418a0ecdd1e",
+            "8c75f703080a4c317f76b1f5cad597d85b726a9419ca15bb38d0076724389f03",
+            "d69b63f262c1e2f393a866e16812ea08522cf1801cd49ee60eab8b061449d11c"
+          ],
+          "visiblePixels": [
+            2305,
+            3122,
+            4115,
+            3967,
+            1859,
+            737
+          ]
+        },
+        {
+          "state": "skill",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "bcbf163bfd775696615929c48a041e9433776cecd781e27af01843ea312e2360",
+            "a0cee2e9398e50299f1fca638d0d24e5c8b6ce5560adf76c2e1c3dd38e837a0a",
+            "4786b386b55021d668ebaa56ca5e5359df0cff828698f7c1e54809d0b1e49b88",
+            "32c57386ce58eee65d723d2c71a22ad1f5ca5796271be2d6a019da74baf37846",
+            "54add46d48a1eb55e00325ef3de81ff1ad4b32ea8022a51913000e604152caf4",
+            "05108f3056edd3f236ecfca92afd8d70cdb73517650ee646425d411bc2460045"
+          ],
+          "visiblePixels": [
+            1099,
+            1540,
+            1550,
+            3400,
+            1289,
+            321
+          ]
+        },
+        {
+          "state": "advanced",
+          "pivot": [
+            64,
+            64
+          ],
+          "frameHashes": [
+            "23960457996d3b62f5a423ca4e8c075c1960b3afd226fdd584213c20c5d60aa1",
+            "e27435fabc52f059b2311cc98c4305a687c77dd7f9bad561ba2f31acdabe0824",
+            "b48a93eb4338c2847972add0bc70f718b5304da8859373e6b476b8f17b6ee5b0",
+            "6c225c21f5b1e63fe8ad4383bc23a8905b702b6e2e5d2248ea94c11d3fbfcb1e",
+            "4ef900c63db9d2304a79d7b8dfd20405e9556b8589aad26c098eba4e353f3704",
+            "3e8d54812dfa0d9ebd7bc2c930a8785aea2cc18d9b5624fd7f62d8c41c96b76d"
+          ],
+          "visiblePixels": [
+            3079,
+            3838,
+            4507,
+            3980,
+            3406,
+            2681
+          ]
+        },
+        {
+          "state": "signature",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "39abfebb8d42db6c5e35bebc372821eac310d2f0e065e8c7c40bcfb9ae89a83c",
+            "02ac8ee7c389a7f661a23ecc18199236ea849fc9bc295ba81c905f443eca933c",
+            "d3f28cd7661fbca0be7184dac33f17fb81a10fba1462a8cac1fb433e50976216",
+            "fe651664748a338b068e571fe0f1ca874a450004dbd7a00ca2961d1a3c87e8ca",
+            "73a78a8fe1e32e76497e9b197612bedb80cff054ca20c3330473c19967f3e5bd",
+            "37743e2f1ac9c5b3d6c71a42fea40159a860fdb05fa0f3448d94e32dd62c0b37"
+          ],
+          "visiblePixels": [
+            3833,
+            4217,
+            5181,
+            3740,
+            2139,
+            667
+          ]
+        }
+      ]
+    },
+    {
+      "hero": "synth",
+      "sourceSha256": "a19bcbfd0fa086d8591b09707a4316680175afb0bcb30d1033147b86affda0ad",
+      "atlasSha256": "4242739b5fa016717559b53c96e4ce27d9bf3e2de1fa7fe7484fb84bacd08c6a",
+      "rows": [
+        {
+          "state": "attack_1",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "d44e817d19d74cfbc19a637203d7d55e7c525431ae345e543378ec96cd112ae6",
+            "d08198bb662b2bbff24f3de747e1baf71290fa48b76675b77649d1cb154ab562",
+            "9a0f64df6d11c4ced6cb15e8a7bdad51aeba13fa5697f2f01aad481bee2e3555",
+            "7fb925d31180fe7d3731fbe8d5ac17e071011b00adde6e254b50a7fe7ca0e596",
+            "4d5d27160b519a3ae87038bde3aad537166acb672faef22eb1dab5a63978f63f",
+            "5fd7a6c947ad8fbf0a59d308a7fff426d0a298623fd0e3d1fa89f56dbd1a5e68"
+          ],
+          "visiblePixels": [
+            2289,
+            3314,
+            4170,
+            5014,
+            2773,
+            929
+          ]
+        },
+        {
+          "state": "attack_2",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "774e371613b4c9e9d8647a8c397d03e1ffb2a43a301859dc0ae6373fa9c3244e",
+            "602b4577083953b8ee8d1a98a11fe7fa1ad0bfc517e00d034cd6967f80755552",
+            "638b184c7261922cf386bb087130ad43f0f054c8dc08985ad05d8d8015d2301e",
+            "327a52d1a15b7f89d1be06ce17729c5f0487af024cebc637828bfc14841b4448",
+            "6bcb78a07b439496383d018f6e65f990cfd383c73c11e5aa1fa3166ce856e2cf",
+            "4f7f15f58146c7126e6f56cc1828fd3ebe929be75a045633bde00715f06058fc"
+          ],
+          "visiblePixels": [
+            1729,
+            2834,
+            3963,
+            3958,
+            2239,
+            1207
+          ]
+        },
+        {
+          "state": "attack_3",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "dc916e633553ce6fd571b0080c9cf453d2c92b7d10d6ad2c0bbcced9d79fa0aa",
+            "35a1b41b2d4ad61edffacb7bdabdddaa3060385c9b004579236d1e232aa5ce96",
+            "c42bff2a32cd547da2416bb7f36c1deb6cb63c7aae57d73ef88864cd2d63d24f",
+            "0a1c77804f9bd71a00cc68f775bf194c3907109f1062c38ceb6a1d6176fdd0d3",
+            "c2a07461ad9440d0a264cf0671d39fb1f929d2c0df8f2817d2d61faaade2dd0a",
+            "559a48274058638faa0f9ace819374f4ae100d3d4141b1db67ca126a0ca79fd8"
+          ],
+          "visiblePixels": [
+            1817,
+            2892,
+            2312,
+            2832,
+            1686,
+            443
+          ]
+        },
+        {
+          "state": "skill",
+          "pivot": [
+            64,
+            64
+          ],
+          "frameHashes": [
+            "3239cf56cf9150210df7f23beb72530bcfdae109df53ea19a87c089a7d22663b",
+            "fd0264ffa80154a12eb005988169018ff48a92b1ef5aaa0786f48f96b255e224",
+            "e49042b3f92ea88733d82df5375d8e16a69a737afe5412782a594539168c88f0",
+            "e388786bd330fd8b48ce56c41ada695a701eae49de3544369e3a947408b282c5",
+            "8fc707ba042a5c486088bf08d6b5cc7c5462cf48183c3ae6a4b436627c6df60c",
+            "c3bdfed1b1df6826087fb9199af580378b8f47fe777198383a281209d19ccb29"
+          ],
+          "visiblePixels": [
+            3640,
+            5809,
+            8551,
+            10064,
+            4861,
+            1498
+          ]
+        },
+        {
+          "state": "advanced",
+          "pivot": [
+            64,
+            64
+          ],
+          "frameHashes": [
+            "219c7619df860fedf717d0f4a3e6ab450d7b4cbca8a6925e79666e6fbd454ca6",
+            "2b5892b431478d530e35f6ed45adb0bf919982e36a0e230bcbfe8e0b60c983de",
+            "e7ff2eb780249a8ebb7fd8e3abbf442e60e4df125a9a9c3e5c797a8c2c882438",
+            "82c370d6a9899dcc674e8b5904b33cc81a22fc33ffb20dde7aa1397a16bb6b92",
+            "eada7b5e03b8dd89f90b7579e91d9ce8e8ce921102437e6faa258b2fcf5048f8",
+            "0489308379361042a0875b3a3addb7fb12ef61fbe35b967eed0aa538681c19e0"
+          ],
+          "visiblePixels": [
+            3262,
+            4402,
+            5242,
+            4173,
+            2348,
+            840
+          ]
+        },
+        {
+          "state": "signature",
+          "pivot": [
+            64,
+            64
+          ],
+          "frameHashes": [
+            "4cf18c43f18b0515fa02f7e7a19358dc833fe766bb478032d03b58fb5f6c8b12",
+            "47e5d4e91905ec020fc996b03579b6f75aea079321abfdec5c8fb56035fb977a",
+            "c61d9518fcf433854bb7780d3a4b33c2bf6c616d1b680801f02f054bbd6b78e6",
+            "6c27ea4675b317356f2861b24d4f373bf67addc84c026c88c80c60d327137642",
+            "5fb82120ed74928b86ab867298247d1fbe2a7266e8570b31cb7d3ecb96ef9e26",
+            "e705c79f6f0dcf2c8968d7893e5620bc8141698a3cd46d4557578e29aa41dba7"
+          ],
+          "visiblePixels": [
+            3004,
+            4328,
+            5363,
+            3853,
+            1718,
+            834
+          ]
+        }
+      ]
+    },
+    {
+      "hero": "percussion",
+      "sourceSha256": "8ae55ea441ee3369fbf8c8926bc66f582d8f71b1fbf242883213bc4131a2f4be",
+      "atlasSha256": "acfa3195b5f6d610669dea800a9a6b633e8c2bf1450ae82655c84cb2a0c847ca",
+      "rows": [
+        {
+          "state": "attack_1",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "d64f94c3cb532a9301001c0b301c05bf7c4f85c1cf2c2d0b88a85521c631ae8b",
+            "e95826172f3d2081866e55ad988e7584ba5c52a286736e88eab75a03aa0658db",
+            "1e5624cc6478fc0481f64a029c65c2fc8487a0519d03f4231a6ca681cc94df30",
+            "79f0cd9e1ace33e739e10d6fc91b0c42e0de745fd06bab29c0b09b5040fdaa43",
+            "769caaab0cf780a07fc8c906560d4e48f83f1a0121479982555cddedf767bee9",
+            "30320b3f19f73782039fac6b01429d90c9d6a66e3c96d724999a22e64b3a6714"
+          ],
+          "visiblePixels": [
+            5564,
+            5667,
+            5824,
+            6122,
+            5211,
+            4717
+          ]
+        },
+        {
+          "state": "attack_2",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "9a6eec72c318ece90252c2ae620a6b888ee942a1548686eb15183b28edf06dac",
+            "c4fbd3c2705b162090e2ca916ce5c504d64c41b9891c3a192f0506e1724bfcf9",
+            "d26a2b1ac117722579cc1e641fc70d7c091699da4ae5de8dc59b3856a5a2cc27",
+            "0517504ab24f0ec7942f535c94ba57d2d52aefa0145ad9b98304ee5c499d8095",
+            "742aa29cce7fa74297495d01fc49cefd9c4ac270d2347e49e214b67b777a2e23",
+            "3cefb44948d2b65cc10f976159ec458e716d80404962af26cf0a91a6033f3bbb"
+          ],
+          "visiblePixels": [
+            6080,
+            5952,
+            5976,
+            5983,
+            5524,
+            5358
+          ]
+        },
+        {
+          "state": "attack_3",
+          "pivot": [
+            7,
+            64
+          ],
+          "frameHashes": [
+            "a5cc438d0ef68d37fc6fae86e32c7f6dfe6d7e44136cfe5013becab970044813",
+            "b152d3789376c143f942df4374cd3415302987906466acc701603864a6ac623c",
+            "bddb5e3cd294fb9fe622bbb0d9e181b3bd92df23ba39d725d103abe0ebf3a4db",
+            "d95a622d4a451d2468cb2aa7cbe45dc45008a628e4539d9acf6f9bc235038ae6",
+            "9a6a91392ad4cbdd35ef1d76e99e79ffdff50050a6e91f8378fb63b90aa122ff",
+            "6c6b7cd908773251333ef14a3ab5b53ffaa83fa8774f6f41569caef78b2bacfe"
+          ],
+          "visiblePixels": [
+            6742,
+            6343,
+            6009,
+            5944,
+            5549,
+            5273
+          ]
+        },
+        {
+          "state": "skill",
+          "pivot": [
+            64,
+            64
+          ],
+          "frameHashes": [
+            "78328c22e11f23e9e356293457faf95e8aa0acab665698d84289dfddb9ed49ac",
+            "a70a05ba084945cd5d6028a82aa7fb564cba2747db7eb793ffe87cc6422d9c75",
+            "26a4fc438797498a3992ba958bc19b785c18f3223bb8a6b54d38b7e8d8ef0a4d",
+            "12b428d9d46414cd0568f673e8469c19cf2f40fc209326acfcbc8bd06c7b21c2",
+            "5170efcbf14cbb5ac4b5844f6f07f0db3c07184397af85177b793c500a6243a0",
+            "a218cdce0f9c4d2fc6a266f8f447b179cf88ec306d65c0883282522cd900744b"
+          ],
+          "visiblePixels": [
+            6019,
+            5400,
+            5372,
+            5555,
+            5383,
+            5083
+          ]
+        },
+        {
+          "state": "advanced",
+          "pivot": [
+            64,
+            64
+          ],
+          "frameHashes": [
+            "f988140d8247cdc963fc8bcb8b1c289d068fd4578509c1632d41a0c38ebbfc0d",
+            "007d5360e48fcac1a6fd692cff26ac063c75726e48cac0ac33b20261d717d975",
+            "642a2a995b52b45840caaf7f9336f08b302a29f07e9049cc4e35450f509c8d73",
+            "86269fbda664d945f15d336c521ec4845bf2c24ad79b68ec212d7afe0253ef0e",
+            "491cce0033671497bc3fc08d61486467f2bc90ab26855bbd39408135b23fcd07",
+            "64e5a42f0a5d6377afc1ed8f6eda133fbdd1e8f05ffc077d98522f10446612c0"
+          ],
+          "visiblePixels": [
+            6196,
+            6627,
+            6159,
+            6770,
+            5850,
+            5723
+          ]
+        },
+        {
+          "state": "signature",
+          "pivot": [
+            64,
+            64
+          ],
+          "frameHashes": [
+            "577f56c221ecfdf20038582e9647d6ec3a3a39535cd49bb0565024a29cae232f",
+            "a9f4ebd04c5e886ddb4e0c314295289b42bf0ce94dd12525fcbc425ded46d2b8",
+            "0794f0669bd06f821d6e621914e0e40603bcf3c71fbb84923470a1a0f4bc9b81",
+            "60001f2248bd2267ac706f01bad121c37163df4d9f0224c422fb216c3eff9c76",
+            "00d52dcf68ede6c16e03d59fd81f165a832daf74dd00c0a16f2a0a35d4223de9",
+            "a02bd16910c154f976894e46d60d76e8cf7b66a75915628bfa7ab80eab411c68"
+          ],
+          "visiblePixels": [
+            6601,
+            6384,
+            6798,
+            7421,
+            5562,
+            5194
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -58,7 +58,7 @@ check.call('recortes de cenário contidos no atlas', scene_manifest.fetch('items
 end)
 check.call('cenários integrados sem marcador de dados pendente', built.include?('const CenariosV2=') && !built.include?('__CENARIOS_V2_'))
 check.call('nuvens e reconstrução integradas sem dados pendentes', built.include?('const CloudWorldV1=') && !built.include?('__CLOUD_WORLD_'))
-check.call('volume, interiores e luz integrados no passe correto', built.include?('const EnvironmentDepthV1=') && built.include?('EnvironmentDepthV1.sortY(p)') && built.include?('EnvironmentAtmosphereV1.drawLighting();drawCombatLayer();'))
+check.call('volume, interiores e luz integrados no passe correto', built.include?('const EnvironmentDepthV1=') && built.include?('EnvironmentDepthV1.sortY(p)') && built.include?('EnvironmentAtmosphereV1.drawLighting();HeroLegacyFX.drawOverlay();') && built.include?('HeroLegacyFX.drawGround();if(typeof BossChoreographyV2'))
 cloud_audit = JSON.parse(File.read(File.join(repo_root, 'assets/cloud-world/v1/VALIDACAO_EXPORTACAO.json')))
 check.call('oito quadros originais distintos para reconstrução', cloud_audit.fetch('uniqueFrames') == 8 && cloud_audit.fetch('frameHashes').uniq.length == 8)
 check.call('posição de save antigo nas nuvens possui migração', built.include?('repairLegacyCloudPosition') && built.include?('env2RemovedCloudCells'))
