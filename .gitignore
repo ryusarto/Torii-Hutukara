@@ -45,3 +45,6 @@ qa/boss-animations-v2/frames/
 
 # Full regression captures stay in CI artifacts; selected postgame evidence is versioned.
 qa/beta-1.9.0/*.png
+
+# Full 1.10.1 captures stay in CI artifacts.
+qa/beta-1.10.1/*.png

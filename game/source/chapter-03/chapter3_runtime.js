@@ -150,6 +150,16 @@ fresh=function(){const g=C3_freshBase();g.version=13;g.chapter=1;g.c3=C3.default
 const C3_revealAltBase=revealAlt;
 revealAlt=function(...args){const wasUnlocked=!!G?.flags.reveal;const r=C3_revealAltBase.apply(this,args);if(!wasUnlocked&&G?.flags.reveal){C3.ensureProgression(G);G.hp.alt=G.maxhp.alt}return r};
 
+// Historical save recovery predates the two playable musicians. A living,
+// unlocked musician in the saved formation must prevent defeat recovery.
+const C3_savedFormationAliveBase=savedFormationAlive10;
+savedFormationAlive10=function(s){
+  if(s&&Array.isArray(s.formation)){
+    const team=[...new Set(s.formation)].filter(id=>['franco','ryuchi',...(s.flags?.reveal?['alt']:[]),...(s.flags?.voicesKatana?['katana']:[]),...(s.c3?.synthUnlocked?['synth']:[]),...(s.c3?.percussionUnlocked?['percussion']:[])].includes(id)).slice(0,3);
+    if(team.some(id=>['synth','percussion'].includes(id)&&Number(s.hp?.[id]??s.maxhp?.[id]??(id==='synth'?44:46))>0))return true;
+  }
+  return C3_savedFormationAliveBase(s);
+};
 const C3_normalizeBase=normalizeSave;
 normalizeSave=function(raw){
   const original=raw?.progress||raw;if(!original||Number(original.version)>C3.VERSION)return null;const compat=copy(raw),compatProgress=compat?.progress||compat;if(Number(compatProgress.version)>=11)compatProgress.version=10;const g=C3_normalizeBase(compat);if(!g)return g;
@@ -164,7 +174,7 @@ normalizeSave=function(raw){
   const unlocked=['franco','ryuchi',...(g.flags.reveal?['alt']:[]),...(g.flags.voicesKatana?['katana']:[]),...(g.c3.synthUnlocked?['synth']:[]),...(g.c3.percussionUnlocked?['percussion']:[])];
   let team=[...new Set(original?.formation||g.formation||['franco','ryuchi'])].filter(id=>unlocked.includes(id)).slice(0,3);if(!team.length)team=['franco'];
   if(!team.some(id=>g.hp[id]>0)){const alive=unlocked.find(id=>g.hp[id]>0)||'franco';g.hp[alive]=Math.max(1,g.hp[alive]||g.maxhp[alive]);team=[alive]}
-  g.formation=team;if(!team.includes(g.active)||g.hp[g.active]<=0)g.active=team.find(id=>g.hp[id]>0)||team[0];
+  g.formation=team;if(team.includes(original.active)&&g.hp[original.active]>0)g.active=original.active;if(!team.includes(g.active)||g.hp[g.active]<=0)g.active=team.find(id=>g.hp[id]>0)||team[0];
   C3.ensureProgression(g);
   if(g.c3.started&&!g.c3.complete&&!C3.AREAS.includes(g.area)&&g.chapter===3&&g.area!=='studio'){g.area='sky_terminal';g.x=6.5;g.y=12.5}
   return g;

@@ -42,12 +42,12 @@ const PostGame={
  },
  safe(a,x,y){const fits=(px,py)=>[-.3,.3].every(dx=>[-.3,.3].every(dy=>tileWalkable(a,px+dx,py+dy)));if(fits(x,y))return {x,y};for(let radius=1;radius<Math.max(a.w,a.h);radius++)for(let dy=-radius;dy<=radius;dy++)for(let dx=-radius;dx<=radius;dx++)if(Math.max(Math.abs(dx),Math.abs(dy))===radius&&fits(Math.floor(x+dx)+.5,Math.floor(y+dy)+.5))return {x:Math.floor(x+dx)+.5,y:Math.floor(y+dy)+.5};return null},
  arrival(id){const a=areas[id];if(!a)return null;const incoming=Object.values(areas).flatMap(m=>m.gates.filter(g=>g.to===id));for(const g of incoming){const p=this.safe(a,g.tx,g.ty);if(p)return p}return this.safe(a,a.w/2,a.h/2)},
- canTravel(){return !!(G?.c3?.complete&&!bossActor&&!battle&&!['dialogue','rhythm','title'].includes(mode)&&!this.active())},
+ canTravel(){return !!(!(mode==='overlay'&&$('retryCheckpoint'))&&savedFormationAlive10(G)&&G?.c3?.complete&&!bossActor&&!battle&&!['dialogue','rhythm','title'].includes(mode)&&!this.active())},
  travel(id){
   if(!this.canTravel()||id===this.AREA||!areas[id])return false;const p=this.arrival(id);if(!p)return false;closeOverlay();setArea(id,p.x,p.y,false);setCheckpoint('post_travel',id,p.x,p.y,true);updateHUD();return true;
  },
  openTravel(){
-  if(!G?.c3?.complete)return false;if(['dialogue','rhythm','title'].includes(mode))return false;const allowed=this.canTravel(),labels=areaLabels();
+  if(!G?.c3?.complete||!savedFormationAlive10(G)||(mode==='overlay'&&$('retryCheckpoint')))return false;if(['dialogue','rhythm','title'].includes(mode))return false;const allowed=this.canTravel(),labels=areaLabels();
   const rows=Object.values(areas).filter(a=>a.id!==this.AREA).map(a=>`<button class="action" data-post-area="${a.id}" ${allowed?'':'disabled'}>${labels[a.id]?.[0]||a.id}${a.id===G.area?' · AQUI':''}</button>`).join('');
   enterMenu10(`<div class="eyebrow">HUTUKARA · CAMINHOS ABERTOS</div><h2>Viajar entre cenários</h2><p>${this.active()?'Encerre a expedição para viajar. Sua pontuação será registrada.':allowed?'As máscaras agora respondem à sua escolha.':'Conclua o combate para atravessar outra passagem.'}</p><div class="row">${rows}</div><hr class="divider"><div class="row"><button class="action strong" id="postDungeon" ${allowed?'':'disabled'}>CALABOUÇO INFINITO</button>${this.active()?'<button class="action" id="postAbandon">ENCERRAR EXPEDIÇÃO</button>':''}<button class="action" id="postMapClose">VOLTAR</button></div>`,'postgame');
   document.querySelectorAll('[data-post-area]').forEach(b=>b.onclick=()=>this.travel(b.dataset.postArea));$('postDungeon').onclick=()=>this.startDungeon();$('postMapClose').onclick=closeOverlay;if($('postAbandon'))$('postAbandon').onclick=()=>this.finishRun('exit');return true;
@@ -111,7 +111,7 @@ const postArea=setArea;setArea=function(id,...args){if(id==='last_torii')PostGam
 const postStory=C3.areaStory;C3.areaStory=function(id){if(id==='last_torii')return PostGame.intro();return postStory(id)};
 const postNPC=drawDetailedNPC;drawDetailedNPC=function(n,x,y){if(n.postReserve){if(PostGame.names[n.postHero])return drawActor({style:n.postHero,dir:c3NpcPose(n).dir},x,y,false);return postNPC({...n,id:n.postHero==='colli'?'c3_nara':'c3_maia'},x,y)}return postNPC(n,x,y)};
 const postMap=openMap;openMap=function(){if(G?.c3?.complete)return PostGame.openTravel();return postMap()};
-const postSystem=openSystem;openSystem=function(...args){const r=postSystem(...args);if(G?.c3?.complete){for(const [id,text,fn]of [['postSystemMap','CENÁRIOS · VIAGENS',()=>PostGame.openTravel()],['postSystemDungeon',PostGame.active()?'ENCERRAR EXPEDIÇÃO':'CALABOUÇO INFINITO',()=>PostGame.active()?PostGame.finishRun('exit'):PostGame.startDungeon()]]){const b=document.createElement('button');b.id=id;b.className='menu-entry10';b.textContent=text;b.onclick=fn;$('overlayInner').appendChild(b)}}return r};
+const postSystem=openSystem;openSystem=function(...args){const r=postSystem(...args);if(G?.c3?.complete&&mode==='overlay'&&menuPage10==='main'&&!$('retryCheckpoint')){for(const [id,text,fn]of [['postSystemMap','CENÁRIOS · VIAGENS',()=>PostGame.openTravel()],['postSystemDungeon',PostGame.active()?'ENCERRAR EXPEDIÇÃO':'CALABOUÇO INFINITO',()=>PostGame.active()?PostGame.finishRun('exit'):PostGame.startDungeon()]]){const b=document.createElement('button');b.id=id;b.className='menu-entry10';b.textContent=text;b.onclick=fn;$('overlayInner').appendChild(b)}}return r};
 const postCombatUnlocked=C3.combatUnlocked;C3.combatUnlocked=function(g=G){return !!(g?.c3?.complete&&g.area===PostGame.AREA)||postCombatUnlocked(g)};
 const postActors=enemyActors;enemyActors=function(){return PostGame.active()?current.enemies.filter(e=>e.hp>0):postActors()};
 const postXP=gainXP;gainXP=function(...args){if(PostGame.active())return;return postXP(...args)};
@@ -133,3 +133,16 @@ const postFinish=C3.finishSilence;C3.finishSilence=function(){if(G.c3.silenceDon
 C3.resumeEnding=function(){C3.scene('C3_025',()=>C3.scene('C3_026',()=>C3.scene('C3_027',()=>PostGame.complete())))};
 // Compatibility entry point for older pending epilogues/debug tools; never warps to the studio.
 C3.returnStudio=function(){return PostGame.complete()};C3.showEnding=function(){return PostGame.showEnding()};
+
+// Normalize dynamic areas before validating their existence. Do not replace the
+// current session or storage until the entire imported progress is accepted.
+importSave=function(file){
+ if(!file)return;const rd=new FileReader();rd.onload=()=>{try{
+  const raw=JSON.parse(rd.result),source=raw?.progress||raw;
+  if(!source||typeof source.flags!=='object'||!source.flags||!Number.isFinite(Number(source.x))||!Number.isFinite(Number(source.y)))throw Error('Arquivo não reconhecido');
+  const imported=normalizeSave(source);if(!imported||!areas[imported.area])throw Error('Versão de progresso incompatível');
+  G=imported;buildMaps();let persisted=true;try{localStorage.setItem(KEY,JSON.stringify(G))}catch{persisted=false}
+  $('start').classList.add('hidden');$('hud').style.display='block';closeOverlay();setArea(G.area,G.x,G.y,false);
+  toast(persisted?'PROGRESSO IMPORTADO':'PROGRESSO IMPORTADO · EXPORTE PARA GUARDAR');
+ }catch{toast('ARQUIVO DE SALVAMENTO INVÁLIDO')}};rd.readAsText(file);
+};

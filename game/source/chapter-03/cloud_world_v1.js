@@ -206,7 +206,7 @@ C3.syncCoop=function(force=false,...args){
   // pull P2 back every frame and turn the cloud edge into an invisible wall again.
   // Scene/member boundaries, walls and a centre already spawned in void still recover.
   if(!force&&CloudWorldV1.active()&&C3.coopActive()&&c.area===G.area&&c.game===G&&
-    c.actor123===C3.coopMember()&&tileWalkable(current,c.x,c.y)&&
+    c.actor123===C3.coopMember()&&Math.hypot(c.x-G.x,c.y-G.y)<=9.5&&tileWalkable(current,c.x,c.y)&&
     !canBody121(c.x,c.y)&&CloudWorldV1.canStep(c.x,c.y))return;
   return cloudSyncCoopV1.call(this,force,...args);
 };
@@ -268,6 +268,9 @@ drawTile=function(...args){if(!CloudWorldV1.tile(...args))return cloudTileV1(...
 const cloudActorV1=drawActor;
 drawActor=function(p,x,y,moving=false){
   const f=CloudWorldV1.fall;
+  // Keep a disconnected P2 in its captured fall, rather than also drawing its follower.
+  if(f?.coop&&p.style===f.hero&&(Math.abs(x-(f.body.x*T-cam.x))>2||Math.abs(y-(f.body.y*T-cam.y))>2))return;
+  if(f&&p.style===f.hero)f.drawn=true;
   if(!CloudWorldV1.enabled||!f||p.style!==f.hero||Math.abs(x-(f.body.x*T-cam.x))>2||Math.abs(y-(f.body.y*T-cam.y))>2)return cloudActorV1(p,x,y,moving);
   const t=Math.min(1,f.elapsed/f.duration),scale=1-.93*Math.pow(t,1.1),drop=18*t+128*t*t;
   f.drawn=true;
@@ -280,7 +283,7 @@ if(typeof drawEnv==='function'){
     if(CloudWorldV1.fall)CloudWorldV1.fall.drawn=false;
     const result=cloudEnvV1(...args),f=CloudWorldV1.fall;
     // A disconnected pad must not make a captured P2 fall disappear into a follower slot.
-    if(f&&CloudWorldV1.enabled&&!f.drawn)drawActor({style:f.hero,dir:f.dir},Math.round(f.body.x*T-cam.x),Math.round(f.body.y*T-cam.y),false);
+    if(f&&!f.drawn)drawActor({style:f.hero,dir:f.dir},Math.round(f.body.x*T-cam.x),Math.round(f.body.y*T-cam.y),false);
     return result;
   };
 }
