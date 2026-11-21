@@ -82,7 +82,7 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
    async function preload(hero,variant,state){
     await HeroAttackBody.sheet(hero,variant).decode();
     if(state==='run')assert(await RunStrideV1.image(hero).ready,'Missing running body sheet '+hero);
-    for(const name of new Set([state,'idle'])){
+    for(const name of new Set(state==='roll'?[state,'walk','idle']:[state,'idle'])){
      const image=art.image(art.key(hero,variant,name));assert(image,'Missing '+name);await image.decode();
      assert(image.naturalWidth===2048&&image.naturalHeight===1024,'Invalid atlas '+name);
     }
@@ -168,7 +168,7 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
      if(['walk','run','roll'].includes(state))assert(movement>.1,'Controller did not move actual actor');
      if(state==='defeat'){advance(1);const held=frame(hero,state,false);assert(held.state==='defeat'&&held.frame===7,'Defeat failed to hold');}
      else if(!cyclic){
-      let exited=false;for(let n=0;n<90;n++){step();const after=frame(hero,state,false);if(after.state!==state){assert(after.state==='idle','Wrong exit '+after.state);exited=true;break;}}
+      let exited=false;for(let n=0;n<90;n++){const moving=step();const after=frame(hero,state,moving);if(state==='roll'&&moving&&after.state==='walk')continue;if(after.state!==state){assert(after.state==='idle','Wrong exit '+after.state);exited=true;break;}}
       assert(exited,'Action never returns to idle');
      }
      result.frames=frames;result.sourceRects=rects;result.movement=Number(movement.toFixed(4));result.passed=true;
