@@ -1,0 +1,160 @@
+{
+  "version": "beta-1.8.0",
+  "sourceSha256": "b269abaaa2a6914e8a79d1dcb7a69951de5c7433fd4981fe9660b5ebc0578ef0",
+  "method": "Isolated desktop Chrome with phone viewport; static appearance screenshots and script-driven geometry/state checks. Not physical-device validation.",
+  "checks": [
+    {
+      "name": "Studio has a vertical transparent sofa and a clearly potted plant",
+      "passed": true,
+      "detail": {
+        "sofa": [
+          608,
+          1362
+        ],
+        "plant": [
+          777,
+          999
+        ],
+        "position": [
+          2,
+          6
+        ],
+        "sortY": 12
+      }
+    },
+    {
+      "name": "Furniture collision matches its new footprint and the rug, desk and exit remain reachable",
+      "passed": true,
+      "detail": {
+        "blocked": true,
+        "freed": true,
+        "rug": true,
+        "desk": true,
+        "exit": true,
+        "reachable": 293
+      }
+    },
+    {
+      "name": "Map rebuilds are idempotent and never accumulate sofa collision",
+      "passed": true,
+      "detail": true
+    },
+    {
+      "name": "Legacy cinema uses724x362 original panels instead of362x181 thumbnails",
+      "passed": true,
+      "detail": [
+        {
+          "area": "studio",
+          "size": [
+            724,
+            362
+          ]
+        },
+        {
+          "area": "chamber",
+          "size": [
+            724,
+            362
+          ]
+        },
+        {
+          "area": "city",
+          "size": [
+            724,
+            362
+          ]
+        },
+        {
+          "area": "ruins",
+          "size": [
+            724,
+            362
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Forest uses its own full-detail1672x941 background without the old neighboring-panel strip",
+      "passed": true,
+      "detail": {
+        "size": [
+          1672,
+          941
+        ],
+        "gradient": false
+      }
+    },
+    {
+      "name": "Desert backgrounds keep their1672x941 sources and do not use the legacy atlas",
+      "passed": true,
+      "detail": [
+        {
+          "area": "distortion",
+          "size": [
+            1672,
+            941
+          ],
+          "same": true
+        },
+        {
+          "area": "cloud",
+          "size": [
+            1672,
+            941
+          ],
+          "same": true
+        }
+      ]
+    },
+    {
+      "name": "Only the subtle cinema shade remains, without the duplicated inline filter",
+      "passed": true,
+      "detail": {
+        "inlineGradient": false,
+        "shade": "linear-gradient(rgba(12, 10, 20, 0.02) 0%, rgba(12, 10, 20, 0.03) 65%, rgba(12, 10, 20, 0.18) 100%)",
+        "rendering": "auto",
+        "filter": "none"
+      }
+    },
+    {
+      "name": "Late-loading backgrounds cannot reopen or replace a closed scene",
+      "passed": true,
+      "detail": {
+        "closed": true
+      }
+    },
+    {
+      "name": "Six city residents have24 authored transparent gestures registered with the real NPC layer",
+      "passed": true,
+      "detail": {
+        "size": [
+          448,
+          840
+        ],
+        "unique": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "registered": true,
+        "frames": [
+          0,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "name": "Phone-sized cinema stays within viewport and retains cover framing",
+      "passed": true,
+      "detail": {
+        "overflow": false,
+        "cover": "cover"
+      }
+    }
+  ],
+  "browserErrors": []
+}

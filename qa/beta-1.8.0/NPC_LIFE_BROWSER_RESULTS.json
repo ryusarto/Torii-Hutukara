@@ -1,0 +1,163 @@
+{
+  "version": "beta-1.8.0",
+  "sourceSha256": "b269abaaa2a6914e8a79d1dcb7a69951de5c7433fd4981fe9660b5ebc0578ef0",
+  "method": "Isolated Chrome, real maps and NPC layer advanced by script; screenshots inspected separately; not physical input or full campaign validation",
+  "checks": [
+    {
+      "name": "All actual map residents preserve callbacks and quest state while acting safely for60seconds per map",
+      "passed": true,
+      "detail": {
+        "maps": [
+          {
+            "area": "city",
+            "npcs": 6,
+            "movingTicks": 0,
+            "activities": [
+              "idle",
+              "look",
+              "work",
+              "gesture"
+            ]
+          },
+          {
+            "area": "voices",
+            "npcs": 6,
+            "movingTicks": 159,
+            "activities": [
+              "idle",
+              "work",
+              "look",
+              "gesture",
+              "wander",
+              "return"
+            ]
+          },
+          {
+            "area": "bento_shop",
+            "npcs": 1,
+            "movingTicks": 0,
+            "activities": [
+              "idle",
+              "gesture",
+              "look",
+              "work"
+            ]
+          },
+          {
+            "area": "radio9",
+            "npcs": 1,
+            "movingTicks": 0,
+            "activities": [
+              "idle",
+              "look",
+              "work",
+              "gesture"
+            ]
+          },
+          {
+            "area": "distortion_district",
+            "npcs": 2,
+            "movingTicks": 345,
+            "activities": [
+              "idle",
+              "work",
+              "wander",
+              "look",
+              "return",
+              "gesture"
+            ]
+          },
+          {
+            "area": "contratempo",
+            "npcs": 2,
+            "movingTicks": 372,
+            "activities": [
+              "idle",
+              "wander",
+              "look",
+              "return",
+              "gesture",
+              "work"
+            ]
+          },
+          {
+            "area": "power_plant",
+            "npcs": 2,
+            "movingTicks": 159,
+            "activities": [
+              "idle",
+              "look",
+              "work",
+              "gesture",
+              "wander",
+              "return"
+            ]
+          },
+          {
+            "area": "sky_canal",
+            "npcs": 3,
+            "movingTicks": 345,
+            "activities": [
+              "idle",
+              "wander",
+              "look",
+              "work",
+              "return",
+              "gesture"
+            ]
+          },
+          {
+            "area": "ciro_workshop",
+            "npcs": 1,
+            "movingTicks": 197,
+            "activities": [
+              "idle",
+              "wander",
+              "look",
+              "return",
+              "work",
+              "gesture"
+            ]
+          },
+          {
+            "area": "last_torii",
+            "npcs": 2,
+            "movingTicks": 0,
+            "activities": [
+              "idle",
+              "work",
+              "gesture",
+              "look"
+            ]
+          }
+        ],
+        "violations": []
+      }
+    },
+    {
+      "name": "Belga is outside the actual tools desk even when loading next to him; interaction references remain intact",
+      "passed": true,
+      "detail": {
+        "x": 18,
+        "y": 9.2,
+        "free": true,
+        "same": true,
+        "anchor": 9.2
+      }
+    },
+    {
+      "name": "Actual map pause/dialogue/combat freeze state and resume without a catch-up jump",
+      "passed": true,
+      "detail": {
+        "results": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "states": 2
+      }
+    }
+  ],
+  "browserErrors": []
+}

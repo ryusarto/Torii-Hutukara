@@ -1,0 +1,36 @@
+{
+  "tool": "ImageGen integrado",
+  "technicalExport": "Recorte retangular com margem de8px em torno da silhueta; pixels RGBA internos preservados, sem pintura, remoção de fundo ou rotação.",
+  "assets": {
+    "sofa_vertical": {
+      "file": "sofa_vertical.png",
+      "source": "source/sofa_vertical.png",
+      "crop": [
+        165,
+        92,
+        773,
+        1454
+      ],
+      "size": [
+        608,
+        1362
+      ],
+      "sha256": "34a20b70d3960b0869ff432eec8b2b977d91bb5743dc5d137d6003107d5a6d42"
+    },
+    "plant_potted": {
+      "file": "plant_potted.png",
+      "source": "source/plant_potted.png",
+      "crop": [
+        107,
+        259,
+        884,
+        1258
+      ],
+      "size": [
+        777,
+        999
+      ],
+      "sha256": "1671505adddc846268c6f8dfdb2fd6c0b874a82b08bb172a12755ee1a686c4f8"
+    }
+  }
+}
