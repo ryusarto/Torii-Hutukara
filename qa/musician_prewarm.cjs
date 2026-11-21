@@ -4,6 +4,7 @@
  */
 const fs=require('node:fs'),path=require('node:path');
 const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
+const hitchMs=Math.max(0,Math.min(500,Number(process.env.MUSICIAN_COLD_HITCH_MS)||0));
 const output=process.env.COLD_ATLAS_OUTPUT||path.join(__dirname,'PREWARM_FRIO_200MS.json');
 (async()=>{
  let browser;const cases=[];
@@ -45,17 +46,23 @@ const output=process.env.COLD_ATLAS_OUTPUT||path.join(__dirname,'PREWARM_FRIO_20
      return {entryWaitRequestedMs:200,entryWaitMs:performance.now()-window.__prewarmEntry,idleKey:art.key(hero,variant,'idle'),actionKey:key,actionAbsent:!art.images[key],actionReady:!!(art.images[key]?.complete&&art.images[key]?.naturalWidth),cacheSize:Object.keys(art.images).length,
       metadata:typeof ToriiPlaytest!=='undefined'?{version:ToriiPlaytest.version,sourceSha:ToriiPlaytest.sourceSha256}:null};
     },{hero,variant,cache});
-    const result=await page.evaluate(async({hero,variant})=>{
+    const result=await page.evaluate(async({hero,variant,hitchMs})=>{
      const art=MusicianArtV1,actionKey=art.key(hero,variant,'attack_1'),idleKey=art.key(hero,variant,'idle');
      const previous=ctx.drawImage,timeline=[],start=performance.now(),startTick=tick;
-     let image=null,loaded=null,decoded=null,decodeError=null,actionEnded=null;
+     let image=null,loaded=null,decoded=null,decodeError=null,actionEnded=null,hitch=null;
      const rafIntervals=[];let lastRaf=null,probeRunning=true;
      const probe=now=>{if(!probeRunning)return;if(lastRaf!==null)rafIntervals.push(now-lastRaf);lastRaf=now;requestAnimationFrame(probe)};requestAnimationFrame(probe);
      const stamp=()=>({wallMs:performance.now()-start,gameMs:(tick-startTick)*1000,elapsed:art.players[0]?.elapsed??null});
      ctx.drawImage=function(...args){
       const actual=args[0],key=actual===image?actionKey:actual===art.images[idleKey]?idleKey:null;
       if(key){const point=stamp();timeline.push({...point,key,uri:actual.currentSrc||actual.src,frame:args[1]/256,row:args[2]/256});}
-      return previous.apply(this,args);
+      const result=previous.apply(this,args);
+      if(key===actionKey&&args[1]/256===2&&hitchMs&&!hitch){
+       const start=performance.now();hitch={frame:2,requestedMs:hitchMs};
+       while(performance.now()-start<hitchMs){}
+       hitch.actualMs=performance.now()-start;
+      }
+      return result;
      };
      try{
       attackAction();const record=art.players[0];
@@ -69,19 +76,19 @@ const output=process.env.COLD_ATLAS_OUTPUT||path.join(__dirname,'PREWARM_FRIO_20
       const timer=setInterval(observe,5);
       await new Promise(resolve=>setTimeout(resolve,900));clearInterval(timer);probeRunning=false;observe();
       const actionFrames=timeline.filter(p=>p.key===actionKey),idleDuring=timeline.filter(p=>p.key===idleKey&&p.elapsed<record.duration);
-      return {duration:record.duration,accepted:true,loaded,decoded,decodeError,actionEnded,timeline,rafIntervals,
+      return {duration:record.duration,accepted:true,loaded,decoded,decodeError,actionEnded,timeline,rafIntervals,hitch,
        firstActionDraw:actionFrames[0]||null,visibleFrames:[...new Set(actionFrames.map(p=>p.frame))],
        actionDrawCount:actionFrames.length,idleWhileActionCount:idleDuring.length,
        entireActionInvisible:actionFrames.length===0,cacheSize:Object.keys(art.images).length};
      }finally{ctx.drawImage=previous}
-    },{hero,variant});
+    },{hero,variant,hitchMs});
     cases.push({hero,variant,cache,latencyMs,titleCache,...setup,...result,network,errors});
     console.log(JSON.stringify({hero,variant,cache,latencyMs,duration:result.duration,decodeWallMs:result.decoded?.wallMs,
      decodeElapsed:result.decoded?.elapsed,firstDrawMs:result.firstActionDraw?.wallMs,visibleFrames:result.visibleFrames,
      entireActionInvisible:result.entireActionInvisible,idleWhileActionCount:result.idleWhileActionCount}));
    }finally{await context.close()}
   }
-  const result={cases,method:'native RAF and actual attackAction/drawEnv/drawActor; only target PNG request delayed; no module or frame substitution',
+  const result={cases,injectedMainThreadHitchMs:hitchMs,method:'native RAF and actual attackAction/drawEnv/drawActor; only target PNG request delayed; no module or frame substitution',
    conclusion:{entryCases:cases.length,complete:cases.filter(c=>c.visibleFrames.length===8).length,
     incomplete:cases.filter(c=>c.visibleFrames.length<8).length,invisible:cases.filter(c=>c.entireActionInvisible).length}};
   result.contractPassed=cases.length===4&&cases.every(c=>!c.actionAbsent&&c.titleCache===0&&c.cacheSize<=8&&c.accepted&&!c.decodeError&&c.errors.length===0);

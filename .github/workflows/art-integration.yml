@@ -29,6 +29,7 @@ jobs:
         run: |
           node qa/protagonist_state.cjs
           node qa/musician_art_unit.cjs
+          node qa/musician_presentation_unit.cjs
           node qa/run_art_integration.cjs
       - name: Retain test evidence
         if: always()

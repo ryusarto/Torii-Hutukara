@@ -1,3 +1,10 @@
+## [Beta 1.7.1] — 2026-11-20
+
+- Corrige quadros pulados em attack_1/2/3 de Franco Sintetizador e Ryuchi Percussionista, nas duas máscaras e em P1/P2. Cursor avança somente após desenho real e preserva poses intermediárias em picos de frame time.
+- Decodificação antecipada dos atlas essenciais; conclusão visual de ataque já exibido limitada a100ms de simulação ativa, interrompida por novas ações, dano, esquiva ou movimento. Nenhuma espera para input e nenhum novo golpe após término do prazo.
+- 72 cenários de ataque aprovados (antes50/72);111 verificações focadas;208 sequências/48 transições preservadas. RAF nativo com carregamento150ms e travada180ms mostra as oito poses em4/4 combinações de personagem/máscara.
+- Preserva os efeitos de chão dos chefes da1.7, a arte e os tempos de combate. Evidências em qa/beta-1.7.1/.
+
 ## [Beta 1.7.0] — 2026-11-18
 
 - Quatro sequências de oito sprites animados para os golpes no chão: onda âmbar do Viajante, interferência elétrica do Arauto, poeira/sucata do Metrônomo e vórtice oxidado do Silêncio.
@@ -404,4 +411,3 @@ Correções preparadas no PR #8 e integradas junto às novas artes na Beta 1.2.
 
 - Última base preservada antes da integração do Capítulo 3 completo.
 - Arquivo original mantido em `game/source/base/` com hash de verificação.
-

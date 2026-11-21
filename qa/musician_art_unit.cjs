@@ -110,6 +110,7 @@ let poses = 0, sequences = 0;
       h.G.hp[id] = state === 'defeat' ? 0 : 100;
       art.setVariant(id, variant); art.mark(0, id, state, .8, directions[row]);
       for (let frame = 0; frame < 8; frame++) {
+        h.update(1/60); // A distinct render tick; queries alone never consume an attack pose.
         art.players[0].elapsed = frame * .1 + .00001;
         h.drawActor({style: id, dir: 'down'}, 72, 96, false);
         const draw = draws.at(-1);
