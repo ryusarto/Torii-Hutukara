@@ -71,7 +71,7 @@ const PostGame={
   if(!G?.c3?.complete||!savedFormationAlive10(G)||(mode==='overlay'&&$('retryCheckpoint')))return false;if(['dialogue','rhythm','title'].includes(mode))return false;const allowed=this.canTravel();
   const rows=this.chapters.map(c=>`<button class="action" data-post-area="${c.area}" ${allowed?'':'disabled'}>${c.label}<br><small>${c.name}${c.area===G.area?' · AQUI':''}</small></button>`).join('');
   enterMenu10(`<div class="eyebrow">HUTUKARA · CAMINHOS ABERTOS</div><h2>Escolha um capítulo</h2><p>${this.active()?'Encerre a expedição para viajar. Sua pontuação será registrada.':allowed?'Volte ao centro de um capítulo e continue explorando. Sua equipe, história e progresso permanecem preservados.':'Conclua o combate para atravessar outra passagem.'}</p><div class="row">${rows}</div><hr class="divider"><div class="row"><button class="action strong" id="postDungeon" ${allowed?'':'disabled'}>CALABOUÇO INFINITO</button>${this.active()?'<button class="action" id="postAbandon">ENCERRAR EXPEDIÇÃO</button>':''}<button class="action" id="postMapClose">VOLTAR</button></div>`,'postgame');
-  document.querySelectorAll('[data-post-area]').forEach(b=>b.onclick=()=>this.travel(b.dataset.postArea));$('postDungeon').onclick=()=>this.startDungeon();$('postMapClose').onclick=closeOverlay;if($('postAbandon'))$('postAbandon').onclick=()=>this.finishRun('exit');return true;
+  document.querySelectorAll('[data-post-area]').forEach(b=>b.onclick=()=>this.travel(b.dataset.postArea));$('postDungeon').onclick=()=>this.startDungeon();$('postMapClose').onclick=closeOverlay;if($('postAbandon'))$('postAbandon').onclick=()=>this.confirmExit(()=>this.openTravel());return true;
  },
  clearCombat(){battle=bossActor=null;hostileShots=[];projectiles=[];combatFX.length=0;C3.hazards=[];C3.synthZones=[];C3.finalPending=false;C3.percussionGuard=0;resetMotion10();act.slash=act.hit=act.cool=0;act.invuln=1;C3.coop.area='';$('actionHUD').classList.add('hidden')},
  complete(){
@@ -112,10 +112,31 @@ const PostGame={
    const card=this.cards[id],level=(r.upgrades[id]||0)+1;
    return `<button type="button" class="action" style="min-height:44px" data-echo-card="${id}"><b>${card.name} · Nv. ${level}</b><br><small>${card.text}<br>${this.cardValue(id,level-1)} → ${this.cardValue(id,level)}</small></button>`;
   }).join('');
-  enterMenu10(`<div class="eyebrow">FENDA · ONDA ${r.wave} CONCLUÍDA</div><h2>Escolha uma melhoria</h2><p>Vale para toda a equipe até o fim desta tentativa. A vida perdida não volta.</p><div class="row">${rows}</div><button class="action" id="postLeaveDraft">Encerrar expedição</button>`,'postgame');
+  // O resultado da onda fica dentro do painel: um aviso solto ficaria por cima das cartas.
+  this.hideToast();const result=r.lastWave&&r.lastWave.wave===r.wave?` · +${r.lastWave.bonus} PTS${r.lastWave.clean?' · SEM DANO':''} · TOTAL ${r.score}`:'';
+  enterMenu10(`<div class="eyebrow">FENDA · ONDA ${r.wave} CONCLUÍDA${result}</div><h2>Escolha uma melhoria</h2><p>Vale para toda a equipe até o fim desta tentativa. A vida perdida não volta.</p><div class="row">${rows}</div><button class="action" id="postLeaveDraft">Encerrar expedição</button>`,'postgame');
   const wave=r.wave,buttons=document.querySelectorAll('[data-echo-card]');
   for(const b of buttons)b.onclick=()=>this.choose(b.dataset.echoCard,wave);
-  $('postLeaveDraft').onclick=()=>this.finishRun('exit');buttons[0]?.focus();
+  $('postLeaveDraft').onclick=()=>this.confirmExit(closeOverlay);buttons[0]?.focus();
+ },
+ // Dano é permanente: ao carregar, a vida gravada vira a vida da onda. Por isso o
+ // ferimento precisa ir para o save, mas sem gravar a cada golpe (cada gravação
+ // serializa o save inteiro na thread principal). Junta os ferimentos e grava no
+ // máximo a cada SAVE_EVERY segundos; fechar, recarregar ou esconder a página grava na hora.
+ SAVE_EVERY:2,
+ // O que foi gravado por último: a própria tentativa (objeto), a onda, a fase e a vida.
+ // Tentativa nova, save trocado ou importado são outro objeto e sempre gravam.
+ savedMark(){const r=this.run();return{run:r,wave:r?.wave,phase:r?.phase,hp:{...G.hp}}},
+ unsaved(){const r=this.run(),m=this.saved;if(r?.phase!=='fight'||!m||m.run!==r||m.wave!==r.wave||m.phase!==r.phase)return true;return Object.keys(G.hp).some(id=>G.hp[id]!==m.hp[id])},
+ flush(){if(this.dirty&&this.active())save(true)},
+ hideToast(){if(typeof toastTimeout!=='undefined'&&toastTimeout)clearTimeout(toastTimeout);$('toast')?.classList.add('hidden')},
+ // Encerrar apaga a tentativa: sempre pede confirmação. O foco começa em CONTINUAR,
+ // para que um toque ou botão A repetido não encerre a expedição sem querer.
+ confirmExit(back=closeOverlay){
+  if(!this.active())return false;if(typeof document==='undefined')return this.finishRun('exit');
+  const r=this.run();this.hideToast();
+  enterMenu10(`<div class="eyebrow">FENDA · ${r.score} PTS · ${r.completedWave} ${r.completedWave===1?'ONDA':'ONDAS'}</div><h2>Encerrar a expedição?</h2><p>Não dá para retomar. Os pontos vão para o placar e a equipe volta ao Torii como estava na campanha.</p><div class="row"><button class="action strong" id="postExitBack">CONTINUAR NA FENDA</button><button class="action" id="postExitConfirm">ENCERRAR EXPEDIÇÃO</button></div>`,'postgame');
+  $('postExitBack').onclick=()=>back();$('postExitConfirm').onclick=()=>this.finishRun('exit');$('postExitBack').focus();return true;
  },
  choose(id,wave){
   const r=this.run();if(!this.active()||r.phase!=='rest'||r.wave!==wave||!this.offers(r).includes(id))return false;
@@ -138,11 +159,9 @@ const PostGame={
  damageSnapshot(){this.markMode();return Object.fromEntries(Object.keys(this.names).map(id=>[id,G.hp[id]||0]))},
  observeDamage(before){
   const r=this.run();if(!this.active()||!r||r.phase!=='fight')return;
-  let hurt=false;
   for(const id of Object.keys(before))if((G.hp[id]||0)<before[id]){
-   hurt=true;r.clean=false;if(before[id]>0&&G.hp[id]<=0)r.knockouts++;
+   this.dirty=true;r.clean=false;if(before[id]>0&&G.hp[id]<=0)r.knockouts++;
   }
-  if(hurt)save(true);
  },
  random(seed){let s=seed>>>0||1;return ()=>{s^=s<<13;s^=s>>>17;s^=s<<5;return(s>>>0)/4294967296}},
  wavePlan(seed,wave,seats=1){
@@ -154,7 +173,9 @@ const PostGame={
 
  buildArena(){
   const a=C3.room(this.AREA,28,23,'c3_voidfloor');for(const [x,y]of [[2,2],[25,2]]){solid(a,x,y);prop(a,'env2_prop',x,y,{item:'core_column_left',w:30,h:88})}prop(a,'env2_prop',13,10,{item:'resonance_circle_on',w:100,h:70,flat:true});
-  evt(a,'endless_exit',14,2,'ENCERRAR EXPEDIÇÃO',()=>this.finishRun('exit'));return a;
+  // Sem ponto de saída na arena: encostar nele no meio da luta encerrava a tentativa.
+  // Para sair: painel entre ondas, M (viagens) ou menu do sistema, sempre com confirmação.
+  return a;
  },
  startDungeon(seed){
   if(!this.canTravel())return false;
@@ -194,12 +215,13 @@ const PostGame={
   if(r._resume){this.beginWave(true);return}
   if(C3.coopActive())r.mode='coop';
   r.elapsed=Math.min(this.MAX_SCORE,r.elapsed+dt);
+  this.sinceSave=(this.sinceSave||0)+dt;if(this.dirty&&this.sinceSave>=this.SAVE_EVERY)this.flush();
   // A disconnected/KO partner never leaves a solo player with the larger queue.
   if(r.waveSeats===2&&!C3.coopActive()){r.waveSeats=1;const count=this.profile(r.wave,1).count;this.plan.length=Math.max(r.cursor+(r.pending?1:0),Math.min(this.plan.length,count));}
   if(r.pending){r.pending.time=Math.max(0,r.pending.time-dt);if(!r.pending.time)this.materialize()}
   this.spawnClock+=dt;if(this.spawnClock>=this.profile(r.wave,r.waveSeats).cadence){this.spawnClock=0;this.spawn()}
   if(!r.pending&&r.cursor>=this.plan.length&&current.enemies.every(e=>e.hp<=0)){
-   const bonus=this.waveValue(r);r.score=Math.min(this.MAX_SCORE,r.score+bonus);r.combo=r.knockouts?Math.max(0,r.combo-2):Math.min(5,r.combo+1);r.bankedScore=r.score;r.bankedKills=r.kills;r.bankedElapsed=r.elapsed;r.completedWave=r.wave;r.phase='rest';r.wait=0;battle=null;mode='walk';this.clearCombat();this.best();save(true);updateHUD();toast('ONDA '+r.wave+' · +'+bonus+' PTS'+(r.clean?' · SEM DANO!':''));this.showDraft();
+   const bonus=this.waveValue(r);r.score=Math.min(this.MAX_SCORE,r.score+bonus);r.combo=r.knockouts?Math.max(0,r.combo-2):Math.min(5,r.combo+1);r.bankedScore=r.score;r.bankedKills=r.kills;r.bankedElapsed=r.elapsed;r.completedWave=r.wave;r.phase='rest';r.lastWave={wave:r.wave,bonus,clean:r.clean};r.wait=0;battle=null;mode='walk';this.clearCombat();this.best();save(true);updateHUD();this.showDraft();
   }
  },
 
@@ -238,7 +260,7 @@ const postArea=setArea;setArea=function(id,...args){if(id==='last_torii')PostGam
 const postStory=C3.areaStory;C3.areaStory=function(id){if(id==='last_torii')return PostGame.intro();return postStory(id)};
 const postNPC=drawDetailedNPC;drawDetailedNPC=function(n,x,y){if(n.postReserve){if(PostGame.names[n.postHero])return drawActor({style:n.postHero,dir:c3NpcPose(n).dir},x,y,false);return postNPC({...n,id:n.postHero==='colli'?'c3_nara':'c3_maia'},x,y)}return postNPC(n,x,y)};
 const postMap=openMap;openMap=function(){if(G?.c3?.complete)return PostGame.openTravel();return postMap()};
-const postSystem=openSystem;openSystem=function(...args){const r=postSystem(...args);if(G?.c3?.complete&&mode==='overlay'&&menuPage10==='main'&&!$('retryCheckpoint')){for(const [id,text,fn]of [['postSystemMap','CAPÍTULOS · VIAGENS',()=>PostGame.openTravel()],['postSystemDungeon',PostGame.active()?'ENCERRAR EXPEDIÇÃO':'CALABOUÇO INFINITO',()=>PostGame.active()?PostGame.finishRun('exit'):PostGame.startDungeon()]]){const b=document.createElement('button');b.id=id;b.className='menu-entry10';b.textContent=text;b.onclick=fn;$('overlayInner').appendChild(b)}}return r};
+const postSystem=openSystem;openSystem=function(...args){const r=postSystem(...args);if(G?.c3?.complete&&mode==='overlay'&&menuPage10==='main'&&!$('retryCheckpoint')){for(const [id,text,fn]of [['postSystemMap','CAPÍTULOS · VIAGENS',()=>PostGame.openTravel()],['postSystemDungeon',PostGame.active()?'ENCERRAR EXPEDIÇÃO':'CALABOUÇO INFINITO',()=>PostGame.active()?PostGame.confirmExit():PostGame.startDungeon()]]){const b=document.createElement('button');b.id=id;b.className='menu-entry10';b.textContent=text;b.onclick=fn;$('overlayInner').appendChild(b)}}return r};
 const postCombatUnlocked=C3.combatUnlocked;C3.combatUnlocked=function(g=G){return !!(g?.c3?.complete&&g.area===PostGame.AREA)||postCombatUnlocked(g)};
 const postActors=enemyActors;enemyActors=function(){return PostGame.active()?current.enemies.filter(e=>e.hp>0):postActors()};
 const postXP=gainXP;gainXP=function(...args){if(PostGame.active())return;return postXP(...args)};
@@ -250,8 +272,12 @@ const postHit=hitEnemy;hitEnemy=function(e,...args){if(!PostGame.active()||!e?.e
  args[0]=Math.round(args[0]*(1+bonus));
  if(args[1]===undefined)args[1]=.15;
  if(args[1]>0)args[1]*=1+perk('stagger');
- const shards=G.shards;PostGame.resolvingHit=true;try{postHit(e,...args)}finally{PostGame.resolvingHit=false;G.shards=shards;G.defeated=G.defeated.filter(id=>!id.startsWith('endless_'))}if(e.hp<=0&&!e.endlessScored){e.endlessScored=true;const r=PostGame.run();r.kills++;G.resonance=Math.min(100,G.resonance+PostGame.bonus('charge',r));r.score=Math.min(PostGame.MAX_SCORE,r.score+Math.round(PostGame.killValue(e.type,r.wave,e.endlessElite)*PostGame.multiplier(r)));current.enemies=current.enemies.filter(n=>n.hp>0);PostGame.best();save(true);updateHUD()}};
-const postSave=save;save=function(silent=false){if(PostGame.resolvingHit)return;if(PostGame.active()){PostGame.markMode();try{localStorage.setItem(KEY,JSON.stringify(G));if(!silent)toast('EXPEDIÇÃO SALVA · A ONDA ATUAL RECOMEÇA AO CARREGAR')}catch{if(!silent)toast('Use EXPORTAR SAVE para guardar a expedição.')}return}return postSave(silent)};
+ const shards=G.shards;PostGame.resolvingHit=true;try{postHit(e,...args)}finally{PostGame.resolvingHit=false;G.shards=shards;G.defeated=G.defeated.filter(id=>!id.startsWith('endless_'))}if(e.hp<=0&&!e.endlessScored){e.endlessScored=true;const r=PostGame.run();r.kills++;G.resonance=Math.min(100,G.resonance+PostGame.bonus('charge',r));r.score=Math.min(PostGame.MAX_SCORE,r.score+Math.round(PostGame.killValue(e.type,r.wave,e.endlessElite)*PostGame.multiplier(r)));current.enemies=current.enemies.filter(n=>n.hp>0);PostGame.best();updateHUD()}};
+const postSave=save;save=function(silent=false){if(PostGame.resolvingHit)return;if(PostGame.active()){// No meio da onda, o jogo base também grava ao fim de cada embate. Se esta onda já está
+ // gravada e a vida não mudou, não há nada novo para o save (a onda recomeça ao carregar).
+ if(silent&&!PostGame.unsaved())return;
+ PostGame.markMode();PostGame.dirty=false;PostGame.sinceSave=0;PostGame.saved=PostGame.savedMark();try{localStorage.setItem(KEY,JSON.stringify(G));if(!silent)toast('EXPEDIÇÃO SALVA · A ONDA ATUAL RECOMEÇA AO CARREGAR')}catch{if(!silent)toast('Use EXPORTAR SAVE para guardar a expedição.')}return}return postSave(silent)};
+if(typeof addEventListener==='function'){addEventListener('pagehide',()=>PostGame.flush());if(typeof document!=='undefined')document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')PostGame.flush()})}
 // The legacy exporter substitutes a checkpoint during combat; expeditions
 // instead export the bounded current-wave checkpoint held in G.postgame.
 const postExportSave=exportSave;exportSave=function(...args){if(!PostGame.active())return postExportSave(...args);const previous=battle;battle=null;try{return postExportSave(...args)}finally{battle=previous}};

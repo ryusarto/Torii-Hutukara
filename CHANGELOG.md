@@ -1,3 +1,10 @@
+## [Calabouço · correções rápidas] — 2026-11-21
+
+- **Encerrar expedição pede confirmação.** Vale para o painel entre ondas, o mapa (M) e o menu do sistema. O foco começa em CONTINUAR NA FENDA, para um toque ou botão A repetido não apagar a tentativa.
+- **Sem ponto de saída dentro da arena.** Encostar nele no meio da luta encerrava a expedição na hora.
+- **O resultado da onda aparece no painel de melhorias** ("ONDA 2 CONCLUÍDA · +275 PTS · TOTAL …"), e não num aviso por cima das cartas. Qualquer aviso aberto some quando o painel abre.
+- **Menos gravações durante a onda.** O dano continua permanente: ao carregar, a vida gravada vira a vida da onda. Os ferimentos são agrupados e gravados no máximo a cada 2 s, e na hora ao fechar, recarregar ou esconder a página. Abates não gravam mais, e o jogo base deixa de gravar ao fim de cada embate quando nada mudou. Em 8 ondas com o robô: de 60 para 24 gravações.
+
 ## [Beta 1.15.0] — 2026-11-21
 
 - A vibração das cordas acompanha os golpes de baixo do Franco. No super, um pulso âmbar sai do instrumento na direção dos adversários. A espada do Ryuchi deixa um corte sonoro, e a katana abre um traço de tinta violeta.
