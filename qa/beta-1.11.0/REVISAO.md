@@ -51,3 +51,7 @@ DEVICE=mobile ROTA=canal RECARREGAR=120 node qa/campaign_review.cjs http://127.0
 ```
 
 Configurar `PLAYWRIGHT_CORE` e `CHROME_PATH` se necessário. São testes automatizados em Chrome isolado com emulação e frames controlados; não houve campanha humana, aparelho físico, Safari real ou controle físico. Eles comprovam seleção de quadros e continuidade, sem garantir FPS/fluidez percebida em hardware de baixo desempenho. A integração e publicação são rastreadas no PR e no workflow do GitHub.
+
+## Correção da validação de publicação
+
+A primeira tentativa da 1.11 foi interrompida antes do upload por um teste histórico que ainda exigia as colisões das seis residências. O contrato agora permite exatamente as 62 células liberadas pelas casas removidas em (9,9) e (21,8), preserva as oito células compartilhadas com a Oficina e compara todas as demais colisões, tiles e portais dos 25 mapas. Os 13 testes desérticos passaram na mesma build acima; evidência em `DESERT_COLLISION_RESULTS.json`. Não houve alteração do código ou dos assets do jogo nesta correção.
