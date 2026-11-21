@@ -122,4 +122,9 @@ test('secondary C2 houses retain a domestic silhouette rather than all becoming 
  assert.equal(s.depth.assetKey({type:'voiceHouse',sign:'LOJA DE DISCOS'}),'c2_shop');
  assert.equal(s.depth.assetKey({type:'c3_house'}),null);
 });
+test('studio furniture retains its explicit ground anchor when architectural sorting is enabled or disabled',()=>{
+ const s=fixture('studio'),sofa={type:'sofa',x:2,y:6,worldGroundY:12};
+ assert.equal(s.depth.sortY(sofa),12);s.depth.enabled=false;assert.equal(s.depth.sortY(sofa),12);
+ assert.equal(s.depth.sortY({type:'table',x:4,y:8}),8.5);
+});
 console.log(JSON.stringify({suite:'environment-depth-v1',passed,visualAcceptance:false}));

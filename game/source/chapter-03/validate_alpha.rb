@@ -94,6 +94,18 @@ check.call('56 imagens V5 completas com alpha e dimensões corretas', protagonis
   header.byteslice(16, 8).unpack('NN') == expected && header.getbyte(25) == 6
 end)
 check.call('protagonistas V5 integrados sem marcadores pendentes', built.include?('const ProtagonistArtV5') && !built.include?('__PROTAGONIST_'))
+locomotion_root = File.join(repo_root, 'assets', 'protagonistas', 'v6-locomocao')
+locomotion = JSON.parse(File.read(File.join(locomotion_root, 'manifest.json')))
+check.call('corrida V6: 16 sequências de 12 poses, fechamento e ciclo de 520ms', locomotion.fetch('animations').size == 16 && locomotion.fetch('animations').all? do |a|
+  a['state'] == 'run' && a['frames'] == 13 && a['playFrames'] == 12 && a['frameDurationsMs'].sum == 520 && a['cycleMs'] == 520
+end)
+check.call('corrida V6: dois atlas RGBA 3328x2048', locomotion.fetch('animations').map { |a| a.fetch('atlas') }.uniq.size == 2 && locomotion.fetch('animations').all? do |a|
+  header = File.binread(File.join(locomotion_root, a.fetch('atlas')), 26)
+  header.getbyte(25) == 6 && header.byteslice(16, 8).unpack('NN') == [3328, 2048]
+end)
+check.call('estúdio, IA e gestos dos NPCs integrados', %w[WorldPolishV1 NpcLifeV1 NpcGesturesV1].all? { |name| built.include?("const #{name}") } && !built.include?('__WORLD_POLISH_') && !built.include?('__NPC_GESTURES_'))
+forest_header = File.binread(File.join(repo_root, 'assets', 'dialogue', 'v2', 'forest.png'), 26)
+check.call('floresta cinematográfica em 1672x941', forest_header.byteslice(16, 8).unpack('NN') == [1672, 941] && !built.include?('__CINEMA_FOREST__'))
 dialogue_ids = JSON.parse(File.read(dialogues, encoding: 'UTF-8')).fetch('scenes').map { |scene| scene.fetch('id') }
 
 expected_areas = %w[

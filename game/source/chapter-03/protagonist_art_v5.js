@@ -7,7 +7,7 @@ const ProtagonistArtV5 = {
   assets: __PROTAGONIST_ASSETS__,
   manifest: __PROTAGONIST_MANIFEST__,
   images: {}, recent: [], warmed: new Set(), players: [null, null], shots: [0, 0], game: null, area: null,
-  clock: 0,
+  clock: 0, locomotion: [null, null], sequences: null,
   supports(id) { return id === 'franco' || id === 'ryuchi'; },
   image(name) {
     this.recent = this.recent.filter(key => key !== name); this.recent.push(name);
@@ -16,7 +16,39 @@ const ProtagonistArtV5 = {
     while (this.recent.length > 8) { const old = this.recent.shift(); delete this.images[old]; }
     return this.images[name];
   },
-  reset() { this.players = [null, null]; this.shots = [0, 0]; this.game = G; this.area = G?.area; },
+  reset() { this.players = [null, null]; this.shots = [0, 0]; this.locomotion = [null, null]; this.game = G; this.area = G?.area; },
+  sequence(hero, state, row) {
+    if (!this.sequences) this.sequences = new Map((this.manifest.animations || []).map(a => [a.hero + '/' + a.state + '/' + a.row, a]));
+    return this.sequences.get(hero + '/' + state + '/' + row);
+  },
+  phaseFrame(sequence, phase) {
+    const count = sequence?.playFrames || 8, times = sequence?.frameDurationsMs;
+    if (times?.length === count) {
+      let time = phase * times.reduce((a, b) => a + b, 0);
+      for (let i = 0; i < count; i++) { if (time < times[i]) return i; time -= times[i]; }
+    }
+    return Math.min(count - 1, Math.floor(phase * count));
+  },
+  advanceLocomotion(before) {
+    if (!G || !activeModes10() || this.game !== G || this.area !== G.area) return;
+    for (let seat = 0; seat < 2; seat++) {
+      const body = seat ? C3.coop : G, hero = seat ? C3.coopMember() : G.active, old = before[seat];
+      if (!old || old.hero !== hero || !this.supports(hero) || (seat && !C3.coopActive())) { this.locomotion[seat] = null; continue; }
+      let motion = this.locomotion[seat];
+      if (!motion || motion.hero !== hero) motion = this.locomotion[seat] = {hero, phase: 0, moving: false};
+      const distance = Math.hypot(body.x - old.x, body.y - old.y);
+      motion.moving = Number.isFinite(distance) && distance > .00001 && distance < 2;
+      const rolling = seat ? body.dash > 0 : Combat10.dashTime > 0;
+      if (!motion.moving || rolling || this.players[seat]?.elapsed < this.players[seat]?.duration) continue;
+      const running = seat ? body.running : G.isRunning10, state = running ? 'run' : 'walk';
+      const sequence = this.sequence(hero, state, 0);
+      // The cycle length is independent of the number of authored drawings.
+      // Keep foot phase when changing speed; only real travel advances it.
+      const cycleMs = sequence?.cycleMs || (sequence?.frameMs || (running ? 65 : 110)) * (sequence?.playFrames || 8);
+      const cycleDistance = running ? 6.1 * cycleMs / 1000 : 8 / 3.6;
+      motion.phase = (motion.phase + distance / cycleDistance) % 1;
+    }
+  },
   mark(seat, hero, state, duration, direction) {
     if (!this.supports(hero)) return;
     this.image(hero + '_' + state);
@@ -32,7 +64,7 @@ const ProtagonistArtV5 = {
   pose(p, seat, moving) {
     const hero = p.style, c = C3.coop, record = seat >= 0 ? this.players[seat] : null;
     let state = 'idle', direction = p.dir || 'down', frame = 0;
-    const playing = activeModes10();
+    const playing = activeModes10(), row = (G?.flags?.masks ? 4 : 0) + Math.max(0, ['down','left','up','right'].indexOf(direction));
     const rolling = seat === 1 && c.rollHero === hero && c.dash > 0
       ? {left: c.dash, duration: c.rollDuration, direction: c.dir}
       : seat === 0 && Input121.roll?.id === hero && Combat10.dashTime > 0
@@ -45,8 +77,10 @@ const ProtagonistArtV5 = {
       frame = Math.min(7, Math.floor(record.elapsed / record.duration * 8));
     } else if (playing && moving) {
       state = (seat === 1 ? c.running : G?.isRunning10) ? 'run' : 'walk';
-      const stride = seat === 1 ? c.stride || 0 : stride10;
-      frame = Math.floor(stride * (state === 'run' ? 3.2 : 3.6)) % 8;
+      const motion = this.locomotion[seat];
+      const phase = motion?.hero === hero ? motion.phase : ((seat === 1 ? c.stride || 0 : stride10) / (state === 'run' ? 3.172 : 8 / 3.6)) % 1;
+      if (motion && !motion.moving) state = 'idle';
+      else frame = this.phaseFrame(this.sequence(hero, state, row), phase);
     } else frame = playing ? Math.floor(this.clock / .14) % 8 : 0;
     return {hero, state, direction, frame, row: (G?.flags?.masks ? 4 : 0) + Math.max(0, ['down','left','up','right'].indexOf(direction))};
   }
@@ -65,7 +99,10 @@ update = function(dt) {
       else if (record) record.elapsed = Math.min(record.duration, record.elapsed + dt);
     }
   }
-  return protagonistUpdateV5(dt);
+  const before = [G && {x: G.x, y: G.y, hero: G.active}, C3.coopActive() && {x: C3.coop.x, y: C3.coop.y, hero: C3.coopMember()}];
+  const result = protagonistUpdateV5(dt);
+  art.advanceLocomotion(before);
+  return result;
 };
 
 // Only an accepted action starts its animation. A blocked button cannot restart it.

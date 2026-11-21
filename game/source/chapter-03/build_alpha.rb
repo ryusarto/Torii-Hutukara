@@ -33,6 +33,12 @@ BOSS_ANIMATION_JS = File.join(ROOT, 'boss_choreography_v2.js')
 BOSS_ANIMATION_ASSETS = File.join(REPO_ROOT, 'assets', 'boss-animations', 'v2')
 PROTAGONIST_JS = File.join(ROOT, 'protagonist_art_v5.js')
 PROTAGONIST_ASSETS = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v5')
+LOCOMOTION_ASSETS = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v6-locomocao')
+WORLD_POLISH_JS = File.join(ROOT, 'world_polish_v1.js')
+WORLD_POLISH_ASSETS = File.join(REPO_ROOT, 'assets', 'studio', 'v1')
+NPC_LIFE_JS = File.join(ROOT, 'npc_life_v1.js')
+NPC_GESTURES_JS = File.join(ROOT, 'npc_gestures_v1.js')
+NPC_GESTURES_ASSETS = File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v1')
 NINJA_ARCHER_JS = File.join(ROOT, 'ninja_archer_art_v1.js')
 NINJA_ARCHER_ASSETS = File.join(REPO_ROOT, 'assets', 'variantes', 'ninja-arqueiro-v1')
 MUSICIAN_JS = File.join(ROOT, 'musician_art_v1.js')
@@ -50,6 +56,7 @@ AUTHORING = File.join(REPO_ROOT, 'design', 'chapter-03')
 PREBETA = File.join(REPO_ROOT, 'assets', 'prebeta', 'runtime')
 
 FILES = {
+  '__CINEMA_FOREST__' => File.join(REPO_ROOT, 'assets', 'dialogue', 'v2', 'forest.png'),
   '__C3_AUDIO_1__' => File.join(ASSETS, 'audio', '01-100adsense.mp3'),
   '__C3_AUDIO_2__' => File.join(ASSETS, 'audio', '02-type-shit.mp3'),
   '__C3_AUDIO_3__' => File.join(ASSETS, 'audio', '03-ak-cruzada.mp3'),
@@ -83,7 +90,7 @@ FILES = {
   '__PREBETA_MASK__' => File.join(PREBETA, 'dialogue', 'TORII_MASK_CANON_4X2.png'),
   '__PREBETA_PROPS__' => File.join(PREBETA, 'environment', 'ENVIRONMENT_PROPS_4X2.png'),
   '__PREBETA_CLOUDS__' => File.join(PREBETA, 'environment', 'VOLUMETRIC_CLOUDS_4X2.png'),
-  '__PREBETA_CINEMA__' => File.join(PREBETA, 'dialogue', 'CINEMATIC_BACKGROUNDS_3X2.png'),
+  '__PREBETA_CINEMA__' => File.join(REPO_ROOT, 'assets', 'prebeta', 'originals', 'dialogue', 'CINEMATIC_BACKGROUNDS_3X2.png'),
   '__PREBETA_COLLABS__' => File.join(PREBETA, 'collaborators', 'BELGA_COLLI_MAZZA_3X2.png'),
   '__PREBETA_COLLABS_MOVE__' => File.join(PREBETA, 'collaborators', 'BELGA_COLLI_MAZZA_MOVEMENT_8X3.png'),
   '__PREBETA_DNEY__' => File.join(PREBETA, 'collaborators', 'DNEY_MOVEMENT_PORTRAITS_4X3.png'),
@@ -140,7 +147,7 @@ replace_once!(runtime, "e.facing=base.angle||0;addCombatFX(e.x,e.y,'warning',bas
 replace_once!(html, ' drawable.sort((a,b)=>a.y-b.y);for(let d of drawable)d.draw();',
   " if(typeof EnvironmentDepthV1!=='undefined')EnvironmentDepthV1.drawGround();\n if(typeof EnvironmentAtmosphereV1!=='undefined')EnvironmentAtmosphereV1.drawGround();\n if(typeof BossChoreographyV2!=='undefined')BossChoreographyV2.drawGround();\n drawable.sort((a,b)=>a.y-b.y);for(let d of drawable)d.draw();", 'chão e áreas dos chefes abaixo dos personagens')
 replace_once!(html, 'drawable.push({x:p.x,y:p.y+.5,draw:()=>drawProp(p,cam.x,cam.y)})',
-  "drawable.push({x:p.x,y:(typeof EnvironmentDepthV1!=='undefined'?EnvironmentDepthV1.sortY(p):p.y+.5),draw:()=>drawProp(p,cam.x,cam.y)})", 'fachadas ordenadas pela base física')
+  "drawable.push({x:p.x,y:(typeof EnvironmentDepthV1!=='undefined'?EnvironmentDepthV1.sortY(p):(p.worldGroundY??p.y+.5)),draw:()=>drawProp(p,cam.x,cam.y)})", 'fachadas ordenadas pela base física')
 replace_once!(html, "drawCombatLayer();if(mode!=='action')drawGuideMarker();drawVfx(0);",
   "if(typeof EnvironmentAtmosphereV1!=='undefined')EnvironmentAtmosphereV1.drawLighting();drawCombatLayer();if(mode!=='action')drawGuideMarker();drawVfx(0);", 'luz antes dos avisos de combate e missão')
 replace_once!(runtime, "C3_drawEnvBase();if(!G||!C3.AREAS.includes(G.area))return;",
@@ -313,6 +320,19 @@ protagonist_uris = protagonist_files.to_h do |relative|
   key = relative.start_with?('atlas/') ? File.basename(relative, '.png') : "#{hero}_portrait_#{File.basename(relative, '.png')}"
   [key, "data:image/png;base64,#{encode(File.join(PROTAGONIST_ASSETS, relative))}"]
 end
+locomotion_manifest = JSON.parse(File.read(File.join(LOCOMOTION_ASSETS, 'manifest.json')))
+locomotion_files = locomotion_manifest.fetch('animations').map { |a| a.fetch('atlas') }.uniq
+protagonist_manifest['animations'] = protagonist_manifest.fetch('animations').reject { |a| a['state'] == 'run' } + locomotion_manifest.fetch('animations')
+locomotion_manifest.fetch('animations').each do |a|
+  protagonist_uris[a.fetch('hero') + '_run'] = "data:image/png;base64,#{encode(File.join(LOCOMOTION_ASSETS, a.fetch('atlas')))}" if a.fetch('row').zero?
+end
+polish_manifest = JSON.parse(File.read(File.join(WORLD_POLISH_ASSETS, 'manifest.json')))
+polish_files = polish_manifest.fetch('assets').values.map { |a| a.fetch('file') }
+polish_uris = polish_manifest.fetch('assets').to_h { |key, entry| [key, "data:image/png;base64,#{encode(File.join(WORLD_POLISH_ASSETS, entry.fetch('file')))}"] }
+npc_gestures_runtime = File.read(NPC_GESTURES_JS, encoding: 'UTF-8')
+replace_once!(npc_gestures_runtime, '__NPC_GESTURES_URI__', JSON.generate("data:image/png;base64,#{encode(File.join(NPC_GESTURES_ASSETS, 'city_gestures.png'))}"), 'gestos dos moradores C1')
+polish_runtime = File.read(WORLD_POLISH_JS, encoding: 'UTF-8')
+replace_once!(polish_runtime, '__WORLD_POLISH_ASSETS__', JSON.generate(polish_uris), 'mobiliário do estúdio')
 protagonist_runtime = File.read(PROTAGONIST_JS, encoding: 'UTF-8')
 replace_once!(protagonist_runtime, '__PROTAGONIST_ASSETS__', JSON.generate(protagonist_uris), 'sprites protagonistas V5')
 replace_once!(protagonist_runtime, '__PROTAGONIST_MANIFEST__', JSON.generate(protagonist_manifest), 'manifesto protagonistas V5')
@@ -384,12 +404,12 @@ environment_atmosphere_runtime = File.read(ENVIRONMENT_ATMOSPHERE_JS, encoding: 
 cloud_story_runtime = File.read(CLOUD_STORY_JS, encoding: 'UTF-8')
 # Embedded runtime strings now own these bytes; release duplicate URI maps
 # before constructing the portable HTML on memory-constrained computers.
-ninja_archer_uris = protagonist_uris = musician_uris = cenarios_uris = enemy_art_uris = boss_animation_uris = ground_fx_uris = cloud_uris = volume_uris = nil
+ninja_archer_uris = protagonist_uris = musician_uris = cenarios_uris = enemy_art_uris = boss_animation_uris = ground_fx_uris = cloud_uris = volume_uris = polish_uris = nil
 GC.start
 # Insert pieces in reverse at the same anchor: identical bytes without a second
 # full-size concatenation of every embedded PNG/audio runtime.
-parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, environment_depth_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime]
-runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
+parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime]
+runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = polish_runtime = npc_gestures_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
 html.insert(position, "\n")
 until parts.empty?
   part = parts.pop
@@ -409,6 +429,9 @@ FileUtils.mkdir_p(OUTPUT_DIR)
 File.binwrite(OUTPUT, html)
 
 sources = [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
+sources += [File.join(LOCOMOTION_ASSETS, 'manifest.json')] + locomotion_files.map { |relative| File.join(LOCOMOTION_ASSETS, relative) }
+sources += [NPC_GESTURES_JS, File.join(NPC_GESTURES_ASSETS, 'city_gestures.png'), File.join(NPC_GESTURES_ASSETS, 'manifest.json')]
+sources += [WORLD_POLISH_JS, NPC_LIFE_JS, File.join(WORLD_POLISH_ASSETS, 'manifest.json')] + polish_files.map { |relative| File.join(WORLD_POLISH_ASSETS, relative) }
 sources += [MUSICIAN_JS, File.join(MUSICIAN_ASSETS, 'manifest.json')] + musician_files.map { |relative| File.join(MUSICIAN_ASSETS, relative) }
 sources += [CENARIOS_JS, File.join(CENARIOS_ASSETS, 'manifest.json')] + cenarios_files.map { |relative| File.expand_path(relative, CENARIOS_ASSETS) }
 if cenarios_theme == 'deserto-v1'
@@ -453,7 +476,7 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, LOCOMOTION_ASSETS, WORLD_POLISH_ASSETS, NPC_GESTURES_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS, CLOUD_WORLD_ASSETS, ENVIRONMENT_VOLUME_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
 
     [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end

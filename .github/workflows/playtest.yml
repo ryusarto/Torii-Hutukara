@@ -15,7 +15,11 @@ on:
       - 'assets/variantes/ninja-arqueiro-v1/**'
       - 'assets/variantes/percussao-sintetizador-v1/**'
       - 'assets/cenarios/**'
-      - 'assets/protagonistas/v5/**'
+      - 'assets/protagonistas/**'
+      - 'assets/studio/**'
+      - 'assets/dialogue/**'
+      - 'assets/npcs/vida-v1/**'
+      - 'assets/prebeta/originals/dialogue/**'
       - 'assets/chapter-03/audio/**'
       - 'assets/chapter-03/runtime/**'
       - 'assets/prebeta/runtime/**'
@@ -61,6 +65,8 @@ jobs:
         run: |
           node qa/npc_recurrence.cjs
           node qa/protagonist_state.cjs
+          node qa/locomotion_v6.cjs
+          node qa/npc_life_v1.cjs
           node qa/boss_choreography_unit.cjs
           node qa/boss_ground_fx_unit.cjs
           node qa/environment_depth_v1.cjs
@@ -92,6 +98,9 @@ jobs:
           node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/
           node qa/environment_world_browser.cjs http://127.0.0.1:8771/
           node qa/protagonist_art_v5.cjs http://127.0.0.1:8771/
+          node qa/world_polish_v1.cjs http://127.0.0.1:8771/
+          node qa/npc_life_browser.cjs http://127.0.0.1:8771/
+          node qa/locomotion_browser_v6.cjs http://127.0.0.1:8771/
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/
       - uses: actions/upload-pages-artifact@v4

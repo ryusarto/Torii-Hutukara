@@ -1,6 +1,8 @@
 # Ambientes vivos, profundidade e nuvens
 
-Pedido do autor de 20/11/2026. Candidata Beta 1.8 construída sobre main `7553828a669d33921940f5b8d1a99923636485a2` (1.7.1), preservando as correções de apresentação dos músicos, os FX dos chefes e os cenários desérticos.
+Pedido do autor de 20/11/2026. Candidata Beta 1.9 construída sobre main `7553828a669d33921940f5b8d1a99923636485a2` (1.7.1), preservando as correções de apresentação dos músicos, os FX dos chefes e os cenários desérticos.
+
+A composição 1.9 incorpora também a frente do PR #18 (head 62fdce53): NPCs vivos, estúdio, corrida e cinema. Gerador, workflows e validação foram conciliados por trechos; o sofá conserva seu ponto de ordenação no chão. As evidências finais precisam corresponder ao executável composto.
 
 ## Arquitetura e interiores
 
@@ -34,6 +36,6 @@ Módulos novos: `environment_depth_v1.js`, `cloud_world_v1.js`, `environment_atm
 
 ## Validação
 
-Regras de nuvens/queda: 17 testes. Arquitetura/portas/fallbacks: 17 testes. Atmosfera/pausa/limites: oito testes. A composição passa por verificação estática e pelo navegador real com capturas de fachadas, interiores, reconstrução e queda de P1/P2. O [relatório independente](../qa/environment-world-v1/RELATORIO_REVISAO.md) e `BROWSER_RESULTADOS.json` identificam o estado e o hash efetivamente executados; resultados de versões anteriores não comprovam a composição final.
+Regras de nuvens/queda: 17 testes. Arquitetura/portas/fallbacks: 18 testes. Atmosfera/pausa/limites: oito testes. A composição passa por verificação estática e pelo navegador real com capturas de fachadas, interiores, reconstrução e queda de P1/P2. O [relatório independente](../qa/environment-world-v1/RELATORIO_REVISAO.md) e `BROWSER_RESULTADOS.json` identificam o estado e o hash efetivamente executados; resultados de versões anteriores não comprovam a composição final.
 
 Não foi executada uma nova campanha humana completa nem teste em aparelhos ou controles físicos nesta entrega. As capturas usam cenas e ações reais em condições controladas no Chrome isolado.

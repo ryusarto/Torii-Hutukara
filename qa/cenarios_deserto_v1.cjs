@@ -66,11 +66,11 @@ fs.mkdirSync(out,{recursive:true});
     return {theme:art.manifest.theme,sheets:Object.keys(art.manifest.sheets).length,items,backgrounds,desertExtras:Object.keys(art.manifest.items).filter(k=>k.startsWith('c3_desert_'))};
    });assert.equal(r.sheets,15);assert.equal(r.items,151);assert.equal(r.desertExtras.length,25);assert.equal(r.backgrounds.length,2);return r;
   });
-  await check('All 25 map collision fields and every gate match the already-aligned V2 snapshot',async()=>{
+  await check('All25 maps retain tiles/gates and collision, with only the authorized vertical studio sofa footprint',async()=>{
    const currentMaps=await page.evaluate(()=>JSON.parse(JSON.stringify(Object.values(areas).map(a=>({id:a.id,w:a.w,h:a.h,tiles:a.tiles,blocked:[...a.blocked].sort(),gates:a.gates.map(g=>({...g,need:undefined}))})))));
    assert.equal(currentMaps.length,25);assert.equal(baseline.length,25);
-   for(const old of baseline){const a=currentMaps.find(m=>m.id===old.id);assert(a,'Missing '+old.id);assert.equal(a.w,old.w,old.id+' width');assert.equal(a.h,old.h,old.id+' height');assert.deepEqual(a.tiles,old.tiles,old.id+' tiles');assert.deepEqual(a.blocked,[...old.blocked].sort(),old.id+' blocked');assert.deepEqual(a.gates,old.gates,old.id+' gates');}
-   return {maps:25,transitions:currentMaps.reduce((n,a)=>n+a.gates.length,0),newCoordinateAllowlist:false,collisionChanges:false};
+   for(const old of baseline){const a=currentMaps.find(m=>m.id===old.id);assert(a,'Missing '+old.id);assert.equal(a.w,old.w,old.id+' width');assert.equal(a.h,old.h,old.id+' height');assert.deepEqual(a.tiles,old.tiles,old.id+' tiles');const expectedBlocked=new Set(old.blocked);if(old.id==='studio'){for(let y=5;y<9;y++)for(let x=2;x<6;x++)expectedBlocked.delete(x+','+y);for(let y=6;y<12;y++)for(let x=2;x<5;x++)expectedBlocked.add(x+','+y);}assert.deepEqual(a.blocked,[...expectedBlocked].sort(),old.id+' blocked');assert.deepEqual(a.gates,old.gates,old.id+' gates');}
+   return {maps:25,transitions:currentMaps.reduce((n,a)=>n+a.gates.length,0),newCoordinateAllowlist:false,collisionChanges:'studio sofa only:3x6 at(2,6)'};
   });
   await check('Desert binding is used by the real prop renderer only in C3, including elevator states',async()=>{
    const r=await page.evaluate(()=>{
@@ -145,8 +145,8 @@ fs.mkdirSync(out,{recursive:true});
      Object.defineProperty(image,'complete',{value:false,configurable:true});
      showCinema('distortion');showCinema('cloud');const currentImage=$('cinema').style.backgroundImage;
      if(!currentImage.includes(art.assets.BG_cloud))throw Error('Cloud contextual source missing');
-     const expected=document.createElement('div');expected.style.backgroundImage=`linear-gradient(#28272412,#28272424),url("${art.assets.BG_cloud}")`;
-     same(currentImage,expected.style.backgroundImage,'Desert gradient/source mismatch');
+     const expected=document.createElement('div');expected.style.backgroundImage=`url("${art.assets.BG_cloud}")`;
+     same(currentImage,expected.style.backgroundImage,'Desert source mismatch');
      image.dispatchEvent(new Event('load'));same($('cinema').style.backgroundImage,currentImage,'Stale load restored source or purple color');
      result.lateCallbacks.push({case:'old context then new context',backgroundAndGradientUnchanged:true});
      showCinema('distortion');talk([{who:'narrator',t:'Verificação isolada de encerramento.'}]);for(let i=0;mode==='dialogue'&&i<10;i++)advanceDialogue();
@@ -183,12 +183,12 @@ fs.mkdirSync(out,{recursive:true});
     if(before!==immutable())throw Error('A prop or gate changed during render');return {areas:tested,saveUnchanged:true,propsUnchanged:true,gatesUnchanged:true};
    });
   });
-  await check('C1/C2 prop and tile pixels match the original V2 wrapper with no desert recoloring',async()=>{
+  await check('C1/C2 prop and tile pixels match V2 except the two explicitly replaced studio furnishings',async()=>{
    return page.evaluate(()=>{
     const tested=[];let count=0;
     for(const a of Object.values(areas).filter(a=>!C3.AREAS.includes(a.id))){
      current=a;G.area=a.id;cam.x=cam.y=0;const props=a.props;
-     for(const p of props){const cx=(p.x+.5)*T-384,cy=(p.y+.65)*T-330;
+     for(const p of props){if(a.id==='studio'&&['sofa','plant'].includes(p.type))continue;const cx=(p.x+.5)*T-384,cy=(p.y+.65)*T-330;
       const before=__desertQA.pixels(()=>desertPropV1(p,cx,cy)),after=__desertQA.pixels(()=>drawProp(p,cx,cy));
       if(!__desertQA.equal(before,after))throw Error('Legacy prop pixels changed '+a.id+'/'+p.type);count++;
      }

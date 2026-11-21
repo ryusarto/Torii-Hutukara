@@ -1,0 +1,44 @@
+{
+  "version": "beta-1.8.0",
+  "sourceSha256": "b269abaaa2a6914e8a79d1dcb7a69951de5c7433fd4981fe9660b5ebc0578ef0",
+  "staticChecks": 142,
+  "independentReview": {
+    "passedNodeChecks": 50,
+    "openFindings": 0,
+    "method": "Revisão independente de código/PNG e NodeVM, sem build/browser"
+  },
+  "art": {
+    "newRunPoses": 64,
+    "runSequences": 16,
+    "runPosesPerSequence": 12,
+    "cityGesturePoses": 24,
+    "studioAssets": 2,
+    "forestSize": [
+      1672,
+      941
+    ]
+  },
+  "browser": {
+    "worldPolishChecks": 10,
+    "npcChecks": 3,
+    "realInputRunSequences": 32,
+    "inputChecks": 22,
+    "gameplayChecks": 20,
+    "protagonistChecks": 11,
+    "desertChecks": 13,
+    "siteChecks": 4,
+    "musicianAttackCases": 72,
+    "musicianSequences": 208,
+    "musicianTransitions": 48
+  },
+  "portableExport": {
+    "bytes": 420850907,
+    "sha256": "b269abaaa2a6914e8a79d1dcb7a69951de5c7433fd4981fe9660b5ebc0578ef0",
+    "gameContentRoundTrip": true
+  },
+  "limitations": [
+    "Chrome isolado com input injetado e viewports emulados",
+    "Sem campanha humana completa ou teste em telefone/controle físico",
+    "Detalhes finos de máscara entre poses novas podem se beneficiar do playtest perceptivo do autor"
+  ]
+}

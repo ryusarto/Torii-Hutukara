@@ -168,7 +168,7 @@ const EnvironmentDepthV1=(()=>{
   const k=r?Math.min(display[0]/r[2],display[1]/r[3]):1,w=r?r[2]*k:display[0],h=r?r[3]*k:display[1],bottom=(p.y+.65)*T;
   return {x:(p.x+.5)*T-w/2,y:bottom-h,w,h,bottom,roof:bottom-h*.68,side:'#514d3f',edge:'#9b895f',depth:Math.min(18,Math.max(11,w*.10))};
  };
- api.sortY=function(p){const b=this.enabled&&this.facade(p);return b?b.bottom/T:p.y+.5};
+ api.sortY=function(p){const b=this.enabled&&this.facade(p);return b?b.bottom/T:(p.worldGroundY??p.y+.5)};
  api.occlusionAlpha=function(p,b){
   // CenariosV2 already fades C3 residences; avoid multiplying that fade twice.
   if(p.type==='c3_house')return 1;
