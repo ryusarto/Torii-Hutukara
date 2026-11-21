@@ -39,6 +39,21 @@ const BossGroundFXV1={
     if(!this.images[key]){const im=new Image();im.src=src;this.images[key]=im;}
     return this.images[key];
   },
+  drawProjectile(p){
+    if(!p||!Number.isFinite(p.x)||!Number.isFinite(p.y)||(!this.valid()&&p.type!=='c3_shot'))return false;
+    const entry=this.manifest.clips?.projectile,im=this.image('projectile');
+    const cell=entry?.cell||256,cols=entry?.columns||4,rows=entry?.rows||2;
+    if(!im?.complete||im.naturalWidth<cols*cell||im.naturalHeight<rows*cell)return false;
+    const frame=BossChoreographyV2.reduced()?0:Math.floor(this.clock/((entry.frameMs||70)/1000))%(entry.frames||8);
+    const angle=Math.atan2(Number(p.vy)||0,Number(p.vx)||0),x=p.x*T-cam.x,y=p.y*T-cam.y;
+    ctx.save();try{
+      ctx.imageSmoothingEnabled=false;ctx.translate(x,y);ctx.rotate(angle);
+      // The opaque core stays on the simulation's collision center. The short
+      // transparent tail is decoration, never a larger damage footprint.
+      ctx.drawImage(im,(frame%cols)*cell,Math.floor(frame/cols)*cell,cell,cell,-16,-16,32,32);
+    }finally{ctx.restore()}
+    return true;
+  },
   copy(g){return {...g,...(g.points?{points:g.points.map(p=>({x:p.x,y:p.y}))}:{})};},
   event(e,g,extra={}){
     this.sync();if(!this.valid(e))return null;
@@ -160,7 +175,10 @@ const BossGroundFXV1={
     const reduced=BossChoreographyV2.reduced();
     const alpha=f.endedAt===null?(reduced?.22:f.key==='void'?.85:.75):
       (reduced?.13:.30)*Math.max(0,1-residue/.45);
-    if(alpha>0)this.drawClipped(g,f.key,this.frame(0,f),alpha);
+    if(alpha>0){
+      this.drawClipped(g,f.key,this.frame(0,f),alpha);
+      if(this.manifest.clips?.aim)this.drawClipped(g,'aim',this.frame(0,f),alpha*.50);
+    }
   },
   paint(g,progress,released){
     this.sync();if(!this.valid())return;
@@ -178,7 +196,10 @@ const BossGroundFXV1={
       if(legacy&&record&&legacy.serial===record.serial)f=legacy.effect;
     }
     if(f)this.drawEvent(f,g);
-    else if(!released)this.drawClipped(g,this.key(bossActor),this.frame(progress,null),BossChoreographyV2.reduced()?.10:.20);
+    else if(!released){
+      this.drawClipped(g,this.key(bossActor),this.frame(progress,null),BossChoreographyV2.reduced()?.10:.20);
+      if(this.manifest.clips?.aim)this.drawClipped(g,'aim',Math.min(3,Math.floor(Math.max(0,Math.min(1,progress))*4)),BossChoreographyV2.reduced()?.24:.62);
+    }
   }
 };
 window.BossGroundFXV1=BossGroundFXV1;
@@ -238,7 +259,8 @@ BossChoreographyV2.drawEmitter=function(h,...rest){
     const f=fx.hazardEvents.get(h),g=fx.muzzle(h.x,h.y);
     if(f)fx.drawEvent(f,g);
     else if(!h.fired){const span=Math.max(.001,h.max-h.trigger),p=1-Math.max(0,h.time-h.trigger)/span;
-      fx.drawClipped(g,fx.key(bossActor),fx.frame(p,null),BossChoreographyV2.reduced()?.10:.20);}
+      fx.drawClipped(g,fx.key(bossActor),fx.frame(p,null),BossChoreographyV2.reduced()?.10:.20);
+      if(fx.manifest.clips?.aim)fx.drawClipped(g,'aim',Math.min(3,Math.floor(Math.max(0,Math.min(1,p))*4)),BossChoreographyV2.reduced()?.24:.62);}
   }
   return result;
 };

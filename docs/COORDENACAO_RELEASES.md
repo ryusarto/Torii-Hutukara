@@ -1,6 +1,6 @@
 # Coordenação de releases — Torii & Hutukara
 
-Atualizado em 20/11/2026 após a confirmação da Beta1.10 no Pages. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
+Atualizado em 21/11/2026. A confirmação pública de cada versão fica registrada abaixo. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
 
 ## Publicação1.10 confirmada
 
@@ -43,7 +43,8 @@ Main funcional `3e7ad3f5c9ba484e9e257e016102c19d8389c235`: **Beta 1.7.0**, com F
 | Beta 1.8.0 | Revisão geral | Estúdio, corrida12poses, cinema, IA/gestosNPC, save no sofá | PR#18 integrado; deploy44849114374 e hashes online confirmados |
 | Beta 1.9.0 | Pós-jogo / cenários | Elenco coerente, viagens, ondas procedurais e pontuação | PR#20 integrado; Publish44852294347 e fluxos online confirmados |
 | Beta 1.10.0 | Ambientes e coordenação | Fachadas, interiores, luz/vento, nuvens e queda, preservando o pós-jogo | PR#19 integrado; Publish44853604429 e conferências públicas aprovadas |
-| Beta 1.10.1 | Direção e revisão geral | Saves/importação, nuvens/coop, derrota e mobile; jornada contínua nas duas rotas | Evidências e limites em qa/beta-1.10.1/REVISAO.md; integração pelos checks do PR |
+| Beta 1.10.1 | Direção e revisão geral | Saves/importação, nuvens/coop, derrota e mobile; jornada contínua nas duas rotas | PR#21 integrado; Publish44857376652 aprovado; hash e Novo Jogo públicos conferidos |
+| Beta 1.11.0 | Direção e arte integrada | Distrito com respiro, volumes, NPCs, locomoção e chefes; Fenda e seleção de capítulos; iluminação retirada | Composição/limites em qa/beta-1.11.0/REVISAO.md; promoção pelos checks do PR |
 
 
 A reserva anterior **1.4.0 para cenários foi realocada para 1.6.0**, pois a main avançou para 1.5 antes da conclusão dos cenários. Os assets recuperados continuam válidos. Não promover a build de cenários1.4 por cima da main1.5 nem simplesmente renomear seu executável.

@@ -22,11 +22,11 @@ const checks=[],errors=[],animatedSequences=[];let browser,context;
  await page.addInitScript(()=>{window.requestAnimationFrame=()=>0;const get=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(k,o){return get.call(this,k,k==='2d'?{...o,willReadFrequently:true}:o);};});
  await page.goto(url,{waitUntil:'load',timeout:120000});
  async function check(name,run){try{const detail=await run();checks.push({name,passed:true,detail});console.log('OK · '+name);}catch(e){checks.push({name,passed:false,error:e.stack});throw e;}}
- await check('Five 4×2 atlases decode with eight distinct nonempty transparent frames each',async()=>{
-  const r=await page.evaluate(async()=>{const a=BossChoreographyV2,keys=Object.keys(a.manifest.clips),result=[];
-   for(const key of keys){const im=a.image(key,a.manifest.clips[key]);if(!im)throw Error(key+' missing image');await im.decode();const cell=a.manifest.cell,columns=a.manifest.columns;if(columns!==4||im.naturalWidth!==cell*columns||im.naturalHeight!==cell*2)throw Error(key+' dimensions');const c=document.createElement('canvas');c.width=c.height=cell;const q=c.getContext('2d'),hashes=[];
-    for(let f=0;f<8;f++){q.clearRect(0,0,cell,cell);q.drawImage(im,(f%4)*cell,Math.floor(f/4)*cell,cell,cell,0,0,cell,cell);const d=q.getImageData(0,0,cell,cell).data;let h=2166136261,pixels=0;for(let j=0;j<d.length;j++){h=Math.imul(h^d[j],16777619);if(j%4===3&&d[j]>128)pixels++;}if(!pixels)throw Error(key+' empty frame '+f);if(d[3]||d[(cell*cell-1)*4+3])throw Error(key+' opaque corner '+f);hashes.push((h>>>0).toString(16));}result.push({key,hashes,unique:new Set(hashes).size});}return result;});
-  assert.deepEqual(r.map(x=>x.key).sort(),['boss_cast','boss_charge','voice_boss_cast','c3_metronome_cast','c3_silence_cast'].sort());assert(r.every(x=>x.unique===8));return r;
+ await check('Cast and directional walking atlases decode with distinct transparent frames',async()=>{
+  const r=await page.evaluate(async()=>{const a=BossChoreographyV2,result=[];
+   for(const [key,entry]of Object.entries(a.manifest.clips)){const im=a.image(key,entry);if(!im)throw Error(key+' missing image');await im.decode();const cell=entry.cell||a.manifest.cell,columns=entry.columns||a.manifest.columns,rows=entry.rows||2,frames=entry.frames||8;if(im.naturalWidth!==cell*columns||im.naturalHeight!==cell*rows)throw Error(key+' dimensions');const c=document.createElement('canvas');c.width=c.height=cell;const q=c.getContext('2d'),hashes=[];
+    for(let row=0;row<(key==='boss_walk'?rows:1);row++)for(let f=0;f<frames;f++){q.clearRect(0,0,cell,cell);q.drawImage(im,(f%columns)*cell,(key==='boss_walk'?row:Math.floor(f/columns))*cell,cell,cell,0,0,cell,cell);const d=q.getImageData(0,0,cell,cell).data;let h=2166136261,pixels=0;for(let j=0;j<d.length;j++){h=Math.imul(h^d[j],16777619);if(j%4===3&&d[j]>128)pixels++;}if(!pixels)throw Error(key+' empty frame '+f);if(d[3]||d[(cell*cell-1)*4+3])throw Error(key+' opaque corner '+f);hashes.push((h>>>0).toString(16));}result.push({key,hashes,unique:new Set(hashes).size,expected:key==='boss_walk'?frames*rows:frames});}return result;});
+  assert.deepEqual(r.map(x=>x.key).sort(),['boss_cast','boss_charge','voice_boss_cast','c3_metronome_cast','c3_silence_cast','boss_walk'].sort());assert(r.every(x=>x.unique===x.expected));return r;
  });
  await page.evaluate(async()=>{
   G=fresh();buildMaps();
@@ -41,6 +41,9 @@ const checks=[],errors=[],animatedSequences=[];let browser,context;
    recovery(){const a=BossChoreographyV2,e=bossActor,r=a.records.get(e),frames=[];for(const offset of [0,.101,.201,.301]){a.clock=r.releaseAt+offset;frames.push(a.pose(e)?.frame??null);}return frames;},
    emit(kind){const e=bossActor;C3.castPattern(e,kind);return C3.hazards[0];}
   };
+ });
+ await check('First boss selects moving bitmap poses and keeps the same cell while paused',async()=>{
+  const r=await page.evaluate(()=>{const e=BossQA.fixture('boss'),art=BossChoreographyV2;Object.assign(e,{x:39.4,y:17.6,cd:99});G.x=35.4;G.y=18.5;const start={x:e.x,y:e.y},frames=new Set();let last=null;for(let i=0;i<360;i++){BossQA.step(1/60);const pose=art.walkPose(e);if(pose){frames.add(pose.frame);last=pose;if(frames.size>=3)break}}if(!last)throw Error('No actual boss walking');const phase=art.walks.get(e).phase,cell=JSON.stringify(art.walkPose(e));mode='overlay';update(.06);const frozen=cell===JSON.stringify(art.walkPose(e))&&phase===art.walks.get(e).phase,body=JSON.stringify(e),drawn=art.drawActor(e.x*T-cam.x,e.y*T-cam.y,'boss',e);return{distance:Math.hypot(e.x-start.x,e.y-start.y),frames:[...frames],frozen,drawn,bodyUnchanged:body===JSON.stringify(e)}});assert(r.distance>0&&r.frames.length>=3&&r.frozen&&r.drawn&&r.bodyUnchanged,JSON.stringify(r));return r;
  });
  const shots=[];
  await check('Danger zones render once on the ground before the boss body',async()=>{

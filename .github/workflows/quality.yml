@@ -50,6 +50,11 @@ jobs:
           node qa/review110_postgame_regression.cjs
           node qa/review110_cloud_regression.cjs
           node qa/review110_mobile_regression.cjs
+          node qa/review111_postgame_unit.cjs
+          node qa/review111_world.cjs
+          node qa/review111_npc.cjs
+          node qa/review111_animation.cjs
+          node qa/review111_spacing.cjs
       - name: Verify web export on PC, phone and tablet
         run: |
           ruby production/build_playtest.rb
@@ -66,6 +71,8 @@ jobs:
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
           node qa/postgame_browser.cjs http://127.0.0.1:8771/
           node qa/review110_browser.cjs http://127.0.0.1:8771/
+          node qa/review111_postgame_browser.cjs http://127.0.0.1:8771/
+          node qa/review111_world_browser.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/
           RECARREGAR=120 node qa/campaign_review.cjs http://127.0.0.1:8771/
       - name: Keep reports and screenshots
@@ -84,6 +91,7 @@ jobs:
             qa/playtest/SITE_TEST_RESULTS.json
             qa/screenshots-local/pages/
             qa/screenshots-local/review-110/
+            qa/screenshots-local/review-111/
           retention-days: 30
       - name: Keep portable preview for review
         uses: actions/upload-artifact@v4

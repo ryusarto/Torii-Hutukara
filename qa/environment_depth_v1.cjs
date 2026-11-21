@@ -8,7 +8,7 @@ function fixture(area='studio',art=true){
  const ctx={globalAlpha:1,fillStyle:'black',strokeStyle:'black',lineWidth:1,
   save(){stack.push([this.globalAlpha,this.fillStyle,this.strokeStyle,this.lineWidth]);},
   restore(){[this.globalAlpha,this.fillStyle,this.strokeStyle,this.lineWidth]=stack.pop();}};
- for(const kind of ['fillRect','beginPath','moveTo','lineTo','closePath','fill','stroke','arc','rect','clip','drawImage','fillText'])ctx[kind]=function(...args){calls.push({kind,args,color:kind==='stroke'?this.strokeStyle:this.fillStyle,alpha:this.globalAlpha,width:this.lineWidth})};
+ for(const kind of ['fillRect','beginPath','moveTo','lineTo','closePath','fill','stroke','arc','rect','clip','drawImage','fillText','transform'])ctx[kind]=function(...args){calls.push({kind,args,color:kind==='stroke'?this.strokeStyle:this.fillStyle,alpha:this.globalAlpha,width:this.lineWidth})};
  const s={console,ctx,calls,Math,Object,Array,Set,T:24,VW:768,VH:432,cam:{x:0,y:0},mode:'walk',tick:1,
   G:{area,x:12,y:14,flags:{masks:true},c3:{usinaGate:false}},
   current:{id:area,w:28,h:20,props:[],tiles:[['wood']],blocked:new Set(['2,2']),gates:[{x:3,y:4,to:'outside'}],events:[{id:'plot',x:12,y:9}]},
@@ -61,9 +61,9 @@ test('houses sort by their physical base while furniture and flat ornaments reta
  assert.equal(s.depth.sortY({type:'env2_prop',flat:true,x:1,y:2}),2.5);
  s.G.area='distortion_district';assert.equal(s.depth.sortY({type:'c3_club',x:13,y:15}),15.65);
 });
-test('ground pass draws bounded projective/contact shadows before facades without moving geometry',()=>{
+test('ground pass draws only a tight contact band before facades without moving geometry',()=>{
  const s=fixture('city');s.current.props=[{type:'house',x:4,y:3,w:5,h:4},{type:'house',x:100,y:100,w:5,h:4},{type:'tree',x:8,y:6}];const before=snapshot(s);
- s.depth.drawGround();assert.equal(s.calls.filter(c=>c.kind==='fill').length,2);assert.equal(s.oldPropCalls,0);assert.equal(snapshot(s),before);
+ s.depth.drawGround();assert.equal(s.calls.filter(c=>c.kind==='fill').length,1);assert.equal(s.oldPropCalls,0);assert.equal(snapshot(s),before);
  assert(s.calls.some(c=>c.kind==='fill'&&c.color==='#17171d6b'));
 });
 test('facade dimensions follow actual atlas fit rather than requested display width',()=>{
@@ -81,9 +81,9 @@ test('C3 residences keep the existing alpha guard, and missing art retains origi
  assert.equal(s.drawProp(p,0,0),'base-prop');assert.equal(s.oldPropAlpha,1);assert.equal(s.oldPropCalls,1);
  assert(s.depth.facade(p));s.G.area='city';s.calls.length=0;assert.equal(s.drawProp(p,0,0),'base-prop');assert.equal(s.calls.length,0);
 });
-test('lighting profiles use tile coordinates, bounded intensity and independent return objects',()=>{
- const s=fixture();for(const id of Object.keys(s.depth.profiles)){const p=s.depth.lightingProfile(id);assert(p.ambient>0&&p.ambient<=1);assert(/^#[0-9a-f]{6}$/i.test(p.tint));for(const l of p.lights){assert(l.radius>0&&l.radius<=12);assert(l.intensity>=0&&l.intensity<=1);assert(Number.isFinite(l.x)&&Number.isFinite(l.y));}}
- const p=s.depth.lightingProfile('studio');p.lights[0].x=1000;assert.notEqual(s.depth.lightingProfile('studio').lights[0].x,1000);
+test('lighting compatibility profiles are neutral and do not expose mutable source data',()=>{
+ const s=fixture();for(const id of Object.keys(s.depth.profiles)){const p=s.depth.lightingProfile(id);assert.equal(p.ambient,1);assert.equal(p.lights.length,0);assert.equal(s.depth.profiles[id].lights,undefined);}
+ const p=s.depth.lightingProfile('studio');p.lights.push({x:1000});assert.equal(s.depth.lightingProfile('studio').lights.length,0);
 });
 test('render exception restores canvas state and does not duplicate the original renderer',()=>{
  const s=fixture('city'),p={type:'house',x:4,y:4,w:6,h:5};s.ctx.globalAlpha=.8;

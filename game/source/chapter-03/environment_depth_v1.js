@@ -18,26 +18,23 @@ const EnvironmentDepthV1=(()=>{
  };
  api.resource=function(p){const key=this.assetKey(p),item=key&&this.manifest.items?.[key],image=item&&this.image(item.sheet);return image?.complete&&image.naturalWidth?{key,item,image}:null};
  const profiles={
-  studio:{style:'recording',ambient:.80,tint:'#21192b',lights:[[19,2,6,'#ffd3a0',.30],[12,3,4,'#a6d4cf',.18]],wall:['#332c36','#65504d','#a88b70']},
-  corridor:{style:'passage',ambient:.58,tint:'#171727',lights:[[5,8,5,'#dbb290',.25],[31,8,5,'#b8d9df',.25]],wall:['#262633','#4b4755','#827885']},
-  chamber:{style:'ceremony',ambient:.69,tint:'#17232b',lights:[[11.5,7,7,'#d7e8d3',.26]],wall:['#343e43','#697773','#b9c3aa']},
-  celina_home:{style:'home',ambient:.88,tint:'#33231f',lights:[[4,3,6,'#ffe1ad',.30],[19,3,6,'#ffd9a0',.30],[20,7,4,'#f5c28b',.22]],wall:['#675149','#ac9175','#dbc8a1']},
-  bento_shop:{style:'repair',ambient:.76,tint:'#1b2429',lights:[[12,6,5,'#c4e0d3',.30],[18,7,4,'#ffd192',.26]],wall:['#353d3c','#747d6f','#b5bd9e']},
-  tape_market:{style:'records',ambient:.91,tint:'#34262c',lights:[[5,3,6,'#ffe4af',.25],[20,3,6,'#ffe4af',.25]],wall:['#58404a','#966776','#d5a38f']},
-  radio9:{style:'broadcast',ambient:.64,tint:'#17232a',lights:[[12,4,5,'#b2d6ce',.25],[7,7,4,'#e2c08f',.24],[18,6,4,'#c8d6ba',.22]],wall:['#29343a','#586c6c','#95a29a']},
-  voice_tower:{style:'transmission',ambient:.72,tint:'#1e2035',lights:[[14,11,10,'#b1c3d2',.18]],wall:['#252d3b','#526170','#8f9d9f']},
-  contratempo:{style:'club',ambient:.56,tint:'#231b26',lights:[[14,4,8,'#edc18a',.26],[22,11,5,'#e8bb85',.29],[5,5,4,'#b9c2ad',.15]],wall:['#31282b','#6b4540','#ac795c']},
-  ciro_workshop:{style:'instruments',ambient:.78,tint:'#272320',lights:[[14,5,6,'#f0d5a4',.29],[7,8,5,'#bdcdc0',.24]],wall:['#3d3830','#78644c','#ad9470']},
-  power_plant:{style:'factory',ambient:.62,tint:'#1c2426',lights:[[9,6,7,'#c3d2b3',.22],[27,7,6,'#e2ba7c',.25],[27,18,6,'#becfbb',.20]],wall:['#2b3433','#58635a','#8e997e']},
-  last_torii:{style:'sanctuary',ambient:.70,tint:'#24242b',lights:[[13,8,8,'#e2cf9e',.24],[4,6,5,'#d9c69a',.20],[22,6,5,'#d9c69a',.20]],wall:['#383a38','#757263','#a9a087']},
-  silence_core:{style:'abyss',ambient:.57,tint:'#171c23',lights:[[17,11,12,'#b3bda9',.18],[6,17,5,'#d6b57b',.18],[28,17,5,'#d6b57b',.18]],wall:['#252c2d','#4b5350','#747c6e']}
+  studio:{style:'recording',wall:['#332c36','#65504d','#a88b70']},
+  corridor:{style:'passage',wall:['#262633','#4b4755','#827885']},
+  chamber:{style:'ceremony',wall:['#343e43','#697773','#b9c3aa']},
+  celina_home:{style:'home',wall:['#675149','#ac9175','#dbc8a1']},
+  bento_shop:{style:'repair',wall:['#353d3c','#747d6f','#b5bd9e']},
+  tape_market:{style:'records',wall:['#58404a','#966776','#d5a38f']},
+  radio9:{style:'broadcast',wall:['#29343a','#586c6c','#95a29a']},
+  voice_tower:{style:'transmission',wall:['#252d3b','#526170','#8f9d9f']},
+  contratempo:{style:'club',wall:['#31282b','#6b4540','#ac795c']},
+  ciro_workshop:{style:'instruments',wall:['#3d3830','#78644c','#ad9470']},
+  power_plant:{style:'factory',wall:['#2b3433','#58635a','#8e997e']},
+  last_torii:{style:'sanctuary',wall:['#383a38','#757263','#a9a087']},
+  silence_core:{style:'abyss',wall:['#252c2d','#4b5350','#747c6e']}
  };
  api.profiles=profiles;
  api.profile=function(area=G?.area){return profiles[area]||null};
- api.lightingProfile=function(area=G?.area){
-  const p=this.enabled&&profiles[area];
-  return p?{ambient:p.ambient,tint:p.tint,lights:p.lights.map(([x,y,radius,color,intensity])=>({x,y,radius,color,intensity}))}:{ambient:1,tint:'#000000',lights:[]};
- };
+ api.lightingProfile=function(){return {ambient:1,tint:'#000000',lights:[]}};
  const rect=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(Math.round(x),Math.round(y),Math.round(w),Math.round(h))};
  const poly=(points,color)=>{ctx.fillStyle=color;ctx.beginPath();points.forEach(([x,y],i)=>i?ctx.lineTo(Math.round(x),Math.round(y)):ctx.moveTo(Math.round(x),Math.round(y)));ctx.closePath();ctx.fill()};
  const segment=(x1,y1,x2,y2,color,width=1)=>{ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(Math.round(x1),Math.round(y1));ctx.lineTo(Math.round(x2),Math.round(y2));ctx.stroke()};
@@ -166,14 +163,75 @@ const EnvironmentDepthV1=(()=>{
   if(!item&&typeof CenariosV2!=='undefined')item=CenariosV2.itemFor(p);
   const resource=item&&typeof CenariosV2!=='undefined'&&CenariosV2.available(item),r=resource?.a.content;
   const k=r?Math.min(display[0]/r[2],display[1]/r[3]):1,w=r?r[2]*k:display[0],h=r?r[3]*k:display[1],bottom=(p.y+.65)*T;
-  return {x:(p.x+.5)*T-w/2,y:bottom-h,w,h,bottom,roof:bottom-h*.68,side:'#514d3f',edge:'#9b895f',depth:Math.min(18,Math.max(11,w*.10))};
+  return {x:(p.x+.5)*T-w/2,y:bottom-h,w,h,bottom,roof:bottom-h*.68,side:'#514d3f',edge:'#9b895f',depth:Math.min(32,Math.max(18,w*.18)),foundation:8};
+ };
+ // Footprints are render metadata, never colliders. All positions use the same
+ // ground pivots as the authored sprites; rugs/signs/windows have no raised base.
+ const bodySizes={
+  table:[58,50,20,'legs'],chair:[27,40,12,'legs'],bed:[66,45,24,'wood'],kitchen:[76,60,22,'wood'],shelf:[62,76,15,'wood'],tools:[76,58,20,'metal'],
+  sofa:[64,142,22,'upholstery'],synth:[84,54,18,'legs'],plant:[24,56,12,'pot'],desk:[264,70,30,'legs'],
+  crate:[40,40,19,'wood'],barrel:[29,44,18,'wood'],well:[48,60,25,'stone'],stall:[76,87,26,'wood'],checkpointStone:[36,54,16,'stone'],
+  column:[30,108,15,'stone'],ruinColumn:[30,116,15,'stone'],totem:[26,60,14,'stone'],rootWall:[30,39,15,'wood'],
+  voiceBench:[72,45,18,'legs'],voiceWorkbench:[106,68,25,'metal'],radioConsole:[92,65,22,'metal'],voiceAntenna:[50,112,24,'metal'],
+  c3_bench:[82,58,20,'legs'],c3_bins:[48,68,22,'metal'],c3_planter:[68,54,22,'pot'],c3_crates:[60,72,28,'wood'],c3_vending:[44,88,21,'metal'],c3_railing:[92,58,10,'legs'],c3_kiosk:[46,80,22,'metal'],
+  c3_workbench:[120,88,28,'legs'],c3_wind_console:[64,92,22,'metal'],c3_flute_rack:[88,78,19,'legs'],c3_turbine:[66,88,26,'metal'],c3_tuning_machine:[64,84,24,'metal'],c3_interference:[64,96,24,'metal'],c3_interference_calm:[64,96,24,'metal'],
+  c3_broken_pipe:[72,76,20,'metal'],c3_lift_console:[76,76,24,'metal'],c3_wind_receiver:[56,98,22,'metal'],c3_bass_lock:[62,68,23,'metal'],
+  c3_machine:[64,112,26,'metal'],c3_bar:[104,88,26,'wood'],c3_table:[48,50,18,'legs'],c3_speakers:[30,62,15,'metal'],c3_stage:[186,106,38,'wood'],
+  c3_valve_station:[62,75,25,'metal'],c3_pressure_switch:[38,40,22,'metal'],c3_silence_altar:[112,138,36,'stone'],c3_elevator:[106,132,28,'metal']
+ };
+ api.body=function(p){
+  if(!p||p.flat||p.groundMaterial||p.env2Ground||!Number.isFinite(p.x)||!Number.isFinite(p.y))return null;
+  const facade=this.facade(p);
+  if(facade)return {x:facade.x+facade.w/2,y:facade.bottom,w:facade.w*.87,d:Math.min(36,facade.depth+8),h:facade.h,kind:'architecture',facade};
+  const type=p.env2GroundType||p.type;
+  let spec=bodySizes[type];
+  if(type==='env2_prop'){
+   if(/wallpanel|^sign_|^wayfinder_|window|^door|circle|silence_eye|marker|threshold|crossing|drain|tapete|inlay|platform_embark|core_entry_bridge|core_bridge_edge|cloud_anchor_foundation/.test(p.item||''))return null;
+   if(!Number.isFinite(p.w)||!Number.isFinite(p.h)||p.h<26)return null;
+   spec=[p.w*.72,p.h,Math.max(8,Math.min(30,p.w*.24)),/chair|stool|rack/.test(p.item)?'legs':/column|altar|arch/.test(p.item)?'stone':'metal'];
+  }
+  if(!spec)return null;
+  const [w,h,d,kind]=spec;let x=(p.x+.5)*T,y=(p.worldGroundY??p.y+.65)*T;
+  if(type==='desk'){x=p.x*T+132;y=p.y*T+70}
+  if(type==='synth'){x+=30;y+=35}
+  if(type==='sofa'&&G?.area==='studio')x=(p.x+1.5)*T;
+  if(type==='plant'&&G?.area==='studio')y=(p.y+1)*T;
+  return {x,y,w,h,d,kind};
+ };
+ api.shadowBodies=function(limit=80){
+  const result=[];if(limit<=0)return result;
+  for(const p of current?.props||[]){const b=this.body(p);if(!b)continue;
+   if(b.x+b.w/2<cam.x-90||b.x-b.w/2>cam.x+VW+90||b.y<cam.y-90||b.y>cam.y+VH+b.h)continue;
+   result.push(b);if(result.length>=limit)break;
+  }
+  return result;
+ };
+ api.drawPropBase=function(p,cx,cy){
+  const b=this.body(p);if(!b||b.facade||b.kind==='pot'||b.kind==='upholstery')return;
+  const x=b.x-cx,y=b.y-cy,w=b.w,d=Math.min(7,Math.max(3,b.d*.23)),h=Math.min(6,Math.max(2,b.h*.05));
+  if(x+w/2<-30||x-w/2>VW+30||y<-30||y>VH+30)return;
+  const metal=b.kind==='metal',stone=b.kind==='stone',dark=metal?'#353731':stone?'#514b3d':'#4b362d',light=metal?'#a48c63':stone?'#b4a07b':'#ab8055';
+  ctx.save();try{
+   if(b.kind==='legs'){
+    for(const side of [-1,1]){const px=x+side*w*.34;poly([[px-4,y-1],[px+3,y-1],[px+6,y+2],[px-2,y+2]],'#302a2877');segment(px-2,y,px+3,y,light)}
+   }else{
+    // A thin front/side plinth reveals the object's thickness at its floor contact.
+    poly([[x-w/2,y-h],[x+w/2,y-h],[x+w/2,y+1],[x-w/2,y+1]],dark);
+    poly([[x+w/2,y-h],[x+w/2+d,y-h-d*.5],[x+w/2+d,y-d*.5],[x+w/2,y+1]],'#34342c');
+    segment(x-w/2+1,y-h,x+w/2,y-h,light);segment(x+w/2+d,y-h-d*.5,x+w/2+d,y-d*.5,'#b19b6b88');
+   }
+  }finally{ctx.restore()}
  };
  api.sortY=function(p){const b=this.enabled&&this.facade(p);return b?b.bottom/T:(p.worldGroundY??p.y+.5)};
  api.occlusionAlpha=function(p,b){
   // CenariosV2 already fades C3 residences; avoid multiplying that fade twice.
   if(p.type==='c3_house')return 1;
   const actors=[G];if(typeof C3!=='undefined'&&C3.coopActive?.())actors.push(C3.coop);
-  return actors.some(a=>a&&a.x*T>b.x+7&&a.x*T<b.x+b.w-7&&a.y*T>b.y+10&&a.y*T<b.bottom-12)?.58:1;
+  return actors.some(a=>a&&a.x*T>b.x+7&&a.x*T<b.x+b.w+(b.foundation?b.depth:0)-7&&a.y*T>b.y+10&&a.y*T<b.bottom-12)?.58:1;
+ };
+ api.volumeAlpha=function(b){
+  const actors=[G];if(typeof C3!=='undefined'&&C3.coopActive?.())actors.push(C3.coop);
+  return actors.some(a=>a&&a.x*T>b.x+b.w-15&&a.x*T<b.x+b.w+b.depth+8&&a.y*T>b.roof-b.depth*.55&&a.y*T<b.bottom-8)?.48:1;
  };
  api.drawGround=function(){
   if(!this.enabled||!current||!G)return;
@@ -182,8 +240,6 @@ const EnvironmentDepthV1=(()=>{
    for(const p of current.props||[]){const b=this.facade(p);if(!b)continue;
     const left=b.x-cam.x,right=left+b.w,bottom=b.bottom-cam.y;
     if(right<-50||left>VW+50||bottom<-60||bottom>VH+b.h+60)continue;
-    const shift=Math.min(28,b.h*.15),spread=Math.min(11,b.w*.07);
-    poly([[left+6,bottom-3],[right-3,bottom-3],[right+shift+spread,bottom+shift*.50],[left+shift-spread,bottom+shift*.50]],'#17172029');
     // Tight contact band anchors the sprite; unlike an oval shadow it follows its footprint.
     poly([[left+8,bottom-1],[right-4,bottom-1],[right-1,bottom+4],[left+5,bottom+4]],'#17171d6b');
    }
@@ -200,6 +256,18 @@ const EnvironmentDepthV1=(()=>{
   }
   return true;
  };
+ api.faceTexture=function(material,x,y,width,height,shear=0,seedX=0,seedY=0){
+  if(typeof CenariosV2==='undefined'||typeof CenariosV2.material!=='function')return false;
+  // Reuse the approved 192px material cache. Geometry tilts the sampling plane;
+  // atlas pixels stay nearest-neighbour, with no per-building bitmap allocation.
+  let painted=false;ctx.save();
+  try{
+   ctx.imageSmoothingEnabled=false;ctx.transform(1,shear,0,1,Math.round(x),Math.round(y));
+   const columns=Math.min(12,Math.ceil(width/T)),rows=Math.min(12,Math.ceil(height/T));
+   for(let yy=0;yy<rows;yy++)for(let xx=0;xx<columns;xx++)painted=CenariosV2.material(material,xx*T,yy*T,seedX+xx,seedY+yy)||painted;
+  }finally{ctx.restore()}
+  return painted;
+ };
  api.drawVolume=function(b,cx,cy){
   const x=b.x-cx,y=b.roof-cy,w=b.w,h=b.bottom-b.roof,bottom=b.bottom-cy,d=b.depth;
   if(x+w<-50||x>VW+50||bottom<-50||y>VH+50)return;
@@ -207,10 +275,34 @@ const EnvironmentDepthV1=(()=>{
   try{
    poly([[x+w-12,y],[x+w+d,y-d*.55],[x+w+d,bottom-d*.55],[x+w-12,bottom]],b.side);
    ctx.beginPath();ctx.moveTo(x+w-12,y);ctx.lineTo(x+w+d,y-d*.55);ctx.lineTo(x+w+d,bottom-d*.55);ctx.lineTo(x+w-12,bottom);ctx.closePath();ctx.clip();
-   for(let yy=y+9;yy<bottom;yy+=13)segment(x+w-12,yy,x+w+d,yy-d*.55,'#201f2466');
-   for(let yy=y+16;yy<bottom-7;yy+=26)rect(x+w+d*.5,yy,2,2,b.edge);
+   if(b.foundation){
+    const width=d+12,shear=-d*.55/width;
+    this.faceTexture('paineis_parede',x+w-12,y,width,Math.ceil(h)+1,shear,Math.floor(b.x/T),Math.floor(b.roof/T));
+    // Shadow the textured wall rather than replacing its rust/panel detail.
+    ctx.save();ctx.globalAlpha*=.23;poly([[x+w-12,y],[x+w+d,y-d*.55],[x+w+d,bottom-d*.55],[x+w-12,bottom]],'#211d1c');ctx.restore();
+    for(let xx=8;xx<width;xx+=14){segment(x+w-12+xx,y+4+xx*shear,x+w-12+xx,bottom-4+xx*shear,'#201d1a88');segment(x+w-11+xx,y+4+xx*shear,x+w-11+xx,bottom-4+xx*shear,'#b5976c55');}
+   }else{
+    for(let yy=y+9;yy<bottom;yy+=13)segment(x+w-12,yy,x+w+d,yy-d*.55,'#201f2466');
+    for(let yy=y+16;yy<bottom-7;yy+=26)rect(x+w+d*.5,yy,2,2,b.edge);
+   }
    segment(x+w+d,bottom-d*.55,x+w+d,y-d*.55,'#23252b',2);
   }finally{ctx.restore()}
+  if(b.foundation){
+   const left=x+5,right=x+w-3,f=b.foundation;
+   poly([[left,bottom-f],[right,bottom-f],[right,bottom+3],[left,bottom+3]],'#4c4738');
+   poly([[right,bottom-f],[right+d,bottom-f-d*.55],[right+d,bottom+3-d*.55],[right,bottom+3]],'#383c32');
+   segment(left,bottom-f,right,bottom-f,b.edge,2);
+   for(let xx=left+14;xx<right;xx+=18)segment(xx,bottom-f+2,xx,bottom+2,'#262a2588');
+   // The roof cap recedes away from the frontage; it never covers the approved front art.
+   const cap=[[x+8,y],[x+w-12,y],[x+w+d,y-d*.55],[x+8+d,y-d*.55]];
+   poly(cap,'#80704d');
+   ctx.save();try{
+    ctx.beginPath();cap.forEach(([px,py],i)=>i?ctx.lineTo(px,py):ctx.moveTo(px,py));ctx.closePath();ctx.clip();
+    this.faceTexture('metal_industrial',x+8,y-d*.55,w+d,Math.ceil(d*.55)+2,0,Math.floor(b.x/T),Math.floor(b.roof/T));
+    ctx.globalAlpha*=.12;poly(cap,'#ad8d55');
+   }finally{ctx.restore()}
+   segment(x+8+d,y-d*.55,x+w+d,y-d*.55,b.edge,2);
+  }
   // Bevels are visible below/alongside the original image, not a second façade.
   poly([[x+8,bottom-2],[x+w-4,bottom-2],[x+w+2,bottom+3],[x+5,bottom+3]],'#4d4940');
   segment(x+7,bottom-1,x+w-4,bottom-1,b.edge);
@@ -225,11 +317,16 @@ drawTile=function(type,x,y,xx,yy){const result=environmentDepthTileV1(type,x,y,x
 const environmentDepthPropV1=drawProp;
 drawProp=function(p,cx,cy){
  const b=EnvironmentDepthV1.enabled&&EnvironmentDepthV1.facade(p);
- if(!b)return environmentDepthPropV1(p,cx,cy);
+ if(!b){if(EnvironmentDepthV1.enabled)EnvironmentDepthV1.drawPropBase(p,cx,cy);return environmentDepthPropV1(p,cx,cy);}
  ctx.save();
  try{
   ctx.globalAlpha*=EnvironmentDepthV1.occlusionAlpha(p,b);
   if(EnvironmentDepthV1.drawFacade(p,b,cx,cy))return;
-  EnvironmentDepthV1.drawVolume(b,cx,cy);return environmentDepthPropV1(p,cx,cy);
+  if(p.type==='c3_house'){
+   // The authored facade already fades itself. Fade only its added side when
+   // a player walks behind that extension, without multiplying the front fade.
+   ctx.save();try{ctx.globalAlpha*=EnvironmentDepthV1.volumeAlpha(b);EnvironmentDepthV1.drawVolume(b,cx,cy)}finally{ctx.restore()}
+  }else EnvironmentDepthV1.drawVolume(b,cx,cy);
+  return environmentDepthPropV1(p,cx,cy);
  }finally{ctx.restore()}
 };

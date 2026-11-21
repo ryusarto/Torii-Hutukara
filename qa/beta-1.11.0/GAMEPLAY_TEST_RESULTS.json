@@ -1,0 +1,88 @@
+{
+  "build": "TORII_HUTUKARA_BETA_1_11_0.html",
+  "sha256": "73568a9c76ec3ec029393947753367c0af25843d6c1125fa1baad845d76b6392",
+  "passed": 20,
+  "checks": [
+    {
+      "name": "Prólogo sem inimigo, dano ou combate antes do instrumento",
+      "passed": true
+    },
+    {
+      "name": "Entrada da floresta segura; entrega do baixo libera a primeira luta",
+      "passed": true
+    },
+    {
+      "name": "Save antigo no corredor continua sem o encontro removido",
+      "passed": true
+    },
+    {
+      "name": "Distrito permite ataque dos seis integrantes após a primeira frente",
+      "passed": true
+    },
+    {
+      "name": "XP ativo e de reserva é igual nos três capítulos e estável ao carregar",
+      "passed": true
+    },
+    {
+      "name": "Migração antiga compensa aliados uma vez e checkpoint preserva XP",
+      "passed": true
+    },
+    {
+      "name": "Aliados recebem compensação no recrutamento, antes de XP ou recarga",
+      "passed": true
+    },
+    {
+      "name": "Patrulhas respeitam cooldown após load e não herdam relógio de outra partida",
+      "passed": true
+    },
+    {
+      "name": "Pad para antes da parede e filtro conserva o corpo do inimigo no chão",
+      "passed": true
+    },
+    {
+      "name": "compasso: mesmo ataque acerta P1 e P2 e respeita invulnerabilidade",
+      "passed": true
+    },
+    {
+      "name": "espelho: mesmo ataque acerta P1 e P2 e respeita invulnerabilidade",
+      "passed": true
+    },
+    {
+      "name": "abafador: mesmo ataque acerta P1 e P2 e respeita invulnerabilidade",
+      "passed": true
+    },
+    {
+      "name": "Queda do líder durante uma onda não redireciona o dano do companheiro",
+      "passed": true
+    },
+    {
+      "name": "Abafador bloqueia as três técnicas de cada ator, mas permite sair da aura",
+      "passed": true
+    },
+    {
+      "name": "Share do segundo controle cura P2 e manter pressionado não gasta outra fita",
+      "passed": true
+    },
+    {
+      "name": "Cura simultânea usa o inventário compartilhado sem duplicar ou ficar negativo",
+      "passed": true
+    },
+    {
+      "name": "Diálogo 390 × 844, texto normal: leitura e toque livres",
+      "passed": true
+    },
+    {
+      "name": "Diálogo 390 × 844, texto maior: leitura e toque livres",
+      "passed": true
+    },
+    {
+      "name": "Diálogo 844 × 390, texto normal: leitura e toque livres",
+      "passed": true
+    },
+    {
+      "name": "Diálogo 844 × 390, texto maior: leitura e toque livres",
+      "passed": true
+    }
+  ],
+  "browserErrors": []
+}

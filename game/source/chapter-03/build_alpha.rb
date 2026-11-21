@@ -23,6 +23,7 @@ ENEMY_ART_JS = File.join(ROOT, 'enemy_art_v1.js')
 ENEMY_ART_ASSETS = File.join(REPO_ROOT, 'assets', 'enemies', 'v1')
 BOSS_GROUND_FX_JS = File.join(ROOT, 'boss_ground_fx_v1.js')
 BOSS_GROUND_FX_ASSETS = File.join(REPO_ROOT, 'assets', 'boss-ground-fx', 'v1')
+BOSS_GROUND_FX_V2 = File.join(REPO_ROOT, 'assets', 'boss-ground-fx', 'v2')
 ENVIRONMENT_DEPTH_JS = File.join(ROOT, 'environment_depth_v1.js')
 ENVIRONMENT_ATMOSPHERE_JS = File.join(ROOT, 'environment_atmosphere_v1.js')
 ENVIRONMENT_VOLUME_ASSETS = File.join(REPO_ROOT, 'assets', 'environment-volume', 'v1')
@@ -31,9 +32,10 @@ CLOUD_STORY_JS = File.join(ROOT, 'cloud_story_v1.js')
 CLOUD_WORLD_ASSETS = File.join(REPO_ROOT, 'assets', 'cloud-world', 'v1')
 BOSS_ANIMATION_JS = File.join(ROOT, 'boss_choreography_v2.js')
 BOSS_ANIMATION_ASSETS = File.join(REPO_ROOT, 'assets', 'boss-animations', 'v2')
+BOSS_ANIMATION_V3 = File.join(REPO_ROOT, 'assets', 'boss-animations', 'v3')
 PROTAGONIST_JS = File.join(ROOT, 'protagonist_art_v5.js')
 PROTAGONIST_ASSETS = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v5')
-LOCOMOTION_ASSETS = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v6-locomocao')
+LOCOMOTION_ASSETS = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v7-locomocao')
 WORLD_POLISH_JS = File.join(ROOT, 'world_polish_v1.js')
 WORLD_POLISH_ASSETS = File.join(REPO_ROOT, 'assets', 'studio', 'v1')
 NPC_LIFE_JS = File.join(ROOT, 'npc_life_v1.js')
@@ -208,12 +210,22 @@ combat_old = "['forest','ruins','voices','voice_roofs','radio9','voice_tower']"
 combat_new = "['forest','ruins','voices','voice_roofs','radio9','voice_tower','distortion_district','power_plant','sky_canal','cloud_sea','cloud_terrace','silence_core']"
 combat_count = html.scan(combat_old).length
 raise "Arrays de área de combate não encontrados" if combat_count.zero?
+# Every legacy action must share the live registry. Postgame areas are registered
+# by the runtime after compilation, rather than belonging to a frozen chapter list.
+combat_checks = html.scan("#{combat_old}.includes(G.area)").length
+raise "Verificações legadas de combate inesperadas: #{combat_checks}" unless combat_checks == 6
+html.gsub!("#{combat_old}.includes(G.area)", 'combatAreas10.has(G.area)')
 html.gsub!(combat_old, combat_new)
 
 replace_once!(html,
   "if(bossActor.id==='voice_boss'){drawCreature(bx,by,'boss',bossActor);}else{",
   "if(['boss','voice_boss','c3_metronome','c3_silence'].includes(bossActor.id)){drawCreature(bx,by,bossActor.type||'boss',bossActor);}else{",
   'render dos chefes C3')
+
+replace_once!(html,
+  "for(const p of hostileShots){const px=p.x*T-cam.x,py=p.y*T-cam.y;ctx.fillStyle='#bd517a';ctx.fillRect(px-5,py-5,11,11);ctx.fillStyle='#ffccd3';ctx.fillRect(px-2,py-2,4,4)}",
+  "for(const p of hostileShots){if(typeof BossGroundFXV1!=='undefined'&&BossGroundFXV1.drawProjectile(p))continue;const px=p.x*T-cam.x,py=p.y*T-cam.y;ctx.fillStyle='#bd517a';ctx.fillRect(px-5,py-5,11,11);ctx.fillStyle='#ffccd3';ctx.fillRect(px-2,py-2,4,4)}",
+  'sprites dos projéteis hostis')
 
 dialogue_document = JSON.parse(File.read(DIALOGUES, encoding: 'UTF-8'))
 public_names = { 'Maia' => 'Belga', 'Ciro' => 'Mazza', 'Nara' => 'Colli', 'Vega' => 'Dney' }
@@ -322,15 +334,17 @@ protagonist_uris = protagonist_files.to_h do |relative|
 end
 locomotion_manifest = JSON.parse(File.read(File.join(LOCOMOTION_ASSETS, 'manifest.json')))
 locomotion_files = locomotion_manifest.fetch('animations').map { |a| a.fetch('atlas') }.uniq
-protagonist_manifest['animations'] = protagonist_manifest.fetch('animations').reject { |a| a['state'] == 'run' } + locomotion_manifest.fetch('animations')
+locomotion_states = locomotion_manifest.fetch('animations').map { |a| a.fetch('state') }.uniq
+protagonist_manifest['animations'] = protagonist_manifest.fetch('animations').reject { |a| locomotion_states.include?(a['state']) } + locomotion_manifest.fetch('animations')
 locomotion_manifest.fetch('animations').each do |a|
-  protagonist_uris[a.fetch('hero') + '_run'] = "data:image/png;base64,#{encode(File.join(LOCOMOTION_ASSETS, a.fetch('atlas')))}" if a.fetch('row').zero?
+  protagonist_uris[a.fetch('hero') + '_' + a.fetch('state')] = "data:image/png;base64,#{encode(File.join(LOCOMOTION_ASSETS, a.fetch('atlas')))}" if a.fetch('row').zero?
 end
 polish_manifest = JSON.parse(File.read(File.join(WORLD_POLISH_ASSETS, 'manifest.json')))
 polish_files = polish_manifest.fetch('assets').values.map { |a| a.fetch('file') }
 polish_uris = polish_manifest.fetch('assets').to_h { |key, entry| [key, "data:image/png;base64,#{encode(File.join(WORLD_POLISH_ASSETS, entry.fetch('file')))}"] }
 npc_gestures_runtime = File.read(NPC_GESTURES_JS, encoding: 'UTF-8')
 replace_once!(npc_gestures_runtime, '__NPC_GESTURES_URI__', JSON.generate("data:image/png;base64,#{encode(File.join(NPC_GESTURES_ASSETS, 'city_gestures.png'))}"), 'gestos dos moradores C1')
+replace_once!(npc_gestures_runtime, '__NPC_C3_GESTURES_URI__', JSON.generate("data:image/png;base64,#{encode(File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2', 'NPC_C3_GESTURES_6X4.png'))}"), 'gestos dos moradores C3')
 polish_runtime = File.read(WORLD_POLISH_JS, encoding: 'UTF-8')
 replace_once!(polish_runtime, '__WORLD_POLISH_ASSETS__', JSON.generate(polish_uris), 'mobiliário do estúdio')
 protagonist_runtime = File.read(PROTAGONIST_JS, encoding: 'UTF-8')
@@ -372,14 +386,26 @@ musician_runtime = File.read(MUSICIAN_JS, encoding: 'UTF-8')
 replace_once!(musician_runtime, '__MUSICIAN_ASSETS__', JSON.generate(musician_uris), 'sprites Percussionista e Sintetizador com paleta canônica')
 replace_once!(musician_runtime, '__MUSICIAN_MANIFEST__', JSON.generate(musician_manifest), 'manifesto Percussionista e Sintetizador')
 boss_animation_manifest = JSON.parse(File.read(File.join(BOSS_ANIMATION_ASSETS, 'manifest.json')))
+boss_animation_v3_manifest = JSON.parse(File.read(File.join(BOSS_ANIMATION_V3, 'manifest.json')))
+boss_animation_manifest['clips'].merge!(boss_animation_v3_manifest.fetch('clips'))
 boss_animation_files = boss_animation_manifest.fetch('clips').values.map { |entry| entry.fetch('atlas') }.uniq
-boss_animation_uris = boss_animation_files.to_h { |file| [file, "data:image/png;base64,#{encode(File.join(BOSS_ANIMATION_ASSETS, file))}"] }
+boss_animation_paths = boss_animation_files.to_h do |file|
+  folder = boss_animation_v3_manifest.fetch('clips').values.any? { |clip| clip.fetch('atlas') == file } ? BOSS_ANIMATION_V3 : BOSS_ANIMATION_ASSETS
+  [file, File.join(folder, file)]
+end
+boss_animation_uris = boss_animation_paths.to_h { |file, absolute| [file, "data:image/png;base64,#{encode(absolute)}"] }
 boss_animation_runtime = File.read(BOSS_ANIMATION_JS, encoding: 'UTF-8')
 replace_once!(boss_animation_runtime, '__BOSS_ANIMATION_ASSETS__', JSON.generate(boss_animation_uris), 'animações dos chefes')
 replace_once!(boss_animation_runtime, '__BOSS_ANIMATION_MANIFEST__', JSON.generate(boss_animation_manifest), 'manifesto de animações dos chefes')
 ground_fx_manifest = JSON.parse(File.read(File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json')))
+ground_fx_v2_manifest = JSON.parse(File.read(File.join(BOSS_GROUND_FX_V2, 'manifest.json')))
+ground_fx_manifest['clips'].merge!(ground_fx_v2_manifest.fetch('clips'))
 ground_fx_files = ground_fx_manifest.fetch('clips').values.map { |entry| entry.fetch('atlas') }.uniq
-ground_fx_uris = ground_fx_manifest.fetch('clips').to_h { |key, entry| [key, "data:image/png;base64,#{encode(File.join(BOSS_GROUND_FX_ASSETS, entry.fetch('atlas')))}"] }
+ground_fx_paths = ground_fx_manifest.fetch('clips').to_h do |key, entry|
+  folder = ground_fx_v2_manifest.fetch('clips').key?(key) ? BOSS_GROUND_FX_V2 : BOSS_GROUND_FX_ASSETS
+  [key, File.join(folder, entry.fetch('atlas'))]
+end
+ground_fx_uris = ground_fx_paths.to_h { |key, absolute| [key, "data:image/png;base64,#{encode(absolute)}"] }
 ground_fx_runtime = File.read(BOSS_GROUND_FX_JS, encoding: 'UTF-8')
 replace_once!(ground_fx_runtime, '__BOSS_GROUND_FX_ASSETS__', JSON.generate(ground_fx_uris), 'sprites FX de golpes no chão')
 replace_once!(ground_fx_runtime, '__BOSS_GROUND_FX_MANIFEST__', JSON.generate(ground_fx_manifest), 'manifesto FX de golpes no chão')
@@ -432,6 +458,7 @@ File.binwrite(OUTPUT, html)
 sources = [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
 sources += [File.join(LOCOMOTION_ASSETS, 'manifest.json')] + locomotion_files.map { |relative| File.join(LOCOMOTION_ASSETS, relative) }
 sources += [NPC_GESTURES_JS, File.join(NPC_GESTURES_ASSETS, 'city_gestures.png'), File.join(NPC_GESTURES_ASSETS, 'manifest.json')]
+sources += Dir[File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2', '*.png')] + [File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2', 'manifest.json')]
 sources += [WORLD_POLISH_JS, NPC_LIFE_JS, File.join(WORLD_POLISH_ASSETS, 'manifest.json')] + polish_files.map { |relative| File.join(WORLD_POLISH_ASSETS, relative) }
 sources += [MUSICIAN_JS, File.join(MUSICIAN_ASSETS, 'manifest.json')] + musician_files.map { |relative| File.join(MUSICIAN_ASSETS, relative) }
 sources += [CENARIOS_JS, File.join(CENARIOS_ASSETS, 'manifest.json')] + cenarios_files.map { |relative| File.expand_path(relative, CENARIOS_ASSETS) }
@@ -440,10 +467,10 @@ if cenarios_theme == 'deserto-v1'
 end
 
 sources += [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_art_files.map { |relative| File.join(ENEMY_ART_ASSETS, relative) }
-sources += [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json')] + boss_animation_files.map { |relative| File.join(BOSS_ANIMATION_ASSETS, relative) }
+sources += [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json'), File.join(BOSS_ANIMATION_V3, 'manifest.json')] + boss_animation_paths.values
 
 sources += [File.join(ROOT, "postgame.js")]
-sources += [BOSS_GROUND_FX_JS, File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json')] + ground_fx_files.map { |relative| File.join(BOSS_GROUND_FX_ASSETS, relative) }
+sources += [BOSS_GROUND_FX_JS, File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json'), File.join(BOSS_GROUND_FX_V2, 'manifest.json')] + ground_fx_paths.values
 sources += [ENVIRONMENT_DEPTH_JS, ENVIRONMENT_ATMOSPHERE_JS, CLOUD_WORLD_JS, CLOUD_STORY_JS, File.join(CLOUD_WORLD_ASSETS, 'manifest.json')] + cloud_files.values
 sources += [File.join(ENVIRONMENT_VOLUME_ASSETS, 'manifest.json')] + volume_files.values
 manifest = {
@@ -478,7 +505,7 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    key = [NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, LOCOMOTION_ASSETS, WORLD_POLISH_ASSETS, NPC_GESTURES_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS, CLOUD_WORLD_ASSETS, ENVIRONMENT_VOLUME_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    key = [BOSS_ANIMATION_V3, BOSS_GROUND_FX_V2, File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2'), NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, LOCOMOTION_ASSETS, WORLD_POLISH_ASSETS, NPC_GESTURES_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS, CLOUD_WORLD_ASSETS, ENVIRONMENT_VOLUME_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
 
     [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end
