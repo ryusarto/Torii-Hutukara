@@ -1,14 +1,16 @@
 # Coordenação de releases — Torii & Hutukara
 
-Atualizado em 20/11/2026 após a confirmação dos FX no Pages. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
+Atualizado em 20/11/2026 após a confirmação da Beta1.8 no Pages. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
 
-## Revisão1.8 em integração
+## Publicação1.8 confirmada
 
-Base7553828/Beta1.7.1. Próxima1.8: estúdio, corrida12poses, fundos e IA/gestosNPC. Build local validada142/142; SHA-256`9d6e2378b689edc2e9347e67b3cf4d0a390c17a763bcbbc83ae1086ea2e4158c`. Publicação exige sucesso do PR e workflow antes de marcar online. Pós-jogo de outra frente reservado para1.9, sempre incorporando main1.8; fachadas/nuvens permanecem em produção separada.
+Base7553828/Beta1.7.1, integrada pelo PR#18 em `c52480979242131b57d5d9e567f90236230a0138`. Beta1.8: estúdio, corrida12poses, fundos, IA/gestosNPC e migração segura do save na colisão nova do sofá. Build validada142/142; SHA-256 `9d6e2378b689edc2e9347e67b3cf4d0a390c17a763bcbbc83ae1086ea2e4158c`.
+
+Art integration44848645371 e Gameplay44848645395 aprovados no head finalbd9992e; Publish44849114374 concluído. Site1.8.0 conferido por hash do HTML e dos sete PNGs alterados, com roundtrip preservado. Pós-jogo de outra frente reservado para1.9, incorporando esta main. Fachadas/nuvens permanecem em produção separada.
 
 [Resultados e limites](../qa/beta-1.8.0/PLAYTEST.md).
 
-## Base consultada
+## Base histórica1.7
 
 Main funcional `3e7ad3f5c9ba484e9e257e016102c19d8389c235`: **Beta 1.7.0**, com FX dos golpes no chão, cenários desérticos, músicos revisados na 1.6.1 e inimigos/bosses da 1.5 preservados. Publicação e hashes conferidos em 20/11/2026.
 
@@ -22,11 +24,14 @@ Main funcional `3e7ad3f5c9ba484e9e257e016102c19d8389c235`: **Beta 1.7.0**, com F
 | Beta 1.6.1 | Músicos | Máscaras, cadência e transições | PR #16 integrado em 86e3085; publicação 44230185415 aprovada |
 | Beta 1.7.0 | NPCs/inimigos e bosses | 32 quadros de FX dos golpes no chão | PR #15 integrado em 3e7ad3f; publicação 44232084397 aprovada e site/hash confirmados |
 
+| Beta1.7.1 | Músicos | Corrige apresentação de ataques de Franco/Ryuchi | PR#17 integrado; preservado na1.8 |
+| Beta1.8.0 | Revisão geral | Estúdio, corrida12poses, cinema, IA/gestosNPC, save no sofá | PR#18 integrado; deploy44849114374 e hashes online confirmados |
+
 A reserva anterior **1.4.0 para cenários foi realocada para 1.6.0**, pois a main avançou para 1.5 antes da conclusão dos cenários. Os assets recuperados continuam válidos. Não promover a build de cenários1.4 por cima da main1.5 nem simplesmente renomear seu executável.
 
 O checkpoint de cenários permanece recuperável na branch art/cenarios-deserto-v1 e nos backups próprios. Os executáveis e relatórios anteriores são evidências das respectivas fontes. A composição final 1.6 foi recompilada e revalidada; seus resultados identificam o hash abaixo.
 
-## Publicação atual confirmada — Beta 1.7
+## Histórico da publicação — Beta 1.7
 
 - [Publish playtest 44232084397](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44232084397) concluído com sucesso para 3e7ad3f.
 - Pages conferido em 20/11/2026: 1.7.0, SHA-256 da fonte `5af9381eddcafa26fd671adbca39cc27bb879549f8e4a85500db962ac151a6d7`; HTML e quatro atlas com hashes idênticos aos validados. Roundtrip e HTML portátil preservados.
@@ -62,4 +67,4 @@ Não encerrar processos ou apagar arquivos de outra frente. Limpeza é restrita 
 
 ## Limites
 
-Este arquivo modifica somente a coordenação documental. Não altera game/VERSION.json, runtime, assets ou o site. A publicação 1.7 acima foi confirmada; versões futuras continuam exigindo conferência real antes da promoção.
+Este arquivo modifica somente a coordenação documental. Não altera game/VERSION.json, runtime, assets ou o site. A publicação1.8 acima foi confirmada; versões futuras continuam exigindo conferência real antes da promoção.
