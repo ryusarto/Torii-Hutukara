@@ -55,7 +55,8 @@
         "checkpoint": "last_torii",
         "reward": 40,
         "repeat": 0,
-        "button": true
+        "button": true,
+        "opening": "A última frequência abriu caminhos que antes não respondiam."
       }
     },
     {
