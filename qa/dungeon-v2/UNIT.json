@@ -1,0 +1,18 @@
+{
+  "passed": 12,
+  "checks": [
+    "Progressive pressure stays bounded and HP at wave20 is less than legacy sponge growth",
+    "Procedural plans vary without early controllers or multiple mute auras",
+    "Clean waves award an extra bonus without a timer favoring fast weapons",
+    "A nonlethal P2 hit immediately classifies the attempt as coop",
+    "Real damage clears clean bonus and observes KO even after a leader swap",
+    "Wave5 rewards are banked once and survive a P2 disconnection during rest",
+    "Loading partial wave rewinds score, HP, tapes and resonance together",
+    "Campaign resources return after an expedition instead of granting temporary supplies permanently",
+    "Legacy scores remain visible as history and never enter the new rankings",
+    "Pause freezes warnings, wave timers and combat time",
+    "Warning placement cannot be offscreen or hidden under HUD/control corners",
+    "Elite damage stays below one-shot range for the weakest selected maxHP"
+  ],
+  "method": "VM of real dungeon functions; combat and DOM dependencies stubbed. Not a human comfort/fun test."
+}
