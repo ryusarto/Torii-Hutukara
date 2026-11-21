@@ -40,6 +40,9 @@ jobs:
           node qa/npc_life_v1.cjs
           node qa/boss_choreography_unit.cjs
           node qa/boss_ground_fx_unit.cjs
+          node qa/environment_depth_v1.cjs
+          node qa/environment_atmosphere_v1.cjs
+          node qa/cloud_world_v1.cjs
           node qa/enemy_art_v1.cjs
           node qa/input_regression.cjs
           node qa/gameplay_regression.cjs
@@ -52,6 +55,7 @@ jobs:
           trap 'kill "$test_server_pid"' EXIT
           node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
           node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/
+          node qa/environment_world_browser.cjs http://127.0.0.1:8771/
           node qa/protagonist_art_v5.cjs http://127.0.0.1:8771/
           node qa/world_polish_v1.cjs http://127.0.0.1:8771/
           node qa/npc_life_browser.cjs http://127.0.0.1:8771/
@@ -69,6 +73,8 @@ jobs:
             qa/enemies-v1/
             qa/boss-animations-v2/
             qa/boss-ground-fx-v1/
+            qa/environment-world-v1/
+
             qa/postgame/
             qa/playtest/SITE_TEST_RESULTS.json
             qa/screenshots-local/pages/

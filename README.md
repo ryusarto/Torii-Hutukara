@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta 1.9.0 — Último Torii com aliados da reserva, encerramento em Hutukara, viagens após zerar e Fenda das Ressonâncias com ondas procedurais e recorde local. Inclui as melhorias de arte, corrida e NPCs da Beta 1.8. A versão fica em `game/VERSION.json`.
+**Versão atual:** Beta 1.10.0 — fachadas em perspectiva, interiores próprios, luz e vento, portal para as nuvens e reconstrução/queda animadas. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -18,6 +18,8 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 - Cenários C3 desérticos: 13 atlas, 131 recortes/estados e dois fundos de diálogo; terra, ferrugem, sucata e passagens elevadas legíveis. C1/C2 mantêm os 20 recortes compartilhados. [Assets e integração](docs/CENARIOS_DESERTO_V1.md).
 - Ryuchi Percussionista e Franco Sintetizador: 208 sequências, 1.664 poses e 32 retratos, com/sem máscara, na paleta canônica de terra e sucata. [Assets, integração e prévia](docs/ARTE_PERCUSSAO_SINTETIZADOR_V1.md).
 - Sprites detalhados para os personagens e NPCs do Capítulo 3.
+- Fachadas com volume e portas alinhadas, 13 interiores distintos, iluminação local, poeira e copas ao vento.
+- Portal para o Mar de Nuvens, reconstrução animada das passagens e queda mortal ao sair da borda, inclusive no coop. [Ambientes, arte e testes](docs/AMBIENTES_MUNDO_VIVO_V1.md).
 - Golpes dos quatro chefes com 32 quadros de FX: energia, interferência, poeira/sucata e vórtice oxidado, da preparação ao impacto e à dissipação. [Sprites, prompts e integração](docs/BOSS_GROUND_FX_V1.md).
 - Jogo distribuído como um único HTML portátil, sem instalação.
 - Suporte a DualShock 4, DualSense e controles compatíveis, com coop local para duas pessoas.
@@ -30,7 +32,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 O link identifica PC ou mobile na entrada e exibe um aviso por quatro segundos. Depois, o aviso some. A interface de toque é automática em celular/tablet. Veja [publicação e testes entre aparelhos](docs/PLAYTEST_SITE.md).
 
-**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/beta-1.8.0/`.
+**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/beta-1.10.0/`.
 
 Controles principais:
 

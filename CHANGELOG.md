@@ -1,3 +1,13 @@
+## [Beta 1.10.0] — 2026-11-20
+
+- Oito fachadas C1/C2 em perspectiva com telhado e lateral visíveis, soleiras alinhadas às entradas e sombras de contato; C3 preserva as fachadas de sucata aprovadas. Ordenação pela base e transparência diante dos jogadores.
+- Treze interiores com materiais, zoneamento e paredes próprios, preservando texturas autorais, móveis, interações e rotas.
+- Luz ambiente por sala e fontes locais, sem escurecer HUD; atmosfera sépia e partículas de areia no exterior do C3. Copas se movem ao vento com raízes/troncos firmes e opção de efeitos suaves.
+- Elevador do Céu como portal para as nuvens acima do mesmo mundo desértico. Novo fundo cinematográfico e narrativa; nuvens marfim/rosa com sombra lavanda restauradas no Mar de Nuvens.
+- Passagens com oito sprites de reconstrução e apoio físico gradual. Ação musical persistida sem duplicar recompensa; saves parciais restauram o caminho seguro.
+- Sair da nuvem caminhando ou rolando inicia queda com redução/descida do personagem e derrota pelo checkpoint. P2 participa da regra; sincronização não o resgata na borda. Pausa, retry, export e transições tratados.
+- Fontes, prompts do ImageGen integrado, atlas e exportadores preservados. [Contrato e evidências](docs/AMBIENTES_MUNDO_VIVO_V1.md).
+
 ## [Beta 1.9.0] — 2026-11-20
 
 - Último Torii escolhe até dois aliados desbloqueados fora da formação atual e do P2. Sprites e falas acompanham a seleção; trocar a equipe também atualiza a sala.

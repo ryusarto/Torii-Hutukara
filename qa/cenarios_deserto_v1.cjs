@@ -27,6 +27,8 @@ fs.mkdirSync(out,{recursive:true});
   });
   await page.goto(url,{waitUntil:'domcontentloaded',timeout:120000});
   await page.waitForFunction(()=>typeof CenariosDesertoV1!=='undefined'&&typeof CenariosV2!=='undefined',null,{timeout:120000});
+  // Isolate the existing desert library; environment_world_browser checks the new composition.
+  await page.evaluate(()=>{for(const name of ['EnvironmentDepthV1','EnvironmentAtmosphereV1','CloudStoryV1','CloudWorldV1'])if(window[name])window[name].enabled=false;});
   report.browser=await browser.version();
   try{const r=await context.request.get(new URL('build-info.json',url).href);if(r.ok()){const b=await r.json();report.build={version:b.version,sourceSha256:b.sourceSha256,indexSha256:b.indexSha256}}}catch{}
   if(process.env.TORII_EXPECTED_SHA&&report.build?.sourceSha256!==process.env.TORII_EXPECTED_SHA)throw Error('Served build hash does not match TORII_EXPECTED_SHA: '+report.build?.sourceSha256);

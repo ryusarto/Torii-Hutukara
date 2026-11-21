@@ -1,0 +1,145 @@
+{
+  "version": "environment-volume-v1",
+  "cell": 384,
+  "columns": 2,
+  "rows": 2,
+  "filtering": "nearest",
+  "sheets": {
+    "c1": {
+      "file": "atlas/c1.png",
+      "size": [
+        768,
+        768
+      ]
+    },
+    "c2": {
+      "file": "atlas/c2.png",
+      "size": [
+        768,
+        768
+      ]
+    }
+  },
+  "items": {
+    "c1_house": {
+      "sheet": "c1",
+      "frame": 0,
+      "content": [
+        27,
+        8,
+        337,
+        364
+      ],
+      "pivot": [
+        140,
+        364
+      ],
+      "pivotRole": "front doorway threshold"
+    },
+    "c1_shop": {
+      "sheet": "c1",
+      "frame": 1,
+      "content": [
+        402,
+        46,
+        352,
+        322
+      ],
+      "pivot": [
+        145,
+        322
+      ],
+      "pivotRole": "front doorway threshold"
+    },
+    "c1_inn": {
+      "sheet": "c1",
+      "frame": 2,
+      "content": [
+        10,
+        399,
+        358,
+        357
+      ],
+      "pivot": [
+        157,
+        357
+      ],
+      "pivotRole": "front doorway threshold"
+    },
+    "c1_archive": {
+      "sheet": "c1",
+      "frame": 3,
+      "content": [
+        396,
+        404,
+        357,
+        352
+      ],
+      "pivot": [
+        151,
+        352
+      ],
+      "pivotRole": "front doorway threshold"
+    },
+    "c2_home": {
+      "sheet": "c2",
+      "frame": 0,
+      "content": [
+        39,
+        15,
+        322,
+        348
+      ],
+      "pivot": [
+        134,
+        348
+      ],
+      "pivotRole": "front doorway threshold"
+    },
+    "c2_workshop": {
+      "sheet": "c2",
+      "frame": 1,
+      "content": [
+        401,
+        56,
+        330,
+        305
+      ],
+      "pivot": [
+        142,
+        305
+      ],
+      "pivotRole": "front doorway threshold"
+    },
+    "c2_shop": {
+      "sheet": "c2",
+      "frame": 2,
+      "content": [
+        33,
+        408,
+        325,
+        333
+      ],
+      "pivot": [
+        138,
+        333
+      ],
+      "pivotRole": "front doorway threshold"
+    },
+    "c2_radio": {
+      "sheet": "c2",
+      "frame": 3,
+      "content": [
+        397,
+        388,
+        341,
+        353
+      ],
+      "pivot": [
+        146,
+        353
+      ],
+      "pivotRole": "front doorway threshold"
+    }
+  }
+}
