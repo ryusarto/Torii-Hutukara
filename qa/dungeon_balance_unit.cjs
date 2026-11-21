@@ -33,7 +33,7 @@ check('Card effects apply to real damage, health thresholds, guard, stun and res
  const r=fixture();r.upgrades={drive:2,ambush:2,finish:2,guard:2,stagger:2,charge:2};const e={endless:true,hp:150,max:150,type:'hush'};
  c.hitEnemy(e,20);assert.equal(e.hp,116);e.hp=60;c.hitEnemy(e,20);assert.equal(e.hp,28);
  c.damageHero(12);assert.equal(c.G.hp.franco,30);
- c.hitEnemy(e,500);assert.equal(c.G.resonance,34);assert.equal(p.cardValue('stagger',2),'30%');assert.equal(p.cardValue('charge',2),'4');
+ c.hitEnemy(e,500);assert.equal(c.G.resonance,34);assert.equal(p.cardValue('stagger',2),'30%');assert.equal(p.cardValue('charge',2),'+4 de ressonância');
 });
 check('Campaign resources return after an expedition instead of granting temporary supplies permanently',()=>{fixture();p.finishRun('exit');assert.equal(c.G.area,'last_torii');assert.equal(c.G.potions,17);assert.equal(c.G.resonance,63);assert.equal(c.G.postgame.run,null)});
 check('Legacy scores remain visible as history and never enter the new rankings',()=>{const g={...c.G,area:p.AREA,c3:{complete:true}},n=p.normalize({version:1,bestScore:9999,bestWave:12,run:{active:true,wave:12,bankedScore:400,hpStart:g.hp}},g);assert.equal(n.legacyScore,9999);assert.equal(n.records.solo.score,0);assert(n.run.legacy);c.G.postgame=n;c.G.area=p.AREA;n.run.score=12000;p.best();assert.equal(n.legacyScore,12000);assert.equal(n.records.solo.score,0)});

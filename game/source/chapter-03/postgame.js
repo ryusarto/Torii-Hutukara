@@ -98,7 +98,7 @@ const PostGame={
  bonus(id,run){return this.amount(id,run?.upgrades?.[id]||0)},
  cardValue(id,level){
   const n=this.amount(id,level);
-  return id==='charge'?String(n):Number((100*n).toFixed(1)).toLocaleString('pt-BR')+'%';
+  return id==='charge'?'+'+n+' de ressonância':Number((100*n).toFixed(1)).toLocaleString('pt-BR')+'%';
  },
  offers(run){
   const pool=Object.keys(this.cards).filter(id=>!this.cards[id].maxLevel||(run.upgrades?.[id]||0)<this.cards[id].maxLevel);
@@ -169,7 +169,7 @@ const PostGame={
  // Força do instrumento (só na Fenda): todos recebem o mesmo dano, e quem sobrevive menos
  // compensa batendo mais forte. Quem luta colado no eco (Katana, Sintetizador, Percussão)
  // recebia de 2 a 4 vezes mais dano por onda que o Arqueiro. Ajustada com o robô de equilíbrio.
- heroPower:{franco:1,ryuchi:1.15,alt:1,katana:2.7,synth:2.1,percussion:1.6},
+ heroPower:{franco:1,ryuchi:1.15,alt:1.15,katana:3.5,synth:2.3,percussion:1.6},
  power(who){return this.heroPower[who]??1},
  // Quem desferiu o golpe: o líder, ou o jogador 2 durante as ações dele.
  attackerId(){return this.attacker||G.active},
@@ -177,13 +177,16 @@ const PostGame={
   if(!this.active()||amount<=0)return amount;
   return Math.max(1,Math.round(amount*(1-this.bonus('guard',this.run()))));
  },
+ CURVE:.95,
  profile(wave,seats=1){
   // Uma única curva de dificuldade para solo e co-op. Antes o co-op subia 25% mais rápido
   // (0,90 por onda contra 0,72) e, com a mesma dupla, chegava a 30% menos ondas que o solo.
   // Agora o segundo jogador é compensado por um fator fixo: 50% mais ecos, um a mais vivo,
   // grupos maiores e 20% mais vida. Medido com o robô de equilíbrio (qa/dungeon_equilibrio.cjs).
-  const w=Math.max(1,wave),phase=(w-1)%5,names=['Pulso','Contratempo','Interferência','Ressonância','Crescendo'],intensity=(w-1)*.72,coop=seats===2;
-  return {name:names[phase],count:Math.min(coop?20:15,Math.ceil((3+Math.floor(intensity*.55))*(coop?1.5:1))),alive:Math.min(coop?7:6,(coop?4:3)+Math.floor(intensity/6)),group:Math.min(coop?5:4,2+Math.floor(intensity/4)+(coop?1:0)),cadence:coop?1.05:1.25,warning:.95,hp:(1+.018*intensity+.20*Math.log2(1+intensity/5))*(coop?1.2:1),power:Math.min(3.25,1+.022*intensity)};
+  const w=Math.max(1,wave),phase=(w-1)%5,names=['Pulso','Contratempo','Interferência','Ressonância','Crescendo'],intensity=(w-1)*this.CURVE,coop=seats===2;
+  // Curva: a onda 1 já traz 4 ecos em grupo, e o aperto chega entre as ondas 12 e 18
+  // (antes começava com 3 ecos, um por vez, e o pico ficava entre a 20 e a 30).
+  return {name:names[phase],count:Math.min(coop?20:15,Math.ceil((4+Math.floor(intensity*.55))*(coop?1.5:1))),alive:Math.min(coop?7:6,(coop?4:3)+Math.floor(intensity/5)),group:Math.min(coop?5:4,2+Math.floor(intensity/3)+(coop?1:0)),cadence:coop?1.05:1.25,warning:.95,hp:(1+.018*intensity+.20*Math.log2(1+intensity/5))*(coop?1.2:1),power:Math.min(3.25,1+.025*intensity)};
  },
  record(mode){return this.state().records[mode==='coop'?'coop':'solo']},
  multiplier(r=this.run()){return 1+Math.min(5,r?.combo||0)*.1},
@@ -296,9 +299,11 @@ const PostGame={
  },
 
  mobileHUD(){
-  if(typeof Input121==='undefined'||!Input121.mobile||!this.active())return;const r=this.run(),score=r.score>=1000000?(r.score/1000000).toFixed(1)+'mi':r.score>=10000?(r.score/1000).toFixed(1)+'mil':String(r.score),label='ONDA '+r.wave+' · '+score+' PTS · ×'+this.multiplier(r).toFixed(1);
+  if(typeof Input121==='undefined'||!Input121.mobile||!this.active())return;const r=this.run(),score=r.score>=1000000?(r.score/1000000).toFixed(1)+'mi':r.score>=10000?(r.score/1000).toFixed(1)+'mil':String(r.score),label='ONDA '+r.wave+' · '+score+' PTS · SEM DANO ×'+this.multiplier(r).toFixed(1);
   for(const id of ['quest','questText','mobileObjective','mobileGoal121'])if($(id))$(id).textContent=label;
  },
+ // Rótulos no mapa: 12 px com contorno escuro, legíveis sobre qualquer piso.
+ label(text,x,y,color){ctx.save();ctx.font='bold 12px monospace';ctx.textAlign='center';ctx.lineJoin='round';ctx.lineWidth=3;ctx.strokeStyle='#120f1c';ctx.strokeText(text,x,y);ctx.fillStyle=color;ctx.fillText(text,x,y);ctx.restore()},
  warningVisible(x,y){
   const sx=x*T-cam.x,sy=y*T-cam.y;if(sx<28||sx>VW-28||sy<38||sy>VH-28)return false;
   if(sx<190&&sy<155||sx>VW-115&&sy<80||sy>VH-105&&(sx<165||sx>VW-200))return false;return true;
@@ -307,9 +312,9 @@ const PostGame={
   if(!this.active())return;for(const p of this.warnings())this.drawWarning(p);
  },
  drawWarning(p){
-  const x=p.x*T-cam.x,y=p.y*T-cam.y,spec=this.plan[p.index];ctx.save();ctx.strokeStyle=spec?.elite?'#d6a56c':'#c4c7b0';ctx.lineWidth=2;ctx.setLineDash([4,3]);ctx.beginPath();ctx.ellipse(x,y,18,10,0,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#f0ddba';ctx.font='10px monospace';ctx.textAlign='center';ctx.fillText(spec?.elite?'RESSONANTE':'ECO',x,y-16);ctx.restore();
+  const x=p.x*T-cam.x,y=p.y*T-cam.y,spec=this.plan[p.index];ctx.save();ctx.strokeStyle=spec?.elite?'#d6a56c':'#c4c7b0';ctx.lineWidth=2;ctx.setLineDash([4,3]);ctx.beginPath();ctx.ellipse(x,y,18,10,0,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);PostGame.label(spec?.elite?'RESSONANTE':'ECO',x,y-16,spec?.elite?'#f3c98a':'#f0ddba');ctx.restore();
  },
- hud(){if(!G)return;if(this.active()){const r=this.run(),left=this.plan.length-r.cursor+this.warnings(r).length+current.enemies.filter(e=>e.hp>0).length;$('quest').textContent='ONDA '+r.wave+' · '+(r.phase==='rest'?'Escolha uma melhoria':left+' inimigos restantes');$('questHint').textContent=r.score+' PTS · RITMO ×'+this.multiplier(r).toFixed(1)+' · '+this.profile(r.wave,r.waveSeats).name+' · M: encerrar';$('bMap').textContent='EXPEDIÇÃO [M]'}else if(G.c3?.complete){$('quest').textContent='Hutukara continua aberto.';$('questHint').textContent='M: escolher um capítulo ou entrar no calabouço infinito.';$('bMap').textContent='CAPÍTULOS [M]'}else $('bMap').textContent='MAPA [M]';if(G.c3?.complete){if($('mobileObjective'))$('mobileObjective').textContent=$('quest').textContent;if($('guideChip'))$('guideChip').textContent=$('questHint').textContent}this.mobileHUD()}
+ hud(){if(!G)return;if(this.active()){const r=this.run(),left=this.plan.length-r.cursor+this.warnings(r).length+current.enemies.filter(e=>e.hp>0).length;$('quest').textContent='ONDA '+r.wave+' · '+(r.phase==='rest'?'Escolha uma melhoria':left+' inimigos restantes');$('questHint').textContent=r.score+' PTS · SEM DANO ×'+this.multiplier(r).toFixed(1)+' · '+this.profile(r.wave,r.waveSeats).name+' · M: encerrar';$('bMap').textContent='EXPEDIÇÃO [M]'}else if(G.c3?.complete){$('quest').textContent='Hutukara continua aberto.';$('questHint').textContent='M: escolher um capítulo ou entrar no calabouço infinito.';$('bMap').textContent='CAPÍTULOS [M]'}else $('bMap').textContent='MAPA [M]';if(G.c3?.complete){if($('mobileObjective'))$('mobileObjective').textContent=$('quest').textContent;if($('guideChip'))$('guideChip').textContent=$('questHint').textContent}this.mobileHUD()}
 };
 C3.AREAS.push(PostGame.AREA);C3.COMBAT_AREAS.push(PostGame.AREA);combatAreas10.add(PostGame.AREA);C3.labels[PostGame.AREA]=['FENDA DAS RESSONÂNCIAS','CALABOUÇO INFINITO'];
 const postFresh=fresh;fresh=function(...args){const g=postFresh(...args);g.postgame=PostGame.defaults();return g};
@@ -373,6 +378,6 @@ const postDungeonDamage=damageHero;damageHero=function(...args){const before=Pos
 const postDungeonCoopDamage=C3.damageCoop;C3.damageCoop=function(...args){const before=PostGame.active()?PostGame.damageSnapshot():null;try{args[0]=PostGame.incoming(args[0]);return postDungeonCoopDamage(...args)}finally{if(before)PostGame.observeDamage(before)}};
 if(typeof BossChoreographyV2!=='undefined'){const postDungeonGround=BossChoreographyV2.drawGround;BossChoreographyV2.drawGround=function(...args){const result=postDungeonGround.apply(this,args);PostGame.drawWarnings();return result}};
 
-if(typeof EnemyArtV1!=='undefined'){const postDungeonEnemy=EnemyArtV1.draw;EnemyArtV1.draw=function(x,y,kind,e){const result=postDungeonEnemy.call(this,x,y,kind,e);if(result&&PostGame.active()&&e?.endlessElite){const entry=this.manifest.enemies[this.key(kind,e)],top=y-(entry?.height||64)-12;ctx.save();ctx.fillStyle='#e0b77c';ctx.font='8px monospace';ctx.textAlign='center';ctx.fillText('RESSONANTE',x,top);ctx.restore()}return result}};
+if(typeof EnemyArtV1!=='undefined'){const postDungeonEnemy=EnemyArtV1.draw;EnemyArtV1.draw=function(x,y,kind,e){const result=postDungeonEnemy.call(this,x,y,kind,e);if(result&&PostGame.active()&&e?.endlessElite){const entry=this.manifest.enemies[this.key(kind,e)],top=y-(entry?.height||64)-12;PostGame.label('RESSONANTE',x,top,'#f3c98a')}return result}};
 
 if(typeof updateMobileReadout121!=='undefined'){const postDungeonMobile=updateMobileReadout121;updateMobileReadout121=function(...args){const result=postDungeonMobile(...args);PostGame.mobileHUD();return result}};

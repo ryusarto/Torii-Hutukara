@@ -1,3 +1,11 @@
+## [Calabouço · curva e rótulos] — 2026-11-21
+
+- **Curva nova:** a onda 1 já traz 4 ecos em grupo, e o aperto chega entre as ondas 12 e 18 (antes começava com 3 ecos e o pico ficava entre a 20 e a 30). No robô, um personagem sozinho chega em média à onda 14 e uma dupla à 20.
+- Força do instrumento reajustada para a curva nova: Arqueiro ×1,15, Sintetizador ×2,3, Katana ×3,5.
+- "RITMO ×" virou "SEM DANO ×", que é o que ele conta (ondas seguidas sem levar dano).
+- Os rótulos "ECO" e "RESSONANTE" no mapa passaram de 8–10 px para 12 px, com contorno escuro.
+- A carta *Retorno de sinal* mostra a unidade: "+2 → +4 de ressonância".
+
 ## [Calabouço · grupos, respiro e equilíbrio] — 2026-11-21
 
 - **Os ecos chegam em grupos** de 2 a 4 (até 5 no co-op), em cerco, linha ou pinça, em vez de um por vez. O próximo grupo vem pouco depois de o anterior nascer, quando há espaço na arena.
