@@ -49,3 +49,9 @@ Os testes automatizados usam fixtures do runtime em Chrome isolado. Verificam fo
 ## Validação 1.12
 
 `qa/dungeon_balance_unit.cjs` cobre regras, recursos, migração e classificação; `qa/dungeon_playtest.cjs` executa60ondas por modalidade, desconexão, reentrada, confirmação simultânea e toque real via CDP em390×844 e844×390. As60ondas usam eliminações controladas para verificar integridade, sem representar dificuldade humana. O benchmark opcional `DUNGEON_BENCH=1` usa ações/IA/dano reais e um bot simples; suas durações servem para comparar candidatos e não comprovam diversão nem equivalência entre personagens. Evidências em `qa/dungeon-v2/`.
+
+## Validação de sobrevivência e escolhas
+
+A suíte de 1.13 está em `qa/dungeon-v3/`. O teste de sobrevivência percorre 60 ondas solo e 60 coop com eliminações controladas. Outro caso fere a equipe e aciona os supers de Franco, sintetizador, percussionista e P2 para conferir ataque e HP. O painel de escolhas é verificado com teclado, controles emulados e toque em retrato e paisagem, inclusive saída por pausa, recarga e confirmação única.
+
+O benchmark usa uma semente, seis líderes por modalidade e um bot que seleciona a primeira carta disponível imediatamente. Os tempos contam combate simulado e não incluem o tempo humano para ler as cartas.
