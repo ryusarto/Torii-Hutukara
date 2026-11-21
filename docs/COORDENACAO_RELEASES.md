@@ -1,6 +1,14 @@
 # Coordenação de releases — Torii & Hutukara
 
-Atualizado em 20/11/2026 após a confirmação da Beta1.8 no Pages. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
+Atualizado em 20/11/2026 após a confirmação da Beta1.9 no Pages. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
+
+## Publicação1.9 confirmada
+
+PR#20 integrado na main18bbb15; correção de infraestrutura d75a37b preserva o jogo. Beta1.9: elenco do Último Torii condicionado à formação/P2, encerramento em Hutukara, viagens e Fenda das Ressonâncias com inimigos procedurais por ondas, pontuação e recorde local.
+
+Fonte SHA-256 `2fd6f7e7437280b74ca61561fc329d4933d26971f3cd05b16626ca857d529710`. Art44849617577, Gameplay44849617423 e Publish44852294347/attempt1 aprovados. Versão1.9.0 e HTML conferidos no endereço público; fluxos de reservas, final, onda, derrota e retry executados em Chrome isolado, com PNGs de inimigos decodificados. [Prova e limites](../qa/postgame/PAGES_VERIFICACAO.json).
+
+A publicação44850130096 falhou por visibilidade dos metadados e duplicação do nome do artefato no retry. O workflow agora usa nome porrun/attempt e espera o ID exato ficar visível, sem apagar artefatos ou enfraquecer testes. Próxima composição de ambientes reservada para1.10 deve incorporar1.9 e o reparo, mantendo postgame.js por último e respeitando postReserve e o novo estado de queda.
 
 ## Publicação1.8 confirmada
 
@@ -25,6 +33,7 @@ Main funcional `3e7ad3f5c9ba484e9e257e016102c19d8389c235`: **Beta 1.7.0**, com F
 | Beta 1.7.0 | NPCs/inimigos e bosses | 32 quadros de FX dos golpes no chão | PR #15 integrado em 3e7ad3f; publicação 44232084397 aprovada e site/hash confirmados |
 | Beta 1.7.1 | Músicos | Corrige apresentação de ataques de Franco/Ryuchi | PR#17 integrado; preservado na1.8 |
 | Beta 1.8.0 | Revisão geral | Estúdio, corrida12poses, cinema, IA/gestosNPC, save no sofá | PR#18 integrado; deploy44849114374 e hashes online confirmados |
+| Beta 1.9.0 | Pós-jogo / cenários | Elenco coerente, viagens, ondas procedurais e pontuação | PR#20 integrado; Publish44852294347 e fluxos online confirmados |
 
 A reserva anterior **1.4.0 para cenários foi realocada para 1.6.0**, pois a main avançou para 1.5 antes da conclusão dos cenários. Os assets recuperados continuam válidos. Não promover a build de cenários1.4 por cima da main1.5 nem simplesmente renomear seu executável.
 
@@ -66,4 +75,5 @@ Não encerrar processos ou apagar arquivos de outra frente. Limpeza é restrita 
 
 ## Limites
 
-Este arquivo modifica somente a coordenação documental. Não altera game/VERSION.json, runtime, assets ou o site. A publicação1.8 acima foi confirmada; versões futuras continuam exigindo conferência real antes da promoção.
+Este arquivo modifica somente a coordenação documental. Não altera game/VERSION.json, runtime, assets ou o site. As publicações1.8 e1.9 acima foram confirmadas; versões futuras continuam exigindo conferência real antes da promoção.
+

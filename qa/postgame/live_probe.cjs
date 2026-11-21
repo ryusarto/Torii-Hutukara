@@ -1,0 +1,19 @@
+/* Verify the published build in a disposable browser; never accesses player saves. */
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const base=process.argv[2]||'https://ryusarto.github.io/Torii-Hutukara/',out=__dirname;
+let browser;
+(async()=>{
+ const expected=JSON.parse(fs.readFileSync(path.join(out,'RESUMO.json'))),stamp=Date.now();
+ const infoResponse=await fetch(new URL('build-info.json?verify='+stamp,base));assert(infoResponse.ok);const info=await infoResponse.json();assert.equal(info.version,'1.9.0');assert.equal(info.sourceSha256,expected.sha256);
+ const htmlResponse=await fetch(new URL('index.html?verify='+stamp,base));assert(htmlResponse.ok);const bytes=Buffer.from(await htmlResponse.arrayBuffer()),sha=crypto.createHash('sha256').update(bytes).digest('hex');assert.equal(sha,info.indexSha256);assert.equal(bytes.length,info.indexBytes);
+ browser=await chromium.launch({executablePath:process.env.CHROME_PATH,headless:true});const page=await browser.newPage({viewport:{width:1280,height:900}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.addInitScript(()=>window.requestAnimationFrame=()=>0);await page.goto(new URL('?verify='+stamp,base).href,{waitUntil:'load',timeout:120000});
+ const runtime=await page.evaluate(()=>{
+  G=fresh();buildMaps();Object.assign(G.flags,{reveal:true,voicesKatana:true,masks:true,bass:true});Object.assign(G.c3,{started:true,synthUnlocked:true,percussionUnlocked:true,metronomeDone:true,silenceDone:true,complete:true,toriiSeen:true});G.formation=['alt','franco','percussion'];G.active='alt';PostGame.clearCombat();setArea('last_torii',13.5,13.5,false);mode='walk';$('start').classList.add('hidden');
+  const reserves=current.npcs.filter(n=>n.postReserve).map(n=>n.postHero);PostGame.complete();const ending={area:G.area,complete:G.c3.complete,entry:!!$('postEnter')};PostGame.startDungeon(42);const initial=current.enemies.length;for(const e of current.enemies.slice())hitEnemy(e,1e8);tick+=.1;update(.1);const wave={area:G.area,initial,score:PostGame.run().score,phase:PostGame.run().phase};showDefeat();const defeat={area:G.area,reason:G.postgame.lastRun.reason,retry:!!$('postRunAgain')};$('postRunAgain').click();const retry={area:G.area,wave:PostGame.run()?.wave};return{reserves,ending,wave,defeat,retry};
+ });
+ runtime.enemyArt=await page.evaluate(async()=>{const entries=Object.entries(EnemyArtV1.images);await Promise.all(entries.map(([,im])=>im.decode()));return entries.map(([key,im])=>({key,width:im.naturalWidth,height:im.naturalHeight}))});
+ assert(runtime.enemyArt.length>0&&runtime.enemyArt.every(im=>im.width>0&&im.height>0));assert(!runtime.reserves.includes('alt'));assert.equal(runtime.ending.area,'last_torii');assert(runtime.ending.complete&&runtime.ending.entry);assert.equal(runtime.wave.area,'endless_echo');assert.equal(runtime.wave.initial,3);assert.equal(runtime.wave.score,190);assert.equal(runtime.wave.phase,'rest');assert.equal(runtime.defeat.reason,'defeat');assert.equal(runtime.defeat.area,'last_torii');assert(runtime.defeat.retry);assert.equal(runtime.retry.area,'endless_echo');assert.equal(runtime.retry.wave,1);assert.deepEqual(errors,[]);
+ const result={url:base,verifiedAt:new Date().toISOString(),version:info.version,sourceSha256:info.sourceSha256,indexSha256:sha,indexBytes:bytes.length,mediaFiles:Object.keys(info.assets).length,runtime,errors,method:'Published hashes and enemy PNG decoding plus isolated Chrome runtime fixtures; not a human campaign or physical-device test.'};fs.writeFileSync(path.join(out,'PAGES_VERIFICACAO.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));
+})().catch(e=>{console.error(e);process.exitCode=1}).finally(async()=>{if(browser)await browser.close()});
