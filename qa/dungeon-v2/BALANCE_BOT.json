@@ -221,5 +221,7 @@
     }
   ],
   "method": "Fixed 30Hz rule-based policy and seed, actual movement/AI/damage/skills/healing; simulation duration is not human duration or fun validation.",
-  "source_sha256": "ad32edf6d1102a5440be2601b4ef44f35393d6f6eb4455e1613f69e7c04cca22"
+  "source_sha256": "ad32edf6d1102a5440be2601b4ef44f35393d6f6eb4455e1613f69e7c04cca22",
+  "version": "1.12.0",
+  "resource_note": "When ended=true, hp and tapes reflect campaign restoration by finishRun; not expedition reserves at defeat. When ended=false they are live expedition reserves."
 }

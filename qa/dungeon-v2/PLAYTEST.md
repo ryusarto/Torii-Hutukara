@@ -5,7 +5,7 @@ Meta humana aprovada:15–20min com escalada gradual. Candidato preserva1.11 (ma
 
 ## Comparação de pressão
 
-Bot simples com seed97, passo30Hz, save real da campanha concluída (seis personagens nível7), ações/IA/dano/cura reais. Duração limitada a20min; quem chegou ao limite pode durar mais. O bot não domina todas as armas, não mede diversão e não comprova igualdade entre personagens. Sem bypass deHP/dano no benchmark; testes de60ondas usam eliminações controladas separadamente.
+Bot simples com seed97, passo30Hz, save real da campanha concluída (seis personagens nível7), ações/IA/dano/cura reais. Duração limitada a20min; quem chegou ao limite pode durar mais. O bot não domina todas as armas, não mede diversão e não comprova igualdade entre personagens. Nas linhas ended=true, hp e tapes já refletem a restauração da campanha após finishRun, não o saldo no instante da derrota. Sem bypass deHP/dano no benchmark; testes de60ondas usam eliminações controladas separadamente.
 
 | Líder inicial | Solo antes | Solo novo | Coop novo | Onda novo solo/coop |
 |---|---:|---:|---:|---|
@@ -34,3 +34,5 @@ O candidato desacelera a escalada (intensidade0,72solo/0,90coop) em vez de along
 ## Próximo playtest humano
 
 Jogar15–20min em telefone físico e dois controles: legibilidade após10ondas, tempo para reagir aos avisos, uso de cura, conforto de toque e diferença entre armas. Registrar onda, duração, formação, KOs e motivo da derrota. Nenhum placar online ou novo boss foi introduzido.
+
+Revisão independente final: sem novo achado funcional nos deltas de curva/saída/botão; limites das medições e restauração de recursos explicitados.
