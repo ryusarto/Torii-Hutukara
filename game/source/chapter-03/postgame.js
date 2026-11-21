@@ -118,6 +118,8 @@ const PostGame={
  },
  level(id,run=this.run()){return run?.upgrades?.[id]||0},
  // Dano extra das cartas (atravessar, tambor, cadeia): não repete efeitos nem críticos.
+ // Divisão: a elite vira dois ecos menores no mesmo lugar.
+ split(e){const r=this.run(),profile=this.profile(r.wave,r.waveSeats);for(const k of [-1,1]){const x=e.x+k*.8,y=e.y,n={id:e.id+'_'+(k<0?'a':'b'),type:'hush',x:canBody121(x,y)?x:e.x,y,endless:true};hydrateEnemy(n);n.hp=n.max=Math.round(n.max*profile.hp*.6);n.power=Math.round(n.power*profile.power);n.cd=.8;n.aware=1;current.enemies.push(n)}engage()},
  splash(e,damage){if(this.splashing||!(damage>=1))return;this.splashing=true;try{hitEnemy(e,Math.round(damage),.1,0)}finally{this.splashing=false}},
  bonus(id,run){return this.amount(id,run?.upgrades?.[id]||0)},
  cardValue(id,level){
@@ -232,7 +234,7 @@ const PostGame={
  },
  record(mode){return this.state().records[mode==='coop'?'coop':'solo']},
  multiplier(r=this.run()){return 1+Math.min(5,r?.combo||0)*.1},
- killValue(type,wave,elite=false){const base={hush:50,whisper:60,compasso:90,espelho:100,abafador:120,c3_drone:80,c3_echo:110}[type]||50;return Math.round(base*(1+.06*(wave-1))*(elite?1.5:1))},
+ killValue(type,wave,elite=false){const base={boss:900,hush:50,whisper:60,compasso:90,espelho:100,abafador:120,c3_drone:80,c3_echo:110}[type]||50;return Math.round(base*(1+.06*(wave-1))*(elite?1.5:1))},
  waveValue(r){const base=150+50*r.wave+(r.wave%5===0?250*Math.floor(r.wave/5):0);return Math.round(base*this.multiplier(r)*(r.clean?1.25:1)*(1+this.bonus('crowd',r)))},
  markMode(){if(this.active()&&C3.coopActive())this.run().mode='coop'},
  damageSnapshot(){this.markMode();return Object.fromEntries(Object.keys(this.names).map(id=>[id,G.hp[id]||0]))},
@@ -268,13 +270,29 @@ const PostGame={
   this.buildArena();setArea(this.AREA,14.5,18.5,false);toast('FENDA · VIDA PERDIDA É PERMANENTE NESTA TENTATIVA');return true;
  },
 
+ // Mini-chefe a cada MINIBOSS_EVERY ondas: ecos dos chefes da campanha, com a mesma
+ // coreografia. A queda é tratada pela Fenda (sem história, bandeiras nem XP), e a onda
+ // traz metade dos ecos comuns. Elites (ondas múltiplas de 5) ganham um modificador visível.
+ MINIBOSS_EVERY:10,
+ bosses:[{id:'boss',name:'Eco do Viajante Mascarado',hp:255,power:10,cd:1.45},{id:'voice_boss',name:'Eco da Voz',hp:310,power:11,cd:1.5}],
+ mods:{escudo:{name:'Escudo',text:'anula os 3 primeiros golpes'},frenetico:{name:'Frenético',text:'ataca mais rápido'},divisao:{name:'Divisão',text:'divide-se em dois ao cair'}},
+ bossWave(wave){return wave>0&&wave%this.MINIBOSS_EVERY===0},
+ bossFor(wave){return this.bosses[(Math.floor(wave/this.MINIBOSS_EVERY)-1)%this.bosses.length]},
+ eliteMod(r){const keys=Object.keys(this.mods);return keys[((r.seed>>>0)+r.wave*7)%keys.length]},
+ spawnBoss(r){
+  const b=this.bossFor(r.wave),profile=this.profile(r.wave,r.waveSeats),scale=profile.hp*(1+r.wave/40);
+  const y=Math.max(4.5,G.y-6);bossActor={id:b.id,kind:'boss',type:'boss',x:14.5,y,hp:Math.round(b.hp*scale),max:Math.round(b.hp*scale),power:Math.round(b.power*Math.min(1.6,profile.power)),cd:b.cd,wind:0,windKind:'ring',stun:0,flash:0,phase:1,facing:Math.PI/2,chargeX:0,chargeY:0,endless:true,endlessBoss:true,endlessName:b.name};
+  battle={boss:true,id:b.id};mode='action';$('actionHUD')?.classList.remove('hidden');addCombatFX(bossActor.x,bossActor.y,'spawn',4);
+ },
+ bossDown(){const x=bossActor.x,y=bossActor.y;hostileShots=[];bossActor=null;battle=current.enemies.some(e=>e.hp>0)?battle:null;addCombatFX(x,y,'duo',5);screenShake=.5;toast('MINI-CHEFE VENCIDO');updateHUD()},
  beginWave(resuming=false){
   const r=this.run();if(!r?.active||G.area!==this.AREA)return;this.clearCombat();current.enemies=[];G.defeated=G.defeated.filter(id=>!id.startsWith('endless_'));
   if(resuming){G.hp={...G.hp,...r.hpStart};G.potions=r.potionsStart;G.resonance=r.resonanceStart;r.score=r.bankedScore;r.kills=r.bankedKills;r.combo=r.comboStart;r.elapsed=r.bankedElapsed}
   else{r.hpStart={...G.hp};r.potionsStart=G.potions;r.resonanceStart=G.resonance;r.comboStart=r.combo}
   if(!G.hp[G.active])G.active=partyMembers().find(id=>G.hp[id]>0)||partyMembers()[0];r.waveSeats=C3.coopActive()?2:1;if(r.waveSeats===2)r.mode='coop';r.phase='fight';r.cursor=0;r.wait=0;r.pending=null;r.drum=this.amount('drum',this.level('drum',r));r.clean=true;r.knockouts=0;r._resume=false;this.plan=this.wavePlan(r.seed,r.wave,r.waveSeats);this.spawnClock=0;
   if(typeof EnemyArtV1!=='undefined')for(const spec of this.plan){const image=EnemyArtV1.image(EnemyArtV1.key(spec.type,spec));image?.decode?.().catch(()=>{})}
-  if(C3.coopActive())C3.syncCoop(true);this.spawn();save(true);updateHUD();toast('ONDA '+r.wave+' · '+this.profile(r.wave,r.waveSeats).name.toUpperCase()+(r.wave%5===0?' · ECO RESSONANTE':''));
+  if(this.bossWave(r.wave)){this.plan=this.plan.slice(0,Math.ceil(this.plan.length/2));this.spawnBoss(r)}
+  if(C3.coopActive())C3.syncCoop(true);this.spawn();save(true);updateHUD();const boss=this.bossWave(r.wave)&&this.bossFor(r.wave);toast('ONDA '+r.wave+' · '+(boss?'MINI-CHEFE · '+boss.name:this.profile(r.wave,r.waveSeats).name.toUpperCase()+(r.wave%5===0?' · ECO RESSONANTE · '+this.mods[this.eliteMod(r)].name.toUpperCase():'')));
  },
 
  // Avisos de surgimento em andamento. Aceita o formato antigo (um único objeto).
@@ -306,7 +324,7 @@ const PostGame={
   // Um jogador em cima do aviso (ou o aviso fora da tela) muda o eco de lugar, sem perdê-lo.
   if(!this.warningVisible(p.x,p.y)||actors.some(a=>Math.hypot(a.x-p.x,a.y-p.y)<2.5)){const pos=this.randomSpot(this.random((r.seed+p.index*7919+Math.floor(r.elapsed*10))>>>0),others);if(pos){Object.assign(p,pos);p.time=p.max}return}
   const spec=this.plan[p.index];if(!spec){r.pending=others.length?others:null;return}
-  const profile=this.profile(r.wave,r.waveSeats),e={id:'endless_'+p.index,type:spec.type,x:p.x,y:p.y,endless:true,endlessElite:!!spec.elite};hydrateEnemy(e);e.hp=e.max=Math.min(2000000,Math.round(e.max*profile.hp*(spec.elite?1.4:1)));e.power=Math.min(Math.round(e.power*profile.power*(spec.elite?1.08:1)),Math.max(e.power,Math.ceil(Math.min(...partyMembers().map(id=>G.maxhp[id]||40))*.32)));e.cd=1;e.aware=1;current.enemies.push(e);r.cursor=Math.max(r.cursor,p.index+1);r.pending=others.length?others:null;engage();updateHUD();
+  const profile=this.profile(r.wave,r.waveSeats),e={id:'endless_'+p.index,type:spec.type,x:p.x,y:p.y,endless:true,endlessElite:!!spec.elite};hydrateEnemy(e);e.hp=e.max=Math.min(2000000,Math.round(e.max*profile.hp*(spec.elite?1.4:1)));e.power=Math.min(Math.round(e.power*profile.power*(spec.elite?1.08:1)),Math.max(e.power,Math.ceil(Math.min(...partyMembers().map(id=>G.maxhp[id]||40))*.32)));if(spec.elite){e.endlessMod=this.eliteMod(r);if(e.endlessMod==='escudo')e.endlessShield=3}e.cd=1;e.aware=1;current.enemies.push(e);r.cursor=Math.max(r.cursor,p.index+1);r.pending=others.length?others:null;engage();updateHUD();
  },
 
  update(dt){
@@ -315,6 +333,7 @@ const PostGame={
   if(r._resume){this.beginWave(true);return}
   if(C3.coopActive())r.mode='coop';
   r.elapsed=Math.min(this.MAX_SCORE,r.elapsed+dt);
+  for(const e of current.enemies)if(e.endlessMod==='frenetico'&&e.hp>0&&e.cd>0)e.cd=Math.max(0,e.cd-dt*.6);
   const quick=this.bonus('tempo',r)*dt;if(quick>0){for(const k of ['skill','skillX','duo','dashCD','advanced'])if(act[k]>0)act[k]=Math.max(0,act[k]-quick);if(C3.coop)for(const k of ['skill','advanced','signature','dashCD'])if(C3.coop[k]>0)C3.coop[k]=Math.max(0,C3.coop[k]-quick)}
   this.sinceSave=(this.sinceSave||0)+dt;if(this.dirty&&this.sinceSave>=this.SAVE_EVERY)this.flush();
   // A disconnected/KO partner never leaves a solo player with the larger queue.
@@ -322,7 +341,7 @@ const PostGame={
   for(const w of this.warnings(r))w.time=Math.max(0,w.time-dt);if(this.warnings(r).some(w=>!w.time))this.materialize();
   // O próximo grupo vem um compasso depois do anterior terminar de nascer.
   if(this.warnings(r).length)this.spawnClock=0;else{this.spawnClock+=dt;if(this.spawnClock>=this.profile(r.wave,r.waveSeats).cadence){this.spawnClock=0;this.spawn()}}
-  if(!this.warnings(r).length&&r.cursor>=this.plan.length&&current.enemies.every(e=>e.hp<=0)){
+  if(!bossActor&&!this.warnings(r).length&&r.cursor>=this.plan.length&&current.enemies.every(e=>e.hp<=0)){
    const bonus=this.waveValue(r);r.score=Math.min(this.MAX_SCORE,r.score+bonus);r.combo=r.knockouts?Math.max(0,r.combo-2):Math.min(5,r.combo+1);r.bankedScore=r.score;r.bankedKills=r.kills;r.bankedElapsed=r.elapsed;r.completedWave=r.wave;r.phase='rest';r.lastWave={wave:r.wave,bonus,clean:r.clean};if(r.clean&&this.level('harmony',r))G.resonance=Math.min(100,G.resonance+this.amount('harmony',1));r.wait=0;battle=null;mode='walk';this.clearCombat();this.best();save(true);updateHUD();if(this.draftDue(r))this.showDraft();else toast('ONDA '+r.wave+' · +'+bonus+' PTS'+(r.clean?' · SEM DANO':'')+' · TOTAL '+r.score);
   }
  },
@@ -357,7 +376,7 @@ const PostGame={
  drawWarning(p){
   const x=p.x*T-cam.x,y=p.y*T-cam.y,spec=this.plan[p.index];ctx.save();ctx.strokeStyle=spec?.elite?'#d6a56c':'#c4c7b0';ctx.lineWidth=2;ctx.setLineDash([4,3]);ctx.beginPath();ctx.ellipse(x,y,18,10,0,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);PostGame.label(spec?.elite?'RESSONANTE':'ECO',x,y-16,spec?.elite?'#f3c98a':'#f0ddba');ctx.restore();
  },
- hud(){if(!G)return;if(this.active()){const r=this.run(),left=this.plan.length-r.cursor+this.warnings(r).length+current.enemies.filter(e=>e.hp>0).length;$('quest').textContent='ONDA '+r.wave+' · '+(r.phase==='rest'?'Escolha uma melhoria':left+' inimigos restantes');$('questHint').textContent=r.score+' PTS · SEM DANO ×'+this.multiplier(r).toFixed(1)+' · '+this.profile(r.wave,r.waveSeats).name+' · M: encerrar';$('bMap').textContent='EXPEDIÇÃO [M]'}else if(G.c3?.complete){$('quest').textContent='Hutukara continua aberto.';$('questHint').textContent='M: escolher um capítulo ou entrar no calabouço infinito.';$('bMap').textContent='CAPÍTULOS [M]'}else $('bMap').textContent='MAPA [M]';if(G.c3?.complete){if($('mobileObjective'))$('mobileObjective').textContent=$('quest').textContent;if($('guideChip'))$('guideChip').textContent=$('questHint').textContent}this.mobileHUD()}
+ hud(){if(!G)return;if(this.active()){const r=this.run(),left=this.plan.length-r.cursor+this.warnings(r).length+(bossActor?.endlessBoss&&bossActor.hp>0?1:0)+current.enemies.filter(e=>e.hp>0).length;$('quest').textContent='ONDA '+r.wave+' · '+(r.phase==='rest'?'Escolha uma melhoria':left+' inimigos restantes');$('questHint').textContent=r.score+' PTS · SEM DANO ×'+this.multiplier(r).toFixed(1)+' · '+this.profile(r.wave,r.waveSeats).name+' · M: encerrar';$('bMap').textContent='EXPEDIÇÃO [M]'}else if(G.c3?.complete){$('quest').textContent='Hutukara continua aberto.';$('questHint').textContent='M: escolher um capítulo ou entrar no calabouço infinito.';$('bMap').textContent='CAPÍTULOS [M]'}else $('bMap').textContent='MAPA [M]';if(G.c3?.complete){if($('mobileObjective'))$('mobileObjective').textContent=$('quest').textContent;if($('guideChip'))$('guideChip').textContent=$('questHint').textContent}this.mobileHUD()}
 };
 C3.AREAS.push(PostGame.AREA);C3.COMBAT_AREAS.push(PostGame.AREA);combatAreas10.add(PostGame.AREA);C3.labels[PostGame.AREA]=['FENDA DAS RESSONÂNCIAS','CALABOUÇO INFINITO'];
 const postFresh=fresh;fresh=function(...args){const g=postFresh(...args);g.postgame=PostGame.defaults();return g};
@@ -387,11 +406,12 @@ const postHit=hitEnemy;hitEnemy=function(e,...args){if(!PostGame.active()||!e?.e
  if(args[1]===undefined)args[1]=.15;
  if(args[1]>0)args[1]*=1+perk('stagger');
  if(who==='franco'&&lv('bassHold'))args[1]=(args[1]||0)+PostGame.amount('bassHold',lv('bassHold'));
+ if(e.endlessShield>0&&!splash){e.endlessShield--;e.flash=.2;addCombatFX(e.x,e.y,'hit',.8);updateHUD();return}
  const hitDamage=args[0];
  const shards=G.shards;PostGame.resolvingHit=true;try{postHit(e,...args)}finally{PostGame.resolvingHit=false;G.shards=shards;G.defeated=G.defeated.filter(id=>!id.startsWith('endless_'))}if(!splash){const near=(radius,except)=>current.enemies.filter(n=>n!==e&&n!==except&&n.endless&&n.hp>0&&Math.hypot(n.x-e.x,n.y-e.y)<=radius);
   if(who==='alt'&&lv('pierce')){const n=near(3).sort((a,b)=>Math.hypot(a.x-e.x,a.y-e.y)-Math.hypot(b.x-e.x,b.y-e.y))[0];if(n)PostGame.splash(n,hitDamage*perk('pierce'))}
   if(who==='percussion'&&lv('warDrum'))for(const n of near(1.6))PostGame.splash(n,hitDamage*perk('warDrum'))}
- if(e.hp<=0&&!e.endlessScored){e.endlessScored=true;const r=PostGame.run();r.kills++;G.resonance=Math.min(100,G.resonance+PostGame.bonus('charge',r)+(who==='synth'?PostGame.amount('synthWave',lv('synthWave')):0));if(lv('chain')){const dmg=PostGame.amount('chain',lv('chain'));for(const n of current.enemies.filter(n=>n!==e&&n.endless&&n.hp>0&&Math.hypot(n.x-e.x,n.y-e.y)<=2))PostGame.splash(n,dmg)}r.score=Math.min(PostGame.MAX_SCORE,r.score+Math.round(PostGame.killValue(e.type,r.wave,e.endlessElite)*PostGame.multiplier(r)*(1+PostGame.bonus('crowd',r))));current.enemies=current.enemies.filter(n=>n.hp>0);PostGame.best();updateHUD()}};
+ if(e.hp<=0&&!e.endlessScored){e.endlessScored=true;const r=PostGame.run();r.kills++;G.resonance=Math.min(100,G.resonance+PostGame.bonus('charge',r)+(who==='synth'?PostGame.amount('synthWave',lv('synthWave')):0));if(e.endlessMod==='divisao')PostGame.split(e);if(lv('chain')){const dmg=PostGame.amount('chain',lv('chain'));for(const n of current.enemies.filter(n=>n!==e&&n.endless&&n.hp>0&&Math.hypot(n.x-e.x,n.y-e.y)<=2))PostGame.splash(n,dmg)}r.score=Math.min(PostGame.MAX_SCORE,r.score+Math.round(PostGame.killValue(e.type,r.wave,e.endlessElite)*PostGame.multiplier(r)*(1+PostGame.bonus('crowd',r))));current.enemies=current.enemies.filter(n=>n.hp>0);PostGame.best();updateHUD()}};
 const postSave=save;save=function(silent=false){if(PostGame.resolvingHit)return;if(PostGame.active()){// No meio da onda, o jogo base também grava ao fim de cada embate. Se esta onda já está
  // gravada e a vida não mudou, não há nada novo para o save (a onda recomeça ao carregar).
  if(silent&&!PostGame.unsaved())return;
@@ -400,6 +420,7 @@ if(typeof addEventListener==='function'){addEventListener('pagehide',()=>PostGam
 // The legacy exporter substitutes a checkpoint during combat; expeditions
 // instead export the bounded current-wave checkpoint held in G.postgame.
 const postExportSave=exportSave;exportSave=function(...args){if(!PostGame.active())return postExportSave(...args);const previous=battle;battle=null;try{return postExportSave(...args)}finally{battle=previous}};
+if(typeof finishBoss==='function'){const postFinishBoss=finishBoss;finishBoss=function(...args){if(PostGame.active()&&bossActor?.endlessBoss)return PostGame.bossDown();return postFinishBoss(...args)}}
 const postDefeat=showDefeat;showDefeat=function(...args){if(PostGame.active())return PostGame.finishRun('defeat');return postDefeat(...args)};
 const postRestore=restoreCheckpoint;restoreCheckpoint=function(...args){if(PostGame.active())return PostGame.finishRun('exit');const p=G?.postgame?copy(G.postgame):null,result=postRestore(...args);if(p&&G?.c3?.complete){const s=PostGame.state();s.bestScore=Math.max(s.bestScore,p.bestScore);s.bestWave=Math.max(s.bestWave,p.bestWave);for(const mode of ['solo','coop']){s.records[mode].score=Math.max(s.records[mode].score,p.records?.[mode]?.score||0);s.records[mode].wave=Math.max(s.records[mode].wave,p.records?.[mode]?.wave||0)}if(p.lastRun)s.lastRun=p.lastRun}return result};
 const postUpdate=update;update=function(dt){PostGame.markMode();const r=postUpdate(dt);if(G?.area==='last_torii')PostGame.syncReserves();PostGame.update(Math.max(0,Math.min(.1,Number(dt)||0)));return r};
@@ -432,6 +453,6 @@ const postDungeonDamage=damageHero;damageHero=function(...args){const before=Pos
 const postDungeonCoopDamage=C3.damageCoop;C3.damageCoop=function(...args){const before=PostGame.active()?PostGame.damageSnapshot():null;try{args[0]=PostGame.incoming(args[0],C3.coopMember?.());if(!args[0])return;return postDungeonCoopDamage(...args)}finally{if(before)PostGame.observeDamage(before)}};
 if(typeof BossChoreographyV2!=='undefined'){const postDungeonGround=BossChoreographyV2.drawGround;BossChoreographyV2.drawGround=function(...args){const result=postDungeonGround.apply(this,args);PostGame.drawWarnings();return result}};
 
-if(typeof EnemyArtV1!=='undefined'){const postDungeonEnemy=EnemyArtV1.draw;EnemyArtV1.draw=function(x,y,kind,e){const result=postDungeonEnemy.call(this,x,y,kind,e);if(result&&PostGame.active()&&e?.endlessElite){const entry=this.manifest.enemies[this.key(kind,e)],top=y-(entry?.height||64)-12;PostGame.label('RESSONANTE',x,top,'#f3c98a')}return result}};
+if(typeof EnemyArtV1!=='undefined'){const postDungeonEnemy=EnemyArtV1.draw;EnemyArtV1.draw=function(x,y,kind,e){const result=postDungeonEnemy.call(this,x,y,kind,e);if(result&&PostGame.active()&&e?.endlessElite){const entry=this.manifest.enemies[this.key(kind,e)],top=y-(entry?.height||64)-12;PostGame.label('RESSONANTE'+(e.endlessMod?' · '+PostGame.mods[e.endlessMod].name.toUpperCase()+(e.endlessShield>0?' '+'◆'.repeat(e.endlessShield):''):''),x,top,'#f3c98a')}return result}};
 
 if(typeof updateMobileReadout121!=='undefined'){const postDungeonMobile=updateMobileReadout121;updateMobileReadout121=function(...args){const result=postDungeonMobile(...args);PostGame.mobileHUD();return result}};

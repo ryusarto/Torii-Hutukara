@@ -3,43 +3,43 @@
  "method": "Robô de regras fixas, 30 Hz, sementes fixas; ondas concluídas até a derrota ou 1500 s simulados. Mede o robô, não a diversão nem a habilidade humana.",
  "solo": {
   "porPersonagem": {
-   "franco": 11.3,
-   "ryuchi": 10.4,
-   "alt": 13,
-   "katana": 12.6,
+   "franco": 11.4,
+   "ryuchi": 10.1,
+   "alt": 10.6,
+   "katana": 12.9,
    "synth": 12.8,
-   "percussion": 10.4
+   "percussion": 10.8
   },
-  "media": 11.8,
-  "minimo": 10
+  "media": 11.4,
+  "minimo": 9.7
  },
  "duplas": {
   "franco+ryuchi": {
-   "dupla": 18.8,
-   "coop": 13.4
+   "dupla": 19.5,
+   "coop": 14.3
   },
   "ryuchi+franco": {
-   "dupla": 16.4,
-   "coop": 14.6
+   "dupla": 16.8,
+   "coop": 14.3
   },
   "alt+katana": {
-   "dupla": 18.9,
-   "coop": 32.4
+   "dupla": 22.9,
+   "coop": 29.9
   },
   "katana+alt": {
-   "dupla": 27.9,
-   "coop": 23.9
+   "dupla": 17.8,
+   "coop": 13.5
   },
   "synth+percussion": {
-   "dupla": 19.3,
-   "coop": 15.8
+   "dupla": 19.8,
+   "coop": 15.3
   },
   "percussion+synth": {
-   "dupla": 22.9,
-   "coop": 26.4
+   "dupla": 20.1,
+   "coop": 25.9
   }
  },
- "coopSobreDupla": 1.02,
+ "coopSobreDupla": 0.97,
  "checks": {
   "personagensDentroDe15PorCento": true,
   "coopIgualAoSoloComAMesmaDupla": true,
@@ -70,8 +70,8 @@
    "hero": "franco",
    "partner": null,
    "seed": 97,
-   "seconds": 199,
-   "wave": 14,
+   "seconds": 195,
+   "wave": 15,
    "ended": true
   },
   {
@@ -79,7 +79,7 @@
    "hero": "franco",
    "partner": null,
    "seed": 131,
-   "seconds": 88,
+   "seconds": 86,
    "wave": 8,
    "ended": true
   },
@@ -88,8 +88,8 @@
    "hero": "franco",
    "partner": null,
    "seed": 257,
-   "seconds": 182,
-   "wave": 13,
+   "seconds": 229,
+   "wave": 16,
    "ended": true
   },
   {
@@ -97,7 +97,7 @@
    "hero": "franco",
    "partner": null,
    "seed": 409,
-   "seconds": 260,
+   "seconds": 249,
    "wave": 17,
    "ended": true
   },
@@ -106,8 +106,8 @@
    "hero": "franco",
    "partner": null,
    "seed": 733,
-   "seconds": 106,
-   "wave": 9,
+   "seconds": 86,
+   "wave": 7,
    "ended": true
   },
   {
@@ -115,8 +115,8 @@
    "hero": "franco",
    "partner": null,
    "seed": 977,
-   "seconds": 202,
-   "wave": 14,
+   "seconds": 190,
+   "wave": 13,
    "ended": true
   },
   {
@@ -124,24 +124,6 @@
    "hero": "ryuchi",
    "partner": null,
    "seed": 11,
-   "seconds": 132,
-   "wave": 11,
-   "ended": true
-  },
-  {
-   "kind": "solo",
-   "hero": "ryuchi",
-   "partner": null,
-   "seed": 23,
-   "seconds": 98,
-   "wave": 9,
-   "ended": true
-  },
-  {
-   "kind": "solo",
-   "hero": "ryuchi",
-   "partner": null,
-   "seed": 97,
    "seconds": 96,
    "wave": 9,
    "ended": true
@@ -150,9 +132,27 @@
    "kind": "solo",
    "hero": "ryuchi",
    "partner": null,
+   "seed": 23,
+   "seconds": 96,
+   "wave": 9,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "ryuchi",
+   "partner": null,
+   "seed": 97,
+   "seconds": 102,
+   "wave": 9,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "ryuchi",
+   "partner": null,
    "seed": 131,
-   "seconds": 204,
-   "wave": 17,
+   "seconds": 133,
+   "wave": 12,
    "ended": true
   },
   {
@@ -169,8 +169,8 @@
    "hero": "ryuchi",
    "partner": null,
    "seed": 409,
-   "seconds": 107,
-   "wave": 9,
+   "seconds": 175,
+   "wave": 14,
    "ended": true
   },
   {
@@ -178,8 +178,8 @@
    "hero": "ryuchi",
    "partner": null,
    "seed": 733,
-   "seconds": 75,
-   "wave": 7,
+   "seconds": 85,
+   "wave": 8,
    "ended": true
   },
   {
@@ -187,8 +187,8 @@
    "hero": "ryuchi",
    "partner": null,
    "seed": 977,
-   "seconds": 163,
-   "wave": 13,
+   "seconds": 149,
+   "wave": 12,
    "ended": true
   },
   {
@@ -196,8 +196,8 @@
    "hero": "alt",
    "partner": null,
    "seed": 11,
-   "seconds": 182,
-   "wave": 15,
+   "seconds": 92,
+   "wave": 9,
    "ended": true
   },
   {
@@ -205,7 +205,7 @@
    "hero": "alt",
    "partner": null,
    "seed": 23,
-   "seconds": 133,
+   "seconds": 134,
    "wave": 12,
    "ended": true
   },
@@ -214,8 +214,8 @@
    "hero": "alt",
    "partner": null,
    "seed": 97,
-   "seconds": 185,
-   "wave": 17,
+   "seconds": 158,
+   "wave": 14,
    "ended": true
   },
   {
@@ -232,8 +232,8 @@
    "hero": "alt",
    "partner": null,
    "seed": 257,
-   "seconds": 156,
-   "wave": 14,
+   "seconds": 83,
+   "wave": 9,
    "ended": true
   },
   {
@@ -241,8 +241,8 @@
    "hero": "alt",
    "partner": null,
    "seed": 409,
-   "seconds": 222,
-   "wave": 17,
+   "seconds": 99,
+   "wave": 9,
    "ended": true
   },
   {
@@ -250,8 +250,8 @@
    "hero": "alt",
    "partner": null,
    "seed": 733,
-   "seconds": 87,
-   "wave": 8,
+   "seconds": 93,
+   "wave": 9,
    "ended": true
   },
   {
@@ -259,16 +259,7 @@
    "hero": "alt",
    "partner": null,
    "seed": 977,
-   "seconds": 188,
-   "wave": 14,
-   "ended": true
-  },
-  {
-   "kind": "solo",
-   "hero": "katana",
-   "partner": null,
-   "seed": 11,
-   "seconds": 173,
+   "seconds": 224,
    "wave": 16,
    "ended": true
   },
@@ -276,9 +267,18 @@
    "kind": "solo",
    "hero": "katana",
    "partner": null,
+   "seed": 11,
+   "seconds": 146,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "katana",
+   "partner": null,
    "seed": 23,
-   "seconds": 82,
-   "wave": 9,
+   "seconds": 110,
+   "wave": 12,
    "ended": true
   },
   {
@@ -286,8 +286,8 @@
    "hero": "katana",
    "partner": null,
    "seed": 97,
-   "seconds": 88,
-   "wave": 9,
+   "seconds": 75,
+   "wave": 8,
    "ended": true
   },
   {
@@ -295,6 +295,15 @@
    "hero": "katana",
    "partner": null,
    "seed": 131,
+   "seconds": 130,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "katana",
+   "partner": null,
+   "seed": 257,
    "seconds": 116,
    "wave": 12,
    "ended": true
@@ -303,18 +312,9 @@
    "kind": "solo",
    "hero": "katana",
    "partner": null,
-   "seed": 257,
-   "seconds": 112,
-   "wave": 11,
-   "ended": true
-  },
-  {
-   "kind": "solo",
-   "hero": "katana",
-   "partner": null,
    "seed": 409,
-   "seconds": 208,
-   "wave": 18,
+   "seconds": 194,
+   "wave": 17,
    "ended": true
   },
   {
@@ -322,8 +322,8 @@
    "hero": "katana",
    "partner": null,
    "seed": 733,
-   "seconds": 83,
-   "wave": 8,
+   "seconds": 161,
+   "wave": 14,
    "ended": true
   },
   {
@@ -331,8 +331,8 @@
    "hero": "katana",
    "partner": null,
    "seed": 977,
-   "seconds": 230,
-   "wave": 18,
+   "seconds": 153,
+   "wave": 13,
    "ended": true
   },
   {
@@ -340,8 +340,8 @@
    "hero": "synth",
    "partner": null,
    "seed": 11,
-   "seconds": 187,
-   "wave": 17,
+   "seconds": 153,
+   "wave": 14,
    "ended": true
   },
   {
@@ -349,7 +349,7 @@
    "hero": "synth",
    "partner": null,
    "seed": 23,
-   "seconds": 134,
+   "seconds": 133,
    "wave": 12,
    "ended": true
   },
@@ -358,8 +358,8 @@
    "hero": "synth",
    "partner": null,
    "seed": 97,
-   "seconds": 146,
-   "wave": 14,
+   "seconds": 191,
+   "wave": 17,
    "ended": true
   },
   {
@@ -367,8 +367,8 @@
    "hero": "synth",
    "partner": null,
    "seed": 131,
-   "seconds": 138,
-   "wave": 12,
+   "seconds": 118,
+   "wave": 11,
    "ended": true
   },
   {
@@ -376,7 +376,7 @@
    "hero": "synth",
    "partner": null,
    "seed": 257,
-   "seconds": 97,
+   "seconds": 89,
    "wave": 9,
    "ended": true
   },
@@ -394,8 +394,8 @@
    "hero": "synth",
    "partner": null,
    "seed": 733,
-   "seconds": 125,
-   "wave": 12,
+   "seconds": 131,
+   "wave": 11,
    "ended": true
   },
   {
@@ -403,8 +403,8 @@
    "hero": "synth",
    "partner": null,
    "seed": 977,
-   "seconds": 215,
-   "wave": 17,
+   "seconds": 259,
+   "wave": 19,
    "ended": true
   },
   {
@@ -421,8 +421,8 @@
    "hero": "percussion",
    "partner": null,
    "seed": 23,
-   "seconds": 165,
-   "wave": 12,
+   "seconds": 111,
+   "wave": 9,
    "ended": true
   },
   {
@@ -430,7 +430,7 @@
    "hero": "percussion",
    "partner": null,
    "seed": 97,
-   "seconds": 82,
+   "seconds": 89,
    "wave": 8,
    "ended": true
   },
@@ -457,8 +457,8 @@
    "hero": "percussion",
    "partner": null,
    "seed": 409,
-   "seconds": 184,
-   "wave": 14,
+   "seconds": 263,
+   "wave": 19,
    "ended": true
   },
   {
@@ -466,8 +466,8 @@
    "hero": "percussion",
    "partner": null,
    "seed": 733,
-   "seconds": 158,
-   "wave": 11,
+   "seconds": 153,
+   "wave": 12,
    "ended": true
   },
   {
@@ -475,7 +475,7 @@
    "hero": "percussion",
    "partner": null,
    "seed": 977,
-   "seconds": 300,
+   "seconds": 285,
    "wave": 19,
    "ended": true
   },
@@ -484,8 +484,8 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 11,
-   "seconds": 430,
-   "wave": 25,
+   "seconds": 361,
+   "wave": 23,
    "ended": true
   },
   {
@@ -493,8 +493,8 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 23,
-   "seconds": 146,
-   "wave": 11,
+   "seconds": 183,
+   "wave": 14,
    "ended": true
   },
   {
@@ -502,7 +502,7 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 97,
-   "seconds": 274,
+   "seconds": 271,
    "wave": 19,
    "ended": true
   },
@@ -511,8 +511,8 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 131,
-   "seconds": 189,
-   "wave": 15,
+   "seconds": 232,
+   "wave": 18,
    "ended": true
   },
   {
@@ -520,7 +520,7 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 257,
-   "seconds": 223,
+   "seconds": 265,
    "wave": 18,
    "ended": true
   },
@@ -529,8 +529,8 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 409,
-   "seconds": 164,
-   "wave": 12,
+   "seconds": 171,
+   "wave": 13,
    "ended": true
   },
   {
@@ -538,7 +538,7 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 733,
-   "seconds": 609,
+   "seconds": 593,
    "wave": 37,
    "ended": true
   },
@@ -547,8 +547,8 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 977,
-   "seconds": 172,
-   "wave": 13,
+   "seconds": 198,
+   "wave": 14,
    "ended": true
   },
   {
@@ -556,7 +556,7 @@
    "hero": "ryuchi",
    "partner": "franco",
    "seed": 11,
-   "seconds": 268,
+   "seconds": 259,
    "wave": 19,
    "ended": true
   },
@@ -565,8 +565,8 @@
    "hero": "ryuchi",
    "partner": "franco",
    "seed": 23,
-   "seconds": 145,
-   "wave": 12,
+   "seconds": 167,
+   "wave": 14,
    "ended": true
   },
   {
@@ -574,7 +574,7 @@
    "hero": "ryuchi",
    "partner": "franco",
    "seed": 97,
-   "seconds": 254,
+   "seconds": 252,
    "wave": 19,
    "ended": true
   },
@@ -583,16 +583,7 @@
    "hero": "ryuchi",
    "partner": "franco",
    "seed": 131,
-   "seconds": 186,
-   "wave": 16,
-   "ended": true
-  },
-  {
-   "kind": "dupla",
-   "hero": "ryuchi",
-   "partner": "franco",
-   "seed": 257,
-   "seconds": 167,
+   "seconds": 145,
    "wave": 13,
    "ended": true
   },
@@ -600,7 +591,7 @@
    "kind": "dupla",
    "hero": "ryuchi",
    "partner": "franco",
-   "seed": 409,
+   "seed": 257,
    "seconds": 226,
    "wave": 18,
    "ended": true
@@ -609,9 +600,18 @@
    "kind": "dupla",
    "hero": "ryuchi",
    "partner": "franco",
+   "seed": 409,
+   "seconds": 204,
+   "wave": 16,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "ryuchi",
+   "partner": "franco",
    "seed": 733,
-   "seconds": 249,
-   "wave": 17,
+   "seconds": 262,
+   "wave": 18,
    "ended": true
   },
   {
@@ -619,7 +619,7 @@
    "hero": "ryuchi",
    "partner": "franco",
    "seed": 977,
-   "seconds": 217,
+   "seconds": 215,
    "wave": 17,
    "ended": true
   },
@@ -628,8 +628,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 11,
-   "seconds": 225,
-   "wave": 18,
+   "seconds": 285,
+   "wave": 22,
    "ended": true
   },
   {
@@ -637,7 +637,7 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 23,
-   "seconds": 214,
+   "seconds": 209,
    "wave": 17,
    "ended": true
   },
@@ -646,8 +646,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 97,
-   "seconds": 193,
-   "wave": 17,
+   "seconds": 222,
+   "wave": 19,
    "ended": true
   },
   {
@@ -655,8 +655,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 131,
-   "seconds": 241,
-   "wave": 20,
+   "seconds": 131,
+   "wave": 13,
    "ended": true
   },
   {
@@ -664,8 +664,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 257,
-   "seconds": 218,
-   "wave": 18,
+   "seconds": 189,
+   "wave": 16,
    "ended": true
   },
   {
@@ -673,8 +673,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 409,
-   "seconds": 251,
-   "wave": 21,
+   "seconds": 219,
+   "wave": 19,
    "ended": true
   },
   {
@@ -682,8 +682,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 733,
-   "seconds": 308,
-   "wave": 24,
+   "seconds": 849,
+   "wave": 59,
    "ended": true
   },
   {
@@ -691,8 +691,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 977,
-   "seconds": 203,
-   "wave": 16,
+   "seconds": 215,
+   "wave": 18,
    "ended": true
   },
   {
@@ -700,8 +700,8 @@
    "hero": "katana",
    "partner": "alt",
    "seed": 11,
-   "seconds": 286,
-   "wave": 22,
+   "seconds": 237,
+   "wave": 20,
    "ended": true
   },
   {
@@ -709,7 +709,7 @@
    "hero": "katana",
    "partner": "alt",
    "seed": 23,
-   "seconds": 147,
+   "seconds": 142,
    "wave": 13,
    "ended": true
   },
@@ -718,16 +718,7 @@
    "hero": "katana",
    "partner": "alt",
    "seed": 97,
-   "seconds": 222,
-   "wave": 18,
-   "ended": true
-  },
-  {
-   "kind": "dupla",
-   "hero": "katana",
-   "partner": "alt",
-   "seed": 131,
-   "seconds": 218,
+   "seconds": 215,
    "wave": 19,
    "ended": true
   },
@@ -735,8 +726,8 @@
    "kind": "dupla",
    "hero": "katana",
    "partner": "alt",
-   "seed": 257,
-   "seconds": 192,
+   "seed": 131,
+   "seconds": 188,
    "wave": 17,
    "ended": true
   },
@@ -744,9 +735,18 @@
    "kind": "dupla",
    "hero": "katana",
    "partner": "alt",
+   "seed": 257,
+   "seconds": 217,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "katana",
+   "partner": "alt",
    "seed": 409,
-   "seconds": 206,
-   "wave": 18,
+   "seconds": 177,
+   "wave": 15,
    "ended": true
   },
   {
@@ -754,16 +754,16 @@
    "hero": "katana",
    "partner": "alt",
    "seed": 733,
-   "seconds": 1500,
-   "wave": 99,
-   "ended": false
+   "seconds": 264,
+   "wave": 22,
+   "ended": true
   },
   {
    "kind": "dupla",
    "hero": "katana",
    "partner": "alt",
    "seed": 977,
-   "seconds": 207,
+   "seconds": 200,
    "wave": 17,
    "ended": true
   },
@@ -772,8 +772,8 @@
    "hero": "synth",
    "partner": "percussion",
    "seed": 11,
-   "seconds": 236,
-   "wave": 18,
+   "seconds": 244,
+   "wave": 19,
    "ended": true
   },
   {
@@ -781,8 +781,8 @@
    "hero": "synth",
    "partner": "percussion",
    "seed": 23,
-   "seconds": 244,
-   "wave": 18,
+   "seconds": 191,
+   "wave": 16,
    "ended": true
   },
   {
@@ -790,8 +790,8 @@
    "hero": "synth",
    "partner": "percussion",
    "seed": 97,
-   "seconds": 259,
-   "wave": 20,
+   "seconds": 230,
+   "wave": 19,
    "ended": true
   },
   {
@@ -799,8 +799,8 @@
    "hero": "synth",
    "partner": "percussion",
    "seed": 131,
-   "seconds": 202,
-   "wave": 17,
+   "seconds": 170,
+   "wave": 14,
    "ended": true
   },
   {
@@ -808,7 +808,7 @@
    "hero": "synth",
    "partner": "percussion",
    "seed": 257,
-   "seconds": 185,
+   "seconds": 172,
    "wave": 14,
    "ended": true
   },
@@ -817,8 +817,8 @@
    "hero": "synth",
    "partner": "percussion",
    "seed": 409,
-   "seconds": 202,
-   "wave": 17,
+   "seconds": 228,
+   "wave": 19,
    "ended": true
   },
   {
@@ -826,89 +826,89 @@
    "hero": "synth",
    "partner": "percussion",
    "seed": 733,
-   "seconds": 392,
-   "wave": 28,
-   "ended": true
-  },
-  {
-   "kind": "dupla",
-   "hero": "synth",
-   "partner": "percussion",
-   "seed": 977,
-   "seconds": 325,
-   "wave": 22,
-   "ended": true
-  },
-  {
-   "kind": "dupla",
-   "hero": "percussion",
-   "partner": "synth",
-   "seed": 11,
-   "seconds": 523,
-   "wave": 32,
-   "ended": true
-  },
-  {
-   "kind": "dupla",
-   "hero": "percussion",
-   "partner": "synth",
-   "seed": 23,
-   "seconds": 235,
-   "wave": 18,
-   "ended": true
-  },
-  {
-   "kind": "dupla",
-   "hero": "percussion",
-   "partner": "synth",
-   "seed": 97,
-   "seconds": 308,
-   "wave": 23,
-   "ended": true
-  },
-  {
-   "kind": "dupla",
-   "hero": "percussion",
-   "partner": "synth",
-   "seed": 131,
-   "seconds": 201,
-   "wave": 16,
-   "ended": true
-  },
-  {
-   "kind": "dupla",
-   "hero": "percussion",
-   "partner": "synth",
-   "seed": 257,
-   "seconds": 239,
-   "wave": 18,
-   "ended": true
-  },
-  {
-   "kind": "dupla",
-   "hero": "percussion",
-   "partner": "synth",
-   "seed": 409,
-   "seconds": 223,
-   "wave": 18,
-   "ended": true
-  },
-  {
-   "kind": "dupla",
-   "hero": "percussion",
-   "partner": "synth",
-   "seed": 733,
-   "seconds": 667,
+   "seconds": 630,
    "wave": 39,
    "ended": true
   },
   {
    "kind": "dupla",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 977,
+   "seconds": 228,
+   "wave": 18,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 11,
+   "seconds": 315,
+   "wave": 22,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 23,
+   "seconds": 260,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 97,
+   "seconds": 230,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 131,
+   "seconds": 240,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 257,
+   "seconds": 236,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 409,
+   "seconds": 135,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 733,
+   "seconds": 562,
+   "wave": 34,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
    "hero": "percussion",
    "partner": "synth",
    "seed": 977,
-   "seconds": 271,
-   "wave": 19,
+   "seconds": 225,
+   "wave": 17,
    "ended": true
   },
   {
@@ -916,8 +916,8 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 11,
-   "seconds": 383,
-   "wave": 22,
+   "seconds": 272,
+   "wave": 17,
    "ended": true
   },
   {
@@ -925,8 +925,8 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 23,
-   "seconds": 125,
-   "wave": 9,
+   "seconds": 161,
+   "wave": 12,
    "ended": true
   },
   {
@@ -934,8 +934,8 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 97,
-   "seconds": 142,
-   "wave": 11,
+   "seconds": 180,
+   "wave": 13,
    "ended": true
   },
   {
@@ -944,7 +944,7 @@
    "partner": "ryuchi",
    "seed": 131,
    "seconds": 161,
-   "wave": 11,
+   "wave": 12,
    "ended": true
   },
   {
@@ -952,8 +952,8 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 257,
-   "seconds": 189,
-   "wave": 13,
+   "seconds": 221,
+   "wave": 16,
    "ended": true
   },
   {
@@ -961,8 +961,8 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 409,
-   "seconds": 206,
-   "wave": 14,
+   "seconds": 159,
+   "wave": 12,
    "ended": true
   },
   {
@@ -970,8 +970,8 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 733,
-   "seconds": 235,
-   "wave": 14,
+   "seconds": 292,
+   "wave": 19,
    "ended": true
   },
   {
@@ -979,7 +979,7 @@
    "hero": "franco",
    "partner": "ryuchi",
    "seed": 977,
-   "seconds": 195,
+   "seconds": 206,
    "wave": 13,
    "ended": true
   },
@@ -988,8 +988,8 @@
    "hero": "ryuchi",
    "partner": "franco",
    "seed": 11,
-   "seconds": 271,
-   "wave": 19,
+   "seconds": 246,
+   "wave": 17,
    "ended": true
   },
   {
@@ -997,16 +997,7 @@
    "hero": "ryuchi",
    "partner": "franco",
    "seed": 23,
-   "seconds": 165,
-   "wave": 13,
-   "ended": true
-  },
-  {
-   "kind": "coop",
-   "hero": "ryuchi",
-   "partner": "franco",
-   "seed": 97,
-   "seconds": 188,
+   "seconds": 179,
    "wave": 14,
    "ended": true
   },
@@ -1014,8 +1005,17 @@
    "kind": "coop",
    "hero": "ryuchi",
    "partner": "franco",
+   "seed": 97,
+   "seconds": 212,
+   "wave": 16,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "ryuchi",
+   "partner": "franco",
    "seed": 131,
-   "seconds": 158,
+   "seconds": 155,
    "wave": 12,
    "ended": true
   },
@@ -1024,8 +1024,8 @@
    "hero": "ryuchi",
    "partner": "franco",
    "seed": 257,
-   "seconds": 220,
-   "wave": 16,
+   "seconds": 194,
+   "wave": 14,
    "ended": true
   },
   {
@@ -1033,8 +1033,8 @@
    "hero": "ryuchi",
    "partner": "franco",
    "seed": 409,
-   "seconds": 182,
-   "wave": 13,
+   "seconds": 100,
+   "wave": 8,
    "ended": true
   },
   {
@@ -1042,8 +1042,8 @@
    "hero": "ryuchi",
    "partner": "franco",
    "seed": 733,
-   "seconds": 238,
-   "wave": 17,
+   "seconds": 209,
+   "wave": 14,
    "ended": true
   },
   {
@@ -1051,8 +1051,8 @@
    "hero": "ryuchi",
    "partner": "franco",
    "seed": 977,
-   "seconds": 193,
-   "wave": 13,
+   "seconds": 296,
+   "wave": 19,
    "ended": true
   },
   {
@@ -1060,8 +1060,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 11,
-   "seconds": 434,
-   "wave": 29,
+   "seconds": 247,
+   "wave": 19,
    "ended": true
   },
   {
@@ -1069,8 +1069,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 23,
-   "seconds": 300,
-   "wave": 22,
+   "seconds": 250,
+   "wave": 19,
    "ended": true
   },
   {
@@ -1078,8 +1078,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 97,
-   "seconds": 302,
-   "wave": 22,
+   "seconds": 232,
+   "wave": 19,
    "ended": true
   },
   {
@@ -1087,8 +1087,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 131,
-   "seconds": 369,
-   "wave": 27,
+   "seconds": 231,
+   "wave": 19,
    "ended": true
   },
   {
@@ -1096,7 +1096,7 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 257,
-   "seconds": 288,
+   "seconds": 279,
    "wave": 21,
    "ended": true
   },
@@ -1105,8 +1105,8 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 409,
-   "seconds": 212,
-   "wave": 17,
+   "seconds": 236,
+   "wave": 19,
    "ended": true
   },
   {
@@ -1114,16 +1114,16 @@
    "hero": "alt",
    "partner": "katana",
    "seed": 733,
-   "seconds": 1500,
-   "wave": 97,
-   "ended": false
+   "seconds": 1439,
+   "wave": 99,
+   "ended": true
   },
   {
    "kind": "coop",
    "hero": "alt",
    "partner": "katana",
    "seed": 977,
-   "seconds": 334,
+   "seconds": 324,
    "wave": 24,
    "ended": true
   },
@@ -1132,8 +1132,8 @@
    "hero": "katana",
    "partner": "alt",
    "seed": 11,
-   "seconds": 421,
-   "wave": 28,
+   "seconds": 264,
+   "wave": 19,
    "ended": true
   },
   {
@@ -1141,8 +1141,8 @@
    "hero": "katana",
    "partner": "alt",
    "seed": 23,
-   "seconds": 132,
-   "wave": 10,
+   "seconds": 140,
+   "wave": 12,
    "ended": true
   },
   {
@@ -1150,7 +1150,16 @@
    "hero": "katana",
    "partner": "alt",
    "seed": 97,
-   "seconds": 180,
+   "seconds": 186,
+   "wave": 15,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 131,
+   "seconds": 177,
    "wave": 14,
    "ended": true
   },
@@ -1158,17 +1167,8 @@
    "kind": "coop",
    "hero": "katana",
    "partner": "alt",
-   "seed": 131,
-   "seconds": 161,
-   "wave": 12,
-   "ended": true
-  },
-  {
-   "kind": "coop",
-   "hero": "katana",
-   "partner": "alt",
    "seed": 257,
-   "seconds": 124,
+   "seconds": 116,
    "wave": 9,
    "ended": true
   },
@@ -1177,8 +1177,8 @@
    "hero": "katana",
    "partner": "alt",
    "seed": 409,
-   "seconds": 118,
-   "wave": 9,
+   "seconds": 132,
+   "wave": 11,
    "ended": true
   },
   {
@@ -1186,16 +1186,34 @@
    "hero": "katana",
    "partner": "alt",
    "seed": 733,
-   "seconds": 1500,
-   "wave": 97,
-   "ended": false
+   "seconds": 192,
+   "wave": 14,
+   "ended": true
   },
   {
    "kind": "coop",
    "hero": "katana",
    "partner": "alt",
    "seed": 977,
-   "seconds": 165,
+   "seconds": 184,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 11,
+   "seconds": 276,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 23,
+   "seconds": 150,
    "wave": 12,
    "ended": true
   },
@@ -1203,27 +1221,9 @@
    "kind": "coop",
    "hero": "synth",
    "partner": "percussion",
-   "seed": 11,
-   "seconds": 328,
-   "wave": 21,
-   "ended": true
-  },
-  {
-   "kind": "coop",
-   "hero": "synth",
-   "partner": "percussion",
-   "seed": 23,
-   "seconds": 178,
-   "wave": 13,
-   "ended": true
-  },
-  {
-   "kind": "coop",
-   "hero": "synth",
-   "partner": "percussion",
    "seed": 97,
-   "seconds": 251,
-   "wave": 18,
+   "seconds": 331,
+   "wave": 22,
    "ended": true
   },
   {
@@ -1231,16 +1231,7 @@
    "hero": "synth",
    "partner": "percussion",
    "seed": 131,
-   "seconds": 232,
-   "wave": 17,
-   "ended": true
-  },
-  {
-   "kind": "coop",
-   "hero": "synth",
-   "partner": "percussion",
-   "seed": 257,
-   "seconds": 171,
+   "seconds": 157,
    "wave": 13,
    "ended": true
   },
@@ -1248,9 +1239,18 @@
    "kind": "coop",
    "hero": "synth",
    "partner": "percussion",
+   "seed": 257,
+   "seconds": 139,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "synth",
+   "partner": "percussion",
    "seed": 409,
-   "seconds": 266,
-   "wave": 19,
+   "seconds": 188,
+   "wave": 13,
    "ended": true
   },
   {
@@ -1258,8 +1258,8 @@
    "hero": "synth",
    "partner": "percussion",
    "seed": 733,
-   "seconds": 98,
-   "wave": 8,
+   "seconds": 239,
+   "wave": 17,
    "ended": true
   },
   {
@@ -1267,8 +1267,8 @@
    "hero": "synth",
    "partner": "percussion",
    "seed": 977,
-   "seconds": 229,
-   "wave": 17,
+   "seconds": 185,
+   "wave": 14,
    "ended": true
   },
   {
@@ -1276,8 +1276,8 @@
    "hero": "percussion",
    "partner": "synth",
    "seed": 11,
-   "seconds": 451,
-   "wave": 27,
+   "seconds": 572,
+   "wave": 33,
    "ended": true
   },
   {
@@ -1285,16 +1285,7 @@
    "hero": "percussion",
    "partner": "synth",
    "seed": 23,
-   "seconds": 479,
-   "wave": 29,
-   "ended": true
-  },
-  {
-   "kind": "coop",
-   "hero": "percussion",
-   "partner": "synth",
-   "seed": 97,
-   "seconds": 298,
+   "seconds": 278,
    "wave": 19,
    "ended": true
   },
@@ -1302,9 +1293,18 @@
    "kind": "coop",
    "hero": "percussion",
    "partner": "synth",
+   "seed": 97,
+   "seconds": 359,
+   "wave": 24,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "percussion",
+   "partner": "synth",
    "seed": 131,
-   "seconds": 519,
-   "wave": 32,
+   "seconds": 253,
+   "wave": 19,
    "ended": true
   },
   {
@@ -1312,8 +1312,8 @@
    "hero": "percussion",
    "partner": "synth",
    "seed": 257,
-   "seconds": 423,
-   "wave": 27,
+   "seconds": 282,
+   "wave": 19,
    "ended": true
   },
   {
@@ -1321,7 +1321,7 @@
    "hero": "percussion",
    "partner": "synth",
    "seed": 409,
-   "seconds": 357,
+   "seconds": 349,
    "wave": 23,
    "ended": true
   },
@@ -1330,8 +1330,8 @@
    "hero": "percussion",
    "partner": "synth",
    "seed": 733,
-   "seconds": 347,
-   "wave": 23,
+   "seconds": 720,
+   "wave": 43,
    "ended": true
   },
   {
@@ -1339,8 +1339,8 @@
    "hero": "percussion",
    "partner": "synth",
    "seed": 977,
-   "seconds": 534,
-   "wave": 31,
+   "seconds": 443,
+   "wave": 27,
    "ended": true
   }
  ]

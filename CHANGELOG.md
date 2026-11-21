@@ -1,3 +1,8 @@
+## [Calabouço · mini-chefes e elites] — 2026-11-21
+
+- **Mini-chefe a cada 10 ondas:** ecos do *Viajante Mascarado* (ondas 10, 30…) e da *Voz* (20, 40…), com a coreografia e a arte da campanha. A onda traz metade dos ecos comuns e só termina quando o mini-chefe cai. A queda não dispara cenas nem marcas da campanha e vale 900 pontos ou mais.
+- **Elites com modificador visível** nas ondas múltiplas de 5: *Escudo* (anula os 3 primeiros golpes, com ◆ sobre o eco), *Frenético* (ataca mais rápido) ou *Divisão* (vira dois ecos ao cair). O rótulo mostra o modificador, e o aviso da onda o anuncia.
+
 ## [Calabouço · melhorias novas] — 2026-11-21
 
 - **22 melhorias em três raridades** (comum, rara e lendária), com a raridade e a cor no cartão. As lendárias saem cerca de uma vez a cada 10 cartas.

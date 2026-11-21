@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),noop=()=>{},heroes=['franco','ryuchi','alt','katana','synth','percussion'],elements=new Map();
-const c={Math,Number,Set,Date,console,copy:x=>JSON.parse(JSON.stringify(x)),areas:{},combatAreas10:new Set(),mode:'action',battle:null,bossActor:null,T:24,VW:768,VH:432,cam:{x:0,y:120},G:null,current:{enemies:[]},$:id=>{if(!elements.has(id))elements.set(id,{style:{},classList:{add:noop},onclick:null});return elements.get(id)},C3:{AREAS:[],COMBAT_AREAS:[],labels:{},coopActive:()=>false,coopMember:()=> 'alt',unlockedRoster:()=>heroes,areaStory:noop,finishSilence:noop,combatUnlocked:()=>true,damageCoop:amount=>c.G.hp.alt=Math.max(0,c.G.hp.alt-amount)},partyMembers:()=>c.G.formation,hydrateEnemy:e=>Object.assign(e,{hp:44,max:44,power:8}),canBody121:()=>true,engage:noop,toast:noop,setCheckpoint:noop,enterMenu10:noop};
+const c={Math,Number,Set,Date,console,copy:x=>JSON.parse(JSON.stringify(x)),areas:{},combatAreas10:new Set(),mode:'action',battle:null,bossActor:null,T:24,VW:768,VH:432,cam:{x:0,y:120},G:null,current:{enemies:[]},$:id=>{if(!elements.has(id))elements.set(id,{style:{},classList:{add:noop,remove:noop},onclick:null});return elements.get(id)},C3:{AREAS:[],COMBAT_AREAS:[],labels:{},coopActive:()=>false,coopMember:()=> 'alt',unlockedRoster:()=>heroes,areaStory:noop,finishSilence:noop,combatUnlocked:()=>true,damageCoop:amount=>c.G.hp.alt=Math.max(0,c.G.hp.alt-amount)},partyMembers:()=>c.G.formation,hydrateEnemy:e=>Object.assign(e,{hp:44,max:44,power:8}),canBody121:()=>true,engage:noop,addCombatFX:noop,screenShake:0,hostileShots:[],toast:noop,setCheckpoint:noop,enterMenu10:noop};
 for(const n of ['closeOverlay','fresh','normalizeSave','buildMaps','drawDetailedNPC','openMap','openSystem','enemyActors','gainXP','save','showDefeat','restoreCheckpoint','update','updateHUD','objectiveData','exportSave','getRoute','drawGuideMarker','updateActionHUD'])c[n]=noop;
 c.setArea=(id,x,y)=>Object.assign(c.G,{area:id,x,y});c.hitEnemy=(e,damage)=>e.hp=Math.max(0,e.hp-damage);c.damageHero=amount=>{const id=c.G.active;c.G.hp[id]=Math.max(0,c.G.hp[id]-amount);if(!c.G.hp[id])c.G.active='ryuchi'};
 vm.createContext(c);vm.runInContext(fs.readFileSync(path.join(root,'game/source/chapter-03/postgame.js'),'utf8'),c);const p=vm.runInContext('PostGame',c);p.clearCombat=noop;c.updateHUD=c.save=noop;
@@ -96,5 +96,19 @@ check('New card effects: drum shield, overdrive, crowd, chain, pierce, war drum,
  r=fixture();r.upgrades={synthWave:2};c.G.active='synth';c.G.resonance=0;c.current.enemies=[];c.hitEnemy({endless:true,hp:1,max:1,type:'hush',x:1,y:1},9);assert.equal(c.G.resonance,7);
  assert.equal(p.amount('bassHold',1),.3);assert.equal(p.cardValue('bassHold',1),'0,3 s');
  r=fixture();r.upgrades={encore:1};c.G.hp.franco=5;c.damageHero(50);assert.equal(c.G.hp.franco,Math.ceil(80*.3));assert(r.encore);c.G.active='franco';c.damageHero(100);assert.equal(c.G.hp.franco,0,'bis só uma vez');
+});
+check('Every 10 waves a campaign boss echo leads half a wave; the wave ends only after it falls',()=>{
+ assert(p.bossWave(10)&&p.bossWave(20)&&!p.bossWave(5));assert.notEqual(p.bossFor(10).id,p.bossFor(20).id);
+ const r=fixture(10);const spawn=p.spawn;p.spawn=()=>false;const full=p.wavePlan(r.seed,10,1).length;p.beginWave();
+ assert(c.bossActor&&c.bossActor.endlessBoss&&c.bossActor.endless);assert.equal(p.plan.length,Math.ceil(full/2));
+ r.cursor=p.plan.length;c.current.enemies=[];p.update(.1);assert.equal(r.phase,'fight','não termina com o chefe vivo');
+ c.bossActor.hp=0;p.bossDown();assert.equal(c.bossActor,null);p.update(.1);assert.equal(r.phase,'rest');p.spawn=spawn;
+ assert(p.killValue('boss',10)>p.killValue('abafador',10)*5);
+});
+check('Elite modifiers: shield blocks three hits, split leaves two echoes, frenetic recovers faster',()=>{
+ let r=fixture(5);const mods=new Set();for(let seed=1;seed<=30;seed++){r.seed=seed;mods.add(p.eliteMod(r))}assert.equal(mods.size,3);
+ const e={endless:true,endlessElite:true,endlessMod:'escudo',endlessShield:3,hp:100,max:100,type:'hush',x:5,y:5};for(let i=0;i<3;i++)c.hitEnemy(e,20);assert.equal(e.hp,100);c.hitEnemy(e,20);assert(e.hp<100);
+ r=fixture(5);c.current.enemies=[];const s={endless:true,endlessElite:true,endlessMod:'divisao',hp:1,max:100,type:'hush',x:9,y:9,id:'endless_3'};c.current.enemies=[s];c.hitEnemy(s,50);assert.equal(c.current.enemies.filter(n=>n.hp>0).length,2);
+ r=fixture(5);const f={endless:true,endlessMod:'frenetico',hp:50,max:50,cd:1,type:'hush'},n={endless:true,hp:50,max:50,cd:1,type:'hush'};c.current.enemies=[f,n];p.plan=[1,2,3];r.cursor=0;const spawn=p.spawn;p.spawn=()=>false;p.update(.5);p.spawn=spawn;assert(f.cd<n.cd+1e-9&&f.cd<1);
 });
 const report={passed:rows.length,checks:rows,method:'VM of real dungeon functions; combat and DOM dependencies stubbed. Not a human comfort/fun test.'};fs.mkdirSync(path.join(root,'qa/dungeon-v3'),{recursive:true});fs.writeFileSync(path.join(root,'qa/dungeon-v3/UNIT.json'),JSON.stringify(report,null,2)+'\n');
