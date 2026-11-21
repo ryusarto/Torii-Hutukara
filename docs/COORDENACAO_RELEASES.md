@@ -23,9 +23,8 @@ Main funcional `3e7ad3f5c9ba484e9e257e016102c19d8389c235`: **Beta 1.7.0**, com F
 | Beta 1.6.0 | Cenários / Analisar build HTML TORII Hutukara | Direção desértica do C3, biblioteca, integração e exportação | Integrada em bf1c2dc; workflow 44227852940 aprovado e site/hash confirmados |
 | Beta 1.6.1 | Músicos | Máscaras, cadência e transições | PR #16 integrado em 86e3085; publicação 44230185415 aprovada |
 | Beta 1.7.0 | NPCs/inimigos e bosses | 32 quadros de FX dos golpes no chão | PR #15 integrado em 3e7ad3f; publicação 44232084397 aprovada e site/hash confirmados |
-
-| Beta1.7.1 | Músicos | Corrige apresentação de ataques de Franco/Ryuchi | PR#17 integrado; preservado na1.8 |
-| Beta1.8.0 | Revisão geral | Estúdio, corrida12poses, cinema, IA/gestosNPC, save no sofá | PR#18 integrado; deploy44849114374 e hashes online confirmados |
+| Beta 1.7.1 | Músicos | Corrige apresentação de ataques de Franco/Ryuchi | PR#17 integrado; preservado na1.8 |
+| Beta 1.8.0 | Revisão geral | Estúdio, corrida12poses, cinema, IA/gestosNPC, save no sofá | PR#18 integrado; deploy44849114374 e hashes online confirmados |
 
 A reserva anterior **1.4.0 para cenários foi realocada para 1.6.0**, pois a main avançou para 1.5 antes da conclusão dos cenários. Os assets recuperados continuam válidos. Não promover a build de cenários1.4 por cima da main1.5 nem simplesmente renomear seu executável.
 
