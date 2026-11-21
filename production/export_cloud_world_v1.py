@@ -39,9 +39,9 @@ manifest = {'version': 'cloud-world-v1', 'rebuild': {
 cinema_source = DEST / 'source/sky_portal.png'
 if cinema_source.exists():
     (DEST / 'backgrounds').mkdir(exist_ok=True)
-    Image.open(cinema_source).convert('RGB').resize((1024, 576), Image.Resampling.NEAREST).save(
+    Image.open(cinema_source).convert('RGB').save(
         DEST / 'backgrounds/sky_portal.png', optimize=True)
-    manifest['cinema'] = {'file': 'backgrounds/sky_portal.png', 'size': [1024, 576]}
+    manifest['cinema'] = {'file': 'backgrounds/sky_portal.png', 'size': list(Image.open(cinema_source).size)}
 (DEST / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
 audit = {'sourceSha256': hashlib.sha256(source.read_bytes()).hexdigest(),
          'atlasSha256': hashlib.sha256((DEST / 'atlas/rebuild.png').read_bytes()).hexdigest(),

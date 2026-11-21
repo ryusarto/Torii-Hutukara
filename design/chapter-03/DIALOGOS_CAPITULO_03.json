@@ -852,76 +852,75 @@
     },
     {
       "id": "C3_026",
-      "location": "limiar",
-      "trigger": "resolução do Hutukara",
+      "location": "ultimo_torii",
+      "trigger": "resolução do Hutukara; permanência e abertura do pós-jogo",
       "condition": [],
       "lines": [
         {
           "id": "C3_026.01",
           "speaker": "Nara",
-          "text": "Vocês vão voltar?"
+          "text": "A última frequência abriu caminhos que antes não respondiam."
         },
         {
           "id": "C3_026.02",
           "speaker": "Franco",
-          "text": "Acho que a máscara trouxe a gente até onde precisava."
+          "text": "Então não foi uma porta de saída."
         },
         {
           "id": "C3_026.03",
           "speaker": "Ryuchi",
-          "text": "Ela trouxe as ferramentas e as pessoas de cada mundo até a mesma frase."
+          "text": "Foi espaço para a próxima música. E dessa vez a gente escolhe por onde continuar."
         },
         {
           "id": "C3_026.04",
           "speaker": "Franco",
-          "text": "E a última nota não fechou Hutukara. Abriu espaço para a próxima música existir sem repetir a anterior."
+          "text": "Cada mundo ainda tem alguma coisa para nos dizer."
         },
         {
           "id": "C3_026.05",
           "speaker": "Maia",
-          "text": "Quando fizerem, deixem o canal aberto."
+          "text": "O canal fica aberto. Voltem quando quiserem — a cidade continua aqui."
         }
       ],
-      "onComplete": [
-        "c3.returnHome"
-      ],
+      "onComplete": [],
       "status": "authored_not_integrated"
     },
     {
       "id": "C3_027",
-      "location": "estudio",
-      "trigger": "epílogo",
+      "location": "ultimo_torii",
+      "trigger": "resolução do Hutukara; permanência e abertura do pós-jogo",
       "condition": [],
       "lines": [
         {
           "id": "C3_027.01",
           "speaker": "Ryuchi",
-          "text": "São quase três da manhã."
+          "text": "Tá ouvindo? Tem outro pulso vindo debaixo do Torii."
         },
         {
           "id": "C3_027.02",
           "speaker": "Franco",
-          "text": "De novo."
+          "text": "Uma passagem que não acaba na primeira canção."
         },
         {
           "id": "C3_027.03",
           "speaker": "Ryuchi",
-          "text": "Abre uma sessão nova."
+          "text": "A gente pode explorar os mundos… ou testar até onde esse som vai."
         },
         {
           "id": "C3_027.04",
           "speaker": "Franco",
-          "text": "Qual nome?"
+          "text": "Uma onda de cada vez. Sem precisar acertar tudo de primeira."
         },
         {
           "id": "C3_027.05",
           "speaker": "Ryuchi",
-          "text": "Depois a gente põe."
+          "text": "Abre uma sessão nova. A gente começa daqui."
         }
       ],
       "onComplete": [
         "c3.complete",
-        "feature.freeCreation"
+        "feature.postgameTravel",
+        "feature.endlessDungeon"
       ],
       "status": "authored_not_integrated"
     },

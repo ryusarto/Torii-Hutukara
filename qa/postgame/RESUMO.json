@@ -1,0 +1,17 @@
+{
+  "version": "beta-1.9.0",
+  "sha256": "262830b6521cdbb2fd67b7d12cdbb40e2858cb92a7b46676ed261ad0feab5466",
+  "bytes": 420873462,
+  "unit": 48,
+  "browser": 12,
+  "static": {
+    "passed": 142,
+    "total": 142
+  },
+  "inputs": 22,
+  "gameplay": 20,
+  "site": 4,
+  "physicalHardware": false,
+  "humanFullCampaign": false,
+  "method": "Chrome isolado, fixtures de runtime, toque e gamepads simulados; composição Beta1.8 + pós-jogo1.9."
+}

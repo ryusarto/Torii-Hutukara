@@ -23,5 +23,5 @@
   "alpha": "original generated alpha preserved; no background removal",
   "packing": "whole cells, common canvas; no independent tight crop",
   "cinemaSourceSha256": "a39a0d7b122f748ec123a4a4066c7be28a7a1d19373af4f88efeef8bb9739848",
-  "cinemaSha256": "7ce6b266960ceed88fe2c5be793d04a17f76380196330155d1f0b236e601a35f"
+  "cinemaSha256": "3e49593af42d190825a3e7537b386eedab938a7421c913bd3102b744f9b988c7"
 }

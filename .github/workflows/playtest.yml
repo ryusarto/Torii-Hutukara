@@ -76,6 +76,7 @@ jobs:
           node qa/musician_presentation_unit.cjs
           node qa/input_regression.cjs
           node qa/gameplay_regression.cjs
+          node qa/postgame_unit.cjs
       - name: Keep portable HTML as a downloadable artifact
         uses: actions/upload-artifact@v4
         with:
@@ -102,6 +103,7 @@ jobs:
           node qa/npc_life_browser.cjs http://127.0.0.1:8771/
           node qa/locomotion_browser_v6.cjs http://127.0.0.1:8771/
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
+          node qa/postgame_browser.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/
       - uses: actions/upload-pages-artifact@v4
         with:

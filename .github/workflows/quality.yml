@@ -46,6 +46,7 @@ jobs:
           node qa/enemy_art_v1.cjs
           node qa/input_regression.cjs
           node qa/gameplay_regression.cjs
+          node qa/postgame_unit.cjs
       - name: Verify web export on PC, phone and tablet
         run: |
           ruby production/build_playtest.rb
@@ -60,6 +61,7 @@ jobs:
           node qa/npc_life_browser.cjs http://127.0.0.1:8771/
           node qa/locomotion_browser_v6.cjs http://127.0.0.1:8771/
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
+          node qa/postgame_browser.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/
       - name: Keep reports and screenshots
         if: always()
@@ -72,6 +74,8 @@ jobs:
             qa/boss-animations-v2/
             qa/boss-ground-fx-v1/
             qa/environment-world-v1/
+
+            qa/postgame/
             qa/playtest/SITE_TEST_RESULTS.json
             qa/screenshots-local/pages/
           retention-days: 30

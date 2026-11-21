@@ -166,7 +166,7 @@ normalizeSave=function(raw){
   if(!team.some(id=>g.hp[id]>0)){const alive=unlocked.find(id=>g.hp[id]>0)||'franco';g.hp[alive]=Math.max(1,g.hp[alive]||g.maxhp[alive]);team=[alive]}
   g.formation=team;if(!team.includes(g.active)||g.hp[g.active]<=0)g.active=team.find(id=>g.hp[id]>0)||team[0];
   C3.ensureProgression(g);
-  if(g.c3.started&&!C3.AREAS.includes(g.area)&&g.chapter===3&&g.area!=='studio'){g.area='sky_terminal';g.x=6.5;g.y=12.5}
+  if(g.c3.started&&!g.c3.complete&&!C3.AREAS.includes(g.area)&&g.chapter===3&&g.area!=='studio'){g.area='sky_terminal';g.x=6.5;g.y=12.5}
   return g;
 };
 

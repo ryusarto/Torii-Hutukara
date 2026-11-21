@@ -32,7 +32,7 @@ Sair do chão no Mar de Nuvens inicia uma queda de 0,85 s: o personagem diminui 
 - `production/export_environment_volume_v1.py` e `production/export_cloud_world_v1.py`: exportação determinística com Pillow; células/cortes técnicos, redução por nearest e alpha original preservado. Nenhuma pintura ou remoção de fundo por código.
 - `qa/environment-world-v1/NUVEM_RECONSTRUCAO.gif`: prévia dos sprites; não substitui as capturas reais da integração.
 
-Módulos novos: `environment_depth_v1.js`, `cloud_world_v1.js`, `environment_atmosphere_v1.js`, `cloud_story_v1.js`. O gerador os injeta após a arte/FX existentes e registra os arquivos usados no manifesto. Hooks explícitos posicionam o ground pass e a iluminação. As suítes novas estão no CI e no publicador.
+Módulos novos: `environment_depth_v1.js`, `cloud_world_v1.js`, `environment_atmosphere_v1.js`, `cloud_story_v1.js`. A composição preserva também o pós-jogo da 1.9 (PR #20), que deve ser promovido antes desta entrega. O gerador os injeta após a arte/FX existentes e registra os arquivos usados no manifesto. Hooks explícitos posicionam o ground pass e a iluminação. As suítes novas estão no CI e no publicador.
 
 ## Validação
 

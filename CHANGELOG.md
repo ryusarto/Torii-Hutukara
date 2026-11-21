@@ -8,6 +8,14 @@
 - Sair da nuvem caminhando ou rolando inicia queda com redução/descida do personagem e derrota pelo checkpoint. P2 participa da regra; sincronização não o resgata na borda. Pausa, retry, export e transições tratados.
 - Fontes, prompts do ImageGen integrado, atlas e exportadores preservados. [Contrato e evidências](docs/AMBIENTES_MUNDO_VIVO_V1.md).
 
+## [Beta 1.9.0] — 2026-11-20
+
+- Último Torii escolhe até dois aliados desbloqueados fora da formação atual e do P2. Sprites e falas acompanham a seleção; trocar a equipe também atualiza a sala.
+- Cenas finais permanecem em Hutukara, sem retorno automático ao estúdio. M, MAPA e menu liberam viagens entre os cenários depois de zerar.
+- Fenda das Ressonâncias: composição e posição dos inimigos por semente, ondas progressivas, até oito inimigos vivos, pontuação por eliminação/onda, recuperação entre ondas e recorde local ao save.
+- Derrota e saída registram o resultado e retornam ao Torii; nova tentativa inicia outra expedição. Save/exportação retomam o início da onda sem duplicar pontos parciais. Não conceder XP ou fragmentos permanentes no calabouço.
+- Preserva schema13, campanha, coop e todas as melhorias da Beta1.8. [Especificação e limites](design/chapter-03/POS_JOGO_E_FENDA.md); evidências em `qa/postgame/`.
+
 ## [Beta1.8.0] — 2026-11-20
 
 - Planta do estúdio com vaso próprio; sofá vertical junto ao tapete, com colisão e contato com o chão ajustados. Carregamento recupera saves antigos que estavam no novo espaço ocupado.

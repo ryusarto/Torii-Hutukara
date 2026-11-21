@@ -42,3 +42,6 @@ qa/cenarios-deserto-v1/estados/*.png
 # Reproducible full captures accompany the Dropbox backup.
 qa/boss-animations-v2/*.png
 qa/boss-animations-v2/frames/
+
+# Full regression captures stay in CI artifacts; selected postgame evidence is versioned.
+qa/beta-1.9.0/*.png
