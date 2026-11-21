@@ -51,7 +51,7 @@ check('Respite every 5 waves heals the standing team or revives one member, once
 });
 check('Rare respite raises the chosen card by two levels and the save keeps the budget',()=>{
  const r=fixture(5);r.phase='rest';assert(p.respite('rare',5));const card=p.offers(r)[0];const spawn=p.spawn;p.spawn=()=>false;assert(p.choose(card,5));p.spawn=spawn;
- assert.equal(r.upgrades[card],2);const g=JSON.parse(JSON.stringify(c.G));g.postgame.run.phase='rest';const n=p.normalize(g.postgame,g).run;assert.equal(n.upgrades[card],2);
+ const want=Math.min(p.cards[card].maxLevel||99,2);assert.equal(r.upgrades[card],want);const g=JSON.parse(JSON.stringify(c.G));g.postgame.run.phase='rest';const n=p.normalize(g.postgame,g).run;assert.equal(n.upgrades[card],want);
 });
 check('Enemies arrive in groups of 2 to 4 (5 in coop) on valid, separate spots',()=>{
  for(const [seats,wave,min] of [[1,1,2],[1,13,4],[2,1,3],[2,13,5]]){const r=fixture(wave,seats);c.G.x=14;c.G.y=11;c.cam={x:0,y:0};c.VW=28*24;c.VH=23*24;c.T=24;c.C3.coop={x:15,y:12};p.plan=p.wavePlan(r.seed,wave,seats);r.cursor=0;
@@ -69,5 +69,32 @@ check('Everyone takes the same damage; heroes that survive less hit harder, P2 h
  assert(p.power('katana')>p.power('franco'));assert(p.power('synth')>1&&p.power('percussion')>1);
  c.G.active='franco';p.attacker='katana';const e={endless:true,hp:500,max:600,type:'hush'};c.hitEnemy(e,20);p.attacker=null;assert.equal(500-e.hp,Math.round(20*p.power('katana')));
  c.G.postgame.run=null;const o={hp:100,max:100};c.G.active='katana';c.hitEnemy(o,20);assert.equal(o.hp,80,'fora da Fenda nada muda');
+});
+check('Draft every 2 waves (and on respite waves); other waves breathe and continue alone',()=>{
+ for(const [w,due] of [[1,false],[2,true],[3,false],[4,true],[5,true],[7,false],[10,true],[15,true]]){const r=fixture(w);r.phase='rest';assert.equal(p.draftDue(r),due,'onda '+w)}
+ const r=fixture(3);r.phase='rest';r.wait=0;const spawn=p.spawn;p.spawn=()=>false;p.update(p.BREATH/2);assert.equal(r.wave,3);p.update(p.BREATH);assert.equal(r.wave,4);assert.equal(r.phase,'fight');p.spawn=spawn;
+});
+check('22 cards in three rarities; instrument cards only with that hero; legendary is rarer',()=>{
+ assert(Object.keys(p.cards).length>=20);const count={comum:0,rara:0,lendaria:0};
+ const r=fixture(2);c.G.formation=['franco','ryuchi','alt'];
+ for(let seed=1;seed<=600;seed++){r.seed=seed;const o=p.offers(r);assert.equal(new Set(o).size,3);for(const id of o){count[p.cards[id].rarity||'comum']++;const h=p.cards[id].hero;assert(!h||c.G.formation.includes(h),id)}}
+ assert(count.comum>count.rara&&count.rara>count.lendaria&&count.lendaria>0,JSON.stringify(count));
+ r.upgrades={encore:1};for(let seed=1;seed<=200;seed++){r.seed=seed;assert(!p.offers(r).includes('encore'),'lendária no máximo não volta')}
+});
+check('One reroll per attempt changes the offers; skipping banks points and starts the next wave',()=>{
+ const r=fixture(4);r.phase='rest';r.score=1000;r.bankedScore=1000;const first=p.offers(r).join();assert(p.reroll(4));assert.notEqual(p.offers(r).join(),first);assert(!p.reroll(4));
+ const g=JSON.parse(JSON.stringify(c.G)),n=p.normalize(g.postgame,g).run;assert.equal(n.reroll,4);
+ const gain=p.skipValue(r);const spawn=p.spawn;p.spawn=()=>false;assert(p.skip(4));p.spawn=spawn;assert.equal(r.score,1000+gain);assert.equal(r.bankedScore,r.score);assert.equal(r.wave,5);assert.equal(r.phase,'fight');
+});
+check('New card effects: drum shield, overdrive, crowd, chain, pierce, war drum, synth wave, Franco stun, encore',()=>{
+ let r=fixture();r.upgrades={drum:2};const spawn=p.spawn;p.spawn=()=>false;p.plan=[];p.beginWave();p.spawn=spawn;r=p.run();assert.equal(r.drum,2);c.damageHero(10);c.damageHero(10);assert.equal(c.G.hp.franco,40);c.damageHero(10);assert.equal(c.G.hp.franco,30);
+ r=fixture();r.upgrades={overdrive:1};let e={endless:true,hp:500,max:600,type:'hush'};c.hitEnemy(e,20);assert.equal(500-e.hp,27);assert.equal(p.incoming(20),23);
+ r=fixture(3);const plain=p.waveValue(r);r.upgrades={crowd:4};assert(p.waveValue(r)>plain);
+ r=fixture();r.upgrades={chain:1};const a={endless:true,hp:5,max:50,type:'hush',x:10,y:10},b={endless:true,hp:50,max:50,type:'hush',x:11,y:10},far={endless:true,hp:50,max:50,type:'hush',x:20,y:10};c.current.enemies=[a,b,far];c.hitEnemy(a,10);assert.equal(b.hp,50-p.amount('chain',1));assert.equal(far.hp,50);
+ r=fixture();r.upgrades={pierce:4};c.G.active='alt';const t1={endless:true,hp:100,max:200,type:'hush',x:10,y:10},t2={endless:true,hp:100,max:100,type:'hush',x:12,y:10};c.current.enemies=[t1,t2];c.hitEnemy(t1,20);assert(t2.hp<100&&t2.hp>100-20*p.power('alt'));
+ r=fixture();r.upgrades={warDrum:4};c.G.active='percussion';const d1={endless:true,hp:100,max:200,type:'hush',x:10,y:10},d2={endless:true,hp:100,max:100,type:'hush',x:11,y:10.5};c.current.enemies=[d1,d2];c.hitEnemy(d1,20);assert(d2.hp<100);
+ r=fixture();r.upgrades={synthWave:2};c.G.active='synth';c.G.resonance=0;c.current.enemies=[];c.hitEnemy({endless:true,hp:1,max:1,type:'hush',x:1,y:1},9);assert.equal(c.G.resonance,7);
+ assert.equal(p.amount('bassHold',1),.3);assert.equal(p.cardValue('bassHold',1),'0,3 s');
+ r=fixture();r.upgrades={encore:1};c.G.hp.franco=5;c.damageHero(50);assert.equal(c.G.hp.franco,Math.ceil(80*.3));assert(r.encore);c.G.active='franco';c.damageHero(100);assert.equal(c.G.hp.franco,0,'bis só uma vez');
 });
 const report={passed:rows.length,checks:rows,method:'VM of real dungeon functions; combat and DOM dependencies stubbed. Not a human comfort/fun test.'};fs.mkdirSync(path.join(root,'qa/dungeon-v3'),{recursive:true});fs.writeFileSync(path.join(root,'qa/dungeon-v3/UNIT.json'),JSON.stringify(report,null,2)+'\n');

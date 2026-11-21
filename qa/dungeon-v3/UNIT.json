@@ -1,5 +1,5 @@
 {
-  "passed": 18,
+  "passed": 22,
   "checks": [
     "Progressive pressure stays bounded and HP at wave20 is less than legacy sponge growth",
     "Procedural plans vary without early controllers or multiple mute auras",
@@ -18,7 +18,11 @@
     "Rare respite raises the chosen card by two levels and the save keeps the budget",
     "Enemies arrive in groups of 2 to 4 (5 in coop) on valid, separate spots",
     "Coop follows the solo difficulty curve with a fixed extra (it no longer grows faster)",
-    "Everyone takes the same damage; heroes that survive less hit harder, P2 hits use P2 power"
+    "Everyone takes the same damage; heroes that survive less hit harder, P2 hits use P2 power",
+    "Draft every 2 waves (and on respite waves); other waves breathe and continue alone",
+    "22 cards in three rarities; instrument cards only with that hero; legendary is rarer",
+    "One reroll per attempt changes the offers; skipping banks points and starts the next wave",
+    "New card effects: drum shield, overdrive, crowd, chain, pierce, war drum, synth wave, Franco stun, encore"
   ],
   "method": "VM of real dungeon functions; combat and DOM dependencies stubbed. Not a human comfort/fun test."
 }

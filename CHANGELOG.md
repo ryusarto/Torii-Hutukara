@@ -1,3 +1,13 @@
+## [Calabouço · melhorias novas] — 2026-11-21
+
+- **22 melhorias em três raridades** (comum, rara e lendária), com a raridade e a cor no cartão. As lendárias saem cerca de uma vez a cada 10 cartas.
+- **Uma carta por instrumento**, que só aparece com aquele personagem na equipe: *Grave que prende* (Franco atordoa mais), *Corte em sequência* (Ryuchi), *Flecha que atravessa* (Arqueiro fere um segundo eco), *Tinta afiada* (Katana contra atordoados), *Onda sintética* (Sintetizador ganha ressonância) e *Tambor de guerra* (Percussão fere em volta).
+- Outras novas: *Metrônomo acelerado*, *Plateia atenta*, *Eco em cadeia*, *Pele de tambor*, *Nota aguda*, *Fôlego final*, *Contra-melodia*, *Bis*, *Distorção* e *Acorde perfeito*.
+- **Escolha a cada 2 ondas** (e em toda pausa de respiro). Nas outras, a equipe respira 1,6 s e a próxima onda começa sozinha, com o resultado num aviso.
+- **Trocar opções** uma vez por tentativa e **pular** a escolha em troca de pontos.
+- Corrigido o sorteio das cartas: com sementes vizinhas, *Nota aguda* aparecia em 83% das escolhas.
+- Força do instrumento reajustada: Ryuchi ×1,6, Arqueiro ×1,3.
+
 ## [Calabouço · curva e rótulos] — 2026-11-21
 
 - **Curva nova:** a onda 1 já traz 4 ecos em grupo, e o aperto chega entre as ondas 12 e 18 (antes começava com 3 ecos e o pico ficava entre a 20 e a 30). No robô, um personagem sozinho chega em média à onda 14 e uma dupla à 20.

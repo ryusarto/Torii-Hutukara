@@ -32,7 +32,7 @@ const PostGame={
    for(const id of Object.keys(this.cards)){
     upgrades[id]=this.number(r.upgrades?.[id],budget);budget-=upgrades[id];
    }
-   out.run={active:true,rules:3,legacy:r.rules!==3||!!r.legacy,mode:r.mode==='coop'?'coop':'solo',seed:this.number(r.seed,4294967295,1)||1,wave,score:this.number(r.bankedScore,this.MAX_SCORE),bankedScore:this.number(r.bankedScore,this.MAX_SCORE),kills:this.number(r.bankedKills,this.MAX_SCORE),bankedKills:this.number(r.bankedKills,this.MAX_SCORE),completedWave:rest?wave:wave-1,hpStart,campaignPotions:this.number(r.campaignPotions,99,g.potions||0),campaignResonance:this.number(r.campaignResonance,100,g.resonance||0),resonanceStart:resonance,potionsStart:0,combo,comboStart:combo,elapsed:this.number(r.bankedElapsed,this.MAX_SCORE),bankedElapsed:this.number(r.bankedElapsed,this.MAX_SCORE),waveSeats:r.waveSeats===2?2:1,phase:rest?'rest':'fight',cursor:0,wait:0,pending:null,clean:true,knockouts:0,upgrades,respite:this.number(r.respite,wave),rare:rest&&r.rare===true,_resume:!rest};
+   out.run={active:true,rules:3,legacy:r.rules!==3||!!r.legacy,mode:r.mode==='coop'?'coop':'solo',seed:this.number(r.seed,4294967295,1)||1,wave,score:this.number(r.bankedScore,this.MAX_SCORE),bankedScore:this.number(r.bankedScore,this.MAX_SCORE),kills:this.number(r.bankedKills,this.MAX_SCORE),bankedKills:this.number(r.bankedKills,this.MAX_SCORE),completedWave:rest?wave:wave-1,hpStart,campaignPotions:this.number(r.campaignPotions,99,g.potions||0),campaignResonance:this.number(r.campaignResonance,100,g.resonance||0),resonanceStart:resonance,potionsStart:0,combo,comboStart:combo,elapsed:this.number(r.bankedElapsed,this.MAX_SCORE),bankedElapsed:this.number(r.bankedElapsed,this.MAX_SCORE),waveSeats:r.waveSeats===2?2:1,phase:rest?'rest':'fight',cursor:0,wait:0,pending:null,clean:true,knockouts:0,upgrades,respite:this.number(r.respite,wave),rare:rest&&r.rare===true,reroll:this.number(r.reroll,wave),encore:r.encore===true,_resume:!rest};
    out.run.campaignHP=Object.fromEntries(Object.keys(this.names).map(id=>[id,this.number(r.campaignHP?.[id],g.maxhp[id]||40,g.maxhp[id]||40)]));
    out.run.campaignLeader=r.campaignLeader;
    out.run.campaignFormation=Array.isArray(r.campaignFormation)?[...new Set(r.campaignFormation.filter(id=>Object.hasOwn(this.names,id)))].slice(0,3):null;
@@ -83,28 +83,56 @@ const PostGame={
   $('postEnter').onclick=()=>this.startDungeon();$('postTravel').onclick=()=>this.openTravel();$('postPhrase').onclick=()=>C3.openPhrase('post');$('postStay').onclick=closeOverlay;$('postExport').onclick=exportSave;$('postEnter').focus();
  },
 
+ // Melhorias: 22 cartas em três raridades. As de instrumento só aparecem com aquele
+ // personagem na equipe. Valores com rendimento decrescente: scale*nível/(nível+4).
+ RARITY:{comum:{label:'COMUM',weight:6,color:'#c9b38f'},rara:{label:'RARA',weight:3,color:'#7fc4e8'},lendaria:{label:'LENDÁRIA',weight:1,color:'#f0bd5a'}},
  cards:{
   drive:{name:'Amplificador',text:'Dano de todos os golpes',scale:.65},
   ambush:{name:'Ataque de abertura',text:'Dano extra contra ecos com vida cheia',scale:1.4},
   finish:{name:'Último acorde',text:'Dano extra contra ecos com até metade da vida',scale:1.1},
   guard:{name:'Abafador de impacto',text:'Redução de dano para toda a equipe',scale:.5},
   charge:{name:'Retorno de sinal',text:'Ressonância por eliminação',scale:2,maxLevel:10},
-  stagger:{name:'Compasso quebrado',text:'Duração do atordoamento dos golpes',scale:.9}
+  stagger:{name:'Compasso quebrado',text:'Duração do atordoamento dos golpes',scale:.9},
+  tempo:{name:'Metrônomo acelerado',text:'Recarga mais rápida de técnicas, esquiva e super',scale:.6},
+  crowd:{name:'Plateia atenta',text:'Pontos por eco e por onda',scale:.8},
+  chain:{name:'Eco em cadeia',text:'Ao eliminar, dano nos ecos a até 2 casas',rarity:'rara',flat:[0,14,24,32,38,42],maxLevel:5,unit:' de dano'},
+  drum:{name:'Pele de tambor',text:'Golpes anulados por onda',rarity:'rara',flat:[0,1,2,3],maxLevel:3,unit:' por onda'},
+  sharp:{name:'Nota aguda',text:'Chance de golpe crítico (dano dobrado)',rarity:'rara',scale:.4},
+  breath:{name:'Fôlego final',text:'Menos dano recebido abaixo de 30% da vida',rarity:'rara',scale:.7},
+  counter:{name:'Contra-melodia',text:'Dano extra contra ecos ressonantes',rarity:'rara',scale:1.5},
+  encore:{name:'Bis',text:'Uma vez por tentativa, quem cai volta com 30% da vida',rarity:'lendaria',maxLevel:1,flat:[0,1],unit:' retorno'},
+  overdrive:{name:'Distorção',text:'+35% de dano causado e +15% de dano recebido',rarity:'lendaria',maxLevel:1,flat:[0,35],unit:'% de dano'},
+  harmony:{name:'Acorde perfeito',text:'Onda sem dano enche 40 de ressonância',rarity:'lendaria',maxLevel:1,flat:[0,40],unit:' de ressonância'},
+  bassHold:{name:'Grave que prende',text:'Golpes do Franco atordoam por mais tempo',rarity:'rara',hero:'franco',flat:[0,.3,.5,.65,.75],maxLevel:4,unit:' s'},
+  bladeRun:{name:'Corte em sequência',text:'Dano extra dos golpes do Ryuchi',rarity:'rara',hero:'ryuchi',scale:.8},
+  pierce:{name:'Flecha que atravessa',text:'Acerto do Arqueiro fere outro eco próximo',rarity:'rara',hero:'alt',scale:1},
+  ink:{name:'Tinta afiada',text:'Katana: dano extra em ecos atordoados',rarity:'rara',hero:'katana',scale:1.2},
+  synthWave:{name:'Onda sintética',text:'Eliminações do Sintetizador dão ressonância',rarity:'rara',hero:'synth',flat:[0,4,7,9,10],maxLevel:4,unit:' de ressonância'},
+  warDrum:{name:'Tambor de guerra',text:'Golpes da Percussão ferem ecos em volta',rarity:'rara',hero:'percussion',scale:.8}
  },
  amount(id,level=0){
-  const value=this.cards[id].scale*level/(level+4);
-  return id==='charge'?this.cards[id].scale*Math.min(level,this.cards[id].maxLevel):value;
+  const card=this.cards[id];if(!card)return 0;
+  if(card.flat)return card.flat[Math.min(level,card.flat.length-1)]||0;
+  const value=card.scale*level/(level+4);
+  return id==='charge'?card.scale*Math.min(level,card.maxLevel):value;
  },
+ level(id,run=this.run()){return run?.upgrades?.[id]||0},
+ // Dano extra das cartas (atravessar, tambor, cadeia): não repete efeitos nem críticos.
+ splash(e,damage){if(this.splashing||!(damage>=1))return;this.splashing=true;try{hitEnemy(e,Math.round(damage),.1,0)}finally{this.splashing=false}},
  bonus(id,run){return this.amount(id,run?.upgrades?.[id]||0)},
  cardValue(id,level){
-  const n=this.amount(id,level);
+  const n=this.amount(id,level),card=this.cards[id];
+  if(card.flat)return n?(card.unit!=='% de dano'&&card.unit!==' s'?'+':'')+String(n).replace('.',',')+card.unit:'—';
   return id==='charge'?'+'+n+' de ressonância':Number((100*n).toFixed(1)).toLocaleString('pt-BR')+'%';
  },
  offers(run){
-  const pool=Object.keys(this.cards).filter(id=>!this.cards[id].maxLevel||(run.upgrades?.[id]||0)<this.cards[id].maxLevel);
-  const rand=this.random(run.seed^Math.imul(run.wave,2246822519)^0x7a0f2d03);
-  for(let i=pool.length-1;i>0;i--){const j=Math.floor(rand()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}
-  return pool.slice(0,3);
+  const team=typeof partyMembers==='function'?partyMembers():[];
+  const pool=Object.keys(this.cards).filter(id=>{const c=this.cards[id];return(!c.maxLevel||(run.upgrades?.[id]||0)<c.maxLevel)&&(!c.hero||team.includes(c.hero))});
+  let h=(run.seed^Math.imul(run.wave,2246822519)^0x7a0f2d03^(run.reroll===run.wave?0x5bd1e995:0))>>>0;h=Math.imul(h^h>>>16,0x85ebca6b);h=Math.imul(h^h>>>13,0xc2b2ae35);h^=h>>>16;
+  // Mistura a semente (sementes vizinhas davam quase sempre a mesma primeira carta).
+  const rand=this.random(h>>>0||1),out=[];for(let k=0;k<3;k++)rand();
+  while(out.length<3&&pool.length){const weights=pool.map(id=>this.RARITY[this.cards[id].rarity||'comum'].weight),total=weights.reduce((a,b)=>a+b,0);let pick=rand()*total,i=0;while(i<pool.length-1&&(pick-=weights[i])>=0)i++;out.push(pool.splice(i,1)[0])}
+  return out;
  },
  // Respiro: a cada RESPITE_EVERY ondas, antes da melhoria, a equipe escolhe um alívio.
  // É a única cura da Fenda (as fitas continuam desligadas).
@@ -133,13 +161,15 @@ const PostGame={
   this.hideToast();if(this.respiteDue(r))return this.showRespite(r);
   const step=r.rare?this.RARE_LEVELS:1;
   const rows=this.offers(r).map(id=>{
-   const card=this.cards[id],now=r.upgrades[id]||0,level=Math.min(card.maxLevel||Infinity,now+step);
-   return `<button type="button" class="action" style="min-height:44px" data-echo-card="${id}"><b>${card.name} · Nv. ${level}</b><br><small>${card.text}<br>${this.cardValue(id,now)} → ${this.cardValue(id,level)}</small></button>`;
+   const card=this.cards[id],now=r.upgrades[id]||0,level=Math.min(card.maxLevel||Infinity,now+step),rarity=this.RARITY[card.rarity||'comum'];
+   return `<button type="button" class="action" style="min-height:44px;border-color:${rarity.color}" data-echo-card="${id}" data-rarity="${card.rarity||'comum'}"><small style="color:${rarity.color}">${rarity.label}${card.hero?' · '+this.names[card.hero].toUpperCase():''}</small><br><b>${card.name} · Nv. ${level}</b><br><small>${card.text}<br>${this.cardValue(id,now)} → ${this.cardValue(id,level)}</small></button>`;
   }).join('');
+  const skip=this.skipValue(r),extra=`<div class="row"><button type="button" class="action" id="postReroll" ${r.reroll?'disabled':''}>${r.reroll?'Troca já usada':'Trocar opções · 1 por tentativa'}</button><button type="button" class="action" id="postSkip">Pular · +${skip} pts</button></div>`;
   const result=r.lastWave&&r.lastWave.wave===r.wave?` · +${r.lastWave.bonus} PTS${r.lastWave.clean?' · SEM DANO':''} · TOTAL ${r.score}`:'';
-  enterMenu10(`<div class="eyebrow">FENDA · ONDA ${r.wave} CONCLUÍDA${result}</div><h2>${r.rare?'Sintonia rara · +'+step+' níveis':'Escolha uma melhoria'}</h2><p>Vale para toda a equipe até o fim desta tentativa. A vida perdida não volta.</p><div class="row">${rows}</div><button class="action" id="postLeaveDraft">Encerrar expedição</button>`,'postgame');
+  enterMenu10(`<div class="eyebrow">FENDA · ONDA ${r.wave} CONCLUÍDA${result}</div><h2>${r.rare?'Sintonia rara · +'+step+' níveis':'Escolha uma melhoria'}</h2><p>Vale para toda a equipe até o fim desta tentativa. A vida perdida não volta.</p><div class="row">${rows}</div>${extra}<button class="action" id="postLeaveDraft">Encerrar expedição</button>`,'postgame');
   const wave=r.wave,buttons=document.querySelectorAll('[data-echo-card]');
   for(const b of buttons)b.onclick=()=>this.choose(b.dataset.echoCard,wave);
+  $('postReroll').onclick=()=>this.reroll(wave);$('postSkip').onclick=()=>this.skip(wave);
   $('postLeaveDraft').onclick=()=>this.confirmExit(closeOverlay);buttons[0]?.focus();
  },
  // Dano é permanente: ao carregar, a vida gravada vira a vida da onda. Por isso o
@@ -161,6 +191,14 @@ const PostGame={
   enterMenu10(`<div class="eyebrow">FENDA · ${r.score} PTS · ${r.completedWave} ${r.completedWave===1?'ONDA':'ONDAS'}</div><h2>Encerrar a expedição?</h2><p>Não dá para retomar. Os pontos vão para o placar e a equipe volta ao Torii como estava na campanha.</p><div class="row"><button class="action strong" id="postExitBack">CONTINUAR NA FENDA</button><button class="action" id="postExitConfirm">ENCERRAR EXPEDIÇÃO</button></div>`,'postgame');
   $('postExitBack').onclick=()=>back();$('postExitConfirm').onclick=()=>this.finishRun('exit');$('postExitBack').focus();return true;
  },
+ // A escolha aparece a cada DRAFT_EVERY ondas e em toda pausa de respiro. Nas outras,
+ // a equipe respira BREATH segundos e a próxima onda começa sozinha.
+ DRAFT_EVERY:2,BREATH:1.6,
+ draftDue(r=this.run()){return !!r&&r.phase==='rest'&&(r.wave%this.DRAFT_EVERY===0||r.wave%this.RESPITE_EVERY===0)},
+ skipValue(r){return Math.round((100+40*r.wave)*(1+this.bonus('crowd',r)))},
+ next(){const r=this.run();r.rare=false;r.phase='fight';closeOverlay();r.wave=Math.min(this.MAX_WAVE,r.wave+1);this.beginWave();return true},
+ reroll(wave){const r=this.run();if(!this.active()||r.phase!=='rest'||r.wave!==wave||r.reroll||!this.draftDue(r)||this.respiteDue(r))return false;r.reroll=wave;save(true);this.showDraft();return true},
+ skip(wave){const r=this.run();if(!this.active()||r.phase!=='rest'||r.wave!==wave||!this.draftDue(r)||this.respiteDue(r))return false;r.score=Math.min(this.MAX_SCORE,r.score+this.skipValue(r));r.bankedScore=r.score;this.best();return this.next()},
  choose(id,wave){
   const r=this.run();if(!this.active()||r.phase!=='rest'||r.wave!==wave||this.respiteDue(r)||!this.offers(r).includes(id))return false;
   const max=this.cards[id].maxLevel||Infinity;r.upgrades[id]=Math.min(max,(r.upgrades[id]||0)+(r.rare?this.RARE_LEVELS:1));r.rare=false;r.phase='fight';
@@ -169,13 +207,17 @@ const PostGame={
  // Força do instrumento (só na Fenda): todos recebem o mesmo dano, e quem sobrevive menos
  // compensa batendo mais forte. Quem luta colado no eco (Katana, Sintetizador, Percussão)
  // recebia de 2 a 4 vezes mais dano por onda que o Arqueiro. Ajustada com o robô de equilíbrio.
- heroPower:{franco:1,ryuchi:1.15,alt:1.15,katana:3.5,synth:2.3,percussion:1.6},
+ heroPower:{franco:1,ryuchi:1.6,alt:1.3,katana:3.5,synth:2.3,percussion:1.6},
  power(who){return this.heroPower[who]??1},
  // Quem desferiu o golpe: o líder, ou o jogador 2 durante as ações dele.
  attackerId(){return this.attacker||G.active},
- incoming(amount){
-  if(!this.active()||amount<=0)return amount;
-  return Math.max(1,Math.round(amount*(1-this.bonus('guard',this.run()))));
+ incoming(amount,who){
+  if(!this.active()||amount<=0)return amount;const r=this.run();
+  // Pele de tambor: anula os primeiros golpes de cada onda.
+  if(r.drum>0){r.drum--;return 0}
+  let factor=(1-this.bonus('guard',r))*(this.level('overdrive',r)?1.15:1);
+  if(who&&G.hp[who]>0&&G.hp[who]<G.maxhp[who]*.3)factor*=1-this.bonus('breath',r);
+  return Math.max(1,Math.round(amount*factor));
  },
  CURVE:.95,
  profile(wave,seats=1){
@@ -191,13 +233,13 @@ const PostGame={
  record(mode){return this.state().records[mode==='coop'?'coop':'solo']},
  multiplier(r=this.run()){return 1+Math.min(5,r?.combo||0)*.1},
  killValue(type,wave,elite=false){const base={hush:50,whisper:60,compasso:90,espelho:100,abafador:120,c3_drone:80,c3_echo:110}[type]||50;return Math.round(base*(1+.06*(wave-1))*(elite?1.5:1))},
- waveValue(r){const base=150+50*r.wave+(r.wave%5===0?250*Math.floor(r.wave/5):0);return Math.round(base*this.multiplier(r)*(r.clean?1.25:1))},
+ waveValue(r){const base=150+50*r.wave+(r.wave%5===0?250*Math.floor(r.wave/5):0);return Math.round(base*this.multiplier(r)*(r.clean?1.25:1)*(1+this.bonus('crowd',r)))},
  markMode(){if(this.active()&&C3.coopActive())this.run().mode='coop'},
  damageSnapshot(){this.markMode();return Object.fromEntries(Object.keys(this.names).map(id=>[id,G.hp[id]||0]))},
  observeDamage(before){
   const r=this.run();if(!this.active()||!r||r.phase!=='fight')return;
   for(const id of Object.keys(before))if((G.hp[id]||0)<before[id]){
-   this.dirty=true;r.clean=false;if(before[id]>0&&G.hp[id]<=0)r.knockouts++;
+   this.dirty=true;r.clean=false;if(before[id]>0&&G.hp[id]<=0){r.knockouts++;if(this.level('encore',r)&&!r.encore){r.encore=true;G.hp[id]=Math.ceil(G.maxhp[id]*.3);toast('BIS · '+this.names[id].toUpperCase()+' VOLTA AO PALCO')}}
   }
  },
  random(seed){let s=seed>>>0||1;return ()=>{s^=s<<13;s^=s>>>17;s^=s<<5;return(s>>>0)/4294967296}},
@@ -230,7 +272,7 @@ const PostGame={
   const r=this.run();if(!r?.active||G.area!==this.AREA)return;this.clearCombat();current.enemies=[];G.defeated=G.defeated.filter(id=>!id.startsWith('endless_'));
   if(resuming){G.hp={...G.hp,...r.hpStart};G.potions=r.potionsStart;G.resonance=r.resonanceStart;r.score=r.bankedScore;r.kills=r.bankedKills;r.combo=r.comboStart;r.elapsed=r.bankedElapsed}
   else{r.hpStart={...G.hp};r.potionsStart=G.potions;r.resonanceStart=G.resonance;r.comboStart=r.combo}
-  if(!G.hp[G.active])G.active=partyMembers().find(id=>G.hp[id]>0)||partyMembers()[0];r.waveSeats=C3.coopActive()?2:1;if(r.waveSeats===2)r.mode='coop';r.phase='fight';r.cursor=0;r.wait=0;r.pending=null;r.clean=true;r.knockouts=0;r._resume=false;this.plan=this.wavePlan(r.seed,r.wave,r.waveSeats);this.spawnClock=0;
+  if(!G.hp[G.active])G.active=partyMembers().find(id=>G.hp[id]>0)||partyMembers()[0];r.waveSeats=C3.coopActive()?2:1;if(r.waveSeats===2)r.mode='coop';r.phase='fight';r.cursor=0;r.wait=0;r.pending=null;r.drum=this.amount('drum',this.level('drum',r));r.clean=true;r.knockouts=0;r._resume=false;this.plan=this.wavePlan(r.seed,r.wave,r.waveSeats);this.spawnClock=0;
   if(typeof EnemyArtV1!=='undefined')for(const spec of this.plan){const image=EnemyArtV1.image(EnemyArtV1.key(spec.type,spec));image?.decode?.().catch(()=>{})}
   if(C3.coopActive())C3.syncCoop(true);this.spawn();save(true);updateHUD();toast('ONDA '+r.wave+' · '+this.profile(r.wave,r.waveSeats).name.toUpperCase()+(r.wave%5===0?' · ECO RESSONANTE':''));
  },
@@ -269,10 +311,11 @@ const PostGame={
 
  update(dt){
   if(!this.active()||!['walk','action'].includes(mode))return;const r=this.run();
-  if(r.phase==='rest'){this.showDraft();return}
+  if(r.phase==='rest'){if(this.draftDue(r))this.showDraft();else{r.wait=(r.wait||0)+dt;if(r.wait>=this.BREATH)this.next()}return}
   if(r._resume){this.beginWave(true);return}
   if(C3.coopActive())r.mode='coop';
   r.elapsed=Math.min(this.MAX_SCORE,r.elapsed+dt);
+  const quick=this.bonus('tempo',r)*dt;if(quick>0){for(const k of ['skill','skillX','duo','dashCD','advanced'])if(act[k]>0)act[k]=Math.max(0,act[k]-quick);if(C3.coop)for(const k of ['skill','advanced','signature','dashCD'])if(C3.coop[k]>0)C3.coop[k]=Math.max(0,C3.coop[k]-quick)}
   this.sinceSave=(this.sinceSave||0)+dt;if(this.dirty&&this.sinceSave>=this.SAVE_EVERY)this.flush();
   // A disconnected/KO partner never leaves a solo player with the larger queue.
   if(r.waveSeats===2&&!C3.coopActive()){r.waveSeats=1;const count=this.profile(r.wave,1).count;this.plan.length=Math.max(r.cursor,Math.min(this.plan.length,count));}
@@ -280,7 +323,7 @@ const PostGame={
   // O próximo grupo vem um compasso depois do anterior terminar de nascer.
   if(this.warnings(r).length)this.spawnClock=0;else{this.spawnClock+=dt;if(this.spawnClock>=this.profile(r.wave,r.waveSeats).cadence){this.spawnClock=0;this.spawn()}}
   if(!this.warnings(r).length&&r.cursor>=this.plan.length&&current.enemies.every(e=>e.hp<=0)){
-   const bonus=this.waveValue(r);r.score=Math.min(this.MAX_SCORE,r.score+bonus);r.combo=r.knockouts?Math.max(0,r.combo-2):Math.min(5,r.combo+1);r.bankedScore=r.score;r.bankedKills=r.kills;r.bankedElapsed=r.elapsed;r.completedWave=r.wave;r.phase='rest';r.lastWave={wave:r.wave,bonus,clean:r.clean};r.wait=0;battle=null;mode='walk';this.clearCombat();this.best();save(true);updateHUD();this.showDraft();
+   const bonus=this.waveValue(r);r.score=Math.min(this.MAX_SCORE,r.score+bonus);r.combo=r.knockouts?Math.max(0,r.combo-2):Math.min(5,r.combo+1);r.bankedScore=r.score;r.bankedKills=r.kills;r.bankedElapsed=r.elapsed;r.completedWave=r.wave;r.phase='rest';r.lastWave={wave:r.wave,bonus,clean:r.clean};if(r.clean&&this.level('harmony',r))G.resonance=Math.min(100,G.resonance+this.amount('harmony',1));r.wait=0;battle=null;mode='walk';this.clearCombat();this.best();save(true);updateHUD();if(this.draftDue(r))this.showDraft();else toast('ONDA '+r.wave+' · +'+bonus+' PTS'+(r.clean?' · SEM DANO':'')+' · TOTAL '+r.score);
   }
  },
 
@@ -331,13 +374,24 @@ const postXP=gainXP;gainXP=function(...args){if(PostGame.active())return;return 
 for(const name of ['coopAttack','coopSkill','coopAdvanced','coopSignature']){const f=C3[name];if(typeof f!=='function')continue;C3[name]=function(...args){const previous=PostGame.attacker;PostGame.attacker=C3.coop?.member||previous;try{return f.apply(this,args)}finally{PostGame.attacker=previous}}}
 const postHit=hitEnemy;hitEnemy=function(e,...args){if(!PostGame.active()||!e?.endless)return postHit(e,...args);PostGame.markMode();const r=PostGame.run();
  const perk=id=>PostGame.bonus(id,r);
+ const who=PostGame.attackerId(),lv=id=>PostGame.level(id,r),splash=PostGame.splashing;
  let bonus=perk('drive');
  if(e.hp===e.max)bonus+=perk('ambush');
  if(e.hp<=e.max/2)bonus+=perk('finish');
- args[0]=Math.round(args[0]*(1+bonus)*PostGame.power(PostGame.attackerId()));
+ if(e.endlessElite)bonus+=perk('counter');
+ if(who==='ryuchi')bonus+=perk('bladeRun');
+ if(who==='katana'&&e.stun>0)bonus+=perk('ink');
+ let mult=(1+bonus)*PostGame.power(who)*(lv('overdrive')?1.35:1);
+ if(!splash&&lv('sharp')&&Math.random()<perk('sharp'))mult*=2;
+ args[0]=Math.round(args[0]*mult);
  if(args[1]===undefined)args[1]=.15;
  if(args[1]>0)args[1]*=1+perk('stagger');
- const shards=G.shards;PostGame.resolvingHit=true;try{postHit(e,...args)}finally{PostGame.resolvingHit=false;G.shards=shards;G.defeated=G.defeated.filter(id=>!id.startsWith('endless_'))}if(e.hp<=0&&!e.endlessScored){e.endlessScored=true;const r=PostGame.run();r.kills++;G.resonance=Math.min(100,G.resonance+PostGame.bonus('charge',r));r.score=Math.min(PostGame.MAX_SCORE,r.score+Math.round(PostGame.killValue(e.type,r.wave,e.endlessElite)*PostGame.multiplier(r)));current.enemies=current.enemies.filter(n=>n.hp>0);PostGame.best();updateHUD()}};
+ if(who==='franco'&&lv('bassHold'))args[1]=(args[1]||0)+PostGame.amount('bassHold',lv('bassHold'));
+ const hitDamage=args[0];
+ const shards=G.shards;PostGame.resolvingHit=true;try{postHit(e,...args)}finally{PostGame.resolvingHit=false;G.shards=shards;G.defeated=G.defeated.filter(id=>!id.startsWith('endless_'))}if(!splash){const near=(radius,except)=>current.enemies.filter(n=>n!==e&&n!==except&&n.endless&&n.hp>0&&Math.hypot(n.x-e.x,n.y-e.y)<=radius);
+  if(who==='alt'&&lv('pierce')){const n=near(3).sort((a,b)=>Math.hypot(a.x-e.x,a.y-e.y)-Math.hypot(b.x-e.x,b.y-e.y))[0];if(n)PostGame.splash(n,hitDamage*perk('pierce'))}
+  if(who==='percussion'&&lv('warDrum'))for(const n of near(1.6))PostGame.splash(n,hitDamage*perk('warDrum'))}
+ if(e.hp<=0&&!e.endlessScored){e.endlessScored=true;const r=PostGame.run();r.kills++;G.resonance=Math.min(100,G.resonance+PostGame.bonus('charge',r)+(who==='synth'?PostGame.amount('synthWave',lv('synthWave')):0));if(lv('chain')){const dmg=PostGame.amount('chain',lv('chain'));for(const n of current.enemies.filter(n=>n!==e&&n.endless&&n.hp>0&&Math.hypot(n.x-e.x,n.y-e.y)<=2))PostGame.splash(n,dmg)}r.score=Math.min(PostGame.MAX_SCORE,r.score+Math.round(PostGame.killValue(e.type,r.wave,e.endlessElite)*PostGame.multiplier(r)*(1+PostGame.bonus('crowd',r))));current.enemies=current.enemies.filter(n=>n.hp>0);PostGame.best();updateHUD()}};
 const postSave=save;save=function(silent=false){if(PostGame.resolvingHit)return;if(PostGame.active()){// No meio da onda, o jogo base também grava ao fim de cada embate. Se esta onda já está
  // gravada e a vida não mudou, não há nada novo para o save (a onda recomeça ao carregar).
  if(silent&&!PostGame.unsaved())return;
@@ -374,8 +428,8 @@ importSave=function(file){
 };
 
 // Track actual HP loss (including leader swaps), not blocked/invulnerable hits.
-const postDungeonDamage=damageHero;damageHero=function(...args){const before=PostGame.active()?PostGame.damageSnapshot():null;try{args[0]=PostGame.incoming(args[0]);return postDungeonDamage(...args)}finally{if(before)PostGame.observeDamage(before)}};
-const postDungeonCoopDamage=C3.damageCoop;C3.damageCoop=function(...args){const before=PostGame.active()?PostGame.damageSnapshot():null;try{args[0]=PostGame.incoming(args[0]);return postDungeonCoopDamage(...args)}finally{if(before)PostGame.observeDamage(before)}};
+const postDungeonDamage=damageHero;damageHero=function(...args){const before=PostGame.active()?PostGame.damageSnapshot():null;try{args[0]=PostGame.incoming(args[0],G.active);if(!args[0])return;return postDungeonDamage(...args)}finally{if(before)PostGame.observeDamage(before)}};
+const postDungeonCoopDamage=C3.damageCoop;C3.damageCoop=function(...args){const before=PostGame.active()?PostGame.damageSnapshot():null;try{args[0]=PostGame.incoming(args[0],C3.coopMember?.());if(!args[0])return;return postDungeonCoopDamage(...args)}finally{if(before)PostGame.observeDamage(before)}};
 if(typeof BossChoreographyV2!=='undefined'){const postDungeonGround=BossChoreographyV2.drawGround;BossChoreographyV2.drawGround=function(...args){const result=postDungeonGround.apply(this,args);PostGame.drawWarnings();return result}};
 
 if(typeof EnemyArtV1!=='undefined'){const postDungeonEnemy=EnemyArtV1.draw;EnemyArtV1.draw=function(x,y,kind,e){const result=postDungeonEnemy.call(this,x,y,kind,e);if(result&&PostGame.active()&&e?.endlessElite){const entry=this.manifest.enemies[this.key(kind,e)],top=y-(entry?.height||64)-12;PostGame.label('RESSONANTE',x,top,'#f3c98a')}return result}};
