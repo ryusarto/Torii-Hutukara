@@ -2,6 +2,12 @@
 
 Atualizado em 20/11/2026 após a confirmação dos FX no Pages. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
 
+## Revisão1.8 em integração
+
+Base7553828/Beta1.7.1. Próxima1.8: estúdio, corrida12poses, fundos e IA/gestosNPC. Build local validada142/142; SHA-256`b269abaaa2a6914e8a79d1dcb7a69951de5c7433fd4981fe9660b5ebc0578ef0`. Publicação exige sucesso do PR e workflow antes de marcar online. Pós-jogo de outra frente reservado para1.9, sempre incorporando main1.8; fachadas/nuvens permanecem em produção separada.
+
+[Resultados e limites](../qa/beta-1.8.0/PLAYTEST.md).
+
 ## Base consultada
 
 Main funcional `3e7ad3f5c9ba484e9e257e016102c19d8389c235`: **Beta 1.7.0**, com FX dos golpes no chão, cenários desérticos, músicos revisados na 1.6.1 e inimigos/bosses da 1.5 preservados. Publicação e hashes conferidos em 20/11/2026.

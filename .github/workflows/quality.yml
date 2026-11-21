@@ -36,6 +36,8 @@ jobs:
         run: |
           node qa/npc_recurrence.cjs
           node qa/protagonist_state.cjs
+          node qa/locomotion_v6.cjs
+          node qa/npc_life_v1.cjs
           node qa/boss_choreography_unit.cjs
           node qa/boss_ground_fx_unit.cjs
           node qa/enemy_art_v1.cjs
@@ -50,6 +52,9 @@ jobs:
           node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
           node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/
           node qa/protagonist_art_v5.cjs http://127.0.0.1:8771/
+          node qa/world_polish_v1.cjs http://127.0.0.1:8771/
+          node qa/npc_life_browser.cjs http://127.0.0.1:8771/
+          node qa/locomotion_browser_v6.cjs http://127.0.0.1:8771/
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/
       - name: Keep reports and screenshots
