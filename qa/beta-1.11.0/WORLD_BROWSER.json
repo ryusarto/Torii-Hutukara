@@ -1,0 +1,271 @@
+{
+  "url": "http://127.0.0.1:8782/",
+  "checks": [
+    {
+      "name": "Repeated story application and club visits draw a single Colli",
+      "passed": true,
+      "detail": [
+        {
+          "club": 1,
+          "workshop": 0
+        },
+        {
+          "club": 1,
+          "workshop": 0
+        },
+        {
+          "club": 1,
+          "workshop": 0
+        },
+        {
+          "club": 1,
+          "workshop": 0
+        },
+        {
+          "club": 1,
+          "workshop": 0
+        },
+        {
+          "club": 1,
+          "workshop": 0
+        },
+        {
+          "club": 1,
+          "workshop": 0
+        },
+        {
+          "club": 1,
+          "workshop": 0
+        },
+        {
+          "club": 1,
+          "workshop": 0
+        },
+        {
+          "club": 1,
+          "workshop": 0
+        },
+        {
+          "club": 1,
+          "workshop": 0
+        },
+        {
+          "club": 1,
+          "workshop": 0
+        }
+      ]
+    },
+    {
+      "name": "Interiors preserve their original colors without light filters or added sources",
+      "passed": true,
+      "detail": [
+        {
+          "area": "studio",
+          "pixels": 0,
+          "meanChannelDelta": 0,
+          "ambient": 1,
+          "lights": 0,
+          "progressUnchanged": true
+        },
+        {
+          "area": "contratempo",
+          "pixels": 0,
+          "meanChannelDelta": 0,
+          "ambient": 1,
+          "lights": 0,
+          "progressUnchanged": true
+        },
+        {
+          "area": "power_plant",
+          "pixels": 0,
+          "meanChannelDelta": 0,
+          "ambient": 1,
+          "lights": 0,
+          "progressUnchanged": true
+        },
+        {
+          "area": "ciro_workshop",
+          "pixels": 0,
+          "meanChannelDelta": 0,
+          "ambient": 1,
+          "lights": 0,
+          "progressUnchanged": true
+        }
+      ]
+    },
+    {
+      "name": "Chapter3 architecture and objects receive visible floor bases and sides",
+      "passed": true,
+      "detail": {
+        "pixels": 9097,
+        "meanChannelDelta": 0.7445605870627572,
+        "facades": 7,
+        "bodies": 3,
+        "progressUnchanged": true
+      }
+    },
+    {
+      "name": "The district has breathing room around venues and every chapter3 exit remains reachable",
+      "passed": true,
+      "detail": {
+        "houses": [
+          [
+            44,
+            8
+          ],
+          [
+            54,
+            22
+          ],
+          [
+            7,
+            27
+          ],
+          [
+            45,
+            39
+          ]
+        ],
+        "walkableCells": 2307,
+        "goals": [
+          {
+            "to": "sky_terminal",
+            "x": 4.5,
+            "y": 37.5,
+            "reachable": true
+          },
+          {
+            "to": "contratempo",
+            "x": 13.5,
+            "y": 16.5,
+            "reachable": true
+          },
+          {
+            "to": "power_plant",
+            "x": 55.5,
+            "y": 12.5,
+            "reachable": true
+          },
+          {
+            "to": "sky_canal",
+            "x": 57.5,
+            "y": 34.5,
+            "reachable": true
+          },
+          {
+            "to": "ciro_workshop",
+            "x": 25.5,
+            "y": 12.5,
+            "reachable": true
+          },
+          {
+            "to": "sky_lift",
+            "x": 35.5,
+            "y": 7.5,
+            "reachable": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Four ambient NPCs use six real gesture cells each, transparent at the edge",
+      "passed": true,
+      "detail": [
+        {
+          "row": 0,
+          "unique": 6,
+          "feet": [
+            253,
+            253,
+            253,
+            253,
+            253,
+            253
+          ]
+        },
+        {
+          "row": 1,
+          "unique": 6,
+          "feet": [
+            253,
+            253,
+            253,
+            253,
+            253,
+            253
+          ]
+        },
+        {
+          "row": 2,
+          "unique": 6,
+          "feet": [
+            253,
+            253,
+            253,
+            253,
+            253,
+            253
+          ]
+        },
+        {
+          "row": 3,
+          "unique": 6,
+          "feet": [
+            253,
+            253,
+            253,
+            253,
+            253,
+            253
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Actual Chapter3 NPCs change local activities while keeping quest state",
+      "passed": true,
+      "detail": {
+        "actors": [
+          "c3_resident",
+          "c3_resident_b"
+        ],
+        "states": [
+          "idle",
+          "work",
+          "wander",
+          "look",
+          "return",
+          "gesture"
+        ],
+        "frames": [
+          0,
+          2,
+          1,
+          3,
+          4,
+          5
+        ],
+        "frozen": true,
+        "sameRefs": true,
+        "questUnchanged": true
+      }
+    }
+  ],
+  "errors": [],
+  "captures": [
+    "contratempo-colli-unique.png",
+    "studio-no-light-effects.png",
+    "contratempo-no-light-effects.png",
+    "power_plant-no-light-effects.png",
+    "ciro_workshop-no-light-effects.png",
+    "district-volume.png",
+    "district-npcs-alive.png"
+  ],
+  "method": "Isolated Chrome, real maps and actual render layers. Controlled fixtures and pixel comparisons; not a human campaign or physical-mobile/FPS benchmark.",
+  "build": {
+    "version": "1.11.0",
+    "sourceSha256": "73568a9c76ec3ec029393947753367c0af25843d6c1125fa1baad845d76b6392",
+    "shellVersion": 1,
+    "builtAt": "2026-11-21T03:08:47Z"
+  }
+}

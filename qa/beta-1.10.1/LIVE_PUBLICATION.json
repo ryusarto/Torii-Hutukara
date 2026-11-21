@@ -1,0 +1,16 @@
+{
+  "verifiedAt": "2026-11-21T02:48:08.543Z",
+  "version": "1.10.1",
+  "sourceSha256": "3c9198a7505a5b01c3a8af93f7adfae421c3a0df713e523d5ffe6f1d2e86f939",
+  "indexSha256": "4daa906e9558757bee59bcce6391a364538176d93d31d08a6bc33001aec66657",
+  "runtime": {
+    "version": "1.10.1",
+    "area": "studio",
+    "mode": "dialogue",
+    "title": "Torii & Hutukara · Beta 1.10.1"
+  },
+  "errors": [],
+  "deploy": "https://github.com/ryusarto/Torii-Hutukara/actions/runs/44857376652",
+  "merge": "ea5a23d5da445c3247106aba78df2185996bab22",
+  "method": "Public GET/hash and isolated Chrome fresh New Game; no user profile/save."
+}

@@ -1,0 +1,74 @@
+{
+  "cause": {
+    "atlas": "ryuchi_run.png",
+    "row": 1,
+    "column": 11,
+    "corner": "top-left",
+    "oldAlpha": 1,
+    "newAlpha": 0,
+    "visibleBoundingBox": [
+      55,
+      36,
+      201,
+      218
+    ]
+  },
+  "method": "Direct PNG pixel comparison before/after. No browser/build performed.",
+  "cellsVerified": 512,
+  "cornersVerified": 2048,
+  "cleanupGuardRejectsAlpha3": true,
+  "records": [
+    {
+      "file": "franco_run.png",
+      "cells": 128,
+      "allFourCornersTransparent": true,
+      "entire2pxGutterTransparent": true,
+      "legacyV5CellsByteIdentical": 64,
+      "inner252x252PixelsByteIdentical": true,
+      "pixelsAlphaAbove2Changed": 0,
+      "mattePixelsRemoved": 1126,
+      "maximumRemovedAlpha": 1,
+      "beforeSha256": "744595eeb262343bf30663972ffde6833963c7bd3362b3ec95cbb2da5f71ccdb",
+      "afterSha256": "f57b6487e9607c4d072fb616ab8ab714a5590fa43f64894114355145b0c00ce5"
+    },
+    {
+      "file": "franco_walk.png",
+      "cells": 128,
+      "allFourCornersTransparent": true,
+      "entire2pxGutterTransparent": true,
+      "legacyV5CellsByteIdentical": 64,
+      "inner252x252PixelsByteIdentical": true,
+      "pixelsAlphaAbove2Changed": 0,
+      "mattePixelsRemoved": 515,
+      "maximumRemovedAlpha": 1,
+      "beforeSha256": "5c481c3536dd37ebe93edfd0f1ffe3208650c5f0df08ff1ab071b74b33516ec6",
+      "afterSha256": "cb5f5f65a3cebae20495583ea43e178d8e8d6266a690b676b64b153019a351e4"
+    },
+    {
+      "file": "ryuchi_run.png",
+      "cells": 128,
+      "allFourCornersTransparent": true,
+      "entire2pxGutterTransparent": true,
+      "legacyV5CellsByteIdentical": 64,
+      "inner252x252PixelsByteIdentical": true,
+      "pixelsAlphaAbove2Changed": 0,
+      "mattePixelsRemoved": 2292,
+      "maximumRemovedAlpha": 2,
+      "beforeSha256": "35af5ea55d34d6a72b9692fb32ac2532b16939946634ff7e36e958529129a2bb",
+      "afterSha256": "405754a1ef77f902ef1633566678533c21c6f123f11cedceb6685c8ef4dcedc8"
+    },
+    {
+      "file": "ryuchi_walk.png",
+      "cells": 128,
+      "allFourCornersTransparent": true,
+      "entire2pxGutterTransparent": true,
+      "legacyV5CellsByteIdentical": 64,
+      "inner252x252PixelsByteIdentical": true,
+      "pixelsAlphaAbove2Changed": 0,
+      "mattePixelsRemoved": 142,
+      "maximumRemovedAlpha": 2,
+      "beforeSha256": "a2c869cdc27da6f7528427131b05876fce04deec457d3940b3360376e2ff1eae",
+      "afterSha256": "add9cbe7a9658aa6d1f2d58f80286e6be447b7a7483dd0b02725affe1236083f"
+    }
+  ]
+}

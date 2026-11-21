@@ -94,15 +94,23 @@ check.call('56 imagens V5 completas com alpha e dimensões corretas', protagonis
   header.byteslice(16, 8).unpack('NN') == expected && header.getbyte(25) == 6
 end)
 check.call('protagonistas V5 integrados sem marcadores pendentes', built.include?('const ProtagonistArtV5') && !built.include?('__PROTAGONIST_'))
-locomotion_root = File.join(repo_root, 'assets', 'protagonistas', 'v6-locomocao')
+locomotion_root = File.join(repo_root, 'assets', 'protagonistas', 'v7-locomocao')
 locomotion = JSON.parse(File.read(File.join(locomotion_root, 'manifest.json')))
-check.call('corrida V6: 16 sequências de 12 poses, fechamento e ciclo de 520ms', locomotion.fetch('animations').size == 16 && locomotion.fetch('animations').all? do |a|
-  a['state'] == 'run' && a['frames'] == 13 && a['playFrames'] == 12 && a['frameDurationsMs'].sum == 520 && a['cycleMs'] == 520
+check.call('locomoção V7: 32 sequências de 16 poses e fechamento virtual', locomotion.fetch('animations').size == 32 && locomotion.fetch('animations').all? do |a|
+  %w[walk run].include?(a['state']) && a['frames'] == 16 && a['playFrames'] == 16 && a['closureFrame'] == 0 && a['loop'] &&
+    a['frameDurationsMs'].size == 16 && a['frameDurationsMs'].all? { |time| time > 0 } &&
+    (a['frameDurationsMs'].sum - a['cycleMs']).abs < 0.001 && (a['state'] != 'run' || a['cycleMs'] == 520)
 end)
-check.call('corrida V6: dois atlas RGBA 3328x2048', locomotion.fetch('animations').map { |a| a.fetch('atlas') }.uniq.size == 2 && locomotion.fetch('animations').all? do |a|
+check.call('locomoção V7: quatro atlas RGBA no limite4k', locomotion.fetch('animations').map { |a| a.fetch('atlas') }.uniq.size == 4 && locomotion.fetch('animations').all? do |a|
   header = File.binread(File.join(locomotion_root, a.fetch('atlas')), 26)
-  header.getbyte(25) == 6 && header.byteslice(16, 8).unpack('NN') == [3328, 2048]
+  header.getbyte(25) == 6 && header.byteslice(16, 8).unpack('NN') == [4096, 2048]
 end)
+c3_gestures = JSON.parse(File.read(File.join(repo_root, 'assets', 'npcs', 'vida-v2', 'manifest.json')))
+c3_gestures_file = File.join(repo_root, 'assets', 'npcs', 'vida-v2', c3_gestures.fetch('file'))
+c3_gestures_header = File.binread(c3_gestures_file, 26)
+check.call('NPCs C3: 24 gestos distintos com alpha e pivô de chão', c3_gestures.fetch('rows').size == 4 && c3_gestures.fetch('rows').all? { |row| row['frames'] == 6 && row['uniqueFrames'] == 6 && row['anchor'] == [128,256] } &&
+  c3_gestures_header.getbyte(25) == 6 && c3_gestures_header.byteslice(16, 8).unpack('NN') == [1536,1024] &&
+  Digest::SHA256.file(c3_gestures_file).hexdigest == c3_gestures.fetch('sha256') && !built.include?('__NPC_C3_GESTURES_URI__'))
 check.call('estúdio, IA e gestos dos NPCs integrados', %w[WorldPolishV1 NpcLifeV1 NpcGesturesV1].all? { |name| built.include?("const #{name}") } && !built.include?('__WORLD_POLISH_') && !built.include?('__NPC_GESTURES_'))
 forest_header = File.binread(File.join(repo_root, 'assets', 'dialogue', 'v2', 'forest.png'), 26)
 check.call('floresta cinematográfica em 1672x941', forest_header.byteslice(16, 8).unpack('NN') == [1672, 941] && !built.include?('__CINEMA_FOREST__'))
@@ -391,6 +399,17 @@ check.call('chefes: RGBA e oito quadros distintos auditados', boss_art.fetch('cl
   record = boss_audit.fetch(key)
   header.byteslice(16, 8).unpack('NN') == [1280, 640] && header.getbyte(25) == 6 &&
     record.fetch('frameHashes').uniq.size == 8 && record['atlasSha256'] == Digest::SHA256.file(path).hexdigest
+end)
+boss_walk_root = File.join(repo_root, 'assets', 'boss-animations', 'v3')
+boss_walk = JSON.parse(File.read(File.join(boss_walk_root, 'manifest.json'))).fetch('clips').fetch('boss_walk')
+boss_walk_header = File.binread(File.join(boss_walk_root, boss_walk.fetch('atlas')), 26)
+check.call('primeiro chefe: caminhada em quatro direções e oito poses', boss_walk['frames'] == 8 && boss_walk['columns'] == 8 && boss_walk['rows'] == 4 && boss_walk_header.getbyte(25) == 6 && boss_walk_header.byteslice(16,8).unpack('NN') == [2560,1280])
+projectile_root = File.join(repo_root, 'assets', 'boss-ground-fx', 'v2')
+projectile_manifest = JSON.parse(File.read(File.join(projectile_root, 'manifest.json')))
+check.call('chefes: projéteis e mira animados com alpha', %w[projectile aim].all? do |key|
+  clip = projectile_manifest.fetch('clips').fetch(key)
+  header = File.binread(File.join(projectile_root, clip.fetch('atlas')), 26)
+  clip['frames'] == 8 && header.getbyte(25) == 6 && header.byteslice(16,8).unpack('NN') == [1024,512]
 end)
 check.call('chefes: runtime aditivo integrado sem placeholders', built.include?('const BossChoreographyV2') && !built.include?('__BOSS_ANIMATION_'))
 check.call('chefes: liberação segue evento real de dano', boss_art['preparation'] == [0,1,2,3] && boss_art['release'] == 4 && boss_art['recovery'] == [5,6,7] && built.include?('const bossChoreographyFireV2=C3.fireHazard;'))

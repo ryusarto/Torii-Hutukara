@@ -1,0 +1,20 @@
+{
+  "method": "Node/VM real functions; not browser or hardware.",
+  "results": [
+    {
+      "suite": "qa/boss_choreography_unit.cjs",
+      "passed": 18,
+      "exit": 0
+    },
+    {
+      "suite": "qa/boss_ground_fx_unit.cjs",
+      "passed": 14,
+      "exit": 0
+    },
+    {
+      "suite": "qa/review111_animation.cjs",
+      "passed": 7,
+      "exit": 0
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "version": 3,
+  "extends": "boss-animations/v2",
+  "clips": {
+    "boss_walk": {
+      "boss": "boss",
+      "atlas": "atlas/boss_walk.png",
+      "columns": 8,
+      "rows": 4,
+      "cell": 320,
+      "pivot": [
+        160,
+        280
+      ],
+      "scale": 0.5234375,
+      "frames": 8,
+      "loop": true,
+      "frameMs": 95,
+      "strideDistance": 1.8,
+      "directions": [
+        "down",
+        "left",
+        "up",
+        "right"
+      ],
+      "source": "source/boss_walk_clean.png"
+    }
+  }
+}

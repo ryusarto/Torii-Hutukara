@@ -1,0 +1,717 @@
+{
+  "method": "Technical RGBA/registration/uniqueness checks; visual preview and engine QA are separate.",
+  "sequences": 32,
+  "newDrawings": 256,
+  "cellCount": 512,
+  "transparentCornerCount": 2048,
+  "transparentPaddingPx": 2,
+  "matteCleanupGuardMaxAlpha": 2,
+  "checks": [
+    {
+      "hero": "franco",
+      "state": "walk",
+      "row": 0,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.0993975903614457,
+      "maxVisibleFootSpread": 2,
+      "referenceFootRange": [
+        221,
+        223
+      ],
+      "newFootRange": [
+        221,
+        222
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 11,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "walk",
+      "row": 1,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.108433734939759,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 46,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "walk",
+      "row": 2,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.0993975903614457,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 94,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "walk",
+      "row": 3,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1151515151515152,
+      "maxVisibleFootSpread": 2,
+      "referenceFootRange": [
+        221,
+        223
+      ],
+      "newFootRange": [
+        221,
+        222
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 64,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "walk",
+      "row": 4,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1306818181818181,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 28,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "walk",
+      "row": 5,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.11864406779661,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 16,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "walk",
+      "row": 6,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1123595505617978,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 108,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "walk",
+      "row": 7,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.14,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 148,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "run",
+      "row": 0,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.066860465116279,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 163,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "run",
+      "row": 1,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.0843373493975903,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 416,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "run",
+      "row": 2,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.069767441860465,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 0,
+      "maxRemovedAlpha": 0
+    },
+    {
+      "hero": "franco",
+      "state": "run",
+      "row": 3,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.0975609756097562,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 67,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "run",
+      "row": 4,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1151685393258426,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        219,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 62,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "run",
+      "row": 5,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1337209302325582,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 75,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "run",
+      "row": 6,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.125,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 125,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "franco",
+      "state": "run",
+      "row": 7,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.15,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 218,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "walk",
+      "row": 0,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.036723163841808,
+      "maxVisibleFootSpread": 2,
+      "referenceFootRange": [
+        221,
+        223
+      ],
+      "newFootRange": [
+        221,
+        222
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 2,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "walk",
+      "row": 1,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 0.847926267281106,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 0,
+      "maxRemovedAlpha": 0
+    },
+    {
+      "hero": "ryuchi",
+      "state": "walk",
+      "row": 2,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.0484330484330484,
+      "maxVisibleFootSpread": 2,
+      "referenceFootRange": [
+        221,
+        223
+      ],
+      "newFootRange": [
+        221,
+        223
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 79,
+      "maxRemovedAlpha": 2
+    },
+    {
+      "hero": "ryuchi",
+      "state": "walk",
+      "row": 3,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.0397727272727273,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 3,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "walk",
+      "row": 4,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1242937853107344,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 40,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "walk",
+      "row": 5,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.100558659217877,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 1,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "walk",
+      "row": 6,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.0994475138121547,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 5,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "walk",
+      "row": 7,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.0944444444444446,
+      "maxVisibleFootSpread": 0,
+      "referenceFootRange": [
+        221,
+        221
+      ],
+      "newFootRange": [
+        221,
+        221
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 12,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "run",
+      "row": 0,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1151515151515152,
+      "maxVisibleFootSpread": 7,
+      "referenceFootRange": [
+        216,
+        223
+      ],
+      "newFootRange": [
+        218,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 212,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "run",
+      "row": 1,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1366459627329193,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        218
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 576,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "run",
+      "row": 2,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.0972644376899696,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 446,
+      "maxRemovedAlpha": 2
+    },
+    {
+      "hero": "ryuchi",
+      "state": "run",
+      "row": 3,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1487341772151898,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 1008,
+      "maxRemovedAlpha": 2
+    },
+    {
+      "hero": "ryuchi",
+      "state": "run",
+      "row": 4,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1204481792717087,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        219,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 2,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "run",
+      "row": 5,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1242937853107344,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        220
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 16,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "run",
+      "row": 6,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.080110497237569,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        219
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 1,
+      "maxRemovedAlpha": 1
+    },
+    {
+      "hero": "ryuchi",
+      "state": "run",
+      "row": 7,
+      "uniqueFrames": 16,
+      "newDrawings": 8,
+      "uniformSourceScale": 1.1306818181818181,
+      "maxVisibleFootSpread": 5,
+      "referenceFootRange": [
+        216,
+        221
+      ],
+      "newFootRange": [
+        218,
+        220
+      ],
+      "transparentPaddingPx": 2,
+      "transparentCorners": 64,
+      "removedMattePixels": 31,
+      "maxRemovedAlpha": 1
+    }
+  ],
+  "files": {
+    "franco_walk.png": {
+      "sha256": "cb5f5f65a3cebae20495583ea43e178d8e8d6266a690b676b64b153019a351e4",
+      "bytes": 4609949,
+      "size": [
+        4096,
+        2048
+      ]
+    },
+    "ryuchi_walk.png": {
+      "sha256": "add9cbe7a9658aa6d1f2d58f80286e6be447b7a7483dd0b02725affe1236083f",
+      "bytes": 4240846,
+      "size": [
+        4096,
+        2048
+      ]
+    },
+    "franco_run.png": {
+      "sha256": "f57b6487e9607c4d072fb616ab8ab714a5590fa43f64894114355145b0c00ce5",
+      "bytes": 5119427,
+      "size": [
+        4096,
+        2048
+      ]
+    },
+    "ryuchi_run.png": {
+      "sha256": "405754a1ef77f902ef1633566678533c21c6f123f11cedceb6685c8ef4dcedc8",
+      "bytes": 4898202,
+      "size": [
+        4096,
+        2048
+      ]
+    }
+  }
+}

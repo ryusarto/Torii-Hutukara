@@ -1,0 +1,106 @@
+{
+  "version": "vida-v2",
+  "file": "NPC_C3_GESTURES_6X4.png",
+  "source": "C3_GESTOS_FONTE.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "sha256": "95fc22ee230ec8fa82cbbf39f9b655ded56d782296bf355d065e71bfef4b7dba",
+  "sourceSha256": "46d459ff60a0e03662ebea021170674722c77982a967aed6c0a3e5608762783c",
+  "rows": [
+    {
+      "id": "c3_resident",
+      "row": 0,
+      "frames": 6,
+      "uniqueFrames": 6,
+      "frameSha256": [
+        "2cc262b175c644d5a2237b7bc3290675feaa43431e55856ae8334728a9d23de5",
+        "5fea59107208924570188e13a0b03d50a9a04c64e2f56beab7016cbc4fb37740",
+        "8cd9848a81137e4341f9bc26d6990e8d4a565b819e7c75d2b9c2da943a627955",
+        "090b23fe955dbffe5c0261ebd7b607f9b34280b97d2caac68382b8a75f6f3fc8",
+        "a2ee19d603a69241fe5a6e99799844b4d9dfee29f20c8bd422fe289b0a7d3a19",
+        "f42b5aad221ceba2eaf7cfccb0ae420ed06061f6d3da768ae426d84dcc1053b6"
+      ],
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        256
+      ],
+      "reference": "assets/chapter-03/runtime/personagens/MORADORA_DISTRITO_A_MOVIMENTO_8_FRAMES.png"
+    },
+    {
+      "id": "c3_resident_b",
+      "row": 1,
+      "frames": 6,
+      "uniqueFrames": 6,
+      "frameSha256": [
+        "d26e9a5079238f67f624875362c5041c5aafd34cf8dca89a86742d3004e9f4fb",
+        "d7673c501cb6800a9aa6b12ec192e276462c62faa8158a57484a8eb6acbaf10c",
+        "192779bb66f9f2664cd9c65e1ffd91c945327d1ca1dcc008990d57541fc2f2e5",
+        "cc7cf87a06c80c1d64f9fceed01137f07bac21f958d47dea1b9b67e001fc3023",
+        "348d4871e8a2f98bea477a06e82c44f7eeb153884d6904c6e409e036d72bd8c1",
+        "60ddc24fdd096bea2a116312553a6f0f26502530a857e2aa8f669fe75d2e13c5"
+      ],
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        256
+      ],
+      "reference": "assets/chapter-03/runtime/personagens/MORADOR_DISTRITO_B_MOVIMENTO_8_FRAMES.png"
+    },
+    {
+      "id": "c3_canal_worker",
+      "row": 2,
+      "frames": 6,
+      "uniqueFrames": 6,
+      "frameSha256": [
+        "24b8657ae48d674f0d8d26b79dc99ec89ae319188a177859c00246a77860c3cf",
+        "f9349a61e29cc40417c6c965260deeb783bb2adeeb16a43ac45ddc60fc8ffad3",
+        "306c5fc08be4fa9f10e641e7ac76e68725004d7b1d4c549bf7be396848cc6c52",
+        "c45794b5ccb6968147ecd18fe096c898560aff2564e236cc41dfffe409f7a55d",
+        "2d777980609b869d45c0d2329a9516428c3c7e36bf5adc17374941c379d10204",
+        "cc8892dc3c5a8097ff235390697a74ec00067c1ab56fe1e596fb85cee2747833"
+      ],
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        256
+      ],
+      "reference": "assets/chapter-03/runtime/personagens/TRABALHADORA_CANAL_MOVIMENTO_8_FRAMES.png"
+    },
+    {
+      "id": "c3_plant_operator",
+      "row": 3,
+      "frames": 6,
+      "uniqueFrames": 6,
+      "frameSha256": [
+        "7240080961f0a0e63fc56726add39ffe03e4073c923ab728dead9680b7695af1",
+        "349b0f2e8105e8bee751c2e96f1ba30c44ebc68eb6dc32b0f1c5afceb257e855",
+        "349ee4b573f4dbaeb435637ae6bd30d71aecc326a927d18b28ce89ae7a8056ed",
+        "5f5ead1ad21a80fbe0397918b10e06156ebce320c0f9351f806c722c9d46cbac",
+        "3942c0c48c78bc83e0c6730fbb5ca0e38614c0172dc29c4f366a003957441043",
+        "5b3068983c3f34f6112dce0d56fc65c440def283e23d45519dbd7891f269d32f"
+      ],
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        256
+      ],
+      "reference": "assets/chapter-03/runtime/personagens/OPERADOR_USINA_MOVIMENTO_8_FRAMES.png"
+    }
+  ],
+  "method": "Built-in ImageGen, identity references; Pillow only packs and normalizes cell feet/height. No painted/interpolated frames."
+}

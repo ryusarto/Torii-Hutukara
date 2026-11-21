@@ -1,0 +1,179 @@
+{
+  "method": "PNG/RGBA/grid/padding/uniqueness inspection only; root performs browser validation.",
+  "clips": [
+    {
+      "key": "aim",
+      "uniqueFrames": 8,
+      "sha256": "e0dcd2cafb6b570355f56647ba388f6fa262d019029a4ca691f0b156150dd2db",
+      "frames": [
+        {
+          "frame": 0,
+          "bbox": [
+            11,
+            17,
+            224,
+            222
+          ],
+          "visiblePixels": 9494
+        },
+        {
+          "frame": 1,
+          "bbox": [
+            11,
+            17,
+            224,
+            222
+          ],
+          "visiblePixels": 12203
+        },
+        {
+          "frame": 2,
+          "bbox": [
+            11,
+            14,
+            224,
+            222
+          ],
+          "visiblePixels": 13476
+        },
+        {
+          "frame": 3,
+          "bbox": [
+            12,
+            14,
+            246,
+            217
+          ],
+          "visiblePixels": 15619
+        },
+        {
+          "frame": 4,
+          "bbox": [
+            8,
+            13,
+            224,
+            239
+          ],
+          "visiblePixels": 18706
+        },
+        {
+          "frame": 5,
+          "bbox": [
+            11,
+            14,
+            224,
+            239
+          ],
+          "visiblePixels": 15821
+        },
+        {
+          "frame": 6,
+          "bbox": [
+            11,
+            14,
+            224,
+            239
+          ],
+          "visiblePixels": 15320
+        },
+        {
+          "frame": 7,
+          "bbox": [
+            12,
+            14,
+            245,
+            239
+          ],
+          "visiblePixels": 15268
+        }
+      ]
+    },
+    {
+      "key": "projectile",
+      "uniqueFrames": 8,
+      "sha256": "b3f3e80993823d5104cd5ee6582d6b9e92c579b581ec979f0d1fbd8caced8d9b",
+      "frames": [
+        {
+          "frame": 0,
+          "bbox": [
+            32,
+            55,
+            165,
+            176
+          ],
+          "visiblePixels": 10917
+        },
+        {
+          "frame": 1,
+          "bbox": [
+            27,
+            53,
+            165,
+            176
+          ],
+          "visiblePixels": 11133
+        },
+        {
+          "frame": 2,
+          "bbox": [
+            15,
+            44,
+            165,
+            176
+          ],
+          "visiblePixels": 11891
+        },
+        {
+          "frame": 3,
+          "bbox": [
+            22,
+            44,
+            241,
+            176
+          ],
+          "visiblePixels": 14849
+        },
+        {
+          "frame": 4,
+          "bbox": [
+            22,
+            48,
+            165,
+            208
+          ],
+          "visiblePixels": 12438
+        },
+        {
+          "frame": 5,
+          "bbox": [
+            22,
+            55,
+            165,
+            205
+          ],
+          "visiblePixels": 11849
+        },
+        {
+          "frame": 6,
+          "bbox": [
+            22,
+            55,
+            165,
+            206
+          ],
+          "visiblePixels": 12596
+        },
+        {
+          "frame": 7,
+          "bbox": [
+            33,
+            57,
+            241,
+            206
+          ],
+          "visiblePixels": 16205
+        }
+      ]
+    }
+  ]
+}

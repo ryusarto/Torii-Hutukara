@@ -48,3 +48,8 @@ qa/beta-1.9.0/*.png
 
 # Full 1.10.1 captures stay in CI artifacts.
 qa/beta-1.10.1/*.png
+
+# Full 1.11 captures remain in CI artifacts; selected evidence lives in selecionadas/.
+qa/beta-1.11.0/*.png
+qa/boss-ground-fx-v1/frames/
+qa/boss-ground-fx-v1/*.png
