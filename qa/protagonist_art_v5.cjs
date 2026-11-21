@@ -37,20 +37,20 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
      const art=ProtagonistArtV5,canvas=document.createElement('canvas');canvas.width=canvas.height=256;const q=canvas.getContext('2d',{willReadFrequently:true});let count=0;
      for(const animation of art.manifest.animations){
        const image=new Image();image.src=art.assets[animation.hero+'_'+animation.state];await image.decode();
-       if(image.naturalWidth!==2304||image.naturalHeight!==2048)throw Error('Wrong atlas dimensions');
+       if(image.naturalWidth!==animation.frames*256||image.naturalHeight!==2048)throw Error('Wrong atlas dimensions');
        let first,last;
-       for(let frame=0;frame<9;frame++){
+       for(let frame=0;frame<animation.frames;frame++){
          q.clearRect(0,0,256,256);q.drawImage(image,frame*256,animation.row*256,256,256,0,0,256,256);
          const data=q.getImageData(0,0,256,256).data;
          if(data[3]||data[(256*256-1)*4+3])throw Error('Opaque cell corner');
          if(!data.some((n,i)=>i%4===3&&n>0))throw Error('Empty frame');
          if(frame===(animation.state==='defeat'?7:0))first=new Uint8ClampedArray(data);
-         if(frame===8)last=data;
+         if(frame===animation.frames-1)last=data;
        }
        if(!first.every((n,i)=>n===last[i]))throw Error('Open cycle: '+animation.hero+'/'+animation.state);
        count++;
      }return count;
-   });assert.equal(result,192);return {sequences:result,frames:1728};
+   });assert.equal(result,192);return {sequences:result,frames:await page.evaluate(()=>ProtagonistArtV5.manifest.animations.reduce((n,a)=>n+a.frames,0))};
  });
  await check('P1 and P2 attacks and rolls keep their own hero and direction',async()=>{
    await arena();const result=await page.evaluate(()=>{

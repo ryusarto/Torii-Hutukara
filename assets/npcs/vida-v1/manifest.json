@@ -1,0 +1,94 @@
+{
+  "tool": "ImageGen integrado",
+  "source": "source/city_gestures.png",
+  "file": "city_gestures.png",
+  "cell": [
+    112,
+    140
+  ],
+  "display": [
+    56,
+    70
+  ],
+  "pivot": [
+    56,
+    114
+  ],
+  "characters": [
+    {
+      "id": "ema",
+      "row": 0,
+      "frames": 4,
+      "gestures": [
+        "neutral",
+        "look",
+        "blink",
+        "gesture"
+      ],
+      "height": 57
+    },
+    {
+      "id": "child",
+      "row": 1,
+      "frames": 4,
+      "gestures": [
+        "neutral",
+        "look",
+        "blink",
+        "gesture"
+      ],
+      "height": 46
+    },
+    {
+      "id": "merchant",
+      "row": 2,
+      "frames": 4,
+      "gestures": [
+        "neutral",
+        "look",
+        "blink",
+        "gesture"
+      ],
+      "height": 58
+    },
+    {
+      "id": "archivist",
+      "row": 3,
+      "frames": 4,
+      "gestures": [
+        "neutral",
+        "look",
+        "blink",
+        "gesture"
+      ],
+      "height": 58
+    },
+    {
+      "id": "street",
+      "row": 4,
+      "frames": 4,
+      "gestures": [
+        "neutral",
+        "look",
+        "blink",
+        "gesture"
+      ],
+      "height": 58
+    },
+    {
+      "id": "brdg",
+      "row": 5,
+      "frames": 4,
+      "gestures": [
+        "neutral",
+        "look",
+        "blink",
+        "gesture"
+      ],
+      "height": 58
+    }
+  ],
+  "sha256": "241aeebbf702cea0ffc6dfaac6218bf66e21cce6806c456bb26901b568a881f9",
+  "export": "Recorte e escala uniforme por personagem, nearest-neighbor, pés na mesma base. Sem pintar, deformar ou misturar poses.",
+  "prompt": "Preservar seis identidades do atlas npcCity1_10; quatro gestos reais por linha: neutro, olhar lateral, piscar e gesto de personalidade. Ema cajado, criança acena, comerciante ajusta bolsa, arquivista abre livro, músico toca, guardião toca cinto. Grade4x6 transparente, estilo16-bitJRPG, sem marcha, bob ou mudança de figurino."
+}

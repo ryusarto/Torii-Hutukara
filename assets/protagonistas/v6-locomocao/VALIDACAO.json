@@ -1,0 +1,145 @@
+{
+  "staticChecks": [
+    {
+      "hero": "franco",
+      "row": 0,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "franco",
+      "row": 1,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "franco",
+      "row": 2,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "franco",
+      "row": 3,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "franco",
+      "row": 4,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "franco",
+      "row": 5,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "franco",
+      "row": 6,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "franco",
+      "row": 7,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "ryuchi",
+      "row": 0,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "ryuchi",
+      "row": 1,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "ryuchi",
+      "row": 2,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "ryuchi",
+      "row": 3,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "ryuchi",
+      "row": 4,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "ryuchi",
+      "row": 5,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "ryuchi",
+      "row": 6,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    },
+    {
+      "hero": "ryuchi",
+      "row": 7,
+      "originalFramesPreserved": 8,
+      "newFramesUnique": 4,
+      "closureMatches": true,
+      "cycleMs": 520.0
+    }
+  ],
+  "rows": 16,
+  "originalFrameCopies": 128,
+  "newAuthoredFrames": 64,
+  "atlasSize": [
+    3328,
+    2048
+  ],
+  "sourceV5Sha256": {
+    "franco": "7ec9db0d6cc2cf91a6d54d39c4f05df47e900e1df41984c61e81646fd73dd192",
+    "ryuchi": "6eedbbda0f697293bd60d98f481849df5c2ca820bba0787d0188d93b4d177bf9"
+  },
+  "engineTested": false,
+  "limits": "Static packing and visual contact review do not prove animation quality in gameplay."
+}

@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta 1.7.1 — jornada completa em três capítulos, cenários desérticos, músicos revisados e sprites animados dos golpes dos quatro chefes. A versão fica em `game/VERSION.json`.
+**Versão atual:** Beta1.8.0 — estúdio corrigido, corrida com12poses, fundos com mais definição e NPCs com atenção, gestos e deslocamento local seguro. Jornada em três capítulos, cenários desérticos, músicos e FX dos chefes preservados. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -21,13 +21,15 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 - Jogo distribuído como um único HTML portátil, sem instalação.
 - Suporte a DualShock 4, DualSense e controles compatíveis, com coop local para duas pessoas.
 
+[Detalhes e limites da revisão1.8](docs/REVISAO_MUNDO_VIVO_1_8.md).
+
 ## Jogar
 
 **Teste no navegador:** [Abrir Torii & Hutukara](https://ryusarto.github.io/Torii-Hutukara/).
 
 O link identifica PC ou mobile na entrada e exibe um aviso por quatro segundos. Depois, o aviso some. A interface de toque é automática em celular/tablet. Veja [publicação e testes entre aparelhos](docs/PLAYTEST_SITE.md).
 
-**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/beta-1.7.0/`.
+**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/beta-1.8.0/`.
 
 Controles principais:
 
