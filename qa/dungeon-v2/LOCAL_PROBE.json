@@ -1,0 +1,50 @@
+{
+  "url": "http://127.0.0.1:8792/",
+  "verifiedAt": "2026-11-21T04:08:08.547Z",
+  "version": "1.12.0",
+  "sourceSha256": "ad32edf6d1102a5440be2601b4ef44f35393d6f6eb4455e1613f69e7c04cca22",
+  "indexSha256": "d9de48a344393c4f52d074e7b110a750c9237710ef82b7f4d80c08c58e66cb94",
+  "indexBytes": 1046118,
+  "mediaFiles": 325,
+  "runtime": {
+    "reserves": [
+      "katana",
+      "ryuchi"
+    ],
+    "ending": {
+      "area": "last_torii",
+      "complete": true,
+      "entry": true
+    },
+    "wave": {
+      "area": "endless_echo",
+      "initial": 0,
+      "pending": true,
+      "score": 410,
+      "phase": "rest"
+    },
+    "defeat": {
+      "area": "last_torii",
+      "reason": "defeat",
+      "retry": true
+    },
+    "retry": {
+      "area": "endless_echo",
+      "wave": 1
+    },
+    "enemyArt": [
+      {
+        "key": "hush",
+        "width": 512,
+        "height": 512
+      },
+      {
+        "key": "whisper",
+        "width": 512,
+        "height": 512
+      }
+    ]
+  },
+  "errors": [],
+  "method": "Published hashes, actual warning/clear/defeat/retry and enemy PNG decoding in isolated Chrome fixtures; not a human campaign or physical-device test."
+}

@@ -5,7 +5,7 @@ Meta humana aprovada:15–20min com escalada gradual. Candidato preserva1.11 (ma
 
 ## Comparação de pressão
 
-Bot simples com seed97, passo30Hz, save real da campanha concluída (seis personagens nível7), ações/IA/dano/cura reais. Duração limitada a20min; quem chegou ao limite pode durar mais. O bot não domina todas as armas, não mede diversão e não comprova igualdade entre personagens. Nas linhas ended=true, hp e tapes já refletem a restauração da campanha após finishRun, não o saldo no instante da derrota. Sem bypass deHP/dano no benchmark; testes de60ondas usam eliminações controladas separadamente.
+Bot simples com seed97, passo30Hz, save real da campanha concluída (seis personagens nível7), ações/IA/dano/cura reais. As durações da tabela incluem os descansos automáticos; a tela de resultado mostra somente tempo de combate. Duração limitada a20min; quem chegou ao limite pode durar mais. O bot não domina todas as armas, não mede diversão e não comprova igualdade entre personagens. Nas linhas ended=true, hp e tapes já refletem a restauração da campanha após finishRun, não o saldo no instante da derrota. Sem bypass deHP/dano no benchmark; testes de60ondas usam eliminações controladas separadamente.
 
 | Líder inicial | Solo antes | Solo novo | Coop novo | Onda novo solo/coop |
 |---|---:|---:|---:|---|
@@ -36,3 +36,12 @@ O candidato desacelera a escalada (intensidade0,72solo/0,90coop) em vez de along
 Jogar15–20min em telefone físico e dois controles: legibilidade após10ondas, tempo para reagir aos avisos, uso de cura, conforto de toque e diferença entre armas. Registrar onda, duração, formação, KOs e motivo da derrota. Nenhum placar online ou novo boss foi introduzido.
 
 Revisão independente final: sem novo achado funcional nos deltas de curva/saída/botão; limites das medições e restauração de recursos explicitados.
+
+## Publicação verificada
+
+- [PR24](https://github.com/ryusarto/Torii-Hutukara/pull/24), integrado em `f0ca922a079b97389149ef59cac88b74abdca1a6`.
+- [Gameplay CI](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44864424508) e [integração visual](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44864424568): sucesso no head `2711feb9754f5166acb335698260494be360cdfb`.
+- [Publicação](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44864808492): sucesso. HTML portátil disponível no artefato desse run.
+- [Site público](https://ryusarto.github.io/Torii-Hutukara/): versão1.12.0 e SHA da fonte conferidos, hash/bytes do índice conferidos, PNGs dos inimigos decodificados, onda concluída com410pontos, derrota e nova tentativa aprovadas. Relatório `PAGES_VERIFICACAO.json`.
+- Os sete cenários novos também passaram contra o site público: `BROWSER.json` registra o metadado real de publicação; capturas mobile atualizadas. Inclui60ondas por modalidade com eliminações controladas, e controles/ataque reais nos cenários de toque.
+- Nenhum teste acessou saves pessoais do jogador. Não houve teste em aparelho ou controle físico.

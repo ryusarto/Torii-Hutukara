@@ -1,4 +1,10 @@
 {
+  "build": {
+    "version": "1.12.0",
+    "sourceSha256": "ad32edf6d1102a5440be2601b4ef44f35393d6f6eb4455e1613f69e7c04cca22",
+    "shellVersion": 1,
+    "builtAt": "2026-11-21T04:13:21Z"
+  },
   "passed": 7,
   "checks": [
     {
@@ -216,5 +222,6 @@
     }
   ],
   "errors": [],
-  "method": "Chrome isolated runtime; actual CDP touch and simulated gamepads; no physical devices or human duration/fun validation."
+  "method": "Chrome isolated runtime; actual CDP touch and simulated gamepads; no physical devices or human duration/fun validation.",
+  "url": "https://ryusarto.github.io/Torii-Hutukara/"
 }
