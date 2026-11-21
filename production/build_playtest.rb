@@ -88,9 +88,35 @@ Dir.mktmpdir('torii-playtest-') do |temp|
   digest << reconstructed[cursor..]
   abort 'Hosted export changed game content' unless digest.hexdigest == original_hash
 
+  # Imagens em WebP sem perda (pixels idênticos), com cache por conteúdo.
+  optimizer = File.join(ROOT, 'production/otimizar_media.py')
+  optimization_report = File.join(temp, 'media-optimization.json')
+  system('python3', '-I', optimizer, File.join(temp, 'media'), optimization_report, exception: true)
+  optimized = JSON.parse(File.read(optimization_report, encoding: 'UTF-8'))
+  renamed = optimized.select { |from, data| data['file'] != from }
+  unless renamed.empty?
+    html.gsub!(Regexp.union(renamed.keys)) { |from| renamed.fetch(from)['file'] }
+  end
+  renamed.each do |from, data|
+    abort "Imagem otimizada ausente: #{data['file']}" unless File.file?(File.join(temp, data['file']))
+    media.delete(from)
+    bytes = File.binread(File.join(temp, data['file']))
+    media[data['file']] = { 'bytes' => bytes.bytesize, 'sha256' => Digest::SHA256.hexdigest(bytes), 'from' => from, 'mode' => data['mode'] }
+  end
+  abort 'Referência a imagem removida' if renamed.keys.any? { |from| html.include?(from) }
+
+  # Fila de carregamento: o que a campanha usa primeiro baixa primeiro.
+  priority = JSON.parse(File.read(File.join(SOURCE, 'media_priority.json'), encoding: 'UTF-8')).fetch('ordem')
+  priority = priority.map { |from| renamed.dig(from, 'file') || from }.select { |file| media.key?(file) }
+  loader = File.read(File.join(SOURCE, 'loader.js'), encoding: 'UTF-8')
+  abort 'Carregador sem marcador de prioridade' unless loader.scan('__MEDIA_PRIORITY__').length == 1
+  loader = loader.sub('__MEDIA_PRIORITY__') { JSON.generate(priority) }
+  abort 'Missing HTML head opening' unless html.scan('<head>').length == 1
+  html.sub!('<head>') { "<head>\n<script>#{loader}</script>" }
+
   build_info = {
     'version' => config.fetch('version'), 'sourceSha256' => original_hash,
-    'shellVersion' => 1, 'builtAt' => Time.now.utc.iso8601
+    'shellVersion' => 2, 'builtAt' => Time.now.utc.iso8601
   }
   tags = []
   # Reuse the project's canonical mask icon; avoid an implicit /favicon.ico
@@ -116,6 +142,8 @@ Dir.mktmpdir('torii-playtest-') do |temp|
     'indexBytes' => html.bytesize, 'indexSha256' => Digest::SHA256.hexdigest(html),
     'mediaOccurrences' => counts, 'assets' => media,
     'preservedLegacyAudio' => preserved_audio,
+    'mediaBytes' => media.values.sum { |m| m['bytes'] },
+    'priorityFiles' => priority.length,
     'portableBuildUnchanged' => Digest::SHA256.file(build_path).hexdigest == original_hash,
     'gameContentRoundTrip' => true
   )

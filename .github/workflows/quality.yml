@@ -1,15 +1,11 @@
 name: Gameplay regression
 
 on:
+  # Sem filtro de caminhos: assim a verificação pode ser marcada como obrigatória
+  # na proteção do branch main (Settings → Branches) e roda em todo PR.
   pull_request:
-    paths:
-      - 'game/**'
-      - 'assets/**'
-      - 'design/chapter-03/**'
-      - 'design/dialogo/**'
-      - 'web/playtest/**'
-      - 'qa/**'
-      - '.github/workflows/**'
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -24,6 +20,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image optimizer dependencies
+        run: python3 -m pip install --disable-pip-version-check pillow==12.3.0 numpy==2.5.3
+      - name: Reuse converted images
+        uses: actions/cache@v4
+        with:
+          path: production/.media-cache
+          key: media-webp-${{ hashFiles('production/otimizar_media.py') }}-${{ github.sha }}
+          restore-keys: media-webp-${{ hashFiles('production/otimizar_media.py') }}-
       - name: Generate and validate build
         run: |
           ruby game/source/chapter-03/build_alpha.rb
@@ -56,6 +63,7 @@ jobs:
           node qa/review111_npc.cjs
           node qa/review111_animation.cjs
           node qa/review111_spacing.cjs
+          node qa/sorte_reproducao.cjs
       - name: Verify web export on PC, phone and tablet
         run: |
           ruby production/build_playtest.rb
@@ -83,6 +91,7 @@ jobs:
           node qa/review111_postgame_browser.cjs http://127.0.0.1:8771/
           node qa/review111_world_browser.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/
+          node qa/carregamento_site.cjs http://127.0.0.1:8771/ qa/sorte/CARREGAMENTO.json
           RECARREGAR=120 node qa/campaign_review.cjs http://127.0.0.1:8771/
       - name: Keep reports and screenshots
         if: always()
@@ -99,6 +108,7 @@ jobs:
             qa/postgame/
             qa/dungeon-v3/
             qa/playtest/SITE_TEST_RESULTS.json
+            qa/sorte/
             qa/screenshots-local/pages/
             qa/screenshots-local/review-110/
             qa/screenshots-local/review-111/

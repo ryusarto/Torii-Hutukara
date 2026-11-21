@@ -7,6 +7,7 @@ on:
       - 'web/playtest/**'
       - 'web/album/**'
       - 'production/build_playtest.rb'
+      - 'production/otimizar_media.py'
       - 'production/wait_pages_artifact.py'
       - 'qa/postgame/test_pages_artifact.py'
       - 'game/source/**'
@@ -65,6 +66,17 @@ jobs:
       # The playable HTML is generated here from game/source and assets; it is
       # no longer stored in git. The generator is deterministic: the same
       # sources always produce the same SHA-256.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image optimizer dependencies
+        run: python3 -m pip install --disable-pip-version-check pillow==12.3.0 numpy==2.5.3
+      - name: Reuse converted images
+        uses: actions/cache@v4
+        with:
+          path: production/.media-cache
+          key: media-webp-${{ hashFiles('production/otimizar_media.py') }}-${{ github.sha }}
+          restore-keys: media-webp-${{ hashFiles('production/otimizar_media.py') }}-
       - name: Generate portable build
         run: ruby game/source/chapter-03/build_alpha.rb
       - name: Validate build (fails the deploy on any error)
@@ -98,6 +110,7 @@ jobs:
           node qa/review111_npc.cjs
           node qa/review111_animation.cjs
           node qa/review111_spacing.cjs
+          node qa/sorte_reproducao.cjs
       - name: Keep portable HTML as a downloadable artifact
         uses: actions/upload-artifact@v4
         with:
@@ -137,6 +150,7 @@ jobs:
           node qa/review111_postgame_browser.cjs http://127.0.0.1:8771/
           node qa/review111_world_browser.cjs http://127.0.0.1:8771/
           node qa/playtest_site.cjs http://127.0.0.1:8771/
+          node qa/carregamento_site.cjs http://127.0.0.1:8771/
       - uses: actions/upload-pages-artifact@v4
         id: pages_upload
         with:

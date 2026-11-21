@@ -5,6 +5,14 @@
 - **O resultado da onda aparece no painel de melhorias** ("ONDA 2 CONCLUÍDA · +275 PTS · TOTAL …"), e não num aviso por cima das cartas. Qualquer aviso aberto some quando o painel abre.
 - **Menos gravações durante a onda.** O dano continua permanente: ao carregar, a vida gravada vira a vida da onda. Os ferimentos são agrupados e gravados no máximo a cada 2 s, e na hora ao fechar, recarregar ou esconder a página. Abates não gravam mais, e o jogo base deixa de gravar ao fim de cada embate quando nada mudou. Em 8 ondas com o robô: de 60 para 24 gravações.
 
+## [Fase 0 · fundação, primeira etapa] — 2026-11-21
+
+- O site baixa primeiro o que a tela usa. Num celular com 4G, o estúdio fica completo em 14 s em vez de 44 s, e baixa 18 MB em vez de 66 MB. A tela de título continua em 1,1 s.
+- Imagens do site em WebP sem perda, com pixels idênticos aos originais: 366 → 277 MB de mídia no servidor. O HTML portátil não muda. O jogo continua sendo uma página no navegador, sem instalação.
+- Sorte com semente: `?semente=123` repete a mesma partida. Jogando normalmente, cada abertura sorteia uma semente nova.
+- O CI roda a verificação de jogo em todo PR e em todo push no main, mais dois testes novos: a campanha se repete com a mesma semente, e o carregamento no 4G (título em até 5 s). O relatório conta as derrotas do robô (hoje 0).
+- Plano e medições em [`docs/FASE0_FUNDACAO.md`](docs/FASE0_FUNDACAO.md).
+
 ## [Beta 1.15.0] — 2026-11-21
 
 - A vibração das cordas acompanha os golpes de baixo do Franco. No super, um pulso âmbar sai do instrumento na direção dos adversários. A espada do Ryuchi deixa um corte sonoro, e a katana abre um traço de tinta violeta.
