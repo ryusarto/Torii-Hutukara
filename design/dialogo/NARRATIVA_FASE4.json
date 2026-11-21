@@ -1,0 +1,1748 @@
+{
+  "sobre": "Fase 4 da narrativa. Lido por game/source/chapter-03/narrativa_v1.js. 'personagens' define nome curto, apelido usado pelos outros e cor do balão. 'falas' são falas curtas de combate e caminhada por gatilho, sem parar o jogo; {nome} vira o apelido de quem foi ferido e {lider} o de quem lidera. 'conversas' são trocas entre duas ou três versões presentes na formação. 'consequencias' guarda as falas que mudam com a primeira rota (Canal ou Usina) e com a pergunta feita à Anciã Ema.",
+  "personagens": {
+    "franco": {
+      "nome": "FRANCO",
+      "apelido": "Franco",
+      "cor": "#edc391",
+      "voz": "Produtor do estúdio. Ironia seca, obcecado em terminar a faixa, comenta tudo como se estivesse mixando. Fica desconcertado de se ver em outras versões."
+    },
+    "ryuchi": {
+      "nome": "RYUCHI",
+      "apelido": "Ryuchi",
+      "cor": "#8fc7e8",
+      "voz": "Direto, age antes de pensar, cansado e com sono desde o estúdio. Provoca o Franco, protege todo mundo sem admitir."
+    },
+    "alt": {
+      "nome": "ARQUEIRO",
+      "apelido": "Arqueiro",
+      "cor": "#9ed39a",
+      "voz": "Franco de outra vida. Sereno, preciso, fala pouco e bonito. Conhece o Hutukara. Trata o Franco original com uma ternura irônica: já foi ele."
+    },
+    "katana": {
+      "nome": "KATANA",
+      "apelido": "Katana",
+      "cor": "#c7a6f0",
+      "voz": "Ryuchi técnico de rádio. Lacônico, humor seco, pensa em ferramenta e corte limpo. Nunca cantou em público e foge do assunto."
+    },
+    "synth": {
+      "nome": "SYNTH",
+      "apelido": "Synth",
+      "cor": "#7fe0d6",
+      "voz": "Franco do sintetizador. Ansioso, controlador, fala em sequência, clock e latência. Tem medo de errar na frente dos outros, mas é engraçado sem querer."
+    },
+    "percussion": {
+      "nome": "PERCU",
+      "apelido": "Percu",
+      "cor": "#f2a36b",
+      "voz": "Ryuchi da percussão. Caloroso, conta tempos, segura o ritmo para os outros. Tem medo de parar. Fala com o corpo inteiro."
+    }
+  },
+  "falas": {
+    "inicio": {
+      "franco": [
+        "Ok, banda. Entrada no quatro.",
+        "Mais uma faixa que ninguém pediu.",
+        "Isso aí desafina o mundo. Vamos corrigir.",
+        "Grave na frente. Eu cuido da base.",
+        "Se eu morrer, alguém termina a música.",
+        "Barulho demais. Vou baixar o volume deles.",
+        "Respira. É só um take ruim."
+      ],
+      "ryuchi": [
+        "Vem. Eu tava com sono mesmo.",
+        "Deixa que eu entro primeiro.",
+        "Franco, fica atrás de mim. Sério.",
+        "Isso de novo? Tá bom.",
+        "Ninguém dorme até isso acabar.",
+        "Vou na frente antes de alguém ter uma ideia.",
+        "Pode vir. Eu tô acordado agora."
+      ],
+      "alt": [
+        "Respirem. Eles erram antes de nós.",
+        "Cada eco tem uma brecha.",
+        "Eu vejo o caminho da flecha.",
+        "Fiquem perto. Eu cubro a distância.",
+        "Sem pressa. A pressa é deles.",
+        "Uma nota de cada vez."
+      ],
+      "katana": [
+        "Corte limpo. Sem desperdício.",
+        "Diagnóstico: hostis. Solução: lâmina.",
+        "Ferramenta na mão.",
+        "Eu desligo esses.",
+        "Fiquem fora da linha de corte.",
+        "Ruído detectado. Removendo."
+      ],
+      "synth": [
+        "Não tava no cronograma.",
+        "Ok, ok, ok. Sincronizando.",
+        "Ninguém mexe no meu clock.",
+        "Eu programei isso pra dar errado?",
+        "Latência zero. Por favor.",
+        "Calma. Eu tenho um preset pra isso. Acho.",
+        "Por que sempre no meio do render?"
+      ],
+      "percussion": [
+        "Um, dois, três... vai!",
+        "Me acompanha no tempo!",
+        "Fiquem no meu pulso.",
+        "Eu seguro, vocês avançam!",
+        "Bora fazer barulho!",
+        "Contratempo, galera. Agora!",
+        "Pé no chão e mão firme!"
+      ]
+    },
+    "abate": {
+      "franco": [
+        "Cortei na edição.",
+        "Menos uma faixa ruidosa.",
+        "Isso foi o grave falando.",
+        "Mixado e arquivado.",
+        "Fade out.",
+        "Nem precisou de take dois."
+      ],
+      "ryuchi": [
+        "Próximo.",
+        "Esse nem viu.",
+        "Fácil. Agora o difícil.",
+        "Um a menos.",
+        "Tá vendo, Franco? Eu falei.",
+        "Isso. Fica no chão."
+      ],
+      "alt": [
+        "No centro.",
+        "Silenciado.",
+        "Uma brecha, uma flecha.",
+        "Descanse.",
+        "Ele não escutou a si mesmo."
+      ],
+      "katana": [
+        "Desconectado.",
+        "Corte certo.",
+        "Manutenção concluída.",
+        "Sem sinal.",
+        "Desliguei.",
+        "Esse não volta."
+      ],
+      "synth": [
+        "Deletado. Sem backup.",
+        "Ctrl+Z não salva você.",
+        "Funcionou! Digo... claro que funcionou.",
+        "Sequência encerrada.",
+        "Isso foi um filtro passa-baixa na cara.",
+        "Envelope fechado."
+      ],
+      "percussion": [
+        "Na cabeça do tempo!",
+        "Bum!",
+        "Esse caiu no três!",
+        "Mais um no chão!",
+        "Pá! Ouviu isso?",
+        "Virada perfeita!"
+      ]
+    },
+    "vitoria": {
+      "franco": [
+        "Fechou. Exporta essa.",
+        "Poderia ser pior. Poderia ser um álbum.",
+        "Ninguém se machucou? Ótimo, eu me machuquei.",
+        "Isso vai pro making of.",
+        "Silêncio bom. Do tipo que a gente escolhe."
+      ],
+      "ryuchi": [
+        "Viu? Nem precisou pensar.",
+        "Acabou. Posso cochilar dois minutos?",
+        "Todo mundo inteiro? Beleza.",
+        "Da próxima eu bato mais forte.",
+        "Tá. Agora a gente anda."
+      ],
+      "alt": [
+        "Ainda tocamos. Isso basta.",
+        "Bonito. Mesmo desafinado.",
+        "O Hutukara agradece.",
+        "Respirem antes de seguir.",
+        "A floresta me ensinou isso. Vocês aprenderam sozinhos."
+      ],
+      "katana": [
+        "Área limpa.",
+        "Sistema estável.",
+        "Ninguém precisa de reparo? Ótimo.",
+        "Funcionou. Não toquem em nada.",
+        "Silêncio de oficina. Gosto disso."
+      ],
+      "synth": [
+        "Salvei. Salvei duas vezes.",
+        "Eu não entrei em pânico. Vocês viram.",
+        "Tudo no tempo. Quase tudo.",
+        "Fiquei esperando o erro. Ele não veio.",
+        "Ok. Posso respirar? Vou respirar."
+      ],
+      "percussion": [
+        "Ninguém parou! Ninguém!",
+        "Isso foi um show!",
+        "Sentiram? A gente tava no mesmo tempo.",
+        "Uau. Bate aqui.",
+        "Respira. Mas não para."
+      ]
+    },
+    "dano": {
+      "franco": [
+        "Ai. Isso clipou.",
+        "Tô bem. Só tô velho.",
+        "Minha coluna vai lembrar disso.",
+        "Opa. Volume alto demais.",
+        "Isso doeu em estéreo."
+      ],
+      "ryuchi": [
+        "Isso nem doeu. Mentira.",
+        "Ei! Eu tava olhando!",
+        "Tá, tá, eu presto atenção.",
+        "Só um arranhão.",
+        "Ai. Não conta pro Franco."
+      ],
+      "alt": [
+        "Distraído. Não acontece de novo.",
+        "Eu mereci essa.",
+        "Ainda de pé.",
+        "Senti a corda vibrar errado."
+      ],
+      "katana": [
+        "Dano leve. Continuando.",
+        "Defeito meu.",
+        "Anotado.",
+        "Preciso de manutenção. Depois."
+      ],
+      "synth": [
+        "AI! Tá, tá, tô vivo.",
+        "Isso não tava na documentação!",
+        "Meu teclado! Não, eu. Eu tô bem.",
+        "Por que sempre comigo?",
+        "Pico de sinal! Pico de sinal!"
+      ],
+      "percussion": [
+        "Perdi o tempo. Já volto!",
+        "Uff! Ainda tô no pulso.",
+        "Isso foi fora do compasso!",
+        "Doeu, mas não paro."
+      ]
+    },
+    "perigo": {
+      "franco": [
+        "Eu preciso de uma pausa. Tipo agora.",
+        "Tô no vermelho, gente.",
+        "Se alguém tiver uma fita, a hora é essa.",
+        "Isso não tá soando bem."
+      ],
+      "ryuchi": [
+        "Tô ficando sem fôlego...",
+        "Não olha pra mim assim. Tô bem. Quase.",
+        "Mais um desses e eu deito.",
+        "Alguém me cobre?"
+      ],
+      "alt": [
+        "Minha corda está por um fio.",
+        "Preciso de distância.",
+        "Eu já perdi uma vez. Não de novo.",
+        "Cubram-me um instante."
+      ],
+      "katana": [
+        "Integridade baixa.",
+        "Preciso recuar.",
+        "Falha crítica. Quase.",
+        "Me deem cobertura."
+      ],
+      "synth": [
+        "Bateria fraca! Literalmente!",
+        "Eu vou desmaiar. Vou mesmo.",
+        "Alguém me salva antes do autosave.",
+        "Isso é um bug. Eu sou o bug."
+      ],
+      "percussion": [
+        "Meu pulso tá falhando...",
+        "Não deixa eu parar!",
+        "Tô perdendo o tempo!",
+        "Alguém segura o ritmo por mim?"
+      ]
+    },
+    "socorro": {
+      "franco": [
+        "{nome}, sai daí!",
+        "Aguenta, {nome}. Eu tô indo.",
+        "Ninguém sai da banda assim, {nome}.",
+        "{nome}! Recua!"
+      ],
+      "ryuchi": [
+        "{nome}, atrás de mim!",
+        "Ei! Ninguém encosta no {nome}!",
+        "{nome}, segura aí, eu chego!",
+        "Não dorme agora, {nome}!"
+      ],
+      "alt": [
+        "{nome}, respire. Eu cubro.",
+        "Fique de pé, {nome}.",
+        "{nome}, para trás. Agora.",
+        "Eu vejo você, {nome}. Aguente."
+      ],
+      "katana": [
+        "{nome}, recua. Eu fecho.",
+        "Cobrindo {nome}.",
+        "{nome}, fora da linha.",
+        "Segura, {nome}."
+      ],
+      "synth": [
+        "{nome}! Não, não, não!",
+        "{nome}, você não pode cair, eu não sei o resto do set!",
+        "Alguém ajuda o {nome}! Eu ajudo! Tô ajudando!",
+        "{nome}, fica comigo!"
+      ],
+      "percussion": [
+        "{nome}, respira no meu tempo!",
+        "Eu seguro por você, {nome}!",
+        "{nome}, fica perto!",
+        "Ninguém fica pra trás. {nome}, vem!"
+      ]
+    },
+    "cura": {
+      "franco": [
+        "Uma fita de áudio. Clássico.",
+        "Melhor que café.",
+        "Ok. Faixa restaurada.",
+        "Remasterizado."
+      ],
+      "ryuchi": [
+        "Bem melhor.",
+        "Agora sim.",
+        "Valeu, fita.",
+        "Ok, voltei."
+      ],
+      "alt": [
+        "Uma canção antiga ajuda.",
+        "Recuperado.",
+        "Obrigado, quem gravou isso.",
+        "A memória cura."
+      ],
+      "katana": [
+        "Reparo feito.",
+        "Peça trocada.",
+        "Operacional.",
+        "Melhor."
+      ],
+      "synth": [
+        "Reiniciando... ok, voltei!",
+        "Recarregado. Não me olhem.",
+        "Ah, isso é bom. Muito bom.",
+        "Restaurando ponto de salvamento."
+      ],
+      "percussion": [
+        "Pulso de volta!",
+        "Agora eu aguento mais um set!",
+        "Isso! Energia!",
+        "Volto pro tempo!"
+      ]
+    },
+    "super": {
+      "franco": [
+        "Solta o grave!",
+        "Coração grave. Agora!",
+        "Fundo na mix!",
+        "Isso aqui é o drop."
+      ],
+      "ryuchi": [
+        "Segura essa!",
+        "Agora é sério!",
+        "Tudo de uma vez!",
+        "Abre caminho!"
+      ],
+      "alt": [
+        "Uma flecha para cada um.",
+        "Escutem isso.",
+        "Vento a favor.",
+        "Agora."
+      ],
+      "katana": [
+        "Corte total.",
+        "Desligando tudo.",
+        "Lâmina e frequência.",
+        "Linha limpa."
+      ],
+      "synth": [
+        "Liberando a onda! Saiam da frente!",
+        "Modulação máxima!",
+        "Isso vai dar clipping! Ótimo!",
+        "Apertei o botão grande!"
+      ],
+      "percussion": [
+        "Virada de bateria!",
+        "Agora todo mundo junto!",
+        "Batida forte!",
+        "Sente o chão tremer!"
+      ]
+    },
+    "troca": {
+      "franco": [
+        "Deixa comigo. Eu conheço essa faixa.",
+        "Minha vez de liderar o arranjo.",
+        "Ok, assumo a mesa.",
+        "Eu entro no grave."
+      ],
+      "ryuchi": [
+        "Minha vez.",
+        "Sai, sai, eu vou na frente.",
+        "Tô na frente agora.",
+        "Bora."
+      ],
+      "alt": [
+        "Eu guio por aqui.",
+        "Sigam meu passo.",
+        "Deixem-me ver de longe.",
+        "Minha vez de escutar."
+      ],
+      "katana": [
+        "Assumindo.",
+        "Na frente.",
+        "Eu abro caminho.",
+        "Pronto."
+      ],
+      "synth": [
+        "Eu? Agora? Ok. Ok!",
+        "Assumindo o controle. Literalmente.",
+        "Pode deixar, eu tenho um plano. Mais ou menos.",
+        "Na frente? Respira, Synth."
+      ],
+      "percussion": [
+        "Eu marco o tempo!",
+        "Na frente e no tempo!",
+        "Vem comigo!",
+        "Bora no meu pulso!"
+      ]
+    },
+    "nivel": {
+      "franco": [
+        "Subi de nível. A dor nas costas também.",
+        "Sinto uma faixa nova aqui dentro.",
+        "Mais experiência. Menos sono."
+      ],
+      "ryuchi": [
+        "Tô mais forte. Dá pra sentir.",
+        "Opa. Isso foi bom.",
+        "Ninguém me para agora."
+      ],
+      "alt": [
+        "A corda ficou mais leve.",
+        "Aprendi algo. Bom sinal.",
+        "Cresci. Mesmo aqui."
+      ],
+      "katana": [
+        "Upgrade instalado.",
+        "Calibrado.",
+        "Melhorei. Anotado."
+      ],
+      "synth": [
+        "Atualização concluída! Sem bugs! Acho.",
+        "Novos parâmetros desbloqueados!",
+        "Firmware novo. Quem diria?"
+      ],
+      "percussion": [
+        "Novo groove!",
+        "Mais um compasso na mão!",
+        "Sinto o tempo mais claro!"
+      ]
+    },
+    "chefe": {
+      "franco": [
+        "Esse é o chefe da faixa.",
+        "Ok. Esse aí é o refrão ruim.",
+        "Ninguém faz piada agora. Nem eu.",
+        "Grande demais pra mixar. Vamos tentar."
+      ],
+      "ryuchi": [
+        "Esse é grande. Melhor.",
+        "Franco, se der errado, a culpa é sua.",
+        "Agora eu acordei de vez.",
+        "Vem. Só você e a gente."
+      ],
+      "alt": [
+        "Esse carrega muitas vozes.",
+        "Escutem o padrão. Ele repete.",
+        "Não olhem pro tamanho. Olhem pro tempo.",
+        "Já enfrentei sombras assim."
+      ],
+      "katana": [
+        "Alvo principal.",
+        "Estrutura grande. Pontos fracos também.",
+        "Vou achar o fio solto.",
+        "Desmonto isso."
+      ],
+      "synth": [
+        "Por que ele é TÃO grande?",
+        "Ninguém falou de chefe no briefing!",
+        "Ok. Analisando padrão. Analisando...",
+        "Eu vou vomitar. Depois. Agora não."
+      ],
+      "percussion": [
+        "Esse tem um tempo pesado. Escutem!",
+        "Segura o pulso, galera!",
+        "Ele bate forte? A gente bate junto!",
+        "Bora mostrar o contratempo!"
+      ]
+    },
+    "fase": {
+      "franco": [
+        "Mudou a música. Ajusta.",
+        "Segunda parte. Sempre pior.",
+        "Ele trocou o BPM!"
+      ],
+      "ryuchi": [
+        "Ficou bravo. Ótimo.",
+        "Agora ele tá falando sério.",
+        "Mudou o jeito. Cuidado!"
+      ],
+      "alt": [
+        "O padrão mudou. Escutem.",
+        "Ele está com medo agora.",
+        "Nova cadência."
+      ],
+      "katana": [
+        "Nova configuração.",
+        "Mudou o circuito.",
+        "Recalibrando."
+      ],
+      "synth": [
+        "Mudou o tempo! Quem mudou o tempo?",
+        "Nova fase! Eu odeio fases!",
+        "Ele tem um preset escondido!"
+      ],
+      "percussion": [
+        "Mudou o compasso! Escutem!",
+        "Agora é em três! Vai!",
+        "Ele acelerou. Acompanha!"
+      ]
+    },
+    "andando": {
+      "franco": [
+        "Lembrete: a gente ainda tem uma música pra terminar.",
+        "Esse lugar tem um reverb incrível.",
+        "Se eu soubesse, tinha trazido um gravador.",
+        "Alguém aí ouviu um dó sustenido?",
+        "Três da manhã em algum lugar."
+      ],
+      "ryuchi": [
+        "Ninguém tá com fome?",
+        "Eu ainda acho que era pra gente estar dormindo.",
+        "Anda mais rápido, Franco.",
+        "Esse chão faz barulho diferente.",
+        "Se der, eu durmo no próximo checkpoint."
+      ],
+      "alt": [
+        "Cada mundo canta num tom.",
+        "Eu andei sozinho muito tempo. Isso é melhor.",
+        "Ouçam o vento. Ele sabe o caminho.",
+        "O Hutukara está atento a nós."
+      ],
+      "katana": [
+        "Esse poste tá com mau contato.",
+        "Fiação péssima por aqui.",
+        "Silêncio bom. Não o outro.",
+        "Eu consertaria aquilo. Mas não é meu."
+      ],
+      "synth": [
+        "Alguém mais contando os passos? Só eu?",
+        "Eu deixei o teclado ligado? Eu deixei.",
+        "Esse lugar tem latência. Dá pra sentir.",
+        "Se a gente se perder, eu tenho um mapa. Mental. Ruim."
+      ],
+      "percussion": [
+        "Esse caminho tem um groove bom.",
+        "Escuta os passos da gente. Tá no tempo!",
+        "Eu batuco em tudo. Desculpa.",
+        "Se parar, a cidade para. Então bora."
+      ]
+    },
+    "chegada": {
+      "franco": [
+        "Novo lugar, nova acústica.",
+        "Ok. Onde fica a tomada?",
+        "Isso aqui merece um disco."
+      ],
+      "ryuchi": [
+        "Que lugar é esse agora?",
+        "Mais um. Bora.",
+        "Fiquem perto."
+      ],
+      "alt": [
+        "Já ouvi falar daqui.",
+        "Este lugar lembra.",
+        "Cuidado com o que ele lembra."
+      ],
+      "katana": [
+        "Reconhecimento de área.",
+        "Saídas: anotadas.",
+        "Sinal fraco aqui."
+      ],
+      "synth": [
+        "Isso não tem mapa. Por que não tem mapa?",
+        "Ninguém mexe em nada.",
+        "Ok, novo ambiente. Calibrando."
+      ],
+      "percussion": [
+        "Ouve isso? Esse lugar tem pulso!",
+        "Bora conhecer!",
+        "Cada canto tem uma batida."
+      ]
+    }
+  },
+  "conversas": [
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "franco",
+          "Arqueiro, você também acorda achando a faixa ruim?"
+        ],
+        [
+          "alt",
+          "Todo dia. Só parei de acordar a banda."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "alt",
+          "Você anda igual a mim antes da floresta."
+        ],
+        [
+          "franco",
+          "Isso é elogio ou aviso?"
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "franco",
+          "Seu arco é feito de quê?"
+        ],
+        [
+          "alt",
+          "De uma corda que eu não quis cortar."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "alt",
+          "Ainda mexe na mix às três da manhã?"
+        ],
+        [
+          "franco",
+          "Como você sabe?"
+        ]
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "franco",
+          "Você acerta de longe, eu de perto."
+        ],
+        [
+          "alt",
+          "Juntos, a gente acerta o meio."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "franco",
+          "Você era assim tão calmo?"
+        ],
+        [
+          "alt",
+          "Não. Por isso fiquei."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "franco",
+          "Synth, para de contar os passos."
+        ],
+        [
+          "synth",
+          "Dezessete por compasso. Alguém precisa."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "synth",
+          "Você é tão... improvisado."
+        ],
+        [
+          "franco",
+          "E você é tão... quantizado."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "franco",
+          "Você desliga o teclado alguma vez?"
+        ],
+        [
+          "synth",
+          "Uma vez. Em 2019. Foi horrível."
+        ]
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "synth",
+          "Eu errei a entrada ali."
+        ],
+        [
+          "franco",
+          "Ninguém percebeu. Só a gente. Os dois neuróticos."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "synth",
+          "Você salva o projeto a cada cinco minutos?"
+        ],
+        [
+          "franco",
+          "Cinco? Que irresponsável."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "synth",
+          "Arqueiro, como você anda sem mapa?"
+        ],
+        [
+          "alt",
+          "Eu escuto. Funciona há anos."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "alt",
+          "Você segura tudo com força demais, Synth."
+        ],
+        [
+          "synth",
+          "Se eu soltar, cai."
+        ]
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "alt",
+          "Sua onda abriu espaço pra minha flecha."
+        ],
+        [
+          "synth",
+          "Foi calculado! Totalmente. Mais ou menos."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "ryuchi",
+          "Katana, nem no chuveiro você canta?"
+        ],
+        [
+          "katana",
+          "...Próxima pergunta."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "katana",
+          "Seu jeito de lutar é barulhento."
+        ],
+        [
+          "ryuchi",
+          "E o seu é assustador."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "ryuchi",
+          "Você também vive com sono?"
+        ],
+        [
+          "katana",
+          "Durmo quatro horas. Por escolha."
+        ]
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "katana",
+          "Corte bom, Ryuchi."
+        ],
+        [
+          "ryuchi",
+          "Você me elogiou? Vou contar pra todo mundo."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "ryuchi",
+          "Você conserta tudo que vê?"
+        ],
+        [
+          "katana",
+          "Tudo que deixa."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "percussion",
+          "Ryuchi, você anda no contratempo."
+        ],
+        [
+          "ryuchi",
+          "Eu ando como dá."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "ryuchi",
+          "Você nunca para de batucar?"
+        ],
+        [
+          "percussion",
+          "Se eu parar, eu escuto o resto."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "percussion",
+          "Você tem minha cara, mas não meu ritmo."
+        ],
+        [
+          "ryuchi",
+          "E você não tem meu sono. Sorte sua."
+        ]
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "ryuchi",
+          "Valeu por segurar."
+        ],
+        [
+          "percussion",
+          "Dessa vez você segurou também."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "katana",
+          "Percu, você bate em tudo."
+        ],
+        [
+          "percussion",
+          "E você conserta tudo. Combinamos!"
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "percussion",
+          "Katana, canta comigo?"
+        ],
+        [
+          "katana",
+          "Prefiro enfrentar um chefe."
+        ]
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "percussion",
+          "Seu corte caiu no tempo!"
+        ],
+        [
+          "katana",
+          "Coincidência."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "franco",
+          "A gente ainda vai terminar aquela faixa?"
+        ],
+        [
+          "ryuchi",
+          "Depois de salvar uns três mundos."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "ryuchi",
+          "Quantas versões suas existem?"
+        ],
+        [
+          "franco",
+          "Espero que só as boas."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "franco",
+          "Se a gente contar isso, quem acredita?"
+        ],
+        [
+          "ryuchi",
+          "Ninguém. Por isso vira álbum."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "ryuchi",
+          "Isso começou porque você não quis dormir."
+        ],
+        [
+          "franco",
+          "Você também não quis."
+        ]
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "franco",
+          "Boa, Ryuchi."
+        ],
+        [
+          "ryuchi",
+          "Eu sei."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "ryuchi",
+          "Tá com fome?"
+        ],
+        [
+          "franco",
+          "Tô com prazo."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "franco",
+          "Esse lugar tem um reverb absurdo."
+        ],
+        [
+          "ryuchi",
+          "Não grita pra testar."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "franco",
+          "Katana, conserta música?"
+        ],
+        [
+          "katana",
+          "Música não quebra. Muda."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "katana",
+          "Seu baixo tá zumbindo."
+        ],
+        [
+          "franco",
+          "É estilo."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "franco",
+          "Percu, você não cansa?"
+        ],
+        [
+          "percussion",
+          "Cansar é só um tempo mais lento."
+        ]
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "percussion",
+          "Seu grave fez o chão dançar!"
+        ],
+        [
+          "franco",
+          "O chão aqui dança fácil."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "ryuchi",
+          "Como você aguentou tanto tempo sozinho?"
+        ],
+        [
+          "alt",
+          "Conversando com a floresta."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "alt",
+          "Você protege o Franco sem admitir."
+        ],
+        [
+          "ryuchi",
+          "Não conta pra ele."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "ryuchi",
+          "Synth, respira. Você tá vermelho."
+        ],
+        [
+          "synth",
+          "É o LED."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "synth",
+          "Ryuchi, qual é o plano?"
+        ],
+        [
+          "ryuchi",
+          "Bater neles. Funcionou até agora."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "alt",
+          "Katana, você fala menos que eu."
+        ],
+        [
+          "katana",
+          "Alguém tinha que ganhar."
+        ]
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "katana",
+          "Boa mira."
+        ],
+        [
+          "alt",
+          "Bom corte. Chega de elogio."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "percussion",
+          "Sua corda faz um som bonito."
+        ],
+        [
+          "alt",
+          "Ela responde a quem escuta."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "alt",
+          "Você nunca para, Percu."
+        ],
+        [
+          "percussion",
+          "E você nunca corre!"
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "katana",
+          "Synth, seu cabo tá desencapado."
+        ],
+        [
+          "synth",
+          "O QUÊ?"
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "synth",
+          "Katana, olha meu teclado depois?"
+        ],
+        [
+          "katana",
+          "Olho. Sem desmontar. Talvez."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "percussion",
+          "Segura meu tempo um minuto, Synth?"
+        ],
+        [
+          "synth",
+          "Em quantos BPM?"
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "synth",
+          "Como você improvisa sem medo?"
+        ],
+        [
+          "percussion",
+          "Medo eu tenho. Só toco mais alto."
+        ]
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "synth",
+          "Segui seu pulso e deu certo!"
+        ],
+        [
+          "percussion",
+          "Deu certo porque você soltou."
+        ]
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "alt",
+          "Três Francos numa banda."
+        ],
+        [
+          "synth",
+          "Três jeitos de errar a mesma nota."
+        ]
+      ],
+      "precisa": [
+        "franco",
+        "alt",
+        "synth"
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "synth",
+          "A gente devia formar uma banda."
+        ],
+        [
+          "franco",
+          "A gente É uma banda."
+        ]
+      ],
+      "precisa": [
+        "franco",
+        "alt",
+        "synth"
+      ]
+    },
+    {
+      "gatilho": "andando",
+      "falas": [
+        [
+          "ryuchi",
+          "Três de mim. Ninguém dorme mais."
+        ],
+        [
+          "percussion",
+          "Eu nunca dormi mesmo!"
+        ]
+      ],
+      "precisa": [
+        "ryuchi",
+        "katana",
+        "percussion"
+      ]
+    },
+    {
+      "gatilho": "vitoria",
+      "falas": [
+        [
+          "percussion",
+          "Três Ryuchis no mesmo tempo!"
+        ],
+        [
+          "katana",
+          "...Foi bonito. Não repete."
+        ]
+      ],
+      "precisa": [
+        "ryuchi",
+        "katana",
+        "percussion"
+      ]
+    },
+    {
+      "gatilho": "perigo",
+      "falas": [
+        [
+          "ryuchi",
+          "Franco, eu não tô bem."
+        ],
+        [
+          "franco",
+          "Fica atrás de mim. Agora."
+        ]
+      ]
+    },
+    {
+      "gatilho": "perigo",
+      "falas": [
+        [
+          "franco",
+          "Se eu cair, termina a faixa."
+        ],
+        [
+          "ryuchi",
+          "Nem pensar. Você termina."
+        ]
+      ]
+    },
+    {
+      "gatilho": "perigo",
+      "falas": [
+        [
+          "synth",
+          "Eu não vou conseguir!"
+        ],
+        [
+          "percussion",
+          "Vai sim. Um, dois..."
+        ]
+      ]
+    },
+    {
+      "gatilho": "perigo",
+      "falas": [
+        [
+          "percussion",
+          "Tô perdendo o pulso..."
+        ],
+        [
+          "katana",
+          "Segura no meu. É lento, mas firme."
+        ]
+      ]
+    },
+    {
+      "gatilho": "perigo",
+      "falas": [
+        [
+          "alt",
+          "Já caí uma vez aqui."
+        ],
+        [
+          "franco",
+          "E levantou com a minha cara. Levanta."
+        ]
+      ]
+    },
+    {
+      "gatilho": "perigo",
+      "falas": [
+        [
+          "katana",
+          "Integridade baixa."
+        ],
+        [
+          "ryuchi",
+          "Fala normal, Katana! Tá machucado?"
+        ]
+      ]
+    },
+    {
+      "gatilho": "chefe",
+      "falas": [
+        [
+          "franco",
+          "Plano?"
+        ],
+        [
+          "ryuchi",
+          "Bater."
+        ]
+      ]
+    },
+    {
+      "gatilho": "chefe",
+      "falas": [
+        [
+          "synth",
+          "Eu analisei o padrão!"
+        ],
+        [
+          "alt",
+          "E?"
+        ]
+      ]
+    },
+    {
+      "gatilho": "chefe",
+      "falas": [
+        [
+          "percussion",
+          "Esse bate em quatro."
+        ],
+        [
+          "katana",
+          "Eu corto no cinco."
+        ]
+      ]
+    },
+    {
+      "gatilho": "chefe",
+      "falas": [
+        [
+          "ryuchi",
+          "Esse é grande."
+        ],
+        [
+          "franco",
+          "Grande é bom. Erra mais."
+        ]
+      ]
+    },
+    {
+      "gatilho": "area",
+      "falas": [
+        [
+          "ryuchi",
+          "As árvores tão cantando mais baixo."
+        ],
+        [
+          "franco",
+          "Ou a gente tá ouvindo melhor."
+        ]
+      ],
+      "areas": [
+        "forest"
+      ]
+    },
+    {
+      "gatilho": "area",
+      "falas": [
+        [
+          "franco",
+          "Esse lugar tem um eco que não é nosso."
+        ],
+        [
+          "ryuchi",
+          "Então fala baixo."
+        ]
+      ],
+      "areas": [
+        "ruins"
+      ]
+    },
+    {
+      "gatilho": "area",
+      "falas": [
+        [
+          "alt",
+          "Cada bairro daqui canta uma faixa."
+        ],
+        [
+          "franco",
+          "E nenhuma tá mixada."
+        ]
+      ],
+      "areas": [
+        "voices"
+      ]
+    },
+    {
+      "gatilho": "area",
+      "falas": [
+        [
+          "katana",
+          "Essa torre era meu trabalho."
+        ],
+        [
+          "ryuchi",
+          "Agora é nosso problema."
+        ]
+      ],
+      "areas": [
+        "voice_tower"
+      ]
+    },
+    {
+      "gatilho": "area",
+      "falas": [
+        [
+          "franco",
+          "Neon, distorção e batida pesada."
+        ],
+        [
+          "ryuchi",
+          "Parece sua playlist."
+        ]
+      ],
+      "areas": [
+        "distortion_district"
+      ]
+    },
+    {
+      "gatilho": "area",
+      "falas": [
+        [
+          "synth",
+          "Eu conheço cada cabo daqui."
+        ],
+        [
+          "franco",
+          "Então para de suar."
+        ]
+      ],
+      "areas": [
+        "power_plant"
+      ]
+    },
+    {
+      "gatilho": "area",
+      "falas": [
+        [
+          "percussion",
+          "A ponte ainda tem meu tempo."
+        ],
+        [
+          "ryuchi",
+          "Então pisa nele."
+        ]
+      ],
+      "areas": [
+        "sky_canal"
+      ]
+    },
+    {
+      "gatilho": "area",
+      "falas": [
+        [
+          "ryuchi",
+          "Não olha pra baixo."
+        ],
+        [
+          "franco",
+          "Por que você falou isso?"
+        ]
+      ],
+      "areas": [
+        "cloud_sea"
+      ]
+    },
+    {
+      "gatilho": "area",
+      "falas": [
+        [
+          "ryuchi",
+          "É aqui."
+        ],
+        [
+          "franco",
+          "Eu sei. Respira."
+        ]
+      ],
+      "areas": [
+        "last_torii",
+        "silence_core"
+      ]
+    },
+    {
+      "gatilho": "area",
+      "falas": [
+        [
+          "ryuchi",
+          "Esse estúdio tá maior?"
+        ],
+        [
+          "franco",
+          "Ou a gente tá menor."
+        ]
+      ],
+      "areas": [
+        "studio"
+      ]
+    },
+    {
+      "gatilho": "area",
+      "falas": [
+        [
+          "franco",
+          "Uma cidade inteira com ritmo."
+        ],
+        [
+          "ryuchi",
+          "Até o vento tá no tempo."
+        ]
+      ],
+      "areas": [
+        "city"
+      ]
+    }
+  ],
+  "consequencias": {
+    "rota": {
+      "usina": {
+        "aliado": "OPERADORA DA USINA",
+        "segunda": [
+          [
+            "radio",
+            "Usina pro grupo: o Canal tá esperando desde a madrugada. Corram."
+          ],
+          [
+            "ryuchi",
+            "A gente sabe. Já tamo indo."
+          ]
+        ],
+        "nuvens": [
+          [
+            "radio",
+            "Aqui é a Usina. Religamos a rede pra vocês."
+          ],
+          [
+            "radio",
+            "Quando chegarem no Silêncio, a gente desvia toda a energia pra lá."
+          ]
+        ],
+        "chefe": "A USINA DESVIOU A ENERGIA · O SILÊNCIO COMEÇA ENFRAQUECIDO",
+        "chefeFala": [
+          [
+            "radio",
+            "Energia desviada! Ele tá mais fraco, aproveitem!"
+          ]
+        ],
+        "final": [
+          {
+            "who": "Operadora da Usina",
+            "t": "Vocês vieram primeiro pra Usina. A cidade toda acendeu porque vocês escolheram a gente."
+          }
+        ]
+      },
+      "canal": {
+        "aliado": "COLLI",
+        "segunda": [
+          [
+            "radio",
+            "Colli aqui. A Usina tá sem ninguém desde que vocês saíram. Cuidado com a prensa."
+          ],
+          [
+            "franco",
+            "Valeu, Colli. Chegando."
+          ]
+        ],
+        "nuvens": [
+          [
+            "radio",
+            "Colli aqui. O pessoal do canal juntou fitas pra vocês."
+          ],
+          [
+            "radio",
+            "Vocês tiraram a gente da água primeiro. Agora é a nossa vez."
+          ]
+        ],
+        "chefe": "O CANAL MANDOU SUPRIMENTOS · +2 FITAS DE ÁUDIO",
+        "chefeFala": [
+          [
+            "radio",
+            "Colli aqui! A gente tá ouvindo. Não para!"
+          ]
+        ],
+        "final": [
+          {
+            "who": "colli",
+            "t": "Vocês tiraram o canal da água antes de tudo. Ninguém lá vai esquecer quem chegou primeiro."
+          }
+        ]
+      }
+    },
+    "ema": {
+      "traveler": {
+        "confronto": [
+          {
+            "who": "silence",
+            "t": "Vocês perguntaram à anciã pelo viajante mascarado. Nunca perguntaram por mim."
+          }
+        ],
+        "final": [
+          {
+            "who": "franco",
+            "t": "A Ema disse que o viajante nunca mostrava o rosto."
+          },
+          {
+            "who": "ryuchi",
+            "t": "E a gente atravessou três mundos tirando máscara de gente com a nossa cara."
+          },
+          {
+            "who": "franco",
+            "t": "Quando voltar, eu conto pra ela quem ele era. Quem todos eles eram."
+          }
+        ]
+      },
+      "silence": {
+        "confronto": [
+          {
+            "who": "silence",
+            "t": "Vocês perguntaram à anciã o que eu era. Ela não sabia. Eu sou o que vem depois da última nota."
+          }
+        ],
+        "final": [
+          {
+            "who": "ryuchi",
+            "t": "A Ema avisou: quando o Silêncio vence, uma vida inteira deixa de ter acontecido."
+          },
+          {
+            "who": "franco",
+            "t": "Ele não venceu. Tudo que a gente quase não viveu continua aqui."
+          },
+          {
+            "who": "ryuchi",
+            "t": "Então a primeira coisa é voltar e pedir pra Nina tocar aquele sino bem alto."
+          }
+        ]
+      }
+    }
+  }
+}

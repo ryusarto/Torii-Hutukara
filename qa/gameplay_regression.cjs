@@ -177,6 +177,8 @@ async function main(){
      await mobile.evaluate(big=>{
       G=fresh();buildMaps();setArea('studio',12.5,10.5,false);$('start').classList.add('hidden');$('hud').style.display='block';
       localStorage.setItem('torii_hutukara_acessibilidade_v1',JSON.stringify({bigText:big}));ToriiAcessibilidade.apply();
+      // Texto instantâneo: aqui o toque deve avançar. A digitação tem teste próprio (narrativa_fase4).
+      if(typeof Narrativa!=='undefined')Narrativa.definir('vel','instantaneo');
       talk([{who:'franco',t:'Primeira fala: o caminho começa quando a gente escuta.'},{who:'ryuchi',t:'Segunda fala: agora dá para seguir.'}]);transitionAlpha=0;drawEnv();
      },bigText);
      const box=await mobile.locator('#words').boundingBox();

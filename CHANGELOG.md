@@ -1,3 +1,12 @@
+## [Fase 4 · narrativa] — 2026-11-21
+
+- Leitura: o texto aparece com velocidade escolhida (lento, normal, rápido ou instantâneo); tocar durante a digitação completa a fala. Avanço automático, histórico de falas e pular cena (as falas puladas ficam no histórico; escolhas nunca são puladas). Botões na caixa de diálogo e atalhos: V velocidade, O auto, L histórico, P pular; no controle, X auto, Y histórico, Select pular.
+- Narrador enxuto: as falas que descreviam a tela viraram legendas de cenário no topo da tela, com tremor ou clarão, sem travar o jogo. Narrador obrigatório na campanha: 16 → 0 falas; total de falas obrigatórias 145 → 134 (Usina) e 150 → 138 (Canal).
+- Falas rápidas durante o jogo todo: 356 falas soltas e 75 trocas de no máximo duas falas entre Franco, Ryuchi, Arqueiro, Katana, Synth e Percu. Aparecem como texto flutuante logo acima de quem fala, sem parar o jogo, ao começar e vencer lutas, ao ferir alguém, curar, usar o super, trocar de líder, subir de nível, encarar chefes, chegar em áreas e na caminhada. Dá para desligar ou mudar a frequência no histórico.
+- Escolhas com consequência: a primeira rota muda o rádio no Mar de Nuvens e na chegada à segunda rota. Na luta contra O Silêncio, a Usina desvia a energia (o chefe começa com 12% a menos de vida) ou o Canal manda duas fitas de áudio. O epílogo agradece quem foi ajudado primeiro.
+- A pergunta feita à Anciã Ema no Capítulo 1 volta no confronto com O Silêncio e no final.
+- Testes: `qa/narrativa_fase4.cjs` (14 verificações no navegador, também no celular deitado) e `qa/falas_campanha.cjs` (falas obrigatórias de uma campanha completa).
+
 ## [Fase 0 · fundação, primeira etapa] — 2026-11-21
 
 - O site baixa primeiro o que a tela usa. Num celular com 4G, o estúdio fica completo em 14 s em vez de 44 s, e baixa 18 MB em vez de 66 MB. A tela de título continua em 1,1 s.

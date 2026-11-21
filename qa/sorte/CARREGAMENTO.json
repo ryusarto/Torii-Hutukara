@@ -5,22 +5,22 @@
   "rttMs": 70
  },
  "title": {
-  "s": 1.097,
-  "mb": 1.273274
+  "s": 1.139,
+  "mb": 1.331507
  },
  "studio": {
   "files": 16,
   "de": 24,
-  "lastMs": 14430,
-  "s": 14.43,
-  "mb": 18.117326
+  "lastMs": 14230,
+  "s": 14.23,
+  "mb": 18.175559
  },
  "media": {
   "queued": 87,
   "promoted": 14,
   "loaded": 23,
   "failed": 0,
-  "firstPromotion": 1185,
+  "firstPromotion": 1222,
   "pending": 58,
   "active": 6
  },
