@@ -1,0 +1,1052 @@
+[
+ {
+  "min": 0,
+  "area": "studio",
+  "etapa": "Investigue a mesa de produção no estúdio.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "São quase três da manhã... e essa música ainda não tá pronta."
+ },
+ {
+  "min": 0.01,
+  "area": "studio",
+  "etapa": "Investigue a mesa de produção no estúdio.",
+  "quem": "RYUCHI",
+  "texto": "Falta alguma coisa. Parece que a gente esqueceu um instrumento."
+ },
+ {
+  "min": 0.03,
+  "area": "studio",
+  "etapa": "Investigue a mesa de produção no estúdio.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Então vamos encontrar o que tá faltando. Dá uma olhada no projeto comigo."
+ },
+ {
+  "min": 0.05,
+  "area": "studio",
+  "etapa": "Siga o som. Encontre a origem da melodia.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Isolei cada canal. Desliguei os monitores... e a melodia continua. A gente nunca gravou essa track."
+ },
+ {
+  "min": 0.07,
+  "area": "studio",
+  "etapa": "Siga o som. Encontre a origem da melodia.",
+  "quem": "NARRADOR",
+  "texto": "O som vem da porta. Onde antes havia uma escada para a rua, agora há um corredor de pedra."
+ },
+ {
+  "min": 0.21,
+  "area": "chamber",
+  "etapa": "Siga o som. Encontre a origem da melodia.",
+  "quem": "RYUCHI",
+  "texto": "Franco... duas máscaras. Quem colocou isso aqui?"
+ },
+ {
+  "min": 0.23,
+  "area": "chamber",
+  "etapa": "Siga o som. Encontre a origem da melodia.",
+  "quem": "NARRADOR",
+  "texto": "Duas máscaras repousam sobre a pedra: tecido marfim costurado, treze pontas e lentes negras."
+ },
+ {
+  "min": 0.24,
+  "area": "chamber",
+  "etapa": "Siga o som. Encontre a origem da melodia.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Parece que elas estão... ouvindo a gente."
+ },
+ {
+  "min": 0.26,
+  "area": "chamber",
+  "etapa": "Siga o som. Encontre a origem da melodia.",
+  "quem": "RYUCHI",
+  "texto": "A música parou."
+ },
+ {
+  "min": 0.27,
+  "area": "chamber",
+  "etapa": "Siga o som. Encontre a origem da melodia.",
+  "quem": "VOZ DESCONHECIDA",
+  "texto": "Finalmente."
+ },
+ {
+  "min": 0.28,
+  "area": "chamber",
+  "etapa": "Converse com a Anciã Ema na praça da cidade.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Eu ainda vejo pelas lentes. E ainda consigo respirar pela abertura."
+ },
+ {
+  "min": 0.29,
+  "area": "chamber",
+  "etapa": "Converse com a Anciã Ema na praça da cidade.",
+  "quem": "RYUCHI",
+  "texto": "Cobriu até a testa... mas não está pesando. Está respondendo."
+ },
+ {
+  "min": 0.3,
+  "area": "chamber",
+  "etapa": "Converse com a Anciã Ema na praça da cidade.",
+  "quem": "NARRADOR",
+  "texto": "As máscaras se prendem aos rostos sem apagar quem existe por baixo delas. O mundo se dobra em luz."
+ },
+ {
+  "min": 0.32,
+  "area": "city",
+  "etapa": "Converse com a Anciã Ema na praça da cidade.",
+  "quem": "NARRADOR",
+  "texto": "A claridade toma conta de tudo. O estúdio desaparece. Diante de vocês, uma cidade onde até o vento parece ter ritmo."
+ },
+ {
+  "min": 0.33,
+  "area": "city",
+  "etapa": "Converse com a Anciã Ema na praça da cidade.",
+  "quem": "NARRADOR",
+  "texto": "A máscara não oferece escolhas. Foi o próprio Hutukara que trouxe vocês até aqui."
+ },
+ {
+  "min": 0.38,
+  "area": "city",
+  "etapa": "Passe pelo portão leste e explore a floresta.",
+  "quem": "ANCIÃ EMA",
+  "texto": "Vocês usam as mesmas máscaras. Pensei que só existisse um viajante como vocês."
+ },
+ {
+  "min": 0.39,
+  "area": "city",
+  "etapa": "Passe pelo portão leste e explore a floresta.",
+  "quem": "RYUCHI",
+  "texto": "Um viajante? Tem mais alguém com essas máscaras?"
+ },
+ {
+  "min": 0.4,
+  "area": "city",
+  "etapa": "Passe pelo portão leste e explore a floresta.",
+  "quem": "ANCIÃ EMA",
+  "texto": "Há um músico mascarado na Floresta de Ressonância. Ele procura a origem de algo que está roubando nossos sons."
+ },
+ {
+  "min": 0.42,
+  "area": "city",
+  "etapa": "Passe pelo portão leste e explore a floresta.",
+  "quem": "ANCIÃ EMA",
+  "texto": "Primeiro somem as melodias, depois as memórias. Ele toca uma frequência que nenhum instrumento nosso reproduz. Encontrem o músico antes que tudo se cale."
+ },
+ {
+  "min": 0.51,
+  "area": "forest",
+  "etapa": "Encontre a figura mascarada na floresta.",
+  "quem": "RYUCHI",
+  "texto": "As árvores estão cantando... é a mesma melodia do estúdio."
+ },
+ {
+  "min": 0.56,
+  "area": "forest",
+  "etapa": "Use o Baixo de Raiz na ponte de frequências.",
+  "quem": "NARRADOR",
+  "texto": "Uma criatura sem forma avança entre os galhos. Antes que atinja Franco, um estranho mascarado toca uma nota grave."
+ },
+ {
+  "min": 0.57,
+  "area": "forest",
+  "etapa": "Use o Baixo de Raiz na ponte de frequências.",
+  "quem": "MÚSICO MASCARADO",
+  "texto": "Vocês dois... chegaram tarde. O Silêncio já atravessou a floresta."
+ },
+ {
+  "min": 0.58,
+  "area": "forest",
+  "etapa": "Use o Baixo de Raiz na ponte de frequências.",
+  "quem": "RYUCHI",
+  "texto": "Quem é você? Por que usa a mesma máscara que a gente?"
+ },
+ {
+  "min": 0.6,
+  "area": "forest",
+  "etapa": "Use o Baixo de Raiz na ponte de frequências.",
+  "quem": "MÚSICO MASCARADO",
+  "texto": "Ainda não é hora de saber. Peguem este baixo. As raízes conhecem a frequência dele."
+ },
+ {
+  "min": 0.61,
+  "area": "forest",
+  "etapa": "Use o Baixo de Raiz na ponte de frequências.",
+  "quem": "MÚSICO MASCARADO",
+  "texto": "Eu conheço essa música. Encontrem-me nas ruínas, se chegarem até lá."
+ },
+ {
+  "min": 0.79,
+  "area": "forest",
+  "etapa": "Ative as duas pedras de ressonância nas ruínas.",
+  "quem": "RYUCHI",
+  "texto": "A floresta construiu uma ponte... por causa de quatro notas?!"
+ },
+ {
+  "min": 0.9,
+  "area": "ruins",
+  "etapa": "Ative as duas pedras de ressonância nas ruínas.",
+  "quem": "RYUCHI",
+  "texto": "Tá tudo... mudo. Eu nem escuto nossos passos."
+ },
+ {
+  "min": 1.06,
+  "area": "ruins",
+  "etapa": "Ative as duas pedras de ressonância nas ruínas.",
+  "quem": "RYUCHI",
+  "texto": "Uma parte do som voltou. Ainda falta alguma coisa."
+ },
+ {
+  "min": 1.2,
+  "area": "ruins",
+  "etapa": "Confronte a fonte do Silêncio.",
+  "quem": "RYUCHI",
+  "texto": "Duas notas. Agora dá pra sentir a cidade daqui."
+ },
+ {
+  "min": 1.26,
+  "area": "ruins",
+  "etapa": "Confronte a fonte do Silêncio.",
+  "quem": "NARRADOR",
+  "texto": "No centro das ruínas, uma figura com a mesma máscara Torii aguarda imóvel. O Silêncio está grudado à sua sombra."
+ },
+ {
+  "min": 1.27,
+  "area": "ruins",
+  "etapa": "Confronte a fonte do Silêncio.",
+  "quem": "MÚSICO MASCARADO",
+  "texto": "Não confiem no que seus olhos estão mostrando. Se querem respostas, provem que conseguem ouvir a diferença."
+ },
+ {
+  "min": 1.29,
+  "area": "ruins",
+  "etapa": "Confronte a fonte do Silêncio.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Então vem. A gente vai descobrir juntos."
+ },
+ {
+  "min": 1.63,
+  "area": "ruins",
+  "etapa": "Descubra a identidade do viajante mascarado.",
+  "quem": "NARRADOR",
+  "texto": "O mascarado cai de joelhos. A sombra do Silêncio se desprende dele e se desfaz."
+ },
+ {
+  "min": 1.65,
+  "area": "ruins",
+  "etapa": "Descubra a identidade do viajante mascarado.",
+  "quem": "MÚSICO MASCARADO",
+  "texto": "Eu precisava saber se vocês conseguiriam me libertar... Sem ferir quem eu sou."
+ },
+ {
+  "min": 1.66,
+  "area": "ruins",
+  "etapa": "Descubra a identidade do viajante mascarado.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "A gente não quer te machucar. A gente só quer entender o Hutukara."
+ },
+ {
+  "min": 1.67,
+  "area": "ruins",
+  "etapa": "Converse com seu novo aliado.",
+  "quem": "NARRADOR",
+  "texto": "O músico se levanta entre os fragmentos e segura a própria máscara pelas bordas."
+ },
+ {
+  "min": 1.68,
+  "area": "ruins",
+  "etapa": "Converse com seu novo aliado.",
+  "quem": "RYUCHI",
+  "texto": "De novo isso. Quem é você, afinal?"
+ },
+ {
+  "min": 1.7,
+  "area": "ruins",
+  "etapa": "Converse com seu novo aliado.",
+  "quem": "NARRADOR",
+  "texto": "O viajante retira a máscara."
+ },
+ {
+  "min": 1.71,
+  "area": "ruins",
+  "etapa": "Converse com seu novo aliado.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "...Não. Não é possível."
+ },
+ {
+  "min": 1.72,
+  "area": "ruins",
+  "etapa": "Converse com seu novo aliado.",
+  "quem": "NARRADOR",
+  "texto": "O rosto é o de Franco. O mesmo rosto, mas marcado por uma vida completamente diferente."
+ },
+ {
+  "min": 1.73,
+  "area": "ruins",
+  "etapa": "Converse com seu novo aliado.",
+  "quem": "???",
+  "texto": "Eu sou Franco. Ou uma versão dele. Nesta realidade, vocês me conhecem como o Arqueiro."
+ },
+ {
+  "min": 1.75,
+  "area": "ruins",
+  "etapa": "Converse com seu novo aliado.",
+  "quem": "RYUCHI",
+  "texto": "Então existem outros... nós?"
+ },
+ {
+  "min": 1.76,
+  "area": "ruins",
+  "etapa": "Converse com seu novo aliado.",
+  "quem": "???",
+  "texto": "Mais do que imaginam. O Hutukara conecta todas as músicas que poderiam ter existido."
+ },
+ {
+  "min": 1.77,
+  "area": "ruins",
+  "etapa": "Converse com seu novo aliado.",
+  "quem": "???",
+  "texto": "E o Silêncio está apagando essas possibilidades. Quero ir com vocês."
+ },
+ {
+  "min": 1.78,
+  "area": "ruins",
+  "etapa": "Siga a máscara até a próxima realidade.",
+  "quem": "RYUCHI",
+  "texto": "Então coloca a mão na máscara. A gente vai junto."
+ },
+ {
+  "min": 1.8,
+  "area": "ruins",
+  "etapa": "Siga a máscara até a próxima realidade.",
+  "quem": "NARRADOR",
+  "texto": "Os olhos negros das três máscaras refletem uma cidade de telhados banhados de sol. A travessia começa."
+ },
+ {
+  "min": 1.81,
+  "area": "rain_station",
+  "etapa": "Encontre Íris na Praça das Antenas.",
+  "quem": "???",
+  "texto": "A Cidade das Vozes. Veracidade, Nunca Imaginei, Pensa em Tudo, Esquecer, Sauna... cada bairro guarda uma memória."
+ },
+ {
+  "min": 1.83,
+  "area": "rain_station",
+  "etapa": "Encontre Íris na Praça das Antenas.",
+  "quem": "RYUCHI",
+  "texto": "Mas a rádio está cortando. Vamos até a praça."
+ },
+ {
+  "min": 2.03,
+  "area": "voices",
+  "etapa": "Procure a fita perdida no Mercado das Fitas.",
+  "quem": "IRIS",
+  "texto": "Eu sou Íris, locutora da Rádio 9. Há três dias começaram a chegar transmissões vindas de lugares que não existem."
+ },
+ {
+  "min": 2.05,
+  "area": "voices",
+  "etapa": "Procure a fita perdida no Mercado das Fitas.",
+  "quem": "RYUCHI",
+  "texto": "A gente veio de um desses lugares. Você sabe do Silêncio?"
+ },
+ {
+  "min": 2.06,
+  "area": "voices",
+  "etapa": "Procure a fita perdida no Mercado das Fitas.",
+  "quem": "IRIS",
+  "texto": "Ele está engolindo nossos sinais. Achem a FITA PERDIDA no Mercado e levem ao Belga: ele monta um acoplador."
+ },
+ {
+  "min": 2.08,
+  "area": "voices",
+  "etapa": "Procure a fita perdida no Mercado das Fitas.",
+  "quem": "IRIS",
+  "texto": "E tem mais: o mascarado que cuidava da cidade foi levado pelo Arauto. Com o acoplador, reativem os três retransmissores e a torre abre."
+ },
+ {
+  "min": 2.26,
+  "area": "tape_market",
+  "etapa": "Monte o acoplador na Oficina do Belga.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Essa mesma melodia tava no estúdio. Isso não pode ser coincidência."
+ },
+ {
+  "min": 2.38,
+  "area": "bento_shop",
+  "etapa": "Reative o retransmissor da Praça.",
+  "quem": "BELGA",
+  "texto": "Perfeito! Ouçam a ressonância... tem duas versões da mesma nota tocando juntas."
+ },
+ {
+  "min": 2.4,
+  "area": "bento_shop",
+  "etapa": "Reative o retransmissor da Praça.",
+  "quem": "RYUCHI",
+  "texto": "É como se a fita tivesse sido gravada em duas realidades."
+ },
+ {
+  "min": 2.41,
+  "area": "bento_shop",
+  "etapa": "Reative o retransmissor da Praça.",
+  "quem": "BELGA",
+  "texto": "Acoplador montado. Liguem nos retransmissores — a Íris guia vocês pelo rádio."
+ },
+ {
+  "min": 2.74,
+  "area": "voices",
+  "etapa": "Recupere a melodia de Lumi e receba o violino.",
+  "quem": "LUMI",
+  "texto": "O Silêncio roubou a voz do meu violino e cobriu os telhados de névoa. Ainda lembro três notas: grave, aguda, grave."
+ },
+ {
+  "min": 2.76,
+  "area": "voices",
+  "etapa": "Recupere a melodia de Lumi e receba o violino.",
+  "quem": "LUMI",
+  "texto": "Toquem comigo. Quando a melodia voltar, levem este violino até a passagem dos telhados."
+ },
+ {
+  "min": 2.8,
+  "area": "voices",
+  "etapa": "Toque o violino para dissipar a névoa dos telhados.",
+  "quem": "LUMI",
+  "texto": "É essa! Era essa a melodia! Eu sabia que ela ainda estava aqui."
+ },
+ {
+  "min": 2.94,
+  "area": "voice_roofs",
+  "etapa": "Reative o retransmissor dos Telhados.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Grave, aguda, grave... a melodia da Lumi."
+ },
+ {
+  "min": 3.01,
+  "area": "voice_roofs",
+  "etapa": "Suba à Torre de Transmissão e enfrente o Silêncio.",
+  "quem": "IRIS",
+  "texto": "As três frequências estão alinhadas! Agora a Torre de Transmissão pode receber nosso sinal."
+ },
+ {
+  "min": 3.13,
+  "area": "voice_tower",
+  "etapa": "Suba à Torre de Transmissão e enfrente o Silêncio.",
+  "quem": "NARRADOR",
+  "texto": "No topo da torre, uma enorme sombra de estática ocupa a antena principal."
+ },
+ {
+  "min": 3.14,
+  "area": "voice_tower",
+  "etapa": "Suba à Torre de Transmissão e enfrente o Silêncio.",
+  "quem": "O SILÊNCIO",
+  "texto": "Muitas vozes. Muitas versões. Tantas possibilidades... e nenhuma decisão."
+ },
+ {
+  "min": 3.16,
+  "area": "voice_tower",
+  "etapa": "Suba à Torre de Transmissão e enfrente o Silêncio.",
+  "quem": "RYUCHI",
+  "texto": "Ele aprisionou o técnico na antena. Vamos tirar ele daqui."
+ },
+ {
+  "min": 3.17,
+  "area": "voice_tower",
+  "etapa": "Suba à Torre de Transmissão e enfrente o Silêncio.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "A gente não veio escolher qual música merece ficar. Viemos impedir que você apague as outras."
+ },
+ {
+  "min": 3.45,
+  "area": "voice_tower",
+  "etapa": "Capítulo 02 concluído! Descubra os segredos da cidade.",
+  "quem": "NARRADOR",
+  "texto": "A estática se dissolve. A prisão da antena se abre: o técnico é livre. Ele retira a máscara — outro Ryuchi, com uma katana entre as ferramentas."
+ },
+ {
+  "min": 3.46,
+  "area": "voice_tower",
+  "etapa": "Capítulo 02 concluído! Descubra os segredos da cidade.",
+  "quem": "IRIS",
+  "texto": "Aqui é a Rádio 9... vocês estão me ouvindo? Toda a cidade está respondendo!"
+ },
+ {
+  "min": 3.48,
+  "area": "voice_tower",
+  "etapa": "Capítulo 02 concluído! Descubra os segredos da cidade.",
+  "quem": "KATANA",
+  "texto": "Sabe... eu nunca cantei uma nota em público. Mas acho que posso tentar agora."
+ },
+ {
+  "min": 3.49,
+  "area": "voice_tower",
+  "etapa": "Capítulo 02 concluído! Descubra os segredos da cidade.",
+  "quem": "RYUCHI",
+  "texto": "Você não precisa ser eu. Já é você."
+ },
+ {
+  "min": 3.5,
+  "area": "voice_tower",
+  "etapa": "Capítulo 02 concluído! Descubra os segredos da cidade.",
+  "quem": "???",
+  "texto": "O Hutukara ainda não terminou. O próximo destino é o Lado B: uma cidade cyberpunk de neon, distorção e batidas pesadas."
+ },
+ {
+  "min": 3.52,
+  "area": "sky_terminal",
+  "etapa": "Encontre Belga no Clube Contratempo.",
+  "quem": "RYUCHI",
+  "texto": "A máscara puxou a gente antes daquele Silêncio desaparecer. Ele veio parar aqui."
+ },
+ {
+  "min": 3.53,
+  "area": "sky_terminal",
+  "etapa": "Encontre Belga no Clube Contratempo.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "E a cidade inteira está repetindo o último segundo, como se tivesse medo de terminar."
+ },
+ {
+  "min": 3.55,
+  "area": "sky_terminal",
+  "etapa": "Encontre Belga no Clube Contratempo.",
+  "quem": "BELGA",
+  "texto": "Então foram vocês que a máscara escolheu. Eu sou Belga. Guardo aqui os sons que a cidade tenta esquecer — e O Silêncio chegou antes para separar todos eles."
+ },
+ {
+  "min": 3.56,
+  "area": "sky_terminal",
+  "etapa": "Encontre Belga no Clube Contratempo.",
+  "quem": "BELGA",
+  "texto": "O Silêncio separou a música da cidade: a Usina ficou presa numa harmonia que reinicia, e o Canal perdeu o próprio pulso. Sem as duas, o Contratempo não abre o Elevador do Céu."
+ },
+ {
+  "min": 3.72,
+  "area": "contratempo",
+  "etapa": "Encontre Belga no Clube Contratempo.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Então não são dois favores. São as duas partes da mesma chave."
+ },
+ {
+  "min": 3.74,
+  "area": "contratempo",
+  "etapa": "Encontre Belga no Clube Contratempo.",
+  "quem": "BELGA",
+  "texto": "Escolham a primeira metade. Quando as duas voltarem, tragam quem estiver sustentando cada uma até este palco."
+ },
+ {
+  "min": 3.94,
+  "area": "sky_canal",
+  "etapa": "Separe a interferência do canal.",
+  "quem": "COLLI",
+  "texto": "Eu disse para irem na frente. Não disse que chegaria depois."
+ },
+ {
+  "min": 3.95,
+  "area": "sky_canal",
+  "etapa": "Separe a interferência do canal.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "Pisa quando eu marcar. A passarela tá soltando."
+ },
+ {
+  "min": 3.96,
+  "area": "sky_canal",
+  "etapa": "Separe a interferência do canal.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "Ótimo. Me ajuda daqui, antes de tentar entender por que eu tenho a sua cara."
+ },
+ {
+  "min": 3.98,
+  "area": "sky_canal",
+  "etapa": "Separe a interferência do canal.",
+  "quem": "COLLI",
+  "texto": "Tem mais gente na comporta. Uma coisa está repetindo a voz deles e apagando minhas marcas — precisamos separar a interferência do caminho verdadeiro."
+ },
+ {
+  "min": 4.03,
+  "area": "sky_canal",
+  "etapa": "Atravesse e liberte a comporta.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "Eu seguro o pulso. Vocês procuram espaço entre as batidas."
+ },
+ {
+  "min": 4.17,
+  "area": "sky_canal",
+  "etapa": "Abra a trava grave da Usina.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "Eu fiquei pensando que, se parasse um segundo, ia perder o tempo de vez."
+ },
+ {
+  "min": 4.19,
+  "area": "sky_canal",
+  "etapa": "Abra a trava grave da Usina.",
+  "quem": "COLLI",
+  "texto": "Você parou quando precisou me puxar. E a gente voltou a tocar depois."
+ },
+ {
+  "min": 4.2,
+  "area": "sky_canal",
+  "etapa": "Abra a trava grave da Usina.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "...Tá. Dessa vez eu vou junto."
+ },
+ {
+  "min": 4.43,
+  "area": "power_plant",
+  "etapa": "Interrompa o ciclo da Usina.",
+  "quem": "FRANCO SINTETIZADOR",
+  "texto": "Não toca ainda. Falta sincronizar."
+ },
+ {
+  "min": 4.44,
+  "area": "power_plant",
+  "etapa": "Interrompa o ciclo da Usina.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Você falou isso há três voltas."
+ },
+ {
+  "min": 4.45,
+  "area": "power_plant",
+  "etapa": "Interrompa o ciclo da Usina.",
+  "quem": "FRANCO SINTETIZADOR",
+  "texto": "Se eu errar, todo mundo aqui vai ouvir."
+ },
+ {
+  "min": 4.46,
+  "area": "power_plant",
+  "etapa": "Interrompa o ciclo da Usina.",
+  "quem": "RYUCHI",
+  "texto": "Vai. Eu também tô ouvindo você não tocar."
+ },
+ {
+  "min": 4.64,
+  "area": "power_plant",
+  "etapa": "Encontre Mazza e Colli no Contratempo.",
+  "quem": "NARRADOR",
+  "texto": "Quando o último eco cai, Ryuchi Percussionista não segue para a saída. Ele escuta três notas escapando de uma sala de controle que deveria estar vazia."
+ },
+ {
+  "min": 4.65,
+  "area": "power_plant",
+  "etapa": "Encontre Mazza e Colli no Contratempo.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "Tem alguém improvisando atrás dessa porta. Isso não é retorno da máquina."
+ },
+ {
+  "min": 4.67,
+  "area": "power_plant",
+  "etapa": "Encontre Mazza e Colli no Contratempo.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Então abre. Se for outro Ryuchi, dessa vez eu vou me preparar emocionalmente."
+ },
+ {
+  "min": 4.68,
+  "area": "power_plant",
+  "etapa": "Encontre Mazza e Colli no Contratempo.",
+  "quem": "FRANCO SINTETIZADOR",
+  "texto": "Não abre. Eu ainda não decidi se essa sequência termina."
+ },
+ {
+  "min": 4.69,
+  "area": "power_plant",
+  "etapa": "Encontre Mazza e Colli no Contratempo.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "O teclado tá te esperando ou você tá esperando ele?"
+ },
+ {
+  "min": 4.7,
+  "area": "power_plant",
+  "etapa": "Encontre Mazza e Colli no Contratempo.",
+  "quem": "FRANCO SINTETIZADOR",
+  "texto": "Você fala isso como se fosse fácil."
+ },
+ {
+  "min": 4.72,
+  "area": "power_plant",
+  "etapa": "Encontre Mazza e Colli no Contratempo.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "Não é. Por isso eu trouxe mais gente."
+ },
+ {
+  "min": 4.73,
+  "area": "power_plant",
+  "etapa": "Encontre Mazza e Colli no Contratempo.",
+  "quem": "FRANCO SINTETIZADOR",
+  "texto": "Eu passei horas impedindo essa nota de entrar. Vocês chegaram e perguntaram por que ela estava do lado de fora."
+ },
+ {
+  "min": 4.74,
+  "area": "power_plant",
+  "etapa": "Encontre Mazza e Colli no Contratempo.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Eu ia dizer alguma coisa inteligente, mas estou olhando pra mim mesmo com um teclado."
+ },
+ {
+  "min": 4.76,
+  "area": "power_plant",
+  "etapa": "Encontre Mazza e Colli no Contratempo.",
+  "quem": "FRANCO SINTETIZADOR",
+  "texto": "E eu estou olhando pra uma versão minha que abre espaço antes de saber o que vai caber. Talvez seja disso que esta cidade precisa."
+ },
+ {
+  "min": 4.77,
+  "area": "power_plant",
+  "etapa": "Encontre Mazza e Colli no Contratempo.",
+  "quem": "FRANCO SINTETIZADOR",
+  "texto": "Então eu levo o teclado. O que não estiver pronto... vai assim mesmo."
+ },
+ {
+  "min": 5.01,
+  "area": "contratempo",
+  "etapa": "Comece uma música no palco do Contratempo.",
+  "quem": "MAZZA",
+  "texto": "Colli voltou inteiro. Agora eu posso voltar a me preocupar com coisas pequenas — tipo a cidade caindo."
+ },
+ {
+  "min": 5.03,
+  "area": "contratempo",
+  "etapa": "Comece uma música no palco do Contratempo.",
+  "quem": "MAZZA",
+  "texto": "A flauta só funciona porque o desenho do Colli diz onde o ar consegue ficar."
+ },
+ {
+  "min": 5.04,
+  "area": "contratempo",
+  "etapa": "Comece uma música no palco do Contratempo.",
+  "quem": "COLLI",
+  "texto": "Esta é a Flauta dos Ventos. O Mazza construiu o corpo; eu desenhei as rotas que ela consegue revelar."
+ },
+ {
+  "min": 5.06,
+  "area": "contratempo",
+  "etapa": "Comece uma música no palco do Contratempo.",
+  "quem": "MAZZA",
+  "texto": "Eu fiz o corpo dela pra aguentar erro. Toca torto mesmo — ela foi feita pra isso."
+ },
+ {
+  "min": 5.07,
+  "area": "contratempo",
+  "etapa": "Comece uma música no palco do Contratempo.",
+  "quem": "COLLI",
+  "texto": "Lá em cima, toca uma nota e vê onde o vapor segura."
+ },
+ {
+  "min": 5.16,
+  "area": "contratempo",
+  "etapa": "Reabra o Elevador do Céu.",
+  "quem": "DNEY",
+  "texto": "A frase entrou no sistema. Eu deixei as imperfeições visíveis — foram elas que mostraram ao Elevador que havia gente tocando."
+ },
+ {
+  "min": 5.18,
+  "area": "contratempo",
+  "etapa": "Reabra o Elevador do Céu.",
+  "quem": "DNEY",
+  "texto": "Aqui ninguém toca a mesma frase duas vezes. Não existe a frase certa — existe a que vocês tiveram coragem de tocar."
+ },
+ {
+  "min": 5.19,
+  "area": "contratempo",
+  "etapa": "Reabra o Elevador do Céu.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "A virada não estava pronta. Eu ouvi o espaço e entrei."
+ },
+ {
+  "min": 5.2,
+  "area": "contratempo",
+  "etapa": "Reabra o Elevador do Céu.",
+  "quem": "BELGA",
+  "texto": "A rua inteira ouviu. O Elevador do Céu está aberto — e o Silêncio também ouviu vocês chegando."
+ },
+ {
+  "min": 5.35,
+  "area": "sky_lift",
+  "etapa": "Forme a primeira passarela de nuvem.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "Esse elevador virou um portal de ressonância. A frase abre a passagem acima do deserto; o Tambor ancora as nuvens do outro lado."
+ },
+ {
+  "min": 5.36,
+  "area": "sky_lift",
+  "etapa": "Forme a primeira passarela de nuvem.",
+  "quem": "RYUCHI",
+  "texto": "A gente atravessa e continua no mesmo mundo?"
+ },
+ {
+  "min": 5.37,
+  "area": "sky_lift",
+  "etapa": "Forme a primeira passarela de nuvem.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "No mesmo céu. Só que agora a gente escolhe o caminho."
+ },
+ {
+  "min": 5.39,
+  "area": "sky_lift",
+  "etapa": "Forme a primeira passarela de nuvem.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Então abre a passagem. A rua fica com a gente."
+ },
+ {
+  "min": 5.4,
+  "area": "sky_lift",
+  "etapa": "Forme a primeira passarela de nuvem.",
+  "quem": "RYUCHI",
+  "texto": "O portal deixou a poeira lá embaixo."
+ },
+ {
+  "min": 5.41,
+  "area": "sky_lift",
+  "etapa": "Forme a primeira passarela de nuvem.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "E trouxe o clube junto, bem pequeno."
+ },
+ {
+  "min": 5.44,
+  "area": "cloud_sea",
+  "etapa": "Forme a primeira passarela de nuvem.",
+  "quem": "COLLI",
+  "texto": "A Flauta reúne as nuvens. Esperem a superfície ficar inteira antes de pisar. Fora da borda não há chão: a queda é fatal."
+ },
+ {
+  "min": 5.46,
+  "area": "cloud_sea",
+  "etapa": "Forme a primeira passarela de nuvem.",
+  "quem": "RYUCHI",
+  "texto": "Dá para ver o deserto entre elas."
+ },
+ {
+  "min": 5.47,
+  "area": "cloud_sea",
+  "etapa": "Forme a primeira passarela de nuvem.",
+  "quem": "COLLI",
+  "texto": "O portal trouxe a gente para o alto do mesmo mundo. Sigam a borda clara e escutem o passo."
+ },
+ {
+  "min": 5.87,
+  "area": "cloud_sea",
+  "etapa": "Forme a última passarela de nuvem.",
+  "quem": "NARRADOR",
+  "texto": "O gravador salva esta frequência. A equipe recupera as forças."
+ },
+ {
+  "min": 6.11,
+  "area": "cloud_terrace",
+  "etapa": "Enfrente O Metrônomo.",
+  "quem": "O METRÔNOMO",
+  "texto": "ENTRADA FORA DO COMPASSO. APAGAR VARIAÇÃO. RECOMEÇAR."
+ },
+ {
+  "min": 6.13,
+  "area": "cloud_terrace",
+  "etapa": "Enfrente O Metrônomo.",
+  "quem": "FRANCO SINTETIZADOR",
+  "texto": "Eu conheço esse sistema. Ele espera todo mundo repetir a mesma abertura."
+ },
+ {
+  "min": 6.14,
+  "area": "cloud_terrace",
+  "etapa": "Enfrente O Metrônomo.",
+  "quem": "RYUCHI PERCUSSIONISTA",
+  "texto": "Ele quer transformar nossa jornada numa repetição segura. Então cada um entra diferente — como a cidade ensinou."
+ },
+ {
+  "min": 6.58,
+  "area": "cloud_terrace",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "BELGA",
+  "texto": "O sinal chegou inteiro. Vou deixar o canal aberto — a cidade inteira está ouvindo vocês."
+ },
+ {
+  "min": 6.66,
+  "area": "last_torii",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "NARRADOR",
+  "texto": "Ryuchi · Katana e Franco · Sintetizador aguardam junto ao Torii. Quem seguiu com a formação permanece ao seu lado; as outras vozes vieram sustentar a passagem."
+ },
+ {
+  "min": 6.67,
+  "area": "last_torii",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "KATANA",
+  "texto": "Não vou pedir que entrem sem medo. Só não entrem sozinhos."
+ },
+ {
+  "min": 6.69,
+  "area": "last_torii",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Então a gente entra junto. Cada um com a sua parte."
+ },
+ {
+  "min": 6.7,
+  "area": "last_torii",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "FRANCO SINTETIZADOR",
+  "texto": "O círculo reúne nossas frequências. O que falta agora é começar."
+ },
+ {
+  "min": 6.81,
+  "area": "silence_core",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "O SILÊNCIO",
+  "texto": "Espera. Se terminarem a frase, este lugar deixa de poder repetir vocês."
+ },
+ {
+  "min": 6.82,
+  "area": "silence_core",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Você fugiu das Ruínas, atravessou a Cidade das Vozes e tentou construir um mundo onde nada precisa terminar."
+ },
+ {
+  "min": 6.84,
+  "area": "silence_core",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "O SILÊNCIO",
+  "texto": "Ainda não está pronto. Quando ouvirem o que vocês realmente são, vão embora."
+ },
+ {
+  "min": 6.85,
+  "area": "silence_core",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "RYUCHI",
+  "texto": "Franco... essa voz."
+ },
+ {
+  "min": 6.86,
+  "area": "silence_core",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Eu sei."
+ },
+ {
+  "min": 6.87,
+  "area": "silence_core",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "O SILÊNCIO",
+  "texto": "É mais seguro quando ninguém escuta."
+ },
+ {
+  "min": 6.88,
+  "area": "silence_core",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "RYUCHI",
+  "texto": "A gente escutou tanta gente pra chegar aqui. Cada capítulo deixou uma parte desta frase."
+ },
+ {
+  "min": 6.9,
+  "area": "silence_core",
+  "etapa": "Atravesse o Último Torii e enfrente O Silêncio.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Agora a gente termina sem apagar os erros. Essa é a última frequência."
+ },
+ {
+  "min": 7.41,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "RYUCHI",
+  "texto": "Eu achei que ia sumir."
+ },
+ {
+  "min": 7.42,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "O medo?"
+ },
+ {
+  "min": 7.43,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "RYUCHI",
+  "texto": "É."
+ },
+ {
+  "min": 7.44,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Ainda tá aqui também."
+ },
+ {
+  "min": 7.45,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "RYUCHI",
+  "texto": "Então por que tá diferente?"
+ },
+ {
+  "min": 7.46,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Porque agora a gente consegue começar mesmo assim."
+ },
+ {
+  "min": 7.51,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "COLLI",
+  "texto": "A última frequência abriu caminhos que antes não respondiam."
+ },
+ {
+  "min": 7.53,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Então não foi uma porta de saída."
+ },
+ {
+  "min": 7.54,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "RYUCHI",
+  "texto": "Foi espaço para a próxima música. E dessa vez a gente escolhe por onde continuar."
+ },
+ {
+  "min": 7.55,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Cada mundo ainda tem alguma coisa para nos dizer."
+ },
+ {
+  "min": 7.56,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "BELGA",
+  "texto": "O canal fica aberto. Voltem quando quiserem — a cidade continua aqui."
+ },
+ {
+  "min": 7.58,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "RYUCHI",
+  "texto": "Tá ouvindo? Tem outro pulso vindo debaixo do Torii."
+ },
+ {
+  "min": 7.59,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Uma passagem que não acaba na primeira canção."
+ },
+ {
+  "min": 7.6,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "RYUCHI",
+  "texto": "A gente pode explorar os mundos… ou testar até onde esse som vai."
+ },
+ {
+  "min": 7.61,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "FRANCO, THE SIR!",
+  "texto": "Uma onda de cada vez. Sem precisar acertar tudo de primeira."
+ },
+ {
+  "min": 7.62,
+  "area": "silence_core",
+  "etapa": "Escute a última frequência.",
+  "quem": "RYUCHI",
+  "texto": "Abre uma sessão nova. A gente começa daqui."
+ }
+]

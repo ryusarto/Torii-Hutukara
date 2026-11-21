@@ -70,8 +70,13 @@
       // Imagem que já está na página (retratos do diálogo, menus) troca na hora:
       // segurar o endereço deixaria a imagem anterior à mostra.
       if (this.isConnected) { pending.delete(this); return srcDesc.set.call(this, value); }
-      pending.set(this, { url, prio: rank.has(key[1]) ? rank.get(key[1]) : PRIORITY.length + seq++ });
+      // Imagem com onload é etapa de um processamento (recolorir, recortar): o
+      // resultado vai para outra imagem, que é a que o jogo desenha. Ela nunca
+      // seria promovida pelo desenho, então já entra na frente.
+      const etapa = typeof this.onload === 'function';
+      pending.set(this, { url, prio: etapa ? -1 - (seq++) / 1e6 : rank.has(key[1]) ? rank.get(key[1]) : PRIORITY.length + seq++ });
       stats.queued++;
+      if (etapa) stats.etapas = (stats.etapas || 0) + 1;
       schedule();
     }
   });
@@ -93,12 +98,33 @@
     });
   }
   const decode = proto.decode;
+  // Com a fila, algumas imagens terminam de carregar (e às vezes trocam o
+  // próprio src, como as recoloridas via toDataURL) depois de alguém já ter
+  // pedido decode(). O decode nativo rejeita quando o src muda no meio; aqui
+  // ele espera a imagem assentar e tenta de novo, até 4 vezes.
+  const carregada = (img) => new Promise((resolve, reject) => {
+    const semSrc = !srcDesc.get.call(img) && !pending.has(img);
+    if (!semSrc && img.complete) return resolve();
+    // Sem src ainda (resultado de um processamento em andamento): espera a
+    // imagem receber o resultado e carregar, por até 20 s.
+    const limite = semSrc ? setTimeout(() => { img.removeEventListener('load', ok); img.removeEventListener('error', falha); resolve(); }, 20000) : null;
+    const ok = () => { clearTimeout(limite); img.removeEventListener('error', falha); resolve(); };
+    const falha = () => { clearTimeout(limite); img.removeEventListener('load', ok); reject(new DOMException('Falha ao carregar imagem', 'EncodingError')); };
+    img.addEventListener('load', ok, { once: true });
+    img.addEventListener('error', falha, { once: true });
+  });
   if (decode) proto.decode = function () {
-    if (!promote(this)) return decode.call(this);
-    return new Promise((resolve, reject) => {
-      this.addEventListener('load', () => decode.call(this).then(resolve, reject), { once: true });
-      this.addEventListener('error', () => reject(new DOMException('Falha ao carregar imagem', 'EncodingError')), { once: true });
+    const img = this;
+    promote(img);
+    const tentar = (resto) => carregada(img).then(() => {
+      const antes = srcDesc.get.call(img);
+      return decode.call(img).catch((erro) => {
+        const mudou = srcDesc.get.call(img) !== antes || !img.complete || pending.has(img);
+        if (resto > 0 && mudou) return tentar(resto - 1);
+        throw erro;
+      });
     });
+    return tentar(4);
   };
   const wrap = (ctxProto, name) => {
     const f = ctxProto && ctxProto[name];

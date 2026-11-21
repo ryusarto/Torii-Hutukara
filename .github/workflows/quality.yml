@@ -64,6 +64,7 @@ jobs:
           node qa/review111_animation.cjs
           node qa/review111_spacing.cjs
           node qa/sorte_reproducao.cjs
+          node qa/narrativa_fase4.cjs
       - name: Verify web export on PC, phone and tablet
         run: |
           ruby production/build_playtest.rb
@@ -110,6 +111,7 @@ jobs:
             qa/dungeon-v3/
             qa/playtest/SITE_TEST_RESULTS.json
             qa/sorte/
+            qa/narrativa/
             qa/screenshots-local/pages/
             qa/screenshots-local/review-110/
             qa/screenshots-local/review-111/
