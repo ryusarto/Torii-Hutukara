@@ -1,0 +1,51 @@
+{
+  "checkedAtUtc": "2026-11-21T00:29:42Z",
+  "url": "https://ryusarto.github.io/Torii-Hutukara/",
+  "mergeCommit": "3e7ad3f5c9ba484e9e257e016102c19d8389c235",
+  "publicationRun": 44232084397,
+  "buildInfo": {
+    "version": "1.7.0",
+    "sourceSha256": "5af9381eddcafa26fd671adbca39cc27bb879549f8e4a85500db962ac151a6d7",
+    "builtAt": "2026-11-18T03:43:03Z",
+    "indexBytes": 906466,
+    "indexSha256": "8cbf950e2e450d9f81f75036676ffc4180abc7b5cb968e5e7b845aa8594906db",
+    "portableBuildUnchanged": true,
+    "gameContentRoundTrip": true
+  },
+  "htmlSha256Verified": true,
+  "atlases": {
+    "pulse": {
+      "sha256": "76256b7050db7b442bc2e494e970e516db9c61994c7fd9e331bb0a7985f83d81",
+      "size": [
+        1024,
+        512
+      ],
+      "bytes": 401825
+    },
+    "static": {
+      "sha256": "e2d108ea8dc8d7a32da3a48c7727731559198144f4527dd46ebdc7c78a649bba",
+      "size": [
+        1024,
+        512
+      ],
+      "bytes": 480777
+    },
+    "scrap": {
+      "sha256": "7c14b8e0e8f1eedd7460261cb2d982af07661765e915ff9c5e83eb342e4ff331",
+      "size": [
+        1024,
+        512
+      ],
+      "bytes": 533578
+    },
+    "void": {
+      "sha256": "49fc31de0a7cbaf2006d7926e39d2271199bd07be19701e25bab4f521141db80",
+      "size": [
+        1024,
+        512
+      ],
+      "bytes": 536165
+    }
+  },
+  "buildInfoUrl": "https://ryusarto.github.io/Torii-Hutukara/build-info.json"
+}

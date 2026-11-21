@@ -1,10 +1,10 @@
 # Coordenação de releases — Torii & Hutukara
 
-Atualizado em 18/11/2026 pela coordenação do jogo. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
+Atualizado em 20/11/2026 após a confirmação dos FX no Pages. Reservas de produção e versões integradas são distinguidas abaixo. O estado do site exige conferir o workflow e o build-info, além do merge.
 
 ## Base consultada
 
-Main funcional `bf1c2dc45c19216463983bd92f8bcb39216fe4d7`: **Beta 1.6.0**, com cenários desérticos, músicos da 1.3 e inimigos/bosses da 1.5 preservados. Publicação e hash do site confirmados em 18/11/2026.
+Main funcional `3e7ad3f5c9ba484e9e257e016102c19d8389c235`: **Beta 1.7.0**, com FX dos golpes no chão, cenários desérticos, músicos revisados na 1.6.1 e inimigos/bosses da 1.5 preservados. Publicação e hashes conferidos em 20/11/2026.
 
 ## Versões integradas
 
@@ -13,12 +13,20 @@ Main funcional `bf1c2dc45c19216463983bd92f8bcb39216fe4d7`: **Beta 1.6.0**, com c
 | Beta 1.3.0 | Músicos | Músicos chibi e paleta canônica | Integrada antes do PR #13; preservar |
 | Beta 1.5.0 | NPCs/inimigos e bosses | Inimigos próprios e ataques animados dos quatro chefes | PR #13 integrado em 47039cdd; incluído na publicação 1.6 |
 | Beta 1.6.0 | Cenários / Analisar build HTML TORII Hutukara | Direção desértica do C3, biblioteca, integração e exportação | Integrada em bf1c2dc; workflow 44227852940 aprovado e site/hash confirmados |
+| Beta 1.6.1 | Músicos | Máscaras, cadência e transições | PR #16 integrado em 86e3085; publicação 44230185415 aprovada |
+| Beta 1.7.0 | NPCs/inimigos e bosses | 32 quadros de FX dos golpes no chão | PR #15 integrado em 3e7ad3f; publicação 44232084397 aprovada e site/hash confirmados |
 
 A reserva anterior **1.4.0 para cenários foi realocada para 1.6.0**, pois a main avançou para 1.5 antes da conclusão dos cenários. Os assets recuperados continuam válidos. Não promover a build de cenários1.4 por cima da main1.5 nem simplesmente renomear seu executável.
 
 O checkpoint de cenários permanece recuperável na branch art/cenarios-deserto-v1 e nos backups próprios. Os executáveis e relatórios anteriores são evidências das respectivas fontes. A composição final 1.6 foi recompilada e revalidada; seus resultados identificam o hash abaixo.
 
-## Publicação confirmada — Beta 1.6
+## Publicação atual confirmada — Beta 1.7
+
+- [Publish playtest 44232084397](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44232084397) concluído com sucesso para 3e7ad3f.
+- Pages conferido em 20/11/2026: 1.7.0, SHA-256 da fonte `5af9381eddcafa26fd671adbca39cc27bb879549f8e4a85500db962ac151a6d7`; HTML e quatro atlas com hashes idênticos aos validados. Roundtrip e HTML portátil preservados.
+- Arte e gameplay aprovados no head e4f5158; publicação recompilou a composição e repetiu as suítes. [Relatório e limites](../qa/boss-ground-fx-v1/PLAYTEST.md).
+
+## Histórico da publicação — Beta 1.6
 
 - [Workflow Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/runs/44227852940): concluído com sucesso para o commit bf1c2dc.
 - [Jogo online](https://ryusarto.github.io/Torii-Hutukara/): build-info retornou versão 1.6.0 e SHA-256 `517715fe2e742bf3e19b2e238f0286378e5c63335002a1e116cf62fe3b10b845`.
@@ -30,7 +38,7 @@ O checkpoint de cenários permanece recuperável na branch art/cenarios-deserto-
 ## Regras de integração
 
 1. Produzir código, arte e documentação em paralelo, com posse explícita dos arquivos e saídas locais separadas.
-2. Serializar merge/publicação. Neste estado, cenários1.6 incorpora músicos1.3 e inimigos/bosses1.5.
+2. Serializar merge/publicação. Neste estado, FX1.7 incorpora músicos1.6.1, cenários1.6 e inimigos/bosses1.5.
 3. Se a ordem mudar novamente, distribuir o próximo número livre antes da publicação. Nunca baixar a versão da main ou reutilizar uma pasta pública com conteúdo diferente.
 4. Antes de integrar, reler main e reconciliar por trechos gerador, exportador, runtime e camadas de arte. Não restaurar arquivos inteiros de uma base antiga sobre as mudanças recentes.
 5. O relatório final identifica versão e SHA-256 do executável efetivamente executado. Mudança de fonte compilada/versão exige nova build e evidência; relatórios anteriores permanecem históricos. Um commit exclusivamente documental não muda por si o hash do executável.
@@ -48,4 +56,4 @@ Não encerrar processos ou apagar arquivos de outra frente. Limpeza é restrita 
 
 ## Limites
 
-Este arquivo modifica somente a coordenação documental. Não altera game/VERSION.json, runtime, assets ou o site. A publicação 1.6 acima foi confirmada; versões futuras continuam exigindo conferência real antes da promoção.
+Este arquivo modifica somente a coordenação documental. Não altera game/VERSION.json, runtime, assets ou o site. A publicação 1.7 acima foi confirmada; versões futuras continuam exigindo conferência real antes da promoção.
