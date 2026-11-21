@@ -66,11 +66,31 @@ fs.mkdirSync(out,{recursive:true});
     return {theme:art.manifest.theme,sheets:Object.keys(art.manifest.sheets).length,items,backgrounds,desertExtras:Object.keys(art.manifest.items).filter(k=>k.startsWith('c3_desert_'))};
    });assert.equal(r.sheets,15);assert.equal(r.items,151);assert.equal(r.desertExtras.length,25);assert.equal(r.backgrounds.length,2);return r;
   });
-  await check('All25 maps retain tiles/gates and collision, with only the authorized vertical studio sofa footprint',async()=>{
+  await check('All 25 maps retain tiles/gates and collision except the studio sofa and two removed district residences',async()=>{
    const currentMaps=await page.evaluate(()=>JSON.parse(JSON.stringify(Object.values(areas).map(a=>({id:a.id,w:a.w,h:a.h,tiles:a.tiles,blocked:[...a.blocked].sort(),gates:a.gates.map(g=>({...g,need:undefined}))})))));
    assert.equal(currentMaps.length,25);assert.equal(baseline.length,25);
-   for(const old of baseline){const a=currentMaps.find(m=>m.id===old.id);assert(a,'Missing '+old.id);assert.equal(a.w,old.w,old.id+' width');assert.equal(a.h,old.h,old.id+' height');assert.deepEqual(a.tiles,old.tiles,old.id+' tiles');const expectedBlocked=new Set(old.blocked);if(old.id==='studio'){for(let y=5;y<9;y++)for(let x=2;x<6;x++)expectedBlocked.delete(x+','+y);for(let y=6;y<12;y++)for(let x=2;x<5;x++)expectedBlocked.add(x+','+y);}assert.deepEqual(a.blocked,[...expectedBlocked].sort(),old.id+' blocked');assert.deepEqual(a.gates,old.gates,old.id+' gates');}
-   return {maps:25,transitions:currentMaps.reduce((n,a)=>n+a.gates.length,0),newCoordinateAllowlist:false,collisionChanges:'studio sofa only:3x6 at(2,6)'};
+   for(const old of baseline){
+    const a=currentMaps.find(m=>m.id===old.id);
+    assert(a,'Missing '+old.id);assert.equal(a.w,old.w,old.id+' width');assert.equal(a.h,old.h,old.id+' height');
+    assert.deepEqual(a.tiles,old.tiles,old.id+' tiles');
+    const expectedBlocked=new Set(old.blocked);
+    if(old.id==='studio'){
+     for(let y=5;y<9;y++)for(let x=2;x<6;x++)expectedBlocked.delete(x+','+y);
+     for(let y=6;y<12;y++)for(let x=2;x<5;x++)expectedBlocked.add(x+','+y);
+    }
+    if(old.id==='distortion_district'){
+     // 1.11 removes only the residences at (9,9) and (21,8).
+     // Their footprints overlap eight workshop cells, which must stay blocked.
+     for(const [hx,hy]of [[9,9],[21,8]])for(let y=hy-5;y<hy;y++)for(let x=hx-3;x<hx+4;x++){
+      if(x>=21&&x<29&&y>=6&&y<11)continue;
+      assert(expectedBlocked.delete(x+','+y),'Missing historical residence cell '+x+','+y);
+     }
+     assert.equal(old.blocked.length-expectedBlocked.size,62,'Exactly the removed residence collision is released');
+    }
+    assert.deepEqual(a.blocked,[...expectedBlocked].sort(),old.id+' blocked');
+    assert.deepEqual(a.gates,old.gates,old.id+' gates');
+   }
+   return {maps:25,transitions:currentMaps.reduce((n,a)=>n+a.gates.length,0),collisionChanges:{studio:'sofa 3x6 at (2,6)',distortion_district:'62 released cells from residences (9,9)/(21,8); workshop overlap retained'},allOtherCellsUnchanged:true};
   });
   await check('Desert binding is used by the real prop renderer only in C3, including elevator states',async()=>{
    const r=await page.evaluate(()=>{
