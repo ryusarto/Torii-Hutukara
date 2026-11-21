@@ -1,3 +1,11 @@
+## [Calabouço · grupos, respiro e equilíbrio] — 2026-11-21
+
+- **Os ecos chegam em grupos** de 2 a 4 (até 5 no co-op), em cerco, linha ou pinça, em vez de um por vez. O próximo grupo vem pouco depois de o anterior nascer, quando há espaço na arena.
+- **Respiro a cada 5 ondas**, antes da melhoria: *Recompor* (quem está de pé recupera 30% da vida máxima), *Reerguer* (um integrante caído volta com metade da vida) ou *Sintonia rara* (a melhoria seguinte sobe 2 níveis). É a única cura da Fenda; as fitas continuam desligadas.
+- **Força do instrumento na Fenda:** todos recebem o mesmo dano, e quem sobrevivia menos bate mais forte (Ryuchi ×1,15, Percussão ×1,6, Sintetizador ×2,1, Katana ×2,7). No co-op, cada golpe usa a força de quem o desferiu. No robô de equilíbrio, sozinhos, todos chegam entre a onda 18 e a 20 (antes: da 6 à 23).
+- **Co-op na mesma curva do solo.** Antes a dificuldade do co-op subia 25% mais rápido, e a dupla Franco/Ryuchi chegava 30% menos longe que no solo. Agora o segundo jogador é compensado por um fator fixo: 50% mais ecos, um a mais vivo, grupos maiores e 20% mais vida.
+- Novo teste `qa/dungeon_equilibrio.cjs` no CI: falha se um personagem ficar mais de 15% abaixo da média ou se o co-op sair de 85%–120% do solo com a mesma dupla.
+
 ## [Calabouço · correções rápidas] — 2026-11-21
 
 - **Encerrar expedição pede confirmação.** Vale para o painel entre ondas, o mapa (M) e o menu do sistema. O foco começa em CONTINUAR NA FENDA, para um toque ou botão A repetido não apagar a tentativa.

@@ -28,11 +28,11 @@ const PostGame={
    }
    const resonance=rest?this.number(g.resonance,100):this.number(r.resonanceStart,100,g.resonance||0);
    const combo=this.number(rest?r.combo:r.comboStart,5);
-   const upgrades={};let budget=wave-1;
+   const upgrades={};let budget=wave-1+(this.RARE_LEVELS-1)*Math.floor(wave/this.RESPITE_EVERY);
    for(const id of Object.keys(this.cards)){
     upgrades[id]=this.number(r.upgrades?.[id],budget);budget-=upgrades[id];
    }
-   out.run={active:true,rules:3,legacy:r.rules!==3||!!r.legacy,mode:r.mode==='coop'?'coop':'solo',seed:this.number(r.seed,4294967295,1)||1,wave,score:this.number(r.bankedScore,this.MAX_SCORE),bankedScore:this.number(r.bankedScore,this.MAX_SCORE),kills:this.number(r.bankedKills,this.MAX_SCORE),bankedKills:this.number(r.bankedKills,this.MAX_SCORE),completedWave:rest?wave:wave-1,hpStart,campaignPotions:this.number(r.campaignPotions,99,g.potions||0),campaignResonance:this.number(r.campaignResonance,100,g.resonance||0),resonanceStart:resonance,potionsStart:0,combo,comboStart:combo,elapsed:this.number(r.bankedElapsed,this.MAX_SCORE),bankedElapsed:this.number(r.bankedElapsed,this.MAX_SCORE),waveSeats:r.waveSeats===2?2:1,phase:rest?'rest':'fight',cursor:0,wait:0,pending:null,clean:true,knockouts:0,upgrades,_resume:!rest};
+   out.run={active:true,rules:3,legacy:r.rules!==3||!!r.legacy,mode:r.mode==='coop'?'coop':'solo',seed:this.number(r.seed,4294967295,1)||1,wave,score:this.number(r.bankedScore,this.MAX_SCORE),bankedScore:this.number(r.bankedScore,this.MAX_SCORE),kills:this.number(r.bankedKills,this.MAX_SCORE),bankedKills:this.number(r.bankedKills,this.MAX_SCORE),completedWave:rest?wave:wave-1,hpStart,campaignPotions:this.number(r.campaignPotions,99,g.potions||0),campaignResonance:this.number(r.campaignResonance,100,g.resonance||0),resonanceStart:resonance,potionsStart:0,combo,comboStart:combo,elapsed:this.number(r.bankedElapsed,this.MAX_SCORE),bankedElapsed:this.number(r.bankedElapsed,this.MAX_SCORE),waveSeats:r.waveSeats===2?2:1,phase:rest?'rest':'fight',cursor:0,wait:0,pending:null,clean:true,knockouts:0,upgrades,respite:this.number(r.respite,wave),rare:rest&&r.rare===true,_resume:!rest};
    out.run.campaignHP=Object.fromEntries(Object.keys(this.names).map(id=>[id,this.number(r.campaignHP?.[id],g.maxhp[id]||40,g.maxhp[id]||40)]));
    out.run.campaignLeader=r.campaignLeader;
    out.run.campaignFormation=Array.isArray(r.campaignFormation)?[...new Set(r.campaignFormation.filter(id=>Object.hasOwn(this.names,id)))].slice(0,3):null;
@@ -106,15 +106,38 @@ const PostGame={
   for(let i=pool.length-1;i>0;i--){const j=Math.floor(rand()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}
   return pool.slice(0,3);
  },
+ // Respiro: a cada RESPITE_EVERY ondas, antes da melhoria, a equipe escolhe um alívio.
+ // É a única cura da Fenda (as fitas continuam desligadas).
+ RESPITE_EVERY:5,RESPITE_HEAL:.3,RESPITE_REVIVE:.5,RARE_LEVELS:2,
+ team(){return partyMembers().filter(id=>Object.hasOwn(this.names,id))},
+ respiteDue(r=this.run()){return !!r&&r.phase==='rest'&&r.wave%this.RESPITE_EVERY===0&&r.respite!==r.wave},
+ respite(kind,wave,who){
+  const r=this.run();if(!this.active()||!this.respiteDue(r)||r.wave!==wave)return false;const team=this.team();
+  if(kind==='heal'){for(const id of team)if(G.hp[id]>0)G.hp[id]=Math.min(G.maxhp[id],G.hp[id]+Math.ceil(G.maxhp[id]*this.RESPITE_HEAL))}
+  else if(kind==='revive'){if(!team.includes(who)||G.hp[who]>0)return false;G.hp[who]=Math.ceil(G.maxhp[who]*this.RESPITE_REVIVE);if(!G.hp[G.active])G.active=who}
+  else if(kind==='rare')r.rare=true;else return false;
+  r.respite=r.wave;save(true);updateHUD();this.showDraft();return true;
+ },
+ showRespite(r){
+  const team=this.team(),down=team.filter(id=>!(G.hp[id]>0)),hurt=team.some(id=>G.hp[id]>0&&G.hp[id]<G.maxhp[id]),life=team.map(id=>`<span style="white-space:nowrap">${this.names[id]} <b>${Math.max(0,G.hp[id]|0)}/${G.maxhp[id]}</b></span>`).join(' &nbsp;|&nbsp; ');
+  const option=(kind,title,text,extra='',disabled=false)=>`<button type="button" class="action" style="min-height:44px" data-respite="${kind}" ${extra} ${disabled?'disabled':''}><b>${title}</b><br><small>${text}</small></button>`;
+  const revive=down.length?down.map(id=>option('revive','Reerguer · '+this.names[id],'Volta com metade da vida',`data-who="${id}"`)).join(''):option('revive','Reerguer','Ninguém caiu','',true);
+  enterMenu10(`<div class="eyebrow">FENDA · ONDA ${r.wave} CONCLUÍDA · RESPIRO</div><h2>Um momento para respirar</h2><p>${life}</p><div class="row">${option('heal','Recompor','Quem está de pé recupera 30% da vida máxima','',!hurt)}${revive}${option('rare','Sintonia rara','A melhoria desta pausa sobe '+this.RARE_LEVELS+' níveis')}</div><button class="action" id="postLeaveDraft">Encerrar expedição</button>`,'postgame');
+  const wave=r.wave,buttons=[...document.querySelectorAll('[data-respite]')];
+  for(const b of buttons)b.onclick=()=>this.respite(b.dataset.respite,wave,b.dataset.who);
+  $('postLeaveDraft').onclick=()=>this.confirmExit(closeOverlay);buttons.find(b=>!b.disabled)?.focus();
+ },
  showDraft(){
   const r=this.run();if(!this.active()||r.phase!=='rest'||typeof document==='undefined')return;
-  const rows=this.offers(r).map(id=>{
-   const card=this.cards[id],level=(r.upgrades[id]||0)+1;
-   return `<button type="button" class="action" style="min-height:44px" data-echo-card="${id}"><b>${card.name} · Nv. ${level}</b><br><small>${card.text}<br>${this.cardValue(id,level-1)} → ${this.cardValue(id,level)}</small></button>`;
-  }).join('');
   // O resultado da onda fica dentro do painel: um aviso solto ficaria por cima das cartas.
-  this.hideToast();const result=r.lastWave&&r.lastWave.wave===r.wave?` · +${r.lastWave.bonus} PTS${r.lastWave.clean?' · SEM DANO':''} · TOTAL ${r.score}`:'';
-  enterMenu10(`<div class="eyebrow">FENDA · ONDA ${r.wave} CONCLUÍDA${result}</div><h2>Escolha uma melhoria</h2><p>Vale para toda a equipe até o fim desta tentativa. A vida perdida não volta.</p><div class="row">${rows}</div><button class="action" id="postLeaveDraft">Encerrar expedição</button>`,'postgame');
+  this.hideToast();if(this.respiteDue(r))return this.showRespite(r);
+  const step=r.rare?this.RARE_LEVELS:1;
+  const rows=this.offers(r).map(id=>{
+   const card=this.cards[id],now=r.upgrades[id]||0,level=Math.min(card.maxLevel||Infinity,now+step);
+   return `<button type="button" class="action" style="min-height:44px" data-echo-card="${id}"><b>${card.name} · Nv. ${level}</b><br><small>${card.text}<br>${this.cardValue(id,now)} → ${this.cardValue(id,level)}</small></button>`;
+  }).join('');
+  const result=r.lastWave&&r.lastWave.wave===r.wave?` · +${r.lastWave.bonus} PTS${r.lastWave.clean?' · SEM DANO':''} · TOTAL ${r.score}`:'';
+  enterMenu10(`<div class="eyebrow">FENDA · ONDA ${r.wave} CONCLUÍDA${result}</div><h2>${r.rare?'Sintonia rara · +'+step+' níveis':'Escolha uma melhoria'}</h2><p>Vale para toda a equipe até o fim desta tentativa. A vida perdida não volta.</p><div class="row">${rows}</div><button class="action" id="postLeaveDraft">Encerrar expedição</button>`,'postgame');
   const wave=r.wave,buttons=document.querySelectorAll('[data-echo-card]');
   for(const b of buttons)b.onclick=()=>this.choose(b.dataset.echoCard,wave);
   $('postLeaveDraft').onclick=()=>this.confirmExit(closeOverlay);buttons[0]?.focus();
@@ -139,17 +162,28 @@ const PostGame={
   $('postExitBack').onclick=()=>back();$('postExitConfirm').onclick=()=>this.finishRun('exit');$('postExitBack').focus();return true;
  },
  choose(id,wave){
-  const r=this.run();if(!this.active()||r.phase!=='rest'||r.wave!==wave||!this.offers(r).includes(id))return false;
-  r.upgrades[id]=(r.upgrades[id]||0)+1;r.phase='fight';
+  const r=this.run();if(!this.active()||r.phase!=='rest'||r.wave!==wave||this.respiteDue(r)||!this.offers(r).includes(id))return false;
+  const max=this.cards[id].maxLevel||Infinity;r.upgrades[id]=Math.min(max,(r.upgrades[id]||0)+(r.rare?this.RARE_LEVELS:1));r.rare=false;r.phase='fight';
   closeOverlay();r.wave=Math.min(this.MAX_WAVE,r.wave+1);this.beginWave();return true;
  },
+ // Força do instrumento (só na Fenda): todos recebem o mesmo dano, e quem sobrevive menos
+ // compensa batendo mais forte. Quem luta colado no eco (Katana, Sintetizador, Percussão)
+ // recebia de 2 a 4 vezes mais dano por onda que o Arqueiro. Ajustada com o robô de equilíbrio.
+ heroPower:{franco:1,ryuchi:1.15,alt:1,katana:2.7,synth:2.1,percussion:1.6},
+ power(who){return this.heroPower[who]??1},
+ // Quem desferiu o golpe: o líder, ou o jogador 2 durante as ações dele.
+ attackerId(){return this.attacker||G.active},
  incoming(amount){
   if(!this.active()||amount<=0)return amount;
   return Math.max(1,Math.round(amount*(1-this.bonus('guard',this.run()))));
  },
  profile(wave,seats=1){
-  const w=Math.max(1,wave),phase=(w-1)%5,names=['Pulso','Contratempo','Interferência','Ressonância','Crescendo'],intensity=(w-1)*(seats===2?.90:.72);
-  return {name:names[phase],count:Math.min(seats===2?18:15,Math.ceil((3+Math.floor(intensity*.55))*(seats===2?1.3:1))),alive:Math.min(seats===2?7:6,(seats===2?4:3)+Math.floor(intensity/6)),cadence:seats===2?1.05:1.25,warning:.95,hp:(1+.018*intensity+.20*Math.log2(1+intensity/5))*(seats===2?1.12:1),power:Math.min(3.25,1+.022*intensity),rest:w%5===0?8:4};
+  // Uma única curva de dificuldade para solo e co-op. Antes o co-op subia 25% mais rápido
+  // (0,90 por onda contra 0,72) e, com a mesma dupla, chegava a 30% menos ondas que o solo.
+  // Agora o segundo jogador é compensado por um fator fixo: 50% mais ecos, um a mais vivo,
+  // grupos maiores e 20% mais vida. Medido com o robô de equilíbrio (qa/dungeon_equilibrio.cjs).
+  const w=Math.max(1,wave),phase=(w-1)%5,names=['Pulso','Contratempo','Interferência','Ressonância','Crescendo'],intensity=(w-1)*.72,coop=seats===2;
+  return {name:names[phase],count:Math.min(coop?20:15,Math.ceil((3+Math.floor(intensity*.55))*(coop?1.5:1))),alive:Math.min(coop?7:6,(coop?4:3)+Math.floor(intensity/6)),group:Math.min(coop?5:4,2+Math.floor(intensity/4)+(coop?1:0)),cadence:coop?1.05:1.25,warning:.95,hp:(1+.018*intensity+.20*Math.log2(1+intensity/5))*(coop?1.2:1),power:Math.min(3.25,1+.022*intensity)};
  },
  record(mode){return this.state().records[mode==='coop'?'coop':'solo']},
  multiplier(r=this.run()){return 1+Math.min(5,r?.combo||0)*.1},
@@ -198,15 +232,36 @@ const PostGame={
   if(C3.coopActive())C3.syncCoop(true);this.spawn();save(true);updateHUD();toast('ONDA '+r.wave+' · '+this.profile(r.wave,r.waveSeats).name.toUpperCase()+(r.wave%5===0?' · ECO RESSONANTE':''));
  },
 
+ // Avisos de surgimento em andamento. Aceita o formato antigo (um único objeto).
+ warnings(r=this.run()){const p=r?.pending;return Array.isArray(p)?p:p?[p]:[]},
+ // Lugar válido para um aviso: visível, longe dos jogadores (mas não longe demais),
+ // chão livre e sem colar em inimigos ou em outros avisos.
+ spawnSpot(x,y,taken=[]){const actors=[G,...(C3.coopActive()?[C3.coop]:[])];return this.warningVisible(x,y)&&actors.every(a=>Math.hypot(a.x-x,a.y-y)>=4)&&actors.some(a=>Math.hypot(a.x-x,a.y-y)<=11)&&canBody121(x,y)&&current.enemies.every(e=>e.hp<=0||Math.hypot(e.x-x,e.y-y)>1.2)&&taken.every(t=>Math.hypot(t.x-x,t.y-y)>1.2)},
+ randomSpot(rand,taken=[]){for(let n=0;n<100;n++){const x=3.5+Math.floor(rand()*21),y=3.5+Math.floor(rand()*15);if(this.spawnSpot(x,y,taken))return{x,y}}return null},
+ // Os ecos chegam em grupos de 2 a 4 (5 no co-op), numa formação sorteada pela semente:
+ // cerco em volta de um jogador, linha de um lado ou pinça pelos dois lados.
  spawn(){
-  const r=this.run(),profile=r&&this.profile(r.wave,r.waveSeats);if(!r||r.pending||r.cursor>=this.plan.length||current.enemies.filter(e=>e.hp>0).length>=profile.alive)return false;
-  const spec=this.plan[r.cursor],actors=[G,...(C3.coopActive()?[C3.coop]:[])],far=(x,y)=>this.warningVisible(x,y)&&actors.every(a=>Math.hypot(a.x-x,a.y-y)>=4)&&actors.some(a=>Math.hypot(a.x-x,a.y-y)<=11)&&canBody121(x,y)&&current.enemies.every(e=>e.hp<=0||Math.hypot(e.x-x,e.y-y)>1.2);
-  let pos=far(spec.x,spec.y)?{x:spec.x,y:spec.y}:null;const rand=this.random((r.seed+Math.imul(r.wave,97)+r.cursor)>>>0);for(let n=0;!pos&&n<100;n++){const x=3.5+Math.floor(rand()*21),y=3.5+Math.floor(rand()*15);if(far(x,y))pos={x,y}}if(!pos)return false;
-  r.pending={...pos,index:r.cursor,time:profile.warning,max:profile.warning};return true;
+  const r=this.run(),profile=r&&this.profile(r.wave,r.waveSeats);if(!r||this.warnings(r).length||r.cursor>=this.plan.length)return false;
+  const alive=current.enemies.filter(e=>e.hp>0).length,left=this.plan.length-r.cursor,room=profile.alive-alive,size=Math.min(profile.group,left,room);
+  // Espera abrir espaço para o grupo inteiro; só manda um grupo menor com a arena vazia.
+  if(size<=0||size<Math.min(profile.group,left)&&alive>0)return false;
+  const rand=this.random((r.seed+Math.imul(r.wave,97)+Math.imul(r.cursor,131))>>>0),actors=[G,...(C3.coopActive()?[C3.coop]:[])],anchor=actors[Math.floor(rand()*actors.length)];
+  const shape=['cerco','linha','pinca'][Math.floor(rand()*3)],angle=rand()*Math.PI*2,dist=5+rand()*2,list=[];
+  for(let i=0;i<size;i++){
+   const a=shape==='cerco'?angle+i*2*Math.PI/size:shape==='pinca'?angle+(i%2?Math.PI:0):angle,off=shape==='linha'?(i-(size-1)/2)*1.6:shape==='pinca'?(Math.floor(i/2)-(Math.ceil(size/2)-1)/2)*1.5:0;
+   const x=Math.round((anchor.x+Math.cos(a)*dist-Math.sin(a)*off)*2)/2,y=Math.round((anchor.y+Math.sin(a)*dist+Math.cos(a)*off)*2)/2;
+   const pos=this.spawnSpot(x,y,list)?{x,y}:this.randomSpot(rand,list);if(!pos)break;
+   list.push({...pos,index:r.cursor+list.length,time:profile.warning+.12*list.length,max:profile.warning+.12*list.length});
+  }
+  if(!list.length)return false;r.cursor+=list.length;r.pending=list;r.formation=shape;return true;
  },
- materialize(){
-  const r=this.run(),p=r?.pending;if(!p)return;const actors=[G,...(C3.coopActive()?[C3.coop]:[])];if(!this.warningVisible(p.x,p.y)||actors.some(a=>Math.hypot(a.x-p.x,a.y-p.y)<2.5)){r.pending=null;this.spawnClock=0;this.spawn();return}
-  const spec=this.plan[p.index],profile=this.profile(r.wave,r.waveSeats),e={id:'endless_'+r.cursor,type:spec.type,x:p.x,y:p.y,endless:true,endlessElite:!!spec.elite};hydrateEnemy(e);e.hp=e.max=Math.min(2000000,Math.round(e.max*profile.hp*(spec.elite?1.4:1)));e.power=Math.min(Math.round(e.power*profile.power*(spec.elite?1.08:1)),Math.max(e.power,Math.ceil(Math.min(...partyMembers().map(id=>G.maxhp[id]||40))*.32)));e.cd=1;e.aware=1;current.enemies.push(e);r.cursor++;r.pending=null;engage();updateHUD();
+ materialize(p){
+  const r=this.run();if(!r)return;if(!p){for(const w of this.warnings(r).filter(w=>w.time<=0))this.materialize(w);return}
+  const actors=[G,...(C3.coopActive()?[C3.coop]:[])],others=this.warnings(r).filter(w=>w!==p);
+  // Um jogador em cima do aviso (ou o aviso fora da tela) muda o eco de lugar, sem perdê-lo.
+  if(!this.warningVisible(p.x,p.y)||actors.some(a=>Math.hypot(a.x-p.x,a.y-p.y)<2.5)){const pos=this.randomSpot(this.random((r.seed+p.index*7919+Math.floor(r.elapsed*10))>>>0),others);if(pos){Object.assign(p,pos);p.time=p.max}return}
+  const spec=this.plan[p.index];if(!spec){r.pending=others.length?others:null;return}
+  const profile=this.profile(r.wave,r.waveSeats),e={id:'endless_'+p.index,type:spec.type,x:p.x,y:p.y,endless:true,endlessElite:!!spec.elite};hydrateEnemy(e);e.hp=e.max=Math.min(2000000,Math.round(e.max*profile.hp*(spec.elite?1.4:1)));e.power=Math.min(Math.round(e.power*profile.power*(spec.elite?1.08:1)),Math.max(e.power,Math.ceil(Math.min(...partyMembers().map(id=>G.maxhp[id]||40))*.32)));e.cd=1;e.aware=1;current.enemies.push(e);r.cursor=Math.max(r.cursor,p.index+1);r.pending=others.length?others:null;engage();updateHUD();
  },
 
  update(dt){
@@ -217,10 +272,11 @@ const PostGame={
   r.elapsed=Math.min(this.MAX_SCORE,r.elapsed+dt);
   this.sinceSave=(this.sinceSave||0)+dt;if(this.dirty&&this.sinceSave>=this.SAVE_EVERY)this.flush();
   // A disconnected/KO partner never leaves a solo player with the larger queue.
-  if(r.waveSeats===2&&!C3.coopActive()){r.waveSeats=1;const count=this.profile(r.wave,1).count;this.plan.length=Math.max(r.cursor+(r.pending?1:0),Math.min(this.plan.length,count));}
-  if(r.pending){r.pending.time=Math.max(0,r.pending.time-dt);if(!r.pending.time)this.materialize()}
-  this.spawnClock+=dt;if(this.spawnClock>=this.profile(r.wave,r.waveSeats).cadence){this.spawnClock=0;this.spawn()}
-  if(!r.pending&&r.cursor>=this.plan.length&&current.enemies.every(e=>e.hp<=0)){
+  if(r.waveSeats===2&&!C3.coopActive()){r.waveSeats=1;const count=this.profile(r.wave,1).count;this.plan.length=Math.max(r.cursor,Math.min(this.plan.length,count));}
+  for(const w of this.warnings(r))w.time=Math.max(0,w.time-dt);if(this.warnings(r).some(w=>!w.time))this.materialize();
+  // O próximo grupo vem um compasso depois do anterior terminar de nascer.
+  if(this.warnings(r).length)this.spawnClock=0;else{this.spawnClock+=dt;if(this.spawnClock>=this.profile(r.wave,r.waveSeats).cadence){this.spawnClock=0;this.spawn()}}
+  if(!this.warnings(r).length&&r.cursor>=this.plan.length&&current.enemies.every(e=>e.hp<=0)){
    const bonus=this.waveValue(r);r.score=Math.min(this.MAX_SCORE,r.score+bonus);r.combo=r.knockouts?Math.max(0,r.combo-2):Math.min(5,r.combo+1);r.bankedScore=r.score;r.bankedKills=r.kills;r.bankedElapsed=r.elapsed;r.completedWave=r.wave;r.phase='rest';r.lastWave={wave:r.wave,bonus,clean:r.clean};r.wait=0;battle=null;mode='walk';this.clearCombat();this.best();save(true);updateHUD();this.showDraft();
   }
  },
@@ -248,9 +304,12 @@ const PostGame={
   if(sx<190&&sy<155||sx>VW-115&&sy<80||sy>VH-105&&(sx<165||sx>VW-200))return false;return true;
  },
  drawWarnings(){
-  if(!this.active())return;const p=this.run().pending;if(!p)return;const x=p.x*T-cam.x,y=p.y*T-cam.y,spec=this.plan[p.index];ctx.save();ctx.strokeStyle=spec?.elite?'#d6a56c':'#c4c7b0';ctx.lineWidth=2;ctx.setLineDash([4,3]);ctx.beginPath();ctx.ellipse(x,y,18,10,0,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#f0ddba';ctx.font='10px monospace';ctx.textAlign='center';ctx.fillText(spec?.elite?'RESSONANTE':'ECO',x,y-16);ctx.restore();
+  if(!this.active())return;for(const p of this.warnings())this.drawWarning(p);
  },
- hud(){if(!G)return;if(this.active()){const r=this.run(),left=this.plan.length-r.cursor+current.enemies.filter(e=>e.hp>0).length;$('quest').textContent='ONDA '+r.wave+' · '+(r.phase==='rest'?'Escolha uma melhoria':left+' inimigos restantes');$('questHint').textContent=r.score+' PTS · RITMO ×'+this.multiplier(r).toFixed(1)+' · '+this.profile(r.wave,r.waveSeats).name+' · M: encerrar';$('bMap').textContent='EXPEDIÇÃO [M]'}else if(G.c3?.complete){$('quest').textContent='Hutukara continua aberto.';$('questHint').textContent='M: escolher um capítulo ou entrar no calabouço infinito.';$('bMap').textContent='CAPÍTULOS [M]'}else $('bMap').textContent='MAPA [M]';if(G.c3?.complete){if($('mobileObjective'))$('mobileObjective').textContent=$('quest').textContent;if($('guideChip'))$('guideChip').textContent=$('questHint').textContent}this.mobileHUD()}
+ drawWarning(p){
+  const x=p.x*T-cam.x,y=p.y*T-cam.y,spec=this.plan[p.index];ctx.save();ctx.strokeStyle=spec?.elite?'#d6a56c':'#c4c7b0';ctx.lineWidth=2;ctx.setLineDash([4,3]);ctx.beginPath();ctx.ellipse(x,y,18,10,0,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#f0ddba';ctx.font='10px monospace';ctx.textAlign='center';ctx.fillText(spec?.elite?'RESSONANTE':'ECO',x,y-16);ctx.restore();
+ },
+ hud(){if(!G)return;if(this.active()){const r=this.run(),left=this.plan.length-r.cursor+this.warnings(r).length+current.enemies.filter(e=>e.hp>0).length;$('quest').textContent='ONDA '+r.wave+' · '+(r.phase==='rest'?'Escolha uma melhoria':left+' inimigos restantes');$('questHint').textContent=r.score+' PTS · RITMO ×'+this.multiplier(r).toFixed(1)+' · '+this.profile(r.wave,r.waveSeats).name+' · M: encerrar';$('bMap').textContent='EXPEDIÇÃO [M]'}else if(G.c3?.complete){$('quest').textContent='Hutukara continua aberto.';$('questHint').textContent='M: escolher um capítulo ou entrar no calabouço infinito.';$('bMap').textContent='CAPÍTULOS [M]'}else $('bMap').textContent='MAPA [M]';if(G.c3?.complete){if($('mobileObjective'))$('mobileObjective').textContent=$('quest').textContent;if($('guideChip'))$('guideChip').textContent=$('questHint').textContent}this.mobileHUD()}
 };
 C3.AREAS.push(PostGame.AREA);C3.COMBAT_AREAS.push(PostGame.AREA);combatAreas10.add(PostGame.AREA);C3.labels[PostGame.AREA]=['FENDA DAS RESSONÂNCIAS','CALABOUÇO INFINITO'];
 const postFresh=fresh;fresh=function(...args){const g=postFresh(...args);g.postgame=PostGame.defaults();return g};
@@ -264,12 +323,13 @@ const postSystem=openSystem;openSystem=function(...args){const r=postSystem(...a
 const postCombatUnlocked=C3.combatUnlocked;C3.combatUnlocked=function(g=G){return !!(g?.c3?.complete&&g.area===PostGame.AREA)||postCombatUnlocked(g)};
 const postActors=enemyActors;enemyActors=function(){return PostGame.active()?current.enemies.filter(e=>e.hp>0):postActors()};
 const postXP=gainXP;gainXP=function(...args){if(PostGame.active())return;return postXP(...args)};
+for(const name of ['coopAttack','coopSkill','coopAdvanced','coopSignature']){const f=C3[name];if(typeof f!=='function')continue;C3[name]=function(...args){const previous=PostGame.attacker;PostGame.attacker=C3.coop?.member||previous;try{return f.apply(this,args)}finally{PostGame.attacker=previous}}}
 const postHit=hitEnemy;hitEnemy=function(e,...args){if(!PostGame.active()||!e?.endless)return postHit(e,...args);PostGame.markMode();const r=PostGame.run();
  const perk=id=>PostGame.bonus(id,r);
  let bonus=perk('drive');
  if(e.hp===e.max)bonus+=perk('ambush');
  if(e.hp<=e.max/2)bonus+=perk('finish');
- args[0]=Math.round(args[0]*(1+bonus));
+ args[0]=Math.round(args[0]*(1+bonus)*PostGame.power(PostGame.attackerId()));
  if(args[1]===undefined)args[1]=.15;
  if(args[1]>0)args[1]*=1+perk('stagger');
  const shards=G.shards;PostGame.resolvingHit=true;try{postHit(e,...args)}finally{PostGame.resolvingHit=false;G.shards=shards;G.defeated=G.defeated.filter(id=>!id.startsWith('endless_'))}if(e.hp<=0&&!e.endlessScored){e.endlessScored=true;const r=PostGame.run();r.kills++;G.resonance=Math.min(100,G.resonance+PostGame.bonus('charge',r));r.score=Math.min(PostGame.MAX_SCORE,r.score+Math.round(PostGame.killValue(e.type,r.wave,e.endlessElite)*PostGame.multiplier(r)));current.enemies=current.enemies.filter(n=>n.hp>0);PostGame.best();updateHUD()}};
