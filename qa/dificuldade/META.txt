@@ -1,0 +1,10 @@
+META DE DIFICULDADE · beta-1.15.0 · 2026-11-22T01:23:39.600Z
+Bot simples, 20 lutas por chefe, a partir do estado real da campanha.
+
+NORMAL · derrotas 24/80 (30%)
+  O Viajante    7/20 derrotas · vitória média em 45s · vida 850 · equipe perdeu 81.3% · 0 fitas
+  Arauto        8/20 derrotas · vitória média em 39.9s · vida 1400 · equipe perdeu 93.3% · 2 fitas
+  O Metrônomo   6/20 derrotas · vitória média em 83.1s · vida 900 · equipe perdeu 68.8% · 2 fitas
+  O Silêncio    3/20 derrotas · vitória média em 71.3s · vida 1725 · equipe perdeu 75.3% · 2 fitas
+
+Meta do Normal (20%–40% de derrotas): DENTRO (30%).

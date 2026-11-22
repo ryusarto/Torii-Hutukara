@@ -21,6 +21,7 @@ const MBPS=Number(process.env.MBPS||12),RTT=Number(process.env.RTT||70),LIMIT=Nu
   await page.locator('#startNew').waitFor({state:'visible',timeout:600000});
   const title={s:at(),mb:bytes/1e6};
   await page.locator('#startNew').click();
+  await page.locator('#dif_historia').click();
   // Arquivos usados no título e no estúdio (web/playtest/media_priority.json), pelo nome
   // no site (o build-info.json liga o nome novo ao original). Mede quando chegou o último.
   const info=await (await fetch(new URL('build-info.json',url))).json();

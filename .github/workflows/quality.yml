@@ -65,6 +65,11 @@ jobs:
           node qa/review111_spacing.cjs
           node qa/sorte_reproducao.cjs
           node qa/narrativa_fase4.cjs
+          node qa/dificuldade_unit.cjs
+      - name: Difficulty goal measured by the simple bot (warns only)
+        # Normal: o bot simples deve perder de 20% a 40% das lutas contra chefes (20 lutas por chefe).
+        # Fora da faixa, o passo escreve um ::warning e o PR continua verde.
+        run: node qa/dificuldade_bot.cjs 20 normal
       - name: Verify web export on PC, phone and tablet
         run: |
           ruby production/build_playtest.rb
@@ -111,6 +116,7 @@ jobs:
             qa/playtest/SITE_TEST_RESULTS.json
             qa/sorte/
             qa/narrativa/
+            qa/dificuldade/
             qa/screenshots-local/pages/
             qa/screenshots-local/review-110/
             qa/screenshots-local/review-111/

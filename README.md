@@ -21,6 +21,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 - Fachadas com volume e portas alinhadas, 13 interiores distintos, poeira e copas ao vento (iluminação local desativada).
 - Portal para o Mar de Nuvens, reconstrução animada das passagens e queda mortal ao sair da borda, inclusive no coop. [Ambientes, arte e testes](docs/AMBIENTES_MUNDO_VIVO_V1.md).
 - Golpes dos quatro chefes com 32 quadros de FX: energia, interferência, poeira/sucata e vórtice oxidado, da preparação ao impacto e à dissipação. [Sprites, prompts e integração](docs/BOSS_GROUND_FX_V1.md).
+- Três níveis de dificuldade (História, Normal e Difícil), escolhidos ao começar. O Normal traz chefes em três fases, seis tipos novos de inimigo, emboscadas, arenas e ondas de Silêncio. O calabouço não muda com o nível. [Fase 2](docs/FASE2_DIFICULDADE_E_COMBATE.md).
 - Jogo distribuído como um único HTML portátil, sem instalação.
 - Suporte a DualShock 4, DualSense e controles compatíveis, com coop local para duas pessoas.
 

@@ -112,6 +112,7 @@ jobs:
           node qa/review111_spacing.cjs
           node qa/sorte_reproducao.cjs
           node qa/narrativa_fase4.cjs
+          node qa/dificuldade_unit.cjs
       - name: Keep portable HTML as a downloadable artifact
         uses: actions/upload-artifact@v4
         with:

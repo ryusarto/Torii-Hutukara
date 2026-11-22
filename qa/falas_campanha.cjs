@@ -20,7 +20,7 @@ const install=Function('return '+code)();
   await page.addInitScript(()=>{requestAnimationFrame=()=>0;Object.defineProperty(navigator,'getGamepads',{value:()=>[]});try{localStorage.clear()}catch{}});
   await page.goto((/^(file|https?):/.test(input)?input:pathToFileURL(input).href)+'?semente=1234',{waitUntil:'load',timeout:180000});
   await page.evaluate(install);await page.evaluate(r=>window.__botOpts={run:true,cps:400,rota:r},process.env.ROTA||'usina');
-  await page.locator('#startNew').click();await page.evaluate(()=>__bot.begin('already'));
+  await page.locator('#startNew').click();await page.locator('#dif_historia').click();await page.evaluate(()=>__bot.begin('already'));
   let st;for(let n=0;n<900;n++){st=await page.evaluate(()=>__bot.run(120));if(st.done||st.stuck||st.time>1400)break}
   const lines=await page.evaluate(()=>window.__lines||[]);
   fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(lines,null,1)+'\n');

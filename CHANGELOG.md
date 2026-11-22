@@ -1,3 +1,15 @@
+## [Fase 2 · dificuldade e combate] — 2026-11-22
+
+- Três níveis de dificuldade, escolhidos ao começar (Nova jornada e inícios diretos) e trocáveis em Menu → Sistema fora de combate. **História** é o jogo de antes, sem mudança; saves antigos entram como História. **Normal**: chefes com 2,5× de vida e três fases, mais inimigos e encontros. **Difícil**: tudo do Normal, e os inimigos ganham padrões novos.
+- O calabouço (Fenda) não muda com o nível: continua subindo a dificuldade pelas ondas, com as regras próprias.
+- Chefes em três fases: o Viajante e o Arauto ganham a fase III. Cada troca de fase para o chefe, deixa ele imune por um instante e empurra o grupo; a fase III brilha e racha, e cada ataque termina com um golpe novo (eco da máscara, cruz de estática, compasso quebrado, vazio).
+- Seis tipos novos de inimigo, dois por capítulo: Tambor-Escudo e Flautim Atirador, Coro de Reparo (curador) e Maestro Oco (invocador), Muralha de Estática e Antena de Feedback. No Normal, 24 inimigos a mais.
+- Nove encontros: emboscadas, arenas trancadas e uma onda de Silêncio (três ondas) no meio de cada capítulo.
+- Avisos de ataque no chão (círculo, faixa, cruz, cone e anel) com quatro marcas que acendem no tempo do golpe.
+- Impacto no golpe (Normal e Difícil): hit-stop de 2 a 3 quadros, faíscas, tremor leve que respeita "Efeitos suaves" e som no mesmo quadro do impacto. Números de dano opcionais em qualquer nível.
+- Meta medida pelo bot: no Normal o bot simples perde 31% das lutas contra chefes (meta de 20% a 40%; no História, 1%). O CI avisa quando sai da faixa.
+- Testes: `qa/dificuldade_unit.cjs` (13 verificações no navegador, inclusive História igual ao de antes e Fenda igual nos três níveis) e `qa/dificuldade_bot.cjs`. Detalhes em [`docs/FASE2_DIFICULDADE_E_COMBATE.md`](docs/FASE2_DIFICULDADE_E_COMBATE.md).
+
 ## [Fase 4 · narrativa] — 2026-11-21
 
 - Leitura: o texto aparece com velocidade escolhida (lento, normal, rápido ou instantâneo); tocar durante a digitação completa a fala. Avanço automático, histórico de falas e pular cena (as falas puladas ficam no histórico; escolhas nunca são puladas). Botões na caixa de diálogo e atalhos: V velocidade, O auto, L histórico, P pular; no controle, X auto, Y histórico, Select pular.

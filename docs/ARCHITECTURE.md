@@ -65,6 +65,7 @@ Injetadas pelo gerador, nesta ordem, depois de `input_mobile_combat.js`:
 | `flow_fixes.js` | Capítulo 2 → 3 contínuo, diálogo preso, integrante ativo e formação |
 | `accessibility.js` | opção "Texto maior" |
 | `../telemetry/pace_meter.js` | medidor de ritmo (`?ritmo`) |
+| `dificuldade_v1.js`, `encontros_v1.js`, `impacto_v1.js` | Fase 2, injetadas por último: níveis de dificuldade, chefes em três fases, inimigos novos, encontros e impacto no golpe ([detalhes](FASE2_DIFICULDADE_E_COMBATE.md)) |
 
 Cada camada documenta no topo o que faz e por quê. A próxima etapa técnica é fundir essas camadas e as da base em módulos (roteiro, Fase 2).
 

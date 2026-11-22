@@ -1,0 +1,876 @@
+{
+ "build": "beta-1.15.0",
+ "data": "2026-11-22T01:23:39.600Z",
+ "lutasPorChefe": 20,
+ "faixa": [
+  0.2,
+  0.4
+ ],
+ "niveis": {
+  "normal": {
+   "taxa": 0.3,
+   "derrotas": 24,
+   "lutas": 80,
+   "chefes": {
+    "boss": {
+     "nome": "O Viajante",
+     "lutas": 20,
+     "derrotas": 7,
+     "taxa": 0.35,
+     "tempoMedio": 44.9,
+     "tempoVitoria": 45,
+     "vidaChefe": 850,
+     "danoEquipe": 81.3,
+     "fitas": 0,
+     "esgotou": 0,
+     "lutasDetalhe": [
+      {
+       "venceu": false,
+       "tempo": 45.9,
+       "vidaChefe": 116,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 48.1,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 95,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 41.6,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 49,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 47.7,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 49,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 58.7,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 76,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 47.6,
+       "vidaChefe": 132,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 42.3,
+       "vidaChefe": 124,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 38.1,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 54,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 45.3,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 77,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 48.7,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 93,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 37.1,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 41,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 47.6,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 83,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 41.7,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 79,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 46.2,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 91,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 43.7,
+       "vidaChefe": 84,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 48.1,
+       "vidaChefe": 12,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 43.1,
+       "vidaChefe": 134,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 38,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 91,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 42.2,
+       "vidaChefe": 108,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 0,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 46.1,
+       "vidaChefe": 0,
+       "max": 850,
+       "fases": 3,
+       "danoEquipe": 49,
+       "fitas": 0,
+       "esgotou": false
+      }
+     ]
+    },
+    "voice_boss": {
+     "nome": "Arauto",
+     "lutas": 20,
+     "derrotas": 8,
+     "taxa": 0.4,
+     "tempoMedio": 40,
+     "tempoVitoria": 39.9,
+     "vidaChefe": 1400,
+     "danoEquipe": 93.3,
+     "fitas": 2,
+     "esgotou": 0,
+     "lutasDetalhe": [
+      {
+       "venceu": true,
+       "tempo": 39.8,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 86,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 40.1,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 86,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 40.3,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 92,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 38.2,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 83,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 40.2,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 85,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 40.8,
+       "vidaChefe": 67,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 40.7,
+       "vidaChefe": 67,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 40.9,
+       "vidaChefe": 41,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 40,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 87,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 40.3,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 90,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 40.3,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 93,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 40,
+       "vidaChefe": 35,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 40.8,
+       "vidaChefe": 35,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 39.6,
+       "vidaChefe": 42,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 40,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 85,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 38.4,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 82,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 40.3,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 99,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 39.6,
+       "vidaChefe": 32,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 40.5,
+       "vidaChefe": 0,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 99,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 39.9,
+       "vidaChefe": 39,
+       "max": 1400,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      }
+     ]
+    },
+    "c3_metronome": {
+     "nome": "O Metrônomo",
+     "lutas": 20,
+     "derrotas": 6,
+     "taxa": 0.3,
+     "tempoMedio": 84.2,
+     "tempoVitoria": 83.1,
+     "vidaChefe": 900,
+     "danoEquipe": 68.8,
+     "fitas": 2,
+     "esgotou": 0,
+     "lutasDetalhe": [
+      {
+       "venceu": false,
+       "tempo": 70.3,
+       "vidaChefe": 539,
+       "max": 900,
+       "fases": 2,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 96.6,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 74,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 81.2,
+       "vidaChefe": 55,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 88.4,
+       "vidaChefe": 28,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 82,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 33,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 81.3,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 54,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 72.6,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 56,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 82.9,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 66,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 105.4,
+       "vidaChefe": 31,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 70.8,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 54,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 87.3,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 66,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 86.2,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 48,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 85.3,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 38,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 85.4,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 59,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 87.1,
+       "vidaChefe": 7,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 83.3,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 66,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 87.7,
+       "vidaChefe": 36,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 87,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 66,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 76.9,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 40,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 86.2,
+       "vidaChefe": 0,
+       "max": 900,
+       "fases": 3,
+       "danoEquipe": 57,
+       "fitas": 2,
+       "esgotou": false
+      }
+     ]
+    },
+    "c3_silence": {
+     "nome": "O Silêncio",
+     "lutas": 20,
+     "derrotas": 3,
+     "taxa": 0.15,
+     "tempoMedio": 71.2,
+     "tempoVitoria": 71.3,
+     "vidaChefe": 1725,
+     "danoEquipe": 75.3,
+     "fitas": 2,
+     "esgotou": 0,
+     "lutasDetalhe": [
+      {
+       "venceu": true,
+       "tempo": 71.9,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 99,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 74.5,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 61,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 64.7,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 60,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 67.8,
+       "vidaChefe": 50,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 65,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 51,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 74,
+       "vidaChefe": 59,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 72.2,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 41,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 66.8,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 83,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 74.8,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 81,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 73.8,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 53,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 65.8,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 59,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 68.8,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 73,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 75,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 81,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 71.1,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 97,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 78.1,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 73,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 68.3,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 66,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": false,
+       "tempo": 69.6,
+       "vidaChefe": 234,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 100,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 75.8,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 81,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 74.4,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 91,
+       "fitas": 2,
+       "esgotou": false
+      },
+      {
+       "venceu": true,
+       "tempo": 71.4,
+       "vidaChefe": 1,
+       "max": 1725,
+       "fases": 3,
+       "danoEquipe": 57,
+       "fitas": 2,
+       "esgotou": false
+      }
+     ]
+    }
+   }
+  }
+ },
+ "erros": [],
+ "dentroDaMeta": true
+}
