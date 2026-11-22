@@ -110,7 +110,7 @@ function free(x,y){
   try{if(typeof CloudWorldV1!=='undefined'&&CloudWorldV1.active()&&CloudWorldV1.voidAt(x,y))return false}catch{}
   try{return typeof canBody121==='function'?canBody121(x,y):tileWalkable(current,x,y)}catch{return true}
 }
-const still={x:NaN,y:NaN,t:0,area:null};const shown=new Map();
+const still={x:NaN,y:NaN,t:0,area:null,fresh:true};const shown=new Map();
 function formationSlot(i,f){
   // Sprites têm ~1,4 casa de largura e ~2 de altura: olhando para os lados, o grupo fica em
   // fila atrás do líder; olhando para cima/baixo, fica lado a lado (nunca empilhado na vertical).
@@ -128,15 +128,16 @@ if(typeof getFollower==='function'){
     if(!G||!base)return base;
     if(typeof C3!=='undefined'&&C3.coopActive?.())return base;
     const now=typeof tick==='number'?tick:performance.now()/1000;
-    if(still.area!==G.area){still.area=G.area;shown.clear()}
-    if(Math.hypot(still.x-G.x,still.y-G.y)>.02){still.x=G.x;still.y=G.y;still.t=now}
-    const idle=now-still.t>=R.IDLE_AFTER;
+    if(still.area!==G.area){still.area=G.area;shown.clear();still.fresh=true;still.x=G.x;still.y=G.y}
+    if(Math.hypot(still.x-G.x,still.y-G.y)>.02){still.x=G.x;still.y=G.y;still.t=now;still.fresh=false}
+    // Logo depois de entrar numa área não há rastro: o grupo já nasce em formação.
+    const idle=still.fresh||now-still.t>=R.IDLE_AFTER||!(typeof trail!=='undefined'&&trail.length);
     let target=null;
     if(idle)target=formationSlot(i,facing());
     if(!target){const p=trailPoint(R.SPACING*(i+1));if(p&&free(p.x,p.y))target=p}
     if(!target)target=base;
     let s=shown.get(i);
-    if(!s||Math.hypot(s.x-target.x,s.y-target.y)>4){s={x:target.x,y:target.y,t:now,tx:target.x,ty:target.y};shown.set(i,s)}
+    if(!s||still.fresh||Math.hypot(s.x-target.x,s.y-target.y)>4){s={x:target.x,y:target.y,t:now,tx:target.x,ty:target.y};shown.set(i,s)}
     if(now!==s.t){const dt=Math.max(0,Math.min(.1,now-s.t)),k=Math.min(1,dt*R.SLIDE);s.x+=(target.x-s.x)*k;s.y+=(target.y-s.y)*k;s.t=now}
     s.tx=target.x;s.ty=target.y;
     return {x:s.x,y:s.y,dir:target.dir||base.dir||G.dir};
@@ -194,6 +195,7 @@ R.mobileDialogue=function(){
   else if(d.dataset.r7){for(const k of ['top','bottom','max-height','overflow'])d.style.removeProperty(k);delete d.dataset.r7}
 };
 setInterval(()=>{try{R.touchHints();R.mobileDialogue()}catch{}},120);
+if(typeof updateMobileLayout121==='function'){const layoutV7=updateMobileLayout121;updateMobileLayout121=function(...a){const r=layoutV7.apply(this,a);try{R.mobileDialogue()}catch{}return r}}
 
 /* ---------- 8. Ajustes menores ----------
  * a) Porta de volta: ao chegar por uma porta, o grupo aparecia em cima da porta de volta e
