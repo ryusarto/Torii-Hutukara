@@ -1,3 +1,19 @@
+## [Fase 6 · interface, mobile e acessibilidade] — 2026-11-21
+
+- **Bugs da crítica corrigidos:**
+  - o menu de pausa fica por cima do diálogo;
+  - as dicas de teclas estavam erradas: o J ataca durante o jogo, e o diário não tinha tecla. O diário agora fica no N;
+  - "ÓRBITA VAZIA" não fica mais sobre a cena final;
+  - no celular, o aviso de salvamento não cobre o nome da área nem a vida, e o objetivo não fica sobre o analógico;
+  - o aliado não aparece desenhado em cima do líder.
+- **Fila de avisos:** um aviso por vez, numa zona fixa (no alto, ao centro, entre as colunas do HUD; no celular em pé, na faixa acima do quadro). Com menu ou diálogo abertos, os avisos esperam; quando uma cena começa, os avisos velhos de combate são descartados.
+- **HUD por zonas:** no celular deitado, a barra de combate fica entre o analógico e os botões, e o objetivo não se repete. O teste `qa/interface_v6.cjs` falha se dois elementos do HUD se sobrepõem no PC, no celular em pé ou no celular deitado, no estúdio ou na Fenda em combate.
+- **Remapeamento de teclas e botões** (Sistema → Controles): se a tecla já estiver em uso, as duas trocam de lugar. O rodapé, os botões do topo, o painel de técnicas, a barra de combate e a tecla de interação mostram o que está no mapa.
+- **Acessibilidade** (Sistema):
+  - *Avisos em âmbar:* os avisos de ataque deixam de ser vermelhos, para quem não distingue vermelho de verde;
+  - *Pista da batida:* um anel que se fecha sobre cada Metrônomo até a batida, mais a contagem do aviso do chefe;
+  - *Batida tolerante:* o Metrônomo bate um terço mais devagar, os avisos do chefe e dos perigos duram 30% mais e o contratempo da Percussão fica mais largo.
+
 ## [Calabouço · biomas] — 2026-11-21
 
 - **Quatro biomas que trocam a cada 10 ondas**, com piso e objetos dos capítulos: *Fenda* (ondas 1–10, aberta), *Floresta do Silêncio* (11–20, árvores), *Cidade das Vozes* (21–30, postes e barracas) e *Usina* (31–40, máquinas). Depois a sequência recomeça.

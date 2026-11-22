@@ -186,7 +186,8 @@ const {chromium} = require(process.env.PLAYWRIGHT_CORE || 'playwright');
         try{
           drawEnv();
           check(new Set(poses.map(p=>p.id)).size===3,'party failed to render');
-          check(poses.every(p=>Math.hypot(p.x-poses[0].x,p.y-poses[0].y)<=7),'party spread out');
+          // Parados, os aliados dão um passo para o lado do líder (Fase 6), até ~1 casa.
+          check(poses.every(p=>Math.hypot(p.x-poses[0].x,p.y-poses[0].y)<=T*2),'party spread out');
           check(calls.includes('partyFX') && calls.lastIndexOf('partyFX')<calls.indexOf('actor'),'offense above party '+direction+missing);
           check(HeroAttackFX.events.some(e=>e.art?.hero==='franco') && projectiles.includes(shot),'world draw mutated cast');
           check(arrowPositions.some(([x,y])=>Math.hypot(x-(shot.x*T-cam.x),y-(shot.y*T-cam.y))<1),
