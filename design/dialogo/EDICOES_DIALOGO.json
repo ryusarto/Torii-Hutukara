@@ -377,8 +377,9 @@
    "linha": 140,
    "t": "Eu disse para irem na frente. Não disse que chegaria depois.",
    "acao": "trocar",
-   "motivo": "nome antigo NARA → COLLI",
-   "quem": "nilo"
+   "motivo": "nome antigo NARA → COLLI; Colli se apresenta (antes falava como se já conhecesse o grupo)",
+   "quem": "nilo",
+   "novo": "Vocês são a banda que o Belga mandou? Eu sou Colli — mapeio este canal. Fiquem perto: a passarela está soltando."
   },
   {
    "linha": 142,
@@ -738,6 +739,39 @@
    "motivo": "Fase 4: narrador descrevia a tela; vira legenda de cenário",
    "novo": "O sintetizador capta uma batida que continua mesmo debaixo d'água.",
    "cena": true
+  },
+  {
+   "t": "Eu sou Franco. Ou uma versão dele. Nesta realidade, vocês me conhecem como o Arqueiro.",
+   "acao": "manter",
+   "motivo": "revelação com mais espaço (crítica 1.15)",
+   "depois": [
+    {
+     "quem": "franco",
+     "t": "Você tem a minha voz... mas fala como quem perdeu alguma coisa no caminho."
+    },
+    {
+     "quem": "alt",
+     "t": "Na minha realidade, o estúdio nunca abriu. Eu toquei sozinho, de cidade em cidade, até a máscara me encontrar."
+    }
+   ]
+  },
+  {
+   "t": "Ele aprisionou o técnico na antena. Vamos tirar ele daqui.",
+   "acao": "trocar",
+   "motivo": "liga o Arauto citado pela Íris ao chefe (crítica 1.15)",
+   "novo": "O Arauto da Estática prendeu o técnico mascarado na antena. Vamos tirar ele daqui."
+  },
+  {
+   "t": "Sabe... eu nunca cantei uma nota em público. Mas acho que posso tentar agora.",
+   "acao": "trocar",
+   "motivo": "Katana se apresenta antes de falar de si (crítica 1.15)",
+   "novo": "Eu cuidava desta torre. Nesta realidade, me chamam de Katana — e, pelo visto, eu tenho a sua cara, Ryuchi.",
+   "depois": [
+    {
+     "quem": "katana",
+     "t": "Sabe... eu nunca cantei uma nota em público. Mas acho que posso tentar agora."
+    }
+   ]
   }
  ]
 }

@@ -405,7 +405,10 @@ function conversa(gatilho,area){
   const opcoes=DATA.conversas.map((c,i)=>({c,i})).filter(({c})=>c.gatilho===gatilho&&(!c.areas||c.areas.includes(area))&&c.falas.every(([w])=>m.has(w))&&(!c.precisa||c.precisa.every(w=>m.has(w))));
   if(!opcoes.length)return false;
   // Conversas ainda não vistas primeiro.
-  const novas=opcoes.filter(o=>!B.visto.has(o.i));const pool=novas.length?novas:opcoes;
+  const novas=opcoes.filter(o=>!B.visto.has(o.i));
+  // Conversa de chegada numa área toca uma vez por sessão: voltar ao Distrito não repete a mesma troca.
+  if(gatilho==='area'&&!novas.length)return false;
+  const pool=novas.length?novas:opcoes;
   const {c,i}=pool[Math.floor(sorte()*pool.length)];B.visto.add(i);
   let t=0;for(const [w,txt] of c.falas){falar(w,preencher(txt),t);t+=1300+txt.length*40}
   return true;

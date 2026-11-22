@@ -140,7 +140,7 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
         Narrativa.definir('barks',true);
         return{um,conv,quem:depois.ativos.map(a=>a.quem),desligado,el:document.querySelectorAll('#barksCamada .bark').length};
       });
-      assert(r.um.length===1&&r.um[0].quem==='synth'&&r.um[0].texto.startsWith('SYNTH'),JSON.stringify(r.um));
+      assert(r.um.length===1&&r.um[0].quem==='synth'&&r.um[0].texto.startsWith('SINTETIZADOR'),JSON.stringify(r.um));
       assert(r.conv&&r.quem.length>=2,'conversa: '+JSON.stringify(r));
       assert(r.desligado);
       await page.waitForTimeout(400);await page.screenshot({path:path.join(out,'falas-combate.png')});

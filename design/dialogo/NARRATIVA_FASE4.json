@@ -26,14 +26,14 @@
       "voz": "Ryuchi técnico de rádio. Lacônico, humor seco, pensa em ferramenta e corte limpo. Nunca cantou em público e foge do assunto."
     },
     "synth": {
-      "nome": "SYNTH",
-      "apelido": "Synth",
+      "nome": "SINTETIZADOR",
+      "apelido": "Sintetizador",
       "cor": "#7fe0d6",
       "voz": "Franco do sintetizador. Ansioso, controlador, fala em sequência, clock e latência. Tem medo de errar na frente dos outros, mas é engraçado sem querer."
     },
     "percussion": {
-      "nome": "PERCU",
-      "apelido": "Percu",
+      "nome": "PERCUSSÃO",
+      "apelido": "Percussão",
       "cor": "#f2a36b",
       "voz": "Ryuchi da percussão. Caloroso, conta tempos, segura o ritmo para os outros. Tem medo de parar. Fala com o corpo inteiro."
     }

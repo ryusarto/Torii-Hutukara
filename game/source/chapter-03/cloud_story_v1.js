@@ -19,7 +19,7 @@ C3.areaStory=function(id){
 const cloudStoryObjectiveV1=C3.objective;
 C3.objective=function(){
   const o=cloudStoryObjectiveV1.call(this);
-  if(o?.area==='cloud_sea')return {...o,hint:o.hint+' Espere a nuvem ficar inteira. Fora da borda, a queda é fatal.'};
+  if(o?.area==='cloud_sea')return {...o,hint:o.hint+' Espere a nuvem ficar inteira. Cair da borda custa um quarto da vida.'};
   return o;
 };
 const cloudStoryPropV1=drawProp;

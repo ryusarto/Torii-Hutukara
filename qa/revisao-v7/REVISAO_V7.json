@@ -1,0 +1,132 @@
+{
+ "url": "http://127.0.0.1:8794/",
+ "checks": [
+  {
+   "name": "Cair do Mar de Nuvens volta à borda com dano, sem perder o Elevador",
+   "passed": true,
+   "detail": {
+    "cp": "cloud_sea",
+    "area": "cloud_sea",
+    "mode": "walk",
+    "lift": true,
+    "hp0": 70,
+    "hp": 53,
+    "ov": false
+   }
+  },
+  {
+   "name": "Falas soltas somem com menu aberto e o rádio fica abaixo do quadro de vida",
+   "passed": true,
+   "detail": {
+    "before": "visible",
+    "during": "hidden",
+    "after": "visible",
+    "radioTop": 303.5625,
+    "vitalsBottom": 237.5625
+   }
+  },
+  {
+   "name": "Botões de nota da composição cabem no botão",
+   "passed": true,
+   "detail": [
+    {
+     "w": 82,
+     "sw": 82
+    },
+    {
+     "w": 82,
+     "sw": 82
+    },
+    {
+     "w": 82,
+     "sw": 82
+    },
+    {
+     "w": 82,
+     "sw": 82
+    }
+   ]
+  },
+  {
+   "name": "Grupo parado não se sobrepõe nas quatro direções",
+   "passed": true,
+   "detail": [
+    {
+     "dir": "up",
+     "min": 1.15
+    },
+    {
+     "dir": "down",
+     "min": 1.15
+    },
+    {
+     "dir": "left",
+     "min": 1.15
+    },
+    {
+     "dir": "right",
+     "min": 1.15
+    }
+   ]
+  },
+  {
+   "name": "Legenda do narrador fica abaixo do aviso",
+   "passed": true,
+   "detail": {
+    "c": [
+     83,
+     120
+    ],
+    "t": [
+     0,
+     0
+    ],
+    "hidden": true
+   }
+  },
+  {
+   "name": "Nomes únicos no diálogo, no HUD e na equipe",
+   "passed": true,
+   "detail": {
+    "alt": "FRANCO ARQUEIRO",
+    "katana": "RYUCHI KATANA",
+    "synth": "FRANCO SINTETIZADOR",
+    "percussion": "RYUCHI PERCUSSIONISTA"
+   }
+  },
+  {
+   "name": "Porta de volta não responde no ponto de chegada",
+   "passed": true,
+   "detail": {
+    "atArrival": null,
+    "away": "gate:studio",
+    "back": "gate:studio"
+   }
+  },
+  {
+   "name": "Calabouço: objetivo sem \"Escolha uma melhoria\" fora da escolha; ondas 1–3 mais leves",
+   "passed": true,
+   "detail": {
+    "text": "ONDA 1 · Respire, a próxima onda já vem",
+    "p1": 0.65,
+    "p4": 1.07125
+   }
+  },
+  {
+   "name": "Celular em pé: diálogo sobre os controles e dicas de toque",
+   "passed": true,
+   "detail": {
+    "dTop": 380,
+    "gBottom": 372.3125,
+    "cont": "▼ TOQUE PARA CONTINUAR",
+    "btns": [
+     "PULAR",
+     "AUTO",
+     "TEXTO: RÁPIDO",
+     "HISTÓRICO"
+    ]
+   }
+  }
+ ],
+ "errors": []
+}

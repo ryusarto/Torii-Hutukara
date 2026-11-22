@@ -1,3 +1,18 @@
+## [Revisão da crítica da Beta 1.15] — 2026-11-22
+
+Correções dos defeitos apontados na crítica (nota 68/100), em `game/source/chapter-03/revisao_v7.js`, carregado por último.
+- **Queda no Mar de Nuvens não desfaz mais progresso.** Antes, cair contava como derrota e voltava ao gravador do Distrito, fechando o Elevador do Céu de novo. Agora quem cai volta à última borda firme e perde 25% da vida; só vira derrota se ninguém sobrar de pé. Ao entrar nas nuvens com o Elevador aberto, o jogo grava um ponto de retorno ali. A dica e a fala da Colli explicam a nova regra.
+- **Falas soltas e rádio** não aparecem mais por cima de menus, da composição final e da tela de fim. O rádio fica abaixo do quadro de vida.
+- **Composição final:** os botões ♪ GRAVE, ♫ MÉDIA, ♬ AGUDA e ✦ ABERTA cabem no botão.
+- **Grupo sem personagens encavalados:** andando, 1,45 casa entre cada um; parados, em fila atrás do líder quando ele olha para os lados e lado a lado quando olha para cima ou para baixo. As posições deslizam, sem saltos.
+- **Legenda do narrador** desce para baixo do aviso quando os dois aparecem juntos.
+- **Nomes únicos:** Franco Arqueiro, Ryuchi Katana, Franco Sintetizador e Ryuchi Percussionista nos menus e no diálogo; Arqueiro, Katana, Sintetizador e Percussão no HUD e nas falas soltas. O "???" vira Franco Arqueiro depois da revelação.
+- **Continuidade:** o Belga não se apresenta de novo no Capítulo 3; a Colli se apresenta ao grupo; o Arauto citado pela Íris é ligado ao chefe da torre; a revelação do Arqueiro e a chegada da Katana ganham falas próprias.
+- **Celular:** a caixa de diálogo mostra "toque para continuar" e botões sem letras de teclado; em pé, o diálogo ocupa o lugar dos controles em vez de cobrir a cena; deitado, os controles somem enquanto alguém fala.
+- **Menores:** a porta de volta não responde no ponto de chegada (um Enter não desfaz a viagem); a conversa de chegada numa área toca uma vez por sessão; o objetivo não aparece duas vezes no PC; no calabouço, o objetivo só diz "Escolha uma melhoria" quando há escolha, as cartas ficam em colunas iguais e o dano dos ecos começa em 65% na onda 1 (80% na 2 e 90% na 3).
+- Teste novo: `qa/revisao_v7.cjs` (9 verificações no navegador, no CI).
+- Fica para depois: o site ainda baixa cerca de 34 MB de imagens antes do título, porque todos os capítulos carregam de uma vez.
+
 ## [Fase 2 · dificuldade e combate] — 2026-11-22
 
 - Três níveis de dificuldade, escolhidos ao começar (Nova jornada e inícios diretos) e trocáveis em Menu → Sistema fora de combate. **História** é o jogo de antes, sem mudança; saves antigos entram como História. **Normal**: chefes com 2,5× de vida e três fases, mais inimigos e encontros. **Difícil**: tudo do Normal, e os inimigos ganham padrões novos.

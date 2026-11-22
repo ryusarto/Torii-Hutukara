@@ -259,7 +259,7 @@ dialogue_document.fetch('scenes').each do |scene|
   end
 end
 line_overrides = {
-  'C3_001.03' => 'Então foram vocês que a máscara escolheu. Eu sou Belga. Guardo aqui os sons que a cidade tenta esquecer — e O Silêncio chegou antes para separar todos eles.',
+  'C3_001.03' => 'Vocês de novo. A máscara trouxe vocês até o meu Lado B. Aqui eu guardo os sons que a cidade tenta esquecer — e O Silêncio chegou antes para separar todos eles.',
   'C3_002.02' => 'O horário eu sei. Sou Dney; cuido da imagem e da ressonância do Contratempo. Falta decidir o que a cidade precisa enxergar quando a música começar.',
   'C3_002.04' => 'Estou esperando a imagem parar de fingir que está inteira. Quando uma borda falha, eu sei que O Silêncio passou por ali.',
   'C3_004.01' => 'A oficina está aberta. Eu sou Mazza. Se um instrumento daqui parece improvisado, é porque já sobreviveu a alguma coisa.',
@@ -274,7 +274,7 @@ line_overrides = {
   'C3_013.01' => 'O pulso voltou. Colli trouxe os nomes de todo mundo que atravessou a comporta — ninguém vira só número no arquivo do Contratempo.',
   'C3_014.01' => 'Agora a imagem tem harmonia e pulso. Eu consigo projetar a intenção de vocês até o Elevador, mas a frase precisa vir da banda.',
   'C3_015.01' => 'A frase entrou no sistema. Eu deixei as imperfeições visíveis — foram elas que mostraram ao Elevador que havia gente tocando.',
-  'C3_018.01' => 'A Flauta reúne as nuvens. Esperem a superfície ficar inteira antes de pisar. Fora da borda não há chão: a queda é fatal.',
+  'C3_018.01' => 'A Flauta reúne as nuvens. Esperem a superfície ficar inteira antes de pisar. Fora da borda não há chão: quem cai volta à borda, mas machucado.',
   'C3_020.01' => 'O sinal chegou inteiro. Eu reconheci cada frequência — até as que vocês quase esconderam.',
   'C3_026.01' => 'A última frequência abriu caminhos que antes não respondiam.',
   'C3_S01.01' => 'Não precisa mexer na projeção. Só me ajuda a encontrar uma fita sem rótulo que caiu perto do canal.',
@@ -505,7 +505,7 @@ narrativa_runtime = File.read(NARRATIVA_JS, encoding: 'UTF-8')
 raise 'Marcador __NARRATIVA_DATA__ ausente' unless narrativa_runtime.scan('__NARRATIVA_DATA__').length == 1
 narrativa_runtime = narrativa_runtime.sub('__NARRATIVA_DATA__') { JSON.generate(JSON.parse(File.read(NARRATIVA_DATA, encoding: 'UTF-8'))) }
 # Fase 2: dificuldade, chefes em três fases, inimigos novos, encontros e impacto.
-FASE2_JS = %w[dificuldade_v1.js encontros_v1.js impacto_v1.js].map { |name| File.join(ROOT, name) }
+FASE2_JS = %w[dificuldade_v1.js encontros_v1.js impacto_v1.js revisao_v7.js].map { |name| File.join(ROOT, name) }
 parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, stride_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), File.read(File.join(ROOT,'hero_legacy_fx.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8'), body_runtime, narrativa_runtime, File.read(File.join(ROOT, 'interface_v6.js'), encoding: 'UTF-8'), *FASE2_JS.map { |path| File.read(path, encoding: 'UTF-8') }]
 runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = polish_runtime = npc_gestures_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
 html.insert(position, "\n")
