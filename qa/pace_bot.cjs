@@ -15,7 +15,9 @@ const start=process.argv[2]||'newGame';const maxMinutes=Number(process.argv[3]||
 // Perfil: 'rapido' (corre, lê 20 car/s) ou 'tipico' (anda, lê 14 car/s).
 const profile=process.env.PERFIL||'rapido';const opts=profile==='tipico'?{run:false,cps:14}:{run:true,cps:20};
 // ROTA=canal|usina escolhe a primeira frente do Capítulo 3. RECARREGAR=1 salva, recarrega a página e continua a cada 2 min de jogo.
-opts.rota=process.env.ROTA||null;const reloadEvery=process.env.RECARREGAR?(Number(process.env.RECARREGAR)>1?Number(process.env.RECARREGAR):120):0;
+opts.rota=process.env.ROTA||null;
+// DIFICULDADE=historia|normal|dificil (Fase 2). Sem a variável: História, o jogo de antes.
+opts.dificuldade=process.env.DIFICULDADE||null;const reloadEvery=process.env.RECARREGAR?(Number(process.env.RECARREGAR)>1?Number(process.env.RECARREGAR):120):0;
 const outDir=path.join(__dirname,'ritmo');fs.mkdirSync(outDir,{recursive:true});
 
 async function main(){
@@ -45,6 +47,7 @@ async function main(){
     if(st.time-lastLog>=300){lastLog=st.time;console.log(`${(st.time/60).toFixed(1)} min · ${st.area} · ${st.mode} · ${st.objective}`)}
     if(st.done||st.stuck||st.time>maxMinutes*60){completed=!!st.done;console.log(st.done?'FIM DA JORNADA':st.stuck?'PRESO: '+st.stuck:'LIMITE DE TEMPO');break}
   }
+  if(process.env.CAPTURAR_CHEFES){const ch=await page.evaluate(()=>window.__bot.chefes());fs.writeFileSync(process.env.CAPTURAR_CHEFES,JSON.stringify(ch)+'\n');console.log('Estados dos chefes: '+Object.keys(ch).join(', '))}
   const summary=await page.evaluate(()=>window.ToriiRitmo.summary());
   const report=await page.evaluate(()=>window.ToriiRitmo.report());
   const tag=start+'-'+profile+(opts.rota?'-'+opts.rota:'')+(reloadEvery?'-recarga':'')+(process.env.TAG?'-'+process.env.TAG:'')+'-'+pt.version;
@@ -103,6 +106,8 @@ function installBot(){
     say('Overlay sem opção útil, fechando: '+text);closeOverlay();
   }
   function frame(){
+    // Estado da equipe na primeira vez que cada chefe aparece (qa/dificuldade_bot.cjs usa).
+    if(typeof bossActor!=='undefined'&&bossActor&&!(window.__chefes||(window.__chefes={}))[bossActor.id])window.__chefes[bossActor.id]={area:G.area,x:G.x,y:G.y,minuto:+(clock/60).toFixed(1),estado:copy(G.checkpoint?.snapshot||G)};
     clock+=DT;t+=DT*1000;attackCd-=DT;interactCd-=DT;
     if(mode!=='rhythm')rhythmTime=0;
     if(mode==='dialogue'){release();const w=document.getElementById('words').textContent;
@@ -134,7 +139,8 @@ function installBot(){
   }
   window.__bot={
     clock(){return clock},setClock(t){clock=t;stuckSince=t},
-    begin(s){if(s==='chapter2')startChapterTwoPreview();else if(s==='chapter3')C3.start(true);else newGame();say('Início: '+s)},
+    begin(s){if(s==='chapter2')startChapterTwoPreview();else if(s==='chapter3')C3.start(true);else newGame();const dif=(window.__botOpts||{}).dificuldade;if(dif&&G){G.difficulty=dif;say('Dificuldade: '+dif)}say('Início: '+s)},
+    chefes(){return window.__chefes||{}},
     run(n){events=[];let stuck=null;
       for(let i=0;i<n;i++){frame();
         const obj=(()=>{try{return objectiveData().text}catch{return '?'}})();

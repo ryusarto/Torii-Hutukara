@@ -23,7 +23,7 @@ async function campaign(browser,seed){
   await page.evaluate(install);await page.evaluate(()=>window.__botOpts={run:true,cps:400,rota:'usina'});
   // Conta derrotas: o jogo chama gameOver/derrota ao zerar a equipe.
   await page.evaluate(()=>{window.__derrotas=[];for(const name of ['showDefeat']){if(typeof window[name]==='function'){const f=window[name];window[name]=function(...a){__derrotas.push({area:G.area,boss:!!(window.bossActor||current.enemies?.some(e=>e.boss))});return f.apply(this,a)}}}});
-  await page.locator('#startNew').click();await page.evaluate(()=>__bot.begin('already'));
+  await page.locator('#startNew').click();await page.locator('#dif_historia').click();await page.evaluate(()=>__bot.begin('already'));
   let st;for(let n=0;n<900;n++){st=await page.evaluate(()=>__bot.run(120));if(st.done||st.stuck||st.time>1400)break}
   const result=await page.evaluate(()=>({seed:ToriiSorte.semente(),fixa:ToriiSorte.fixa(),usos:ToriiSorte.usos(),
     save:JSON.stringify({hp:G.hp,xp:G.xp,levels:G.levels,defeated:[...G.defeated].sort(),potions:G.potions,shards:G.shards,resonance:G.resonance,area:G.area}),derrotas:window.__derrotas}));

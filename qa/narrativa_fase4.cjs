@@ -20,6 +20,7 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
     await page.addInitScript(()=>{try{localStorage.clear();sessionStorage.clear()}catch{}});
     await page.goto(url+'?semente=7',{waitUntil:'load',timeout:180000});
     await page.locator('#startNew').click();
+    await page.locator('#dif_historia').click();
     await page.waitForFunction(()=>typeof Narrativa!=='undefined'&&document.querySelector('.leitura-barra'),null,{timeout:30000});
     // Estado limpo de caminhada a partir de um save real da campanha.
     await page.waitForTimeout(1500);
@@ -200,7 +201,7 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
     await check('Celular deitado: barra de leitura cabe na caixa de diálogo e os botões têm 36 px',async()=>{
       const m=await browser.newPage({viewport:{width:844,height:390},isMobile:true,hasTouch:true,userAgent:'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'});
       m.on('pageerror',e=>errors.push('mobile: '+e.message));
-      await m.goto(url,{waitUntil:'load',timeout:180000});await m.locator('#startNew').tap();
+      await m.goto(url,{waitUntil:'load',timeout:180000});await m.locator('#startNew').tap();await m.locator('#dif_historia').tap();
       await m.waitForFunction(()=>document.querySelector('.leitura-barra')&&mode==='dialogue',null,{timeout:30000});
       const r=await m.evaluate(()=>{const d=$('dialogue').getBoundingClientRect();return[...document.querySelectorAll('.leitura-barra button')].map(b=>{const x=b.getBoundingClientRect();return{t:b.textContent,h:Math.round(x.height),dentro:x.left>=d.left-1&&x.right<=d.right+1&&x.right<=innerWidth&&x.bottom<=innerHeight}})});
       await m.screenshot({path:path.join(out,'celular-dialogo.png')});

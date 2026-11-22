@@ -1,0 +1,306 @@
+{
+ "build": "beta-1.15.0",
+ "data": "2026-11-22T03:33:20.172Z",
+ "checks": [
+  {
+   "name": "Escolha da dificuldade ao começar: três níveis, Normal recomendado",
+   "detail": [
+    "dif_historia:HistóriaO jogo como ele é hoje. Chefes e",
+    "dif_normal:Normal · recomendadoChefes com 2,5× de v",
+    "dif_dificil:DifícilTudo do Normal, e os inimigos gan",
+    "dif_voltar:VoltarRetornar à tela inicial"
+   ]
+  },
+  {
+   "name": "Inícios diretos também perguntam o nível",
+   "detail": {
+    "ids": [
+     "dif_historia",
+     "dif_normal",
+     "dif_dificil",
+     "dif_voltar"
+    ],
+    "nivel": "dificil",
+    "c3": true
+   }
+  },
+  {
+   "name": "História: vida dos chefes, inimigos e mapa iguais aos de antes",
+   "detail": {
+    "vidas": {
+     "viajante": {
+      "id": "boss",
+      "hp": 340,
+      "max": 340
+     },
+     "arauto": {
+      "id": "voice_boss",
+      "hp": 560,
+      "max": 560
+     },
+     "metronomo": {
+      "id": "c3_metronome",
+      "hp": 360,
+      "max": 360
+     },
+     "silencio": {
+      "id": "c3_silence",
+      "hp": 690,
+      "max": 690
+     }
+    },
+    "floresta": [
+     "forest_hush_a",
+     "forest_hush_b",
+     "forest_hush_c",
+     "p4_forest_path_a",
+     "p4_forest_path_b",
+     "p4_forest_east"
+    ],
+    "encontro": null,
+    "modo": "action",
+    "f2": 0
+   }
+  },
+  {
+   "name": "Normal: chefes com 2,5× de vida",
+   "detail": {
+    "viajante": 850,
+    "arauto": 1400,
+    "metronomo": 900,
+    "silencio": 1725
+   }
+  },
+  {
+   "name": "Normal: Viajante e Arauto ganham a fase III, com transição imune e golpe novo",
+   "detail": {
+    "viajante": {
+     "fase2": 2,
+     "tr": {
+      "fase": 3,
+      "imune": true,
+      "pausa": true
+     },
+     "imuneOk": true,
+     "golpe3": 1,
+     "hud": "O VIAJANTE MASCARADO · FASE III"
+    },
+    "arauto": {
+     "fase2": 2,
+     "tr": {
+      "fase": 3,
+      "imune": true,
+      "pausa": true
+     },
+     "imuneOk": true,
+     "golpe3": 1,
+     "hud": "ARAUTO DA ESTÁTICA · FASE III"
+    }
+   }
+  },
+  {
+   "name": "Normal: Metrônomo e Silêncio anunciam as três fases",
+   "detail": {
+    "metronomo": {
+     "f2": 2,
+     "f3": 3,
+     "log": [
+      "fase2",
+      "fase3"
+     ]
+    },
+    "silencio": {
+     "f2": 2,
+     "f3": 3,
+     "log": [
+      "fase2",
+      "fase3"
+     ]
+    }
+   }
+  },
+  {
+   "name": "Normal: inimigos a mais, tipos novos e encontros na floresta",
+   "detail": {
+    "contagem": 11,
+    "tipos": [
+     "hush",
+     "whisper",
+     "flautim_atirador",
+     "tambor_escudo"
+    ],
+    "inicio": {
+     "id": "c1_emboscada_ponte",
+     "vivos": 3,
+     "mode": "action"
+    },
+    "feito": true,
+    "defeated": 0
+   }
+  },
+  {
+   "name": "Arena trancada e onda de Silêncio: três ondas, saída fechada até o fim",
+   "detail": {
+    "id": "c1_onda_silencio",
+    "ondas": [
+     0,
+     6.45,
+     1,
+     6.45,
+     2,
+     6.45
+    ],
+    "feito": true,
+    "fitas": 4
+   }
+  },
+  {
+   "name": "Tipos novos: escudo bloqueia de frente, abre pelas costas; curador cura; maestro chama; atiradores avisam antes",
+   "detail": {
+    "frente": 3,
+    "costas": 20,
+    "cura": 11,
+    "chamados": 2,
+    "chamadosDepois": 0,
+    "avisoAntena": 60,
+    "danoAntena": 11
+   }
+  },
+  {
+   "name": "Difícil: a Sombra atira em leque de três",
+   "detail": {
+    "dificil": 3,
+    "historia": 1,
+    "vida": 71
+   }
+  },
+  {
+   "name": "Impacto: hit-stop de 2–3 quadros só nos níveis com fases; números de dano opcionais",
+   "detail": {
+    "historia": 0,
+    "normal": 3,
+    "numeros": [
+     "7"
+    ]
+   }
+  },
+  {
+   "name": "Menu → Sistema troca o nível fora de combate; checkpoint mantém o nível",
+   "detail": {
+    "antes": "DIFICULDADE · HISTÓRIA",
+    "depois": "normal",
+    "nums": true,
+    "aposCheckpoint": "dificil"
+   }
+  },
+  {
+   "name": "Posições: extras e encontros em chão livre e alcançável a partir da entrada",
+   "detail": {
+    "problemas": [],
+    "extras": 24,
+    "encontros": 9,
+    "tipos": [
+     "tambor_escudo",
+     "flautim_atirador",
+     "coro_curador",
+     "maestro_invocador",
+     "muralha_estatica",
+     "antena_feedback"
+    ]
+   }
+  },
+  {
+   "name": "Calabouço (Fenda): igual em todos os níveis; a escalada vem só das ondas",
+   "detail": {
+    "historia": {
+     "ativo": false,
+     "impacto": false,
+     "inicio": [
+      [
+       "hush",
+       44,
+       44,
+       6
+      ]
+     ],
+     "parados": 0,
+     "perigos": 0,
+     "depois": [
+      [
+       "hush",
+       39,
+       12.77,
+       18.79
+      ],
+      [
+       "whisper",
+       62,
+       17.82,
+       17.95
+      ]
+     ],
+     "onda": 1
+    },
+    "dificil": {
+     "ativo": false,
+     "impacto": false,
+     "inicio": [
+      [
+       "hush",
+       44,
+       44,
+       6
+      ]
+     ],
+     "parados": 0,
+     "perigos": 0,
+     "depois": [
+      [
+       "hush",
+       39,
+       12.77,
+       18.79
+      ],
+      [
+       "whisper",
+       62,
+       17.82,
+       17.95
+      ]
+     ],
+     "onda": 1
+    },
+    "normal": {
+     "ativo": false,
+     "impacto": false,
+     "inicio": [
+      [
+       "hush",
+       44,
+       44,
+       6
+      ]
+     ],
+     "parados": 0,
+     "perigos": 0,
+     "depois": [
+      [
+       "hush",
+       39,
+       12.77,
+       18.79
+      ],
+      [
+       "whisper",
+       62,
+       17.82,
+       17.95
+      ]
+     ],
+     "onda": 1
+    }
+   }
+  }
+ ],
+ "errors": []
+}
