@@ -1,3 +1,64 @@
+## [Fase 6 · interface, mobile e acessibilidade] — 2026-11-21
+
+- **Bugs da crítica corrigidos:**
+  - o menu de pausa fica por cima do diálogo;
+  - as dicas de teclas estavam erradas: o J ataca durante o jogo, e o diário não tinha tecla. O diário agora fica no N;
+  - "ÓRBITA VAZIA" não fica mais sobre a cena final;
+  - no celular, o aviso de salvamento não cobre o nome da área nem a vida, e o objetivo não fica sobre o analógico;
+  - o aliado não aparece desenhado em cima do líder.
+- **Fila de avisos:** um aviso por vez, numa zona fixa (no alto, ao centro, entre as colunas do HUD; no celular em pé, na faixa acima do quadro). Com menu ou diálogo abertos, os avisos esperam; quando uma cena começa, os avisos velhos de combate são descartados.
+- **HUD por zonas:** no celular deitado, a barra de combate fica entre o analógico e os botões, e o objetivo não se repete. O teste `qa/interface_v6.cjs` falha se dois elementos do HUD se sobrepõem no PC, no celular em pé ou no celular deitado, no estúdio ou na Fenda em combate.
+- **Remapeamento de teclas e botões** (Sistema → Controles): se a tecla já estiver em uso, as duas trocam de lugar. O rodapé, os botões do topo, o painel de técnicas, a barra de combate e a tecla de interação mostram o que está no mapa.
+- **Acessibilidade** (Sistema):
+  - *Avisos em âmbar:* os avisos de ataque deixam de ser vermelhos, para quem não distingue vermelho de verde;
+  - *Pista da batida:* um anel que se fecha sobre cada Metrônomo até a batida, mais a contagem do aviso do chefe;
+  - *Batida tolerante:* o Metrônomo bate um terço mais devagar, os avisos do chefe e dos perigos duram 30% mais e o contratempo da Percussão fica mais largo.
+
+## [Calabouço · biomas] — 2026-11-21
+
+- **Quatro biomas que trocam a cada 10 ondas**, com piso e objetos dos capítulos: *Fenda* (ondas 1–10, aberta), *Floresta do Silêncio* (11–20, árvores), *Cidade das Vozes* (21–30, postes e barracas) e *Usina* (31–40, máquinas). Depois a sequência recomeça.
+- Fora da Fenda, os obstáculos seguem um de 4 arranjos, sorteado pela semente a cada bioma. O centro e o ponto de partida ficam sempre livres.
+- **Perigo de cada bioma**: a cada 5,5 s, uma área marcada perto de um jogador (*Raízes*, *Estática* ou *Vapor*) estoura em 1,3 s e fere quem estiver dentro. A esquiva protege.
+- O painel da onda mostra o nome do bioma.
+
+## [Calabouço · mini-chefes e elites] — 2026-11-21
+
+- **Mini-chefe a cada 10 ondas:** ecos do *Viajante Mascarado* (ondas 10, 30…) e da *Voz* (20, 40…), com a coreografia e a arte da campanha. A onda traz metade dos ecos comuns e só termina quando o mini-chefe cai. A queda não dispara cenas nem marcas da campanha e vale 900 pontos ou mais.
+- **Elites com modificador visível** nas ondas múltiplas de 5: *Escudo* (anula os 3 primeiros golpes, com ◆ sobre o eco), *Frenético* (ataca mais rápido) ou *Divisão* (vira dois ecos ao cair). O rótulo mostra o modificador, e o aviso da onda o anuncia.
+
+## [Calabouço · melhorias novas] — 2026-11-21
+
+- **22 melhorias em três raridades** (comum, rara e lendária), com a raridade e a cor no cartão. As lendárias saem cerca de uma vez a cada 10 cartas.
+- **Uma carta por instrumento**, que só aparece com aquele personagem na equipe: *Grave que prende* (Franco atordoa mais), *Corte em sequência* (Ryuchi), *Flecha que atravessa* (Arqueiro fere um segundo eco), *Tinta afiada* (Katana contra atordoados), *Onda sintética* (Sintetizador ganha ressonância) e *Tambor de guerra* (Percussão fere em volta).
+- Outras novas: *Metrônomo acelerado*, *Plateia atenta*, *Eco em cadeia*, *Pele de tambor*, *Nota aguda*, *Fôlego final*, *Contra-melodia*, *Bis*, *Distorção* e *Acorde perfeito*.
+- **Escolha a cada 2 ondas** (e em toda pausa de respiro). Nas outras, a equipe respira 1,6 s e a próxima onda começa sozinha, com o resultado num aviso.
+- **Trocar opções** uma vez por tentativa e **pular** a escolha em troca de pontos.
+- Corrigido o sorteio das cartas: com sementes vizinhas, *Nota aguda* aparecia em 83% das escolhas.
+- Força do instrumento reajustada: Ryuchi ×1,6, Arqueiro ×1,3.
+
+## [Calabouço · curva e rótulos] — 2026-11-21
+
+- **Curva nova:** a onda 1 já traz 4 ecos em grupo, e o aperto chega entre as ondas 12 e 18 (antes começava com 3 ecos e o pico ficava entre a 20 e a 30). No robô, um personagem sozinho chega em média à onda 14 e uma dupla à 20.
+- Força do instrumento reajustada para a curva nova: Arqueiro ×1,15, Sintetizador ×2,3, Katana ×3,5.
+- "RITMO ×" virou "SEM DANO ×", que é o que ele conta (ondas seguidas sem levar dano).
+- Os rótulos "ECO" e "RESSONANTE" no mapa passaram de 8–10 px para 12 px, com contorno escuro.
+- A carta *Retorno de sinal* mostra a unidade: "+2 → +4 de ressonância".
+
+## [Calabouço · grupos, respiro e equilíbrio] — 2026-11-21
+
+- **Os ecos chegam em grupos** de 2 a 4 (até 5 no co-op), em cerco, linha ou pinça, em vez de um por vez. O próximo grupo vem pouco depois de o anterior nascer, quando há espaço na arena.
+- **Respiro a cada 5 ondas**, antes da melhoria: *Recompor* (quem está de pé recupera 30% da vida máxima), *Reerguer* (um integrante caído volta com metade da vida) ou *Sintonia rara* (a melhoria seguinte sobe 2 níveis). É a única cura da Fenda; as fitas continuam desligadas.
+- **Força do instrumento na Fenda:** todos recebem o mesmo dano, e quem sobrevivia menos bate mais forte (Ryuchi ×1,15, Percussão ×1,6, Sintetizador ×2,1, Katana ×2,7). No co-op, cada golpe usa a força de quem o desferiu. No robô de equilíbrio, sozinhos, todos chegam entre a onda 18 e a 20 (antes: da 6 à 23).
+- **Co-op na mesma curva do solo.** Antes a dificuldade do co-op subia 25% mais rápido, e a dupla Franco/Ryuchi chegava 30% menos longe que no solo. Agora o segundo jogador é compensado por um fator fixo: 50% mais ecos, um a mais vivo, grupos maiores e 20% mais vida.
+- Novo teste `qa/dungeon_equilibrio.cjs` no CI: falha se um personagem ficar mais de 15% abaixo da média ou se o co-op sair de 85%–120% do solo com a mesma dupla.
+
+## [Calabouço · correções rápidas] — 2026-11-21
+
+- **Encerrar expedição pede confirmação.** Vale para o painel entre ondas, o mapa (M) e o menu do sistema. O foco começa em CONTINUAR NA FENDA, para um toque ou botão A repetido não apagar a tentativa.
+- **Sem ponto de saída dentro da arena.** Encostar nele no meio da luta encerrava a expedição na hora.
+- **O resultado da onda aparece no painel de melhorias** ("ONDA 2 CONCLUÍDA · +275 PTS · TOTAL …"), e não num aviso por cima das cartas. Qualquer aviso aberto some quando o painel abre.
+- **Menos gravações durante a onda.** O dano continua permanente: ao carregar, a vida gravada vira a vida da onda. Os ferimentos são agrupados e gravados no máximo a cada 2 s, e na hora ao fechar, recarregar ou esconder a página. Abates não gravam mais, e o jogo base deixa de gravar ao fim de cada embate quando nada mudou. Em 8 ondas com o robô: de 60 para 24 gravações.
+
 ## [Fase 4 · narrativa] — 2026-11-21
 
 - Leitura: o texto aparece com velocidade escolhida (lento, normal, rápido ou instantâneo); tocar durante a digitação completa a fala. Avanço automático, histórico de falas e pular cena (as falas puladas ficam no histórico; escolhas nunca são puladas). Botões na caixa de diálogo e atalhos: V velocidade, O auto, L histórico, P pular; no controle, X auto, Y histórico, Select pular.

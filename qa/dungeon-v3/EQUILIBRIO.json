@@ -1,0 +1,1347 @@
+{
+ "url": "http://127.0.0.1:8794/",
+ "method": "Robô de regras fixas, 30 Hz, sementes fixas; ondas concluídas até a derrota ou 1500 s simulados. Mede o robô, não a diversão nem a habilidade humana.",
+ "solo": {
+  "porPersonagem": {
+   "franco": 10.3,
+   "ryuchi": 10.3,
+   "alt": 9.9,
+   "katana": 12.5,
+   "synth": 12.4,
+   "percussion": 10.1
+  },
+  "media": 10.9,
+  "minimo": 9.3
+ },
+ "duplas": {
+  "franco+ryuchi": {
+   "dupla": 15.8,
+   "coop": 13.3
+  },
+  "ryuchi+franco": {
+   "dupla": 16.4,
+   "coop": 14.6
+  },
+  "alt+katana": {
+   "dupla": 16.8,
+   "coop": 19.1
+  },
+  "katana+alt": {
+   "dupla": 17.3,
+   "coop": 13
+  },
+  "synth+percussion": {
+   "dupla": 16.9,
+   "coop": 14.9
+  },
+  "percussion+synth": {
+   "dupla": 17.6,
+   "coop": 22.4
+  }
+ },
+ "coopSobreDupla": 0.97,
+ "checks": {
+  "personagensDentroDe15PorCento": true,
+  "coopIgualAoSoloComAMesmaDupla": true,
+  "semErros": true
+ },
+ "errors": [],
+ "rows": [
+  {
+   "kind": "solo",
+   "hero": "franco",
+   "partner": null,
+   "seed": 11,
+   "seconds": 99,
+   "wave": 8,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "franco",
+   "partner": null,
+   "seed": 23,
+   "seconds": 75,
+   "wave": 7,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "franco",
+   "partner": null,
+   "seed": 97,
+   "seconds": 131,
+   "wave": 11,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "franco",
+   "partner": null,
+   "seed": 131,
+   "seconds": 86,
+   "wave": 8,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "franco",
+   "partner": null,
+   "seed": 257,
+   "seconds": 194,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "franco",
+   "partner": null,
+   "seed": 409,
+   "seconds": 191,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "franco",
+   "partner": null,
+   "seed": 733,
+   "seconds": 86,
+   "wave": 7,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "franco",
+   "partner": null,
+   "seed": 977,
+   "seconds": 203,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "ryuchi",
+   "partner": null,
+   "seed": 11,
+   "seconds": 96,
+   "wave": 9,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "ryuchi",
+   "partner": null,
+   "seed": 23,
+   "seconds": 96,
+   "wave": 9,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "ryuchi",
+   "partner": null,
+   "seed": 97,
+   "seconds": 102,
+   "wave": 9,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "ryuchi",
+   "partner": null,
+   "seed": 131,
+   "seconds": 134,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "ryuchi",
+   "partner": null,
+   "seed": 257,
+   "seconds": 86,
+   "wave": 8,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "ryuchi",
+   "partner": null,
+   "seed": 409,
+   "seconds": 168,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "ryuchi",
+   "partner": null,
+   "seed": 733,
+   "seconds": 85,
+   "wave": 8,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "ryuchi",
+   "partner": null,
+   "seed": 977,
+   "seconds": 177,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "alt",
+   "partner": null,
+   "seed": 11,
+   "seconds": 92,
+   "wave": 9,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "alt",
+   "partner": null,
+   "seed": 23,
+   "seconds": 130,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "alt",
+   "partner": null,
+   "seed": 97,
+   "seconds": 118,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "alt",
+   "partner": null,
+   "seed": 131,
+   "seconds": 63,
+   "wave": 7,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "alt",
+   "partner": null,
+   "seed": 257,
+   "seconds": 83,
+   "wave": 9,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "alt",
+   "partner": null,
+   "seed": 409,
+   "seconds": 99,
+   "wave": 9,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "alt",
+   "partner": null,
+   "seed": 733,
+   "seconds": 93,
+   "wave": 9,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "alt",
+   "partner": null,
+   "seed": 977,
+   "seconds": 155,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "katana",
+   "partner": null,
+   "seed": 11,
+   "seconds": 152,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "katana",
+   "partner": null,
+   "seed": 23,
+   "seconds": 105,
+   "wave": 11,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "katana",
+   "partner": null,
+   "seed": 97,
+   "seconds": 75,
+   "wave": 8,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "katana",
+   "partner": null,
+   "seed": 131,
+   "seconds": 132,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "katana",
+   "partner": null,
+   "seed": 257,
+   "seconds": 115,
+   "wave": 11,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "katana",
+   "partner": null,
+   "seed": 409,
+   "seconds": 225,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "katana",
+   "partner": null,
+   "seed": 733,
+   "seconds": 129,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "katana",
+   "partner": null,
+   "seed": 977,
+   "seconds": 131,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "synth",
+   "partner": null,
+   "seed": 11,
+   "seconds": 122,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "synth",
+   "partner": null,
+   "seed": 23,
+   "seconds": 124,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "synth",
+   "partner": null,
+   "seed": 97,
+   "seconds": 141,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "synth",
+   "partner": null,
+   "seed": 131,
+   "seconds": 121,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "synth",
+   "partner": null,
+   "seed": 257,
+   "seconds": 70,
+   "wave": 7,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "synth",
+   "partner": null,
+   "seed": 409,
+   "seconds": 162,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "synth",
+   "partner": null,
+   "seed": 733,
+   "seconds": 124,
+   "wave": 11,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "synth",
+   "partner": null,
+   "seed": 977,
+   "seconds": 254,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "percussion",
+   "partner": null,
+   "seed": 11,
+   "seconds": 52,
+   "wave": 4,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "percussion",
+   "partner": null,
+   "seed": 23,
+   "seconds": 111,
+   "wave": 9,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "percussion",
+   "partner": null,
+   "seed": 97,
+   "seconds": 89,
+   "wave": 8,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "percussion",
+   "partner": null,
+   "seed": 131,
+   "seconds": 94,
+   "wave": 8,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "percussion",
+   "partner": null,
+   "seed": 257,
+   "seconds": 76,
+   "wave": 7,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "percussion",
+   "partner": null,
+   "seed": 409,
+   "seconds": 199,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "percussion",
+   "partner": null,
+   "seed": 733,
+   "seconds": 155,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "solo",
+   "hero": "percussion",
+   "partner": null,
+   "seed": 977,
+   "seconds": 283,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 11,
+   "seconds": 381,
+   "wave": 24,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 23,
+   "seconds": 142,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 97,
+   "seconds": 210,
+   "wave": 16,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 131,
+   "seconds": 221,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 257,
+   "seconds": 144,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 409,
+   "seconds": 192,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 733,
+   "seconds": 288,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 977,
+   "seconds": 388,
+   "wave": 11,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 11,
+   "seconds": 242,
+   "wave": 18,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 23,
+   "seconds": 147,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 97,
+   "seconds": 210,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 131,
+   "seconds": 172,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 257,
+   "seconds": 262,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 409,
+   "seconds": 209,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 733,
+   "seconds": 227,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 977,
+   "seconds": 229,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 11,
+   "seconds": 291,
+   "wave": 10,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 23,
+   "seconds": 154,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 97,
+   "seconds": 202,
+   "wave": 18,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 131,
+   "seconds": 191,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 257,
+   "seconds": 207,
+   "wave": 18,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 409,
+   "seconds": 230,
+   "wave": 20,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 733,
+   "seconds": 229,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 977,
+   "seconds": 229,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 11,
+   "seconds": 256,
+   "wave": 21,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 23,
+   "seconds": 162,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 97,
+   "seconds": 165,
+   "wave": 15,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 131,
+   "seconds": 179,
+   "wave": 15,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 257,
+   "seconds": 185,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 409,
+   "seconds": 275,
+   "wave": 18,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 733,
+   "seconds": 261,
+   "wave": 22,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 977,
+   "seconds": 190,
+   "wave": 16,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 11,
+   "seconds": 243,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 23,
+   "seconds": 207,
+   "wave": 16,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 97,
+   "seconds": 247,
+   "wave": 21,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 131,
+   "seconds": 154,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 257,
+   "seconds": 205,
+   "wave": 16,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 409,
+   "seconds": 161,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 733,
+   "seconds": 375,
+   "wave": 24,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 977,
+   "seconds": 160,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 11,
+   "seconds": 276,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 23,
+   "seconds": 171,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 97,
+   "seconds": 228,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 131,
+   "seconds": 227,
+   "wave": 18,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 257,
+   "seconds": 202,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 409,
+   "seconds": 243,
+   "wave": 18,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 733,
+   "seconds": 270,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "dupla",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 977,
+   "seconds": 265,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 11,
+   "seconds": 205,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 23,
+   "seconds": 150,
+   "wave": 11,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 97,
+   "seconds": 207,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 131,
+   "seconds": 164,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 257,
+   "seconds": 174,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 409,
+   "seconds": 163,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 733,
+   "seconds": 296,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "franco",
+   "partner": "ryuchi",
+   "seed": 977,
+   "seconds": 221,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 11,
+   "seconds": 287,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 23,
+   "seconds": 165,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 97,
+   "seconds": 242,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 131,
+   "seconds": 161,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 257,
+   "seconds": 229,
+   "wave": 16,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 409,
+   "seconds": 100,
+   "wave": 8,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 733,
+   "seconds": 235,
+   "wave": 16,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "ryuchi",
+   "partner": "franco",
+   "seed": 977,
+   "seconds": 245,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 11,
+   "seconds": 340,
+   "wave": 24,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 23,
+   "seconds": 167,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 97,
+   "seconds": 231,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 131,
+   "seconds": 227,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 257,
+   "seconds": 282,
+   "wave": 22,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 409,
+   "seconds": 218,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 733,
+   "seconds": 244,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "alt",
+   "partner": "katana",
+   "seed": 977,
+   "seconds": 251,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 11,
+   "seconds": 299,
+   "wave": 22,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 23,
+   "seconds": 149,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 97,
+   "seconds": 176,
+   "wave": 14,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 131,
+   "seconds": 161,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 257,
+   "seconds": 116,
+   "wave": 9,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 409,
+   "seconds": 137,
+   "wave": 11,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 733,
+   "seconds": 165,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "katana",
+   "partner": "alt",
+   "seed": 977,
+   "seconds": 151,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 11,
+   "seconds": 251,
+   "wave": 17,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 23,
+   "seconds": 144,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 97,
+   "seconds": 258,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 131,
+   "seconds": 206,
+   "wave": 16,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 257,
+   "seconds": 146,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 409,
+   "seconds": 227,
+   "wave": 18,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 733,
+   "seconds": 176,
+   "wave": 13,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "synth",
+   "partner": "percussion",
+   "seed": 977,
+   "seconds": 154,
+   "wave": 12,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 11,
+   "seconds": 457,
+   "wave": 28,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 23,
+   "seconds": 282,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 97,
+   "seconds": 320,
+   "wave": 21,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 131,
+   "seconds": 303,
+   "wave": 21,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 257,
+   "seconds": 258,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 409,
+   "seconds": 259,
+   "wave": 19,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 733,
+   "seconds": 379,
+   "wave": 26,
+   "ended": true
+  },
+  {
+   "kind": "coop",
+   "hero": "percussion",
+   "partner": "synth",
+   "seed": 977,
+   "seconds": 429,
+   "wave": 26,
+   "ended": true
+  }
+ ]
+}
