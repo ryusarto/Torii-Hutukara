@@ -172,7 +172,8 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
           const radio=Narrativa.barks().ativos.filter(a=>a.radio).map(a=>a.texto);
           const pot0=G.potions;C3.spawnSilence();const b1={hp:bossActor.hp,max:bossActor.max??bossActor.maxhp??null};const pot1=G.potions;
           C3.spawnSilence();const pot2=G.potions;
-          return{radio,nuvens:G.choices.f4Nuvens,pot0,pot1,pot2,boss:b1,toast:$('toast').textContent};
+          // Com a fila de avisos (Fase 6) o aviso pode estar na fila ou já ter passado.
+          return{radio,nuvens:G.choices.f4Nuvens,pot0,pot1,pot2,boss:b1,toast:[$('toast').textContent,...(window.ToriiInterface6?ToriiInterface6.Toasts.recent():[])].join(' | ')};
         },[campaign,rota]);
         assert.equal(r.nuvens,rota);assert(r.radio.length>=1,'rádio: '+JSON.stringify(r));
         if(rota==='usina'){assert(r.toast.includes('USINA'));assert(r.boss.max>0&&r.boss.hp<=Math.round(r.boss.max*.88),JSON.stringify(r.boss));assert.equal(r.pot1,r.pot0)}

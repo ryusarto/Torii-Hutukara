@@ -372,7 +372,9 @@ if(typeof openSettings10==='function'){
       b.title=emLuta?'Troque fora de combate':NIVEIS[nivel()].resumo;
       b.onclick=()=>{const i=ORDEM.indexOf(nivel());definir(ORDEM[(i+1)%ORDEM.length]);save(true);openSettings10();
         const s=$('status10');if(s)s.textContent=NIVEIS[nivel()].nome+': '+NIVEIS[nivel()].resumo};
-      linha.appendChild(b);status.parentNode.insertBefore(linha,status);
+      linha.appendChild(b);
+      // Acima das outras opções (Efeitos, Texto…), antes de Tela inicial e Voltar.
+      const opcoes=$('motion10')?.parentNode;if(opcoes&&opcoes.parentNode){linha.className=opcoes.className;linha.style.marginBottom=getComputedStyle(opcoes).rowGap&&getComputedStyle(opcoes).rowGap!=='normal'?getComputedStyle(opcoes).rowGap:'10px';opcoes.parentNode.insertBefore(linha,opcoes)}else status.parentNode.insertBefore(linha,status);
     }catch(e){console.warn('fase2: menu',e)}
     return r;
   };

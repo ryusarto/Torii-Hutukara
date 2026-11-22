@@ -93,6 +93,8 @@ jobs:
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
           node qa/postgame_browser.cjs http://127.0.0.1:8771/
           node qa/dungeon_playtest.cjs http://127.0.0.1:8771/
+          node qa/interface_v6.cjs http://127.0.0.1:8771/
+          node qa/dungeon_equilibrio.cjs http://127.0.0.1:8771/
           node qa/review110_browser.cjs http://127.0.0.1:8771/
           node qa/review111_postgame_browser.cjs http://127.0.0.1:8771/
           node qa/review111_world_browser.cjs http://127.0.0.1:8771/
@@ -115,6 +117,7 @@ jobs:
             qa/dungeon-v3/
             qa/playtest/SITE_TEST_RESULTS.json
             qa/sorte/
+            qa/interface-v6/
             qa/narrativa/
             qa/dificuldade/
             qa/screenshots-local/pages/

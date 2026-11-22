@@ -148,6 +148,7 @@ jobs:
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
           node qa/postgame_browser.cjs http://127.0.0.1:8771/
           node qa/dungeon_playtest.cjs http://127.0.0.1:8771/
+          node qa/interface_v6.cjs http://127.0.0.1:8771/
           node qa/review110_browser.cjs http://127.0.0.1:8771/
           node qa/review111_postgame_browser.cjs http://127.0.0.1:8771/
           node qa/review111_world_browser.cjs http://127.0.0.1:8771/

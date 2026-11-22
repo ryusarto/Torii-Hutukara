@@ -1,5 +1,5 @@
 {
-  "passed": 13,
+  "passed": 25,
   "checks": [
     "Progressive pressure stays bounded and HP at wave20 is less than legacy sponge growth",
     "Procedural plans vary without early controllers or multiple mute auras",
@@ -13,7 +13,19 @@
     "Legacy scores remain visible as history and never enter the new rankings",
     "Pause freezes warnings, wave timers and combat time",
     "Warning placement cannot be offscreen or hidden under HUD/control corners",
-    "Elite damage stays below one-shot range for the weakest selected maxHP"
+    "Elite damage stays below one-shot range for the weakest selected maxHP",
+    "Respite every 5 waves heals the standing team or revives one member, once, and survives a reload",
+    "Rare respite raises the chosen card by two levels and the save keeps the budget",
+    "Enemies arrive in groups of 2 to 4 (5 in coop) on valid, separate spots",
+    "Coop follows the solo difficulty curve with a fixed extra (it no longer grows faster)",
+    "Everyone takes the same damage; heroes that survive less hit harder, P2 hits use P2 power",
+    "Draft every 2 waves (and on respite waves); other waves breathe and continue alone",
+    "22 cards in three rarities; instrument cards only with that hero; legendary is rarer",
+    "One reroll per attempt changes the offers; skipping banks points and starts the next wave",
+    "New card effects: drum shield, overdrive, crowd, chain, pierce, war drum, synth wave, Franco stun, encore",
+    "Every 10 waves a campaign boss echo leads half a wave; the wave ends only after it falls",
+    "Elite modifiers: shield blocks three hits, split leaves two echoes, frenetic recovers faster",
+    "Biomes change every 10 waves with a seeded obstacle layout; hazards wait in the Fenda"
   ],
   "method": "VM of real dungeon functions; combat and DOM dependencies stubbed. Not a human comfort/fun test."
 }
