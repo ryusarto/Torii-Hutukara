@@ -1,10 +1,10 @@
-/* Cloud routes: authored reconstruction sprites, progressive support and fatal falls.
+/* Cloud routes: authored reconstruction sprites, progressive support and falls that restart the route.
  * Existing cloud flags remain durable. Render never changes geometry or combat.
  */
 'use strict';
 const CloudWorldV1={
   assets:__CLOUD_WORLD_ASSETS__,manifest:__CLOUD_WORLD_MANIFEST__,images:{},textures:{},
-  enabled:true,clock:0,builds:[],fall:null,game:null,area:null,map:null,followers:new Map(),
+  enabled:true,clock:0,builds:[],fall:null,start:{x:5.5,y:26.5},game:null,area:null,map:null,followers:new Map(),
   specs:{
     A:{key:'cloudPathA',rect:[18,20,7,6],tile:'c3_cloud',relic:'windFlute'},
     P:{key:'cloudPlatform',rect:[32,14,7,5],tile:'c3_platform',relic:'horizonDrum'},
@@ -100,10 +100,20 @@ const CloudWorldV1={
     const f=this.fall;if(!f)return;
     f.elapsed=Math.min(f.duration,f.elapsed+dt);
     if(f.elapsed+1e-7<f.duration)return;
-    // Defeat saves a safe coordinate, never the void position used by the falling drawing.
-    Object.assign(f.body,f.safe);G.hp[f.hero]=0;
+    this.respawn();
+  },
+  respawn(){
+    // A fall only restarts the cloud route: no defeat screen and no return to an older
+    // checkpoint (that path could leave the city and replay the arrival cinema over the game).
+    // Built bridges are durable flags, so the route keeps its progress.
+    const start=this.start;
+    if(this.fall)Object.assign(this.fall.body,this.fall.safe);
     this.fall=null;this.followers.clear();
-    showDefeat();
+    setArea('cloud_sea',start.x,start.y,false);
+    if(typeof resetMotion10==='function')resetMotion10();
+    if(C3.coopActive?.())C3.syncCoop(true);
+    attackHeld=false;mode='walk';
+    toast('VOCÊ CAIU DA NUVEM · DE VOLTA AO INÍCIO DAS NUVENS');save(true);
   },
   move(body,dx,dy,distance,updateFacing=true){
     this.sync();

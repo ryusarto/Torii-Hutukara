@@ -12,14 +12,14 @@ PB.cinemaPanel=function(area){
 };
 const cloudStoryAreaV1=C3.areaStory;
 C3.areaStory=function(id){
-  if(id==='cloud_sea'&&G?.c3?.cloudIntro&&!CloudStoryV1.warned.has(G))toast('NAS NUVENS · ESPERE O CHÃO SE FORMAR. FORA DA BORDA, QUEDA FATAL.');
+  if(id==='cloud_sea'&&G?.c3?.cloudIntro&&!CloudStoryV1.warned.has(G))toast('NAS NUVENS · ESPERE O CHÃO SE FORMAR. FORA DA BORDA, A QUEDA VOLTA AO INÍCIO.');
   if(id==='cloud_sea'&&G)CloudStoryV1.warned.add(G);
   return cloudStoryAreaV1.call(this,id);
 };
 const cloudStoryObjectiveV1=C3.objective;
 C3.objective=function(){
   const o=cloudStoryObjectiveV1.call(this);
-  if(o?.area==='cloud_sea')return {...o,hint:o.hint+' Espere a nuvem ficar inteira. Fora da borda, a queda é fatal.'};
+  if(o?.area==='cloud_sea')return {...o,hint:o.hint+' Espere a nuvem ficar inteira. Fora da borda, a queda leva de volta ao início das nuvens.'};
   return o;
 };
 const cloudStoryPropV1=drawProp;

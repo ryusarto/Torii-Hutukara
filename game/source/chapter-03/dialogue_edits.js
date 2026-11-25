@@ -66,7 +66,10 @@ if(typeof C3!=='undefined'&&typeof C3.start==='function'){const c3StartBeforeEdi
 if(typeof C3!=='undefined'&&typeof C3.scene==='function'){
   const sceneBeforeEdits=C3.scene;
   C3.scene=function(id,end){
-    if(AUTO_SCENES.has(id)){if(seenScenes.has(id)){if(end)end();return}rememberScene(id)}
+    if(AUTO_SCENES.has(id)){if(seenScenes.has(id)){
+      // A skipped scene has no dialogue to close the cinema opened for it (cloud arrival).
+      if(mode!=='dialogue'&&typeof $==='function'&&$('cinema'))$('cinema').style.display='none';
+      if(end)end();return}rememberScene(id)}
     if(id==='C3_008'&&G&&G.c3){
       if(G.c3.canalSceneSeen||seenScenes.has('C3_008')){
         return talk([{who:'nilo',t:'O violino da Lumi separa a interferência. Toquem perto da passagem e eu marco o caminho.',__edited:true}],end);
