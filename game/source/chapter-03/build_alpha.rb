@@ -520,6 +520,10 @@ GC.start
 html.gsub!('1.0 · PRÉ-ALPHA', VERSION.fetch('rotulo'))
 html.gsub!('ALPHA 1.2.0', VERSION.fetch('rotulo'))
 html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
+# Público: o jogo é lançado como Beta; os rótulos históricos de pré-alpha/pré-beta saem da interface.
+html.gsub!("#{VERSION.fetch('titulo')} · Pré-beta", VERSION.fetch('titulo'))
+html.gsub!("#{VERSION.fetch('rotulo')} · PRÉ-BETA", VERSION.fetch('rotulo'))
+html.gsub!("'PRÉ-ALPHA 1.1'", "'#{VERSION.fetch('rotulo')}'")
 
 html.gsub!('clamp(G.x*T-VW/2,0,a.w*T-VW)', 'clamp(coopCamera123("x")*T-VW/2,0,a.w*T-VW)')
 html.gsub!('clamp(G.y*T-VH/2,0,a.h*T-VH)', 'clamp(coopCamera123("y")*T-VH/2,0,a.h*T-VH)')

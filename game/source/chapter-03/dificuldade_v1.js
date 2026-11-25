@@ -16,7 +16,7 @@
 (function(){
 'use strict';
 const NIVEIS={
-  historia:{nome:'História',resumo:'O jogo como ele é hoje. Chefes e inimigos sem mudança.',
+  historia:{nome:'História',resumo:'Para curtir a história e a música. Chefes mais curtos e menos inimigos.',
     chefe:{vida:1,dano:1,fases:false,eco:false},inimigo:{vida:1,dano:1},extras:false,padroes:false,impacto:false},
   normal:{nome:'Normal',resumo:'Chefes com 2,5× de vida e três fases. Mais inimigos, tipos novos e encontros.',
     chefe:{vida:2.5,dano:1,fases:true,eco:false},inimigo:{vida:1,dano:1},extras:true,padroes:false,impacto:true},

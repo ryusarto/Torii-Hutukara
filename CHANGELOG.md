@@ -1,3 +1,9 @@
+## [Preparação do lançamento] — 2026-11-25
+
+- CI do `main` volta a passar: o teste de navegador das nuvens (`qa/environment_world_browser.cjs`) ainda esperava a tela de derrota na queda. Agora confere o comportamento atual: a queda leva de volta ao começo do Mar de Nuvens, sem perder vida, também no co-op e com o mapa aberto no meio da queda.
+- Título da aba e rótulos de versão sem "Pré-beta"/"Pré-alpha": o jogo aparece como Beta 1.15.0.
+- Descrição da dificuldade História reescrita para quem joga pela primeira vez ("Para curtir a história e a música…"), em vez de "O jogo como ele é hoje".
+
 ## [Fase 2 · dificuldade e combate] — 2026-11-22
 
 - Três níveis de dificuldade, escolhidos ao começar (Nova jornada e inícios diretos) e trocáveis em Menu → Sistema fora de combate. **História** é o jogo de antes, sem mudança; saves antigos entram como História. **Normal**: chefes com 2,5× de vida e três fases, mais inimigos e encontros. **Difícil**: tudo do Normal, e os inimigos ganham padrões novos.
