@@ -59,6 +59,7 @@ PREBETA = File.join(REPO_ROOT, 'assets', 'prebeta', 'runtime')
 
 FILES = {
   '__CINEMA_FOREST__' => File.join(REPO_ROOT, 'assets', 'dialogue', 'v2', 'forest.png'),
+  '__CINEMA_STUDIO__' => File.join(REPO_ROOT, 'assets', 'dialogue', 'v2', 'studio.png'),
   '__C3_AUDIO_1__' => File.join(ASSETS, 'audio', '01-100adsense.mp3'),
   '__C3_AUDIO_2__' => File.join(ASSETS, 'audio', '02-type-shit.mp3'),
   '__C3_AUDIO_3__' => File.join(ASSETS, 'audio', '03-ak-cruzada.mp3'),
@@ -137,6 +138,14 @@ runtime = File.read(RUNTIME, encoding: 'UTF-8')
 # The original Franco super also heals the party outside the dungeon.
 replace_once!(html, 'for(const id of partyMembers())if(G.hp[id]>0)G.hp[id]=Math.min',
   'for(const id of partyMembers())if(!PostGame.active()&&G.hp[id]>0)G.hp[id]=Math.min', 'cura de super fora da Fenda')
+
+# The larger portrait viewport needs to paint every visible tile. In mobile
+# combat, only AI followers fade; the second player keeps full opacity.
+replace_once!(html, 'Math.min(a.h,iy+23)', 'Math.min(a.h,iy+Math.ceil(VH/T)+3)', 'altura visível do mapa')
+%w[behind third].each_with_index do |pose, index|
+  original = "drawActor({style:following[#{index}],dir:#{pose}.dir},Math.round(#{pose}.x*T-cam.x),Math.round(#{pose}.y*T-cam.y),lastStep<.3)"
+  replace_once!(html, original, "drawMobileFollower121(following[#{index}],#{pose},lastStep<.3)", 'legibilidade do grupo no mobile')
+end
 
 follower_hit = "hitEnemy(target,allyId==='franco'?8:6,.09,.03);"
 replace_once!(html, follower_hit,
@@ -363,8 +372,8 @@ locomotion_manifest.fetch('animations').each do |a|
   protagonist_uris[a.fetch('hero') + '_' + a.fetch('state')] = "data:image/png;base64,#{encode(File.join(LOCOMOTION_ASSETS, a.fetch('atlas')))}" if a.fetch('row').zero?
 end
 polish_manifest = JSON.parse(File.read(File.join(WORLD_POLISH_ASSETS, 'manifest.json')))
-polish_files = polish_manifest.fetch('assets').values.map { |a| a.fetch('file') }
-polish_uris = polish_manifest.fetch('assets').to_h { |key, entry| [key, "data:image/png;base64,#{encode(File.join(WORLD_POLISH_ASSETS, entry.fetch('file')))}"] }
+polish_files = polish_manifest.fetch('assets').values.flat_map { |a| [a.fetch('file'), a.fetch('runtime')] }
+polish_uris = polish_manifest.fetch('assets').to_h { |key, entry| [key, "data:image/png;base64,#{encode(File.join(WORLD_POLISH_ASSETS, entry.fetch('runtime')))}"] }
 npc_gestures_runtime = File.read(NPC_GESTURES_JS, encoding: 'UTF-8')
 replace_once!(npc_gestures_runtime, '__NPC_GESTURES_URI__', JSON.generate("data:image/png;base64,#{encode(File.join(NPC_GESTURES_ASSETS, 'city_gestures.png'))}"), 'gestos dos moradores C1')
 replace_once!(npc_gestures_runtime, '__NPC_C3_GESTURES_URI__', JSON.generate("data:image/png;base64,#{encode(File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2', 'NPC_C3_GESTURES_6X4.png'))}"), 'gestos dos moradores C3')
@@ -575,7 +584,7 @@ manifest = {
     local_players: 2,
     shared_camera: true,
     dedicated_mobile: true,
-    portrait_viewport: [512, 480],
+    portrait_viewport: { width: 512, height: [380, 820], responsive: true },
     landscape_viewport: [768, 432],
     distance_teleport: false
   },

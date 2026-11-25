@@ -1,3 +1,10 @@
+## [Beta 1.16.0] — 2026-11-25
+
+- A pausa congela os avisos e ataques extras dos chefes até a retomada.
+- A Fenda agora explica as regras de suprimentos, salva um estado completo no início da onda e separa suspender de encerrar a expedição.
+- No mobile, o campo ocupa mais altura em retrato, os controles exibem ressonância e recargas e os seguidores da IA cedem destaque durante o combate.
+- A versão web carrega recursos sob demanda. O fundo inicial e os móveis do estúdio usam arquivos menores.
+
 ## [Fase 2 · dificuldade e combate] — 2026-11-22
 
 - Três níveis de dificuldade, escolhidos ao começar (Nova jornada e inícios diretos) e trocáveis em Menu → Sistema fora de combate. **História** é o jogo de antes, sem mudança; saves antigos entram como História. **Normal**: chefes com 2,5× de vida e três fases, mais inimigos e encontros. **Difícil**: tudo do Normal, e os inimigos ganham padrões novos.

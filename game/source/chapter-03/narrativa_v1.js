@@ -343,6 +343,7 @@ function falar(quem,texto,atraso=0){
 function exibir(item){
   const radio=item.quem==='radio'||!PERS[item.quem];
   if(!podeFalar(radio))return;
+  if(!radio&&inFenda()&&/\bfitas?\b/i.test(item.texto))return;
   if(!radio&&!membros().includes(item.quem))return;
   const c=camada();const d=document.createElement('div');d.className='bark'+(radio?' radio':'');
   const cor=radio?'#b9d36f':PERS[item.quem].cor;d.style.setProperty('--cor',cor);
@@ -365,6 +366,7 @@ function posicionar(a){
     const idx=B.ativos.filter(x=>x.radio).indexOf(a);
     a.el.style.left=(r.left+10)+'px';a.el.style.top=(r.top+52+Math.max(0,idx)*54)+'px';return;
   }
+  if(Input121.mobile&&mode==='action'){a.el.style.display='none';return}
   const p=posicao(a.quem);if(!p){a.el.style.display='none';return}
   const sx=r.left+((p.x*T-cam.x)/VW)*r.width,sy=r.top+((p.y*T-cam.y-ALTURA_CABECA)/VH)*r.height;
   const fora=sx<r.left-20||sx>r.right+20||sy<r.top-40||sy>r.bottom;
@@ -389,14 +391,20 @@ function posicionarTodos(){
 }
 function limparBarks(){for(const a of B.ativos)a.el.remove();B.ativos=[];B.pendentes=[]}
 // O rádio das consequências aparece mesmo com as falas de combate desligadas.
+const inFenda=()=>typeof PostGame!=='undefined'&&PostGame.active();
 function podeFalar(radio=false){
+  // During mobile combat, leave the playfield to attacks and threats.
+  if(!radio&&typeof Input121!=='undefined'&&Input121.mobile&&mode==='action')return false;
   return (opts.barks||radio)&&typeof G!=='undefined'&&G&&['walk','action'].includes(mode)&&!historicoAberto()&&!(typeof CloudWorldV1!=='undefined'&&CloudWorldV1.fall);
 }
 // Uma fala solta de alguém da formação.
 function solta(gatilho,quem,ferido){
   const m=membros();if(!m.length)return false;
   const id=quem&&m.includes(quem)?quem:m[Math.floor(sorte()*m.length)];
-  const lista=DATA.falas[gatilho]?.[id];const t=tirar(gatilho+':'+id,lista);if(!t)return false;
+  const fenda=inFenda();
+  let lista=DATA.falas[gatilho]?.[id];
+  if(fenda)lista=lista?.filter(line=>!/\bfitas?\b/i.test(line));
+  const t=tirar(gatilho+':'+id+(fenda?':fenda':''),lista);if(!t)return false;
   falar(id,preencher(t,ferido));return true;
 }
 // Uma conversa entre versões presentes (2 ou 3).

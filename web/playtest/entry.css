@@ -16,6 +16,10 @@
   pointer-events: none;
   transition: opacity 200ms ease;
 }
+/* During play in portrait, keep the entry notice below the corner HUD. */
+html.mobile121:not(.landscape121):has(#start.hidden) #playtestEntry {
+  top: max(112px, calc(env(safe-area-inset-top) + 106px));
+}
 #playtestEntry.leaving { opacity: 0; }
 @media (prefers-reduced-motion: reduce) {
   #playtestEntry { transition: none; }

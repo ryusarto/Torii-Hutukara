@@ -105,8 +105,9 @@ Dir.mktmpdir('torii-playtest-') do |temp|
   end
   abort 'Referência a imagem removida' if renamed.keys.any? { |from| html.include?(from) }
 
-  # Fila de carregamento: o que a campanha usa primeiro baixa primeiro.
-  priority = JSON.parse(File.read(File.join(SOURCE, 'media_priority.json'), encoding: 'UTF-8')).fetch('ordem')
+  # Só a mídia observada no título carrega sem uma solicitação do jogo.
+  inventory = JSON.parse(File.read(File.join(SOURCE, 'media_priority.json'), encoding: 'UTF-8'))
+  priority = inventory.fetch('ordem').select { |file| inventory.fetch('area')[file] == 'titulo' }
   priority = priority.map { |from| renamed.dig(from, 'file') || from }.select { |file| media.key?(file) }
   loader = File.read(File.join(SOURCE, 'loader.js'), encoding: 'UTF-8')
   abort 'Carregador sem marcador de prioridade' unless loader.scan('__MEDIA_PRIORITY__').length == 1

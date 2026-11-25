@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Versão atual:** Beta 1.12.0 — calabouço com escalada gradual, surgimentos avisados, pontuação por ritmo, recordes solo/coop e HUD mobile. Preserva as correções de campanha, animação e colisão da1.11; efeitos de iluminação permanecem desativados. A versão fica em `game/VERSION.json`.
+**Beta 1.16.0.** Inclui a retomada por onda na Fenda, ajustes de combate e da interface mobile e carregamento web sob demanda. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -19,7 +19,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 - Ryuchi Percussionista e Franco Sintetizador: 208 sequências, 1.664 poses e 32 retratos, com/sem máscara, na paleta canônica de terra e sucata. [Assets, integração e prévia](docs/ARTE_PERCUSSAO_SINTETIZADOR_V1.md).
 - Sprites detalhados para os personagens e NPCs do Capítulo 3.
 - Fachadas com volume e portas alinhadas, 13 interiores distintos, poeira e copas ao vento (iluminação local desativada).
-- Portal para o Mar de Nuvens, reconstrução animada das passagens e queda mortal ao sair da borda, inclusive no coop. [Ambientes, arte e testes](docs/AMBIENTES_MUNDO_VIVO_V1.md).
+- Portal para o Mar de Nuvens, reconstrução animada das passagens e retorno ao início das nuvens ao sair da borda, inclusive no coop. [Ambientes, arte e testes](docs/AMBIENTES_MUNDO_VIVO_V1.md).
 - Golpes dos quatro chefes com 32 quadros de FX: energia, interferência, poeira/sucata e vórtice oxidado, da preparação ao impacto e à dissipação. [Sprites, prompts e integração](docs/BOSS_GROUND_FX_V1.md).
 - Três níveis de dificuldade (História, Normal e Difícil), escolhidos ao começar. O Normal traz chefes em três fases, seis tipos novos de inimigo, emboscadas, arenas e ondas de Silêncio. O calabouço não muda com o nível. [Fase 2](docs/FASE2_DIFICULDADE_E_COMBATE.md).
 - Jogo distribuído como um único HTML portátil, sem instalação.

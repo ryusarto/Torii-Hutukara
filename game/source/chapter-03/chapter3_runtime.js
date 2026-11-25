@@ -100,10 +100,8 @@ function c3ChromaImage(src,out=new Image()){
   raw.onload=()=>{try{const c=document.createElement('canvas');c.width=raw.naturalWidth;c.height=raw.naturalHeight;const q=c.getContext('2d',{willReadFrequently:true});q.drawImage(raw,0,0);const im=q.getImageData(0,0,c.width,c.height),d=im.data,w=c.width,h=c.height,count=w*h,mask=new Uint8Array(count),queue=new Int32Array(count);let head=0,tail=0;const green=p=>{const i=p*4,r=d[i],g=d[i+1],b=d[i+2];return g>118&&g>r*1.24&&g>b*1.24};const add=p=>{if(!mask[p]&&green(p)){mask[p]=1;queue[tail++]=p}};for(let x=0;x<w;x++){add(x);add((h-1)*w+x)}for(let y=0;y<h;y++){add(y*w);add(y*w+w-1)}while(head<tail){const p=queue[head++],x=p%w;if(p>=w)add(p-w);if(p<count-w)add(p+w);if(x)add(p-1);if(x<w-1)add(p+1)}for(let p=0;p<count;p++){const i=p*4;if(mask[p]){d[i+3]=0;continue}const r=d[i],g=d[i+1],b=d[i+2];if(g>Math.max(r,b)*1.06){const x=p%w,edge=(p>=w&&mask[p-w])||(p<count-w&&mask[p+w])||(x&&mask[p-1])||(x<w-1&&mask[p+1]);if(edge){const spill=Math.min(1,(g-Math.max(r,b))/96);d[i+3]=Math.round(d[i+3]*(1-spill*.82));d[i+1]=Math.round(g-(g-Math.max(r,b))*.72)}}}q.putImageData(im,0,0);out.src=c.toDataURL('image/png')}catch(e){out.src=src}};
   raw.src=src;return out;
 }
-// Carregamento em duas ondas: as artes usadas desde o Capítulo 1 (prebeta_*)
-// carregam já; as exclusivas do Capítulo 3 esperam o resto do jogo carregar
-// (ou começam na hora, se o Capítulo 3 for iniciado antes). Isso libera a
-// conexão para o início do jogo no celular. Nenhum pixel muda.
+// Artes exclusivas do Capítulo 3 entram quando uma área desse capítulo é aberta,
+// inclusive ao carregar um save ou viajar diretamente para ela.
 C3.deferredImages=[];
 for(const [id,src] of Object.entries(C3.assetData)){
   const plain=id==='street'||id==='district_materials'||id.startsWith('sprite_')||id.startsWith('atlas_')||id.startsWith('prebeta_');
@@ -112,8 +110,6 @@ for(const [id,src] of Object.entries(C3.assetData)){
   if(id.startsWith('prebeta_'))start();else C3.deferredImages.push(start);
 }
 C3.loadDeferredImages=function(){if(C3.deferredStarted)return;C3.deferredStarted=true;for(const start of C3.deferredImages)start()};
-if(document.readyState==='complete')setTimeout(C3.loadDeferredImages,800);
-else window.addEventListener('load',()=>setTimeout(C3.loadDeferredImages,800),{once:true});
 Object.assign(ALBUM11,C3.music);
 Object.assign(names09,C3.names);
 Object.assign(names09,{mazza:'Mazza',bento:'Belga',nilo:'Colli',dney:'Dney'});
@@ -301,7 +297,7 @@ PB.repairMaps=function(){
 buildMaps=function(){C3_buildMapsBase();C3.buildMaps();PB.repairMaps();C3.applyWorld()};
 
 const C3_setAreaBase=setArea;
-setArea=function(id,x,y,story=true){const result=C3_setAreaBase(id,x,y,C3.AREAS.includes(id)?false:story);C3.applyWorld();C3.hazards.length=0;C3.synthZones.length=0;if(C3.AREAS.includes(id)&&story)C3.areaStory(id);return result};
+setArea=function(id,x,y,story=true){if(C3.AREAS.includes(id))C3.loadDeferredImages();const result=C3_setAreaBase(id,x,y,C3.AREAS.includes(id)?false:story);C3.applyWorld();C3.hazards.length=0;C3.synthZones.length=0;if(C3.AREAS.includes(id)&&story)C3.areaStory(id);return result};
 
 C3.start=function(preview=false){C3.loadDeferredImages();
   if(preview){G=fresh();Object.assign(G.flags,{console:true,masks:true,arrived:true,ema:true,forestGuide:true,bass:true,bridge:true,ruinA:true,ruinB:true,boss:true,reveal:true,ending:true,voicesArrived:true,voicesIris:true,voicesTape:true,voicesCoupler:true,voicesTech:true,violin11:true,fogCleared11:true,bassBridge11:true,relayPlaza:true,relayMarket:true,relayRoof:true,voicesTower:true,voicesBoss:true,voicesDone:true,voicesKatana:true});G.party3=true;G.thirdSlot='alt';G.formation=['franco','ryuchi','katana'];G.hp.alt=G.maxhp.alt=48;G.hp.katana=G.maxhp.katana=49;G.xp.franco=G.xp.ryuchi=350;G.levels.franco=G.levels.ryuchi=5}
@@ -381,9 +377,21 @@ const C3_updateHUDBase=updateHUD;
 updateHUD=function(){C3_updateHUDBase();if(!G)return;if(G.c3?.started){const bar=document.querySelector('.brandbar .build');if(bar)bar.innerHTML='TORII & HUTUKARA<br>ALPHA 1.2.0 · PRÉ-BETA';const ver=document.querySelector('#start .version');if(ver)ver.textContent='ALPHA 1.2.0 · TRÊS CAPÍTULOS';}};
 
 PB.forestCinema='data:image/png;base64,__CINEMA_FOREST__';
-PB.cinemaPanel=function(area){if(area==='forest')return PB.forestCinema;const image=C3.images.prebeta_cinema,index={studio:0,chamber:1,city:2,ruins:3,distortion:4,cloud:5}[area];if(index===undefined||!image?.complete||!image.naturalWidth)return null;if(PB.cinemaCache[area])return PB.cinemaCache[area];const sw=image.naturalWidth/3,sh=image.naturalHeight/2,c=document.createElement('canvas');c.width=Math.round(sw);c.height=Math.round(sh);const q=c.getContext('2d');q.imageSmoothingEnabled=false;q.drawImage(image,(index%3)*sw,Math.floor(index/3)*sh,sw,sh,0,0,c.width,c.height);return PB.cinemaCache[area]=c.toDataURL('image/png')};
+PB.studioCinema='data:image/png;base64,__CINEMA_STUDIO__';
+PB.cinemaPanels={chamber:1,city:2,ruins:3,distortion:4,cloud:5};
+PB.cinemaPanel=function(area){if(area==='studio')return PB.studioCinema;if(area==='forest')return PB.forestCinema;const index=PB.cinemaPanels[area],image=C3.images.prebeta_cinema;if(index===undefined||!image?.complete||!image.naturalWidth)return null;if(PB.cinemaCache[area])return PB.cinemaCache[area];const sw=image.naturalWidth/3,sh=image.naturalHeight/2,c=document.createElement('canvas');c.width=Math.round(sw);c.height=Math.round(sh);const q=c.getContext('2d');q.imageSmoothingEnabled=false;q.drawImage(image,(index%3)*sw,Math.floor(index/3)*sh,sw,sh,0,0,c.width,c.height);return PB.cinemaCache[area]=c.toDataURL('image/png')};
 const PB_showCinemaBase=showCinema;
-showCinema=function(area){const request=PB.cinemaEpoch=(PB.cinemaEpoch||0)+1;PB_showCinemaBase(area==='distortion'?'city':area==='cloud'?'forest':area);const apply=()=>{const el=$('cinema');if(request!==PB.cinemaEpoch||el.style.display==='none')return;const panel=PB.cinemaPanel(area);if(!panel)return;el.style.backgroundImage=`url("${panel}")`;el.style.backgroundSize='cover';el.style.backgroundRepeat='no-repeat';el.style.display='block'};apply();if(!C3.images.prebeta_cinema.complete)C3.images.prebeta_cinema.addEventListener('load',apply,{once:true})};
+showCinema=function(area){
+ const request=PB.cinemaEpoch=(PB.cinemaEpoch||0)+1;
+ PB_showCinemaBase(area==='distortion'?'city':area==='cloud'?'forest':area);
+ const apply=()=>{
+  const el=$('cinema');if(request!==PB.cinemaEpoch||el.style.display==='none')return true;
+  const panel=PB.cinemaPanel(area);if(!panel)return false;
+  el.style.backgroundImage=`url("${panel}")`;el.style.backgroundSize='cover';el.style.backgroundRepeat='no-repeat';el.style.display='block';
+  return true;
+ };
+ if(!apply()&&Object.hasOwn(PB.cinemaPanels,area)&&!C3.images.prebeta_cinema.complete)C3.images.prebeta_cinema.addEventListener('load',apply,{once:true});
+};
 
 const C3_tileBase=drawTile;
 const C3_MATERIAL_INDEX={c3_asphalt:0,c3_street:1,c3_metal:13,c3_platform:3,c3_factory:4,c3_indoor:7,c3_clubfloor:15,c3_bridge:2,c3_cloud:8,c3_sanctuary:14,c3_voidfloor:10,c3_water:6,c3_sky:10};

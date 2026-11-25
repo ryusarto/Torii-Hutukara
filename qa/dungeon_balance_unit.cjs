@@ -2,7 +2,8 @@
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),noop=()=>{},heroes=['franco','ryuchi','alt','katana','synth','percussion'],elements=new Map();
 const c={Math,Number,Set,Date,console,copy:x=>JSON.parse(JSON.stringify(x)),areas:{},combatAreas10:new Set(),mode:'action',battle:null,bossActor:null,T:24,VW:768,VH:432,cam:{x:0,y:120},G:null,current:{enemies:[]},$:id=>{if(!elements.has(id))elements.set(id,{style:{},classList:{add:noop,remove:noop},onclick:null});return elements.get(id)},C3:{AREAS:[],COMBAT_AREAS:[],labels:{},coopActive:()=>false,coopMember:()=> 'alt',unlockedRoster:()=>heroes,areaStory:noop,finishSilence:noop,combatUnlocked:()=>true,damageCoop:amount=>c.G.hp.alt=Math.max(0,c.G.hp.alt-amount)},partyMembers:()=>c.G.formation,hydrateEnemy:e=>Object.assign(e,{hp:44,max:44,power:8}),canBody121:()=>true,engage:noop,addCombatFX:noop,screenShake:0,hostileShots:[],toast:noop,setCheckpoint:noop,enterMenu10:noop};
-for(const n of ['closeOverlay','fresh','normalizeSave','buildMaps','drawDetailedNPC','openMap','openSystem','enemyActors','gainXP','save','showDefeat','restoreCheckpoint','update','updateHUD','objectiveData','exportSave','getRoute','drawGuideMarker','updateActionHUD'])c[n]=noop;
+for(const n of ['closeOverlay','fresh','normalizeSave','buildMaps','drawDetailedNPC','openMap','openSystem','enemyActors','gainXP','save','showDefeat','restoreCheckpoint','update','updateHUD','objectiveData','exportSave','getRoute','drawGuideMarker','updateActionHUD','continueGame','importSave'])c[n]=noop;
+c.act={};c.C3.coop={};c.tileWalkable=()=>true;
 c.setArea=(id,x,y)=>Object.assign(c.G,{area:id,x,y});c.hitEnemy=(e,damage)=>e.hp=Math.max(0,e.hp-damage);c.damageHero=amount=>{const id=c.G.active;c.G.hp[id]=Math.max(0,c.G.hp[id]-amount);if(!c.G.hp[id])c.G.active='ryuchi'};
 vm.createContext(c);vm.runInContext(fs.readFileSync(path.join(root,'game/source/chapter-03/postgame.js'),'utf8'),c);const p=vm.runInContext('PostGame',c);p.clearCombat=noop;c.updateHUD=c.save=noop;
 function fixture(wave=1,seats=1){c.C3.coopActive=()=>seats===2;c.G={area:p.AREA,x:14.5,y:18.5,active:'franco',formation:['franco','alt','ryuchi'],c3:{complete:true},hp:Object.fromEntries(heroes.map(h=>[h,40])),maxhp:Object.fromEntries(heroes.map(h=>[h,80])),potions:1,resonance:30,shards:10,defeated:[],postgame:p.defaults()};c.G.postgame.run={active:true,upgrades:{},rules:3,legacy:false,mode:seats===2?'coop':'solo',seed:42,wave,score:0,bankedScore:0,kills:0,bankedKills:0,completedWave:wave-1,hpStart:{...c.G.hp},campaignPotions:17,campaignResonance:63,resonanceStart:100,potionsStart:3,combo:0,comboStart:0,elapsed:10,bankedElapsed:8,waveSeats:seats,phase:'fight',cursor:0,wait:0,pending:null,clean:true,knockouts:0};c.current={enemies:[]};c.mode='action';p.plan=[];p.spawnClock=0;return c.G.postgame.run}
@@ -24,10 +25,10 @@ check('Wave 5 preserves wounds and KO, offers a stable draft and never grants th
  assert.equal(resumed.upgrades[cards[1]],Math.min(p.cards[cards[1]].maxLevel||99,p.RARE_LEVELS));assert.equal(resumed.rare,false);assert.equal(resumed.wave,6);assert.equal(resumed.phase,'fight');assert(!p.choose(cards[1],5));
  assert.equal(c.G.hp.franco,40);assert.equal(c.G.hp.alt,0);
 });
-check('Loading a partial wave rewinds unbanked rewards and preserves wounds, KO and selected upgrades',()=>{
+check('Loading a partial wave rewinds HP and unbanked rewards without losing selected upgrades',()=>{
  const r=fixture(8);r.score=900;r.bankedScore=500;r.kills=9;r.bankedKills=5;r.hpStart.franco=70;r.resonanceStart=81;r.upgrades={drive:1};
  c.G.hp.franco=1;c.G.hp.alt=0;c.G.resonance=2;const g=JSON.parse(JSON.stringify(c.G)),n=p.normalize(g.postgame,g);
- assert.equal(n.run.score,500);assert.equal(n.run.kills,5);assert.equal(n.run.hpStart.franco,1);assert.equal(n.run.hpStart.alt,0);assert.equal(g.potions,0);assert.equal(g.resonance,81);assert.equal(n.run.upgrades.drive,1);
+ assert.equal(n.run.score,500);assert.equal(n.run.kills,5);assert.equal(n.run.hpStart.franco,70);assert.equal(n.run.hpStart.alt,40);assert.equal(g.potions,0);assert.equal(g.resonance,81);assert.equal(n.run.upgrades.drive,1);
 });
 check('Card effects apply to real damage, health thresholds, guard, stun and resonance',()=>{
  const r=fixture();r.upgrades={drive:2,ambush:2,finish:2,guard:2,stagger:2,charge:2};const e={endless:true,hp:150,max:150,type:'hush'};

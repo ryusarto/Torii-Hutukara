@@ -1,9 +1,11 @@
 {
   "tool": "ImageGen integrado",
   "technicalExport": "Recorte retangular com margem de8px em torno da silhueta; pixels RGBA internos preservados, sem pintura, remoção de fundo ou rotação.",
+  "runtimeExport": "Versões RGBA com três vezes a altura desenhada pelo jogo. Os recortes originais são preservados nos arquivos canônicos.",
   "assets": {
     "sofa_vertical": {
       "file": "sofa_vertical.png",
+      "runtime": "runtime/sofa_vertical.png",
       "source": "source/sofa_vertical.png",
       "crop": [
         165,
@@ -19,6 +21,7 @@
     },
     "plant_potted": {
       "file": "plant_potted.png",
+      "runtime": "runtime/plant_potted.png",
       "source": "source/plant_potted.png",
       "crop": [
         107,

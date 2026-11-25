@@ -107,7 +107,7 @@ function harness() {
   context.fresh = () => ({ maxhp: {}, hp: {}, xp: {}, flags: {} });
   for (const name of ['revealAlt', 'drawDetailedNPC', 'openMap', 'enemyActors',
     'gainXP', 'hitEnemy', 'save', 'showDefeat', 'restoreCheckpoint', 'update', 'updateHUD',
-    'objectiveData', 'getRoute', 'drawGuideMarker', 'updateActionHUD','damageHero']) context[name] = noop;
+    'objectiveData', 'getRoute', 'drawGuideMarker', 'updateActionHUD','damageHero','continueGame']) context[name] = noop;
   // The legacy system deliberately refuses to replace a defeat overlay.
   context.openSystem = () => {
     if (observed.retryVisible) return;
@@ -183,6 +183,7 @@ async function main() {
   for (const musician of ['synth', 'percussion']) {
     await check(`${musician} surviving alone in mixed formation preserves expedition and KO HP`, () => {
       const h = harness(), raw = fixture(musician); raw.hp.franco = raw.hp.ryuchi = 0;
+      raw.postgame.run.hpStart.franco = raw.postgame.run.hpStart.ryuchi = 0;
       const g = h.context.normalizeSave(raw);
       assert.equal(g.area, raw.area, 'Legacy fallback must not teleport a living formation');
       assert.equal(g.hp.franco, 0); assert.equal(g.hp.ryuchi, 0);

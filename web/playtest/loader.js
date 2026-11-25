@@ -1,20 +1,16 @@
-/* Carregador de imagens por prioridade do site (só navegador, sem service worker).
- * O jogo cria todas as imagens logo ao abrir. Aqui, quem recebe um endereço de
- * media/ entra numa fila: baixa primeiro o que a campanha usa antes (ordem medida
- * por qa/media_usage.cjs) e passa à frente qualquer imagem que o jogo tente
- * desenhar ou consultar. Tudo acaba carregado; só muda a ordem.
- * A lista de prioridade é inserida pelo build_playtest.rb.
- */
+/* Imagens hospedadas carregam quando a tela ou o jogo as usa. A prioridade
+ * inicial cobre só o título. Ao chegar a uma nova área, o desenho, os retratos
+ * e as chamadas de decode solicitam os arquivos de que precisam. */
 (() => {
   'use strict';
   const proto = HTMLImageElement.prototype;
   const srcDesc = Object.getOwnPropertyDescriptor(proto, 'src');
   if (!srcDesc || !srcDesc.set) return;
   const PRIORITY = __MEDIA_PRIORITY__;
-  const rank = new Map(PRIORITY.map((file, i) => [file, i]));
+  const bootstrap = new Set(PRIORITY);
   const MAX_ACTIVE = 6;
   const pending = new Map(); // imagem → { url, prio }
-  let active = 0, seq = 0, scheduled = false;
+  let active = 0, scheduled = false;
   const stats = { queued: 0, promoted: 0, loaded: 0, failed: 0, firstPromotion: null };
 
   const begin = (img) => {
@@ -39,10 +35,10 @@
   };
   const pump = () => {
     scheduled = false;
-    while (active < MAX_ACTIVE && pending.size) {
-      let best = null, bestPrio = Infinity;
-      for (const [img, entry] of pending) if (entry.prio < bestPrio) { best = img; bestPrio = entry.prio; }
-      begin(best);
+    while (active < MAX_ACTIVE) {
+      const next = [...pending].find(([, entry]) => entry.bootstrap);
+      if (!next) break;
+      begin(next[0]);
     }
   };
   const schedule = () => {
@@ -70,14 +66,10 @@
       // Imagem que já está na página (retratos do diálogo, menus) troca na hora:
       // segurar o endereço deixaria a imagem anterior à mostra.
       if (this.isConnected) { pending.delete(this); return srcDesc.set.call(this, value); }
-      // Imagem com onload é etapa de um processamento (recolorir, recortar): o
-      // resultado vai para outra imagem, que é a que o jogo desenha. Ela nunca
-      // seria promovida pelo desenho, então já entra na frente.
-      const etapa = typeof this.onload === 'function';
-      pending.set(this, { url, prio: etapa ? -1 - (seq++) / 1e6 : rank.has(key[1]) ? rank.get(key[1]) : PRIORITY.length + seq++ });
+      const eager = bootstrap.has(key[1]) || typeof this.onload === 'function';
+      pending.set(this, { url, bootstrap: eager });
       stats.queued++;
-      if (etapa) stats.etapas = (stats.etapas || 0) + 1;
-      schedule();
+      if (eager) schedule();
     }
   });
   // E a que entra na página depois de receber o endereço também começa já.
@@ -140,6 +132,6 @@
 
   window.ToriiMedia = Object.freeze({
     stats: () => ({ ...stats, pending: pending.size, active }),
-    idle: () => pending.size === 0 && active === 0
+    idle: () => active === 0 && ![...pending.values()].some(entry => entry.bootstrap)
   });
 })();

@@ -385,8 +385,53 @@ function bindMobile121(deck){
     pendingPause=null;if(allowed)mobileAction121('pause');
   });
 }
+// O estado visual vem dos mesmos tempos e custos usados pelas ações.
+const mobileCombatControls121=[
+  ['skill','skill','Técnica'],['advanced','skillX','Técnica II'],
+  ['signature','duo','Especial'],['dodge','dashCD','Rolar']
+];
+let mobileCombatHUD121=null;
+function updateMobileCombat121(){
+  if(!Input121.mobile||!mobileCombatHUD121)return;
+  const inWorld=!!G&&mode!=='title';
+  const resonance=G?.resonance||0;
+  const cost=SIGNATURE11[G?.active]?.cost||40;
+  const charge=mobileCombatHUD121.charge;
+  charge.hidden=!inWorld;
+  const value=String(Math.floor(resonance));
+  if(mobileCombatHUD121.value.textContent!==value){
+    mobileCombatHUD121.value.textContent=value;
+    mobileCombatHUD121.meter.value=resonance;
+  }
+  const unlocked=inWorld&&C3.combatUnlocked()&&combatAreas10.has(G.area);
+  for(const control of mobileCombatHUD121.controls){
+    const {action,key,label,button,hint}=control;
+    const time=act[key]||0;
+    let state='',kind='ready';
+    if(inWorld){
+      if(action!=='dodge'&&!unlocked){state='Bloqueado';kind='locked'}
+      else if(action==='advanced'&&['franco','ryuchi'].includes(G.active)&&(G.levels[G.active]||1)<3){state='Nível 3';kind='locked'}
+      else if(time>0){state=(Math.ceil(time*10)/10).toFixed(1).replace('.',',')+' s';kind='cooldown'}
+      else if(action==='signature'){state=cost+' ♫';kind=resonance<cost?'locked':'ready'}
+      else if(action!=='dodge')state='Pronta';
+    }
+    if(hint.textContent!==state)hint.textContent=state;
+    if(button.dataset.ready!==kind)button.dataset.ready=kind;
+    const description=state?label+' · '+state:label;
+    if(button.getAttribute('aria-label')!==description)button.setAttribute('aria-label',description);
+  }
+}
+function drawMobileFollower121(id,pose,moving){
+  const isPlayer2=C3.coopActive()&&id===C3.coopMember();
+  const fade=Input121.mobile&&mode==='action'&&!isPlayer2;
+  ctx.save();
+  if(fade)ctx.globalAlpha*=Math.hypot(pose.x-G.x,pose.y-G.y)<1.65?.30:.62;
+  try{drawActor({style:id,dir:pose.dir},Math.round(pose.x*T-cam.x),Math.round(pose.y*T-cam.y),moving)}
+  finally{ctx.restore()}
+}
 function updateMobileReadout121(){
   if(!Input121.mobile)return;
+  updateMobileCombat121();
   const readout=$('mobileReadout121');if(!readout)return;
   const id=G?.active,goal=$('questText')?.textContent||$('mobileObjective')?.textContent||$('quest')?.textContent||'';
   readout.textContent=G?(labels10[id]||id)+' · ♥ '+(G.hp[id]||0)+'/'+(G.maxhp[id]||0):'TORII & HUTUKARA';
@@ -412,20 +457,49 @@ function updateMobileLayout121(){
   const vv=window.visualViewport,w=vv?.width||innerWidth,h=vv?.height||innerHeight;
   document.documentElement.style.setProperty('--mobile-height',h+'px');
   document.documentElement.classList.toggle('landscape121',w>h);
-  const portrait=mobile&&w<=h,newWidth=portrait?512:768,newHeight=portrait?480:432;
+  const portrait=mobile&&w<=h;
+  const deckHeight=h<=640?204:224;
+  const touchPortrait=portrait&&!physical;
+  const surfaceWidth=Math.max(1,w-18),surfaceHeight=Math.max(1,h-deckHeight-30);
+  // Compact maps otherwise leave large blank bands inside a tall canvas.
+  // Keep at least 16 tiles across and two tiles of breathing room vertically.
+  const mapHeight=G&&current&&mode!=='title'?(current.h+2)*T:Infinity;
+  const newWidth=touchPortrait?Math.round(clamp(mapHeight*surfaceWidth/surfaceHeight,384,512)):portrait?512:768;
+  const newHeight=touchPortrait?Math.round(clamp(surfaceHeight*newWidth/surfaceWidth,380,820)):portrait?480:432;
+  document.documentElement.style.setProperty('--touch-deck-height',deckHeight+'px');
   if(VW!==newWidth||VH!==newHeight){
     VW=newWidth;VH=newHeight;const canvas=$('game');canvas.width=VW;canvas.height=VH;
     ctx.imageSmoothingEnabled=false;releaseTouch121();
+    if(G&&current){
+      const worldWidth=current.w*T,worldHeight=current.h*T;
+      cam.x=worldWidth<VW?(worldWidth-VW)/2:clamp(G.x*T-VW/2,0,worldWidth-VW);
+      cam.y=worldHeight<VH?(worldHeight-VH)/2:clamp(G.y*T-VH/2,0,worldHeight-VH);
+    }
   }
   document.documentElement.style.setProperty('--game-ratio',VW+'/'+VH);
   document.documentElement.style.setProperty('--game-aspect',String(VW/VH));
   if(changed)releaseTouch121();updateMobileReadout121();
 }
+const inputSetArea121=setArea;
+setArea=function(...args){
+  const result=inputSetArea121(...args);
+  if(Input121.mobile&&$('mobileDeck121'))updateMobileLayout121();
+  return result;
+};
 function installMobile121(){
   if($('mobileDeck121'))return;
   const style=document.createElement('style');style.textContent=MOBILE_CSS121;document.head.appendChild(style);
   const deck=document.createElement('section');deck.id='mobileDeck121';deck.setAttribute('aria-label','Controle de toque Torii & Hutukara');
-  deck.innerHTML=`<div id="mobileLeft121"><div id="mobileReadout121"></div><div id="mobileGoal121"></div><div id="mobileStick121" role="group" aria-label="Analógico virtual: mover; borda para correr"><span class="stickArrows121">＋</span><span id="mobileKnob121"></span></div><small>MOVER · BORDA PARA CORRER</small></div><div id="mobileRight121"><div class="mobileTools121"><button data-mobile-action="pause" aria-label="Pausar jogo">☰ PAUSA</button><button data-mobile-action="full" aria-label="Tela cheia">⛶</button></div><div class="mobileActions121"><button data-mobile-action="skill">TÉCNICA</button><button data-mobile-action="advanced">TÉCNICA II</button><button data-mobile-action="signature">ESPECIAL</button><button data-mobile-action="attack" class="attack121">ATACAR</button><button data-mobile-action="dodge" class="dodge121">ROLAR</button><button data-mobile-action="interact" class="interact121">AÇÃO</button><button data-mobile-action="switch" class="switch121">TROCAR PERSONAGEM</button></div></div>`;
+  deck.innerHTML=`<div id="mobileLeft121"><div id="mobileReadout121"></div><div id="mobileCharge121" hidden><span>♫ <b>0</b>/100</span><meter min="0" max="100" value="0" aria-label="Ressonância"></meter></div><div id="mobileGoal121"></div><div id="mobileStick121" role="group" aria-label="Analógico virtual: mover; borda para correr"><span class="stickArrows121">＋</span><span id="mobileKnob121"></span></div><small>MOVER · BORDA PARA CORRER</small></div><div id="mobileRight121"><div class="mobileTools121"><button data-mobile-action="pause" aria-label="Pausar jogo">☰ PAUSA</button><button data-mobile-action="full" aria-label="Tela cheia">⛶</button></div><div class="mobileActions121"><button data-mobile-action="skill">TÉCNICA</button><button data-mobile-action="advanced">TÉCNICA II</button><button data-mobile-action="signature">ESPECIAL</button><button data-mobile-action="attack" class="attack121">ATACAR</button><button data-mobile-action="dodge" class="dodge121">ROLAR</button><button data-mobile-action="interact" class="interact121">AÇÃO</button><button data-mobile-action="switch" class="switch121">TROCAR PERSONAGEM</button></div></div>`;
+  const charge=deck.querySelector('#mobileCharge121');
+  mobileCombatHUD121={charge,value:charge.querySelector('b'),meter:charge.querySelector('meter'),
+    controls:mobileCombatControls121.map(([action,key,label])=>{
+      const button=deck.querySelector('[data-mobile-action="'+action+'"]');
+      const hint=document.createElement('small');
+      hint.className='mobileActionState121';button.appendChild(hint);
+      return {action,key,label,button,hint};
+    })
+  };
   $('app').appendChild(deck);bindMobile121(deck);
   const toggle=document.createElement('button');toggle.id='showTouch121';toggle.textContent='CONTROLES DE TOQUE';toggle.onclick=()=>{Input121.controllerVisible=!Input121.controllerVisible;updateMobileLayout121()};$('app').appendChild(toggle);
   window.addEventListener('resize',()=>{releaseTouch121();updateMobileLayout121()});
@@ -439,28 +513,37 @@ function installMobile121(){
 const MOBILE_CSS121=`
 #mobileDeck121,#showTouch121{display:none}html.desktop121 #touch{display:none!important}
 html.mobile121,html.mobile121 body{height:100%;width:100%;overflow:hidden;overscroll-behavior:none}
-.mobile121 #app{height:var(--mobile-height,100dvh);min-height:0;width:100%;display:grid;grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) 258px;padding:max(6px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));gap:8px;overflow:hidden}
+.mobile121 #app{height:var(--mobile-height,100dvh);min-height:0;width:100%;display:grid;grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) var(--touch-deck-height,224px);padding:max(6px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));gap:8px;overflow:hidden}
 .mobile121 .brandbar,.mobile121 .footer,.mobile121 #touch,.mobile121 #mobileObjective{display:none!important}
 .mobile121 #frame{grid-row:1;width:100%;height:auto;max-height:100%;aspect-ratio:var(--game-ratio,16/9);align-self:center;border-width:1px;box-shadow:0 0 0 2px #49354d;overflow:hidden}
 .mobile121 #game{object-fit:contain}.mobile121 #frame:before,.mobile121 #frame:after{display:none}
-.mobile121 #mobileDeck121{grid-row:2;display:grid;grid-template-columns:43% 57%;gap:8px;min-height:0;background:linear-gradient(140deg,#242137,#10131e);border:1px solid #8c799866;border-radius:22px;padding:8px;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.mobile121 #mobileDeck121{grid-row:2;display:grid;grid-template-columns:minmax(0,43fr) minmax(0,57fr);gap:8px;min-height:0;background:linear-gradient(140deg,#242137,#10131e);border:1px solid #8c799866;border-radius:22px;padding:8px;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 #mobileLeft121{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:0}
 #mobileReadout121{font:700 11px monospace;color:#f3deb4;min-height:14px;text-align:center}
 #mobileGoal121{font:10px/1.3 monospace;color:#d1c7d7;max-height:28px;overflow:hidden;width:100%;text-align:center}
 #mobileLeft121 small{font:8px monospace;color:#a6b9cb;text-align:center}
-#mobileStick121{width:136px;height:136px;border:2px solid #8bb8c36b;border-radius:50%;position:relative;touch-action:none;background:radial-gradient(circle,#43506577,#111a2a);box-shadow:inset 0 2px 16px #050813;flex-shrink:0}
+#mobileStick121{width:min(120px,100%);height:auto;aspect-ratio:1;border:2px solid #8bb8c36b;border-radius:50%;position:relative;touch-action:none;background:radial-gradient(circle,#43506577,#111a2a);box-shadow:inset 0 2px 16px #050813;flex-shrink:0}
 .stickArrows121{position:absolute;inset:0;display:grid;place-items:center;color:#68798d;font:110px/1 monospace;pointer-events:none}
 #mobileKnob121{position:absolute;left:50%;top:50%;width:62px;height:62px;transform:translate(-50%,-50%);border:2px solid #c6cedc88;background:radial-gradient(circle at 35% 25%,#78879b,#2d3549);border-radius:50%;box-shadow:0 4px 7px #0008;pointer-events:none}
 #mobileRight121{display:flex;flex-direction:column;justify-content:center;gap:8px;min-width:0}.mobileTools121{display:flex;justify-content:space-between;gap:8px}
 #mobileDeck121 button,#showTouch121{min-height:44px;touch-action:none;color:#f5e6ce;background:#383044;border:1px solid #b9a5b485;border-radius:14px;font:700 10px monospace;user-select:none;-webkit-user-select:none;padding:4px}
-.mobileTools121 button{flex:1;min-height:34px!important}.mobileActions121{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
-.mobileActions121 button{height:56px}.mobileActions121 .attack121{background:#955964!important;border-color:#f3abb7!important}.mobileActions121 .dodge121{background:#365a79!important;border-color:#85c6e9!important}.mobileActions121 .interact121{background:#38685e!important;border-color:#a3dac7!important}.switch121{grid-column:1/-1;height:40px!important}
+.mobileTools121 button{flex:1;min-height:40px!important}.mobileActions121{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.mobileActions121 button{height:48px}.mobileActions121 .attack121{background:#955964!important;border-color:#f3abb7!important}.mobileActions121 .dodge121{background:#365a79!important;border-color:#85c6e9!important}.mobileActions121 .interact121{background:#38685e!important;border-color:#a3dac7!important}.switch121{grid-column:1/-1;height:40px!important}
+#mobileCharge121{width:100%;font:700 10px monospace;color:#ffe6a3;text-align:center}
+#mobileCharge121 meter{display:block;width:100%;height:9px;accent-color:#edc477}
+#mobileCharge121[hidden]{display:none!important}
+.mobileActionState121{display:block;font:bold 9px/1.15 monospace;color:#ffe5a0;margin-top:3px}
+.mobileActionState121:empty{display:none}
+#mobileDeck121 button[data-ready="locked"] .mobileActionState121{color:#ffd4db}
+#mobileDeck121 button[data-ready="cooldown"]{border-style:dashed}
+.mobile121:not(.physical121) #frame .questline{display:none!important}
+.mobile121:not(.physical121) #mobileLeft121>small{display:none}
 #mobileDeck121 .pressed{filter:brightness(1.4);transform:translateY(2px);box-shadow:inset 0 2px 6px #0007}
-.mobile121 #dialogue{position:fixed;inset:auto 8px calc(274px + env(safe-area-inset-bottom)) 8px;max-height:48%;min-height:0;overflow:auto;padding:8px;gap:8px;z-index:10020}
+.mobile121 #dialogue{position:fixed;inset:auto 8px calc(var(--touch-deck-height,224px) + 14px + env(safe-area-inset-bottom)) 8px;max-height:48%;min-height:0;overflow:auto;padding:8px;gap:8px;z-index:10020}
 .mobile121 .portrait{min-width:52px;width:64px;height:80px;object-fit:cover}.mobile121 .words{font-size:15px;line-height:1.35}.mobile121 .speaker{font-size:10px}.mobile121 .continue{font-size:9px}
 .mobile121 #overlay,.mobile121 #rhythm{position:fixed;inset:0;z-index:10030;padding:max(10px,env(safe-area-inset-top)) 12px max(10px,env(safe-area-inset-bottom));overflow:auto}
 .mobile121 #overlayInner,.mobile121 .rhythmBox{max-height:94%;width:100%;padding:14px!important;overflow:auto}.mobile121 .window p{font-size:14px}.mobile121 .action{min-height:44px;font-size:12px;padding:10px}
-.mobile121 #vitals092{top:36px;left:5px;width:128px;font-size:8px;padding:3px 5px}.mobile121 #vitals092 .reserve{font-size:7px}.mobile121 #vitals092 .tech-row10{display:none}
+.mobile121 #vitals092{top:41px;left:5px;width:128px;font-size:8px;padding:3px 5px}.mobile121 #vitals092 .reserve{font-size:7px}.mobile121 #vitals092 .tech-row10{display:none}
 .mobile121 .hud-top{padding:4px}.mobile121 .location{padding:4px 6px;max-width:74%;max-height:32px}.mobile121 .location h3{font-size:10px}.mobile121 .location small{font-size:7px}.mobile121 .hudbuttons{max-width:25%}.mobile121 #bMenu{font-size:9px;min-height:28px;padding:4px}
 .mobile121 #actionHUD{width:39%;left:auto!important;right:4px!important;bottom:4px!important;font-size:8px}.mobile121 .action-label{padding:3px;min-width:0}.mobile121 #actionSkill,.mobile121 #actionXP,.mobile121 .action-party{display:none}.mobile121 .guidechip{font-size:8px;bottom:5px!important;max-width:60%}.mobile121 .prompt{font-size:9px;bottom:4px;padding:5px}
 .mobile121 #start h1{font-size:24px}.mobile121 #start img{height:42px}.mobile121 #start .menuButton{min-height:38px;padding:8px;font-size:12px}.mobile121 #start .sub{font-size:9px}.mobile121 #start .version{margin-top:5px;font-size:8px}.mobile121 #toast{position:fixed;left:8px;right:8px;top:8px;transform:none;font-size:11px;z-index:10040}.mobile121 #gamepadStatus{font-size:9px;bottom:3px}
@@ -480,11 +563,13 @@ const LANDSCAPE_CSS122=`
 .mobile121.landscape121 #app{display:block;padding:0;gap:0}
 .mobile121.landscape121 #frame{position:fixed;inset:0;width:100%;height:100%;max-height:none;aspect-ratio:auto;border:0;box-shadow:none}
 .mobile121.landscape121 #mobileDeck121{display:block;position:fixed;inset:0;z-index:10010;background:none;border:0;border-radius:0;padding:0;pointer-events:none}
-.mobile121.landscape121 #mobileLeft121{position:absolute;left:max(12px,env(safe-area-inset-left));bottom:max(12px,env(safe-area-inset-bottom));width:140px;pointer-events:none}
-.mobile121.landscape121 #mobileRight121{position:absolute;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));width:210px;pointer-events:none}
-.mobile121.landscape121 #mobileStick121,.mobile121.landscape121 #mobileDeck121 button{pointer-events:auto;touch-action:none;background:#15223655!important;border-color:#e9e4de80!important;box-shadow:none;opacity:.72}
+.mobile121.landscape121 #mobileCharge121{display:block;background:#101420e6;padding:3px 6px;border-radius:6px;max-width:106px}
+.mobile121.landscape121 #mobileLeft121{position:absolute;left:max(12px,env(safe-area-inset-left));bottom:max(12px,env(safe-area-inset-bottom));width:120px;pointer-events:none}
+.mobile121.landscape121 #mobileRight121{position:absolute;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));width:clamp(156px, 23vw, 194px);pointer-events:none}
+.mobile121.landscape121 #mobileStick121,.mobile121.landscape121 #mobileDeck121 button{pointer-events:auto;touch-action:none;background:#15223655!important;border-color:#e9e4de80!important;box-shadow:none;opacity:.92}
 .mobile121.landscape121 #mobileKnob121{background:#9caec055;box-shadow:none}
-.mobile121.landscape121 #mobileReadout121,.mobile121.landscape121 #mobileGoal121,.mobile121.landscape121 #mobileLeft121 small{display:none}
+.mobile121.landscape121 #mobileReadout121,.mobile121.landscape121 #mobileLeft121 #mobileGoal121,.mobile121.landscape121 #mobileLeft121 small{display:none}
+@media(max-height:640px){.mobile121:not(.landscape121) #mobileStick121{width:min(100px,100%)}.mobile121:not(.landscape121) #mobileLeft121{gap:4px}}
 .mobile121.landscape121 #mobileDeck121 button.pressed{opacity:1;background:#526b8d99!important}
 .mobile121.landscape121 #dialogue{left:8px;right:8px;bottom:8px;max-height:90%;z-index:10020}
 .mobile121.landscape121.physical121 #mobileDeck121{display:none!important}

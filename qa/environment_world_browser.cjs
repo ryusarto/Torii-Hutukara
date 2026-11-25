@@ -185,35 +185,41 @@ async function capture(name){
   });assert(r.early.skyPixels>10,'Falling sprite was never visible in the sky');assert.equal(r.early.cloudPixels,0,'Early falling sprite appears over cloud support');assert.equal(r.late.cloudPixels,0,'Distant falling sprite appears over cloud support');await capture('queda-oclusao-nuvem');return r;
  });
 
- await check('Walking beyond an actual cloud edge plays the fall, pauses, causes defeat and retries at a valid checkpoint',async()=>{
+ await check('Walking beyond a cloud edge pauses and returns to the cloud route without losing HP',async()=>{
   const start=await page.evaluate(()=>{const edge=WorldReviewQA.edge();const started=WorldReviewQA.walk(edge);return {edge,started,fall:WorldReviewQA.fallState()};});assert(start.started,'Invisible collision still blocks leaving cloud');await capture('queda-p1-00-inicio');
   const paused=await page.evaluate(()=>{WorldReviewQA.step(.05,4);const before=WorldReviewQA.fallState();openSystem();WorldReviewQA.step(.1,6);const after=WorldReviewQA.fallState();closeOverlay();return {before,after};});assert.equal(paused.before.elapsed,paused.after.elapsed,'Fall advances while paused');await capture('queda-p1-01-caindo');
   await page.evaluate(()=>WorldReviewQA.step(.05,8));await capture('queda-p1-02-distante');
-  const end=await page.evaluate(()=>{const partner=G.hp.ryuchi;WorldReviewQA.step(.05,20);return {mode,hp:G.hp.franco,partner,partnerAfter:G.hp.ryuchi,retry:!!$('retryCheckpoint'),fall:WorldReviewQA.fallState()};});assert.equal(end.hp,0);assert(end.retry&&end.mode==='overlay','Fall did not enter real defeat UI');assert.equal(end.partner,end.partnerAfter);
-  await page.locator('#retryCheckpoint').click();const retry=await page.evaluate(()=>{for(let i=0;mode==='dialogue'&&i<100;i++)advanceDialogue();WorldReviewQA.step(1/60);const x=G.x;moveBody10(.5,0,.1,false);return {mode,area:G.area,hp:G.hp.franco,valid:canBody121(G.x,G.y),fall:WorldReviewQA.fallState(),moved:G.x!==x};});assert(retry.valid&&retry.hp>0&&!retry.fall&&retry.mode==='walk');await capture('queda-p1-03-checkpoint');return {start,paused,end,retry};
+  const end=await page.evaluate(()=>{
+   const hp={...G.hp};WorldReviewQA.step(.05,20);
+   return {mode,area:G.area,atStart:G.x===CloudWorldV1.start.x&&G.y===CloudWorldV1.start.y,valid:canBody121(G.x,G.y),
+    hp,after:{...G.hp},retry:!!$('retryCheckpoint'),fall:WorldReviewQA.fallState()};
+  });
+  assert(end.area==='cloud_sea'&&end.atStart&&end.valid&&!end.fall&&!end.retry&&end.mode==='walk',JSON.stringify(end));
+  assert.deepEqual(end.hp,end.after);await capture('queda-p1-03-reinicio-nuvens');return {start,paused,end};
  });
 
- await check('Dash and the real P2 movement pipeline can leave cloud edges without bypassing fall or killing the other hero',async()=>{
+ await check('Dash and P2 movement can leave cloud edges and return the party safely',async()=>{
   const dash=await page.evaluate(()=>{const edge=WorldReviewQA.edge();G.aim091=[edge.dx,edge.dy];keys={[edge.dx===1?'d':edge.dx===-1?'a':edge.dy===1?'s':'w']:true};const started=startRoll121();for(let i=0;i<45&&!CloudWorldV1.fall;i++)WorldReviewQA.step(1/60);keys={};return {roll:started,fall:WorldReviewQA.fallState()};});assert(dash.roll&&dash.fall,'Dash still stops at an invisible cloud wall');await capture('queda-dash');
   const p2=await page.evaluate(()=>{const edge=WorldReviewQA.edge(true);const p1={x:G.x,y:G.y,hp:G.hp.franco},states=[];__worldPads[1].axes=[edge.dx,edge.dy,0,0];for(let i=0;i<20&&!CloudWorldV1.fall;i++){WorldReviewQA.step(1/60);states.push({i,active:C3.coopActive(),mode,x:C3.coop.x,y:C3.coop.y,valid:canBody121(C3.coop.x,C3.coop.y),area:C3.coop.area,member:C3.coopMember()});}__worldPads[1].axes=[0,0,0,0];return {edge,p1,states,fall:WorldReviewQA.fallState(),p1After:{x:G.x,y:G.y,hp:G.hp.franco}};});assert(p2.fall?.coop&&p2.fall.hero==='ryuchi','P2 did not enter fall: '+JSON.stringify(p2));assert.deepEqual(p2.p1,p2.p1After,'P2 fall moved or damaged P1');await capture('queda-p2');
-  const end=await page.evaluate(()=>{WorldReviewQA.step(.05,22);return {mode,p1:G.hp.franco,p2:G.hp.ryuchi,retry:!!$('retryCheckpoint')};});assert.equal(end.p2,0);assert.equal(end.p1,p2.p1.hp);assert(end.retry);return {dash,p2,end};
+  const end=await page.evaluate(()=>{const hp={...G.hp};WorldReviewQA.step(.05,22);return {mode,hp,after:{...G.hp},atStart:G.x===CloudWorldV1.start.x&&G.y===CloudWorldV1.start.y,validP2:canBody121(C3.coop.x,C3.coop.y),retry:!!$('retryCheckpoint')};});
+  assert.deepEqual(end.hp,end.after);assert(end.mode==='walk'&&end.atStart&&end.validP2&&!end.retry,JSON.stringify(end));return {dash,p2,end};
  });
 
- await check('Postgame travel and dungeon entry cannot cancel a real fatal fall, including through the map menu or cosmetic toggle',async()=>{
+ await check('Postgame travel and dungeon entry stay blocked during a cloud fall',async()=>{
   const rows=[];for(const coop of [false,true]){
    const start=await page.evaluate(coop=>{
     const edge=WorldReviewQA.edge(coop);Object.assign(G.c3,{complete:true,metronomeDone:true,silenceDone:true,synthUnlocked:true,percussionUnlocked:true});Object.assign(G.flags,{reveal:true,voicesKatana:true});
     // A real completed campaign has already polled its earned milestones. Let
     // the unchanged milestone/recruitment logic observe this seeded state on
-    // safe ground, rather than awarding its synthetic pending revive after death.
+    // safe ground before capturing the party HP for the fall.
     WorldReviewQA.step(.05,12);const hero=coop?C3.coopMember():G.active;if(G.hp[hero]!==G.maxhp[hero]||!canBody121(G.x,G.y)||coop&&!canBody121(C3.coop.x,C3.coop.y))throw Error('Completed campaign did not settle safely before the fall');
     const before=PostGame.canTravel();if(!before)throw Error('Completed safe campaign cannot travel before the fall');WorldReviewQA.checkpoint('c3_complete');
     if(coop){__worldPads[1].axes=[edge.dx,edge.dy,0,0];for(let i=0;i<20&&!CloudWorldV1.fall;i++)WorldReviewQA.step(1/60);__worldPads[1].axes=[0,0,0,0];}else WorldReviewQA.walk(edge);
     if(!CloudWorldV1.fall||!!CloudWorldV1.fall.coop!==coop)throw Error('Completed campaign did not enter the requested real cloud fall');
-    const fall=CloudWorldV1.fall,area=G.area,position={x:G.x,y:G.y},partner=coop?G.active:'ryuchi',blocked=[];window.__travelFallQA={fall,hero:fall.hero,partner,partnerHP:G.hp[partner]};
+    const fall=CloudWorldV1.fall,area=G.area,position={x:G.x,y:G.y},partner=coop?G.active:'ryuchi',blocked=[];window.__travelFallQA={fall,hero:fall.hero,heroHP:G.hp[fall.hero],partner,partnerHP:G.hp[partner]};
     for(const enabled of [true,false]){
      CloudWorldV1.enabled=enabled;const canTravel=PostGame.canTravel(),travel=PostGame.travel('city'),dungeon=PostGame.startDungeon(197);blocked.push({enabled,canTravel,travel,dungeon,area:G.area,sameFall:CloudWorldV1.fall===fall,position:{x:G.x,y:G.y}});
-     if(canTravel||travel!==false||dungeon!==false||G.area!==area||CloudWorldV1.fall!==fall||G.x!==position.x||G.y!==position.y)throw Error('Postgame navigation bypassed fatality '+JSON.stringify(blocked.at(-1)));
+     if(canTravel||travel!==false||dungeon!==false||G.area!==area||CloudWorldV1.fall!==fall||G.x!==position.x||G.y!==position.y)throw Error('Postgame navigation interrupted the fall '+JSON.stringify(blocked.at(-1)));
     }
     CloudWorldV1.enabled=true;const beforeM={mode,complete:G.c3.complete,endingPending:G.c3.endingPending,elapsed:fall.elapsed,dialogueHidden:$('dialogue').classList.contains('hidden'),speaker:$('speaker').textContent,words:$('words').textContent,queue:dialogueQueue.length};__travelFallQA.beforeM=beforeM;return {coop,edge,hero:fall.hero,seededCampaignSettledForSeconds:.6,heroHPBeforeFall:G.hp[hero],canTravelBefore:before,beforeM,blocked};
    },coop);
@@ -225,16 +231,16 @@ async function capture(name){
    });
    await page.locator('#postMapClose').click();
    const end=await page.evaluate(age=>{
-    const state=__travelFallQA;WorldReviewQA.step(.05);const resumed=CloudWorldV1.fall?.elapsed>age;if(!resumed)throw Error('Closing map failed to resume original fatal fall');
-    WorldReviewQA.step(.05,20);const defeat={mode,hero:state.hero,hp:G.hp[state.hero],partner:state.partner,partnerHP:G.hp[state.partner],retry:!!$('retryCheckpoint'),fall:!!CloudWorldV1.fall};
-    if(defeat.hp!==0||defeat.partnerHP!==state.partnerHP||!defeat.retry||defeat.mode!=='overlay'||defeat.fall)throw Error('Fatality lost after map attempt '+JSON.stringify(defeat));return {resumed,defeat};
-   },paused.age);
-   await page.locator('#retryCheckpoint').click();
-   const retry=await page.evaluate(()=>{
-    const state=__travelFallQA;for(let i=0;mode==='dialogue'&&i<100;i++)advanceDialogue();WorldReviewQA.step(1/60);
-    const result={area:G.area,hero:state.hero,hp:G.hp[state.hero],valid:canBody121(G.x,G.y),coopValid:!C3.coopActive()||canBody121(C3.coop.x,C3.coop.y),fall:!!CloudWorldV1.fall,complete:G.c3.complete,canTravel:PostGame.canTravel()};
-    if(!result.valid||!result.coopValid||result.hp<=0||result.fall||!result.complete||!result.canTravel)throw Error('Travel did not recover after legitimate retry '+JSON.stringify(result));delete window.__travelFallQA;return result;
-   });rows.push({...start,...paused,...end,retry});
+    const state=__travelFallQA;WorldReviewQA.step(.05);const resumed=CloudWorldV1.fall?.elapsed>age;if(!resumed)throw Error('Closing map failed to resume the original fall');
+    WorldReviewQA.step(.05,20);
+    const result={mode,area:G.area,hero:state.hero,hp:G.hp[state.hero],partnerHP:G.hp[state.partner],
+     atStart:G.x===CloudWorldV1.start.x&&G.y===CloudWorldV1.start.y,valid:canBody121(G.x,G.y),
+     coopValid:!C3.coopActive()||canBody121(C3.coop.x,C3.coop.y),retry:!!$('retryCheckpoint'),
+     fall:!!CloudWorldV1.fall,complete:G.c3.complete,canTravel:PostGame.canTravel()};
+    if(result.mode!=='walk'||result.area!=='cloud_sea'||!result.atStart||!result.valid||!result.coopValid||result.retry||result.fall||
+       result.hp!==state.heroHP||result.partnerHP!==state.partnerHP||!result.complete||!result.canTravel)throw Error('Cloud restart failed after map attempt '+JSON.stringify(result));
+    delete window.__travelFallQA;return {resumed,result};
+   },paused.age);rows.push({...start,...paused,...end});
   }return rows;
  });
 

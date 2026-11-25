@@ -277,7 +277,7 @@ const updateAntes=update;
 update=function(dt,...rest){
   const r=updateAntes.call(this,dt,...rest);
   if(G&&mode==='action'&&ativo())tickPerigos(Math.max(0,Math.min(dt||0,.1)));
-  else if(perigos.length&&mode!=='action')limparPerigos();
+  else if(perigos.length&&mode!=='overlay')limparPerigos();
   return r;
 };
 function desenharChao(){
@@ -325,7 +325,7 @@ updateActionHUD=function(...args){
   return r;
 };
 // Saindo da luta, trocando de área ou voltando ao checkpoint: sem perigos pendentes.
-for(const nome of ['setArea','showDefeat','finishBoss']){
+for(const nome of ['setArea','showDefeat','finishBoss','newGame','continueGame']){
   const antes=window[nome];if(typeof antes!=='function')continue;
   window[nome]=function(...a){limparPerigos();return antes.apply(this,a)};
 }

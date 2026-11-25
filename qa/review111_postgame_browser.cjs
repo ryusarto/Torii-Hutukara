@@ -25,6 +25,7 @@ function install(original){
    await page.evaluate(({hero,bass})=>Review111.prepare(hero,bass),{hero,bass:persistence!=='import'});
    if(persistence==='reload'){await page.evaluate(()=>save(true));await page.reload({waitUntil:'load'});await page.evaluate(install,progress);await page.evaluate(()=>continueGame());}
    if(persistence==='import'){await page.evaluate(()=>{const serialized=JSON.stringify({progress:copy(G)});G=fresh();buildMaps();importSave(new File([serialized],'campaign-expedition.json',{type:'application/json'}))});await page.waitForFunction(h=>PostGame.active()&&G.active===h,hero,{polling:50});}
+   if(persistence!=='fresh')await page.locator('#postResumeRun').click();
    const before=await page.evaluate(()=>Review111.target());assert(before.ready&&before.mode==='action',JSON.stringify({device,persistence,hero,before}));assert.equal(before.hero,hero);
    let cdp;
    if(device==='keyboard')await page.keyboard.down('j');
