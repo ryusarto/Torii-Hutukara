@@ -11,6 +11,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: gameplay-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   gameplay:
     runs-on: ubuntu-latest

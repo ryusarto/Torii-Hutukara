@@ -17,23 +17,60 @@ function validShape(source){
  }
  return true;
 }
+const numericFields=['x','y','shards','potions','resonance','totalSeconds','started','spawn','chapter','version','moveSpeed10'];
+function number(value){
+ // Legacy null scalars behaved as zero in the game's arithmetic/defaults.
+ if(value===null)return 0;
+ if(typeof value==='string'){
+  value=value.trim();
+  if(!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(value))return null;
+  value=Number(value);
+ }
+ return typeof value==='number'&&Number.isFinite(value)?value:null;
+}
+function prepare(source){
+ if(!validShape(source))return null;
+ const result={...source};
+ for(const name of numericFields)if(Object.hasOwn(source,name)&&source[name]!==undefined){
+  const value=number(source[name]);if(value===null)return null;result[name]=value;
+ }
+ if(object(source.checkpoint)){
+  const checkpoint={...source.checkpoint};
+  for(const name of ['x','y'])if(Object.hasOwn(checkpoint,name)&&checkpoint[name]!==null)checkpoint[name]=number(checkpoint[name]);
+  result.checkpoint=checkpoint;
+ }
+ return result;
+}
+function usable(source){
+ if(!validShape(source)||typeof source.area!=='string'||!Object.hasOwn(areas,source.area))return false;
+ for(const name of numericFields)if(Object.hasOwn(source,name)&&
+  (typeof source[name]!=='number'||!Number.isFinite(source[name])))return false;
+ // The existing migrations own HP/XP/level recovery and limits. Verify their
+ // final values rather than replacing those established rules or extra keys.
+ for(const map of ['hp','maxhp','xp','levels'])for(const hero of C3.progressionIds){
+  const value=source[map]?.[hero];if(typeof value!=='number'||!Number.isFinite(value))return false;
+ }
+ return true;
+}
 const previousNormalize=normalizeSave;
 normalizeSave=function(raw){
- if(!validShape(raw?.progress||raw))return null;
+ const prepared=prepare(raw?.progress||raw);if(!prepared)return null;
  let result;
- try{result=previousNormalize.apply(this,arguments)}catch{return null}
- if(!result||!validShape(result))return null;
+ try{result=previousNormalize(raw?.progress?{...raw,progress:prepared}:prepared)}catch{return null}
+ if(!result||!usable(result))return null;
+ if(result.checkpoint&&(typeof result.checkpoint.area!=='string'||!Object.hasOwn(areas,result.checkpoint.area)))result.checkpoint=null;
  const snapshot=result.checkpoint?.snapshot;
  if(snapshot){
   // A corrupt optional checkpoint must not take a valid campaign down with
   // it. Validate the snapshot through the same migrations without its nested
   // checkpoint; restoring already supplies the outer checkpoint explicitly.
   let valid=false;
-  if(validShape(snapshot))try{
-   const restored=previousNormalize({...snapshot,checkpoint:null});
-   valid=!!restored&&validShape(restored);
+  const preparedSnapshot=prepare(snapshot);
+  if(preparedSnapshot)try{
+   const restored=previousNormalize({...preparedSnapshot,checkpoint:null});
+   valid=!!restored&&usable(restored);
   }catch{}
-  if(!valid)result.checkpoint=null;
+  if(!valid)result.checkpoint=null;else result.checkpoint.snapshot=preparedSnapshot;
  }
  return result;
 };
