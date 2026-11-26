@@ -6,6 +6,7 @@
 const node=id=>document.getElementById(id),ROOT=document.documentElement;
 const PAD_REPEAT_DELAY=360,PAD_REPEAT_RATE=135,KEY_REPEAT_RATE=95;
 const heldPads=new Map();let firstControl=null,lastKeyAt=0,queued=false;
+let pollingPads=false,padMenuAction=false;
 const visible=el=>{if(!el||el.closest('[hidden],.hidden'))return false;const s=getComputedStyle(el),r=el.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0};
 const editingLayout=()=>!!window.TouchLayoutV1?.editor;
 const capturingBinding=()=>!!document.querySelector('.keymap6 .listening');
@@ -86,19 +87,28 @@ function handleKey(e){
  move(direction);return true;
 }
 function handlePad(pad){
- if(!scope()||capturingBinding())return false;sync();
+ if(!scope()||capturingBinding())return false;
+ if(pollingPads&&padMenuAction)return true;
+ sync();
  const [x,y]=C3.padDirection(pad),axis=Math.abs(x)>Math.abs(y)?x:y,vertical=Math.abs(y)>=Math.abs(x),sign=Math.abs(axis)>.55?Math.sign(axis):0,now=performance.now();
  let held=heldPads.get(pad.index);if(!held){held={sign:0,vertical:true,next:0};heldPads.set(pad.index,held)}
  if(sign&&(!held.sign||held.sign!==sign||held.vertical!==vertical||now>=held.next)){
   if(!vertical&&adjust(sign)){}else move(sign);
   held.next=now+(!held.sign||held.sign!==sign||held.vertical!==vertical?PAD_REPEAT_DELAY:PAD_REPEAT_RATE);held.sign=sign;held.vertical=vertical;
  }else if(Math.abs(axis)<.35){held.sign=0;held.next=0}
- if(C3.padEdge(pad,1)||C3.padEdge(pad,9))back();else if(C3.padEdge(pad,0))confirm();
+ if(C3.padEdge(pad,1)||C3.padEdge(pad,9)){if(pollingPads)padMenuAction=true;back()}
+ else if(C3.padEdge(pad,0)){if(pollingPads)padMenuAction=true;confirm()}
  return true;
 }
+// One menu activation per controller poll: P2 cannot confirm a panel just opened
+// by P1, or dispatch a gameplay action beneath a panel P1 has just closed.
+const priorPoll=C3.pollControllers;C3.pollControllers=function(...args){
+ const beforePolling=pollingPads,beforeAction=padMenuAction;pollingPads=true;padMenuAction=false;
+ try{return priorPoll.apply(this,args)}finally{pollingPads=beforePolling;padMenuAction=beforeAction}
+};
 const priorMenuPad=C3.handleMenuPad;C3.handleMenuPad=function(pad){if(scope()){handlePad(pad);return}return priorMenuPad.apply(this,arguments)};
-const priorPrimary=C3.handlePrimaryPad;C3.handlePrimaryPad=function(pad){if(scope()){handlePad(pad);return}return priorPrimary.apply(this,arguments)};
-const priorSecond=C3.handleSecondPad;C3.handleSecondPad=function(pad){const root=scope();if(root&&C3.coopActive()){if(root.querySelector('#choiceGrid,[data-c3note],[data-vnote],#c3FirstPlant,#c3ArchiveTape'))return;handlePad(pad);return}return priorSecond.apply(this,arguments)};
+const priorPrimary=C3.handlePrimaryPad;C3.handlePrimaryPad=function(pad){if(scope()){handlePad(pad);return}const result=priorPrimary.apply(this,arguments);if(pollingPads&&scope())padMenuAction=true;return result};
+const priorSecond=C3.handleSecondPad;C3.handleSecondPad=function(pad){if(pollingPads&&padMenuAction)return;const root=scope();if(root&&C3.coopActive()){if(root.querySelector('#choiceGrid,[data-c3note],[data-vnote],#c3FirstPlant,#c3ArchiveTape'))return;handlePad(pad);return}return priorSecond.apply(this,arguments)};
 for(const name of ['openOverlay','closeOverlay','enterMenu10']){const prior=window[name];if(typeof prior==='function')window[name]=function(...args){const result=prior.apply(this,args);schedule();return result}}
 const priorInit=init;init=function(...args){const result=priorInit.apply(this,args);const style=document.createElement('style');style.textContent=`
 .ui7 .ui7-menu-active{outline:2px solid #a8d3d1!important;outline-offset:2px;scroll-margin:12px}

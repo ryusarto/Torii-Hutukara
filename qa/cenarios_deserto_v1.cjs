@@ -222,11 +222,20 @@ fs.mkdirSync(out,{recursive:true});
   });
   await check('C1/C2 legacy pixels match V2 and new forest and radio props render',async()=>{
    const result=await page.evaluate(()=>{
-    const tested=[],forestProps=[];let count=0,radioTuners=0,radioAntennas=0;
+    const tested=[],forestProps=[];let count=0,radioTuners=0,radioAntennas=0,planarPortals=0;
     for(const a of Object.values(areas).filter(a=>!C3.AREAS.includes(a.id))){
      current=a;G.area=a.id;cam.x=cam.y=0;const props=a.props;
      for(const p of props){if(a.id==='studio'&&['sofa','plant'].includes(p.type))continue;const cx=(p.x+.5)*T-384,cy=(p.y+.65)*T-330;
       const before=__desertQA.pixels(()=>desertPropV1(p,cx,cy)),after=__desertQA.pixels(()=>drawProp(p,cx,cy));
+      if(p.type==='silenceGate'){
+       // Approved 1.25 art moves this portal from the vertical prop pass to
+       // the ground pass. Check the replacement rather than the retired art.
+       const flags=JSON.stringify(G.flags);
+       const ground=__desertQA.pixels(()=>{if(!CombatReadabilityV1.portal(p,cx,cy))throw Error('Ground portal was not handled')});
+       if(__desertQA.nonempty(after)||!__desertQA.nonempty(ground))throw Error('Portal must render only on the ground');
+       if(JSON.stringify(G.flags)!==flags)throw Error('Ground portal changed progression');
+       planarPortals++;continue;
+      }
       if(a.id==='forest'&&p.type==='frequencyStation'){
        if(!__desertQA.nonempty(after)||__desertQA.equal(before,after))throw Error('Missing instrument art '+p.bridgeKind);
        forestProps.push(p.bridgeKind);continue;
@@ -251,10 +260,10 @@ fs.mkdirSync(out,{recursive:true});
      }
      const types=[...new Set(a.tiles.flat())];for(const type of types){const before=__desertQA.pixels(()=>cenarioTileV2(type,100,100,3,3)),after=__desertQA.pixels(()=>drawTile(type,100,100,3,3));if(!__desertQA.equal(before,after))throw Error('Legacy tile pixels changed '+a.id+'/'+type)}
      tested.push({area:a.id,props:props.length,tileTypes:types.length});
-    }return {areas:tested,propSamples:count,forestProps,radioTuners,radioAntennas};
+    }return {areas:tested,propSamples:count,forestProps,radioTuners,radioAntennas,planarPortals};
    });
    assert.deepEqual(result.forestProps.sort(),['bell','log','marker','stone']);
-   assert.equal(result.radioTuners,1);assert.equal(result.radioAntennas,1);return result;
+   assert.equal(result.radioTuners,1);assert.equal(result.radioAntennas,1);assert.equal(result.planarPortals,1);return result;
   });
   await check('All six hero renderers remain pixel-identical with desert theme enabled or disabled',async()=>{
    return page.evaluate(()=>{

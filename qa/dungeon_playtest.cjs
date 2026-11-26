@@ -62,6 +62,20 @@ function install(original){
   return {choices:first,keyboardAndController:true};
  });
  await check('P2 movement/roll and reconnection do not pause or trap the actor',async()=>{const r=await page.evaluate(()=>{closeOverlay();DungeonQA.fixture(true);for(let i=0;i<180;i++){__pads[1].axes=[-1,0];DungeonQA.step()}const moved=Math.hypot(C3.coop.x-G.x,C3.coop.y-G.y);__pads[1].axes=[0,0];__pads[1].buttons[1]={pressed:true,value:1};DungeonQA.step();const rolling=C3.coop.dash>0,paused=mode==='overlay';__pads=[__pads[0]];C3.pad.pads=__pads;DungeonQA.step();__pads.push(DungeonQA.pad(1));C3.pad.pads=__pads;DungeonQA.step();return{moved,rolling,paused,active:C3.coopActive(),valid:canBody121(C3.coop.x,C3.coop.y)};});assert(r.moved>3&&r.rolling&&!r.paused&&r.active&&r.valid,JSON.stringify(r));return r;});
+ await check('Simultaneous controllers cannot confirm a newly opened pause or act beneath a closed one',async()=>{
+  const r=await page.evaluate(()=>{
+   if(PostGame.active())PostGame.finishRun();closeOverlay();DungeonQA.fixture(true);PostGame.finishRun();closeOverlay();
+   C3.pad.previous.clear();__pads[0].buttons[9]={pressed:true,value:1};__pads[1].buttons[0]={pressed:true,value:1};
+   C3.pollControllers(tick*1000);
+   const paused=mode==='overlay'&&!!document.querySelector('.ui7-pause-sidebar');
+   for(const pad of __pads)for(const b of [0,1,9])pad.buttons[b]={pressed:false,value:0};
+   C3.pollControllers(tick*1000);
+   __pads[0].buttons[1]={pressed:true,value:1};__pads[1].buttons[0]={pressed:true,value:1};
+   let interactions=0;const before=C3.interactCoop;C3.interactCoop=()=>{interactions++};
+   try{C3.pollControllers(tick*1000)}finally{C3.interactCoop=before}
+   return{paused,resumed:mode==='walk',interactions};
+  });assert.deepEqual(r,{paused:true,resumed:true,interactions:0});return r;
+ });
  await check('The dungeon briefing is safe with two controllers and starts only on confirmation',async()=>{
   const r=await page.evaluate(()=>{
    if(PostGame.active())PostGame.finishRun();closeOverlay();DungeonQA.fixture(true);PostGame.finishRun();closeOverlay();openSystem();
