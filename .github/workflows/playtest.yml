@@ -141,6 +141,7 @@ jobs:
           node qa/npc_scale_v1.cjs http://127.0.0.1:8771/
           node qa/hero_attack_body_browser.cjs http://127.0.0.1:8771/
           node qa/run_stride_browser.cjs http://127.0.0.1:8771/
+          node qa/franco_locomotion_regression.cjs http://127.0.0.1:8771/
           node qa/archer_strafe_browser.cjs http://127.0.0.1:8771/
           # Validate the current casts, contacts, projectiles, layers and pause.
           node qa/hero_attack_v3_browser.cjs http://127.0.0.1:8771/

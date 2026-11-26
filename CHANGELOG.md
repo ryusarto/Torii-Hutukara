@@ -12,6 +12,7 @@
 - Mapa, equipe e outras telas longas: a moldura acompanha a rolagem e a tela abre no topo, com o título visível.
 - HTML portátil 24% menor (483 → 368 MB) e com carregamento cerca de 2,5 vezes mais rápido: as imagens são embutidas em WebP pelo mesmo conversor da versão web, com pixels idênticos.
 - Estados dos chefes do teste de dificuldade atualizados com uma campanha da versão atual.
+- Teste de locomoção do Franco atualizado para o carregamento da 1.26 (a cena pausa até a arte chegar) e para a corrida mascarada de oito poses; volta a rodar na publicação.
 - Testes: não dependem mais de `/usr/bin/ruby`, do idioma do sistema nem de `playwright-core`. O validador reprova rótulos de versão antigos e o aumento das camadas sobre as funções centrais.
 
 ## 1.26.0
