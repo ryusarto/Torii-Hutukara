@@ -609,6 +609,7 @@ ui7_asset_dir = File.join(REPO_ROOT, 'assets', 'interface', 'v1')
 ui7_paths = Dir[File.join(ui7_asset_dir, '{dungeon,icons}', '*.png')].reject { |p| File.basename(p) == 'atlas.png' }.to_h { |p| [File.basename(p, '.png'), p] }
 ui7_paths['titleStudio'] = File.join(ui7_asset_dir, 'title_studio.png')
 ui7_runtime = File.read(UI7_JS, encoding: 'UTF-8')
+replace_once!(ui7_runtime, '__TORII_RELEASE_LABEL__', JSON.generate(VERSION.fetch('rotulo')), 'versão pública no menu principal')
 replace_once!(ui7_runtime, '__UI7_ASSETS__', png_map(ui7_paths), 'ícones de interface')
 replace_once!(ui7_runtime, '__UI7_CSS__', JSON.generate(File.read(UI7_CSS, encoding: 'UTF-8')), 'estilos de interface')
 ui7_screens_runtime = File.read(UI7_SCREENS_JS, encoding: 'UTF-8')

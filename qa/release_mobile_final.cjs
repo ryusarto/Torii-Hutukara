@@ -5,6 +5,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
 const url=process.argv[2];if(!/^https?:/.test(url||''))throw Error('Pass an HTTP build URL');
 const out=path.resolve(process.env.MOBILE_FINAL_OUT||path.join(__dirname,'performance-v1','release-mobile-final.json'));
+const expectedReleaseLabel=JSON.parse(fs.readFileSync(path.join(__dirname,'../game/VERSION.json'),'utf8')).rotulo;
 const report={url,prototypeInjected:false,engine:'Chromium / Playwright + CDP touch',checks:[],errors:[],limits:['Viewports, DPR, touch and controllers are emulated; no physical iOS/Android or gamepad certification.','Campaign state is prepared only to isolate menus/input, not a human campaign playthrough.']};let browser;
 async function check(name,fn){try{const detail=await fn();report.checks.push({name,passed:true,detail});console.log('PASS '+name)}catch(e){report.checks.push({name,passed:false,failure:e.stack});console.error('FAIL '+name+' '+e.message)}}
 async function load(profile,qa=false){
@@ -13,6 +14,7 @@ async function load(profile,qa=false){
  const target=new URL(url);target.searchParams.set('input','mobile');if(qa)target.searchParams.set('qa','');else target.searchParams.delete('qa');
  await page.goto(target.href,{waitUntil:'load',timeout:120000});await page.waitForFunction(()=>window.TouchLayoutV1&&window.ToriiUI7);
  const source=await page.evaluate(()=>window.TORII_PLAYTEST_BUILD?.sourceSha256||null);assert(source,'Build must declare its source SHA');if(process.env.EXPECTED_SOURCE_SHA)assert.equal(source,process.env.EXPECTED_SOURCE_SHA);if(report.source)assert.equal(source,report.source);report.source=source;
+ const releaseLabel=await page.locator('#start .ui7-build').innerText();assert.equal(releaseLabel,expectedReleaseLabel,'Title must show VERSION.rotulo');assert(!/beta/i.test(releaseLabel),'Release title must omit Beta');report.releaseLabel=releaseLabel;
  await page.evaluate(async()=>{G=fresh();mode='walk';setArea('studio',10.5,12.5);$('start').classList.add('hidden');$('cinema').style.display='none';$('dialogue').classList.add('hidden');$('hud').style.display='block';await FinalAssetLoadingV1.ready();updateMobileLayout121();updateHUD();transitionAlpha=0});
  await page.waitForTimeout(80);return{context,page};
 }
