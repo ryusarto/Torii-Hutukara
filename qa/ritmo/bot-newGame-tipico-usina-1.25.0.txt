@@ -1,0 +1,90 @@
+RELATÓRIO DE RITMO · Nova jornada · 2026-11-26 09:08
+Tempo de jogo medido: 17min 36s
+
+ONDE O TEMPO FOI
+  Andando                    2min 26s   14%
+  Parado (sem diálogo)             1s    0%
+  Lendo diálogo              5min 06s   29%
+  Combate                    9min 56s   56%
+  Menus/mapa/diário                7s    1%
+  Desafio de ritmo                 0s    0%
+  → Jogando de fato (combate + ritmo): 56% · Andando + lendo: 43%
+
+COMBATE
+  Encontros: 10 · Derrotas: 12
+  Primeiro combate em: 2min 22s
+  Maior trecho sem lutar: 2min 22s (terminou em forest)
+
+DIÁLOGO
+  Falas lidas: 55 · Caracteres: 3816 · Narrador: 2%
+  Quem mais fala: RYUCHI 17 · FRANCO, THE SIR! 12 · IRIS 6 · MÚSICO MASCARADO 5 · ANCIÃ EMA 4 · ??? 4
+
+ETAPAS MAIS LONGAS (onde cortar primeiro)
+   1.  8min 00s · combate 93% · 3 falas · Suba à Torre de Transmissão e enfrente o Silêncio.
+   2.  1min 00s · combate 67% · 3 falas · Confronte a fonte do Silêncio.
+   3.       58s · combate 61% · 3 falas · Ative as duas pedras de ressonância nas ruínas.
+   4.       50s · lendo diálogo 85% · 6 falas · Passe pelo portão leste e explore a floresta.
+   5.       49s · combate 53% · 2 falas · Encontre Íris na Praça das Antenas.
+   6.       43s · lendo diálogo 50% · 3 falas · Reúna as quatro notas da ponte.
+   7.       43s · lendo diálogo 75% · 4 falas · Procure a fita perdida no Mercado das Fitas.
+   8.       40s · andando 48% · 2 falas · Sintonize a Rádio 9.
+   9.       32s · lendo diálogo 57% · 5 falas · Siga o som. Encontre a origem da melodia.
+  10.       27s · lendo diálogo 100% · 6 falas · Converse com seu novo aliado.
+
+POR ÁREA
+  voice_tower           7min 44s · andando 0% · diálogo 4% · combate 96% · entradas 13
+  voices                2min 44s · andando 38% · diálogo 32% · combate 27% · entradas 5
+  ruins                 2min 21s · andando 8% · diálogo 47% · combate 45% · entradas 1
+  forest                1min 10s · andando 23% · diálogo 38% · combate 38% · entradas 1
+  city                       53s · andando 20% · diálogo 80% · combate 0% · entradas 1
+  voice_roofs                40s · andando 33% · diálogo 27% · combate 40% · entradas 1
+  studio                     30s · andando 21% · diálogo 78% · combate 0% · entradas 1
+  chamber                    22s · andando 5% · diálogo 95% · combate 0% · entradas 1
+  radio9                     20s · andando 29% · diálogo 51% · combate 0% · entradas 1
+  bento_shop                 20s · andando 13% · diálogo 87% · combate 0% · entradas 1
+  rain_station               17s · andando 28% · diálogo 72% · combate 0% · entradas 1
+  tape_market                 8s · andando 33% · diálogo 67% · combate 0% · entradas 1
+  corridor                    7s · andando 100% · diálogo 0% · combate 0% · entradas 1
+
+EVENTOS DO ROBÔ
+[0.0 min] Objetivo: Investigue a mesa de produção no estúdio.
+[0.3 min] Objetivo: Siga o som. Encontre a origem da melodia.
+[0.8 min] Objetivo: Converse com a Anciã Ema na praça da cidade.
+[1.0 min] Objetivo: Passe pelo portão leste e explore a floresta.
+[1.5 min] Overlay "DIÁLOGO · ESCOLHA O que vocês querem perguntar à Anciã Ema? A resposta fica reg" → 1. Quem é esse viajante mascarado?
+[1.9 min] Objetivo: Encontre a figura mascarada na floresta.
+[2.0 min] Objetivo: Reúna as quatro notas da ponte.
+[2.7 min] Objetivo: Ative as duas pedras de ressonância nas ruínas.
+[2.8 min] Usou fita: franco 35/50
+[3.3 min] Usou fita: franco 39/60
+[3.7 min] Objetivo: Confronte a fonte do Silêncio.
+[4.2 min] Usou fita: franco 44/65
+[4.7 min] Objetivo: Descubra a identidade do viajante mascarado.
+[4.9 min] Objetivo: Converse com seu novo aliado.
+[5.3 min] Objetivo: Siga a máscara até a próxima realidade.
+[5.3 min] Overlay "CAPÍTULO 01 · CONCLUÍDO A Última Frequência O primeiro doppelgänger foi encontr" → ✦ CONTINUAR · CAPÍTULO 02
+[5.4 min] Objetivo: Encontre Íris na Praça das Antenas.
+[6.2 min] Objetivo: Procure a fita perdida no Mercado das Fitas.
+[6.9 min] Objetivo: Monte o acoplador na Oficina do Belga.
+[7.1 min] Objetivo: Sintonize a Rádio 9.
+[7.8 min] Rádio 9 · sinal limpo
+[7.8 min] Objetivo: Reative o retransmissor da Praça.
+[8.2 min] Objetivo: Reative o retransmissor do Mercado.
+[8.5 min] Objetivo: Recupere a melodia de Lumi e receba o violino.
+[8.8 min] Lumi · frase de Veracidade recuperada
+[8.8 min] Objetivo: Toque o violino para dissipar a névoa dos telhados.
+[9.2 min] Objetivo: Reative o retransmissor dos Telhados.
+[9.5 min] Usou fita: franco 46/70
+[9.6 min] Objetivo: Suba à Torre de Transmissão e enfrente o Silêncio.
+[10.8 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
+[11.4 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
+[11.9 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
+[12.5 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
+[13.1 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
+[13.6 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
+[14.2 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
+[14.8 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
+[15.4 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
+[16.0 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
+[16.6 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
+[17.2 min] Derrota em voice_tower (14,11) perto de:  · equipe {"franco":0,"ryuchi":0,"alt":0,"katana":49,"synth":44,"percussion":46} → ↻ TENTAR NOVAMENTE
