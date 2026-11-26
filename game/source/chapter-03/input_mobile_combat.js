@@ -20,16 +20,14 @@ function controlHint121(keyboard,touch,gamepad=touch){
   if(!Input121.mobile)return keyboard;
   return document.documentElement.classList.contains('physical121')?gamepad:touch;
 }
-const helpBefore121=openHelp;
-openHelp=function(){
-  if(!Input121.mobile)return helpBefore121();
+function openMobileHelp121(){
   const movement=controlHint121('','Use o direcional à esquerda. Leve-o até a borda para correr.','Use o analógico ou o direcional. Segure L2 para correr.');
   const interaction=controlHint121('','Perto de alguém ou de um objeto, toque em AÇÃO. Toque na fala para continuar.','Perto de alguém ou de um objeto, pressione A / ✕ para interagir ou avançar a fala.');
   const combat=controlHint121('','Use ATACAR, ROLAR, TÉCNICA e TÉCNICA II. ESPECIAL consome ressonância.','Use X / □ para atacar, B / ○ para rolar, L1 e R1 para as técnicas e R2 para o especial.');
   const party=controlHint121('','Use TROCAR PERSONAGEM para alternar o líder e PAUSA para abrir o menu.','Use Y / △ para alternar o líder e Start para abrir o menu.');
   enterMenu10(pauseHeader10('Sinta o ritmo','COMO JOGAR')+`<p><b>Mova e explore.</b> ${movement} ${interaction}</p><p><b>Entre no combate.</b> ${combat}</p><p><b>Encontre sua formação.</b> ${party}</p><div class="row"><button class="action strong" id="helpBack10">VOLTAR</button></div>`,'help');
   $('helpBack10').onclick=()=>{if(G&&menuOrigin10!=='title')openJourney10();else closeOverlay()};
-};
+}
 function feel121(id){return CombatFeel121[id]||CombatFeel121.franco}
 function canBody121(x,y){
   if(!current||!Number.isFinite(x)||!Number.isFinite(y))return false;
@@ -661,6 +659,8 @@ updateHUD=function(...args){const result=hudBeforeLabel(...args);applyBuildLabel
 
 const initBefore121=init;
 init=function(){
+  const desktopHelp=openHelp;
+  openHelp=function(...args){return Input121.mobile?openMobileHelp121():desktopHelp.apply(this,args)};
   initBefore121();installMobile121();const landscapeStyle=document.createElement('style');landscapeStyle.textContent=LANDSCAPE_CSS122;document.head.appendChild(landscapeStyle);
   document.title='Torii & Hutukara · __BUILD_TITLE__';
   const version=document.querySelector('#start .version');if(version)version.textContent=BUILD_LABEL;
