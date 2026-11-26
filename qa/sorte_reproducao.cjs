@@ -20,7 +20,12 @@ async function campaign(browser,seed){
   const page=await browser.newPage({viewport:{width:1280,height:800}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(()=>{requestAnimationFrame=()=>0;Object.defineProperty(navigator,'getGamepads',{value:()=>[]});try{localStorage.clear()}catch{}});
   await page.goto(base+(base.includes('?')?'&':'?')+'semente='+seed,{waitUntil:'load',timeout:180000});
-  await page.evaluate(install);await page.evaluate(()=>window.__botOpts={run:true,cps:400,rota:'usina'});
+  await page.evaluate(install);await page.evaluate(()=>{
+    // Decoding audio depends on wall time, while this test compares simulation ticks.
+    // The puzzles remain playable through their visual cues.
+    audioMuted=true;
+    window.__botOpts={run:true,cps:400,rota:'usina'};
+  });
   // Conta derrotas: o jogo chama gameOver/derrota ao zerar a equipe.
   await page.evaluate(()=>{window.__derrotas=[];for(const name of ['showDefeat']){if(typeof window[name]==='function'){const f=window[name];window[name]=function(...a){__derrotas.push({area:G.area,boss:!!(window.bossActor||current.enemies?.some(e=>e.boss))});return f.apply(this,a)}}}});
   await page.locator('#startNew').click();await page.locator('#dif_historia').click();await page.evaluate(()=>__bot.begin('already'));
