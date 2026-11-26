@@ -25,15 +25,16 @@ console.log('OK · corrupt data, clamps, collision detection, separate orientati
 // Optional actual DOM/input pass: PLAYWRIGHT_CORE=/path/to/playwright-core node qa/touch_layout_v1_unit.cjs --browser
 if(process.argv.includes('--browser'))(async()=>{
  const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core'),{pathToFileURL}=require('node:url');
- const artifact=path.join(__dirname,'beta-1.17.0');fs.mkdirSync(artifact,{recursive:true});
+ const version=JSON.parse(fs.readFileSync(path.join(__dirname,'../game/VERSION.json')));
+ const artifact=path.join(__dirname,version.versao);fs.mkdirSync(artifact,{recursive:true});
  const report={timestamp:new Date().toISOString(),engine:'Chrome headless / Playwright + CDP touch',limits:['Automação em Chromium com viewport e toque emulados; não substitui teste em hardware Android/iOS.','Estado de campanha preparado numa sessão isolada; não é uma campanha completa jogada.'],checks:[],screenshots:[],errors:[]};
  const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,args:['--disable-gpu']});
  try{
  const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true}),page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));
- await page.goto(pathToFileURL(path.join(__dirname,'../game/builds/beta-1.17.0/TORII_HUTUKARA_BETA_1_17_0.html')).href+'?input=mobile',{timeout:120000});await page.waitForFunction(()=>window.TouchLayoutV1);
+ await page.goto((process.env.TORII_BUILD_URL||pathToFileURL(path.join(__dirname,'../game/builds',version.versao,'TORII_HUTUKARA_'+version.sufixo+'.html')).href)+'?input=mobile',{timeout:120000});await page.waitForFunction(()=>window.TouchLayoutV1);
  const check=(name,actual)=>{assert(actual,name);report.checks.push({name,passed:true});console.log('OK · '+name)};
  check('Title hides gameplay touch controls',await page.evaluate(()=>getComputedStyle($('mobileDeck121')).visibility==='hidden'));
- await page.evaluate(()=>{G=fresh();G.flags.masks=G.flags.bass=true;G.active='franco';G.formation=['franco','ryuchi'];G.potions=3;G.resonance=34;mode='walk';setArea('studio',10.5,12.5);$('start').classList.add('hidden');$('overlay').classList.add('hidden');$('dialogue').classList.add('hidden');$('hud').style.display='block';updateHUD();updateMobileLayout121();updateMobileReadout121()});await page.waitForTimeout(350);
+ await page.evaluate(async()=>{G=fresh();G.flags.masks=G.flags.bass=true;G.active='franco';G.formation=['franco','ryuchi'];G.potions=3;G.resonance=34;mode='walk';setArea('studio',10.5,12.5);$('start').classList.add('hidden');$('overlay').classList.add('hidden');$('dialogue').classList.add('hidden');$('hud').style.display='block';await window.FinalAssetLoadingV1?.ready();updateHUD();updateMobileLayout121();updateMobileReadout121()});await page.waitForTimeout(350);
  check('Hidden title does not cover gameplay',await page.evaluate(()=>getComputedStyle($('start')).display==='none'));
  check('Portrait deck retains its approved control area',await page.evaluate(()=>$('mobileDeck121').getBoundingClientRect().height>=200));
  check('Rectangular Fita and Ação controls retain visible frames',await page.evaluate(()=>['heal','interact'].every(id=>parseFloat(getComputedStyle(document.querySelector('[data-mobile-action='+id+']')).borderTopWidth)>0)));

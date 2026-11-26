@@ -121,6 +121,7 @@ const RunStrideV1 = (() => {
       const original = new Image();
       original.onload = () => {
         if (original.naturalWidth !== meta.cell*meta.frames || original.naturalHeight !== meta.cell*meta.rows) {
+          record.failed = true;
           resolve(false);
           return;
         }
@@ -128,7 +129,7 @@ const RunStrideV1 = (() => {
         canvas.width = record.cell*meta.frames;
         canvas.height = record.cell*meta.rows;
         const q = canvas.getContext('2d');
-        if (!q) { resolve(false); return; }
+        if (!q) { record.failed = true; resolve(false); return; }
         q.imageSmoothingEnabled = false;
         q.drawImage(original,0,0,canvas.width,canvas.height);
         if (hero === 'ryuchi') {
@@ -138,7 +139,7 @@ const RunStrideV1 = (() => {
         record.bitmap = canvas;
         resolve(true);
       };
-      original.onerror = () => resolve(false);
+      original.onerror = () => { record.failed = true; resolve(false); };
       original.src = assets[hero];
     });
     return record;
@@ -346,7 +347,12 @@ const RunStrideV1 = (() => {
       ctx.drawImage(sheet.bitmap,frame*size,row*size,size,size,...placement(config,registration,x,y,size));
     } finally {ctx.restore();}
   }
-  return {manifest,image,capture,advance,render,placement,snapshot:()=>[...states].map(([hero,state])=>({hero,...state}))};
+  function retry(hero) {
+    const record = sheets.get(hero);
+    if (record && !record.bitmap && record.failed) sheets.delete(hero);
+    return image(hero);
+  }
+  return {manifest,image,retry,capture,advance,render,placement,snapshot:()=>[...states].map(([hero,state])=>({hero,...state}))};
 })();
 window.RunStrideV1=RunStrideV1;
 

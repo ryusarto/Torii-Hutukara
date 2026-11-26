@@ -30,9 +30,9 @@ const result={checks:[],errors:[],screens:[]};
   await page.locator('#startNew').tap();
   await page.locator('#dif_normal').tap();
   await check('Um aviso real da fase III congela ao pausar e resolve ao retomar',async()=>{
-   const detail=await page.evaluate(()=>{
-    if(mode==='dialogue')Narrativa.pularCena();
-    G.flags.bass=true;G.difficulty='normal';setArea('ruins',35.4,18.5,false);spawnBossFight();
+   const detail=await page.evaluate(async()=>{
+    await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');if(mode==='dialogue')Narrativa.pularCena();
+    G.flags.bass=true;G.difficulty='normal';setArea('ruins',35.4,18.5,false);await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');spawnBossFight();await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');
     if(mode==='dialogue')Narrativa.pularCena();
     bossActor.hp=bossActor.max*.2;bossActor.cd=0;
     let frames=0;
@@ -54,16 +54,16 @@ const result={checks:[],errors:[],screens:[]};
    return detail;
   });
   await check('Fenda explica regras e separa suspensão de encerramento',async()=>{
-   await page.evaluate(save=>{
+   await page.evaluate(async save=>{
     if(mode==='overlay')closeOverlay();bossActor=battle=null;
-    G=normalizeSave(save);buildMaps();setArea('last_torii',13.5,13.5,false);openSystem();
+    G=normalizeSave(save);buildMaps();setArea('last_torii',13.5,13.5,false);await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');openSystem();
    },save);
    await page.locator('#postSystemDungeon').tap();
    assert.match(await page.locator('#overlayInner').innerText(),/Fitas ficam fora da Fenda/);
    assert.match(await page.locator('#overlayInner').innerText(),/onda atual recomeça/);
-   await page.locator('#postBeginRun').tap();
-   assert(await page.evaluate(()=>PostGame.active()));
-   const before=await page.evaluate(()=>{
+   await page.locator('#postBeginRun').tap();await page.evaluate(async()=>{await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');});
+   assert(await page.evaluate(async()=>PostGame.active()));
+   const before=await page.evaluate(async()=>{
     const r=PostGame.run(),leader=G.active;
     const start={leader,hp:r.hpStart[leader],res:r.resonanceStart,score:r.bankedScore,wave:r.wave};
     G.hp[leader]-=9;G.resonance=3;r.score+=100;r.kills++;r.encore=true;
@@ -75,17 +75,17 @@ const result={checks:[],errors:[],screens:[]};
    await page.locator('#postSuspendConfirm').tap();
    await page.locator('#startContinue').tap();
    await page.locator('#postResumeRun').waitFor();
-   const after=await page.evaluate(()=>{
+   const after=await page.evaluate(async()=>{
     const r=PostGame.run();
     return{leader:G.active,hp:G.hp[G.active],res:G.resonance,score:r.score,wave:r.wave,encore:r.encore,mode};
    });
    assert.deepEqual(after,{...before,encore:false,mode:'overlay'});
-   await page.locator('#postResumeRun').tap();
+   await page.evaluate(async()=>{await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');});await page.locator('#postResumeRun').tap();await page.evaluate(async()=>{await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');});
    return {before,after};
   });
   await check('A Fenda dispensa falas de fita e o mobile é legível em sete tamanhos',async()=>{
    await page.waitForFunction(()=>mode==='action'&&current.enemies.some(e=>e.hp>0));
-   const allyAlpha=await page.evaluate(()=>{
+   const allyAlpha=await page.evaluate(async()=>{
     const original=drawActor;
     let alpha=1;
     drawActor=()=>{alpha=ctx.globalAlpha};
@@ -98,7 +98,7 @@ const result={checks:[],errors:[],screens:[]};
    for(const [width,height] of [[320,568],[360,640],[390,844],[412,915],[568,320],[640,360],[844,390]]){
     await page.setViewportSize({width,height});
     await page.waitForFunction(([w,h])=>Math.abs(innerWidth-w)<=1&&Math.abs(innerHeight-h)<=1&&Math.abs(parseFloat(document.documentElement.style.getPropertyValue('--mobile-height'))-h)<=1,[width,height]);
-    const row=await page.evaluate(()=>{
+    const row=await page.evaluate(async()=>{
      G.resonance=18;act.skill=2.2;act.skillX=4.8;act.duo=0;act.dashCD=.7;
      updateMobileReadout121();
      const r=$('game').getBoundingClientRect();
@@ -115,7 +115,7 @@ const result={checks:[],errors:[],screens:[]};
     if(width===390||width===844)await shot('fenda-'+width+'x'+height);
     detail.push({width,height,...row});
    }
-   const noFita=await page.evaluate(()=>{
+   const noFita=await page.evaluate(async()=>{
     Input121.mobile=false;
     for(let n=0;n<36;n++){Narrativa.forcar('perigo','franco');Narrativa.despachar();if(Narrativa.barks().ativos.some(a=>/\bfitas?\b/i.test(a.texto)))return false}
     return true;

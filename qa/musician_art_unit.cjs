@@ -97,6 +97,7 @@ function harness(options = {}) {
   };
   // Use the production native fallback while the optional contact atlas is unavailable.
   h.HeroAttackFX = {follower(){}}; h.effect10 = () => {};
+  h.FinalAssetLoadingV1 = {requireImage(){stats.loadingRequests=(stats.loadingRequests||0)+1}};
   vm.createContext(h);
   vm.runInContext(fs.readFileSync(path.join(root,'game/source/chapter-03/hero_attack_body.js'),'utf8').replace('__HERO_BODY_ATLASES__','{}').replace('__HERO_BODY_PLACEMENT__','{}'),h);
   vm.runInContext(source.replace('__MUSICIAN_ASSETS__', JSON.stringify(options.assets || assets))
@@ -205,8 +206,8 @@ let poses = 0, sequences = 0;
 for (const failure of ['pending','broken','absent']) {
   const opts = failure==='absent' ? {assets:{}} : {[failure]:['franco_sintetizador_unmasked_']};
   const {h,stats} = harness(opts);h.drawActor({style:'synth'},72,96,false);
-  assert.equal(stats.actor,1,failure+' source falls back to previous renderer');
-  h.drawDetailedNPC({id:'c3_synth_npc'},72,96);assert.equal(stats.npc,1);
+  assert.equal(stats.actor,0,failure+' source waits for final artwork');
+  h.drawDetailedNPC({id:'c3_synth_npc'},72,96);assert.equal(stats.npc,0);assert.equal(stats.loadingRequests,2);
 }
 {
   const {h,art,elements} = harness();

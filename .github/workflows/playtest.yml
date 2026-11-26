@@ -132,11 +132,17 @@ jobs:
           node qa/cenarios_deserto_v1.cjs http://127.0.0.1:8771/
           node qa/cenarios_deserto_states.cjs http://127.0.0.1:8771/
           node qa/musician_art.cjs http://127.0.0.1:8771/
+          node qa/final_asset_loading_v1.cjs http://127.0.0.1:8771/
+          node qa/loading_input_continuity_v1.cjs http://127.0.0.1:8771/
+          node qa/render_performance_v1.cjs http://127.0.0.1:8771/
+          node qa/environment_depth_noop.cjs http://127.0.0.1:8771/
+          node qa/guidance_runtime_v1.cjs http://127.0.0.1:8771/
+          node qa/guidance_campaign_v1.cjs http://127.0.0.1:8771/
+          node qa/npc_scale_v1.cjs http://127.0.0.1:8771/
           node qa/hero_attack_body_browser.cjs http://127.0.0.1:8771/
           node qa/run_stride_browser.cjs http://127.0.0.1:8771/
           node qa/archer_strafe_browser.cjs http://127.0.0.1:8771/
-          # Beta 1.25 ships V3; V1/V2 suites refer to retired atlas APIs.
-          # V3 covers casts, combos, contacts, projectiles, layers and pause.
+          # Validate the current casts, contacts, projectiles, layers and pause.
           node qa/hero_attack_v3_browser.cjs http://127.0.0.1:8771/
           node qa/hero_vfx_layers_v3_browser.cjs http://127.0.0.1:8771/
           node qa/enemy_attack_fx_browser.cjs http://127.0.0.1:8771/

@@ -91,17 +91,26 @@ function lembrar(quem,texto,tipo){
 }
 
 /* ---------- digitação ---------- */
-const tw={timer:null,texto:'',inicio:0};
-const digitando=()=>tw.timer!==null;
+const tw={timer:null,texto:'',inicio:0,paused:false,pausedAt:0,step:null};
+let assetsPaused=false,assetsPausedAt=0;
+const falaAgora=()=>assetsPaused?assetsPausedAt:performance.now();
+const readingSchedules=new Set();
+function scheduleReading(callback,delay){
+  const managed=!!window.FinalAssetLoadingV1?.schedule;
+  const record={managed,id:null};
+  record.id=(managed?window.FinalAssetLoadingV1.schedule:setTimeout)(()=>{readingSchedules.delete(record);callback()},delay);
+  readingSchedules.add(record);return record;
+}
+const digitando=()=>tw.timer!==null||tw.paused;
 function pintar(n){
   const w=el('words');if(!w)return;
   const a=document.createElement('span');a.textContent=tw.texto.slice(0,n);
   const b=document.createElement('span');b.className='tw-rest';b.textContent=tw.texto.slice(n);
   w.replaceChildren(a,b);
 }
-function pararDigitacao(){if(tw.timer!==null){clearInterval(tw.timer);tw.timer=null}}
+function pararDigitacao(){if(tw.timer!==null){clearInterval(tw.timer);tw.timer=null}tw.paused=false;tw.step=null}
 function completarDigitacao(){
-  if(tw.timer===null)return;
+  if(!digitando())return;
   pararDigitacao();
   const w=el('words');if(w&&w.textContent===tw.texto)w.textContent=tw.texto;
   agendarAuto();
@@ -111,23 +120,46 @@ function digitar(texto){
   const cps=speed().cps;
   if(!cps||!tw.texto){agendarAuto();return}
   tw.inicio=performance.now();pintar(0);
-  tw.timer=setInterval(()=>{
+  tw.step=()=>{
     const w=el('words');
     // Outra camada trocou o texto: deixa como está.
     if(!w||mode!=='dialogue'||w.textContent!==tw.texto){pararDigitacao();return}
     const n=Math.floor((performance.now()-tw.inicio)/1000*cps);
     if(n>=tw.texto.length)completarDigitacao();else pintar(n);
-  },30);
+  };
+  if(assetsPaused){tw.paused=true;tw.pausedAt=performance.now()}
+  else tw.timer=setInterval(tw.step,30);
 }
 
 /* ---------- avanço automático ---------- */
-let autoTimer=null;
-function cancelarAuto(){if(autoTimer){clearTimeout(autoTimer);autoTimer=null}}
+let autoTimer=null,autoDue=0,autoRemaining=null;
+function cancelarAuto(){if(autoTimer){clearTimeout(autoTimer);autoTimer=null}autoDue=0;autoRemaining=null}
+function iniciarAuto(delay){
+  if(assetsPaused){autoRemaining=delay;return}
+  autoDue=performance.now()+delay;
+  autoTimer=setTimeout(()=>{autoTimer=null;autoDue=0;if(mode==='dialogue'&&!digitando()&&!historicoAberto())advanceDialogue()},delay);
+}
 function agendarAuto(){
   cancelarAuto();
   if(!opts.auto||mode!=='dialogue')return;
   const n=(el('words')?.textContent||'').length;
-  autoTimer=setTimeout(()=>{autoTimer=null;if(mode==='dialogue'&&!digitando()&&!historicoAberto())advanceDialogue()},1200+n*42);
+  iniciarAuto(1200+n*42);
+}
+function pauseAssets(){
+  if(assetsPaused)return;
+  const now=performance.now();assetsPausedAt=now;assetsPaused=true;
+  if(tw.timer!==null){clearInterval(tw.timer);tw.timer=null;tw.paused=true;tw.pausedAt=now}
+  if(autoTimer!==null){clearTimeout(autoTimer);autoTimer=null;autoRemaining=Math.max(0,autoDue-now)}
+}
+function resumeAssets(){
+  if(!assetsPaused)return;
+  const now=performance.now(),pausedFor=now-assetsPausedAt;
+  for(const item of B.pendentes)item.em+=pausedFor;
+  for(const bark of B.ativos)bark.fim+=pausedFor;
+  assetsPaused=false;
+  if(tw.paused){tw.inicio+=now-tw.pausedAt;tw.paused=false;if(mode==='dialogue'&&el('words')?.textContent===tw.texto&&tw.step)tw.timer=setInterval(tw.step,30)}
+  const remaining=autoRemaining;autoRemaining=null;
+  if(remaining!==null&&opts.auto&&mode==='dialogue')iniciarAuto(remaining);
 }
 
 /* ---------- quem chamou: jogador ou código ---------- */
@@ -159,7 +191,7 @@ function proximaCena(){
   efeito(l.efeito);
   requestAnimationFrame?.(()=>c.classList.add('visivel'));c.classList.add('visivel');
   const dur=2200+l.t.length*45;
-  setTimeout(()=>{c.classList.remove('visivel');setTimeout(proximaCena,450)},dur);
+  scheduleReading(()=>{c.classList.remove('visivel');scheduleReading(proximaCena,450)},dur);
 }
 function efeito(nome){
   if(nome==='tremor'){try{screenShake=Math.max(screenShake||0,.35)}catch{}}
@@ -294,6 +326,7 @@ function lerControles(){
   for(const p of pads){
     if(!p||p.id==='Dungeon QA pad')continue;
     const antes=padAntes.get(p.index)||[];const agora=p.buttons.map(b=>!!b.pressed);padAntes.set(p.index,agora);
+    if(assetsPaused||window.FinalAssetLoadingV1?.busy())continue;
     const borda=i=>agora[i]&&!antes[i];
     if(historicoAberto()){if(borda(1)||borda(3))fecharHistorico();continue}
     if(mode!=='dialogue')continue;
@@ -337,7 +370,7 @@ function preencher(texto,ferido){
   return texto.replace(/\{nome\}/g,PERS[ferido]?.apelido||lider).replace(/\{lider\}/g,lider);
 }
 function falar(quem,texto,atraso=0){
-  const item={quem,texto,em:performance.now()+atraso};
+  const item={quem,texto,em:falaAgora()+atraso};
   B.pendentes.push(item);
 }
 function exibir(item){
@@ -353,8 +386,8 @@ function exibir(item){
   const bark={el:d,quem:item.quem,radio,fim:performance.now()+dur};
   B.ativos=B.ativos.filter(a=>{if(a.quem===item.quem){a.el.remove();return false}return true});
   B.ativos.push(bark);posicionarTodos();
-  setTimeout(()=>d.classList.add('visivel'),16);
-  setTimeout(()=>{d.classList.remove('visivel');setTimeout(()=>{d.remove();B.ativos=B.ativos.filter(a=>a!==bark)},260)},dur);
+  scheduleReading(()=>d.classList.add('visivel'),16);
+  scheduleReading(()=>{d.classList.remove('visivel');scheduleReading(()=>{d.remove();B.ativos=B.ativos.filter(a=>a!==bark)},260)},dur);
   B.contagem=(B.contagem||0)+1;
 }
 // Pés do personagem até um pouco acima da cabeça, em pixels do mundo.
@@ -390,6 +423,15 @@ function posicionarTodos(){
   }
 }
 function limparBarks(){for(const a of B.ativos)a.el.remove();B.ativos=[];B.pendentes=[]}
+function resetGame(){
+  for(const record of readingSchedules)(record.managed?window.FinalAssetLoadingV1.clearSchedule:clearTimeout)(record.id);
+  readingSchedules.clear();cancelarAuto();pararDigitacao();limparBarks();
+  filaCena.length=0;cenaOcupada=false;el('cenaLegenda')?.classList.remove('visivel');
+  const flash=el('cenaClarao');if(flash)flash.style.opacity='0';
+  el('leituraHistorico')?.classList.add('hidden');el('dialogue')?.classList.add('hidden');
+  pausaAntes=null;focoAntes=null;padAntes.clear();dialogueQueue=[];dialogueEnd=null;
+  B.prev=null;B.ultimo=-1e9;B.ultimaConversa=-1e9;B.andandoDesde=agora();B.visto.clear();
+}
 // O rádio das consequências aparece mesmo com as falas de combate desligadas.
 const inFenda=()=>typeof PostGame!=='undefined'&&PostGame.active();
 function podeFalar(radio=false){
@@ -419,7 +461,7 @@ function conversa(gatilho,area){
   return true;
 }
 function radio(linhas,nome){
-  let t=0;for(const [w,txt] of linhas){if(w==='radio')B.pendentes.push({quem:'radio',nome,texto:txt,em:performance.now()+t});else falar(w,txt,t);t+=2100+txt.length*50}
+  let t=0;for(const [w,txt] of linhas){if(w==='radio')B.pendentes.push({quem:'radio',nome,texto:txt,em:falaAgora()+t});else falar(w,txt,t);t+=2100+txt.length*50}
 }
 function estado(){
   const hp={},max={};for(const id of membros()){hp[id]=G.hp?.[id]??0;max[id]=G.maxhp?.[id]||1}
@@ -430,6 +472,7 @@ function estado(){
 function pode(espaco){return agora()-B.ultimo>=espaco*FREQ[opts.freq]}
 function marcarFala(){B.ultimo=agora()}
 function avaliar(){
+  if(assetsPaused||window.FinalAssetLoadingV1?.busy())return;
   if(!podeFalar(true)){B.prev=null;return}
   const s=estado(),p=B.prev;B.prev=s;
   if(s.mode==='walk'&&(!p||p.mode!=='walk'))B.andandoDesde=agora();
@@ -475,6 +518,7 @@ function avaliar(){
   }
 }
 function despachar(){
+  if(assetsPaused||window.FinalAssetLoadingV1?.busy())return;
   const t=performance.now();
   const prontos=B.pendentes.filter(i=>i.em<=t);B.pendentes=B.pendentes.filter(i=>i.em>t);
   for(const i of prontos)exibir(i);
@@ -511,7 +555,7 @@ if(typeof C3!=='undefined'&&typeof C3.spawnSilence==='function'){
         if(rota==='usina'){bossActor.hp=Math.round(bossActor.hp*.88);bossActor.f4Usina=true}
         else if(!c.f4Suprimentos){G.potions=(G.potions||0)+2;c.f4Suprimentos=true}
         toast(ROTA[rota].chefe);
-        setTimeout(()=>radio(ROTA[rota].chefeFala,ROTA[rota].aliado),2600);
+        scheduleReading(()=>radio(ROTA[rota].chefeFala,ROTA[rota].aliado),2600);
       }
     }catch(e){console.warn('Narrativa: consequência da rota',e)}
     return r;
@@ -537,12 +581,13 @@ return Object.freeze({
   opcoes:()=>({...opts}),
   definir(chave,valor){if(chave in opts){opts[chave]=valor;store.set({vel:'vel',auto:'auto',barks:'barks',freq:'freq'}[chave],valor);atualizarBarra()}},
   digitando,completarDigitacao,pularCena,abrirHistorico,fecharHistorico,historicoAberto,
+  pauseAssets,resumeAssets,resetGame,assetsPaused:()=>assetsPaused,
   historico:()=>historico.slice(),
   legendaAtiva:()=>cenaOcupada,
   ciclo,
   barks:()=>({contagem:B.contagem||0,ativos:B.ativos.map(a=>({quem:a.quem,texto:a.el.textContent,radio:a.radio})),pendentes:B.pendentes.length}),
   forcar(gatilho,quem){return gatilho.startsWith('conversa:')?conversa(gatilho.slice(9)):solta(gatilho,quem)},
-  despachar:()=>{B.pendentes.forEach(i=>i.em=0);despachar()},
+  despachar:()=>{if(assetsPaused||window.FinalAssetLoadingV1?.busy())return;B.pendentes.forEach(i=>i.em=0);despachar()},
   dados:DATA
 });
 })();

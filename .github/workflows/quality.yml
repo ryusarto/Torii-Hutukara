@@ -79,6 +79,13 @@ jobs:
           python3 -m http.server 8771 --bind 127.0.0.1 --directory production/playtest-dist &
           test_server_pid=$!
           trap 'kill "$test_server_pid"' EXIT
+          node qa/final_asset_loading_v1.cjs http://127.0.0.1:8771/
+          node qa/loading_input_continuity_v1.cjs http://127.0.0.1:8771/
+          node qa/render_performance_v1.cjs http://127.0.0.1:8771/
+          node qa/environment_depth_noop.cjs http://127.0.0.1:8771/
+          node qa/guidance_runtime_v1.cjs http://127.0.0.1:8771/
+          node qa/guidance_campaign_v1.cjs http://127.0.0.1:8771/
+          node qa/npc_scale_v1.cjs http://127.0.0.1:8771/
           node qa/hero_attack_body_browser.cjs http://127.0.0.1:8771/
           node qa/run_stride_browser.cjs http://127.0.0.1:8771/
           node qa/archer_strafe_browser.cjs http://127.0.0.1:8771/

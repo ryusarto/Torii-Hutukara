@@ -25,13 +25,13 @@ let browser;
   const directions={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
   const rows=[];
   for(const [direction,[dx,dy]]of Object.entries(directions))for(const missing of[false,true]){
-   heroAttackArena('franco');
+   await heroAttackArena('franco');
    G.formation=['franco','alt','ryuchi'];G.hp.alt=G.maxhp.alt=100;
    G.dir=direction;G.aim091=[dx,dy];
    C3.pad.pads=[pad(0),pad(1)];C3.coop.member='alt';C3.syncCoop(true);
    Object.assign(C3.coop,{x:G.x+.14,y:G.y+.1,dir:direction,cool:0,attackUntil:0});
    trail=[{x:G.x-.13,y:G.y+.06,dir:direction}];
-   C3.coopAttack();attackAction();skillAction();fx.advance(.06);
+   await window.FinalAssetLoadingV1?.ready();C3.coopAttack();attackAction();skillAction();fx.advance(.06);
    const shot=projectiles.find(p=>p.arrow);
    check(shot&&shot.vx*dx+shot.vy*dy>0,'Missing directed P2 arrow '+direction);
    shot.x+=dx*2.5;shot.y+=dy*2.5;
@@ -81,7 +81,7 @@ let browser;
     HeroLegacyFX.drawOverlay=overlayDraw;fx.drawProjectile=projectileDraw;fx.v3Ready=ready;
    }
   }
-  heroAttackArena('franco');attackAction();
+  await heroAttackArena('franco');attackAction();
   // Exercise the shared legacy feedback factory with explicit ownership. V3
   // need not emit a redundant ring for every attack, but must suppress one
   // received from an attributed delayed source without hiding enemy feedback.

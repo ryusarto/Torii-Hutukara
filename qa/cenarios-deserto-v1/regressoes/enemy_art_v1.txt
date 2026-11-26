@@ -1,9 +1,0 @@
-OK · 13 identity/variant atlases and all 52 transparent cells decode
-OK · Chapter variants preserve C1/C2 and boss IDs precede shared types
-OK · Discrete poses, no actor mutation, and preparation includes Arauto tele09
-OK · Pause/dialogue freezes cosmetic clock; area and save replacement clear stale pose
-OK · Aura and telegraph wrapper remains active for new musical bodies
-OK · All four boss maps render once each; first boss never draws exposed Archer
-OK · Unloaded boss sheet falls back without using the Archer actor
-OK · Musician remains masked even after reveal flag; normal Archer portrait follows alt speaker
-PASS · 8 enemy integration checks, zero runtime errors

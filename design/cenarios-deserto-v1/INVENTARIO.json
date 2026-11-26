@@ -3,7 +3,7 @@
   "title": "Dependências de cenário C3 — variantes deserto V1",
   "status": "inventario_para_producao_e_integracao; nao_e_contrato_artistico",
   "basis": {
-    "checkout": "/private/tmp/torii-cenarios-recovery-20261117",
+    "checkout": "<local>/torii-cenarios-recovery-20261117",
     "baseCommit": "14923f4",
     "sourceManifest": "assets/cenarios/v2/manifest.json",
     "runtime": [
@@ -11,7 +11,7 @@
       "game/source/chapter-03/chapter3_runtime.js"
     ],
     "masterDirection": "design/chapter-03/DIRECAO_DESERTO_POS_APOCALIPTICO.md",
-    "masterDirectionStatus": "Contrato consultado em /private/tmp/torii-c3-direcao-deserto, commit ce659e51, juntamente com BRIEF_ASSETS_DESERTO_V1.md; integração do contrato no checkout principal pertence ao root.",
+    "masterDirectionStatus": "Contrato consultado em <local>/torii-c3-direcao-deserto, commit ce659e51, juntamente com BRIEF_ASSETS_DESERTO_V1.md; integração do contrato no checkout principal pertence ao root.",
     "namespace": "assets/cenarios/deserto-v1",
     "reviewType": "Leitura estática de manifesto e seletores; nenhum novo playtest ou aceite visual implícito.",
     "masterDirectionCommit": "ce659e51",

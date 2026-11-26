@@ -34,7 +34,7 @@ const checks=[],errors=[],animatedSequences=[];let browser,context;
   await Promise.all(Object.values(C3.images).filter(i=>i?.src).map(i=>i.decode().catch(()=>{})));
   await Promise.all(Object.keys(EnemyArtV1.manifest.enemies).map(k=>EnemyArtV1.image(k).decode()));
   window.BossQA={
-   fixture(id,phase=1){G=fresh();buildMaps();G.area=({boss:'ruins',voice_boss:'voice_tower',c3_metronome:'cloud_terrace',c3_silence:'silence_core'})[id];current=areas[G.area];mode='action';act.invuln=0;G.active='franco';G.formation=['franco','ryuchi'];G.guidance=false;G.options10={...G.options10,reducedMotion:false};G.x=15;G.y=15;G.hp.franco=G.maxhp.franco=1000;bossActor={id,type:'boss',kind:'boss',x:15,y:10,hp:phase===1?1000:400,max:1000,power:10,cd:10,wind:0,windKind:'ring',stun:0,flash:0,phase,facing:Math.PI/2,chargeX:0,chargeY:1};battle={id,boss:true};C3.hazards=[];C3.finalPending=false;hostileShots=[];combatFX=[];if(typeof rings092!=='undefined')rings092=[];ToriiCombate.MODE.mode='padrao';BossChoreographyV2.reset();transitionAlpha=0;cam.x=clamp(15*T-VW/2,0,current.w*T-VW);cam.y=id==='c3_silence'?0:clamp(12*T-VH/2,0,current.h*T-VH);return bossActor;},
+   async fixture(id,phase=1){G=fresh();buildMaps();G.area=({boss:'ruins',voice_boss:'voice_tower',c3_metronome:'cloud_terrace',c3_silence:'silence_core'})[id];current=areas[G.area];mode='action';act.invuln=0;G.active='franco';G.formation=['franco','ryuchi'];G.guidance=false;G.options10={...G.options10,reducedMotion:false};G.x=15;G.y=15;G.hp.franco=G.maxhp.franco=1000;bossActor={id,type:'boss',kind:'boss',x:15,y:10,hp:phase===1?1000:400,max:1000,power:10,cd:10,wind:0,windKind:'ring',stun:0,flash:0,phase,facing:Math.PI/2,chargeX:0,chargeY:1};battle={id,boss:true};C3.hazards=[];C3.finalPending=false;hostileShots=[];combatFX=[];if(typeof rings092!=='undefined')rings092=[];ToriiCombate.MODE.mode='padrao';BossChoreographyV2.reset();transitionAlpha=0;cam.x=clamp(15*T-VW/2,0,current.w*T-VW);cam.y=id==='c3_silence'?0:clamp(12*T-VH/2,0,current.h*T-VH);await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');return bossActor;},
    step(dt){BossChoreographyV2.clock+=dt;updateEnemy(bossActor,dt,true);return BossChoreographyV2.pose(bossActor);},
    // drawEnv already invokes the combat layer. Capture exactly one game pass.
    render(){drawEnv();return cv.toDataURL('image/png');},
@@ -43,14 +43,14 @@ const checks=[],errors=[],animatedSequences=[];let browser,context;
   };
  });
  await check('First boss selects moving bitmap poses and keeps the same cell while paused',async()=>{
-  const r=await page.evaluate(()=>{const e=BossQA.fixture('boss'),art=BossChoreographyV2;Object.assign(e,{x:39.4,y:17.6,cd:99});G.x=35.4;G.y=18.5;const start={x:e.x,y:e.y},frames=new Set();let last=null;for(let i=0;i<360;i++){BossQA.step(1/60);const pose=art.walkPose(e);if(pose){frames.add(pose.frame);last=pose;if(frames.size>=3)break}}if(!last)throw Error('No actual boss walking');const phase=art.walks.get(e).phase,cell=JSON.stringify(art.walkPose(e));mode='overlay';update(.06);const frozen=cell===JSON.stringify(art.walkPose(e))&&phase===art.walks.get(e).phase,body=JSON.stringify(e),drawn=art.drawActor(e.x*T-cam.x,e.y*T-cam.y,'boss',e);return{distance:Math.hypot(e.x-start.x,e.y-start.y),frames:[...frames],frozen,drawn,bodyUnchanged:body===JSON.stringify(e)}});assert(r.distance>0&&r.frames.length>=3&&r.frozen&&r.drawn&&r.bodyUnchanged,JSON.stringify(r));return r;
+  const r=await page.evaluate(async()=>{const e=await BossQA.fixture('boss'),art=BossChoreographyV2;Object.assign(e,{x:39.4,y:17.6,cd:99});G.x=35.4;G.y=18.5;const start={x:e.x,y:e.y},frames=new Set();let last=null;for(let i=0;i<360;i++){BossQA.step(1/60);const pose=art.walkPose(e);if(pose){frames.add(pose.frame);last=pose;if(frames.size>=3)break}}if(!last)throw Error('No actual boss walking');const phase=art.walks.get(e).phase,cell=JSON.stringify(art.walkPose(e));mode='overlay';update(.06);const frozen=cell===JSON.stringify(art.walkPose(e))&&phase===art.walks.get(e).phase,body=JSON.stringify(e),drawn=art.drawActor(e.x*T-cam.x,e.y*T-cam.y,'boss',e);return{distance:Math.hypot(e.x-start.x,e.y-start.y),frames:[...frames],frozen,drawn,bodyUnchanged:body===JSON.stringify(e)}});assert(r.distance>0&&r.frames.length>=3&&r.frozen&&r.drawn&&r.bodyUnchanged,JSON.stringify(r));return r;
  });
  await check('Metronome walks in four directions, plants its feet for attacks and stays clear of the rear door',async()=>{
-  const r=await page.evaluate(()=>{
+  const r=await page.evaluate(async()=>{
    const directions=[];
    let capture;
    for(const [dx,dy] of [[0,1],[-1,0],[0,-1],[1,0]]){
-    const e=BossQA.fixture('c3_metronome'),frames=new Set();e.patternIndex=0;
+    const e=await BossQA.fixture('c3_metronome'),frames=new Set();e.patternIndex=0;
     G.x=e.x+dx*6;G.y=e.y+dy*6;
     const start=[e.x,e.y];let row=null;
     for(let i=0;i<48;i++){
@@ -59,7 +59,7 @@ const checks=[],errors=[],animatedSequences=[];let browser,context;
     }
     directions.push({row,frames:frames.size,travel:Math.hypot(e.x-start[0],e.y-start[1])});
    }
-   const e=BossQA.fixture('c3_metronome');e.patternIndex=0;G.x=15.5;G.y=2.1;
+   const e=await BossQA.fixture('c3_metronome');e.patternIndex=0;G.x=15.5;G.y=2.1;
    e.y=3.25;BossQA.step(1/60);
    for(let i=0;i<240;i++)BossQA.step(1/60);
    const staysOnFloor=metronomeCanStand(e.x,e.y);
@@ -67,7 +67,7 @@ const checks=[],errors=[],animatedSequences=[];let browser,context;
    const warning=BossQA.emit('cross'),beforeCast=[e.x,e.y];
    for(let i=0;i<24;i++)BossQA.step(1/60);
    const afterCast=[e.x,e.y],stillWarning=!warning.fired&&!BossChoreographyV2.walkPose(e);
-   const phase=BossQA.fixture('c3_metronome');phase.patternIndex=0;G.difficulty='normal';
+   const phase=await BossQA.fixture('c3_metronome');phase.patternIndex=0;G.difficulty='normal';
    G.x=phase.x;G.y=phase.y-1.2;BossQA.step(1/60);
    phase.hp=phase.max*.6;BossQA.step(1/60);
    return {directions,staysOnFloor,beforeHit,afterHit,beforeCast,afterCast,stillWarning,
@@ -82,46 +82,46 @@ const checks=[],errors=[],animatedSequences=[];let browser,context;
  });
  const shots=[];
  await check('Danger zones render once on the ground before the boss body',async()=>{
-  const rows=await page.evaluate(()=>['boss','c3_metronome'].map(id=>{
-   const e=BossQA.fixture(id),a=BossChoreographyV2,events=[];
+  const rows=await page.evaluate(async()=>{const rows=[];for(const id of ['boss','c3_metronome']){
+   const e=await BossQA.fixture(id),a=BossChoreographyV2,events=[];
    if(id==='boss'){e.wind=.5;e.windKind='ring';a.begin(e,a.snapshot(e));}else BossQA.emit('cross');
    const ground=a.drawGround,paint=a.paint,creature=drawCreature;
    a.drawGround=function(...args){events.push('ground');return ground.apply(this,args);};
    a.paint=function(...args){events.push('zone');return paint.apply(this,args);};
    drawCreature=function(x,y,k,actor,...rest){if(actor===e)events.push('body');return creature.call(this,x,y,k,actor,...rest);};
-   try{BossQA.render();return{id,events};}finally{a.drawGround=ground;a.paint=paint;drawCreature=creature;}
-  }));
+   try{BossQA.render();rows.push({id,events});}finally{a.drawGround=ground;a.paint=paint;drawCreature=creature;}
+  }return rows;});
   for(const r of rows){assert.equal(r.events.filter(x=>x==='ground').length,1);assert.equal(r.events.filter(x=>x==='zone').length,1);assert.equal(r.events.filter(x=>x==='body').length,1);assert(r.events.indexOf('zone')<r.events.indexOf('body'));}return rows;
  });
  await check('Actual C3 cast/update releases all attack patterns at h.fired while wind remains positive',async()=>{
-  const r=await page.evaluate(()=>{const rows=[];for(const id of ['c3_metronome','c3_silence'])for(const kind of (id==='c3_metronome'?['ring','cross','fan','pulse']:['ring','cross','fan','pulse','rain','chase','orbit'])){
-   const e=BossQA.fixture(id),h=BossQA.emit(kind),a=BossChoreographyV2,frames=[a.pose(e)?.frame];
+  const r=await page.evaluate(async()=>{const rows=[];for(const id of ['c3_metronome','c3_silence'])for(const kind of (id==='c3_metronome'?['ring','cross','fan','pulse']:['ring','cross','fan','pulse','rain','chase','orbit'])){
+   const e=await BossQA.fixture(id),h=BossQA.emit(kind),a=BossChoreographyV2,frames=[a.pose(e)?.frame];
    const total=h.time-h.trigger;BossQA.step(total*.30);frames.push(a.pose(e)?.frame);BossQA.step(total*.35);frames.push(a.pose(e)?.frame);BossQA.step(total*.34);frames.push(a.pose(e)?.frame);const before={fired:h.fired===true,wind:e.wind,frame:a.pose(e)?.frame};BossQA.step(total*.01+.00001);
    rows.push({id,kind,frames,before,fired:h.fired===true,wind:e.wind,release:a.pose(e)?.frame,recovery:BossQA.recovery(),hazards:C3.hazards.length});
   }return rows;});
   for(const row of r){assert.equal(row.before.fired,false);assert(row.frames.every(f=>f>=0&&f<=3));assert(new Set(row.frames).size>=3);assert(row.fired,row.id+row.kind);assert(row.wind>0);assert.equal(row.release,4);assert.deepEqual(row.recovery,[4,5,6,7]);}return r;
  });
  await check('Viajante actual wind release and charge endpoint match the eleven collision steps',async()=>{
-  const r=await page.evaluate(()=>{const rows=[];for(const kind of ['ring','fan','charge']){const e=BossQA.fixture('boss',2),a=BossChoreographyV2;e.wind=.6;e.windKind=kind;e.facing=Math.PI/2;e.chargeX=0;e.chargeY=1;if(kind==='charge'){let spot=null;for(let y=3;y<current.h-3&&!spot;y++)for(let x=3;x<current.w-3;x++)if(tileWalkable(current,x+.5,y+.5)&&tileWalkable(current,x+.5,y+.88)){spot={x:x+.5,y:y+.5};break;}if(!spot)throw Error('no charge corridor');Object.assign(e,spot);}a.begin(e,a.snapshot(e));const points=kind==='charge'?a.previewCharge(e):[],start={x:e.x,y:e.y},frames=[a.pose(e)?.frame];BossQA.step(.19);frames.push(a.pose(e)?.frame);BossQA.step(.2);frames.push(a.pose(e)?.frame);BossQA.step(.21+.00001);const record=a.records.get(e);rows.push({kind,start,end:{x:e.x,y:e.y},points,storedPoints:record.execution.points,frames,release:a.pose(e)?.frame,recovery:BossQA.recovery()});}return rows;});
+  const r=await page.evaluate(async()=>{const rows=[];for(const kind of ['ring','fan','charge']){const e=await BossQA.fixture('boss',2),a=BossChoreographyV2;e.wind=.6;e.windKind=kind;e.facing=Math.PI/2;e.chargeX=0;e.chargeY=1;if(kind==='charge'){let spot=null;for(let y=3;y<current.h-3&&!spot;y++)for(let x=3;x<current.w-3;x++)if(tileWalkable(current,x+.5,y+.5)&&tileWalkable(current,x+.5,y+.88)){spot={x:x+.5,y:y+.5};break;}if(!spot)throw Error('no charge corridor');Object.assign(e,spot);}a.begin(e,a.snapshot(e));const points=kind==='charge'?a.previewCharge(e):[],start={x:e.x,y:e.y},frames=[a.pose(e)?.frame];BossQA.step(.19);frames.push(a.pose(e)?.frame);BossQA.step(.2);frames.push(a.pose(e)?.frame);BossQA.step(.21+.00001);const record=a.records.get(e);rows.push({kind,start,end:{x:e.x,y:e.y},points,storedPoints:record.execution.points,frames,release:a.pose(e)?.frame,recovery:BossQA.recovery()});}return rows;});
   for(const row of r){assert(row.frames.every(f=>f>=0&&f<=3));assert.equal(row.release,4);assert.deepEqual(row.recovery,[4,5,6,7]);if(row.kind==='charge'){assert.equal(row.points.length,11);assert.deepEqual(row.end,row.points.at(-1));assert.deepEqual(row.storedPoints,row.points);assert(Math.hypot(row.end.x-row.start.x,row.end.y-row.start.y)>0);}}return r;
  });
  await check('Arauto uses actual tele09 allocation/time and expanding double-wave collision bands',async()=>{
-  const r=await page.evaluate(()=>{const e=BossQA.fixture('voice_boss'),a=BossChoreographyV2;e.cd=0;BossQA.step(.001);const tele=e.tele09,start=tele.time,frames=[a.pose(e)?.frame];BossQA.step(start*.4);frames.push(a.pose(e)?.frame);BossQA.step(start*.4);frames.push(a.pose(e)?.frame);BossQA.step(start*.2+.00001);const result={allocated:!!tele,start,frames,cleared:e.tele09===null,release:a.pose(e)?.frame,recovery:BossQA.recovery()};
-   const w=BossQA.fixture('voice_boss',2);w.cd=0;w.step09=2;BossQA.step(.001);result.doubleWarning=w.echoWarning092;BossQA.step(w.echoWarning092+.00001);result.waves=rings092.map(r=>({...r}));result.band=BossChoreographyV2.contains({kind:'wave',x:0,y:0,r:3},3,0)&&!BossChoreographyV2.contains({kind:'wave',x:0,y:0,r:3},0,0);return result;});
+  const r=await page.evaluate(async()=>{const e=await BossQA.fixture('voice_boss'),a=BossChoreographyV2;e.cd=0;BossQA.step(.001);const tele=e.tele09,start=tele.time,frames=[a.pose(e)?.frame];BossQA.step(start*.4);frames.push(a.pose(e)?.frame);BossQA.step(start*.4);frames.push(a.pose(e)?.frame);BossQA.step(start*.2+.00001);const result={allocated:!!tele,start,frames,cleared:e.tele09===null,release:a.pose(e)?.frame,recovery:BossQA.recovery()};
+   const w=await BossQA.fixture('voice_boss',2);w.cd=0;w.step09=2;BossQA.step(.001);result.doubleWarning=w.echoWarning092;BossQA.step(w.echoWarning092+.00001);result.waves=rings092.map(r=>({...r}));result.band=BossChoreographyV2.contains({kind:'wave',x:0,y:0,r:3},3,0)&&!BossChoreographyV2.contains({kind:'wave',x:0,y:0,r:3},0,0);return result;});
   assert(r.allocated&&r.cleared);assert(r.start>1.08);assert(r.frames.every(f=>f>=0&&f<=3));assert.equal(r.release,4);assert.deepEqual(r.recovery,[4,5,6,7]);assert(r.doubleWarning>0);assert.equal(r.waves.length,2);assert(r.waves[1].delay>r.waves[0].delay);assert(r.band);return r;
  });
  await check('Pause/load/area/retry/final cancellation clears stale visual state',async()=>{
-  const r=await page.evaluate(()=>{let e=BossQA.fixture('boss');e.wind=.5;BossChoreographyV2.begin(e,BossChoreographyV2.snapshot(e));mode='dialogue';const before=BossChoreographyV2.clock;update(.02);const pause=BossChoreographyV2.clock===before;mode='action';G={...G};BossChoreographyV2.sync();const load=BossChoreographyV2.pose(e)===null;e.wind=.5;BossChoreographyV2.begin(e,BossChoreographyV2.snapshot(e));G.area='forest';BossChoreographyV2.sync();const area=BossChoreographyV2.pose(e)===null;e=BossQA.fixture('c3_silence');BossQA.emit('ring');C3.finalPending=true;BossChoreographyV2.sync();const final=BossChoreographyV2.pose(e)===null;e=BossQA.fixture('boss');e.wind=.5;BossChoreographyV2.begin(e,BossChoreographyV2.snapshot(e));const old=e;spawnBossFight(true);BossChoreographyV2.sync();return{pause,load,area,final,retry:bossActor!==old&&BossChoreographyV2.pose(bossActor)===null};});assert(Object.values(r).every(Boolean));return r;
+  const r=await page.evaluate(async()=>{let e=await BossQA.fixture('boss');e.wind=.5;BossChoreographyV2.begin(e,BossChoreographyV2.snapshot(e));mode='dialogue';const before=BossChoreographyV2.clock;update(.02);const pause=BossChoreographyV2.clock===before;mode='action';G={...G};BossChoreographyV2.sync();const load=BossChoreographyV2.pose(e)===null;e.wind=.5;BossChoreographyV2.begin(e,BossChoreographyV2.snapshot(e));G.area='forest';BossChoreographyV2.sync();const area=BossChoreographyV2.pose(e)===null;e=await BossQA.fixture('c3_silence');BossQA.emit('ring');C3.finalPending=true;BossChoreographyV2.sync();const final=BossChoreographyV2.pose(e)===null;e=await BossQA.fixture('boss');e.wind=.5;BossChoreographyV2.begin(e,BossChoreographyV2.snapshot(e));const old=e;spawnBossFight(true);BossChoreographyV2.sync();return{pause,load,area,final,retry:bossActor!==old&&BossChoreographyV2.pose(bossActor)===null};});assert(Object.values(r).every(Boolean));return r;
  });
  await check('Cosmetic draw on/off preserves actual C3 damage/actor/hazard state',async()=>{
-  const r=await page.evaluate(()=>{function run(draw){const e=BossQA.fixture('c3_silence');G.x=e.x;G.y=e.y;const h=BossQA.emit('ring');for(let i=0;i<60;i++){BossQA.step(.02);if(draw){BossChoreographyV2.drawActor(300,250,'boss',e);drawCombatLayer();}}return{hp:G.hp.franco,x:e.x,y:e.y,wind:e.wind,cd:e.cd,hazard:{time:h.time,fired:h.fired},shots:hostileShots.map(p=>({...p}))};}return{on:run(true),off:run(false)};});assert.deepEqual(r.on,r.off);assert(r.on.hp<1000,'parity scenario must exercise damage');return r;
+  const r=await page.evaluate(async()=>{async function run(draw){const e=await BossQA.fixture('c3_silence');G.x=e.x;G.y=e.y;const h=BossQA.emit('ring');for(let i=0;i<60;i++){BossQA.step(.02);if(draw){BossChoreographyV2.drawActor(300,250,'boss',e);drawCombatLayer();}}return{hp:G.hp.franco,x:e.x,y:e.y,wind:e.wind,cd:e.cd,hazard:{time:h.time,fired:h.fired},shots:hostileShots.map(p=>({...p}))};}return{on:await run(true),off:await run(false)};});assert.deepEqual(r.on,r.off);assert(r.on.hp<1000,'parity scenario must exercise damage');return r;
  });
- await page.evaluate(()=>{const a=BossChoreographyV2,c=document.createElement('canvas');c.id='qa-boss-clips';c.width=1280;c.height=5*190;c.style.cssText='position:fixed;left:0;top:0;z-index:999999';document.body.append(c);const q=c.getContext('2d'),cell=a.manifest.cell;q.imageSmoothingEnabled=false;Object.keys(a.manifest.clips).forEach((key,row)=>{q.fillStyle=row%2?'#36302a':'#292a2d';q.fillRect(0,row*190,1280,190);q.fillStyle='#fff0d0';q.font='14px sans-serif';q.fillText(key,8,row*190+16);for(let f=0;f<8;f++){q.drawImage(a.images[key],(f%4)*cell,Math.floor(f/4)*cell,cell,cell,f*160,row*190+25,160,160);q.fillText(String(f),f*160+8,row*190+35);}});});
+ await page.evaluate(async()=>{const a=BossChoreographyV2,c=document.createElement('canvas');c.id='qa-boss-clips';c.width=1280;c.height=5*190;c.style.cssText='position:fixed;left:0;top:0;z-index:999999';document.body.append(c);const q=c.getContext('2d'),cell=a.manifest.cell;q.imageSmoothingEnabled=false;Object.keys(a.manifest.clips).forEach((key,row)=>{q.fillStyle=row%2?'#36302a':'#292a2d';q.fillRect(0,row*190,1280,190);q.fillStyle='#fff0d0';q.font='14px sans-serif';q.fillText(key,8,row*190+16);for(let f=0;f<8;f++){q.drawImage(a.images[key],(f%4)*cell,Math.floor(f/4)*cell,cell,cell,f*160,row*190+25,160,160);q.fillText(String(f),f*160+8,row*190+35);}});});
  await page.locator('#qa-boss-clips').screenshot({path:path.join(out,'CONTATO_40_QUADROS.png')});
  await page.locator('#qa-boss-clips').evaluate(e=>e.remove());
  // Controlled actual simulation states rendered through the game's canvas.
  for(const [id,kind]of [['boss','ring'],['boss','charge'],['voice_boss','lanes'],['c3_metronome','cross'],['c3_silence','rain']]){
-  const r=await page.evaluate(({id,kind})=>{const e=BossQA.fixture(id,id==='boss'?2:1),a=BossChoreographyV2;if(id.startsWith('c3_'))BossQA.emit(kind);else if(id==='boss'){e.wind=.6;e.windKind=kind;a.begin(e,a.snapshot(e));}else{e.cd=0;BossQA.step(.001);}const prep=a.pose(e),total=id.startsWith('c3_')?C3.hazards[0].time-C3.hazards[0].trigger:a.snapshot(e).remaining;BossQA.step(total*.72);const prepImage=BossQA.render();BossQA.step(total*.28+.00001);const releaseImage=BossQA.render(),release=a.pose(e);a.clock+=.15;return{prep:prep?.frame,release:release?.frame,images:[prepImage,releaseImage,BossQA.render()]};},{id,kind});
+  const r=await page.evaluate(async({id,kind})=>{const e=await BossQA.fixture(id,id==='boss'?2:1),a=BossChoreographyV2;if(id.startsWith('c3_'))BossQA.emit(kind);else if(id==='boss'){e.wind=.6;e.windKind=kind;a.begin(e,a.snapshot(e));}else{e.cd=0;BossQA.step(.001);}const prep=a.pose(e),total=id.startsWith('c3_')?C3.hazards[0].time-C3.hazards[0].trigger:a.snapshot(e).remaining;BossQA.step(total*.72);const prepImage=BossQA.render();BossQA.step(total*.28+.00001);const releaseImage=BossQA.render(),release=a.pose(e);a.clock+=.15;return{prep:prep?.frame,release:release?.frame,images:[prepImage,releaseImage,BossQA.render()]};},{id,kind});
   for(let i=0;i<r.images.length;i++){const name=id+'_'+kind+'_'+['PREPARACAO','LIBERACAO','RECUPERACAO'][i]+'.png';fs.writeFileSync(path.join(out,name),Buffer.from(r.images[i].split(',')[1],'base64'));shots.push({label:name,image:r.images[i]});}
  }
  await page.evaluate(async(shots)=>{const c=document.createElement('canvas');c.id='qa-boss-choreography';c.width=1152;c.height=Math.ceil(shots.length/3)*242;c.style.cssText='position:fixed;left:0;top:0;z-index:999999';document.body.append(c);const q=c.getContext('2d');q.fillStyle='#272322';q.fillRect(0,0,c.width,c.height);for(let i=0;i<shots.length;i++){const im=new Image();im.src=shots[i].image;await im.decode();const x=i%3*384,y=Math.floor(i/3)*242;q.drawImage(im,x,y+26,384,216);q.fillStyle='#fff0d0';q.font='11px sans-serif';q.fillText(shots[i].label,x+5,y+16);}},shots);
@@ -131,8 +131,8 @@ const checks=[],errors=[],animatedSequences=[];let browser,context;
  await check('Animated canvas evidence covers real preparation, frame-4 release and recovery',async()=>{
   const summaries=[];
   for(const [id,kind]of [['boss','ring'],['boss','charge'],['voice_boss','lanes'],['c3_metronome','cross'],['c3_silence','rain']]){
-   const key=id+'_'+kind,frames=await page.evaluate(({id,kind})=>{
-    const e=BossQA.fixture(id,kind==='charge'?2:1),a=BossChoreographyV2;
+   const key=id+'_'+kind,frames=await page.evaluate(async({id,kind})=>{
+    const e=await BossQA.fixture(id,kind==='charge'?2:1),a=BossChoreographyV2;
     if(id==='boss'){e.x=39.4;e.y=17.6;G.x=35.4;G.y=18.5;e.cd=0;cam.x=clamp(e.x*T-VW/2,0,current.w*T-VW);cam.y=clamp(e.y*T-VH/2,0,current.h*T-VH);BossQA.step(.001);}
     else if(id==='voice_boss'){e.cd=0;BossQA.step(.001);}
     else BossQA.emit(kind);

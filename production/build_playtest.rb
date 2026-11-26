@@ -18,6 +18,16 @@ original = File.binread(build_path).force_encoding(Encoding::UTF_8)
 original_hash = Digest::SHA256.hexdigest(original)
 abort 'Build differs from its approved manifest' unless original_hash == manifest['output']['sha256']
 
+# Reuse immutable source bytes with copy-on-write on APFS. Linux/other volumes
+# retain the ordinary byte write; exported media never hard-links source files.
+source_media = {}
+manifest.fetch('sources').each do |relative, info|
+  next unless %w[.png .webp .mp3].include?(File.extname(relative))
+  candidate = File.expand_path(relative, ROOT)
+  next unless candidate.start_with?(ROOT + File::SEPARATOR) && File.file?(candidate)
+  source_media[info.fetch('sha256')] = candidate
+end
+
 Dir.mktmpdir('torii-playtest-') do |temp|
   media = {}
   counts = Hash.new(0)
@@ -29,7 +39,11 @@ Dir.mktmpdir('torii-playtest-') do |temp|
     path = File.join(temp, relative)
     unless media.key?(relative)
       FileUtils.mkdir_p(File.dirname(path))
-      File.binwrite(path, bytes)
+      source_path = source_media[hash]
+      cloned = RUBY_PLATFORM.include?('darwin') && source_path &&
+        File.size(source_path) == bytes.bytesize && Digest::SHA256.file(source_path).hexdigest == hash &&
+        system('/bin/cp', '-c', source_path, path, out: File::NULL, err: File::NULL)
+      File.binwrite(path, bytes) unless cloned
       media[relative] = { 'bytes' => bytes.bytesize, 'sha256' => hash }
     end
     counts[extension] += 1

@@ -18,7 +18,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
       for(const id of ['start','overlay','dialogue'])$(id).classList.add('hidden');
       $('playtestEntry')?.remove();
       window.__runSetup=async function(hero,seat,masked,dx,dy){
-        G=fresh();G.flags.masks=masked;G.flags.bass=true;
+        G=fresh();G.flags.masks=masked;G.flags.bass=G.flags.reveal=G.flags.voicesKatana=true;G.c3.synthUnlocked=G.c3.percussionUnlocked=true;G.knownMembers=C3.unlockedRoster().slice();
         const partner=hero==='franco'?'ryuchi':'franco';
         G.active=seat?partner:hero;G.formation=[G.active,seat?hero:partner];
         for(const id of G.formation){G.hp[id]=G.maxhp[id]=100;G.levels[id]=5;}
@@ -33,6 +33,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
           __pads[1].axes=[dx,dy];__pads[1].buttons[6]={pressed:true,value:1};
         }
         if(MusicianArtV1.supports(hero))MusicianArtV1.setVariant(hero,masked?'masked':'unmasked');
+        await window.FinalAssetLoadingV1?.ready();
         if(!await RunStrideV1.image(hero).ready)throw Error('Missing run sheet '+hero);
         if(masked&&RunStrideV1.manifest.heroes[hero].nativeRunRows?.length)await ProtagonistArtV5.image(hero+'_run').decode();
       };

@@ -84,7 +84,7 @@ check('C1 appearance hook receives acting state, blink, phase and frozen clocks 
 });
 check('Belga/Colli/Mazza and Dney select actual directional cells, neutral when standing',()=>{
  for(const [id,spriteKey,row]of [['bento','bento',0],['nilo','nilo',1],['c3_ciro',null,2]]){
-  const n=npc(id,12.5,12.5,{spriteKey}),a=map('contratempo',[n]);world(a);life.state(n).dir='left';env.drawDetailedNPC(n,40,50);const d=env.sheets.at(-1);assert.equal(d.name,'collaborators');assert.equal(d.args[0],2);assert.equal(d.args[1],row);
+  const n=npc(id,12.5,12.5,{spriteKey}),a=map('contratempo',[n]);world(a);life.state(n).dir='left';env.drawDetailedNPC(n,40,50);const d=env.sheets.at(-1);assert.equal(d.name,'collaborators');assert.equal(d.args[0],2);assert.equal(d.args[1],row);assert.deepEqual(d.args.slice(-2),[80,80]);
  }
  const n=npc('c3_vega'),a=map('contratempo',[n]);world(a);const s=life.state(n);s.dir='right';env.drawDetailedNPC(n,40,50);assert.deepEqual(env.sheets.at(-1).args.slice(0,4),[3,0,4,3]);life.enter(n,s,'wander');advance(.6);assert(s.moving);assert(s.distance>0);env.drawDetailedNPC(n,40,50);assert.equal(env.sheets.at(-1).args[1],s.frame);
  env.mode='dialogue';const f=s.frame;advance(1);env.tick+=100;env.drawDetailedNPC(n,40,50);assert.equal(env.sheets.at(-1).args[1],f);

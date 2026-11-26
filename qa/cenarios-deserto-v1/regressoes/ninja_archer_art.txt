@@ -1,9 +1,0 @@
-OK · Locked variant sheets do not load on the title screen
-OK · 96 directional sequences decode with alpha, common cell and exact closing frame
-OK · P1 and P2 attacks and rolls keep their own hero and direction
-OK · Accepted techniques and specials animate; rejected actions cannot restart animation
-OK · Switches, loads and area boundaries discard stale animation ownership
-OK · Dialogue freezes action clocks and uses the matching variant portrait
-OK · Musician renderer preserves the other four authored heroes pixel-identically
-OK · Full resolution sheet cache remains bounded to eight decoded images
-PASS · 8 checks

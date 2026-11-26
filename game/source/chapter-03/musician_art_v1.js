@@ -36,7 +36,11 @@ const MusicianArtV1 = {
     if (!this.images[key]) {
       const image = new Image(); image.src = this.assets[key]; this.images[key] = image;
     }
-    while (this.recent.length > 8) { const old = this.recent.shift(); delete this.images[old]; }
+    while (this.recent.length > 8) {
+      const index = this.recent.findIndex(key => !key.endsWith('_idle'));
+      if (index < 0) break;
+      const [old] = this.recent.splice(index, 1); delete this.images[old];
+    }
     return this.images[key];
   },
   prepare(id, seat = -1, override, state) {
@@ -263,7 +267,9 @@ drawActor = function(p, x, y, moving = false) {
   if (!image?.complete || !image.naturalWidth) {
     image = art.image(art.key(pose.hero, pose.variant, 'idle')); pose.frame = 0;
   }
-  if (!image?.complete || !image.naturalWidth) return musicianActorV1(p, x, y, moving);
+  if (!image?.complete || !image.naturalWidth) {
+    globalThis.FinalAssetLoadingV1?.requireImage(image, pose.hero + ' · idle'); return;
+  }
   ctx.save(); ctx.imageSmoothingEnabled = false;
   const seat = art.playerAt(p, x, y), hit = seat === 1 ? C3.coop.hit : seat === 0 ? act.hit : 0;
   if (hit > 0 && !G?.options10?.reducedMotion && Math.floor(tick * 24) % 2 === 0) ctx.globalAlpha = .48;
@@ -289,7 +295,9 @@ drawDetailedNPC = function(n, x, y) {
   if (prepared) prepared.state = n.musicianState || 'idle';
   const pose = typeof c3NpcPose === 'function' ? c3NpcPose(n) : {dir: n.dir || 'down'};
   const image = MusicianArtV1.image(MusicianArtV1.key(hero, MusicianArtV1.variant(hero), 'idle'));
-  if (!image?.complete || !image.naturalWidth) return musicianNpcV1(n, x, y);
+  if (!image?.complete || !image.naturalWidth) {
+    globalThis.FinalAssetLoadingV1?.requireImage(image, hero + ' · idle'); return;
+  }
   return drawActor({style: hero, dir: pose.dir, musicianState: n.musicianState, musicianNpc: true}, x, y, false);
 };
 

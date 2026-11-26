@@ -1,32 +1,10 @@
-# Processo de contribuição
+# Contribuir
 
-## Princípios
+1. Trabalhe em uma branch e altere os arquivos-fonte.
+2. Preserve arte, controles, regras de combate, progressão e compatibilidade de saves.
+3. Gere e valide a build; execute os testes dos fluxos afetados.
+4. Descreva o efeito observável da alteração e a validação feita.
 
-1. Não sobrescrever builds publicadas: cada versão nova recebe pasta própria, e a anterior fica no histórico do git e na sua tag.
-2. Não alterar a base 1.1.2; mudanças entram pelo runtime ou por uma nova arquitetura versionada.
-3. Toda condição narrativa deve depender de estado concluído, não da quantidade de cliques em um NPC.
-4. Recompensas e transições precisam ser idempotentes.
-5. Toda alteração de código deve vir acompanhada por validação e atualização do changelog.
+Consulte [arquitetura](docs/ARCHITECTURE.md) e [qualidade](docs/QA.md). Builds, relatórios e capturas são saídas geradas, não arquivos-fonte. As fixtures necessárias aos testes devem permanecer versionadas.
 
-## Fluxo recomendado
-
-1. Criar uma branch com nome descritivo.
-2. Alterar fonte, assets ou documentação.
-3. Gerar uma nova build.
-4. Executar o validador estático.
-5. Fazer playtest dos caminhos afetados.
-6. Registrar o resultado em `qa/`.
-7. Atualizar `CHANGELOG.md`.
-8. Abrir revisão antes de promover uma nova build como principal.
-
-## Convenções de commit
-
-- `feat:` nova funcionalidade ou conteúdo.
-- `fix:` correção de comportamento.
-- `art:` sprites, tiles e direção visual.
-- `narrative:` falas, cenas e progressão.
-- `audio:` trilhas, mixagem ou roteamento musical.
-- `docs:` documentação.
-- `qa:` testes e relatórios.
-- `build:` empacotamento e automação.
-
+Não inclua credenciais, caminhos pessoais, saves de jogadores, arquivos de ambiente ou material de referência privado. Preserve os créditos e as condições da [licença dos assets](LICENSE-ASSETS.md).

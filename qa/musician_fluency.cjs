@@ -56,12 +56,12 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
    const states=['idle','walk','run','roll','attack_1','attack_2','attack_3','skill','advanced','signature','hurt','defeat','performance'];
    const sequences=[],transitions=[],assert=(test,message)=>{if(!test)throw Error(message)};
    const keyForDir={down:'s',left:'a',up:'w',right:'d'};
-   function arena(hero,variant='unmasked',direction='down',coop=false){
+   async function arena(hero,variant='unmasked',direction='down',coop=false){
     G=fresh();G.active=hero;G.formation=[hero,hero==='synth'?'percussion':'synth'];
     G.flags.reveal=G.flags.voicesKatana=G.flags.bass=true;
-    G.c3.started=G.c3.synthUnlocked=G.c3.percussionUnlocked=true;
+    G.c3.started=G.c3.synthUnlocked=G.c3.percussionUnlocked=true;G.knownMembers=C3.unlockedRoster().slice();
     for(const id of heroes)G.hp[id]=G.maxhp[id]=100;
-    current=mk('power_plant',64,64,'grass');G.area='power_plant';G.x=G.y=32.5;G.dir=direction;G.aim091=[...vectors[direction]];
+    current=mk('power_plant',64,64,'grass');areas.power_plant=current;G.area='power_plant';G.x=G.y=32.5;G.dir=direction;G.aim091=[...vectors[direction]];
     const sentinel=hydrateEnemy({id:'fluency-sentinel',type:'hush',x:G.x,y:G.y+4});
     sentinel.hp=sentinel.max=9999999;sentinel.stun=999;sentinel.cd=999;current.enemies.push(sentinel);
     mode='action';menuOpen=false;battle={boss:false,id:'field'};bossActor=null;keys={};
@@ -76,6 +76,7 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
     art.reset();for(const id of heroes)art.setVariant(id,variant);
     $('start').classList.add('hidden');$('overlay').classList.add('hidden');$('dialogue').classList.add('hidden');
     $('cinema').style.display='none';cam.x=G.x*T-160;cam.y=G.y*T-160;
+    await window.FinalAssetLoadingV1?.start();update(0);await window.FinalAssetLoadingV1?.ready();
    }
    function step(){const before={x:G.x,y:G.y};tick+=dt;update(dt);return Math.hypot(G.x-before.x,G.y-before.y)>.00001}
    function advance(seconds){for(let i=0;i<Math.ceil(seconds/dt);i++)step()}
@@ -123,7 +124,7 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
     const visible=contact?4:action && oldFrame>=4?oldFrame+1:oldFrame;
     return {state:pose.state,frame:visible,direction:pose.direction,variant:pose.variant,source:[call[1],call[2],call[3],call[4]]};
    }
-   function startState(hero,state){
+   async function startState(hero,state){
     if(state.startsWith('attack_')){
      const stage=Number(state.at(-1));
      for(let i=1;i<=stage;i++){
@@ -139,6 +140,7 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
     if(state==='hurt'){const hp=G.hp[hero];damageHero(5);assert(G.hp[hero]===hp-5&&art.players[0]?.state==='hurt','Damage rejected');return 'damageHero accepted: HP100→95';}
     if(state==='defeat'){
      G.formation=[hero];for(const id of Object.keys(G.hp))G.hp[id]=id===hero?1:0;
+     await window.FinalAssetLoadingV1?.ready();await preload(hero,art.variant(hero),'defeat');
      damageHero(5);assert(G.hp[hero]===0&&art.players[0]?.state==='defeat','Lethal damage rejected');
      return 'last-member lethal damageHero and real retry overlay';
     }
@@ -148,8 +150,8 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
    for(const hero of heroes)for(const variant of variants)for(const state of states)for(const direction of dirs){
     const result={hero,variant,state,direction,seat:state==='performance'?'NPC':0,passed:false};
     try{
-     arena(hero,variant,direction);await preload(hero,variant,state);
-     result.trigger=startState(hero,state);const cyclic=['idle','walk','run','performance'].includes(state);
+     await arena(hero,variant,direction);await preload(hero,variant,state);
+     result.trigger=await startState(hero,state);const cyclic=['idle','walk','run','performance'].includes(state);
      if(state==='walk'||state==='run')controls(direction,state==='run');
      const count=state==='run'?RunStrideV1.manifest.heroes[hero].frames:HeroAttackBody.states.includes(state)?9:8;
      const frames=[],rects=[],seen=new Set();let movement=0,started=false,finished=false;
@@ -170,7 +172,7 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
       }
       if(seen.size===count)break;
      }
-     assert(seen.size===count,'Incomplete body sequence at60Hz: '+frames);
+     assert(seen.size===count,'Incomplete body sequence at60Hz: '+JSON.stringify({frames,gate:window.FinalAssetLoadingV1?.snapshot(),record:art.players[0],formation:G.formation}));
      if(!cyclic)assert(frames[0]===0&&frames.at(-1)===count-1,'Action must reach its final pose');
      if(['walk','run','roll'].includes(state))assert(movement>.1,'Controller did not move actual actor');
      if(state==='defeat'){advance(1);const held=frame(hero,state,false);assert(held.state==='defeat'&&held.frame===7,'Defeat failed to hold');}
@@ -184,54 +186,54 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
     sequences.push(result);
    }
    // Free transitions use the same real controller/update functions as above.
-   function check(name,detail,fn){const result={name,...detail,passed:false};try{result.detail=fn();result.passed=true}catch(error){result.error=error.message}transitions.push(result)}
+   async function check(name,detail,fn){const result={name,...detail,passed:false};try{result.detail=await fn();result.passed=true}catch(error){result.error=error.message}transitions.push(result)}
    for(const hero of heroes)for(const variant of variants){
     for(const seat of [0,1]){
      const lead=seat===1?(hero==='synth'?'percussion':'synth'):hero;
-     arena(lead,variant,'right',true);
-     check('hurt interrupts late roll',{hero,variant,seat},()=>{
+     await arena(lead,variant,'right',true);
+     await check('hurt interrupts late roll',{hero,variant,seat},()=>{
       assert((seat===0?startRoll121():C3.coopDodge(window.__fluencyPads[1]))===true,'Roll rejected');advance(.25);
       if(seat===0)damageHero(5);else C3.damageCoop(5);
       const p=art.pose({style:hero,dir:'right'},seat,true);assert(p.state==='hurt'&&p.frame===0&&G.hp[hero]===95,'Reaction hidden by roll '+JSON.stringify({pose:p,hp:G.hp[hero],invuln:act.invuln,p2Invuln:C3.coop.invuln,mode,record:art.players[seat]}));return {state:p.state,frame:p.frame,hp:G.hp[hero]};
      });
-     arena(lead,variant,'right',true);
-     check('roll cancels earlier signature',{hero,variant,seat},()=>{
+     await arena(lead,variant,'right',true);
+     await check('roll cancels earlier signature',{hero,variant,seat},()=>{
       if(seat===0)duoAction();else C3.coopSignature(window.__fluencyPads[1]);assert(art.players[seat]?.state==='signature','Signature rejected');
       assert((seat===0?startRoll121():C3.coopDodge(window.__fluencyPads[1]))===true,'Roll rejected');advance(.4);
       const p=art.pose({style:hero,dir:'right'},seat,false);assert(p.state==='idle','Signature reappeared');return {state:p.state};
      });
      for(const running of [false,true]){
-      arena(lead,variant,'right',true);controls('right',running,seat);let moving=false;
+      await arena(lead,variant,'right',true);controls('right',running,seat);let moving=false;
       for(let i=0;i<24;i++)moving=step();
-      check('pause during locomotion',{hero,variant,seat,running},()=>{
+      await check('pause during locomotion',{hero,variant,seat,running},async()=>{
        const p={style:hero,dir:'right'},before=art.pose(p,seat,seat===1?C3.coop.moving:moving);
        assert(before.state===(running?'run':'walk'),'Movement not accepted');openSystem();step();
        const after=art.pose({...p,dir:'down'},seat,false);
        assert(after.state===before.state&&after.frame===before.frame&&after.direction===before.direction,'Pose changed when inputs released');
        art.setVariant(hero,variant==='masked'?'unmasked':'masked');const masked=art.pose(p,seat,false);
        assert(masked.frame===before.frame&&masked.state===before.state&&masked.variant!==variant,'Paused mask altered pose');
-       closeOverlay();keys={};window.__fluencyPads[1].axes=[0,0];step();
+       await window.FinalAssetLoadingV1?.ready();closeOverlay();keys={};window.__fluencyPads[1].axes=[0,0];step();
        assert(art.pose(p,seat,false).state==='idle','Frozen movement survived resume');return {before,after};
       });
      }
     }
-    arena(hero,variant,'left');check('mask swap preserves action phase',{hero,variant},()=>{
+    await arena(hero,variant,'left');await check('mask swap preserves action phase',{hero,variant},()=>{
      advancedSkill();advance(.3);const before=art.pose({style:hero},0,false);art.setVariant(hero,variant==='masked'?'unmasked':'masked');
      const after=art.pose({style:hero},0,false);assert(before.state==='advanced'&&after.state===before.state&&after.frame===before.frame&&after.direction===before.direction,'Mask reset action');return {before,after};
     });
-    arena(hero,variant,'right');controls('right',false);for(let i=0;stride10<10&&i<600;i++)step();
-    check('walk/run input transition',{hero,variant},()=>{
+    await arena(hero,variant,'right');controls('right',false);for(let i=0;stride10<10&&i<600;i++)step();
+    await check('walk/run input transition',{hero,variant},()=>{
      const before=art.pose({style:hero},0,true),distanceBefore=stride10;keys.shift=true;const moving=step();
      const after=art.pose({style:hero},0,moving),delta=(after.frame-before.frame+8)%8;
      assert(before.state==='walk'&&after.state==='run'&&delta<=1,'Gait jumped or reversed phase');return {before,after,distanceBefore,distanceAfter:stride10};
     });
-    arena(hero,variant);check('idle/performance clock pauses',{hero,variant},()=>{
+    await arena(hero,variant);await check('idle/performance clock pauses',{hero,variant},()=>{
      advance(.43);const p={style:hero},npc={style:hero,musicianNpc:true,musicianState:'performance'};
      const before=art.pose(p,0,false),perform=art.pose(npc,-1,false);openSystem();advance(.2);
      assert(art.pose(p,0,false).frame===before.frame&&art.pose(npc,-1,false).frame===perform.frame,'Paused ambient pose changed');return {idle:before.frame,performance:perform.frame};
     });
-    arena(hero,variant);check('defeat still advances and holds',{hero,variant},()=>{
-     startState(hero,'defeat');advance(1);const p=art.pose({style:hero},0,false);assert(p.state==='defeat'&&p.frame===7,'Defeat frozen or released');return {state:p.state,frame:p.frame,mode};
+    await arena(hero,variant);await check('defeat still advances and holds',{hero,variant},async()=>{
+     await startState(hero,'defeat');advance(1);const p=art.pose({style:hero},0,false);assert(p.state==='defeat'&&p.frame===7,'Defeat frozen or released');return {state:p.state,frame:p.frame,mode};
     });
    }
    return {fps:60,sequences,transitions,fixtureMarkedAnimations:[],

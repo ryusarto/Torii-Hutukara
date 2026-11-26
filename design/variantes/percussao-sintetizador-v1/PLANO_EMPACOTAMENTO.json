@@ -1,0 +1,666 @@
+{
+  "version": 3,
+  "date": "2026-11-17",
+  "heroes": [
+    "ryuchi_percussionista",
+    "franco_sintetizador"
+  ],
+  "variants": [
+    "unmasked",
+    "masked"
+  ],
+  "directions": [
+    "down",
+    "left",
+    "up",
+    "right"
+  ],
+  "cell": [
+    256,
+    256
+  ],
+  "pivot": [
+    128,
+    224
+  ],
+  "frames": 8,
+  "actions": {
+    "idle": [
+      "Eight subtly distinct breathing frames. Small chest rise, soft knee weight shift, elbows settle, one blink, neutral face. Ryuchi holds sticks above pads; Franco hands rest over keys. Seamless eighth-to-first loop.",
+      120,
+      true
+    ],
+    "walk": [
+      "Complete eight-frame WALK cycle in place: left contact/down/pass/up, right contact/down/pass/up. Opposed leg movement, short legs, slight shoulder counterrotation, instrument bobs on strap. Fixed facing, no turning. Seamless loop.",
+      95,
+      true
+    ],
+    "run": [
+      "Complete eight-frame RUN cycle: contact, compress, push, flight, opposite contact, compress, push, flight. Forward lean, clearly alternating stubby legs, brief both-feet-airborne phase. Hold strapped instrument securely. Seamless loop.",
+      65,
+      true
+    ],
+    "roll": [
+      "DODGE/ROLL eight frames: ready, crouch, shoulder drop, tuck, curled midroll, foot plant, rise, ready. Chibi body actually rotates anatomically. Instrument remains strapped close to torso, mask attached in masked variant. Never replace roll with upright slide.",
+      65,
+      false
+    ],
+    "attack_1": [
+      "FIRST COMBO HIT, eight frames ready/anticipate/lift/contact/follow-through/recoil/reset/ready. Ryuchi RIGHT drumstick strikes first pad, left poised. Franco LEFT hand plays low chord, right adjusts knob. Clear hand motion, no visual effects.",
+      65,
+      false
+    ],
+    "attack_2": [
+      "SECOND COMBO HIT, eight frames ready/opposite anticipation/load/contact/follow-through/rebound/reset/ready. Ryuchi LEFT drumstick strikes alternate pad, right rebounds. Franco RIGHT hand plays higher notes, left control sweep. Distinct from hit1; no effects.",
+      65,
+      false
+    ],
+    "attack_3": [
+      "THIRD COMBO FINISHER, eight frames ready/deep knee load/both arms prepare high/forceful double contact/full follow-through/rebound/recover/ready. Ryuchi BOTH sticks strike pads with broad accent. Franco powerful TWO-HANDED wide chord. Instrument stays attached, no effects.",
+      75,
+      false
+    ],
+    "skill": [
+      "TECHNIQUE Z, eight frames ready/anticipate/prepare/contact/sustain/release/recover/ready. Ryuchi rapid controlled ALTERNATING two-stick roll with visible wrist/elbow changes. Franco left-hand sustained chord while right hand smoothly sweeps filter knob. No effects, same instrument.",
+      80,
+      false
+    ],
+    "advanced": [
+      "ADVANCED TECHNIQUE X, eight frames ready/anticipate/guard/respond/peak counter/follow-through/recover/ready. Ryuchi CROSSES both drumsticks defensively above drum then opens arms into strong syncopated double beat. Franco braces keyboard and makes broad control sweep then powerful chord. Clear guarded/contact/recovery differences, no effects.",
+      70,
+      false
+    ],
+    "signature": [
+      "SPECIAL K, eight frames ready/deep crouch charging/arms rise/explosive playing/peak forward lean/resonant follow-through/recover/ready. Ryuchi overhead two-stick flourish then emphatic DOUBLE PAD STRIKE. Franco arm flourish above keyboard then deep TWO-HANDED CHORD, never guitar pose. Large readable chibi gesture, no effects.",
+      90,
+      false
+    ],
+    "hurt": [
+      "HURT eight frames ready/sudden recoil/max recoil with pained face/knees buckle/protect instrument/regain balance/straighten/ready. Instrument and sticks stay attached/held. No blood, no new costume damage. Continuous whole-body recoil.",
+      65,
+      false
+    ],
+    "defeat": [
+      "DEFEAT eight frames ready/stagger/knees collapse/one knee down/fall onto side protecting instrument/reach floor/settle/final SIDE-LYING PRONE pose. Final frame MUST remain on floor, never stand up. All four directions have clearly horizontal final body, instrument still attached beside torso. No blood or effects.",
+      110,
+      false
+    ],
+    "performance": [
+      "PLAYING/INTERACTION eight-frame rhythmic loop. Ryuchi clearly alternating RIGHT raised/contact/rebound then LEFT raised/contact/rebound strokes, head nod and knee bounce. Franco both hands play melodic keyboard phrase, small finger changes and occasional control adjustment, head nods. Instrument shape fixed. Seamless loop.",
+      85,
+      true
+    ]
+  },
+  "expressions": [
+    "neutral",
+    "speaking",
+    "happy",
+    "surprised",
+    "determined",
+    "angry",
+    "hurt",
+    "sad"
+  ],
+  "tasks": [
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "idle",
+      "name": "ryuchi_percussionista_unmasked_idle",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "idle",
+      "name": "ryuchi_percussionista_masked_idle",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "idle",
+      "name": "franco_sintetizador_unmasked_idle",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "idle",
+      "name": "franco_sintetizador_masked_idle",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "walk",
+      "name": "ryuchi_percussionista_unmasked_walk",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "walk",
+      "name": "ryuchi_percussionista_masked_walk",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "walk",
+      "name": "franco_sintetizador_unmasked_walk",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "walk",
+      "name": "franco_sintetizador_masked_walk",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "run",
+      "name": "ryuchi_percussionista_unmasked_run",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "run",
+      "name": "ryuchi_percussionista_masked_run",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "run",
+      "name": "franco_sintetizador_unmasked_run",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "run",
+      "name": "franco_sintetizador_masked_run",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "roll",
+      "name": "ryuchi_percussionista_unmasked_roll",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "roll",
+      "name": "ryuchi_percussionista_masked_roll",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "roll",
+      "name": "franco_sintetizador_unmasked_roll",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "roll",
+      "name": "franco_sintetizador_masked_roll",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "attack_1",
+      "name": "ryuchi_percussionista_unmasked_attack_1",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "attack_1",
+      "name": "ryuchi_percussionista_masked_attack_1",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "attack_1",
+      "name": "franco_sintetizador_unmasked_attack_1",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "attack_1",
+      "name": "franco_sintetizador_masked_attack_1",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "attack_2",
+      "name": "ryuchi_percussionista_unmasked_attack_2",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "attack_2",
+      "name": "ryuchi_percussionista_masked_attack_2",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "attack_2",
+      "name": "franco_sintetizador_unmasked_attack_2",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "attack_2",
+      "name": "franco_sintetizador_masked_attack_2",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "attack_3",
+      "name": "ryuchi_percussionista_unmasked_attack_3",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "attack_3",
+      "name": "ryuchi_percussionista_masked_attack_3",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "attack_3",
+      "name": "franco_sintetizador_unmasked_attack_3",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "attack_3",
+      "name": "franco_sintetizador_masked_attack_3",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "skill",
+      "name": "ryuchi_percussionista_unmasked_skill",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "skill",
+      "name": "ryuchi_percussionista_masked_skill",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "skill",
+      "name": "franco_sintetizador_unmasked_skill",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "skill",
+      "name": "franco_sintetizador_masked_skill",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "advanced",
+      "name": "ryuchi_percussionista_unmasked_advanced",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "advanced",
+      "name": "ryuchi_percussionista_masked_advanced",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "advanced",
+      "name": "franco_sintetizador_unmasked_advanced",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "advanced",
+      "name": "franco_sintetizador_masked_advanced",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "signature",
+      "name": "ryuchi_percussionista_unmasked_signature",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "signature",
+      "name": "ryuchi_percussionista_masked_signature",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "signature",
+      "name": "franco_sintetizador_unmasked_signature",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "signature",
+      "name": "franco_sintetizador_masked_signature",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "hurt",
+      "name": "ryuchi_percussionista_unmasked_hurt",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "hurt",
+      "name": "ryuchi_percussionista_masked_hurt",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "hurt",
+      "name": "franco_sintetizador_unmasked_hurt",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "hurt",
+      "name": "franco_sintetizador_masked_hurt",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "defeat",
+      "name": "ryuchi_percussionista_unmasked_defeat",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "defeat",
+      "name": "ryuchi_percussionista_masked_defeat",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "defeat",
+      "name": "franco_sintetizador_unmasked_defeat",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "defeat",
+      "name": "franco_sintetizador_masked_defeat",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "performance",
+      "name": "ryuchi_percussionista_unmasked_performance",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "performance",
+      "name": "ryuchi_percussionista_masked_performance",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "performance",
+      "name": "franco_sintetizador_unmasked_performance",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "performance",
+      "name": "franco_sintetizador_masked_performance",
+      "layout": [
+        8,
+        4
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "unmasked",
+      "state": "portrait",
+      "name": "ryuchi_percussionista_unmasked_portrait",
+      "layout": [
+        4,
+        2
+      ]
+    },
+    {
+      "hero": "ryuchi_percussionista",
+      "variant": "masked",
+      "state": "portrait",
+      "name": "ryuchi_percussionista_masked_portrait",
+      "layout": [
+        4,
+        2
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "unmasked",
+      "state": "portrait",
+      "name": "franco_sintetizador_unmasked_portrait",
+      "layout": [
+        4,
+        2
+      ]
+    },
+    {
+      "hero": "franco_sintetizador",
+      "variant": "masked",
+      "state": "portrait",
+      "name": "franco_sintetizador_masked_portrait",
+      "layout": [
+        4,
+        2
+      ]
+    }
+  ]
+}

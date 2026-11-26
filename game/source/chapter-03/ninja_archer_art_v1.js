@@ -13,7 +13,11 @@ const NinjaArcherArtV1 = {
     this.recent = this.recent.filter(key => key !== name); this.recent.push(name);
     if (!this.images[name]) { const image = new Image(); image.src = this.assets[name]; this.images[name] = image; }
     // Decode at most eight full-resolution sheets rather than all 24 on mobile.
-    while (this.recent.length > 8) { const old = this.recent.shift(); delete this.images[old]; }
+    while (this.recent.length > 8) {
+      const index = this.recent.findIndex(key => !key.endsWith('_idle'));
+      if (index < 0) break;
+      const [old] = this.recent.splice(index, 1); delete this.images[old];
+    }
     return this.images[name];
   },
   reset() { this.players = [null, null]; this.shots = [0, 0]; this.game = G; this.area = G?.area; },
@@ -121,7 +125,9 @@ drawActor = function(p, x, y, moving = false) {
   }
   let image = art.image(pose.hero + '_' + pose.state);
   if (!image.complete || !image.naturalWidth) { image = art.image(pose.hero + '_idle'); pose.frame = 0; }
-  if (!image?.complete || !image.naturalWidth) return ninjaArcherActorV1(p, x, y, moving);
+  if (!image?.complete || !image.naturalWidth) {
+    globalThis.FinalAssetLoadingV1?.requireImage(image, pose.hero + ' · idle'); return;
+  }
   ctx.save(); ctx.imageSmoothingEnabled = false;
   ctx.fillStyle = '#10152344'; ctx.beginPath(); ctx.ellipse(x, y + 10, 12, 3, 0, 0, Math.PI * 2); ctx.fill();
   const hit = seat === 1 ? C3.coop.hit : seat === 0 ? act.hit : 0;

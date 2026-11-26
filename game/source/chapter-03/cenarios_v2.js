@@ -3,7 +3,7 @@
  */
 'use strict';
 const CenariosV2={
-  manifest:__CENARIOS_V2_MANIFEST__,assets:__CENARIOS_V2_ASSETS__,images:{},textures:{},requested:null,
+  manifest:__CENARIOS_V2_MANIFEST__,assets:__CENARIOS_V2_ASSETS__,images:{},textures:{},resources:{},requested:null,
   image(id){if(!this.images[id]){const image=new Image();image.src=this.assets[id];this.images[id]=image}return this.images[id]},
   ensure(area=G?.area){
     if(!area||area===this.requested)return;this.requested=area;
@@ -19,14 +19,24 @@ const CenariosV2={
     for(const id of ids)this.image(id);
   },
   async ready(){await Promise.all(Object.keys(this.assets).map(id=>this.image(id).decode()))},
-  available(item){const a=this.manifest.items[item],image=a&&this.image(a.sheet);return image?.complete&&image.naturalWidth?{a,image}:null},
+  available(item){
+    const a=this.manifest.items[item],image=a&&this.image(a.sheet);if(!image?.complete||!image.naturalWidth)return null;
+    const resources=this.resources||(this.resources={}),cached=resources[item];
+    if(cached?.a===a&&cached.image===image)return cached;
+    return resources[item]={a,image};
+  },
   sprite(item,x,y,w,h,alpha=1){
     const resource=this.available(item);if(!resource)return false;
     const {a,image}=resource,r=a.content,k=Math.min(w/r[2],h/r[3]),dw=r[2]*k,dh=r[3]*k;
     ctx.save();ctx.imageSmoothingEnabled=false;ctx.globalAlpha*=alpha;
     ctx.drawImage(image,...r,Math.round(x-dw/2),Math.round(y-dh),Math.round(dw),Math.round(dh));ctx.restore();return true;
   },
-  tileImage(item,x,y){const r=this.available(item);if(!r)return false;ctx.save();ctx.imageSmoothingEnabled=false;ctx.drawImage(r.image,...r.a.content,Math.round(x),Math.round(y),T,T);ctx.restore();return true},
+  tileImage(item,x,y){
+    const r=this.available(item);if(!r)return false;const smoothing=ctx.imageSmoothingEnabled;
+    if(smoothing)ctx.imageSmoothingEnabled=false;
+    try{ctx.drawImage(r.image,...r.a.content,Math.round(x),Math.round(y),T,T)}finally{if(ctx.imageSmoothingEnabled!==smoothing)ctx.imageSmoothingEnabled=smoothing}
+    return true;
+  },
   material(item,x,y,xx,yy){
     const r=this.available(item);if(!r)return false;
     if(!this.textures[item]){
@@ -35,7 +45,10 @@ const CenariosV2={
       for(const [px,py,sx,sy] of [[0,0,1,1],[192,0,-1,1],[0,192,1,-1],[192,192,-1,-1]]){q.save();q.translate(px,py);q.scale(sx,sy);q.drawImage(r.image,...r.a.content,0,0,96,96);q.restore()}
       this.textures[item]=c;
     }
-    const sx=((xx%8)+8)%8*T,sy=((yy%8)+8)%8*T;ctx.save();ctx.imageSmoothingEnabled=false;ctx.drawImage(this.textures[item],sx,sy,T,T,Math.round(x),Math.round(y),T,T);ctx.restore();return true;
+    const sx=((xx%8)+8)%8*T,sy=((yy%8)+8)%8*T,smoothing=ctx.imageSmoothingEnabled;
+    if(smoothing)ctx.imageSmoothingEnabled=false;
+    try{ctx.drawImage(this.textures[item],sx,sy,T,T,Math.round(x),Math.round(y),T,T)}finally{if(ctx.imageSmoothingEnabled!==smoothing)ctx.imageSmoothingEnabled=smoothing}
+    return true;
   },
   paver(a,x,y){return a?.tiles?.[y]?.[x]==='c3_street'||a?.env2Apron?.has(x+','+y)},
   curb(x,y,side){
@@ -108,7 +121,7 @@ const CenariosV2={
       }
       if(a.id==='power_plant'){add('canal_gate_closed',17,4,36,48,{state:'plant'});add('threshold_inlay',16,17,44,22,{flat:true})}
       if(a.id==='sky_canal'){add('canal_pier_left',16,11,34,34);add('canal_pier_right',24,11,34,34);add('wind_current_marker',12,10,36,56)}
-      if(a.id==='sky_lift'){add('platform_embark',11,16,136,42,{flat:true});add('cloud_arrival_arch',11,3,142,120)}
+      if(a.id==='sky_lift'){add('cloud_arrival_arch',11,3,142,120)}
       if(a.id==='cloud_sea'){
         // The original mk() left a walkable frame around the challenge routes.
         a.env2RemovedCloudCells=new Set();

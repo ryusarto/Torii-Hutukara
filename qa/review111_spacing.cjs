@@ -3,7 +3,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
-const runtime=read('game/source/chapter-03/chapter3_runtime.js'),base=read('game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html');
+const runtime=read('game/source/chapter-03/chapter3_runtime.js'),base=read('game/source/base/torii-core.html');
 function section(s,a,b){const start=s.indexOf(a),end=s.indexOf(b,start+a.length);assert(start>=0&&end>start,a);return s.slice(start,end)}
 const helpers=section(base,'function mk(','function house('),walkable=section(base,'function tileWalkable(','function moveG(');
 const district=section(runtime,"  a=C3.boundary(mk('distortion_district'","  a=C3.room('contratempo'");
