@@ -192,6 +192,7 @@ const portraitCache=new Map();
 function portrait(id){const key=id+':'+G?.ryuchiStyle+':'+G?.flags?.reveal+':'+G?.flags?.masks;if(!portraitCache.has(key))portraitCache.set(key,portraitURI10(id));return portraitCache.get(key)}
 function hudInstall(){
  const hud=$('hud');if(!hud||$('ui7Party'))return;hud.insertAdjacentHTML('beforeend','<div id="ui7Party" class="ui7-machine">'+skin('small')+'</div><div id="ui7Objective" class="ui7-machine">'+skin('small')+'<small></small><p></p></div><button id="ui7PausePC" class="ui7-machine">'+skin('button')+'Esc · Pausa</button><div id="ui7Actions"></div>');$('ui7PausePC').onclick=()=>openSystem();
+ const objective=$('ui7Objective');new ResizeObserver(()=>{const canvas=objective.querySelector('canvas[data-ui7-skin]');if(objective.clientWidth>0&&canvas&&(canvas.width!==objective.clientWidth||canvas.height!==objective.clientHeight))paint(objective)}).observe(objective);
  const defs=[['attack','Ataque','bass',attackAction],['dodge','Esquiva','play',dodgeAction],['skill','Técnica','note',skillAction],['skill2','Téc. II','wave',advancedSkill],['super','Especial','speaker',duoAction]];
  for(const [key,label,img,fn]of defs){const b=document.createElement('button');b.className='ui7-ability ui7-machine';b.dataset.action7=key;b.innerHTML=skin('button')+icon(img)+'<kbd></kbd><span>'+label+'</span>';b.onclick=()=>{if(['walk','action'].includes(mode))fn()};$('ui7Actions').append(b)}
 }
@@ -200,7 +201,6 @@ function hudPaint(){const hud=$('hud');if(!hud||!hud.getBoundingClientRect().wid
 function hudRefresh(){if(!G)return;const mobile=!!document.documentElement.classList.contains('mobile121')||!!document.body.classList.contains('mobile121');document.documentElement.classList.toggle('ui7-desktop',!mobile);hudInstall();
  const team=partyMembers(),key=JSON.stringify([G.active,team.map(id=>[id,G.hp[id],G.maxhp[id]]),G.resonance,G.ryuchiStyle,G.flags.masks]);
  if(key!==hudKey){hudKey=key;$('ui7Party').innerHTML=skin('small')+team.map((id,i)=>`<div class="ui7-hero ${id===G.active?'leader':'ally'}"><img alt="" src="${portrait(id)}"><div><div class="ui7-hero-name"><span>${esc(typeof labels10!=='undefined'?labels10[id]||id:id)}</span><span>${Math.max(0,G.hp[id]|0)}/${G.maxhp[id]}</span></div><div class="ui7-meter"><i style="width:${Math.max(0,Math.min(100,G.hp[id]/G.maxhp[id]*100))}%"></i></div>${id===G.active?`<div class="ui7-res-label">RESSONÂNCIA <span>${Math.round(G.resonance||0)}/100</span></div><div class="ui7-meter res"><i style="width:${Math.max(0,Math.min(100,G.resonance||0))}%"></i></div>`:''}</div></div>`).join('');paint($('ui7Party'))}
- const visible=$('hud').getBoundingClientRect().width>0;if(visible&&!hudVisible)hudPaint();hudVisible=visible;
  const objective=$('ui7Objective');for(const [sel,text] of [['small',$('areaName')?.textContent],['p',$('quest')?.textContent]])if(objective.querySelector(sel).textContent!==text)objective.querySelector(sel).textContent=text||'';
  for(const b of document.querySelectorAll('[data-action7]')){
  const id=b.dataset.action7,label=ToriiInterface6.KeyMap.label(id);if(b.querySelector('kbd').textContent!==label)b.querySelector('kbd').textContent=label;
@@ -210,6 +210,7 @@ function hudRefresh(){if(!G)return;const mobile=!!document.documentElement.class
  b.disabled=kind!=='ready'||!['walk','action'].includes(mode);b.setAttribute('aria-label',b.querySelector('span').textContent+(state?' · '+state:''));
  }
  const pause=$('ui7PausePC'),pauseKey=ToriiInterface6.KeyMap.label('menu');pause.lastChild.textContent=pauseKey+' · Pausa';
+ const visible=$('hud').getBoundingClientRect().width>0;if(visible&&!hudVisible)hudPaint();hudVisible=visible;
 }
 // An explicit question must keep its answer. Historical editorial cuts removed
 // both traveler replies, making a real Ema choice silently close the conversation.
