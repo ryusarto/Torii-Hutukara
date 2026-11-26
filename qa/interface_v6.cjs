@@ -19,7 +19,7 @@ const ZONES=['.location','#bMenu','#bGuide','#bJournal','#bParty','#bSave','#vit
 const checks=[],errors=[];
 async function open(browser,layout){const ctx=await browser.newContext(LAYOUTS[layout]);const p=await ctx.newPage();p.on('pageerror',e=>errors.push(layout+': '+e.message));
  await p.goto(url,{waitUntil:'load',timeout:180000});await p.evaluate(s=>{localStorage.clear();localStorage.setItem(KEY,JSON.stringify(s))},save);await p.reload({waitUntil:'load'});
- await p.waitForFunction(()=>document.getElementById('startContinue')&&!document.getElementById('startContinue').disabled,null,{timeout:60000});await p.click('#startContinue');await p.waitForTimeout(1200);
+ await p.waitForFunction(()=>document.getElementById('startContinue')&&!document.getElementById('startContinue').disabled,null,{timeout:60000});await p.click('#startContinue');await p.locator('#playtestEntry').waitFor({state:'detached'});await p.waitForTimeout(1200);
  await p.evaluate(()=>{closeOverlay();if(mode==='dialogue')for(let i=0;i<40&&mode==='dialogue';i++)advanceDialogue()});return{ctx,p}}
 async function overlaps(p){return p.evaluate(zones=>{const vis=el=>{if(!el)return false;const cs=getComputedStyle(el);if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity===0||el.classList.contains('hidden'))return false;const r=el.getBoundingClientRect();return r.width>2&&r.height>2&&r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight};
  const items=[];for(const sel of zones){const el=document.querySelector(sel);if(!vis(el))continue;const r=el.getBoundingClientRect();items.push({sel,el,r:{x:Math.round(r.left),y:Math.round(r.top),w:Math.round(r.width),h:Math.round(r.height)}})}
