@@ -21,7 +21,7 @@ O coop local compartilha a câmera, com estados e comandos independentes para os
 
 ## Camadas sobre funções centrais
 
-Cada módulo de `game/source/chapter-03/` estende o motor guardando a função anterior e substituindo-a (`const antes=update;update=function(...){antes(...); ...}`). A ordem de execução é a ordem em que os módulos entram no HTML, definida por `build_alpha.rb`. Hoje há 38 camadas em `update`, 21 em `buildMaps`, 14 em `drawActor`, 11 em `normalizeSave` e em `advanceDialogue` e 10 em `drawTile`.
+Cada módulo de `game/source/chapter-03/` estende o motor guardando a função anterior e substituindo-a (`const antes=update;update=function(...){antes(...); ...}`). A ordem de execução é a ordem em que os módulos entram no HTML, definida por `build_alpha.rb`. Hoje há 38 camadas em `update`, 21 em `buildMaps`, 14 em `drawActor`, 12 em `normalizeSave`, 11 em `advanceDialogue` e 10 em `drawTile`.
 
 `validate_alpha.rb` reprova a build se alguma dessas contagens aumentar. Mudanças novas devem entrar em uma camada já existente do mesmo assunto. Ao consolidar camadas, baixe o teto correspondente no validador.
 

@@ -9,21 +9,14 @@ const report={method:'Actual built runtime, controlled hazard/actor fixtures, si
 async function check(name,fn){const details=await fn();report.checks.push({name,passed:true,details});console.log('OK · '+name)}
 async function shot(name){await page.screenshot({path:path.join(out,name+'.png')})}
 async function sameDecodedImage(field,bytes){
- // The HTTP exporter independently verifies lossless RGBA. Compare browser
- // rendering to the same encoded format, since PNG/WebP alpha decoders round
- // differently even when Pillow proves all original RGBA bytes identical.
- let mime='image/png',referenceBytes=bytes;
- if(/^http/.test(input)){
-  const opt=JSON.parse(fs.readFileSync(path.join(root,'production/playtest-dist/media-optimization.json'))),key='media/'+crypto.createHash('sha256').update(bytes).digest('hex')+'.png',entry=opt[key];
-  assert(entry&&['lossless','original'].includes(entry.mode),'FX source must remain lossless');
-  referenceBytes=fs.readFileSync(path.join(root,'production/playtest-dist',entry.file));mime=entry.file.endsWith('.webp')?'image/webp':'image/png';
- }
- const expected='data:'+mime+';base64,'+referenceBytes.toString('base64');
+ const sourcePath=field==='groundRift'?'assets/portal-chao/v1/fenda_chao_proposta.png':'assets/combat-readability/v1/combat_readability.png';
+ const reference=await require('./lossless_image_reference.cjs').imageReference({root,input,sourcePath,expectedCanonicalSha:crypto.createHash('sha256').update(bytes).digest('hex')});
+ const expected=reference.uri;report.sourceSha256=reference.proof.artifactSha256;(report.references||(report.references=[])).push(reference.proof);
  const result=await page.evaluate(async({field,expected})=>{
   const actual=CombatReadabilityV1[field],reference=new Image();reference.src=expected;await reference.decode();
   const raster=(im)=>{const c=document.createElement('canvas');c.width=im.naturalWidth;c.height=im.naturalHeight;const g=c.getContext('2d');g.drawImage(im,0,0);return g.getImageData(0,0,c.width,c.height).data};
   const a=raster(actual),b=raster(reference);let changed=0,maxRGB=0,maxAlpha=0,maxPremultiplied=0;for(let i=0;i<a.length;i+=4){maxAlpha=Math.max(maxAlpha,Math.abs(a[i+3]-b[i+3]));if(a[i+3]||b[i+3])for(let j=0;j<3;j++){const d=Math.abs(a[i+j]-b[i+j]);if(d)changed++;maxRGB=Math.max(maxRGB,d);maxPremultiplied=Math.max(maxPremultiplied,Math.abs(a[i+j]*a[i+3]-b[i+j]*b[i+3])/255)}}return {changedChannels:changed,maxRGB,maxAlpha,maxPremultiplied,dimensions:[actual.naturalWidth,actual.naturalHeight]};
- },{field,expected});console.log('Decoded comparison '+field+' '+JSON.stringify(result));assert.equal(result.maxAlpha,0,'HTTP export changed transparency');assert.equal(result.maxRGB,0,'Runtime decoded pixels differ from exported media');return result;
+ },{field,expected});console.log('Decoded comparison '+field+' '+JSON.stringify(result));assert.equal(result.maxAlpha,0,'Export changed transparency');assert.equal(result.maxRGB,0,'Runtime decoded pixels differ from exported media');return result;
 }
 
 (async()=>{fs.mkdirSync(out,{recursive:true});browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,args:['--disable-gpu']});page=await browser.newPage({viewport:{width:1280,height:800}});page.on('pageerror',e=>report.errors.push(e.message));await page.addInitScript(()=>{requestAnimationFrame=()=>0;Object.defineProperty(navigator,'getGamepads',{value:()=>[]})});await page.goto(input,{waitUntil:'load',timeout:120000});await page.waitForFunction(()=>window.CombatReadabilityV1?.ready()&&window.CombatReadabilityV1?.riftReady(),null,{polling:50,timeout:30000});await page.locator('#playtestEntry').waitFor({state:'detached'});

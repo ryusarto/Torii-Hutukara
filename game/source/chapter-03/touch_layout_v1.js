@@ -11,7 +11,7 @@ const definitions={
  landscape:{zones:{left:{x:12,y:145,w:180,h:233},right:{x:590,y:124,w:242,h:254}},controls:{
  stick:{x:24,y:230,w:108,h:108,zone:'left',label:'Mover'},switch:{x:146,y:305,w:46,h:56,zone:'left',label:'Trocar',pad:'circle'},attack:{x:741,y:275,w:70,h:76,zone:'right',label:'Ataque',pad:'triangle'},dodge:{x:663,y:320,w:52,h:56,zone:'right',label:'Rolar',pad:'circle'},skill:{x:772,y:178,w:50,h:56,zone:'right',label:'Técnica',pad:'square'},advanced:{x:704,y:141,w:50,h:56,zone:'right',label:'Téc. II',pad:'diamond'},signature:{x:629,y:224,w:50,h:56,zone:'right',label:'Especial',pad:'diamond'},interact:{x:686,y:236,w:50,h:44,zone:'right',label:'Ação'},heal:{x:598,y:306,w:46,h:44,zone:'right',label:'Fita'}}}
 };
-let installed=false,editor=null,settingsBack=null,safeProbe=null,lastOrientation='';
+let installed=false,editor=null,settingsBack=null,safeProbe=null,lastOrientation='',lastVisualViewport='';
 function read(){
  let data={};try{data=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch{}
  const clean={version:1,opacity:clamp(Number.isFinite(data.opacity)?data.opacity:.72,.25,.85)};
@@ -20,7 +20,7 @@ function read(){
 }
 function write(data){try{localStorage.setItem(KEY,JSON.stringify(data));return true}catch{return false}}
 function defaults(o){const d=definitions[o],p={};for(const [id,c]of Object.entries(d.controls)){const z=d.zones[c.zone];p[id]={u:(c.x-z.x)/(z.w-c.w),v:(c.y-z.y)/(z.h-c.h)}}return p}
-function viewport(){const v=window.visualViewport;return{w:v?.width||innerWidth,h:v?.height||innerHeight}}
+function viewport(){const v=window.visualViewport;return{w:v?.width||innerWidth,h:v?.height||innerHeight,x:v?.offsetLeft||0,y:v?.offsetTop||0}}
 function safe(){if(!safeProbe)return{top:0,right:0,bottom:0,left:0};const s=getComputedStyle(safeProbe);return Object.fromEntries(['top','right','bottom','left'].map(k=>[k,parseFloat(s['padding'+k[0].toUpperCase()+k.slice(1)])||0]))}
 /* Pure geometry also used by QA. Insets are in CSS pixels, never game pixels. */
 function geometry(o,w,h,insets={top:0,right:0,bottom:0,left:0}){
@@ -63,9 +63,12 @@ function layout(){
  const v=viewport(),o=v.w>v.h?'landscape':'portrait',g=geometry(o,v.w,v.h,safe()),p=positions(o,g);ROOT.style.setProperty('--tl-opacity',String(read().opacity));
  const mobile=ROOT.classList.contains('mobile121');ROOT.classList.toggle('touch-layout-v1',mobile);ROOT.classList.toggle('tl-world-v1',!!(typeof G!=='undefined'&&G&&mode!=='title'));
  if(!mobile)return;
- for(const[id,c]of Object.entries(g.controls)){const node=id==='stick'?document.getElementById('mobileStick121'):deck.querySelector(`[data-mobile-action="${id}"]`);if(node){place(node,p[id],c);draw(node,c,o)}}
- const s=safe();for(const[action,x]of [['pause',v.w-s.right-100],['full',v.w-s.right-52]]){const b=deck.querySelector(`[data-mobile-action="${action}"]`);if(b)place(b,{x,y:s.top+8},{w:44,h:44})}
- const readout=document.getElementById('mobileReadout121'),charge=document.getElementById('mobileCharge121');if(readout){readout.style.left=(s.left+12)+'px';readout.style.top=(s.top+10)+'px'}if(charge){charge.style.left=(s.left+12)+'px';charge.style.top=(s.top+31)+'px'}const goal=document.getElementById('mobileGoal121');if(goal){goal.style.left=(s.left+12)+'px';goal.style.top=(s.top+52)+'px'}
+ const signature=[v.w,v.h,v.x,v.y].join(':');if(lastVisualViewport&&signature!==lastVisualViewport&&typeof releaseTouch121==='function')releaseTouch121();lastVisualViewport=signature;
+ // Fixed elements use layout coordinates; the visible viewport may pan while
+ // pinching. At normal zoom both offsets are zero, preserving the layout.
+ for(const[id,c]of Object.entries(g.controls)){const node=id==='stick'?document.getElementById('mobileStick121'):deck.querySelector(`[data-mobile-action="${id}"]`);if(node){place(node,{x:p[id].x+v.x,y:p[id].y+v.y},c);draw(node,c,o)}}
+ const s=safe();for(const[action,x]of [['pause',v.w-s.right-100],['full',v.w-s.right-52]]){const b=deck.querySelector(`[data-mobile-action="${action}"]`);if(b)place(b,{x:x+v.x,y:s.top+8+v.y},{w:44,h:44})}
+ const readout=document.getElementById('mobileReadout121'),charge=document.getElementById('mobileCharge121');if(readout){readout.style.left=(s.left+12+v.x)+'px';readout.style.top=(s.top+10+v.y)+'px'}if(charge){charge.style.left=(s.left+12+v.x)+'px';charge.style.top=(s.top+31+v.y)+'px'}const goal=document.getElementById('mobileGoal121');if(goal){goal.style.left=(s.left+12+v.x)+'px';goal.style.top=(s.top+52+v.y)+'px'}
  if(o!==lastOrientation){lastOrientation=o;release()}
  if(editor)renderEditor();
  return{orientation:o,geometry:g,positions:p};
@@ -106,6 +109,7 @@ function install(){
  const deck=document.getElementById('mobileDeck121'),heal=document.createElement('button');heal.type='button';heal.dataset.mobileAction='heal';heal.setAttribute('aria-label','Usar fita de cura');deck.querySelector('.mobileActions121').appendChild(heal);
  for(const id of Object.keys(definitions.portrait.controls)){const node=id==='stick'?document.getElementById('mobileStick121'):deck.querySelector(`[data-mobile-action="${id}"]`);if(node)decorate(node,id)}
  const pause=deck.querySelector('[data-mobile-action="pause"]');if(pause)pause.textContent='Ⅱ PAUSA';
+ window.visualViewport?.addEventListener('scroll',layout,{passive:true});
  layout();
 }
 function notice(text){const node=document.getElementById('tlEditorStatusV1');if(node)node.textContent=text}
@@ -128,6 +132,10 @@ function renderEditor(){
  if(!editor)return;const stage=document.getElementById('tlEditorStageV1');if(!stage)return;
  if(editor.drag){editor.draft=normalize(editor.geometry,editor.drag.before);editor.drag=null;release()}
  const v=viewport(),o=editor.orientation,s=safe(),same=(v.w>v.h)===(o==='landscape');
+ const shell=document.getElementById('touchLayoutEditorV1');if(shell)Object.assign(shell.style,{left:v.x+'px',top:v.y+'px',right:'auto',bottom:'auto',width:v.w+'px',height:v.h+'px'});
+ // A wrapped toolbar must not cover the hint. Keep the preview and the usual
+ // 390px layout untouched; both rectangles use the editor's local coordinates.
+ const head=shell?.querySelector('.tl-editor-head-v1'),hint=shell?.querySelector('.tl-editor-notice-v1');if(head&&hint)hint.style.top=Math.max(68,head.getBoundingClientRect().bottom-shell.getBoundingClientRect().top+6)+'px';
  const w=same?v.w:(o==='portrait'?Math.min(v.w,v.h):Math.max(v.w,v.h)),h=same?v.h:(o==='portrait'?Math.max(v.w,v.h):Math.min(v.w,v.h));
  const scale=Math.min((v.w-s.left-s.right-12)/w,(v.h-s.top-s.bottom-100)/h),g=geometry(o,w,h,same?s:{top:0,right:0,bottom:0,left:0});
  editor.geometry=g;editor.positions=positions(o,g,editor.draft);editor.scale=scale;stage.replaceChildren();stage.style.cssText=`width:${w}px;height:${h}px;left:${(v.w-w*scale)/2}px;top:${s.top+86}px;transform:scale(${scale})`;

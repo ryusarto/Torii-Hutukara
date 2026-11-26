@@ -5,7 +5,7 @@
  */
 (function(){
 const KEY='torii_hutukara_acessibilidade_v1';
-const read=()=>{try{return JSON.parse(localStorage.getItem(KEY))||{}}catch{return {}}};
+const read=()=>{try{const data=JSON.parse(localStorage.getItem(KEY));if(!data||typeof data!=='object'||Array.isArray(data))return {};const clean=Object.fromEntries(Object.entries(data).filter(([k])=>!['__proto__','constructor','prototype'].includes(k)));if(typeof clean.bigText!=='boolean')delete clean.bigText;return clean}catch{return {}}};
 const write=v=>{try{localStorage.setItem(KEY,JSON.stringify(v))}catch{}};
 const style=document.createElement('style');
 style.textContent=`

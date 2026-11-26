@@ -146,9 +146,12 @@ replace_once!(runtime, 'G.hp[who]=Math.max(0,G.hp[who]-dmg);act.invuln=.8;',
 replace_once!(runtime, 'G.hp[id]=Math.max(0,G.hp[id]-amount);c.invuln=.8;',
   'amount=PostGame.incoming(amount,id);if(!amount)return false;G.hp[id]=Math.max(0,G.hp[id]-amount);c.invuln=.8;', 'mitigação depois das defesas do jogador 2')
 
+replace_once!(html, "if(AC.state==='suspended')AC.resume();",
+  "if(AC.state==='suspended')AC.resume().catch(()=>{});", 'recusa de áudio não interrompe a entrada')
+
 # Menu input must run before the legacy anonymous capture listener, while the
 # actual implementation is loaded with the additive interface modules below.
-replace_once!(html, '<script>', "<script>\n'use strict';\nwindow.addEventListener(\"keydown\",e=>{if(e.metaKey||e.ctrlKey||e.altKey){e.stopImmediatePropagation();return}if(window.FinalAssetLoadingV1?.handleKey(e))return;window.ToriiMenuControlsV7?.handleKey(e)},true);", 'entrada unificada dos menus')
+replace_once!(html, '<script>', "<script>\n'use strict';\nwindow.addEventListener(\"keydown\",e=>{if(e.metaKey||e.ctrlKey||e.altKey){e.stopImmediatePropagation();return}window.AudioRecoveryV1?.handleGesture(e);if(window.FinalAssetLoadingV1?.handleKey(e))return;window.ToriiMenuControlsV7?.handleKey(e)},true);", 'entrada unificada dos menus')
 replace_once!(html, "window.addEventListener('keydown',e=>{if(mode==='title'", "window.addEventListener('keydown',e=>{if(document.querySelector('.keymap6 .listening'))return;if(mode==='title'", 'captura de remapeamento antes da navegação legada')
 # Legacy X used a free tile center instead of the movement body's collision radius.
 replace_once!(html, 'const nx=G.x+v[0]*.28,ny=G.y+v[1]*.28;if(!tileWalkable(current,nx,ny))break;G.x=nx;G.y=ny;steps++;', 'if(!window.SkillMovementV1.warpStep(G,v[0],v[1],.28))break;steps++;', 'Passo Sônico respeita colisão do corpo')
@@ -668,6 +671,7 @@ bridge_runtime = File.read(bridge_art, encoding: 'UTF-8')
 replace_once!(bridge_runtime, '__BRIDGE_SPRITES__', JSON.generate(bridge_assets), 'sprites da Ponte das Frequências')
 parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, stride_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), File.read(File.join(ROOT,'hero_legacy_fx.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8'), body_runtime, narrativa_runtime, File.read(File.join(ROOT, 'interface_v6.js'), encoding: 'UTF-8'), *fase2_runtimes, bridge_runtime, File.read(bridge_puzzle, encoding: 'UTF-8'), File.read(radio_tuning, encoding: 'UTF-8'), File.read(LUMI_JS, encoding: 'UTF-8'), canal_runtime, File.read(plant_sequencer, encoding: 'UTF-8'), club_runtime, File.read(final_echoes, encoding: 'UTF-8'), ui7_runtime, File.read(TOUCH_LAYOUT_JS, encoding: 'UTF-8'), File.read(MENU_CONTROLS_JS, encoding: 'UTF-8'), File.read(ENEMY_HEALTH_JS, encoding: 'UTF-8'), ui7_screens_runtime, combat_readability_runtime, enemy_variant_runtime, enemy_skill_fx_runtime, File.read(SKILL_MOVEMENT_JS, encoding: 'UTF-8'), ui7_new_games_runtime]
 parts += %w[render_performance_v1.js guidance_recovery_v1.js save_reliability_v1.js final_asset_loading_v1.js].map { |name| File.read(File.join(ROOT, name), encoding: 'UTF-8') }
+parts << File.read(File.join(ROOT, 'audio_recovery_v1.js'), encoding: 'UTF-8')
 runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = polish_runtime = npc_gestures_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
 html.insert(position, "\n")
 until parts.empty?
@@ -797,6 +801,8 @@ if File.file?(bridge_manifest)
   sources += [bridge_manifest] + bridge_files.map { |file| File.join(bridge_root, file) }
 end
 sources += %w[render_performance_v1.js guidance_recovery_v1.js save_reliability_v1.js final_asset_loading_v1.js].map { |name| File.join(ROOT, name) }
+sources << File.join(ROOT, 'audio_recovery_v1.js')
+sources += [__FILE__, File.join(REPO_ROOT, 'game', 'VERSION.json'), File.join(REPO_ROOT, 'production', 'otimizar_media.py')]
 manifest = {
   game: 'TORII & HUTUKARA',
   build: VERSION.fetch('rotulo'),

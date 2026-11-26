@@ -9,16 +9,8 @@ const report={method:'Chrome headless, actual built runtime and accepted actions
 async function check(name,fn){const details=await fn();report.checks.push({name,details,passed:true});console.log('OK · '+name)}
 async function shot(name){await page.screenshot({path:path.join(out,name+'.png')})}
 async function sameDecodedImage(hero,bytes){
- // The exporter verifies original RGBA before lossless WebP conversion. Decode
- // the same served format on both sides so browser PNG/WebP alpha rounding
- // cannot masquerade as changed art; still validate the original PNG hash.
- let mime='image/png',referenceBytes=bytes;
- if(/^https?:/.test(input)){
-  const optimizer=JSON.parse(fs.readFileSync(path.join(root,'production/playtest-dist/media-optimization.json'))),key='media/'+crypto.createHash('sha256').update(bytes).digest('hex')+'.png',entry=optimizer[key];
-  assert(entry&&['lossless','original'].includes(entry.mode),'Hero FX source must remain lossless: '+hero);
-  referenceBytes=fs.readFileSync(path.join(root,'production/playtest-dist',entry.file));mime=entry.file.endsWith('.webp')?'image/webp':'image/png';
- }
- const expected='data:'+mime+';base64,'+referenceBytes.toString('base64');
+ const reference=await require('./lossless_image_reference.cjs').imageReference({root,input,sourcePath:'assets/hero-attack-fx/v3/atlas/'+hero+'.png',expectedCanonicalSha:crypto.createHash('sha256').update(bytes).digest('hex')});
+ const expected=reference.uri;report.sourceSha256=reference.proof.artifactSha256;(report.references||(report.references=[])).push(reference.proof);
  const result=await page.evaluate(async({hero,expected})=>{
   const actual=HeroAttackFX.v3Images[hero],reference=new Image();reference.src=expected;await reference.decode();
   if(actual.naturalWidth!==reference.naturalWidth||actual.naturalHeight!==reference.naturalHeight)throw Error('Reference dimensions differ: '+hero);

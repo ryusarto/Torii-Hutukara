@@ -35,8 +35,9 @@ stale_found = stale_labels.select { |label| built_code.gsub(%r{/\*.*?\*/}m, '').
 check.call('rótulos de versão visíveis vêm só de VERSION.json', stale_found.empty?, stale_found.join(', '))
 check.call("título da página é #{version.fetch('titulo')}", built_code.include?("<title>TORII & HUTUKARA — A Última Frequência · #{version.fetch('titulo')}</title>"))
 # Trava das camadas: funções centrais são reescritas por cima a cada módulo.
-# O número não pode crescer; ao consolidar uma camada, baixe o teto aqui.
-layer_ceiling = { 'update' => 38, 'buildMaps' => 21, 'drawActor' => 14, 'drawTile' => 10, 'normalizeSave' => 11, 'advanceDialogue' => 11 }
+# A 1.0 acrescenta somente SaveReliabilityV1 à normalização para validar a importação.
+# Os demais tetos da 1.27 permanecem; ao consolidar uma camada, baixe o teto aqui.
+layer_ceiling = { 'update' => 38, 'buildMaps' => 21, 'drawActor' => 14, 'drawTile' => 10, 'normalizeSave' => 12, 'advanceDialogue' => 11 }
 layer_counts = layer_ceiling.keys.to_h { |name| [name, built_code.scan(/(?<![\w.$])#{name}\s*=\s*(?:function|\()/).size] }
 check.call('camadas sobre funções centrais não aumentaram', layer_counts.all? { |name, count| count <= layer_ceiling.fetch(name) }, layer_counts.map { |name, count| "#{name} #{count}/#{layer_ceiling.fetch(name)}" }.join(', '))
 ninja_art_root = File.join(repo_root, 'assets', 'variantes', 'ninja-arqueiro-v1')

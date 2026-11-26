@@ -34,11 +34,12 @@ const AJUSTE_CHEFE={
 };
 const ROMANO=['','I','II','III','IV'];
 
-function nivel(g=typeof G!=='undefined'?G:null){const n=g?.difficulty;return NIVEIS[n]?n:'historia'}
+function reconhecido(n){return typeof n==='string'&&ORDEM.includes(n)&&Object.hasOwn(NIVEIS,n)}
+function nivel(g=typeof G!=='undefined'?G:null){const n=g?.difficulty;return reconhecido(n)?n:'historia'}
 function cfg(g){return NIVEIS[nivel(g)]}
 function naFenda(){try{return typeof PostGame!=='undefined'&&PostGame.active()}catch{return false}}
 function ativo(){return nivel()!=='historia'&&!naFenda()}
-function definir(n){if(!G||!NIVEIS[n])return;G.difficulty=n;try{updateHUD()}catch{}}
+function definir(n){if(!G||!reconhecido(n))return;G.difficulty=n;try{updateHUD()}catch{}}
 
 // ---------------- avisos no chão (feitos em código) ----------------
 // Quatro marcadores: círculo, faixa, cruz e cone. As quatro marcas do

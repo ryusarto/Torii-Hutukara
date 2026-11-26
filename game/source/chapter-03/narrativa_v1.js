@@ -303,7 +303,9 @@ function fecharHistorico(){
   if(mode==='dialogue'&&!digitando())agendarAuto();
 }
 // Teclas: L histórico (sempre), P pular, O auto e V velocidade durante o diálogo.
+const entradaFocada=()=>!document.hidden&&(typeof Input121==='undefined'||Input121.focused!==false);
 document.addEventListener('keydown',e=>{
+  if(!entradaFocada())return;
   if(e.ctrlKey||e.metaKey||e.altKey)return;
   const k=e.key.toLowerCase();
   if(historicoAberto()){
@@ -321,12 +323,28 @@ document.addEventListener('keydown',e=>{
 
 /* ---------- controle: Y histórico, X auto, Select pular ---------- */
 const padAntes=new Map();
+let focoControle=entradaFocada();
+window.addEventListener('blur',()=>{focoControle=false});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)focoControle=false});
+window.addEventListener('focus',()=>{
+  if(document.hidden)return;
+  let pads=[];try{pads=[...(navigator.getGamepads?.()||[])]}catch{return}
+  let pronto=false;
+  for(const p of pads)if(p&&p.id!=='Dungeon QA pad'){
+    padAntes.set(p.index,p.buttons.map(b=>!!b.pressed));pronto=true;
+  }
+  // If reading the pads is not available yet, the first successful poll
+  // still consumes the held baseline before accepting fresh edges.
+  if(pronto)focoControle=true;
+});
 function lerControles(){
-  let pads=[];try{pads=[...(navigator.getGamepads?.()||[])]}catch{}
+  const focado=entradaFocada(),retornando=focado&&!focoControle;
+  let pads=[];try{pads=[...(navigator.getGamepads?.()||[])]}catch{focoControle=false;return}
+  focoControle=focado;
   for(const p of pads){
     if(!p||p.id==='Dungeon QA pad')continue;
     const antes=padAntes.get(p.index)||[];const agora=p.buttons.map(b=>!!b.pressed);padAntes.set(p.index,agora);
-    if(assetsPaused||window.FinalAssetLoadingV1?.busy())continue;
+    if(!focado||retornando||assetsPaused||window.FinalAssetLoadingV1?.busy())continue;
     const borda=i=>agora[i]&&!antes[i];
     if(historicoAberto()){if(borda(1)||borda(3))fecharHistorico();continue}
     if(mode!=='dialogue')continue;

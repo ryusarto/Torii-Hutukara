@@ -11,7 +11,9 @@ function observeGame(){if(G&&G!==observedGame){const previous=observedGame;obser
 const scheduled=new Map(),combatJobs=new Set();let scheduleId=0;
 function scopeMatches(job){return job.game===G&&(job.area===null||job.area===G?.area)&&(!job.combat||(G?.active===job.hero&&G.hp?.[job.hero]>0))}
 function forget(job){scheduled.delete(job.id);combatJobs.delete(job)}
-function paused(job){return loading||(job.combat&&!activeModes10())}
+// Hidden pages suspend RAF. Combat releases keep the same remaining game time;
+// UI/progression jobs retain their existing wall-clock behavior.
+function paused(job){return loading||(job.combat&&(document.hidden||!activeModes10()))}
 function arm(job){
  if(!scopeMatches(job)){forget(job);return}
  if(paused(job))return;
@@ -39,8 +41,9 @@ function syncCombat(){
  let waiting=false;
  for(const job of combatJobs){if(!scopeMatches(job))clearSchedule(job.id);else if(job.timer===null)waiting=true}
  if(!combatJobs.size)return;
- if(loading||!activeModes10())pauseScheduled(true);else if(waiting)resumeScheduled(true);
+ if(loading||document.hidden||!activeModes10())pauseScheduled(true);else if(waiting)resumeScheduled(true);
 }
+document.addEventListener('visibilitychange',syncCombat);
 const source=image=>typeof image?.src==='string'?image.src:'';
 const canvas=image=>typeof image?.getContext==='function';
 const available=image=>!!image&&!image.edgePending&&(canvas(image)?image.width>0&&image.height>0:image.complete&&image.naturalWidth>0);

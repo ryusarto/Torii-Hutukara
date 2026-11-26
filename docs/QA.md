@@ -5,6 +5,7 @@ Os workflows [`Gameplay regression`](../.github/workflows/quality.yml) e [`Publi
 ## Preparar
 
 ```sh
+python3 -m pip install pillow==12.3.0 numpy==2.5.3
 npm install --no-save --package-lock=false playwright@1.62.1
 npx playwright install chromium webkit
 export CHROME_PATH="$(node -p "require('playwright').chromium.executablePath()")"
@@ -26,6 +27,12 @@ node qa/dificuldade_unit.cjs
 Depois de exportar e servir o site em `http://127.0.0.1:8771/`:
 
 ```sh
+python3 -I qa/portable_media_parity.py
+node qa/release_controls_lifecycle.cjs http://127.0.0.1:8771/
+BROWSER_ENGINE=webkit node qa/release_controls_lifecycle.cjs http://127.0.0.1:8771/
+node qa/release_state_recovery.cjs http://127.0.0.1:8771/
+STATE_ENGINE=webkit node qa/release_state_recovery.cjs http://127.0.0.1:8771/
+node qa/release_lifecycle_v1.cjs http://127.0.0.1:8771/
 node qa/release_startup_final.cjs http://127.0.0.1:8771/
 node qa/release_mobile_final.cjs http://127.0.0.1:8771/
 node qa/release_combat_final.cjs http://127.0.0.1:8771/

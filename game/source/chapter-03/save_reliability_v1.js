@@ -31,6 +31,7 @@ function number(value){
 function prepare(source){
  if(!validShape(source))return null;
  const result={...source};
+ result.difficulty=ToriiDificuldade.nivel(source);
  for(const name of numericFields)if(Object.hasOwn(source,name)&&source[name]!==undefined){
   const value=number(source[name]);if(value===null)return null;result[name]=value;
  }
@@ -43,6 +44,7 @@ function prepare(source){
 }
 function usable(source){
  if(!validShape(source)||typeof source.area!=='string'||!Object.hasOwn(areas,source.area))return false;
+ if(source.difficulty!==ToriiDificuldade.nivel(source))return false;
  for(const name of numericFields)if(Object.hasOwn(source,name)&&
   (typeof source[name]!=='number'||!Number.isFinite(source[name])))return false;
  // The existing migrations own HP/XP/level recovery and limits. Verify their

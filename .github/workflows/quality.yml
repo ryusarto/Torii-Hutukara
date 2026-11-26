@@ -88,6 +88,15 @@ jobs:
           python3 -m http.server 8771 --bind 127.0.0.1 --directory production/playtest-dist &
           test_server_pid=$!
           trap 'kill "$test_server_pid"' EXIT
+          python3 -I qa/portable_media_parity.py
+          node qa/hero_attack_v3_browser.cjs
+          node qa/combat_readability_v1_browser.cjs
+          node qa/ryuchi_halo_v9_browser.cjs
+          CONTROLS_LIFECYCLE_OUT=qa/release-1.0.0/controls-chromium.json node qa/release_controls_lifecycle.cjs http://127.0.0.1:8771/
+          BROWSER_ENGINE=webkit CONTROLS_LIFECYCLE_OUT=qa/release-1.0.0/controls-webkit.json node qa/release_controls_lifecycle.cjs http://127.0.0.1:8771/
+          STATE_RECOVERY_OUTPUT_DIR=qa/release-1.0.0/state-chromium node qa/release_state_recovery.cjs http://127.0.0.1:8771/
+          STATE_ENGINE=webkit STATE_RECOVERY_OUTPUT_DIR=qa/release-1.0.0/state-webkit node qa/release_state_recovery.cjs http://127.0.0.1:8771/
+          node qa/release_lifecycle_v1.cjs http://127.0.0.1:8771/
           node qa/release_startup_final.cjs http://127.0.0.1:8771/
           node qa/release_mobile_final.cjs http://127.0.0.1:8771/
           node qa/release_combat_final.cjs http://127.0.0.1:8771/

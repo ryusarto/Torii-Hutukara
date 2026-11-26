@@ -14,7 +14,18 @@
 (function(){
 'use strict';
 const STORE='torii_hutukara_interface_v6';
-const read=()=>{try{return JSON.parse(localStorage.getItem(STORE))||{}}catch{return {}}};
+const record=v=>!!v&&typeof v==='object'&&!Array.isArray(v);
+const validKey=v=>typeof v==='string'&&(Array.from(v).length===1||/^(?:Arrow(?:Up|Down|Left|Right)|Escape|Enter|Tab|Shift|Control|Alt|Meta|Backspace|Delete|Insert|Home|End|PageUp|PageDown|CapsLock|NumLock|ScrollLock|Pause|ContextMenu|Clear|PrintScreen|Dead|AltGraph|F(?:[1-9]|1\d|2[0-4]))$/.test(v));
+const validPad=v=>Number.isInteger(v)&&v>=0&&v<=255;
+function read(){
+ let data;try{data=JSON.parse(localStorage.getItem(STORE))}catch{return {}}
+ if(!record(data))return {};
+ // Keep unrelated preferences, while only known actions enter the input map.
+ const clean=Object.fromEntries(Object.entries(data).filter(([k])=>!['__proto__','constructor','prototype'].includes(k)));
+ for(const name of ['keys','pads']){const source=record(data[name])?data[name]:{},map={};for(const a of ACTIONS){const value=source[a.id];if(Object.hasOwn(source,a.id)&&(name==='keys'?validKey(value):a.pad!==undefined&&validPad(value)))map[a.id]=value}clean[name]=map}
+ for(const key of ['colorblind','beatCue','tolerant'])if(Object.hasOwn(data,key)&&typeof data[key]!=='boolean')delete clean[key];
+ return clean;
+}
 const write=v=>{try{localStorage.setItem(STORE,JSON.stringify(v))}catch{}};
 const visible=el=>!!el&&!el.classList.contains('hidden')&&getComputedStyle(el).display!=='none'&&getComputedStyle(el).visibility!=='hidden';
 const overlayOpen=()=>visible(document.getElementById('overlay'));
@@ -142,6 +153,7 @@ const KeyMap={
     return null;
   },
   set(id,key){
+    if(!ACTIONS.some(a=>a.id===id)||!validKey(key))return false;
     const v=read(),keys=v.keys||{},a=ACTIONS.find(x=>x.id===id),old=this.binding(id);
     const other=ACTIONS.find(x=>x.id!==id&&this.binding(x.id).toLowerCase()===String(key).toLowerCase());
     if(other)keys[other.id]=old;keys[id]=key;
@@ -149,6 +161,7 @@ const KeyMap={
     v.keys=keys;write(v);refreshHints();return true;
   },
   setPad(id,index){
+    if(!ACTIONS.some(a=>a.id===id&&a.pad!==undefined)||!validPad(index))return false;
     const v=read(),pads=v.pads||{},a=ACTIONS.find(x=>x.id===id),old=this.padBinding(id);
     const other=ACTIONS.find(x=>x.id!==id&&x.pad!==undefined&&this.padBinding(x.id)===index);
     if(other)pads[other.id]=old;pads[id]=index;
@@ -158,9 +171,18 @@ const KeyMap={
   reset(){const v=read();delete v.keys;delete v.pads;write(v);refreshHints()}
 };
 // Teclado: tradução na captura, antes de qualquer tratador do jogo.
-let capturing=null;
+let capturing=null,captureOwner=null,captureEpoch=0,padWaitRAF=0;
+function captureActive(owner=captureOwner,epoch=captureEpoch){return epoch===captureEpoch&&!!owner?.isConnected&&owner.closest('.keymap6')===document.querySelector('#overlayInner .keymap6')&&overlayOpen()&&mode==='overlay'}
+function cancelCapture(){
+ capturing=null;captureOwner=null;captureEpoch++;if(padWaitRAF)cancelAnimationFrame(padWaitRAF);padWaitRAF=0;
+ for(const el of document.querySelectorAll('.keymap6 .listening')){el.classList.remove('listening');const id=el.dataset.key6||el.dataset.pad6;el.textContent=el.hasAttribute('data-key6')?KeyMap.label(id):(PAD_NAMES[KeyMap.padBinding(id)]??KeyMap.padBinding(id)??'—')}
+}
+for(const name of ['enterMenu10','openOverlay','closeOverlay']){const before=window[name];if(typeof before==='function')window[name]=function(...args){cancelCapture();return before.apply(this,args)}}
+addEventListener('blur',cancelCapture);document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelCapture()});
+new MutationObserver(()=>{if(captureOwner&&!captureActive())cancelCapture()}).observe(document.getElementById('overlay')||document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style']});
 for(const type of ['keydown','keyup'])addEventListener(type,e=>{
   if(e.ctrlKey||e.metaKey||e.altKey||e.__km6)return;
+  if(captureOwner&&!captureActive())cancelCapture();
   if(capturing&&type==='keydown'){e.preventDefault();e.stopImmediatePropagation();const f=capturing;capturing=null;f(e);return}
   const t=e.target;if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable))return;
   const canon=KeyMap.translate(e.key);if(!canon||canon===e.key||canon===e.key.toLowerCase())return;
@@ -179,7 +201,7 @@ try{
 const TECH_LETTERS={Q:'dodge',Z:'skill',X:'skill2',K:'super'};
 function refreshHints(){
   const foot=document.querySelector('.footer > div');
-  if(foot){const L=id=>KeyMap.label(id),move=['up','left','down','right'].map(L).join('');foot.innerHTML=`<span>DESKTOP:</span> ${move==='WASD'?'WASD / SETAS':move} mover · ${L('interact')} interagir · ${L('attack')} atacar · ${L('skill')}/${L('skill2')} técnicas · ${L('dodge')} esquiva · ${L('super')} especial · ${L('switch')} trocar · ${L('map')} mapa · ${L('party')} equipe · ${L('journal')} diário · ${L('menu')} menu`}
+  if(foot){const L=id=>KeyMap.label(id).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),move=['up','left','down','right'].map(L).join('');foot.innerHTML=`<span>DESKTOP:</span> ${move==='WASD'?'WASD / SETAS':move} mover · ${L('interact')} interagir · ${L('attack')} atacar · ${L('skill')}/${L('skill2')} técnicas · ${L('dodge')} esquiva · ${L('super')} especial · ${L('switch')} trocar · ${L('map')} mapa · ${L('party')} equipe · ${L('journal')} diário · ${L('menu')} menu`}
   for(const span of document.querySelectorAll('#vitals092 .tech-row10 span')){const m=span.textContent.match(/^([QZXK]|\S{1,6}) ([●·].*)$/);if(!m)continue;const id=span.dataset.km6||TECH_LETTERS[m[1]];if(!id)continue;span.dataset.km6=id;const want=KeyMap.label(id)+' '+m[2];if(span.textContent!==want)span.textContent=want}
   const guideLabel=G?'TRILHA '+(G.guidance===false?'OFF':'ON'):'TRILHA';
   for(const [id,label,shortcut] of [['bMap','MAPA',`[${KeyMap.label('map')}]`],['bGuide',guideLabel,'[H]'],['bJournal','DIÁRIO',`[${KeyMap.label('journal')}]`],['bParty','EQUIPE',`[${KeyMap.label('party')}]`],['bMenu','MENU','· '+KeyMap.label('menu').toUpperCase()]]){
@@ -196,18 +218,24 @@ for(const name of ['updateHUD','updateActionHUD']){if(typeof window[name]!=='fun
 setInterval(()=>{try{refreshHints()}catch{}},400);
 
 function openControls(){
-  const v=read(),rows=ACTIONS.map(a=>`<span>${a.label}</span><b data-key6="${a.id}">${KeyMap.label(a.id)}</b><b data-pad6="${a.id}">${a.pad===undefined?'—':PAD_NAMES[KeyMap.padBinding(a.id)]||KeyMap.padBinding(a.id)}</b>`).join('');
+  cancelCapture();const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const rows=ACTIONS.map(a=>`<span>${a.label}</span><b data-key6="${a.id}">${escape(KeyMap.label(a.id))}</b><b data-pad6="${a.id}">${a.pad===undefined?'—':escape(PAD_NAMES[KeyMap.padBinding(a.id)]??KeyMap.padBinding(a.id))}</b>`).join('');
   enterMenu10(`<div class="eyebrow">SISTEMA · CONTROLES</div><h2>Teclas e botões</h2><p>Toque numa tecla ou botão e aperte o novo. Se já estiver em uso, os dois trocam de lugar. As dicas na tela seguem esta lista.</p><div class="keymap6"><span></span><small>TECLADO</small><small>CONTROLE</small>${rows}</div><div class="row"><button class="action" id="keymapReset6">RESTAURAR PADRÃO</button><button class="action strong" id="keymapBack6">VOLTAR</button></div>`,'settings');
-  for(const el of document.querySelectorAll('[data-key6]'))el.onclick=()=>{el.textContent='…';el.classList.add('listening');capturing=e=>{if(e.key!=='Escape'||el.dataset.key6==='menu')KeyMap.set(el.dataset.key6,e.key.length===1?e.key.toLowerCase():e.key);openControls()}};
-  for(const el of document.querySelectorAll('[data-pad6]')){const a=ACTIONS.find(x=>x.id===el.dataset.pad6);if(a.pad===undefined)continue;el.onclick=()=>{el.textContent='…';el.classList.add('listening');waitPad(index=>{KeyMap.setPad(a.id,index);openControls()})}}
+  for(const el of document.querySelectorAll('[data-key6]'))el.onclick=()=>{cancelCapture();captureOwner=el;const epoch=captureEpoch;el.textContent='…';el.classList.add('listening');capturing=e=>{if(!captureActive(el,epoch))return;cancelCapture();if(e.key!=='Escape'||el.dataset.key6==='menu')KeyMap.set(el.dataset.key6,e.key.length===1?e.key.toLowerCase():e.key);openControls()}};
+  for(const el of document.querySelectorAll('[data-pad6]')){const a=ACTIONS.find(x=>x.id===el.dataset.pad6);if(a.pad===undefined)continue;el.onclick=()=>{cancelCapture();captureOwner=el;const epoch=captureEpoch;el.textContent='…';el.classList.add('listening');waitPad(index=>{KeyMap.setPad(a.id,index);openControls()},el,epoch)}}
   $('keymapReset6').onclick=()=>{KeyMap.reset();openControls()};$('keymapBack6').onclick=()=>openSettings10();
 }
-function waitPad(done){const start=performance.now(),raw=()=>Array.from((Object.getOwnPropertyDescriptor(Navigator.prototype,'getGamepads')?.value||navigator.getGamepads).call(navigator)||[]);const was=new Set();for(const p of raw())if(p)p.buttons.forEach((b,i)=>b.pressed&&was.add(p.index+':'+i));const tick=()=>{if(performance.now()-start>8000)return openControls();for(const p of raw())if(p)for(let i=0;i<p.buttons.length;i++)if(p.buttons[i].pressed&&!was.has(p.index+':'+i))return done(i);requestAnimationFrame(tick)};requestAnimationFrame(tick)}
+function waitPad(done,owner,epoch){
+ const start=performance.now(),raw=()=>{try{const get=Object.getOwnPropertyDescriptor(Navigator.prototype,'getGamepads')?.value||navigator.getGamepads;return typeof get==='function'?Array.from(get.call(navigator)||[]):[]}catch{return []}},was=new Set();
+ for(const p of raw())if(p)Array.from(p.buttons||[]).forEach((b,i)=>b?.pressed&&was.add(p.index+':'+i));
+ const tick=()=>{padWaitRAF=0;if(!captureActive(owner,epoch))return;if(performance.now()-start>8000){cancelCapture();openControls();return}for(const p of raw())if(p)for(let i=0;i<(p.buttons?.length||0);i++){const key=p.index+':'+i;if(!p.buttons[i]?.pressed)was.delete(key);else if(!was.has(key)){cancelCapture();done(i);return}}padWaitRAF=requestAnimationFrame(tick)};
+ padWaitRAF=requestAnimationFrame(tick);
+}
 
 /* ---------------- 5. Acessibilidade ---------------- */
 const A11y={
   get colorblind(){return !!read().colorblind},get beatCue(){return !!read().beatCue},get tolerant(){return !!read().tolerant},
-  toggle(k){const v=read();v[k]=!v[k];write(v);return v[k]}
+  toggle(k){if(!['colorblind','beatCue','tolerant'].includes(k))return false;const v=read();v[k]=!v[k];write(v);return v[k]}
 };
 // Modo daltônico: os avisos de ataque (vermelhos e rosados no canvas) viram âmbar.
 const cbCache=new Map();

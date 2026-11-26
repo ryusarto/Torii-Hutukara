@@ -25,9 +25,10 @@ O progresso fica salvo no navegador e no aparelho usado. O jogo permite exportar
 
 ## Construir e testar
 
-São usados Ruby, Node.js e Python 3. As versões e dependências da distribuição estão nos [workflows](.github/workflows/).
+São usados Ruby, Node.js e Python 3 com Pillow e NumPy. Instale as dependências de imagem antes de gerar o HTML portátil. As versões estão nos [workflows](.github/workflows/).
 
 ```sh
+python3 -m pip install pillow==12.3.0 numpy==2.5.3
 ruby game/source/chapter-03/build_alpha.rb
 ruby game/source/chapter-03/validate_alpha.rb
 node qa/input_regression.cjs
