@@ -144,8 +144,7 @@ function prepararChefe(e){
 function empurrar(e,dist){
   for(const t of lutadores()){
     const dx=t.x-e.x,dy=t.y-e.y,d=Math.hypot(dx,dy)||1;if(d>=dist)continue;
-    for(let s=dist;s>d;s-=.25){const nx=e.x+dx/d*s,ny=e.y+dy/d*s;if(tileWalkable(current,nx,ny)){
-      if(t.p===1){G.x=nx;G.y=ny}else{C3.coop.x=nx;C3.coop.y=ny}break}}
+    moveActor121(t.p===1?G:C3.coop,dx/d,dy/d,dist-d);
   }
 }
 function transicao(e,fase){

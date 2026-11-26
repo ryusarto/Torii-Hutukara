@@ -555,7 +555,7 @@ hitEnemy=function(e,damage,stun=.15,knock=0){
     if(C3.finalPending)return false;
     if(damage>=e.hp)return C3.openPhrase('final');
   }
-  return C3_hitBase(e,damage,stun,knock);
+  return C3_hitBase(e,damage,stun,e?.id==='c3_metronome'?0:knock);
 };
 
 C3.fireHazard=function(h,e){if(h.fired)return;h.fired=true;const dx=G.x-h.x,dy=G.y-h.y,d=Math.hypot(dx,dy);let hit=false;if(h.kind==='ring')hit=d<h.r;else if(h.kind==='cross')hit=Math.abs(dx)<h.width||Math.abs(dy)<h.width;else if(h.kind==='fan'){const a=Math.atan2(dy,dx),diff=Math.abs(Math.atan2(Math.sin(a-h.angle),Math.cos(a-h.angle)));hit=d<h.r&&diff<h.arc} else if(h.kind==='rain')hit=d<h.r;else if(h.kind==='pulse')hit=d>h.inner&&d<h.r;
@@ -567,15 +567,61 @@ C3.fireHazard=function(h,e){if(h.fired)return;h.fired=true;const dx=G.x-h.x,dy=G
 C3.updateHazards=function(dt,e){for(let i=C3.hazards.length-1;i>=0;i--){const h=C3.hazards[i];if(!h)continue;h.time-=dt;if(!h.fired&&h.time<=h.trigger)C3.fireHazard(h,e);if(C3.hazards[i]===h&&h.time<=0)C3.hazards.splice(i,1)}};
 C3.castPattern=function(e,kind){const phase=e.phase||1,base={kind,x:e.x,y:e.y,max:1.18,time:1.18,trigger:.17,damage:e.id==='c3_silence'?12+phase*2:11+phase,r:3.7,phase};if(kind==='cross')Object.assign(base,{max:1.25,time:1.25,width:.68+phase*.06});if(kind==='fan')Object.assign(base,{max:1.05,time:1.05,r:5.8,arc:.72,angle:Math.atan2(G.y-e.y,G.x-e.x)});if(kind==='pulse')Object.assign(base,{max:1.22,time:1.22,r:6.2,inner:2.45});if(kind==='chase'||kind==='orbit')Object.assign(base,{max:1.05,time:1.05,r:2.4});if(kind==='rain'){for(let i=0;i<5+phase;i++){const a=i*2.399+phase*.47,r=.45+(i%3)*.72;C3.hazards.push({...base,kind:'rain',x:clamp(G.x+Math.cos(a)*r,3,current.w-3),y:clamp(G.y+Math.sin(a)*r,3,current.h-3),r:1.02,max:1.16,time:1.16,trigger:.14})}}else C3.hazards.push(base);e.wind=base.time;e.windKind=kind;e.facing=base.angle||0;addCombatFX(e.x,e.y,'warning',base.r||3);toast(C3.patternLabels[kind]||'O SILÊNCIO SE MOVE')};
 
+const metronomeFloor={left:6.5,right:23.5,top:5.75,bottom:16.5};
+const metronomeSpawn={x:15.5,y:6.5};
+function metronomeCanStand(x,y){
+  const {left,right,top,bottom}=metronomeFloor;
+  return x>=left&&x<=right&&y>=top&&y<=bottom&&canBody121(x,y,.55);
+}
+function moveMetronome(e,dt){
+  const {left,right,top,bottom}=metronomeFloor;
+  const dx=G.x-e.x,dy=G.y-e.y,distance=Math.hypot(dx,dy);
+  if(distance<.001)return;
+  const toward=distance>3.7?1:distance<2.35?-1:0;
+  const side=e.patternIndex%2?1:-1;
+  const vx=toward?toward*dx:-side*dy,vy=toward?toward*dy:side*dx;
+  const speed=1.45+e.phase*.25;
+  const x=clamp(e.x+vx/distance*speed*dt,left,right);
+  const y=clamp(e.y+vy/distance*speed*dt,top,bottom);
+  const step=Math.hypot(x-e.x,y-e.y);
+  if(step>0)moveActor121(e,(x-e.x)/step,(y-e.y)/step,step,metronomeCanStand);
+}
+
 const C3_updateEnemyBase=updateEnemy;
-updateEnemy=function(e,dt,isBoss=false){if(!e||!['c3_metronome','c3_silence'].includes(e.id))return C3_updateEnemyBase(e,dt,isBoss);if(e.hp<=0)return;e.cd=Math.max(0,(e.cd||0)-dt);e.stun=Math.max(0,(e.stun||0)-dt);e.flash=Math.max(0,(e.flash||0)-dt);e.wind=Math.max(0,(e.wind||0)-dt);e.phase=e.hp<e.max*.34?3:e.hp<e.max*.68?2:1;C3.updateHazards(dt,e);if(!bossActor||bossActor!==e||mode!=='action')return;if(C3.finalPending&&e.id==='c3_silence')return;if(e.stun>0)return;if(e.cd<=0&&!C3.hazards.length){let kind;if(e.id==='c3_metronome'){const seq=e.phase===1?['ring','cross','fan']:['cross','pulse','ring','fan'];kind=seq[(e.patternIndex++)%seq.length]}else{kind=C3.bossPattern[(C3.bossPatternIndex++)%C3.bossPattern.length]||'ring'}C3.castPattern(e,kind);e.cd=Math.max(.48,(e.id==='c3_silence'?1.28:1.5)-e.phase*.16)}const d=Math.hypot(G.x-e.x,G.y-e.y);if(!C3.hazards.length&&d>4.2){const a=Math.atan2(G.y-e.y,G.x-e.x),nx=e.x+Math.cos(a)*dt*.58,ny=e.y+Math.sin(a)*dt*.58;if(tileWalkable(current,nx,ny)){e.x=nx;e.y=ny}}};
+updateEnemy=function(e,dt,isBoss=false){
+  if(!e||!['c3_metronome','c3_silence'].includes(e.id))return C3_updateEnemyBase(e,dt,isBoss);
+  if(e.hp<=0)return;
+  for(const timer of ['cd','stun','flash','wind'])e[timer]=Math.max(0,(e[timer]||0)-dt);
+  e.phase=e.hp<e.max*.34?3:e.hp<e.max*.68?2:1;
+  C3.updateHazards(dt,e);
+  if(bossActor!==e||mode!=='action')return;
+  const metronome=e.id==='c3_metronome';
+  if(metronome&&!metronomeCanStand(e.x,e.y))Object.assign(e,metronomeSpawn);
+  if(e.stun>0||!metronome&&C3.finalPending||C3.hazards.length)return;
+  if(e.cd<=0){
+    let kind;
+    if(metronome){
+      const seq=e.phase===1?['ring','cross','fan']:['cross','pulse','ring','fan'];
+      kind=seq[(e.patternIndex++)%seq.length];
+    }else kind=C3.bossPattern[(C3.bossPatternIndex++)%C3.bossPattern.length]||'ring';
+    C3.castPattern(e,kind);
+    // The cast holds its ground. The recovery window is when the boss takes steps.
+    e.cd=metronome?e.wind+.85:Math.max(.48,1.28-e.phase*.16);
+    return;
+  }
+  if(metronome){moveMetronome(e,dt);return}
+  if(Math.hypot(G.x-e.x,G.y-e.y)>4.2){
+    const a=Math.atan2(G.y-e.y,G.x-e.x),nx=e.x+Math.cos(a)*dt*.58,ny=e.y+Math.sin(a)*dt*.58;
+    if(tileWalkable(current,nx,ny)){e.x=nx;e.y=ny}
+  }
+};
 
 C3.drawHazard=function(h){const x=h.x*T-cam.x,y=h.y*T-cam.y-12,k=clamp(h.time/h.max,0,1),pulse=.55+.35*Math.sin(tick*18);ctx.save();ctx.globalAlpha=.26+.34*pulse;ctx.strokeStyle=h.kind==='rain'?'#7ee9f0':'#ff6fb8';ctx.fillStyle=h.kind==='rain'?'#56dce522':'#d73e8b22';ctx.lineWidth=2.5;if(h.kind==='ring'||h.kind==='rain'){ctx.beginPath();ctx.arc(x,y,h.r*T,0,Math.PI*2);ctx.fill();ctx.stroke()}else if(h.kind==='cross'){line(x-current.w*T,y,x+current.w*T,y,'#ff6fb899',Math.max(2,h.width*T*2));line(x,y-current.h*T,x,y+current.h*T,'#ff6fb899',Math.max(2,h.width*T*2))}else if(h.kind==='fan'){ctx.beginPath();ctx.moveTo(x,y);ctx.arc(x,y,h.r*T,h.angle-h.arc,h.angle+h.arc);ctx.closePath();ctx.fill();ctx.stroke()}else if(h.kind==='pulse'){ctx.beginPath();ctx.arc(x,y,h.r*T,0,Math.PI*2);ctx.arc(x,y,h.inner*T,0,Math.PI*2,true);ctx.fill('evenodd');ctx.stroke()}else{ctx.beginPath();ctx.arc(x,y,2.4*T*(1-k*.18),0,Math.PI*2);ctx.stroke();for(let i=0;i<8;i++){const a=i*Math.PI/4+tick*(h.kind==='orbit'?1.2:.35);rect(x+Math.cos(a)*42,y+Math.sin(a)*42,4,4,i%2?'#ff8fd0':'#7de6ee')}}ctx.restore()};
 const C3_drawCombatBase=drawCombatLayer;
 drawCombatLayer=function(){C3_drawCombatBase();if(!G||!bossActor||!['c3_metronome','c3_silence'].includes(bossActor.id))return;for(const h of C3.hazards)C3.drawHazard(h)};
 
 C3.healFormation=function(){for(const id of partyMembers()){if(G.maxhp[id])G.hp[id]=G.maxhp[id]}G.resonance=Math.max(60,G.resonance)};
-C3.spawnMetronome=function(){C3.healFormation();C3.hazards=[];C3.attackMemory=[];C3.repeatToastAt=0;G.x=15.5;G.y=14.5;G.dir='up';trail=[];bossActor={id:'c3_metronome',kind:'boss',type:'boss',x:15.5,y:6.5,hp:360,max:360,power:13,cd:1.15,wind:0,stun:0,flash:0,phase:1,patternIndex:0};battle={boss:true,id:'c3_metronome'};mode='action';act.invuln=1.4;$('actionHUD').classList.remove('hidden');addCombatFX(bossActor.x,bossActor.y,'spawn',4);updateActionHUD();save(true)};
+C3.spawnMetronome=function(){C3.healFormation();C3.hazards=[];C3.attackMemory=[];C3.repeatToastAt=0;G.x=15.5;G.y=14.5;G.dir='up';trail=[];bossActor={id:'c3_metronome',kind:'boss',type:'boss',...metronomeSpawn,hp:360,max:360,power:13,cd:1.15,wind:0,stun:0,flash:0,phase:1,patternIndex:0};battle={boss:true,id:'c3_metronome'};mode='action';act.invuln=1.4;$('actionHUD').classList.remove('hidden');addCombatFX(bossActor.x,bossActor.y,'spawn',4);updateActionHUD();save(true)};
 C3.startMetronome=function(retry=false){if(G.c3.metronomeDone)return talk([{who:'metronome',t:'COMPASSO REGISTRADO. PASSAGEM LIBERADA.'}]);if(bossActor)return;if(!retry&&!G.c3.metronomeSeen){G.c3.metronomeSeen=true;setCheckpoint('c3_clouds','cloud_terrace',7.5,17.5,true);C3.scene('C3_019',C3.spawnMetronome);return}C3.spawnMetronome()};
 C3.finishMetronome=function(){if(!bossActor)return;const x=bossActor.x,y=bossActor.y;bossActor=null;battle=null;C3.hazards=[];hostileShots=[];projectiles=[];G.c3.metronomeDone=true;gainXP(120);G.shards+=18;G.resonance=100;mode='walk';$('actionHUD').classList.add('hidden');addCombatFX(x,y,'duo',5);screenShake=.45;setCheckpoint('c3_clouds','cloud_terrace',15.5,13.5,true);C3.scene('C3_020',()=>{save(true);updateHUD();toast('PASSAGEM · ÚLTIMO TORII')})};
 

@@ -1,3 +1,9 @@
+## [Beta 1.24.1] — 2026-11-26
+
+- O Passo Sônico, os empurrões e os reposicionamentos de combate respeitam a colisão do personagem. Saves antigos com posição inválida são recuperados ao carregar ou importar.
+- A preferência de som é salva no navegador e respeitada ao continuar a jornada.
+- O Metrônomo se desloca dentro da arena entre ataques e usa sprites de caminhada em quatro direções.
+
 ## [Beta 1.24.0] — 2026-11-26
 
 - Ponte das Frequências, Rádio 9, Lumi, Canal Suspenso, Usina, Contratempo e A Última Frequência passam a fazer parte da mesma campanha.

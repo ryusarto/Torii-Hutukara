@@ -24,6 +24,28 @@
         "right"
       ],
       "source": "source/boss_walk_clean.png"
+    },
+    "c3_metronome_walk": {
+      "boss": "c3_metronome",
+      "atlas": "atlas/c3_metronome_walk.png",
+      "columns": 4,
+      "rows": 4,
+      "cell": 256,
+      "pivot": [
+        128,
+        224
+      ],
+      "scale": 0.6484375,
+      "frames": 4,
+      "loop": true,
+      "strideDistance": 1.45,
+      "directions": [
+        "down",
+        "left",
+        "up",
+        "right"
+      ],
+      "source": "source/c3_metronome_walk.png"
     }
   }
 }

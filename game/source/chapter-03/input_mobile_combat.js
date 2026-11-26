@@ -29,19 +29,18 @@ function openMobileHelp121(){
   $('helpBack10').onclick=()=>{if(G&&menuOrigin10!=='title')openJourney10();else closeOverlay()};
 }
 function feel121(id){return CombatFeel121[id]||CombatFeel121.franco}
-function canBody121(x,y){
+function canBody121(x,y,r=.29){
   if(!current||!Number.isFinite(x)||!Number.isFinite(y))return false;
-  const r=.29;
   return tileWalkable(current,x-r,y-r)&&tileWalkable(current,x+r,y-r)&&
     tileWalkable(current,x-r,y+r)&&tileWalkable(current,x+r,y+r);
 }
-function moveActor121(body,dx,dy,distance){
+function moveActor121(body,dx,dy,distance,canStand=canBody121){
   if(!Number.isFinite(distance)||distance<=0)return false;
   const ox=body.x,oy=body.y,steps=Math.max(1,Math.ceil(distance/.075));
   for(let i=0;i<steps;i++){
     const nx=body.x+dx*distance/steps,ny=body.y+dy*distance/steps;
-    if(canBody121(nx,body.y))body.x=nx;
-    if(canBody121(body.x,ny))body.y=ny;
+    if(canStand(nx,body.y))body.x=nx;
+    if(canStand(body.x,ny))body.y=ny;
   }
   return Math.hypot(body.x-ox,body.y-oy)>1e-6;
 }
@@ -52,6 +51,28 @@ function safeSpawn121(x,y){
     if(canBody121(p.x,p.y))return p;
   }
   return null;
+}
+function recenterCamera121(){
+  const width=current.w*T,height=current.h*T;
+  cam.x=width<VW?(width-VW)/2:clamp(G.x*T-VW/2,0,width-VW);
+  cam.y=height<VH?(height-VH)/2:clamp(G.y*T-VH/2,0,height-VH);
+}
+function repairPlayerPosition121(){
+  if(!G||!current||canBody121(G.x,G.y))return;
+  const x=Number(G.x),y=Number(G.y),checkpoint=G.checkpoint;
+  let point=safeSpawn121(x,y);
+  if(!point&&checkpoint?.area===G.area)point=safeSpawn121(checkpoint.x,checkpoint.y);
+  if(!point){
+    let best=Infinity;
+    for(let row=1;row<current.h-1;row++)for(let col=1;col<current.w-1;col++){
+      const px=col+.5,py=row+.5,distance=Math.hypot(px-x,py-y);
+      if(distance<best&&canBody121(px,py)){point={x:px,y:py};best=distance}
+    }
+  }
+  if(!point)return;
+  G.x=point.x;G.y=point.y;trail=[];resetMotion10();routeCache.key='';recenterCamera121();
+  if(C3.coopActive())C3.syncCoop(true);
+  save(true);
 }
 function segmentFree121(a,b){
   const d=Math.hypot(b.x-a.x,b.y-a.y),n=Math.max(1,Math.ceil(d/.12));
@@ -485,11 +506,7 @@ function updateMobileLayout121(){
   if(VW!==newWidth||VH!==newHeight){
     VW=newWidth;VH=newHeight;const canvas=$('game');canvas.width=VW;canvas.height=VH;
     ctx.imageSmoothingEnabled=false;releaseTouch121();
-    if(G&&current){
-      const worldWidth=current.w*T,worldHeight=current.h*T;
-      cam.x=worldWidth<VW?(worldWidth-VW)/2:clamp(G.x*T-VW/2,0,worldWidth-VW);
-      cam.y=worldHeight<VH?(worldHeight-VH)/2:clamp(G.y*T-VH/2,0,worldHeight-VH);
-    }
+    if(G&&current)recenterCamera121();
   }
   document.documentElement.style.setProperty('--game-ratio',VW+'/'+VH);
   document.documentElement.style.setProperty('--game-aspect',String(VW/VH));
@@ -591,6 +608,17 @@ const LANDSCAPE_CSS122=`
 .mobile121.landscape121.physical121 #mobileDeck121{display:none!important}
 `;
 function musicChallenge122(){return mode==='rhythm'||!!document.querySelector('#overlay .voice-note-grid,#overlay .notes,#overlay #c3PhraseProgress')&&!document.getElementById('overlay').classList.contains('hidden')}
+function readAudioMute121(){
+  try{return localStorage.getItem('torii_audio_muted_v1')==='1'}catch{return false}
+}
+function toggleAudio121(){
+  audioMuted=!audioMuted;
+  try{localStorage.setItem('torii_audio_muted_v1',audioMuted?'1':'0')}catch{}
+  if(audioMuted){
+    audioEnabled=false;
+    if(AC?.state==='running')AC.suspend().then(()=>{if(!audioMuted)enableAudio()}).catch(()=>{});
+  }else enableAudio();
+}
 const soundscapeBefore122=soundscape;
 soundscape=function(){if(musicChallenge122()){stopAlbum11(.04);return}return soundscapeBefore122()};
 const startAlbumBefore122=startAlbum11;
@@ -661,6 +689,9 @@ const initBefore121=init;
 init=function(){
   const desktopHelp=openHelp;
   openHelp=function(...args){return Input121.mobile?openMobileHelp121():desktopHelp.apply(this,args)};
+  // Rebuild the area's quest-dependent geometry before testing a legacy position.
+  const setAreaWithMap=setArea;
+  setArea=function(...args){const result=setAreaWithMap(...args);repairPlayerPosition121();return result};
   initBefore121();installMobile121();const landscapeStyle=document.createElement('style');landscapeStyle.textContent=LANDSCAPE_CSS122;document.head.appendChild(landscapeStyle);
   document.title='Torii & Hutukara · __BUILD_TITLE__';
   const version=document.querySelector('#start .version');if(version)version.textContent=BUILD_LABEL;

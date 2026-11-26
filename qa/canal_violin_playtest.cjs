@@ -115,8 +115,8 @@ async function testCanal(browser,mobile,muted=false){
       await down();
     }
     await page.waitForFunction(()=>G.c3.canalPath);
-    const playing=await page.evaluate(()=>({count:__canalAudio.length,time:AC.currentTime}));
-    await page.waitForFunction(time=>AC.currentTime>time+.55,playing.time);
+    const playing=await page.evaluate(muted=>({count:__canalAudio.length,time:muted?tick:AC.currentTime}),muted);
+    await page.waitForFunction(({time,muted})=>(muted?tick:AC.currentTime)>time+.55,{time:playing.time,muted});
     assert.deepEqual(await page.evaluate(()=>({
       holding:CanalViolin.progress().holding,mode,count:__canalAudio.length,
       lastStillPlaying:__canalAudio.length>0&&!__canalAudio.at(-1).qaStopped&&!__canalAudio.at(-1).qaEnded

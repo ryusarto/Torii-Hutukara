@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Beta 1.24.0.** Reúne os sete desafios musicais da campanha, incluindo o trecho original de *Veracidade* na melodia de Lumi. O modo toque traz dicas para os botões da tela. A versão fica em `game/VERSION.json`.
+**Beta 1.24.1.** Reúne os sete desafios musicais da campanha e inclui recuperação de posições inválidas ao carregar, preferência de som persistente e caminhada em quatro direções para o Metrônomo. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.

@@ -79,20 +79,21 @@ const BossChoreographyV2 = {
     return {frame:this.reduced()?3:Math.min(3,Math.floor(progress*4)), spec:r.prep};
   },
   observeTravel(e, before) {
-    if(e.id!=='boss')return;this.sync();
+    const entry=this.manifest.clips?.[e.id+'_walk'];
+    if(!entry)return;
+    this.sync();
     const dx=e.x-before.x,dy=e.y-before.y,distance=Math.hypot(dx,dy);
     let r=this.walks.get(e);if(!r){r={phase:0,moving:false,row:0};this.walks.set(e,r)}
     // A charge is instantaneous gameplay travel, not a walking cycle. Stun and
     // attack anticipation own their poses even when a hit displaces the body.
     r.moving=distance>.00001&&distance<.5&&!this.snapshot(e)&&!(e.stun>0);
     if(!r.moving)return;
-    const entry=this.manifest.clips?.boss_walk;
     r.phase=(r.phase+distance/(entry?.strideDistance||1.8))%1;
     r.row=Math.abs(dx)>Math.abs(dy)?(dx<0?1:3):(dy<0?2:0);
   },
   walkPose(e) {
-    const r=this.walks.get(e);if(!r?.moving||!['action','overlay','dialogue','rhythm'].includes(mode)||this.cancelled(e))return null;
-    const frames=this.manifest.clips?.boss_walk?.frames||8;
+    const r=this.walks.get(e);if(!r?.moving||!['action','overlay','dialogue','rhythm'].includes(mode)||this.cancelled(e)||e.f2?.pausa>0||e.stun>0)return null;
+    const frames=this.manifest.clips?.[e.id+'_walk']?.frames||8;
     return {frame:this.reduced()?0:Math.min(frames-1,Math.floor(r.phase*frames)),row:r.row,walking:true};
   },
   image(key, entry) {

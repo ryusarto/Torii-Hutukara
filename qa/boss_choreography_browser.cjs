@@ -25,8 +25,8 @@ const checks=[],errors=[],animatedSequences=[];let browser,context;
  await check('Cast and directional walking atlases decode with distinct transparent frames',async()=>{
   const r=await page.evaluate(async()=>{const a=BossChoreographyV2,result=[];
    for(const [key,entry]of Object.entries(a.manifest.clips)){const im=a.image(key,entry);if(!im)throw Error(key+' missing image');await im.decode();const cell=entry.cell||a.manifest.cell,columns=entry.columns||a.manifest.columns,rows=entry.rows||2,frames=entry.frames||8;if(im.naturalWidth!==cell*columns||im.naturalHeight!==cell*rows)throw Error(key+' dimensions');const c=document.createElement('canvas');c.width=c.height=cell;const q=c.getContext('2d'),hashes=[];
-    for(let row=0;row<(key==='boss_walk'?rows:1);row++)for(let f=0;f<frames;f++){q.clearRect(0,0,cell,cell);q.drawImage(im,(f%columns)*cell,(key==='boss_walk'?row:Math.floor(f/columns))*cell,cell,cell,0,0,cell,cell);const d=q.getImageData(0,0,cell,cell).data;let h=2166136261,pixels=0;for(let j=0;j<d.length;j++){h=Math.imul(h^d[j],16777619);if(j%4===3&&d[j]>128)pixels++;}if(!pixels)throw Error(key+' empty frame '+f);if(d[3]||d[(cell*cell-1)*4+3])throw Error(key+' opaque corner '+f);hashes.push((h>>>0).toString(16));}result.push({key,hashes,unique:new Set(hashes).size,expected:key==='boss_walk'?frames*rows:frames});}return result;});
-  assert.deepEqual(r.map(x=>x.key).sort(),['boss_cast','boss_charge','voice_boss_cast','c3_metronome_cast','c3_silence_cast','boss_walk'].sort());assert(r.every(x=>x.unique===x.expected));return r;
+    for(let row=0;row<(entry.directions?rows:1);row++)for(let f=0;f<frames;f++){q.clearRect(0,0,cell,cell);q.drawImage(im,(f%columns)*cell,(entry.directions?row:Math.floor(f/columns))*cell,cell,cell,0,0,cell,cell);const d=q.getImageData(0,0,cell,cell).data;let h=2166136261,pixels=0;for(let j=0;j<d.length;j++){h=Math.imul(h^d[j],16777619);if(j%4===3&&d[j]>128)pixels++;}if(!pixels)throw Error(key+' empty frame '+f);if(d[3]||d[(cell*cell-1)*4+3])throw Error(key+' opaque corner '+f);hashes.push((h>>>0).toString(16));}result.push({key,hashes,unique:new Set(hashes).size,expected:entry.directions?frames*rows:frames});}return result;});
+  assert.deepEqual(r.map(x=>x.key).sort(),['boss_cast','boss_charge','voice_boss_cast','c3_metronome_cast','c3_silence_cast','boss_walk','c3_metronome_walk'].sort());assert(r.every(x=>x.unique===x.expected));return r;
  });
  await page.evaluate(async()=>{
   G=fresh();buildMaps();
@@ -44,6 +44,41 @@ const checks=[],errors=[],animatedSequences=[];let browser,context;
  });
  await check('First boss selects moving bitmap poses and keeps the same cell while paused',async()=>{
   const r=await page.evaluate(()=>{const e=BossQA.fixture('boss'),art=BossChoreographyV2;Object.assign(e,{x:39.4,y:17.6,cd:99});G.x=35.4;G.y=18.5;const start={x:e.x,y:e.y},frames=new Set();let last=null;for(let i=0;i<360;i++){BossQA.step(1/60);const pose=art.walkPose(e);if(pose){frames.add(pose.frame);last=pose;if(frames.size>=3)break}}if(!last)throw Error('No actual boss walking');const phase=art.walks.get(e).phase,cell=JSON.stringify(art.walkPose(e));mode='overlay';update(.06);const frozen=cell===JSON.stringify(art.walkPose(e))&&phase===art.walks.get(e).phase,body=JSON.stringify(e),drawn=art.drawActor(e.x*T-cam.x,e.y*T-cam.y,'boss',e);return{distance:Math.hypot(e.x-start.x,e.y-start.y),frames:[...frames],frozen,drawn,bodyUnchanged:body===JSON.stringify(e)}});assert(r.distance>0&&r.frames.length>=3&&r.frozen&&r.drawn&&r.bodyUnchanged,JSON.stringify(r));return r;
+ });
+ await check('Metronome walks in four directions, plants its feet for attacks and stays clear of the rear door',async()=>{
+  const r=await page.evaluate(()=>{
+   const directions=[];
+   let capture;
+   for(const [dx,dy] of [[0,1],[-1,0],[0,-1],[1,0]]){
+    const e=BossQA.fixture('c3_metronome'),frames=new Set();e.patternIndex=0;
+    G.x=e.x+dx*6;G.y=e.y+dy*6;
+    const start=[e.x,e.y];let row=null;
+    for(let i=0;i<48;i++){
+     BossQA.step(1/60);const pose=BossChoreographyV2.walkPose(e);
+     if(pose){row=pose.row;frames.add(pose.frame);if(dx===0&&dy===1&&pose.frame===2&&!capture)capture=BossQA.render()}
+    }
+    directions.push({row,frames:frames.size,travel:Math.hypot(e.x-start[0],e.y-start[1])});
+   }
+   const e=BossQA.fixture('c3_metronome');e.patternIndex=0;G.x=15.5;G.y=2.1;
+   e.y=3.25;BossQA.step(1/60);
+   for(let i=0;i<240;i++)BossQA.step(1/60);
+   const staysOnFloor=metronomeCanStand(e.x,e.y);
+   const beforeHit=[e.x,e.y];hitEnemy(e,1,.25,3);const afterHit=[e.x,e.y];e.stun=0;
+   const warning=BossQA.emit('cross'),beforeCast=[e.x,e.y];
+   for(let i=0;i<24;i++)BossQA.step(1/60);
+   const afterCast=[e.x,e.y],stillWarning=!warning.fired&&!BossChoreographyV2.walkPose(e);
+   const phase=BossQA.fixture('c3_metronome');phase.patternIndex=0;G.difficulty='normal';
+   G.x=phase.x;G.y=phase.y-1.2;BossQA.step(1/60);
+   phase.hp=phase.max*.6;BossQA.step(1/60);
+   return {directions,staysOnFloor,beforeHit,afterHit,beforeCast,afterCast,stillWarning,
+    phase:phase.f2?.fase,playerSupported:canBody121(G.x,G.y),capture};
+  });
+  assert.deepEqual(r.directions.map(d=>d.row),[0,1,2,3]);
+  assert(r.directions.every(d=>d.travel>1&&d.frames>=3));
+  assert(r.staysOnFloor&&r.stillWarning&&r.playerSupported);
+  assert.deepEqual(r.beforeHit,r.afterHit);assert.deepEqual(r.beforeCast,r.afterCast);assert.equal(r.phase,2);
+  assert(r.capture);fs.writeFileSync(path.join(out,'metronomo-caminhada.png'),Buffer.from(r.capture.split(',')[1],'base64'));
+  delete r.capture;return r;
  });
  const shots=[];
  await check('Danger zones render once on the ground before the boss body',async()=>{

@@ -371,8 +371,7 @@ function prende(def){return def.tipo==='arena'||def.tipo==='onda'}
 function trancar(def){
   for(const t of lutadores()){
     const dx=t.x-def.x,dy=t.y-def.y,d=Math.hypot(dx,dy);if(d<=def.raio)continue;
-    const nx=def.x+dx/d*(def.raio-.05),ny=def.y+dy/d*(def.raio-.05);
-    if(t.p===1){if(tileWalkable(current,nx,ny)){G.x=nx;G.y=ny}}else{try{C3.coop.x=nx;C3.coop.y=ny}catch{}}
+    moveActor121(t.p===1?G:C3.coop,-dx/d,-dy/d,d-def.raio+.05);
   }
 }
 function podeComecar(){

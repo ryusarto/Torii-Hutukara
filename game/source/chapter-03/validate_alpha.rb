@@ -401,9 +401,13 @@ check.call('chefes: RGBA e oito quadros distintos auditados', boss_art.fetch('cl
     record.fetch('frameHashes').uniq.size == 8 && record['atlasSha256'] == Digest::SHA256.file(path).hexdigest
 end)
 boss_walk_root = File.join(repo_root, 'assets', 'boss-animations', 'v3')
-boss_walk = JSON.parse(File.read(File.join(boss_walk_root, 'manifest.json'))).fetch('clips').fetch('boss_walk')
+walk_clips = JSON.parse(File.read(File.join(boss_walk_root, 'manifest.json'))).fetch('clips')
+boss_walk = walk_clips.fetch('boss_walk')
 boss_walk_header = File.binread(File.join(boss_walk_root, boss_walk.fetch('atlas')), 26)
 check.call('primeiro chefe: caminhada em quatro direções e oito poses', boss_walk['frames'] == 8 && boss_walk['columns'] == 8 && boss_walk['rows'] == 4 && boss_walk_header.getbyte(25) == 6 && boss_walk_header.byteslice(16,8).unpack('NN') == [2560,1280])
+metronome_walk = walk_clips.fetch('c3_metronome_walk')
+metronome_walk_header = File.binread(File.join(boss_walk_root, metronome_walk.fetch('atlas')), 26)
+check.call('Metrônomo: quatro direções e quatro poses por direção', metronome_walk['frames'] == 4 && metronome_walk['columns'] == 4 && metronome_walk['rows'] == 4 && metronome_walk_header.getbyte(25) == 6 && metronome_walk_header.byteslice(16,8).unpack('NN') == [1024,1024])
 projectile_root = File.join(repo_root, 'assets', 'boss-ground-fx', 'v2')
 projectile_manifest = JSON.parse(File.read(File.join(projectile_root, 'manifest.json')))
 check.call('chefes: projéteis e mira animados com alpha', %w[projectile aim].all? do |key|

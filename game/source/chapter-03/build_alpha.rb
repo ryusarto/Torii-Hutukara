@@ -186,9 +186,11 @@ replace_once!(html, " drawRoute();\n // world accent lighting", " BridgePuzzle.d
 replace_once!(html, 'clamp(G.x*T-VW/2,0,a.w*T-VW),yy=', 'ClubStage.cameraX(CanalViolin.cameraX(clamp(G.x*T-VW/2,0,a.w*T-VW))),yy=', 'enquadramento do canal e do palco')
 replace_once!(html, 'clamp(G.y*T-VH/2,0,a.h*T-VH);cam.x', 'ClubStage.cameraY(clamp(G.y*T-VH/2,0,a.h*T-VH));cam.x', 'enquadramento do palco')
 # The explicit mute switch survives interaction shortcuts that wake AudioContext.
-replace_once!(html, 'let AC=null,audioEnabled=false,', 'let AC=null,audioEnabled=false,audioMuted=false,', 'áudio desligado pelo jogador')
+replace_once!(html, 'let AC=null,audioEnabled=false,', 'let AC=null,audioEnabled=false,audioMuted=readAudioMute121(),', 'áudio desligado pelo jogador')
 replace_once!(html, 'function enableAudio(){if(!AC)', 'function enableAudio(){if(audioMuted)return;if(!AC)', 'interação respeita o mudo')
-replace_once!(html, "if(audioEnabled)audioEnabled=false;else enableAudio();openSettings10()", "audioMuted=audioEnabled;if(audioMuted)audioEnabled=false;else enableAudio();openSettings10()", 'alternar som nas opções')
+replace_once!(html, 'if(audioEnabled)audioEnabled=false;else enableAudio();openSettings10()', 'toggleAudio121();openSettings10()', 'alternar som nas opções')
+replace_once!(html, 'const nx=G.x+v[0]*.28,ny=G.y+v[1]*.28;if(!tileWalkable(current,nx,ny))break;G.x=nx;G.y=ny;steps++;',
+  'if(!moveBody10(v[0],v[1],.28,false))break;steps++;', 'colisão do Passo Sônico')
 replace_once!(html, '<b>E</b> ${near.label}', %q~<b>${controlHint121('E','AÇÃO','A / ✕')}</b> ${near.label}~, 'ação perto de um interagível')
 replace_once!(html, "'O mundo está pausado. K · '+SIGNATURE11", %q~'O mundo está pausado. '+controlHint121('K','Especial','R2')+' · '+SIGNATURE11~, 'dica de especial na pausa')
 replace_once!(html, "text.innerHTML+='<br>K · '+SIGNATURE11", %q~text.innerHTML+='<br>'+controlHint121('K','Especial','R2')+' · '+SIGNATURE11~, 'dica de especial na equipe')
