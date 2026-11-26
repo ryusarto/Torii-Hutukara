@@ -80,3 +80,20 @@ html.ui7.big-text #dialogue #words{font-size:var(--ui7-speech)!important;line-he
 /* Touch menus share the same minimum target as the gameplay controls. */
 .ui7.mobile121 #overlayInner button,.ui7.mobile121 #start button,.ui7.mobile121 #dialogue .leitura-barra button,.ui7.mobile121 #leituraHistorico button{min-height:44px;min-width:44px}
 .ui7.mobile121 #overlayInner .keymap6 :is([data-key6],[data-pad6]){display:flex;align-items:center;justify-content:center;min-height:44px;box-sizing:border-box}
+/* Desktop: o quadro cabe na altura da janela (notebooks 1366×768, 1280×720/800). */
+:root{--frame-fit:min(1200px,100%,calc((100vh - 96px)*16/9))}
+@supports(height:100svh){:root{--frame-fit:min(1200px,100%,calc((100svh - 96px)*16/9))}}
+.brandbar,.frame,.footer{width:var(--frame-fit)}
+
+/* Créditos */
+.ui7-credits-title{margin:0 0 10px;font:700 11px/1.4 monospace;letter-spacing:.14em;color:#c9b18c;text-align:center}
+.ui7-credits{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px 18px;max-height:min(52vh,420px);overflow:auto;margin:0 0 12px;text-align:center}
+.ui7-credits section{padding:6px 4px}
+.ui7-credits h3{margin:0 0 4px;font:700 10px/1.4 monospace;letter-spacing:.12em;text-transform:uppercase;color:#8cc5bc}
+.ui7-credits p{margin:0;font:13px/1.5 monospace;color:#f0d6a3}
+.ui7-credits section:last-child{grid-column:1/-1}
+.ui7 #overlayInner .ui7-credits p{margin:0 0 2px;text-align:center}
+.ui7 #overlayInner .ui7-credits h3{text-align:center}
+/* Telas baixas (celular deitado): cinco opções e a versão cabem no título. */
+@media(max-height:430px){.ui7-title-menu .ui7-subtitle{margin-bottom:10px}.ui7-title-menu nav{gap:2px}.ui7-title-menu .menuButton{padding:6px 12px;font-size:13px}.ui7-title-menu .ui7-build{margin-top:6px}.ui7-title-menu h1{font-size:22px}}
+.ui7 #overlayInner .ui7-credits-title{text-align:center}

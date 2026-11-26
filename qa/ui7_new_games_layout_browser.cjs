@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('node:fs'),assert=require('node:assert/strict'),path=require('node:path'),{chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const fs=require('node:fs'),assert=require('node:assert/strict'),path=require('node:path'),{chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 (async()=>{const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH,args:['--disable-gpu']});const out='qa/beta-1.25.0/ui7-new-games';const results=[];
 try{for(const device of [{name:'pc',width:1280,height:800},{name:'vertical',width:390,height:844,mobile:true},{name:'horizontal',width:844,height:390,mobile:true}]){
  const context=await browser.newContext({viewport:{width:device.width,height:device.height},isMobile:!!device.mobile,hasTouch:!!device.mobile}),page=await context.newPage();page.setDefaultTimeout(15000);

@@ -2,7 +2,7 @@
 // Real-runtime loading barriers, fault injection and pinned-final-art contracts.
 // These checks do not claim physical-device FPS or human gameplay validation.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{pathToFileURL}=require('node:url');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json')));
 const outputDirectory=process.env.FINAL_ASSET_OUTPUT_DIR||path.join(root,'qa',version.versao,'final-assets');
 const input=process.argv[2]||pathToFileURL(path.join(root,'game/builds',version.versao,'TORII_HUTUKARA_'+version.sufixo+'.html')).href;

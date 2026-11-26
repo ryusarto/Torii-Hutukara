@@ -7,7 +7,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {pathToFileURL,fileURLToPath}=require('node:url');
-let chromium;try{({chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core'));}catch{({chromium}=require('playwright'));}
+let chromium;try{({chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})()));}catch{({chromium}=require('playwright'));}
 const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json')));
 const out=path.join(root,'qa/environment-world-v1'),input=process.argv[2]||path.join(root,'game/builds',version.versao,'TORII_HUTUKARA_'+version.sufixo+'.html');
 const url=/^(file|https?):/.test(input)?input:pathToFileURL(path.resolve(input)).href;

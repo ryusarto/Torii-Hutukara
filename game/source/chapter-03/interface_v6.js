@@ -27,7 +27,9 @@ html.ov6-open #dialogue{visibility:hidden!important}
 .keymap6{display:grid;grid-template-columns:1fr auto auto;gap:6px 10px;align-items:center;margin:8px 0}
 .keymap6 b{font:13px monospace;color:#ffdda3;min-width:64px;text-align:center;border:1px solid #e6bc8888;padding:4px 8px}
 .keymap6 .listening{background:#e6bc8833}
-#mobileGoal121.goal6,#mobileObjective.goal6{display:-webkit-box!important;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;white-space:normal!important;text-overflow:ellipsis;max-height:none!important;height:auto!important;font-size:12px!important;line-height:1.3!important}
+#mobileGoal121.goal6{display:-webkit-box!important;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;white-space:normal!important;text-overflow:ellipsis;max-height:none!important;height:auto!important;font-size:12px!important;line-height:1.3!important}
+/* A faixa de objetivo abaixo do quadro só existe no layout estreito; no desktop o painel do HUD já mostra o objetivo. */
+@media(max-width:790px){#mobileObjective.goal6{display:-webkit-box!important;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;white-space:normal!important;text-overflow:ellipsis;max-height:none!important;height:auto!important;font-size:12px!important;line-height:1.3!important}}
 `;
 document.head.appendChild(style);
 
@@ -112,8 +114,9 @@ addEventListener('resize',()=>Zones.layout());setInterval(()=>Zones.layout(),500
 // corpo dele. Nesse caso, o aliado dá um passo para o lado (se houver chão livre).
 let leaderAt={x:NaN,y:NaN,t:0};
 // Só com o líder parado (há 0,25 s) e fora do co-op: andando, o rastro já separa todos.
-function unstack(p,i){if(!G||(typeof C3!=='undefined'&&C3.coopActive?.()))return p;const now=typeof tick==='number'?tick:performance.now()/1000;if(Math.hypot(leaderAt.x-G.x,leaderAt.y-G.y)>.001||!(now>=leaderAt.t))leaderAt={x:G.x,y:G.y,t:now};if(now-leaderAt.t<.25)return p;const dx=p.x-G.x,dy=p.y-G.y;if(Math.abs(dx)>=.7||Math.abs(dy)>=1.5)return p;const side=(i%2?-1:1)*(dx<0?-1:1)||1;for(const s of [side,-side]){const x=G.x+s*.8,y=p.y;if(typeof canBody121!=='function'||canBody121(x,y))return{...p,x}}return p}
+function unstack(p,i){if(!G||(typeof C3!=='undefined'&&C3.coopActive?.()))return p;const now=typeof tick==='number'?tick:performance.now()/1000;if(Math.hypot(leaderAt.x-G.x,leaderAt.y-G.y)>.001||!(now>=leaderAt.t))leaderAt={x:G.x,y:G.y,t:now};if(now-leaderAt.t<.25)return p;const dx=p.x-G.x,dy=p.y-G.y;if(Math.abs(dx)>=1.1||Math.abs(dy)>=1.5)return p;const side=(i%2?-1:1)*(dx<0?-1:1)||1;for(const s of [side,-side]){const x=G.x+s*1.15,y=G.y;if(typeof canBody121!=='function'||canBody121(x,y))return{...p,x,y}}return p}
 // Aliado sem rastro suficiente (logo após trocar de área) ficava em cima do líder.
+// Parado, o aliado fica 1,15 tile ao lado, na mesma linha do líder: os sprites têm cerca de um tile de largura e 0,8 ainda cobria o líder.
 if(typeof getFollower==='function'){const followerBefore=getFollower;getFollower=function(i){if(!G||(typeof C3!=='undefined'&&C3.coopActive?.()))return followerBefore(i);const p=followerBefore(i)&&unstack(followerBefore(i),i);if(!p)return p;const want=.85*(i+1);if(Math.hypot(p.x-G.x,p.y-G.y)<want*.6){const d=G.aim091||({up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]})[G.dir]||[0,1],n=Math.hypot(d[0],d[1])||1,x=G.x-d[0]/n*want,y=G.y-d[1]/n*want;if(typeof canBody121!=='function'||canBody121(x,y))return{x,y,dir:p.dir||G.dir};const sx=G.x+d[1]/n*want,sy=G.y-d[0]/n*want;return{x:sx,y:sy,dir:p.dir||G.dir}}return p}}
 
 /* ---------------- 4. Mapa de teclas e botões ---------------- */

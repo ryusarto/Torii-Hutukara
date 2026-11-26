@@ -1,5 +1,5 @@
 'use strict';
-const fs=require('node:fs'),path=require('node:path'),{pathToFileURL}=require('node:url');const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const fs=require('node:fs'),path=require('node:path'),{pathToFileURL}=require('node:url');const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),out=path.join(root,'qa/beta-1.17.0/hero-fx-v3/animation-frames');fs.mkdirSync(out,{recursive:true});
 (async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,args:['--disable-gpu']});try{const p=await b.newPage({viewport:{width:1280,height:800}});await p.addInitScript(()=>{requestAnimationFrame=()=>0;Object.defineProperty(navigator,'getGamepads',{value:()=>[]})});await p.goto(process.argv[2]||pathToFileURL(path.join(root,'game/builds/beta-1.17.0/TORII_HUTUKARA_BETA_1_17_0.html')).href,{waitUntil:'load',timeout:120000});await p.evaluate(require('./hero_attack_fixture.cjs'));const metadata=[];
 for(const hero of['franco','ryuchi','alt','katana','synth','percussion']){

@@ -513,14 +513,17 @@ function updateMobileLayout121(){
   document.documentElement.style.setProperty('--mobile-height',h+'px');
   document.documentElement.classList.toggle('landscape121',w>h);
   const portrait=mobile&&w<=h;
-  const deckHeight=h<=640?204:224;
+  // Na tela de título o controle de toque não tem função: o menu usa a altura toda.
+  const onTitle=!!$('start')&&!$('start').classList.contains('hidden');
+  document.documentElement.classList.toggle('title121',mobile&&onTitle);
+  const deckHeight=onTitle&&portrait?0:h<=640?204:224;
   const touchPortrait=portrait&&!physical;
   const surfaceWidth=Math.max(1,w-18),surfaceHeight=Math.max(1,h-deckHeight-30);
   // Compact maps otherwise leave large blank bands inside a tall canvas.
   // Keep at least 16 tiles across and two tiles of breathing room vertically.
   const mapHeight=G&&current&&mode!=='title'?(current.h+2)*T:Infinity;
   const newWidth=touchPortrait?Math.round(clamp(mapHeight*surfaceWidth/surfaceHeight,384,512)):portrait?512:768;
-  const newHeight=touchPortrait?Math.round(clamp(surfaceHeight*newWidth/surfaceWidth,380,820)):portrait?480:432;
+  const newHeight=touchPortrait?Math.round(clamp(surfaceHeight*newWidth/surfaceWidth,380,onTitle?1200:820)):portrait?480:432;
   document.documentElement.style.setProperty('--touch-deck-height',deckHeight+'px');
   if(VW!==newWidth||VH!==newHeight){
     VW=newWidth;VH=newHeight;const canvas=$('game');canvas.width=VW;canvas.height=VH;
@@ -531,6 +534,8 @@ function updateMobileLayout121(){
   document.documentElement.style.setProperty('--game-aspect',String(VW/VH));
   if(changed)releaseTouch121();updateMobileReadout121();
 }
+// Abrir ou fechar o título muda o espaço do controle de toque.
+(()=>{const start=$('start');if(start&&typeof MutationObserver==='function')new MutationObserver(()=>{if(Input121.mobile&&$('mobileDeck121'))updateMobileLayout121()}).observe(start,{attributes:true,attributeFilter:['class']})})();
 const inputSetArea121=setArea;
 setArea=function(...args){
   const result=inputSetArea121(...args);
@@ -568,6 +573,7 @@ html.mobile121,html.mobile121 body{height:100%;width:100%;overflow:hidden;oversc
 .mobile121 .brandbar,.mobile121 .footer,.mobile121 #touch,.mobile121 #mobileObjective{display:none!important}
 .mobile121 #frame{grid-row:1;width:100%;height:auto;max-height:100%;aspect-ratio:var(--game-ratio,16/9);align-self:center;border-width:1px;box-shadow:0 0 0 2px #49354d;overflow:hidden}
 .mobile121 #game{object-fit:contain}.mobile121 #frame:before,.mobile121 #frame:after{display:none}
+.mobile121.title121 #mobileDeck121{display:none!important}
 .mobile121 #mobileDeck121{grid-row:2;display:grid;grid-template-columns:minmax(0,43fr) minmax(0,57fr);gap:8px;min-height:0;background:linear-gradient(140deg,#242137,#10131e);border:1px solid #8c799866;border-radius:22px;padding:8px;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 #mobileLeft121{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:0}
 #mobileReadout121{font:700 11px monospace;color:#f3deb4;min-height:14px;text-align:center}
@@ -694,7 +700,7 @@ const cycleBefore123=C3.cycleCoop;
 C3.cycleCoop=function(){cycleBefore123();C3.syncCoop()};
 
 // Single source for the visible version label. Older layers rewrite the
-// brand bar on every HUD update ("1.0 · PRÉ-ALPHA", "1.2.0 · PRÉ-BETA"), so the
+// brand bar on every HUD update (rótulos herdados da base e dos passes antigos), so the
 // final label is reapplied after them.
 const BUILD_LABEL='__BUILD_LABEL__';
 function applyBuildLabel(){

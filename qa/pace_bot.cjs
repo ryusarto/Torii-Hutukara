@@ -6,7 +6,7 @@
  * Perfis (variável PERFIL): rapido = corre e lê 20 car/s; tipico = anda e lê 14 car/s.
  */
 const fs=require('node:fs');const path=require('node:path');
-let chromium;try{({chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core'))}catch{({chromium}=require('playwright'))}
+let chromium;try{({chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})()))}catch{({chromium}=require('playwright'))}
 const root=path.resolve(__dirname,'..');
 const pt=JSON.parse(fs.readFileSync(path.join(root,'web/playtest/build.json'),'utf8'));
 const manifestPath=path.join(root,pt.manifest);const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8'));

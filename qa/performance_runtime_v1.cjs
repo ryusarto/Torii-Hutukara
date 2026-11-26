@@ -1,7 +1,7 @@
 /* CPU/render/memory diagnostics on the actual HTTP runtime. No asset rewrites.
  * Headless measurements are not MacBook/Safari hardware FPS certification. */
 'use strict';
-const fs=require('node:fs'),path=require('node:path'),{chromium,webkit}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const fs=require('node:fs'),path=require('node:path'),{chromium,webkit}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const url=process.argv[2];if(!/^http/.test(url||''))throw Error('Use HTTP export');
 const out=path.resolve(process.env.PERF_OUT||'qa/performance-v1/baseline.json'),engine=process.env.PERF_ENGINE||'chromium';
 const report={url,engine,fixtureSeed:8142,method:'Actual HTTP runtime, controlled scenarios; synchronous JS CPU frame timing and canvas command counts, not GPU-presented FPS or physical hardware certification.',cases:[],errors:[]};

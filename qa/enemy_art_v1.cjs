@@ -3,7 +3,7 @@
  * node qa/enemy_art_v1.cjs [optional build URL]
  */
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{pathToFileURL}=require('node:url');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'))),out=path.join(root,'qa/enemies-v1');fs.mkdirSync(out,{recursive:true});
 let browser;
 (async()=>{

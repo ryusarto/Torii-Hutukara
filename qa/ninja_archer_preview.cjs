@@ -1,6 +1,6 @@
 /* Verify the standalone asset viewer. Run with its PREVIA.html URL. */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 (async()=>{
  const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'))),output=path.join(root,'qa',version.versao);
  const browser=await chromium.connectOverCDP(process.env.CDP_URL||'http://127.0.0.1:9237'),context=await browser.newContext({viewport:{width:1100,height:900}}),page=await context.newPage(),errors=[];

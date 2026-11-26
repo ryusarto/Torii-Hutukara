@@ -1,6 +1,6 @@
 /* Isolated browser verification of scene art, state and collision contracts. */
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),out=path.join(root,process.env.TORII_SCENE_QA_ROOT||'qa/cenarios-v2');
 fs.mkdirSync(out,{recursive:true});
 (async()=>{

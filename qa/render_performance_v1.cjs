@@ -2,7 +2,7 @@
 // Pixel/context comparison against the three approved 1.25 reference methods.
 // Current exports exercise installed methods; old baselines inject the source.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),url=process.argv[2];
 if(!/^https?:/.test(url||''))throw Error('Pass a current HTTP export or approved baseline URL');
 const source=fs.readFileSync(path.join(root,'game/source/chapter-03/cenarios_v2.js'),'utf8');

@@ -3,7 +3,7 @@
 // production code is injected. Standard snapshots freeze RAF; cold startup
 // observes the native loop without moving or teleporting the character.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const engines=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const engines=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const url=process.argv[2],engine=process.env.BROWSER_ENGINE||'chromium',expectLeak=process.env.GUIDANCE_EXPECT_LEAK==='1',coldOnly=process.env.GUIDANCE_COLD_ONLY==='1';
 if(!/^https?:/.test(url||''))throw Error('Pass an HTTP export URL');
 if(!['chromium','webkit'].includes(engine))throw Error('BROWSER_ENGINE must be chromium or webkit');

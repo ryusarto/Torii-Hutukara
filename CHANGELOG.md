@@ -10,6 +10,12 @@
 
 A numeração 1.0 identifica o lançamento final após as versões beta; os saves mantêm sua chave e suas migrações.
 
+## Beta 1.27.0
+
+- Ajustes de enquadramento, rolagem e leitura em notebooks e celulares.
+- Tela de créditos e identificação consistente da versão.
+- HTML portátil com as mesmas imagens otimizadas da versão web.
+
 ## Beta 1.26.0
 
 - Otimização da renderização e do carregamento da arte final.

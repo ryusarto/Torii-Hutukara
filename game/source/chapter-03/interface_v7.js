@@ -7,7 +7,9 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const icon=(kind,cls='')=>assets[kind]?`<img class="ui7-icon ${cls}" alt="" src="${assets[kind]}">`:'';
 const skin=(type='panel',selected=false)=>`<canvas class="ui7-skin" data-ui7-skin="${type}" data-selected="${selected}" aria-hidden="true"></canvas>`;
 function drawSkin(c){
- const p=c.parentElement,w=p.clientWidth,h=p.clientHeight;if(w<1||h<1)return;c.width=w;c.height=h;const x=c.getContext('2d');x.imageSmoothingEnabled=false;
+ const p=c.parentElement,w=p.clientWidth,h=p.clientHeight;if(w<1||h<1)return;c.width=w;c.height=h;
+ // Painéis com rolagem: a moldura acompanha a área visível em vez de rolar junto com o conteúdo.
+ const follow=()=>{c.style.transform=p.scrollTop?`translateY(${p.scrollTop}px)`:''};if(!c.dataset.ui7Follow){c.dataset.ui7Follow='1';p.addEventListener('scroll',follow,{passive:true})}follow();const x=c.getContext('2d');x.imageSmoothingEnabled=false;
  const type=c.dataset.ui7Skin,selected=c.dataset.selected==='true',r=(a,b,ww,hh,col)=>{x.fillStyle=col;x.fillRect(a,b,ww,hh)};
  const outline=(a,b,ww,hh,col)=>{r(a+3,b,ww-6,hh,col);r(a,b+3,ww,hh-6,col)};
  outline(0,0,w,h,'#12111c');outline(1,1,w-2,h-2,'#5d3d35');outline(2,2,w-4,h-4,selected?'#dfb773':'#b88a58');outline(3,3,w-6,h-6,'#71513e');
@@ -85,11 +87,24 @@ function installTitle(){
  const start=$('start');if(start.dataset.ui7)return;start.dataset.ui7='true';start.classList.add('ui7-title');start.style.setProperty('--ui7-studio',`url("${assets.titleStudio}")`);
  const nodes=['startContinue','startNew','startOptions10'].map(id=>$(id)).filter(Boolean);
  const hidden=document.createElement('div');hidden.hidden=true;while(start.firstChild)hidden.append(start.firstChild);start.append(hidden);
- const panel=document.createElement('div');panel.className='ui7-title-menu';panel.innerHTML='<small>RPG MUSICAL</small><h1>TORII &amp;<br>HUTUKARA</h1><p class="ui7-subtitle">A ÚLTIMA FREQUÊNCIA</p><nav aria-label="Menu principal"></nav><small class="ui7-build">'+esc(__TORII_RELEASE_LABEL__)+'</small>';start.append(panel);
+ const panel=document.createElement('div');panel.className='ui7-title-menu';panel.innerHTML='<small>RPG MUSICAL</small><h1>TORII &amp;<br>HUTUKARA</h1><p class="ui7-subtitle">A ÚLTIMA FREQUÊNCIA</p><nav aria-label="Menu principal"></nav><small class="ui7-build">'+esc('__BUILD_LABEL__')+'</small>';start.append(panel);
  const nav=panel.querySelector('nav');for(const id of ['startContinue','startNew']){const b=nodes.find(n=>n.id===id);if(b){b.textContent=id==='startContinue'?'Continuar':'Novo jogo';nav.append(b)}}
  const dungeon=document.createElement('button');dungeon.id='ui7Dungeon';dungeon.className='menuButton';dungeon.textContent='Calabouço';dungeon.onclick=()=>{const saved=safeLoad();if(!saved?.c3?.complete)return;continueGame();if(!PostGame.active())PostGame.openBriefing()};nav.append(dungeon);
- let options=nodes.find(n=>n.id==='startOptions10')||document.createElement('button');options.id='startOptions10';options.className='menuButton';options.textContent='Opções';options.onclick=openTitleSettings;nav.append(options);
+ const credits=document.createElement('button');credits.id='ui7Credits';credits.className='menuButton';credits.textContent='Créditos';credits.onclick=openCredits;
+ let options=nodes.find(n=>n.id==='startOptions10')||document.createElement('button');options.id='startOptions10';options.className='menuButton';options.textContent='Opções';options.onclick=openTitleSettings;nav.append(options);nav.append(credits);
  titleRefresh();
+}
+// Créditos: edite somente esta lista. Cada bloco é [título, linhas].
+const CREDITS=[
+ ['Uma obra de',['Ryuchi','Franco, The Sir']],
+ ['Colaboradores do álbum',['Belga','Colli','Mazza','Dney']],
+ ['Músicas',['Ryuchi e Franco, The Sir','Versões 16-bit das faixas do álbum']],
+ ['Licenças',['Código: MIT','Arte, roteiro e cenários: CC BY 4.0','Músicas, máscaras e identidades: CC BY-NC-ND 4.0']],
+ ['',['Obrigado por jogar.']]
+];
+function openCredits(){
+ enterMenu10('<h2>Créditos</h2><p class="ui7-credits-title">TORII &amp; HUTUKARA · A ÚLTIMA FREQUÊNCIA</p><div class="ui7-credits">'+CREDITS.map(([title,lines])=>'<section>'+(title?'<h3>'+esc(title)+'</h3>':'')+lines.map(line=>'<p>'+esc(line)+'</p>').join('')+'</section>').join('')+'</div><button class="action" id="ui7CreditsBack">Voltar</button>','ui7-credits');
+ $('ui7CreditsBack').onclick=()=>{closeOverlay();titleRefresh()};
 }
 function openTitleSettings(){
  const previews=new URLSearchParams(location.search).has('qa')?'<button class="action" id="preview10">Prévia de teste — Capítulo 2</button><button class="action" id="previewC3">Prévia de teste — Capítulo 3</button>':'';

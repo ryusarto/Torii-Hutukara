@@ -34,7 +34,7 @@ node qa/input_regression.cjs
 node qa/gameplay_regression.cjs
 ```
 
-O HTML portátil e seu manifesto são gerados em `game/builds/`, fora do versionamento. Para a versão web, instale as dependências de imagem indicadas no workflow e execute:
+O HTML portátil e seu manifesto são gerados em `game/builds/`, fora do versionamento. A geração também usa Python 3 com Pillow e NumPy para embutir as imagens em WebP (`TORII_PNG_ORIGINAL=1` mantém os PNGs). Para a versão web, instale as dependências de imagem indicadas no workflow e execute:
 
 ```sh
 ruby production/build_playtest.rb

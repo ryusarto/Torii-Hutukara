@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const url=process.argv[2],out='qa/beta-1.25.0/lumi-footer';fs.mkdirSync(out,{recursive:true});
 const report={url,injectedCSS:process.env.UI7_INJECT_CSS==='1',checks:[],errors:[]};let browser;
 (async()=>{browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH,args:['--disable-gpu']});report.browser=browser.version();const page=await browser.newPage({viewport:{width:844,height:390},isMobile:true,hasTouch:true});page.setDefaultTimeout(10000);page.on('pageerror',e=>report.errors.push(e.message));await page.goto(url+'&input=mobile',{waitUntil:'load'});await page.locator('#playtestEntry').waitFor({state:'detached'});if(report.injectedCSS)await page.addStyleTag({content:fs.readFileSync('game/source/chapter-03/ui7_new_games_v1.css','utf8')});
