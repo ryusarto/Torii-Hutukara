@@ -1,0 +1,57 @@
+[
+  {
+    "kind": "speaker",
+    "width": 64,
+    "height": 48
+  },
+  {
+    "kind": "wave",
+    "width": 64,
+    "height": 48
+  },
+  {
+    "kind": "crowd",
+    "width": 64,
+    "height": 48
+  },
+  {
+    "kind": "tape",
+    "width": 64,
+    "height": 48
+  },
+  {
+    "kind": "bass",
+    "width": 64,
+    "height": 48
+  },
+  {
+    "kind": "violin",
+    "width": 64,
+    "height": 48
+  },
+  {
+    "kind": "note",
+    "width": 64,
+    "height": 48
+  },
+  {
+    "kind": "map",
+    "width": 64,
+    "height": 48
+  },
+  {
+    "kind": "diary",
+    "width": 64,
+    "height": 48
+  },
+  {
+    "kind": "settings",
+    "width": 64,
+    "height": 48
+  },
+  {
+    "kind": "play",
+    "width": 64,
+    "height": 48
+  }
+]

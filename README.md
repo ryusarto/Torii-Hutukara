@@ -1,10 +1,12 @@
+> **Beta 1.25.0:** integra a base 1.24.1 (`db6297e`) aos menus, HUD, animações e efeitos aprovados. Publicação autorizada após o usuário percorrer a campanha completa. [Registro da publicação](qa/integration-1.25.0/PUBLICACAO.md).
+
 # TORII & HUTUKARA — A Última Frequência
 
 RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Franco, Ryuchi e suas outras frequências através de três capítulos conectados por música, memória, criação e medo de começar.
 
 ## Estado atual
 
-**Beta 1.24.1.** Reúne os sete desafios musicais da campanha e inclui recuperação de posições inválidas ao carregar, preferência de som persistente e caminhada em quatro direções para o Metrônomo. A versão fica em `game/VERSION.json`.
+**Beta 1.25.0, integrada à base GitHub Beta 1.24.1.** Reúne os sete desafios musicais da campanha e inclui recuperação de posições inválidas ao carregar, preferência de som persistente e caminhada em quatro direções para o Metrônomo. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -186,3 +188,4 @@ Detalhes e lista de arquivos em [LICENSE-ASSETS.md](LICENSE-ASSETS.md).
 [Atlas, retratos e prévia offline](assets/protagonistas/v5/) de Franco e Ryuchi principais. [Escopo, produção e exportação dos frames](design/sprites-principais-v5/LEIA-ME.md). Integrados à fonte da Beta 1.2, com máscaras selecionadas pela progressão, animações independentes no coop e retratos nos diálogos. A promoção da build publicada depende da revisão e do fluxo de publicação.
 
 Os inimigos usam sprites próprios. Os quatro chefes possuem animações corporais e FX em sprites sincronizados com as áreas reais de dano. Consulte [coreografia](docs/ANIMACOES_BOSSES_V2.md) e [efeitos dos golpes no chão](docs/BOSS_GROUND_FX_V1.md).
+

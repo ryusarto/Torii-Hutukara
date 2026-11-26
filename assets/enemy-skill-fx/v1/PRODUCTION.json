@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-26",
+  "tool": "built-in image_gen",
+  "mode": "generate",
+  "referenceRole": "Style/material references only, not edit targets",
+  "refs": [
+    "assets/boss-ground-fx/v1/atlas/pulse.png",
+    "assets/boss-ground-fx/v1/atlas/static.png"
+  ],
+  "generatedSources": {
+    "tambor": "/Users/henriqueryusartorelliuchiyama/.codex/generated_images/01a214ac-b52b-7551-b8bc-bf71e352322c/exec-837b8516-31b6-4924-afce-202e4d0ddf54.png",
+    "flautim": "/Users/henriqueryusartorelliuchiyama/.codex/generated_images/01a214ac-b52b-7551-b8bc-bf71e352322c/exec-5a82a7b3-aeb2-4a4b-8651-4b2ad4955abf.png",
+    "coro": "/Users/henriqueryusartorelliuchiyama/.codex/generated_images/01a214ac-b52b-7551-b8bc-bf71e352322c/exec-6c60b6b6-4a19-4a45-9aa5-4f1b68e61600.png",
+    "maestro": "/Users/henriqueryusartorelliuchiyama/.codex/generated_images/01a214ac-b52b-7551-b8bc-bf71e352322c/exec-34ed55b3-32a9-4dd5-9ef1-7dfa24960ae8.png",
+    "muralha": "/Users/henriqueryusartorelliuchiyama/.codex/generated_images/01a214ac-b52b-7551-b8bc-bf71e352322c/exec-3c7f0f4f-3a22-4aab-b745-ec1947806f71.png",
+    "antena": "/Users/henriqueryusartorelliuchiyama/.codex/generated_images/01a214ac-b52b-7551-b8bc-bf71e352322c/exec-9ea6a0b4-d6a9-4c5d-ad30-5ffece6a601d.png"
+  },
+  "workspaceOriginals": [
+    "source/tambor.png",
+    "source/flautim.png",
+    "source/coro.png",
+    "source/maestro.png",
+    "source/muralha.png",
+    "source/antena.png"
+  ],
+  "derivativeTool": "production/import_enemy_skill_fx_v1.py",
+  "originalsPreserved": true,
+  "clipCount": 10,
+  "frames": 80,
+  "validation": "Original whole sheets inspected, global gutters verified before splitting, all exported phases inspected on earth and stone; runtime pending integration"
+}
+

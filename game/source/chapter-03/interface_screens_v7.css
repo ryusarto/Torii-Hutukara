@@ -1,0 +1,51 @@
+/* Inner components share the approved pixel frame, across all story panels. */
+.ui7 #overlayInner.ui7-screen{--screen-gap:12px}
+.ui7 #overlayInner .ui7-screen-button{position:relative;display:inline-flex;align-items:center;flex-wrap:wrap;gap:8px;min-height:40px;padding:10px 14px;color:#efd7ac;text-align:left;max-width:100%;vertical-align:middle;box-sizing:border-box}
+.ui7 #overlayInner .ui7-screen-button .ui7-screen-icon{width:26px;height:20px;object-fit:contain;flex:0 0 auto;pointer-events:none}
+.ui7 #overlayInner .menu-grid10>.ui7-screen-button{display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px 9px;padding:14px}
+.ui7 #overlayInner .menu-grid10>.ui7-screen-button>.ui7-screen-icon{grid-row:1/3;grid-column:1;align-self:center}
+.ui7 #overlayInner .menu-grid10>.ui7-screen-button>b,.ui7 #overlayInner .menu-grid10>.ui7-screen-button>small{grid-column:2;min-width:0}
+.ui7 #overlayInner .menu-grid10>.ui7-screen-button>small{margin:0;color:#cabbab}
+.ui7 #overlayInner .ui7-screen-section{padding:11px 14px;margin:10px 0;border-radius:0;color:#dfd1b8;min-width:0;box-sizing:border-box;font:13px/1.55 var(--ui7-font-text);overflow-wrap:break-word}
+.ui7 #overlayInner .stat.ui7-screen-section{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ui7 #overlayInner .stat.ui7-screen-section>b{font-weight:400;color:#f0d6a3;text-align:right}
+.ui7 #overlayInner .checkpoint-panel strong{display:block;color:#e5bd7f;font:700 12px/1.5 var(--ui7-font-text);margin-bottom:7px}
+.ui7 #overlayInner .divider{border-top:1px solid #725440;margin:16px 0}
+.ui7 #overlayInner :is(.tag,.checkpoint-panel,.menu-note10,.guide-legend){border-radius:0;font-family:var(--ui7-font-text)}
+.ui7 #overlayInner .guide-legend{font-size:12px;line-height:1.5;color:#c7b79f}
+.ui7 #overlayInner[data-ui7-screen="chapter"]{width:min(720px,100%);padding:24px;text-align:left}
+.ui7 .ui7-chapter-emblem{display:flex;gap:10px;align-items:center;justify-content:center;padding:10px 0 16px}
+.ui7 .ui7-chapter-emblem .ui7-icon{width:56px;height:42px}.ui7 .ui7-chapter-emblem>span{height:2px;width:34px;background:#8f6b46;border-bottom:1px solid #2e2129}
+.ui7 #overlayInner[data-ui7-screen="chapter"]>.eyebrow,.ui7 #overlayInner[data-ui7-screen="chapter"]>h2{text-align:center}
+.ui7 #overlayInner[data-ui7-screen="chapter"]>p{max-width:68ch;margin:12px auto;line-height:1.6}
+.ui7 #overlayInner[data-ui7-screen="chapter"]>.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:16px;align-items:stretch}
+.ui7 #overlayInner[data-ui7-screen="chapter"]>.row>button{width:100%;min-width:0;justify-content:flex-start;white-space:normal}
+.ui7 #overlayInner[data-ui7-screen="chapter"] .ui7-primary-destination{grid-column:1/-1;font-size:15px;min-height:52px;color:#ffe5ac}
+.ui7 .ui7-chapter-scene{width:100%;max-height:150px!important;object-fit:cover;border:2px solid #8d6848!important;box-sizing:border-box;margin:10px 0}
+.ui7 #overlayInner[data-ui7-screen="party"]{width:min(840px,100%);max-width:100%}
+.ui7 .ui7-team-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}
+.ui7 .ui7-team-slot{display:flex;align-items:center;gap:7px;min-height:48px;padding:6px 10px;min-width:0;font:11px/1.4 var(--ui7-font-text)}
+.ui7 .ui7-team-slot>small{color:#ac946e}.ui7 .ui7-team-slot>img{width:24px;height:32px;object-fit:contain;image-rendering:pixelated}.ui7 .ui7-team-slot>span{min-width:0;overflow-wrap:break-word}.ui7 .ui7-empty-slot{color:#9f937e}
+.ui7 .ui7-party-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0 16px}
+.ui7 #overlayInner .formation-row10.ui7-hero-card{display:grid;grid-template-columns:56px minmax(0,1fr);gap:10px;padding:14px;min-width:0;align-items:start;box-sizing:border-box;margin:0}
+.ui7 .ui7-party-portrait{grid-column:1;grid-row:1/3;width:56px!important;height:76px!important;object-fit:contain;background:#282231;border:1px solid #8d6746;image-rendering:pixelated}
+.ui7 .ui7-party-copy{grid-column:2;min-width:0}
+.ui7 .ui7-party-head{display:flex;flex-wrap:wrap;gap:5px;align-items:center;justify-content:space-between}.ui7 .ui7-party-head>b{font:700 14px/1.4 var(--ui7-font-text);color:#efd7aa}
+.ui7 .ui7-party-state{font:10px/1.4 var(--ui7-font-text);color:#99c8c5}.ui7 .ui7-hero-card[data-selected="false"] .ui7-party-state{color:#b5a388}
+.ui7 .ui7-party-level{font:11px/1.5 var(--ui7-font-text);color:#b8aa94}
+.ui7 #overlayInner .ui7-party-role{font:11px/1.4 var(--ui7-font-text);color:#bcad98;margin:4px 0}
+.ui7 .ui7-party-life{display:flex;justify-content:space-between;font:11px/1.4 var(--ui7-font-text);color:#e0cfaa;margin-top:7px}.ui7 .ui7-party-life>b{font-weight:400}
+.ui7 .ui7-party-meter{height:7px;background:#171b25;border:1px solid #7e6646;padding:1px;box-sizing:border-box;margin:4px 0 7px}.ui7 .ui7-party-meter>i{display:block;height:100%;background:repeating-linear-gradient(90deg,#94b18c 0 5px,#56776c 5px 6px)}
+.ui7 .ui7-party-skills{display:flex;flex-wrap:wrap;gap:3px 8px;font:10px/1.45 var(--ui7-font-text);color:#c7b79a}.ui7 .ui7-party-skills kbd{font-size:9px;color:#d5bd87;border:1px solid #70573e;padding:0 2px;background:#201c28}
+.ui7 #overlayInner .ui7-hero-card>button{grid-column:2;justify-self:start;min-height:34px;font-size:11px;padding:6px 10px}
+.ui7 #overlayInner[data-ui7-screen="defeat"] .defeat-title{font-size:24px;text-align:center;color:#e5bf99}
+.ui7 #overlayInner[data-ui7-screen="travel"]>.row:has([data-post-area]){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+.ui7 #overlayInner [data-post-area]{display:block;min-width:0}.ui7 #overlayInner [data-post-area] small{display:block;margin-top:8px;color:#c8b9a3;font-size:12px;line-height:1.5}
+.ui7 #overlayInner[data-ui7-screen="map"] canvas:not(.ui7-skin){border:2px solid #8d6848!important;max-width:100%;box-sizing:border-box;background:#1b1b28!important}
+.ui7 #leituraHistorico .lh-janela.ui7-history-screen{border:0;border-radius:0;background:transparent;box-shadow:none;position:relative;isolation:isolate;color:#e5d5b8;overflow:hidden}
+.ui7 #leituraHistorico :is(header,.lh-opcoes){border-color:#74553e}.ui7 #leituraHistorico .lh-lista{font:14px/1.6 var(--ui7-font-text);padding:12px 18px}
+.ui7 #leituraHistorico h2{font:normal 20px/1.4 var(--ui7-font-text);color:#efd6a3}.ui7 #leituraHistorico .lh-fala b{font:11px/1.5 var(--ui7-font-text);color:#d1ad78}
+.ui7 #leituraHistorico button.ui7-screen-button{font:12px/1.5 var(--ui7-font-text);padding:8px 12px;min-height:36px;color:#e6cfab}
+@media(max-width:550px){.ui7 #overlayInner[data-ui7-screen="chapter"]{padding:16px}.ui7 #overlayInner[data-ui7-screen="chapter"]>.row{grid-template-columns:1fr}.ui7 .ui7-party-grid{grid-template-columns:1fr}.ui7 .ui7-team-slot{padding:6px;gap:4px;flex-wrap:wrap}.ui7 .ui7-team-slot>img{width:18px;height:24px}.ui7 .ui7-team-slot>span{font-size:10px}.ui7 #overlayInner .ui7-hero-card>button{min-height:42px}.ui7 #overlayInner[data-ui7-screen="travel"]>.row:has([data-post-area]){grid-template-columns:1fr}.ui7 #overlayInner .stat.ui7-screen-section{flex-wrap:wrap}.ui7 #overlayInner .stat.ui7-screen-section>b{text-align:left}}
+.ui7 .rhythmBox .ui7-screen-button{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:8px 12px;font:12px/1.5 var(--ui7-font-text);color:#efd7ac;text-align:left}
+.ui7 .rhythmBox .ui7-screen-icon{width:26px;height:20px}

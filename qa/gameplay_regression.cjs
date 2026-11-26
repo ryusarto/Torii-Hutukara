@@ -23,6 +23,7 @@ async function main(){
    window.__pad=index=>({index,id:'audit controller',connected:true,mapping:'standard',axes:[0,0],buttons:Array.from({length:18},()=>({pressed:false,value:0}))});
   });
   await page.goto((process.argv[2]||pathToFileURL(build).href),{waitUntil:'load',timeout:120000});
+  await page.locator('#playtestEntry').waitFor({state:'detached'});
   async function check(name,run){await run();checks.push({name,passed:true});console.log('OK · '+name)}
   async function arena(coop=false){await page.evaluate(coop=>{
    G=fresh();G.flags.masks=G.flags.bass=true;G.formation=['franco','ryuchi'];G.active='franco';
@@ -170,6 +171,7 @@ async function main(){
   const mobile=await mobileContext.newPage();mobile.on('pageerror',e=>errors.push(e.message));
   await mobile.addInitScript(()=>{window.requestAnimationFrame=()=>0;Object.defineProperty(navigator,'getGamepads',{value:()=>[]})});
   await mobile.goto((process.argv[2]||pathToFileURL(build).href),{waitUntil:'load',timeout:120000});
+  await mobile.locator('#playtestEntry').waitFor({state:'detached'});
   for(const viewport of [{width:390,height:844},{width:844,height:390}]){
    for(const bigText of [false,true]){
     await check(`Diálogo ${viewport.width} × ${viewport.height}, texto ${bigText?'maior':'normal'}: leitura e toque livres`,async()=>{
@@ -184,8 +186,10 @@ async function main(){
      const box=await mobile.locator('#words').boundingBox();
      const point={x:box.x+box.width/2,y:box.y+box.height/2};
      assert(await mobile.evaluate(({x,y})=>!!document.elementFromPoint(x,y)?.closest('#dialogue'),point));
-     await mobile.touchscreen.tap(point.x,point.y);assert.match(await mobile.locator('#words').textContent(),/Segunda fala/);
-     const tape=await mobile.locator('#tapeButton').boundingBox();assert(tape.height>=44);
+     await mobile.touchscreen.tap(point.x,point.y);
+     await mobile.waitForFunction(()=>document.getElementById('words').textContent.includes('Segunda fala'),null,{polling:50,timeout:3000});
+     assert.match(await mobile.locator('#words').textContent(),/Segunda fala/);
+     const touchTape=mobile.locator('#mobileDeck121 [data-mobile-action=heal]');const tape=await (await touchTape.isVisible()?touchTape:mobile.locator('#tapeButton')).boundingBox();assert(tape&&tape.height>=44);
      await mobile.screenshot({path:path.join(out,`dialogue-${viewport.width}-${bigText?'big':'normal'}.png`)});
     });
    }

@@ -39,6 +39,7 @@ jobs:
         run: |
           npm install --no-save --package-lock=false playwright@1.62.1
           npx playwright install --with-deps chromium
+          node -e 'console.log("CHROME_PATH=" + require("playwright").chromium.executablePath())' >> "$GITHUB_ENV"
       - name: Input and gameplay regression
         run: |
           node qa/npc_recurrence.cjs
@@ -66,6 +67,8 @@ jobs:
           node qa/sorte_reproducao.cjs
           node qa/narrativa_fase4.cjs
           node qa/dificuldade_unit.cjs
+          node qa/touch_layout_v1_unit.cjs
+          node qa/enemy_skill_fx_v1_unit.cjs
       - name: Difficulty goal measured by the simple bot (warns only)
         # Normal: o bot simples deve perder de 20% a 40% das lutas contra chefes (20 lutas por chefe).
         # Fora da faixa, o passo escreve um ::warning e o PR continua verde.
@@ -79,9 +82,7 @@ jobs:
           node qa/hero_attack_body_browser.cjs http://127.0.0.1:8771/
           node qa/run_stride_browser.cjs http://127.0.0.1:8771/
           node qa/archer_strafe_browser.cjs http://127.0.0.1:8771/
-          node qa/hero_attack_fx_browser.cjs http://127.0.0.1:8771/
-          node qa/hero_attack_v2_browser.cjs http://127.0.0.1:8771/
-          node qa/hero_vfx_layers_browser.cjs http://127.0.0.1:8771/
+          node qa/hero_attack_v3_browser.cjs http://127.0.0.1:8771/
           node qa/enemy_attack_fx_browser.cjs http://127.0.0.1:8771/
           node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
           node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/
@@ -95,6 +96,11 @@ jobs:
           node qa/dungeon_playtest.cjs http://127.0.0.1:8771/
           node qa/combate_mobile_fenda.cjs http://127.0.0.1:8771/
           node qa/interface_v6.cjs http://127.0.0.1:8771/
+          node qa/interface_v7_dialogue_browser.cjs http://127.0.0.1:8771/
+          node qa/interface_screens_v7_browser.cjs http://127.0.0.1:8771/
+          node qa/interface_controls_v7_browser.cjs http://127.0.0.1:8771/
+          node qa/skill_movement_v1_browser.cjs http://127.0.0.1:8771/
+          node qa/enemy_skill_fx_v1_browser.cjs http://127.0.0.1:8771/ --scoped-only
           node qa/dungeon_equilibrio.cjs http://127.0.0.1:8771/
           node qa/review110_browser.cjs http://127.0.0.1:8771/
           node qa/review111_postgame_browser.cjs http://127.0.0.1:8771/
@@ -131,3 +137,4 @@ jobs:
           name: torii-hutukara-preview
           path: game/builds/
           retention-days: 14
+

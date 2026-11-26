@@ -34,11 +34,11 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
       window.__limpar=()=>{bossActor=null;battle=null;mode='walk';hostileShots.length=0;ToriiDificuldade.limparPerigos()};
     });
 
-    await check('Escolha da dificuldade ao começar: três níveis, Normal recomendado',async()=>{
+    await check('Escolha da dificuldade ao começar: três níveis, Médio recomendado',async()=>{
       await page.locator('#startNew').click();
       const op=await page.evaluate(()=>[...document.querySelectorAll('#overlay button')].map(b=>b.id+':'+b.textContent.trim().slice(0,40)));
       for(const id of ['dif_historia','dif_normal','dif_dificil'])assert(op.some(o=>o.startsWith(id)),op.join(' | '));
-      assert(op.some(o=>/recomendado/.test(o)));
+      assert(op.some(o=>/recomendado/i.test(o)));
       await page.screenshot({path:path.join(out,'escolha-dificuldade.png')});
       await page.locator('#dif_normal').click();
       const r=await page.evaluate(()=>({nivel:G.difficulty,mode,area:G.area}));
@@ -194,7 +194,7 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
         setCheckpoint('teste',G.area,G.x,G.y,true);G.difficulty='dificil';restoreCheckpoint();
         return {antes,depois,nums,aposCheckpoint:G.difficulty};
       });
-      assert(/HISTÓRIA/.test(r.antes));assert.equal(r.depois,'normal');assert(r.nums);assert.equal(r.aposCheckpoint,'dificil');
+      assert(/FÁCIL/.test(r.antes));assert.equal(r.depois,'normal');assert(r.nums);assert.equal(r.aposCheckpoint,'dificil');
       return r;
     });
 

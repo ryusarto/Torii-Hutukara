@@ -33,6 +33,7 @@ async function main(){
     window.__pad=(index,axes=[0,0],buttons=[])=>({index,id:'DualSense test '+index,connected:true,mapping:'standard',axes,buttons:Array.from({length:18},(_,i)=>({pressed:buttons.includes(i),value:buttons.includes(i)?1:0}))});
   });
   await page.goto(buildURL,{waitUntil:'load',timeout:120000});
+  await page.locator('#playtestEntry').waitFor({state:'detached'});
   await page.waitForFunction(()=>typeof Input121!=='undefined');
   async function check(name,fn){await fn();results.push({name,passed:true});console.log('OK · '+name)}
   async function arena(){await page.evaluate(()=>{
@@ -150,7 +151,10 @@ async function main(){
   const mobile=await mobileContext.newPage();mobile.on('pageerror',e=>errors.push(e.message));
   await mobile.addInitScript(()=>{window.requestAnimationFrame=()=>0;Object.defineProperty(navigator,'getGamepads',{value:()=>[]})});
   await mobile.goto(buildURL,{waitUntil:'load',timeout:120000});
-  await check('iPhone automatically gets portrait mobile layout with large targets',async()=>{
+  await mobile.locator('#playtestEntry').waitFor({state:'detached'});
+  await check('Touch controls stay hidden at title and appear with large targets in game',async()=>{
+    assert.equal(await mobile.locator('#mobileDeck121').isVisible(),false);
+    await mobile.evaluate(()=>{G=fresh();buildMaps();setArea('studio',12.5,10.5,false);mode='walk';$('start').classList.add('hidden');$('hud').style.display='block';updateMobileLayout121();updateMobileReadout121()});
     assert(await mobile.locator('#mobileDeck121').isVisible());
     const v=await mobile.evaluate(()=>({mobile:Input121.mobile,scroll:document.documentElement.scrollWidth>innerWidth,buttons:[...document.querySelectorAll('.mobileActions121 button')].map(e=>({w:e.getBoundingClientRect().width,h:e.getBoundingClientRect().height}))}));
     assert(v.mobile);assert(!v.scroll,JSON.stringify(v));for(const b of v.buttons)assert(b.w>=44&&b.h>=40,JSON.stringify(b));
@@ -163,7 +167,7 @@ async function main(){
     await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[a]});
     await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[a,b]});
     await mobile.waitForTimeout(80);
-    let v=await mobile.evaluate(()=>{C3.pollControllers(100);return {x:Input121.touch[0],attack:attackHeld,pointers:[...Input121.pointers.keys()],origin:Input121.stickOrigin}});assert(v.x>.5,JSON.stringify({v,stick,attack,a,b}));assert(v.attack);
+    let v=await mobile.evaluate(a=>{C3.pollControllers(100);const hit=document.elementFromPoint(a.x,a.y);return {x:Input121.touch[0],attack:attackHeld,pointers:[...Input121.pointers.keys()],origin:Input121.stickOrigin,mode,hit:hit?.outerHTML.slice(0,350),classes:document.documentElement.className}},a);assert(v.x>.5,JSON.stringify({v,stick,attack,a,b}));assert(v.attack);
     await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[b]});
     v=await mobile.evaluate(()=>({x:Input121.touch[0],attack:attackHeld}));assert(v.x>.5,JSON.stringify(v));assert(!v.attack);
     await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});

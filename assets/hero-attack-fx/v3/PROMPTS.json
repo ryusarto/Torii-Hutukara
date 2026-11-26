@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-25",
+  "timezone": "America/Sao_Paulo",
+  "requests": [
+    {
+      "hero": "franco",
+      "tool": "image_gen.imagegen built-in",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "assets/boss-ground-fx/v1/atlas/pulse.png",
+        "assets/boss-ground-fx/v1/atlas/scrap.png"
+      ],
+      "prompt": "Use case: stylized-concept. Production sprite animation sheet for Torii & Hutukara, 16-bit top-down RPG. The two input images are STYLE REFERENCES ONLY, showing the game's existing boss attack textures. Create a NEW HERO FX SPRITESHEET, not a boss explosion. Hero: FRANCO BASS, identity warm amber/ivory, woody dust and vibrating bass-string resonance. Exactly EIGHT COLUMNS and SIX ROWS of equally sized square cells, no lines, no labels, no text, actual TRANSPARENT background. Each row is one continuous animation with EIGHT DISTINCT authored drawings from left to right: 1 tiny anticipation,2 gathering material,3 advancing narrow stroke,4 compact asymmetric contact burst,5 broken release,6 separated flecks,7 very small residual,8 almost vanished residual. No sliding duplicate poses. All drawings centered consistently within their cells; very generous empty transparent space separates every drawing; no overlap between cells. Six rows: row1 one short plucked resonant streak to right; row2 two interleaving warm string streaks to right; row3 three brief chord filaments to right; row4 short low broken bass pressure ripple, open silhouette not closed ring; row5 compact woody resonant contact flecks and tiny amber harmonic fragments; row6 narrow warm traveling bass pulse to right, with 2 or 3 particles. Borrow the boss references' painterly pixel texture, earthy shadows, chipped edges and true changing material shapes, but make each effect smaller, airy, restrained. Matte clusters, tiny ivory core, open asymmetric shapes, no huge glow. At peak only 2-4 separated fragments, maximum occupied area about 15 percent of a cell. NO actual musical instrument, NO bass body, NO peg, NO full weapon, NO character, NO heart, NO amp, NO emblem, NO border or thick black outline, NO circle360, NO opaque disk, NO UI ornament, NO cyan, NO ground or scenery. Effects only, sharply pixelated game art. Canvas landscape aspect 8:6.",
+      "generatedFile": "exec-0006d250-13f4-4bab-8cfd-3a141c02680c.png",
+      "savedOriginal": "source/franco.png"
+    },
+    {
+      "hero": "ryuchi",
+      "tool": "image_gen.imagegen built-in",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "assets/boss-ground-fx/v1/atlas/pulse.png"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: NEW production VFX sprite animation sheet for Torii & Hutukara top-down16-bit RPG. Input image is STYLE REFERENCE ONLY: match painterly pixel texture, chipped particulate edges, earthy material, dark translucent wisps and tiny bright contact core of these real boss FX. Exactly EIGHT COLUMNS and SIX ROWS, equally spaced square cells. No cell borders, no text, no labels, real transparent background. One continuous eight-drawing animation per row, left to right: tiny anticipation; material gathers; short advancing stroke; asymmetric compact contact; broken open rupture; 2-4 separating fragments; very small residual; almost vanished residual. Every frame truly changes shape, not a moved copy. Fixed center of action in each cell. Huge empty transparent gaps between every effect; about85percent of each cell remains empty. Narrow open silhouettes with tiny highlights. Hero scale, not boss area: only2-4fragments at the peak. NO weapons or physical objects, NO actual instrument, NO character/body, NO ornament, NO emblem/icon, NO UI, NO thick contour, NO enclosing circles or rings, NO solid disk, NO opaque explosion, NO broad glow, NO floor, NO scenery. Effects only, pixel art. Six rows described below. Canvas aspect8:6. RYUCHI resonant swordsman. Desaturated blue, ivory, very small graphite wisps. Row1: open rising blade-shaped breath to right (not a sword object); row2: opposite falling curved thin slash to right; row3: slim crystalline thrust to right with2shards; row4: one tiny long sonic blade projectile in flight facing right; row5: short dash wake consisting of2separated cold shards and dusty whisper, pointing right; row6: thin voice resonance thread with2small floating crystalline fragments, flowing right. Preserve translucent interiors and asymmetry, no joined diamonds or decorated sword.",
+      "generatedFile": "exec-03535f03-61ad-4cff-94d1-66e32d24cd3c.png",
+      "savedOriginal": "source/ryuchi.png"
+    },
+    {
+      "hero": "alt",
+      "tool": "image_gen.imagegen built-in",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "assets/boss-ground-fx/v1/atlas/pulse.png"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: NEW production VFX sprite animation sheet for Torii & Hutukara top-down16-bit RPG. Input image is STYLE REFERENCE ONLY: match painterly pixel texture, chipped particulate edges, earthy material, dark translucent wisps and tiny bright contact core of these real boss FX. Exactly EIGHT COLUMNS and SIX ROWS, equally spaced square cells. No cell borders, no text, no labels, real transparent background. One continuous eight-drawing animation per row, left to right: tiny anticipation; material gathers; short advancing stroke; asymmetric compact contact; broken open rupture; 2-4 separating fragments; very small residual; almost vanished residual. Every frame truly changes shape, not a moved copy. Fixed center of action in each cell. Huge empty transparent gaps between every effect; about85percent of each cell remains empty. Narrow open silhouettes with tiny highlights. Hero scale, not boss area: only2-4fragments at the peak. NO weapons or physical objects, NO actual instrument, NO character/body, NO ornament, NO emblem/icon, NO UI, NO thick contour, NO enclosing circles or rings, NO solid disk, NO opaque explosion, NO broad glow, NO floor, NO scenery. Effects only, pixel art. Six rows described below. Canvas aspect8:6. FRANCO ARCHER. Earthy olive, ivory, copper, a few desaturated green pixels. Row1: brief string release air streak to right; row2: paired soft arrow wake strokes to right; row3: small stronger string-release contact flecks to right; row4: one narrow piercing arrow ENERGY core facing right with a very short faded tail (NO full bow); row5:3short separated forward arrow-like air flecks, not a cone and not an opaque trail; row6: tiny downward arrow-rain contact spark and leafy dust, open asymmetrical fragments without a circular marker. No bow object, no full physical arrows with huge fletching.",
+      "generatedFile": "exec-59e26c3a-11b6-491e-80b4-e0537662cb49.png",
+      "savedOriginal": "source/alt.png"
+    },
+    {
+      "hero": "katana",
+      "tool": "image_gen.imagegen built-in",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "assets/boss-ground-fx/v1/atlas/pulse.png"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: NEW production VFX sprite animation sheet for Torii & Hutukara top-down16-bit RPG. Input image is STYLE REFERENCE ONLY: match painterly pixel texture, chipped particulate edges, earthy material, dark translucent wisps and tiny bright contact core of these real boss FX. Exactly EIGHT COLUMNS and SIX ROWS, equally spaced square cells. No cell borders, no text, no labels, real transparent background. One continuous eight-drawing animation per row, left to right: tiny anticipation; material gathers; short advancing stroke; asymmetric compact contact; broken open rupture; 2-4 separating fragments; very small residual; almost vanished residual. Every frame truly changes shape, not a moved copy. Fixed center of action in each cell. Huge empty transparent gaps between every effect; about85percent of each cell remains empty. Narrow open silhouettes with tiny highlights. Hero scale, not boss area: only2-4fragments at the peak. NO weapons or physical objects, NO actual instrument, NO character/body, NO ornament, NO emblem/icon, NO UI, NO thick contour, NO enclosing circles or rings, NO solid disk, NO opaque explosion, NO broad glow, NO floor, NO scenery. Effects only, pixel art. Six rows described below. Canvas aspect8:6. RYUCHI KATANA / NINJA. Graphite ink, warm ivory, muted lavender. Row1: one hairline rising ink slash to right; row2: opposite falling ink slash to right; row3: very short focused white cut surrounded by2tiny paper flecks to right; row4: narrow iai ink wake to right, fragmented behind the tip; row5: a tiny angled parry glint and2ink flecks (NOT a shield or guard ring); row6: short horizontal horizon cut to right that breaks into drifting ink/ivory fragments. No physical sword, no character, no ornate blade, no closed shape.",
+      "generatedFile": "exec-21017d74-481c-4d10-be8c-478097fd258c.png",
+      "savedOriginal": "source/katana.png"
+    },
+    {
+      "hero": "synth",
+      "tool": "image_gen.imagegen built-in",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "assets/boss-ground-fx/v1/atlas/pulse.png"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: NEW production VFX sprite animation sheet for Torii & Hutukara top-down16-bit RPG. Input image is STYLE REFERENCE ONLY: match painterly pixel texture, chipped particulate edges, earthy material, dark translucent wisps and tiny bright contact core of these real boss FX. Exactly EIGHT COLUMNS and SIX ROWS, equally spaced square cells. No cell borders, no text, no labels, real transparent background. One continuous eight-drawing animation per row, left to right: tiny anticipation; material gathers; short advancing stroke; asymmetric compact contact; broken open rupture; 2-4 separating fragments; very small residual; almost vanished residual. Every frame truly changes shape, not a moved copy. Fixed center of action in each cell. Huge empty transparent gaps between every effect; about85percent of each cell remains empty. Narrow open silhouettes with tiny highlights. Hero scale, not boss area: only2-4fragments at the peak. NO weapons or physical objects, NO actual instrument, NO character/body, NO ornament, NO emblem/icon, NO UI, NO thick contour, NO enclosing circles or rings, NO solid disk, NO opaque explosion, NO broad glow, NO floor, NO scenery. Effects only, pixel art. Six rows described below. Canvas aspect8:6. FRANCO SYNTHESIZER. Desaturated mint/sea-green, warm ivory, graphite and tiny copper flecks. Row1:2short block-like sonic air pulses facing right; row2:3tiny triangular sound fragments facing right; row3:3stepped sound pulses facing right, open and separated; row4: compact harmonic-pad activation, only2or3low floating green blocks and dusty electrical flecks, NO pad object or disc; row5: filter contact inward fragments converging briefly then dissipating, no closed border; row6: narrow broken electronic connection thread facing right with2green sparks. No actual keyboard, cable object, loudspeaker, oscilloscope or UI.",
+      "generatedFile": "exec-f3411324-134b-4eb6-9a7b-3aec9966d680.png",
+      "savedOriginal": "source/synth.png"
+    },
+    {
+      "hero": "percussion",
+      "tool": "image_gen.imagegen built-in",
+      "transparent_background": true,
+      "referenced_image_paths": [
+        "assets/boss-ground-fx/v1/atlas/pulse.png"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: NEW production VFX sprite animation sheet for Torii & Hutukara top-down16-bit RPG. Input image is STYLE REFERENCE ONLY: match painterly pixel texture, chipped particulate edges, earthy material, dark translucent wisps and tiny bright contact core of these real boss FX. Exactly EIGHT COLUMNS and SIX ROWS, equally spaced square cells. No cell borders, no text, no labels, real transparent background. One continuous eight-drawing animation per row, left to right: tiny anticipation; material gathers; short advancing stroke; asymmetric compact contact; broken open rupture; 2-4 separating fragments; very small residual; almost vanished residual. Every frame truly changes shape, not a moved copy. Fixed center of action in each cell. Huge empty transparent gaps between every effect; about85percent of each cell remains empty. Narrow open silhouettes with tiny highlights. Hero scale, not boss area: only2-4fragments at the peak. NO weapons or physical objects, NO actual instrument, NO character/body, NO ornament, NO emblem/icon, NO UI, NO thick contour, NO enclosing circles or rings, NO solid disk, NO opaque explosion, NO broad glow, NO floor, NO scenery. Effects only, pixel art. Six rows described below. Canvas aspect8:6. RYUCHI PERCUSSIONIST. Rust, warm amber/ivory, dark earthen dust. Row1: short right-hand drum strike air streak to right; row2: opposite left-hand air streak to right; row3: two small converging drum contact bursts and tiny ivory wood flecks to right; row4: small offbeat parry contact spark and dusty flecks, NO shield/ring; row5: low broken pressure wave of2-3earthy dust clusters, three phase-like asymmetrical accents through the eight frames; row6: compact deeper drum pulse, one open crescent of dust breaking into3small ivory/rust flecks, NEVER a circle. No drum object, no sticks, no gear, no stand.",
+      "generatedFile": "exec-f3081e97-1810-4c80-9d02-3008f0915e52.png",
+      "savedOriginal": "source/percussion.png"
+    }
+  ]
+}

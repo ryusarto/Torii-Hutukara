@@ -34,3 +34,4 @@ for(let n=0;n<700;n++){
 }
 if(process.env.MEDIA_USAGE)fs.writeFileSync(process.env.MEDIA_USAGE,JSON.stringify(await page.evaluate(()=>__mediaUsage.dump()),null,1)+'\n');report.final=await snapshot();report.mode=await page.evaluate(()=>mode);await page.evaluate(()=>{drawEnv();save(true)});await page.screenshot({path:path.join(out,'campaign-'+route+'-ending.png')});report.save=await page.evaluate(()=>copy(G));if(!report.done||report.errors.length)process.exitCode=1;
 })().catch(e=>{report.fatal=e.stack;process.exitCode=1}).finally(async()=>{if(browser)await browser.close();fs.writeFileSync(path.join(out,'CAMPAIGN_'+route+(reloadInterval?'_RELOAD':'')+'.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({done:report.done,errors:report.errors,stuck:report.stuck,reloads:report.reloads,fatal:report.fatal}));});
+

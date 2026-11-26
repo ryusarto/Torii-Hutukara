@@ -1,0 +1,468 @@
+{
+  "base": "66b0dbc3ca12b6f0342fb49e1b3e27f2f38c47a7",
+  "upstream": "db6297e25a3e701276df0b1ffd04b1dafb14afce",
+  "files": [
+    {
+      "path": ".github/workflows/quality.yml",
+      "upstreamSha256": "ff8ca3a39b91047215b673109fe3e714837a51ea99d92eb2613ab7737e586637",
+      "status": "three-way-merged",
+      "localSha256": "b2b8ff2926245f27e8de244e04cb9df2efd734d31bf431542ae04de8320999e5"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "upstreamSha256": "d063a99c9fcc717f90bf2765b9cd9c5af7466c7fccd6730e67645ab93804193f",
+      "status": "reconciled",
+      "resolution": "Both histories retained with local integration1.25 entry.",
+      "localSha256": "509d80335c637d9f808020e37e10769b2e2a580cae753889d7006a00df597414"
+    },
+    {
+      "path": "README.md",
+      "upstreamSha256": "3b5965a8cc3f40d6793727f60fb1ce40247d018fb1c9fb625a76718cad4380d0",
+      "status": "reconciled",
+      "resolution": "Upstream documentation retained with explicit local integration status.",
+      "localSha256": "8d428a78be43d52f865d31ab2f2d8ebb08cc70e9cd7d4f6b665445ffae3f37ff"
+    },
+    {
+      "path": "assets/boss-animations/v3/PROMPTS.json",
+      "upstreamSha256": "32a6d55e0bfc9a65439dcaf75866878be688b3294555493d82e1a9f45c714ad1",
+      "status": "imported-upstream",
+      "localSha256": "32a6d55e0bfc9a65439dcaf75866878be688b3294555493d82e1a9f45c714ad1"
+    },
+    {
+      "path": "assets/boss-animations/v3/atlas/c3_metronome_walk.png",
+      "upstreamSha256": "e3ca877d018b70e9ef51b64592318fa23cee94c37f16c7e19f446eed0edb483a",
+      "status": "imported-upstream",
+      "localSha256": "e3ca877d018b70e9ef51b64592318fa23cee94c37f16c7e19f446eed0edb483a"
+    },
+    {
+      "path": "assets/boss-animations/v3/manifest.json",
+      "upstreamSha256": "0a66d3678f45a8e9ef5d475f8f46382d69431184489b61e8307c0e0766f2960a",
+      "status": "imported-upstream",
+      "localSha256": "0a66d3678f45a8e9ef5d475f8f46382d69431184489b61e8307c0e0766f2960a"
+    },
+    {
+      "path": "assets/boss-animations/v3/source/c3_metronome_walk.png",
+      "upstreamSha256": "a50001d9fdc4d07e250e5ba315cc562dedf5d6f3a036618f810ff543ddffa3a2",
+      "status": "imported-upstream",
+      "localSha256": "a50001d9fdc4d07e250e5ba315cc562dedf5d6f3a036618f810ff543ddffa3a2"
+    },
+    {
+      "path": "assets/chapter-03/audio/violino-veracidade-canal.wav",
+      "upstreamSha256": "ed8eb0249b7c9f8fff7ae9d654c9913706f056510659028a7a8b5615f10504eb",
+      "status": "imported-upstream",
+      "localSha256": "ed8eb0249b7c9f8fff7ae9d654c9913706f056510659028a7a8b5615f10504eb"
+    },
+    {
+      "path": "assets/chapter-03/runtime/palco-contratempo/backdrop.png",
+      "upstreamSha256": "cea791e93e5e1e055e657d6d8fc623a701be2012c5b3aed4c28cac03bbdd13ac",
+      "status": "imported-upstream",
+      "localSha256": "cea791e93e5e1e055e657d6d8fc623a701be2012c5b3aed4c28cac03bbdd13ac"
+    },
+    {
+      "path": "assets/chapter-03/runtime/palco-contratempo/bar_west.png",
+      "upstreamSha256": "13b1fdbad96d0fe6201da6d6d6c5e1758d83d13da5620dd9fdfe8f04f8fdb783",
+      "status": "imported-upstream",
+      "localSha256": "13b1fdbad96d0fe6201da6d6d6c5e1758d83d13da5620dd9fdfe8f04f8fdb783"
+    },
+    {
+      "path": "assets/chapter-03/runtime/palco-contratempo/bass.png",
+      "upstreamSha256": "8c7f2199e2bc715b682e4a689533315f9384b0d69bf27434bc13e81453e32dc0",
+      "status": "imported-upstream",
+      "localSha256": "8c7f2199e2bc715b682e4a689533315f9384b0d69bf27434bc13e81453e32dc0"
+    },
+    {
+      "path": "assets/chapter-03/runtime/palco-contratempo/chair_north.png",
+      "upstreamSha256": "1f55cee68a3bcbc4a6598dc18ebf1bc4aaf5891854401c20815eb87530b68c7f",
+      "status": "imported-upstream",
+      "localSha256": "1f55cee68a3bcbc4a6598dc18ebf1bc4aaf5891854401c20815eb87530b68c7f"
+    },
+    {
+      "path": "assets/chapter-03/runtime/palco-contratempo/drums.png",
+      "upstreamSha256": "2844621cc9e78d184f43fb548d2b1cf8fb25ccd0de166e7dc6164992d560ae38",
+      "status": "imported-upstream",
+      "localSha256": "2844621cc9e78d184f43fb548d2b1cf8fb25ccd0de166e7dc6164992d560ae38"
+    },
+    {
+      "path": "assets/chapter-03/runtime/palco-contratempo/guitar.png",
+      "upstreamSha256": "96a1ebf83eaaa5a15fe526fc012f81e1d1bf16c747233cf8bbadaf2d63b5e07f",
+      "status": "imported-upstream",
+      "localSha256": "96a1ebf83eaaa5a15fe526fc012f81e1d1bf16c747233cf8bbadaf2d63b5e07f"
+    },
+    {
+      "path": "assets/chapter-03/runtime/palco-contratempo/manifest.json",
+      "upstreamSha256": "127f72f18c1eeb6751da3d43611e68e5e0cfda27cd5d9e2aa5920edb5d92585a",
+      "status": "imported-upstream",
+      "localSha256": "127f72f18c1eeb6751da3d43611e68e5e0cfda27cd5d9e2aa5920edb5d92585a"
+    },
+    {
+      "path": "assets/chapter-03/runtime/palco-contratempo/rack.png",
+      "upstreamSha256": "64bf751cd4dc8b05646eaebce749883b830b4e6ee2aa43298c2d3289d3551e3f",
+      "status": "imported-upstream",
+      "localSha256": "64bf751cd4dc8b05646eaebce749883b830b4e6ee2aa43298c2d3289d3551e3f"
+    },
+    {
+      "path": "assets/ponte-frequencias/PROMPTS.md",
+      "upstreamSha256": "b86a34e63010126807519842dc01e6ce1324a71d949f16454c74b73f3e23e067",
+      "status": "imported-upstream",
+      "localSha256": "b86a34e63010126807519842dc01e6ce1324a71d949f16454c74b73f3e23e067"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/bridge/desmonte-01.png",
+      "upstreamSha256": "3918ffd909cf0a112c8c7b046596842c5b691f369f994b70c58d77b87e253033",
+      "status": "imported-upstream",
+      "localSha256": "3918ffd909cf0a112c8c7b046596842c5b691f369f994b70c58d77b87e253033"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/bridge/desmonte-02.png",
+      "upstreamSha256": "ad8d64bf96229ab7ea488cd0520fc1b95c4b4158f36f13411bae12b5d5ebf802",
+      "status": "imported-upstream",
+      "localSha256": "ad8d64bf96229ab7ea488cd0520fc1b95c4b4158f36f13411bae12b5d5ebf802"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/bridge/desmonte-03.png",
+      "upstreamSha256": "863d63a20e42f3f86b8957453f181bd7221ba09cb9c50161242c63f3fdeccad4",
+      "status": "imported-upstream",
+      "localSha256": "863d63a20e42f3f86b8957453f181bd7221ba09cb9c50161242c63f3fdeccad4"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/bridge/desmonte-04.png",
+      "upstreamSha256": "4f8ea340fce3d640bc4735446676d7882683d1443d20dc45bcee4064931a1115",
+      "status": "imported-upstream",
+      "localSha256": "4f8ea340fce3d640bc4735446676d7882683d1443d20dc45bcee4064931a1115"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/bridge/montagem-01.png",
+      "upstreamSha256": "79262bb6125f82a7cbf049a0fdb8473dfa3b883e2ca38440a1b266ce455c78f7",
+      "status": "imported-upstream",
+      "localSha256": "79262bb6125f82a7cbf049a0fdb8473dfa3b883e2ca38440a1b266ce455c78f7"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/bridge/montagem-02.png",
+      "upstreamSha256": "777ad89b7ca769aa515f143a29eb5d80e5a3e261bb1eac4e5e2f7efed373ddfc",
+      "status": "imported-upstream",
+      "localSha256": "777ad89b7ca769aa515f143a29eb5d80e5a3e261bb1eac4e5e2f7efed373ddfc"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/bridge/montagem-03.png",
+      "upstreamSha256": "2862c85669d3e25ec3289ecbc0d9919bf2bfe2e5c452693cb3824304d495def7",
+      "status": "imported-upstream",
+      "localSha256": "2862c85669d3e25ec3289ecbc0d9919bf2bfe2e5c452693cb3824304d495def7"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/bridge/montagem-04.png",
+      "upstreamSha256": "8f27229297def634500f83300d7a489f803d504d3d31ae4f639d73a2dfce78f5",
+      "status": "imported-upstream",
+      "localSha256": "8f27229297def634500f83300d7a489f803d504d3d31ae4f639d73a2dfce78f5"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/manifest.json",
+      "upstreamSha256": "00bead99a7281e6ce7e649dd774c2df1ea36d24bcd9bb2ef01240f3caf61154c",
+      "status": "imported-upstream",
+      "localSha256": "00bead99a7281e6ce7e649dd774c2df1ea36d24bcd9bb2ef01240f3caf61154c"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/stations/marco.png",
+      "upstreamSha256": "e7b7f04a17639acdbc47d4b8f6f9e5073aca353bce01d25f573a6290a89147aa",
+      "status": "imported-upstream",
+      "localSha256": "e7b7f04a17639acdbc47d4b8f6f9e5073aca353bce01d25f573a6290a89147aa"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/stations/pedra.png",
+      "upstreamSha256": "786d360abdc1c51601f4ba43843902b42f0f3801f0a781168d321192b38e437b",
+      "status": "imported-upstream",
+      "localSha256": "786d360abdc1c51601f4ba43843902b42f0f3801f0a781168d321192b38e437b"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/stations/sino.png",
+      "upstreamSha256": "9015757ebe44b17ea60b5b5be6b5d50750e11054b520540e3ef889c4057e7894",
+      "status": "imported-upstream",
+      "localSha256": "9015757ebe44b17ea60b5b5be6b5d50750e11054b520540e3ef889c4057e7894"
+    },
+    {
+      "path": "assets/ponte-frequencias/runtime/stations/tronco.png",
+      "upstreamSha256": "8a22da390ac89f36bc75070348c57732fd8c0496d733f87e80a8df5b1fc42fde",
+      "status": "imported-upstream",
+      "localSha256": "8a22da390ac89f36bc75070348c57732fd8c0496d733f87e80a8df5b1fc42fde"
+    },
+    {
+      "path": "assets/ponte-frequencias/source/desmonte.png",
+      "upstreamSha256": "46c1b292d45ebb72964eb769d96a950227140d8e8b8428356a9ba70745cf9450",
+      "status": "imported-upstream",
+      "localSha256": "46c1b292d45ebb72964eb769d96a950227140d8e8b8428356a9ba70745cf9450"
+    },
+    {
+      "path": "assets/ponte-frequencias/source/marco.png",
+      "upstreamSha256": "1bba93ac8ec555fecdcf1da8529186e10b886cb1207d737af3a0f9cf5ae86e8e",
+      "status": "imported-upstream",
+      "localSha256": "1bba93ac8ec555fecdcf1da8529186e10b886cb1207d737af3a0f9cf5ae86e8e"
+    },
+    {
+      "path": "assets/ponte-frequencias/source/montagem.png",
+      "upstreamSha256": "86282e66f4d41966d763c88d7ceab29eee84571dfbd165fbcfabf97bc505d7b7",
+      "status": "imported-upstream",
+      "localSha256": "86282e66f4d41966d763c88d7ceab29eee84571dfbd165fbcfabf97bc505d7b7"
+    },
+    {
+      "path": "assets/ponte-frequencias/source/pedra.png",
+      "upstreamSha256": "81667619ddfef62167d1717ebcb89bb29f138305fb409dde00fcde6bc3f070f1",
+      "status": "imported-upstream",
+      "localSha256": "81667619ddfef62167d1717ebcb89bb29f138305fb409dde00fcde6bc3f070f1"
+    },
+    {
+      "path": "assets/ponte-frequencias/source/sino.png",
+      "upstreamSha256": "97cc0edd5e57a6590b7a0dbfe135201284679a804fa63a6dd25b0f53662c7326",
+      "status": "imported-upstream",
+      "localSha256": "97cc0edd5e57a6590b7a0dbfe135201284679a804fa63a6dd25b0f53662c7326"
+    },
+    {
+      "path": "assets/ponte-frequencias/source/tronco.png",
+      "upstreamSha256": "41d448895cbe261428013ea5cb68c21e80a4df5985cc556b9d2714dbec8039b9",
+      "status": "imported-upstream",
+      "localSha256": "41d448895cbe261428013ea5cb68c21e80a4df5985cc556b9d2714dbec8039b9"
+    },
+    {
+      "path": "design/chapter-03/DIALOGOS_CAPITULO_03.json",
+      "upstreamSha256": "4032d2bd545a56dab2057d0091e3532bb1a2e038f96c7653b39133438c97d6e3",
+      "status": "imported-upstream",
+      "localSha256": "4032d2bd545a56dab2057d0091e3532bb1a2e038f96c7653b39133438c97d6e3"
+    },
+    {
+      "path": "game/VERSION.json",
+      "upstreamSha256": "e97aa98b2a1dc837816abb4e363c8f6bca64fd6a3f203c433faa16193c4bd79c",
+      "status": "reconciled",
+      "resolution": "Integrated release1.25.0 over upstream1.24.1.",
+      "localSha256": "e1279cddc18ec37d0153ae83fe89285d31f7cbbf50722aa9cf3d7eb784708e33"
+    },
+    {
+      "path": "game/source/chapter-03/boss_choreography_v2.js",
+      "upstreamSha256": "a03a9e10f59a54921162ba8f167dc3001d61993bfa75ecbff9f0ddf1f4a847e3",
+      "status": "imported-upstream",
+      "localSha256": "a03a9e10f59a54921162ba8f167dc3001d61993bfa75ecbff9f0ddf1f4a847e3"
+    },
+    {
+      "path": "game/source/chapter-03/bridge_art.js",
+      "upstreamSha256": "27d71261cac7165b296e0afe0f73c978eec9154a12274d359b5dd3add4a78c0e",
+      "status": "imported-upstream",
+      "localSha256": "27d71261cac7165b296e0afe0f73c978eec9154a12274d359b5dd3add4a78c0e"
+    },
+    {
+      "path": "game/source/chapter-03/bridge_puzzle.js",
+      "upstreamSha256": "9a47e04aa5c0d2642b2971fd4c22322eaa98be73ccb2330e65cacbf218f9d304",
+      "status": "imported-upstream",
+      "localSha256": "9a47e04aa5c0d2642b2971fd4c22322eaa98be73ccb2330e65cacbf218f9d304"
+    },
+    {
+      "path": "game/source/chapter-03/build_alpha.rb",
+      "upstreamSha256": "b4cbef1005091495af141c43e7fd4ca050c9673561223d8b01e7a8703277f174",
+      "status": "reconciled",
+      "resolution": "Combined new native modules/assets/camera/input hooks with approved UI/FX loaders; single Lumi; swept SkillMovement patch supersedes duplicate dash patch.",
+      "localSha256": "3571ef63e231d72c88a461517a98ed6e98b4f008a4f057202894b3cd80733f0e"
+    },
+    {
+      "path": "game/source/chapter-03/canal_violin.js",
+      "upstreamSha256": "e76d0de0efb6fdda21c9fd4fd15df8e7975b066e2ad130d69587531ebf46a15f",
+      "status": "imported-upstream",
+      "localSha256": "e76d0de0efb6fdda21c9fd4fd15df8e7975b066e2ad130d69587531ebf46a15f"
+    },
+    {
+      "path": "game/source/chapter-03/cenarios_v2.js",
+      "upstreamSha256": "09886dc1fbdd1afef5570efdb3922f3adc5b29acacd7255bfedd8fc4e721297c",
+      "status": "imported-upstream",
+      "localSha256": "09886dc1fbdd1afef5570efdb3922f3adc5b29acacd7255bfedd8fc4e721297c"
+    },
+    {
+      "path": "game/source/chapter-03/chapter3_runtime.js",
+      "upstreamSha256": "9f83e2025e0ad85b5d0c97edf136acc3e81d807bee2ce9f39347f97bf6b4ac10",
+      "status": "imported-upstream",
+      "localSha256": "9f83e2025e0ad85b5d0c97edf136acc3e81d807bee2ce9f39347f97bf6b4ac10"
+    },
+    {
+      "path": "game/source/chapter-03/club_stage.js",
+      "upstreamSha256": "a40e1e69454a26b68aded7d749b1cbb635c219185ebf6c4ee7bd60eb6e1b4183",
+      "status": "imported-upstream",
+      "localSha256": "a40e1e69454a26b68aded7d749b1cbb635c219185ebf6c4ee7bd60eb6e1b4183"
+    },
+    {
+      "path": "game/source/chapter-03/dialogue_edits.js",
+      "upstreamSha256": "6d6110784b4ead85c3a5ee4f217877b2db310c562f2e4a00e4e20fd0951553f1",
+      "status": "imported-upstream",
+      "localSha256": "6d6110784b4ead85c3a5ee4f217877b2db310c562f2e4a00e4e20fd0951553f1"
+    },
+    {
+      "path": "game/source/chapter-03/dificuldade_v1.js",
+      "upstreamSha256": "91a29b7bfc08048511263e93520113aae448fd9d44721cb5211523d71d6ef840",
+      "status": "three-way-merged",
+      "localSha256": "850de162c3e9055a6a9a269c542f229304cc700f60b7b9b5922eb9d95feb6271"
+    },
+    {
+      "path": "game/source/chapter-03/encontros_v1.js",
+      "upstreamSha256": "741671ce4ca7279534814ad657872b335cfcb1be84ac1cd4853c46b5f68ad339",
+      "status": "imported-upstream",
+      "localSha256": "741671ce4ca7279534814ad657872b335cfcb1be84ac1cd4853c46b5f68ad339"
+    },
+    {
+      "path": "game/source/chapter-03/environment_depth_v1.js",
+      "upstreamSha256": "01c3730f3ca03b2131f675be3a4800f488d6c51edda2b6c0c6eeae9c98c877ba",
+      "status": "imported-upstream",
+      "localSha256": "01c3730f3ca03b2131f675be3a4800f488d6c51edda2b6c0c6eeae9c98c877ba"
+    },
+    {
+      "path": "game/source/chapter-03/final_echoes.js",
+      "upstreamSha256": "faac142c6417ffde6bcd49078cacb172a4d2582166ae24fb29260606ff854521",
+      "status": "imported-upstream",
+      "localSha256": "faac142c6417ffde6bcd49078cacb172a4d2582166ae24fb29260606ff854521"
+    },
+    {
+      "path": "game/source/chapter-03/healing.js",
+      "upstreamSha256": "2be577515139b357e7a4a0e13a407f47fc64d3a82c34e3417c7df7b8a0f0a9a0",
+      "status": "imported-upstream",
+      "localSha256": "2be577515139b357e7a4a0e13a407f47fc64d3a82c34e3417c7df7b8a0f0a9a0"
+    },
+    {
+      "path": "game/source/chapter-03/input_mobile_combat.js",
+      "upstreamSha256": "0d5340e1e98a970d4fb1f5a3fa0fa0d6d1961bc0572b14ab02db9fdc721b76d4",
+      "status": "reconciled",
+      "resolution": "Upstream native movement/body/save/audio/camera fixes retained; final local guard consumes only the initiating touch compatibility click when ACTION opens an overlay/dialogue. Verified Plant mobile trace originally retargeted PlantClose; sustained Canal input remains on pointerdown.",
+      "localSha256": "9822cd1cb981f62ea347a209020ffc29f8537ba0254c189bb3a0ebd3b6d50e7c"
+    },
+    {
+      "path": "game/source/chapter-03/interface_v6.js",
+      "upstreamSha256": "f6266417bcf9f3b66d05f053a5cb170689652cc61167ca9fb56fbb4365f313c2",
+      "status": "imported-upstream",
+      "localSha256": "f6266417bcf9f3b66d05f053a5cb170689652cc61167ca9fb56fbb4365f313c2"
+    },
+    {
+      "path": "game/source/chapter-03/lumi_melody.js",
+      "upstreamSha256": "b190b8cb98e9612f7d8860cee94664172815aefa847c9334e8e4ad252f73f83d",
+      "status": "reconciled",
+      "resolution": "Adopted upstream platform-aware input hints, retaining the new UI adapter.",
+      "localSha256": "b190b8cb98e9612f7d8860cee94664172815aefa847c9334e8e4ad252f73f83d"
+    },
+    {
+      "path": "game/source/chapter-03/narrativa_v1.js",
+      "upstreamSha256": "d5ebc6c620749e4620591394331d6200bfc21bda3183ac18ca010a589e8ae031",
+      "status": "imported-upstream",
+      "localSha256": "d5ebc6c620749e4620591394331d6200bfc21bda3183ac18ca010a589e8ae031"
+    },
+    {
+      "path": "game/source/chapter-03/pacing.js",
+      "upstreamSha256": "e92fce4cbd4d12cbc29dbcdf85f9518427645ae09779fc095030ee40790e30e2",
+      "status": "imported-upstream",
+      "localSha256": "e92fce4cbd4d12cbc29dbcdf85f9518427645ae09779fc095030ee40790e30e2"
+    },
+    {
+      "path": "game/source/chapter-03/plant_sequencer.js",
+      "upstreamSha256": "312d4c09484c0f5f3b6750c34202130ee438713a6762c1b59787f8ac64072cea",
+      "status": "imported-upstream",
+      "localSha256": "312d4c09484c0f5f3b6750c34202130ee438713a6762c1b59787f8ac64072cea"
+    },
+    {
+      "path": "game/source/chapter-03/radio9_tuning.js",
+      "upstreamSha256": "f9908265cb2ab4b546e2e9abd23aca47a6c50016c749f11ca4312498ce586731",
+      "status": "imported-upstream",
+      "localSha256": "f9908265cb2ab4b546e2e9abd23aca47a6c50016c749f11ca4312498ce586731"
+    },
+    {
+      "path": "game/source/chapter-03/validate_alpha.rb",
+      "upstreamSha256": "232db3fd7c5db794b6f9e0ac0dbb78db97a0a7d77eac8e4e75a48919a0855899",
+      "status": "imported-upstream",
+      "localSha256": "232db3fd7c5db794b6f9e0ac0dbb78db97a0a7d77eac8e4e75a48919a0855899"
+    },
+    {
+      "path": "production/pack_ponte_frequencias.py",
+      "upstreamSha256": "06b678e79bbae4d6ce9436c913e734b8b53c464d902692f40d919e23e82558e1",
+      "status": "imported-upstream",
+      "localSha256": "06b678e79bbae4d6ce9436c913e734b8b53c464d902692f40d919e23e82558e1"
+    },
+    {
+      "path": "qa/boss_choreography_browser.cjs",
+      "upstreamSha256": "31ee91edf128e4919b05a4f7f6763d99d9c8b0a4d2f22462eb3b3b9b9136ae6c",
+      "status": "imported-upstream",
+      "localSha256": "31ee91edf128e4919b05a4f7f6763d99d9c8b0a4d2f22462eb3b3b9b9136ae6c"
+    },
+    {
+      "path": "qa/bridge_playtest.cjs",
+      "upstreamSha256": "54f0f3533672dd4ffc118cc11ac27a3e9a6299b1d53d9d027e85a1581690cc87",
+      "status": "imported-upstream",
+      "localSha256": "54f0f3533672dd4ffc118cc11ac27a3e9a6299b1d53d9d027e85a1581690cc87"
+    },
+    {
+      "path": "qa/canal_violin_playtest.cjs",
+      "upstreamSha256": "5a8dd0bd276ed113f11fb4a10616e0f2ee4bb2644587cc08d0ef479f78c42921",
+      "status": "imported-upstream",
+      "localSha256": "5a8dd0bd276ed113f11fb4a10616e0f2ee4bb2644587cc08d0ef479f78c42921"
+    },
+    {
+      "path": "qa/cenarios_deserto_v1.cjs",
+      "upstreamSha256": "7a3fb27375248ef5d14d182496c9ca11d83c529f43418ff11e0ee02288d22a3b",
+      "status": "imported-upstream",
+      "localSha256": "7a3fb27375248ef5d14d182496c9ca11d83c529f43418ff11e0ee02288d22a3b"
+    },
+    {
+      "path": "qa/club_stage_playtest.cjs",
+      "upstreamSha256": "5d599087585b34ba8c90b16acc17e612885924e0737dce355d84c0134a731bf5",
+      "status": "imported-upstream",
+      "localSha256": "5d599087585b34ba8c90b16acc17e612885924e0737dce355d84c0134a731bf5"
+    },
+    {
+      "path": "qa/final_echoes_playtest.cjs",
+      "upstreamSha256": "ce06048f1f7a34ce066fafd99801736c289e4ffcc94160de72941cefe83f485a",
+      "status": "reconciled",
+      "resolution": "Mute fixture is idempotent after reload because upstream intentionally persists the audio preference; original reload persistence asserted before helper.",
+      "localSha256": "71a9ff7b9a122f782dc21fbdbe1515627dff1779f39c985c4690d8177300bf68"
+    },
+    {
+      "path": "qa/lumi_melody_playtest.cjs",
+      "upstreamSha256": "386a7de9b2696af95a44e6ae6a726513b1f99b0f33f131f548b6e8df22525caf",
+      "status": "reconciled",
+      "resolution": "Native gameplay assertions retained; preview/pause/party selectors now follow approved UI7, and mobile key-hint assertions cover the actual pause, roster and note pads. Original failed attempts preserved.",
+      "localSha256": "f86aea890238e394f7dc42a91789915719aff42a540d3fe0abf03700a2cd05f6"
+    },
+    {
+      "path": "qa/pace_bot.cjs",
+      "upstreamSha256": "6acceaebfb7d62da354b053c968379517fa86b06fd7068500b8a01f953a8c921",
+      "status": "three-way-merged",
+      "localSha256": "649b6b63e3a196c4011463786818ff2bfff18a6d1fb3afa670a4f087330d30b4"
+    },
+    {
+      "path": "qa/plant_sequencer_playtest.cjs",
+      "upstreamSha256": "116a43032659c947ed407a7cdf00a46bbf81b7049865ab07066051f9a5f844b4",
+      "status": "imported-upstream",
+      "localSha256": "116a43032659c947ed407a7cdf00a46bbf81b7049865ab07066051f9a5f844b4"
+    },
+    {
+      "path": "qa/radio9_playtest.cjs",
+      "upstreamSha256": "a2d05e38293d9b411bd74877977aaaddcc92e63e3afc0f95998295c378802901",
+      "status": "imported-upstream",
+      "localSha256": "a2d05e38293d9b411bd74877977aaaddcc92e63e3afc0f95998295c378802901"
+    },
+    {
+      "path": "qa/recovery_mobile.cjs",
+      "upstreamSha256": "d09ac84f06205211d2b929ea9b8afe09ca496d125685791604ceac0fc42a4ef7",
+      "status": "imported-upstream",
+      "localSha256": "d09ac84f06205211d2b929ea9b8afe09ca496d125685791604ceac0fc42a4ef7"
+    },
+    {
+      "path": "qa/sorte_reproducao.cjs",
+      "upstreamSha256": "038a66f88fd0f9d83a255340350ea1d2fb7ad5c47e6ff7d3ff251bc78a81225b",
+      "status": "imported-upstream",
+      "localSha256": "038a66f88fd0f9d83a255340350ea1d2fb7ad5c47e6ff7d3ff251bc78a81225b"
+    },
+    {
+      "path": "web/playtest/build.json",
+      "upstreamSha256": "aa12c7fdaac93f310111a68964ada9224d726c846c830dd6af6649445a1fdc02",
+      "status": "reconciled",
+      "resolution": "Local1.25.0 artifact pointer.",
+      "localSha256": "810a1ceee15de14a2d4654a2871fac064ba45c537fc1dfe6e71675d1687d3532"
+    }
+  ],
+  "integratedVersion": "1.25.0",
+  "remotePublished": false,
+  "localUserCheckoutPreserved": "REPOSITORIO",
+  "localFollowupPatches": [
+    "Mobile opening gesture cannot click through into a new menu/dialogue; actual Plant A/B trace and next-gesture checks passed.",
+    "Pause, roster and Lumi shortcuts match mobile input; callbacks and skill names preserved.",
+    "Four world HUDs avoid horizontal touch controls, including FinalEchoes labels.",
+    "HTTP exporter moves temporary output and recreates empty cleanup root; game-content round trip verified."
+  ]
+}

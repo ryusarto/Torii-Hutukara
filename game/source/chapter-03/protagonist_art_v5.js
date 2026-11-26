@@ -11,10 +11,80 @@ const ProtagonistArtV5 = {
   supports(id) { return id === 'franco' || id === 'ryuchi'; },
   image(name) {
     this.recent = this.recent.filter(key => key !== name); this.recent.push(name);
-    if (!this.images[name]) { const image = new Image(); image.src = this.assets[name]; this.images[name] = image; }
+    if (!this.images[name]) {
+      const image = new Image();
+      this.images[name] = image;
+      // The same pale matte is present in the opening idle/walk sheets as in
+      // the later run sheet. Decode once for all Ryuchi body states, leaving
+      // opaque details, portraits and the four masked rows unchanged.
+      if (name.startsWith('ryuchi_') && !name.includes('_portrait_') && !this.manifest.bakedEdgeMatte?.includes(name)) {image.edgePending = true;image.onload = () => {
+        image.edgePending = false;
+        if (image.naturalHeight !== 2048 || this.images[name] !== image) return;
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = image.naturalWidth; canvas.height = image.naturalHeight;
+          const q = canvas.getContext('2d'); q.imageSmoothingEnabled = false; q.drawImage(image,0,0);
+          canvas.detachedPixels = name==='ryuchi_walk' ? this.trimDetached(canvas,256,4,(row,col)=>row===1&&col%2===1) : 0;
+          canvas.edgeMattePixels = this.cleanEdgeMatte(canvas,8);
+          // Existing lazy-load and contact-frame consumers accept a CanvasImageSource
+          // and use these image readiness fields; preserve that small contract.
+          canvas.complete = true; canvas.naturalWidth = canvas.width; canvas.naturalHeight = canvas.height;
+          canvas.decode = () => Promise.resolve();
+          this.images[name] = canvas;
+        } catch {} // Tainted images must still render through the established fallback.
+      };}
+      image.src = this.assets[name];
+    }
     // Decode at most eight full-resolution sheets rather than all 24 on mobile.
     while (this.recent.length > 8) { const old = this.recent.shift(); delete this.images[old]; }
     return this.images[name];
+  },
+  trimDetached(canvas,cell,rows,select=()=>true) {
+    const q=canvas.getContext('2d'),pixels=q.getImageData(0,0,canvas.width,canvas.height),data=pixels.data;
+    const visited=new Uint8Array(cell*cell),stack=new Int32Array(cell*cell);let removed=0;
+    for(let row=0;row<rows;row++)for(let col=0;col<canvas.width/cell;col++){
+      if(!select(row,col))continue;
+      visited.fill(0);let main=null;
+      const index=n=>((row*cell+Math.floor(n/cell))*canvas.width+col*cell+n%cell)*4;
+      for(let start=0;start<cell*cell;start++){
+        if(visited[start]||data[index(start)+3]<128)continue;
+        let size=0,top=cell,bottom=0,left=cell,right=0,length=1;stack[0]=start;visited[start]=1;
+        while(length){const n=stack[--length],x=n%cell,y=Math.floor(n/cell);size++;
+          left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);
+          for(const next of [x>0?n-1:-1,x<cell-1?n+1:-1,y>0?n-cell:-1,y<cell-1?n+cell:-1]){
+            if(next<0||visited[next])continue;visited[next]=1;
+            if(data[index(next)+3]>=128)stack[length++]=next;
+          }
+        }
+        if(!main||size>main.size)main={size,top,bottom,left,right};
+      }
+      if(!main||main.size<64)continue;
+      // The V7 left-facing intermediate has an isolated scrap far above the
+      // head. Keep the entire body box plus an eight-source-pixel margin;
+      // boots, cap logo, pale clothes and disconnected nearby fingers stay intact.
+      for(let y=0;y<cell;y++)for(let x=0;x<cell;x++)if(x<main.left-8||x>main.right+8||y<main.top-8||y>main.bottom+8){
+        const i=((row*cell+y)*canvas.width+col*cell+x)*4;
+        if(data[i+3]){data[i]=data[i+1]=data[i+2]=data[i+3]=0;removed++}
+      }
+    }
+    q.putImageData(pixels,0,0);return removed;
+  },
+  cleanEdgeMatte(canvas,rows=8) {
+    const q=canvas.getContext('2d'), pixels=q.getImageData(0,0,canvas.width,canvas.height);
+    const data=pixels.data, width=canvas.width, height=Math.floor(canvas.height/rows*4);
+    let changed=0;
+    for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+      const i=(y*width+x)*4,a=data[i+3],r=data[i],g=data[i+1],b=data[i+2];
+      if(!a||a>=230||Math.min(r,g,b)<=75||Math.max(r,g,b)-Math.min(r,g,b)>35)continue;
+      let fringe=false;
+      for(let yy=Math.max(0,y-2);yy<Math.min(height,y+3)&&!fringe;yy++)
+        for(let xx=Math.max(0,x-2);xx<Math.min(width,x+3);xx++)
+          if(!data[(yy*width+xx)*4+3]){fringe=true;break}
+      if(!fringe)continue;
+      for(let c=0;c<3;c++)data[i+c]=Math.max(0,Math.min(255,Math.round((data[i+c]*255-(255-a)*255)/a)));
+      changed++;
+    }
+    q.putImageData(pixels,0,0);return changed;
   },
   reset() { this.players = [null, null]; this.shots = [0, 0]; this.locomotion = [null, null]; this.game = G; this.area = G?.area; },
   sequence(hero, state, row) {
@@ -157,8 +227,27 @@ drawActor = function(p, x, y, moving = false) {
     for (const state of ['walk','run','roll']) art.image(p.style + '_' + state);
   }
   let image = art.image(pose.hero + '_' + pose.state);
-  if (!image.complete || !image.naturalWidth) { image = art.image(pose.hero + '_idle'); pose.frame = 0; }
-  if (!image?.complete || !image.naturalWidth) return protagonistActorV5(p, x, y, moving);
+  if (!image.complete || !image.naturalWidth || image.edgePending) {
+    if (moving && (pose.state === 'walk' || pose.state === 'run')) {
+      // Lazy web loads can leave locomotion pending for several seconds. Using
+      // idle/0 here made a moving Franco slide as one frozen drawing. Prefer a
+      // decoded locomotion sheet, retaining physical foot phase; otherwise the
+      // established animated renderer can keep moving until this atlas arrives.
+      const fallbackState = pose.state === 'run' ? 'walk' : 'run';
+      const fallback = art.images[pose.hero + '_' + fallbackState];
+      if (!fallback?.complete || !fallback.naturalWidth || fallback.edgePending)
+        return protagonistActorV5(p, x, y, moving);
+      image = fallback;
+      pose.state = fallbackState;
+      const motion = art.locomotion[seat];
+      const phase = motion?.hero === pose.hero ? motion.phase :
+        ((seat === 1 ? C3.coop.stride || 0 : stride10) / (fallbackState === 'run' ? 3.172 : 8 / 3.6)) % 1;
+      pose.frame = art.phaseFrame(art.sequence(pose.hero, fallbackState, pose.row), phase);
+    } else {
+      image = art.image(pose.hero + '_idle'); pose.frame = 0;
+    }
+  }
+  if (!image?.complete || !image.naturalWidth || image.edgePending) return protagonistActorV5(p, x, y, moving);
   ctx.save(); ctx.imageSmoothingEnabled = false;
   ctx.fillStyle = '#10152344'; ctx.beginPath(); ctx.ellipse(x, y + 10, 12, 3, 0, 0, Math.PI * 2); ctx.fill();
   const hit = seat === 1 ? C3.coop.hit : seat === 0 ? act.hit : 0;

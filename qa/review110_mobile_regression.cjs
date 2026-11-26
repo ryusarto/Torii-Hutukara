@@ -32,10 +32,22 @@ for(const name of ['handlePrimaryPad','handleSecondPad']){
   declarations.push(declarationAt(start));
 }
 
+// Model capture/bubble and immediate cancellation rather than swallowing global
+// listeners. The real compatibility-click guard registers on document capture.
+function eventTargetFixture(){
+  const listeners=new Map();
+  const capture=options=>typeof options==='boolean'?options:!!options?.capture;
+  return {
+    addEventListener(type,handler,options){const list=listeners.get(type)||[];if(!list.some(v=>v.handler===handler&&v.capture===capture(options)))list.push({handler,capture:capture(options)});listeners.set(type,list)},
+    removeEventListener(type,handler,options){listeners.set(type,(listeners.get(type)||[]).filter(v=>v.handler!==handler||v.capture!==capture(options)))},
+    has(type){return (listeners.get(type)||[]).length>0},
+    emit(type,event,phase){for(const record of [...(listeners.get(type)||[])]){if(record.capture!==phase)continue;record.handler(event);if(event.immediateStopped)break}},
+  };
+}
 function fixture(mode,{game=true,coop=true}={}){
   const calls={open:0,close:0,gameplay:0};
   const context={
-    mode,G:game?{}:null,Input121:{pointers:new Map(),stickPointer:null,touch:[0,0],touchRun:false},
+    mode,G:game?{}:null,document:eventTargetFixture(),performance:{now:()=>0},Input121:{pointers:new Map(),stickPointer:null,touch:[0,0],touchRun:false},
     activeModes10:()=>['walk','action'].includes(context.mode),
     openSystem(){calls.open++;context.mode='overlay'},
     closeOverlay(){calls.close++;context.mode='walk'},
@@ -89,20 +101,23 @@ check('Options P2 requires active coop',()=>{
 // Dispatch the actual production listeners through a tiny event-target fixture.
 // This verifies ordering/cancellation, not browser hit testing or synthetic click
 // retargeting (covered by review110_browser.cjs with real touchscreen events).
-function touchFixture(mode='walk'){
-  const f=fixture(mode),listeners=new Map(),pressed=new Set(),captures=[];
-  const target={id:'pauseFixture',dataset:{mobileAction:'pause'},
+function touchFixture(mode='walk',action='pause'){
+  const f=fixture(mode),deck=eventTargetFixture(),pressed=new Set(),captures=[];
+  const target={id:'pauseFixture',dataset:{mobileAction:action},
     classList:{add:name=>pressed.add(name),remove:name=>pressed.delete(name)},
     setPointerCapture:id=>captures.push(id),
-    closest(){return this},
+    closest(selector){return selector==='[data-mobile-action="pause"]'&&this.dataset.mobileAction!=='pause'?null:this},
   };
-  const deck={addEventListener(name,handler){listeners.set(name,handler)}};
   f.context.bindMobile121(deck);
-  return {...f,pressed,captures,target,dispatch(type,pointerId=17,extra={}){
-    const handler=listeners.get(type);assert(handler,'Missing real listener for '+type);
+  return {...f,pressed,captures,target,dispatch(type,pointerId=17,extra={},throughDeck=true){
+    if(throughDeck)assert(deck.has(type),'Missing real listener for '+type);
     const prevented={default:false,propagation:false};
-    handler({type,pointerId,target,detail:1,
-      preventDefault(){prevented.default=true},stopPropagation(){prevented.propagation=true},...extra});
+    const event={type,pointerId,target,detail:1,clientX:100,clientY:200,immediateStopped:false,
+      preventDefault(){prevented.default=true},stopPropagation(){prevented.propagation=true},
+      stopImmediatePropagation(){this.immediateStopped=true;prevented.propagation=true},...extra};
+    f.context.document.emit(type,event,true);
+    if(!prevented.propagation&&throughDeck){deck.emit(type,event,true);if(!prevented.propagation)deck.emit(type,event,false)}
+    if(!prevented.propagation)f.context.document.emit(type,event,false);
     return prevented;
   }};
 }
@@ -152,6 +167,32 @@ check('A click from another target does not activate pause',()=>{
   const f=touchFixture();f.dispatch('pointerdown');f.dispatch('pointerup');
   const other={dataset:{mobileAction:'pause'},closest(){return this}};
   f.dispatch('click',17,{target:other});assert.equal(f.calls.open,0);
+});
+check('Document capture consumes only the compatibility click that opened an interaction panel',()=>{
+  const f=touchFixture('walk','interact');f.context.interact=()=>{f.calls.gameplay++;f.context.mode='overlay'};
+  let panelClicks=0;f.context.document.addEventListener('click',()=>panelClicks++);
+  f.dispatch('pointerdown');f.dispatch('pointerup');
+  const blocked=f.dispatch('click',17,{target:{id:'plantClose'}},false);
+  assert(blocked.default&&blocked.propagation);assert.equal(panelClicks,0);assert.equal(f.context.mode,'overlay');
+  f.dispatch('pointerdown',18,{target:{id:'plantClose'}},false);f.dispatch('click',18,{target:{id:'plantClose'}},false);
+  assert.equal(panelClicks,1,'The next genuine tap must reach the panel');
+});
+check('Panel compatibility guard preserves keyboard clicks and unrelated pointer IDs',()=>{
+  const f=touchFixture('walk','interact');f.context.interact=()=>{f.context.mode='overlay'};let panelClicks=0;
+  f.context.document.addEventListener('click',()=>panelClicks++);f.dispatch('pointerdown');
+  f.dispatch('click',-1,{detail:0},false);f.dispatch('click',99,{},false);assert.equal(panelClicks,2);
+  const blocked=f.dispatch('click',17,{},false);assert(blocked.default);assert.equal(panelClicks,2);
+});
+check('Panel compatibility guard respects coordinate and lifetime limits',()=>{
+  const f=touchFixture('walk','interact');f.context.interact=()=>{f.context.mode='overlay'};let panelClicks=0;
+  f.context.document.addEventListener('click',()=>panelClicks++);f.dispatch('pointerdown');
+  f.dispatch('click',17,{clientX:109},false);assert.equal(panelClicks,1);
+  f.context.performance.now=()=>1201;f.dispatch('click',17,{},false);assert.equal(panelClicks,2);
+});
+check('Sustained walking interaction retains its pointer and does not arm a panel click guard',()=>{
+  const f=touchFixture('walk','interact');let clicks=0;f.context.document.addEventListener('click',()=>clicks++);
+  f.dispatch('pointerdown');assert.equal(f.calls.gameplay,1);assert.equal(f.context.mode,'walk');assert.equal(f.context.Input121.pointers.size,1);
+  f.dispatch('pointerup');f.dispatch('click');assert.equal(clicks,1);assert.equal(f.context.Input121.pointers.size,0);
 });
 console.log(`${passed} passed; ${failed} failed.`);
 if(failed)process.exitCode=1;

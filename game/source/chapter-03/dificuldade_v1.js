@@ -16,11 +16,11 @@
 (function(){
 'use strict';
 const NIVEIS={
-  historia:{nome:'História',resumo:'O jogo como ele é hoje. Chefes e inimigos sem mudança.',
+  historia:{nome:'Fácil',resumo:'Para aproveitar a história e explorar no seu ritmo, com combates mais tranquilos.',
     chefe:{vida:1,dano:1,fases:false,eco:false},inimigo:{vida:1,dano:1},extras:false,padroes:false,impacto:false},
-  normal:{nome:'Normal',resumo:'Chefes com 2,5× de vida e três fases. Mais inimigos, tipos novos e encontros.',
+  normal:{nome:'Médio',resumo:'Uma experiência equilibrada entre história, exploração e combate.',
     chefe:{vida:2.5,dano:1,fases:true,eco:false},inimigo:{vida:1,dano:1},extras:true,padroes:false,impacto:true},
-  dificil:{nome:'Difícil',resumo:'Tudo do Normal, e os inimigos ganham padrões novos de ataque.',
+  dificil:{nome:'Difícil',resumo:'Para quem busca um desafio maior, com inimigos mais exigentes e combates que pedem estratégia.',
     chefe:{vida:2.5,dano:1.2,fases:true,eco:true},inimigo:{vida:1.15,dano:1.15},extras:true,padroes:true,impacto:true},
 };
 const ORDEM=['historia','normal','dificil'];
@@ -335,7 +335,7 @@ restoreCheckpoint=function(...a){const n=G?.difficulty;const r=restaurarAntes.ap
 // ---------------- escolha do nível ----------------
 function escolher(pronto,origem='NOVA JORNADA'){
   const botoes=ORDEM.map(n=>menuButton10('dif_'+n,NIVEIS[n].nome+(n==='normal'?' · recomendado':''),NIVEIS[n].resumo)).join('');
-  enterMenu10(pauseHeader10('Escolha a dificuldade',origem)+`<div class="menu-grid10">${botoes}${menuButton10('dif_voltar','Voltar','Retornar à tela inicial')}</div><p class="menu-note10">Dá para trocar depois em Menu → Sistema, fora de combate.</p>`,'difficulty');
+  enterMenu10(pauseHeader10('Escolha a dificuldade',origem)+`<div class="menu-grid10">${botoes}${menuButton10('dif_voltar','Voltar','Retornar à tela inicial')}</div><p class="menu-note10">Você pode mudar a dificuldade nas opções, fora de combate.</p>`,'difficulty');
   for(const n of ORDEM)$('dif_'+n).onclick=()=>{closeOverlay();pronto(n)};
   $('dif_voltar').onclick=closeOverlay;
   try{$('dif_normal').focus()}catch{}

@@ -1,0 +1,4876 @@
+{
+  "measurements": {
+    "franco": {
+      "registration/0": {
+        "source": "assets/protagonistas/v8-corrida/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 11.344,
+        "topRangeAfter": 2.922,
+        "floorRangeAfter": 9.434,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 103.0,
+          "top": 38.5,
+          "headX": 128.75,
+          "height": 181.5
+        }
+      },
+      "walkRegistration/0": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 1.719,
+        "topRangeAfter": 1.719,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 103.0,
+          "top": 42.5,
+          "headX": 128.625,
+          "height": 181.5
+        }
+      },
+      "fallbackRunRegistration/0": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 4.812,
+        "topRangeAfter": 4.812,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 103.0,
+          "top": 42.5,
+          "headX": 128.625,
+          "height": 181.5
+        }
+      },
+      "idleRegistration/0": {
+        "source": "assets/protagonistas/v5/atlas/franco_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.094,
+        "topRangeAfter": 3.094,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 103.0,
+          "top": 42.5,
+          "headX": 128.625,
+          "height": 181.5
+        }
+      },
+      "registration/1": {
+        "source": "assets/protagonistas/v8-corrida/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 9.281,
+        "topRangeAfter": 1.203,
+        "floorRangeAfter": 9.434,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 101.275,
+          "top": 33.5,
+          "headX": 127.0,
+          "height": 184.0
+        }
+      },
+      "walkRegistration/1": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 1.375,
+        "topRangeAfter": 1.375,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 101.275,
+          "top": 40.0,
+          "headX": 128.5,
+          "height": 184.0
+        }
+      },
+      "fallbackRunRegistration/1": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 4.812,
+        "topRangeAfter": 4.812,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 101.275,
+          "top": 40.0,
+          "headX": 128.5,
+          "height": 184.0
+        }
+      },
+      "idleRegistration/1": {
+        "source": "assets/protagonistas/v5/atlas/franco_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 101.275,
+          "top": 40.0,
+          "headX": 128.5,
+          "height": 184.0
+        }
+      },
+      "registration/2": {
+        "source": "assets/protagonistas/v8-corrida/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 9.625,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 9.492,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 102.875,
+          "top": 34.0,
+          "headX": 127.875,
+          "height": 182.5
+        }
+      },
+      "walkRegistration/2": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 102.875,
+          "top": 41.5,
+          "headX": 128.5,
+          "height": 182.5
+        }
+      },
+      "fallbackRunRegistration/2": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 5.5,
+        "topRangeAfter": 5.5,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 102.875,
+          "top": 41.5,
+          "headX": 128.5,
+          "height": 182.5
+        }
+      },
+      "idleRegistration/2": {
+        "source": "assets/protagonistas/v5/atlas/franco_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.094,
+        "topRangeAfter": 3.094,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 102.875,
+          "top": 41.5,
+          "headX": 128.5,
+          "height": 182.5
+        }
+      },
+      "registration/3": {
+        "source": "assets/protagonistas/v8-corrida/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 7.562,
+        "topRangeAfter": 1.547,
+        "floorRangeAfter": 8.289,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 105.5,
+          "top": 35.5,
+          "headX": 128.5,
+          "height": 183.5
+        }
+      },
+      "walkRegistration/3": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 1.719,
+        "topRangeAfter": 1.719,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 105.5,
+          "top": 40.5,
+          "headX": 128.0,
+          "height": 183.5
+        }
+      },
+      "fallbackRunRegistration/3": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 6.875,
+        "topRangeAfter": 6.875,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 105.5,
+          "top": 40.5,
+          "headX": 128.0,
+          "height": 183.5
+        }
+      },
+      "idleRegistration/3": {
+        "source": "assets/protagonistas/v5/atlas/franco_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 105.5,
+          "top": 40.5,
+          "headX": 128.0,
+          "height": 183.5
+        }
+      },
+      "registration/4": {
+        "source": "assets/protagonistas/v8-corrida/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 8.594,
+        "topRangeAfter": 0.65,
+        "floorRangeAfter": 9.416,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 109.575,
+          "top": 16.5,
+          "headX": 127.75,
+          "height": 199.0
+        }
+      },
+      "walkRegistration/4": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 109.575,
+          "top": 25.0,
+          "headX": 129.5,
+          "height": 199.0
+        }
+      },
+      "fallbackRunRegistration/4": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "topRangeBefore": 3.781,
+        "topRangeAfter": 3.781,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 109.575,
+          "top": 25.0,
+          "headX": 129.5,
+          "height": 199.0
+        }
+      },
+      "idleRegistration/4": {
+        "source": "assets/protagonistas/v5/atlas/franco_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 109.575,
+          "top": 25.0,
+          "headX": 129.5,
+          "height": 199.0
+        }
+      },
+      "registration/5": {
+        "source": "assets/protagonistas/v8-corrida/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 9.969,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 11.211,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 99.225,
+          "top": 14.0,
+          "headX": 128.0,
+          "height": 197.0
+        }
+      },
+      "walkRegistration/5": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 3.438,
+        "topRangeAfter": 3.438,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 99.225,
+          "top": 27.0,
+          "headX": 124.125,
+          "height": 197.0
+        }
+      },
+      "fallbackRunRegistration/5": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "topRangeBefore": 6.531,
+        "topRangeAfter": 6.531,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 99.225,
+          "top": 27.0,
+          "headX": 124.125,
+          "height": 197.0
+        }
+      },
+      "idleRegistration/5": {
+        "source": "assets/protagonistas/v5/atlas/franco_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 99.225,
+          "top": 27.0,
+          "headX": 124.125,
+          "height": 197.0
+        }
+      },
+      "registration/6": {
+        "source": "assets/protagonistas/v8-corrida/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 9.969,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 10.619,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 107.1,
+          "top": 19.0,
+          "headX": 129.25,
+          "height": 198.0
+        }
+      },
+      "walkRegistration/6": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 1.719,
+        "topRangeAfter": 1.719,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 107.1,
+          "top": 26.0,
+          "headX": 128.625,
+          "height": 198.0
+        }
+      },
+      "fallbackRunRegistration/6": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "topRangeBefore": 7.219,
+        "topRangeAfter": 7.219,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 107.1,
+          "top": 26.0,
+          "headX": 128.625,
+          "height": 198.0
+        }
+      },
+      "idleRegistration/6": {
+        "source": "assets/protagonistas/v5/atlas/franco_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.781,
+        "topRangeAfter": 3.781,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 107.1,
+          "top": 26.0,
+          "headX": 128.625,
+          "height": 198.0
+        }
+      },
+      "registration/7": {
+        "source": "assets/protagonistas/v8-corrida/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 11.688,
+        "topRangeAfter": 0.859,
+        "floorRangeAfter": 12.414,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 103.0,
+          "top": 16.5,
+          "headX": 130.75,
+          "height": 199.5
+        }
+      },
+      "walkRegistration/7": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 103.0,
+          "top": 24.5,
+          "headX": 132.375,
+          "height": 199.5
+        }
+      },
+      "fallbackRunRegistration/7": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/franco_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "topRangeBefore": 8.25,
+        "topRangeAfter": 8.25,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 103.0,
+          "top": 24.5,
+          "headX": 132.375,
+          "height": 199.5
+        }
+      },
+      "idleRegistration/7": {
+        "source": "assets/protagonistas/v5/atlas/franco_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.094,
+        "topRangeAfter": 3.094,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 103.0,
+          "top": 24.5,
+          "headX": 132.375,
+          "height": 199.5
+        }
+      }
+    },
+    "ryuchi": {
+      "registration/0": {
+        "source": "assets/protagonistas/v8-corrida/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 8.594,
+        "topRangeAfter": 2.922,
+        "floorRangeAfter": 7.353,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.0,
+          "top": 28.5,
+          "headX": 127.75,
+          "height": 183.5
+        }
+      },
+      "walkRegistration/0": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 1.375,
+        "topRangeAfter": 1.375,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.0,
+          "top": 40.5,
+          "headX": 128.75,
+          "height": 183.5
+        }
+      },
+      "fallbackRunRegistration/0": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 4.125,
+        "topRangeAfter": 4.125,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.0,
+          "top": 40.5,
+          "headX": 128.75,
+          "height": 183.5
+        }
+      },
+      "idleRegistration/0": {
+        "source": "assets/protagonistas/v5/atlas/ryuchi_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.0,
+          "top": 40.5,
+          "headX": 128.75,
+          "height": 183.5
+        }
+      },
+      "registration/1": {
+        "source": "assets/protagonistas/v8-corrida/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 13.406,
+        "topRangeAfter": 1.891,
+        "floorRangeAfter": 12.758,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 90.625,
+          "top": 28.5,
+          "headX": 128.0,
+          "height": 184.0
+        }
+      },
+      "walkRegistration/1": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "topRangeBefore": 13.75,
+        "topRangeAfter": 1.375,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 90.625,
+          "top": 40.0,
+          "headX": 128.0,
+          "height": 184.0
+        }
+      },
+      "fallbackRunRegistration/1": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 8.25,
+        "topRangeAfter": 8.25,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 90.625,
+          "top": 40.0,
+          "headX": 128.0,
+          "height": 184.0
+        }
+      },
+      "idleRegistration/1": {
+        "source": "assets/protagonistas/v5/atlas/ryuchi_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.688,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 90.625,
+          "top": 40.0,
+          "headX": 128.0,
+          "height": 184.0
+        }
+      },
+      "registration/2": {
+        "source": "assets/protagonistas/v8-corrida/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 8.938,
+        "topRangeAfter": 2.234,
+        "floorRangeAfter": 7.009,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.0,
+          "top": 30.5,
+          "headX": 128.0,
+          "height": 184.0
+        }
+      },
+      "walkRegistration/2": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.688,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.0,
+          "top": 40.0,
+          "headX": 128.5,
+          "height": 184.0
+        }
+      },
+      "fallbackRunRegistration/2": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 4.125,
+        "topRangeAfter": 4.125,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.0,
+          "top": 40.0,
+          "headX": 128.5,
+          "height": 184.0
+        }
+      },
+      "idleRegistration/2": {
+        "source": "assets/protagonistas/v5/atlas/ryuchi_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.438,
+        "topRangeAfter": 3.438,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.0,
+          "top": 40.0,
+          "headX": 128.5,
+          "height": 184.0
+        }
+      },
+      "registration/3": {
+        "source": "assets/protagonistas/v8-corrida/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 8.25,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 6.742,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.5,
+          "top": 32.0,
+          "headX": 127.5,
+          "height": 183.0
+        }
+      },
+      "walkRegistration/3": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.5,
+          "top": 41.0,
+          "headX": 128.75,
+          "height": 183.0
+        }
+      },
+      "fallbackRunRegistration/3": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 7.906,
+        "topRangeAfter": 7.906,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.5,
+          "top": 41.0,
+          "headX": 128.75,
+          "height": 183.0
+        }
+      },
+      "idleRegistration/3": {
+        "source": "assets/protagonistas/v5/atlas/ryuchi_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.094,
+        "topRangeAfter": 3.094,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.5,
+          "top": 41.0,
+          "headX": 128.75,
+          "height": 183.0
+        }
+      },
+      "registration/4": {
+        "source": "assets/protagonistas/v8-corrida/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 6.531,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 3.876,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 95.94999999999999,
+          "top": 21.0,
+          "headX": 128.5,
+          "height": 199.0
+        }
+      },
+      "walkRegistration/4": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 2.062,
+        "topRangeAfter": 2.062,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 95.94999999999999,
+          "top": 25.0,
+          "headX": 132.0,
+          "height": 199.0
+        }
+      },
+      "fallbackRunRegistration/4": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "topRangeBefore": 4.125,
+        "topRangeAfter": 3.438,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 95.94999999999999,
+          "top": 25.0,
+          "headX": 132.0,
+          "height": 199.0
+        }
+      },
+      "idleRegistration/4": {
+        "source": "assets/protagonistas/v5/atlas/ryuchi_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 95.94999999999999,
+          "top": 25.0,
+          "headX": 132.0,
+          "height": 199.0
+        }
+      },
+      "registration/5": {
+        "source": "assets/protagonistas/v8-corrida/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 9.969,
+        "topRangeAfter": 1.547,
+        "floorRangeAfter": 9.416,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 90.0,
+          "top": 15.5,
+          "headX": 127.5,
+          "height": 197.0
+        }
+      },
+      "walkRegistration/5": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 90.0,
+          "top": 27.0,
+          "headX": 127.25,
+          "height": 197.0
+        }
+      },
+      "fallbackRunRegistration/5": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "topRangeBefore": 8.25,
+        "topRangeAfter": 8.25,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 90.0,
+          "top": 27.0,
+          "headX": 127.25,
+          "height": 197.0
+        }
+      },
+      "idleRegistration/5": {
+        "source": "assets/protagonistas/v5/atlas/ryuchi_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 90.0,
+          "top": 27.0,
+          "headX": 127.25,
+          "height": 197.0
+        }
+      },
+      "registration/6": {
+        "source": "assets/protagonistas/v8-corrida/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 6.531,
+        "topRangeAfter": 1.203,
+        "floorRangeAfter": 5.539,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 96.89999999999999,
+          "top": 16.5,
+          "headX": 128.0,
+          "height": 199.0
+        }
+      },
+      "walkRegistration/6": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 1.375,
+        "topRangeAfter": 1.375,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 96.89999999999999,
+          "top": 25.0,
+          "headX": 130.25,
+          "height": 199.0
+        }
+      },
+      "fallbackRunRegistration/6": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "topRangeBefore": 5.5,
+        "topRangeAfter": 5.156,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 96.89999999999999,
+          "top": 25.0,
+          "headX": 130.25,
+          "height": 199.0
+        }
+      },
+      "idleRegistration/6": {
+        "source": "assets/protagonistas/v5/atlas/ryuchi_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.438,
+        "topRangeAfter": 3.438,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 96.89999999999999,
+          "top": 25.0,
+          "headX": 130.25,
+          "height": 199.0
+        }
+      },
+      "registration/7": {
+        "source": "assets/protagonistas/v8-corrida/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 7.219,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 6.494,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 92.5,
+          "top": 20.0,
+          "headX": 129.0,
+          "height": 197.0
+        }
+      },
+      "walkRegistration/7": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_walk.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 3.094,
+        "topRangeAfter": 3.094,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 92.5,
+          "top": 27.0,
+          "headX": 129.625,
+          "height": 197.0
+        }
+      },
+      "fallbackRunRegistration/7": {
+        "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "topRangeBefore": 7.219,
+        "topRangeAfter": 6.875,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 92.5,
+          "top": 27.0,
+          "headX": 129.625,
+          "height": 197.0
+        }
+      },
+      "idleRegistration/7": {
+        "source": "assets/protagonistas/v5/atlas/ryuchi_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 92.5,
+          "top": 27.0,
+          "headX": 129.625,
+          "height": 197.0
+        }
+      }
+    },
+    "alt": {
+      "registration/0": {
+        "source": "assets/protagonistas/v8-corrida/atlas/alt_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 7.562,
+        "topRangeAfter": 1.891,
+        "floorRangeAfter": 5.195,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 105.45,
+          "top": 32.5,
+          "headX": 140.75,
+          "height": 186.5
+        }
+      },
+      "walkRegistration/0": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.062,
+        "topRangeAfter": 2.062,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 105.45,
+          "top": 37.5,
+          "headX": 137.5,
+          "height": 186.5
+        }
+      },
+      "fallbackRunRegistration/0": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 5.844,
+        "topRangeAfter": 5.844,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 105.45,
+          "top": 37.5,
+          "headX": 137.5,
+          "height": 186.5
+        }
+      },
+      "idleRegistration/0": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 105.45,
+          "top": 37.5,
+          "headX": 137.5,
+          "height": 186.5
+        }
+      },
+      "registration/1": {
+        "source": "assets/protagonistas/v8-corrida/atlas/alt_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 11.0,
+        "topRangeAfter": 3.781,
+        "floorRangeAfter": 8.805,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 108.5,
+          "top": 27.0,
+          "headX": 107.5,
+          "height": 187.0
+        }
+      },
+      "walkRegistration/1": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.719,
+        "topRangeAfter": 1.719,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 108.5,
+          "top": 37.0,
+          "headX": 127.75,
+          "height": 187.0
+        }
+      },
+      "fallbackRunRegistration/1": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 5.156,
+        "topRangeAfter": 5.156,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 108.5,
+          "top": 37.0,
+          "headX": 127.75,
+          "height": 187.0
+        }
+      },
+      "idleRegistration/1": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.375,
+        "topRangeAfter": 1.375,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 108.5,
+          "top": 37.0,
+          "headX": 127.75,
+          "height": 187.0
+        }
+      },
+      "registration/2": {
+        "source": "assets/protagonistas/v8-corrida/atlas/alt_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 10.656,
+        "topRangeAfter": 2.062,
+        "floorRangeAfter": 10.867,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 111.25,
+          "top": 30.0,
+          "headX": 128.0,
+          "height": 187.0
+        }
+      },
+      "walkRegistration/2": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 111.25,
+          "top": 37.0,
+          "headX": 129.0,
+          "height": 187.0
+        }
+      },
+      "fallbackRunRegistration/2": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 5.156,
+        "topRangeAfter": 5.156,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 111.25,
+          "top": 37.0,
+          "headX": 129.0,
+          "height": 187.0
+        }
+      },
+      "idleRegistration/2": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 111.25,
+          "top": 37.0,
+          "headX": 129.0,
+          "height": 187.0
+        }
+      },
+      "registration/3": {
+        "source": "assets/protagonistas/v8-corrida/atlas/alt_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 6.875,
+        "topRangeAfter": 0.65,
+        "floorRangeAfter": 7.774,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 108.95,
+          "top": 31.0,
+          "headX": 136.875,
+          "height": 185.0
+        }
+      },
+      "walkRegistration/3": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 108.95,
+          "top": 39.0,
+          "headX": 129.0,
+          "height": 185.0
+        }
+      },
+      "fallbackRunRegistration/3": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 6.188,
+        "topRangeAfter": 6.188,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 108.95,
+          "top": 39.0,
+          "headX": 129.0,
+          "height": 185.0
+        }
+      },
+      "idleRegistration/3": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/alt_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.344,
+        "topRangeAfter": 0.344,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 108.95,
+          "top": 39.0,
+          "headX": 129.0,
+          "height": 185.0
+        }
+      }
+    },
+    "katana": {
+      "registration/0": {
+        "source": "assets/protagonistas/v8-corrida/atlas/katana_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 6.188,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 6.494,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 113.75,
+          "top": 32.0,
+          "headX": 130.625,
+          "height": 185.0
+        }
+      },
+      "walkRegistration/0": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.062,
+        "topRangeAfter": 2.062,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 113.75,
+          "top": 39.0,
+          "headX": 124.5,
+          "height": 185.0
+        }
+      },
+      "fallbackRunRegistration/0": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 8.25,
+        "topRangeAfter": 8.25,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 113.75,
+          "top": 39.0,
+          "headX": 124.5,
+          "height": 185.0
+        }
+      },
+      "idleRegistration/0": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 113.75,
+          "top": 39.0,
+          "headX": 124.5,
+          "height": 185.0
+        }
+      },
+      "registration/1": {
+        "source": "assets/protagonistas/v8-corrida/atlas/katana_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 8.25,
+        "topRangeAfter": 2.922,
+        "floorRangeAfter": 4.603,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 123.3,
+          "top": 34.5,
+          "headX": 123.5,
+          "height": 188.0
+        }
+      },
+      "walkRegistration/1": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 123.3,
+          "top": 36.0,
+          "headX": 123.75,
+          "height": 188.0
+        }
+      },
+      "fallbackRunRegistration/1": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 5.5,
+        "topRangeAfter": 5.5,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 123.3,
+          "top": 36.0,
+          "headX": 123.75,
+          "height": 188.0
+        }
+      },
+      "idleRegistration/1": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.094,
+        "topRangeAfter": 3.094,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 123.3,
+          "top": 36.0,
+          "headX": 123.75,
+          "height": 188.0
+        }
+      },
+      "registration/2": {
+        "source": "assets/protagonistas/v8-corrida/atlas/katana_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 8.25,
+        "topRangeAfter": 1.547,
+        "floorRangeAfter": 8.384,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 118.9,
+          "top": 28.5,
+          "headX": 127.75,
+          "height": 185.5
+        }
+      },
+      "walkRegistration/2": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.094,
+        "topRangeAfter": 3.094,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 118.9,
+          "top": 38.5,
+          "headX": 131.75,
+          "height": 185.5
+        }
+      },
+      "fallbackRunRegistration/2": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 7.219,
+        "topRangeAfter": 7.219,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 118.9,
+          "top": 38.5,
+          "headX": 131.75,
+          "height": 185.5
+        }
+      },
+      "idleRegistration/2": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 4.125,
+        "topRangeAfter": 4.125,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 118.9,
+          "top": 38.5,
+          "headX": 131.75,
+          "height": 185.5
+        }
+      },
+      "registration/3": {
+        "source": "assets/protagonistas/v8-corrida/atlas/katana_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 7.562,
+        "topRangeAfter": 0.859,
+        "floorRangeAfter": 8.384,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 123.5,
+          "top": 28.5,
+          "headX": 135.5,
+          "height": 188.0
+        }
+      },
+      "walkRegistration/3": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 123.5,
+          "top": 36.0,
+          "headX": 134.5,
+          "height": 188.0
+        }
+      },
+      "fallbackRunRegistration/3": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 7.906,
+        "topRangeAfter": 7.906,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 123.5,
+          "top": 36.0,
+          "headX": 134.5,
+          "height": 188.0
+        }
+      },
+      "idleRegistration/3": {
+        "source": "assets/variantes/ninja-arqueiro-v1/atlas/katana_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.094,
+        "topRangeAfter": 3.094,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 123.5,
+          "top": 36.0,
+          "headX": 134.5,
+          "height": 188.0
+        }
+      }
+    },
+    "synth": {
+      "registration/0": {
+        "source": "assets/protagonistas/v8-corrida/atlas/synth_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 7.562,
+        "topRangeAfter": 4.469,
+        "floorRangeAfter": 5.024,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 115.0,
+          "top": 40.0,
+          "headX": 128.0,
+          "height": 177.5
+        }
+      },
+      "walkRegistration/0": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.031,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 115.0,
+          "top": 46.5,
+          "headX": 129.0,
+          "height": 177.5
+        }
+      },
+      "fallbackRunRegistration/0": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 5.5,
+        "topRangeAfter": 5.5,
+        "floorRangeAfter": 4.812,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 115.0,
+          "top": 46.5,
+          "headX": 129.0,
+          "height": 177.5
+        }
+      },
+      "idleRegistration/0": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.031,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 115.0,
+          "top": 46.5,
+          "headX": 129.0,
+          "height": 177.5
+        }
+      },
+      "registration/1": {
+        "source": "assets/protagonistas/v8-corrida/atlas/synth_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 5.156,
+        "topRangeAfter": 1.719,
+        "floorRangeAfter": 3.305,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 116.0,
+          "top": 44.0,
+          "headX": 127.5,
+          "height": 178.0
+        }
+      },
+      "walkRegistration/1": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.344,
+        "topRangeAfter": 0.344,
+        "floorRangeAfter": 0.688,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 116.0,
+          "top": 46.0,
+          "headX": 126.625,
+          "height": 178.0
+        }
+      },
+      "fallbackRunRegistration/1": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 7.562,
+        "topRangeAfter": 7.562,
+        "floorRangeAfter": 5.5,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 116.0,
+          "top": 46.0,
+          "headX": 126.625,
+          "height": 178.0
+        }
+      },
+      "idleRegistration/1": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.375,
+        "topRangeAfter": 1.375,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 116.0,
+          "top": 46.0,
+          "headX": 126.625,
+          "height": 178.0
+        }
+      },
+      "registration/2": {
+        "source": "assets/protagonistas/v8-corrida/atlas/synth_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 9.969,
+        "topRangeAfter": 4.469,
+        "floorRangeAfter": 7.774,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 116.525,
+          "top": 42.0,
+          "headX": 127.5,
+          "height": 178.5
+        }
+      },
+      "walkRegistration/2": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.688,
+        "topRangeAfter": 0.688,
+        "floorRangeAfter": 1.031,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 116.525,
+          "top": 45.5,
+          "headX": 128.25,
+          "height": 178.5
+        }
+      },
+      "fallbackRunRegistration/2": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 7.219,
+        "topRangeAfter": 7.219,
+        "floorRangeAfter": 5.5,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 116.525,
+          "top": 45.5,
+          "headX": 128.25,
+          "height": 178.5
+        }
+      },
+      "idleRegistration/2": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.375,
+        "topRangeAfter": 1.375,
+        "floorRangeAfter": 0.688,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 116.525,
+          "top": 45.5,
+          "headX": 128.25,
+          "height": 178.5
+        }
+      },
+      "registration/3": {
+        "source": "assets/protagonistas/v8-corrida/atlas/synth_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 8.594,
+        "topRangeAfter": 3.438,
+        "floorRangeAfter": 6.169,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 120.05,
+          "top": 42.0,
+          "headX": 128.75,
+          "height": 177.0
+        }
+      },
+      "walkRegistration/3": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.719,
+        "topRangeAfter": 1.719,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 120.05,
+          "top": 47.0,
+          "headX": 129.375,
+          "height": 177.0
+        }
+      },
+      "fallbackRunRegistration/3": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 7.562,
+        "topRangeAfter": 7.562,
+        "floorRangeAfter": 6.531,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 120.05,
+          "top": 47.0,
+          "headX": 129.375,
+          "height": 177.0
+        }
+      },
+      "idleRegistration/3": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.031,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 120.05,
+          "top": 47.0,
+          "headX": 129.375,
+          "height": 177.0
+        }
+      },
+      "registration/4": {
+        "source": "assets/protagonistas/v8-corrida/atlas/synth_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 8.938,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 8.461,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.8,
+          "top": 20.0,
+          "headX": 128.25,
+          "height": 198.0
+        }
+      },
+      "walkRegistration/4": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.031,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.8,
+          "top": 26.0,
+          "headX": 128.0,
+          "height": 198.0
+        }
+      },
+      "fallbackRunRegistration/4": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 5.156,
+        "topRangeAfter": 5.156,
+        "floorRangeAfter": 5.5,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.8,
+          "top": 26.0,
+          "headX": 128.0,
+          "height": 198.0
+        }
+      },
+      "idleRegistration/4": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.062,
+        "topRangeAfter": 2.062,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.8,
+          "top": 26.0,
+          "headX": 128.0,
+          "height": 198.0
+        }
+      },
+      "registration/5": {
+        "source": "assets/protagonistas/v8-corrida/atlas/synth_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 15.469,
+        "topRangeAfter": 2.922,
+        "floorRangeAfter": 12.509,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.725,
+          "top": 19.5,
+          "headX": 128.5,
+          "height": 196.0
+        }
+      },
+      "walkRegistration/5": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.344,
+        "topRangeAfter": 0.344,
+        "floorRangeAfter": 2.062,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.725,
+          "top": 28.0,
+          "headX": 128.5,
+          "height": 196.0
+        }
+      },
+      "fallbackRunRegistration/5": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.781,
+        "topRangeAfter": 3.781,
+        "floorRangeAfter": 6.531,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.725,
+          "top": 28.0,
+          "headX": 128.5,
+          "height": 196.0
+        }
+      },
+      "idleRegistration/5": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.375,
+        "topRangeAfter": 1.375,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.725,
+          "top": 28.0,
+          "headX": 128.5,
+          "height": 196.0
+        }
+      },
+      "registration/6": {
+        "source": "assets/protagonistas/v8-corrida/atlas/synth_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 13.406,
+        "topRangeAfter": 2.578,
+        "floorRangeAfter": 11.383,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 119.125,
+          "top": 18.5,
+          "headX": 128.25,
+          "height": 195.0
+        }
+      },
+      "walkRegistration/6": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.344,
+        "topRangeAfter": 0.344,
+        "floorRangeAfter": 1.375,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 119.125,
+          "top": 29.0,
+          "headX": 128.5,
+          "height": 195.0
+        }
+      },
+      "fallbackRunRegistration/6": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 3.781,
+        "topRangeAfter": 3.781,
+        "floorRangeAfter": 6.188,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 119.125,
+          "top": 29.0,
+          "headX": 128.5,
+          "height": 195.0
+        }
+      },
+      "idleRegistration/6": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 119.125,
+          "top": 29.0,
+          "headX": 128.5,
+          "height": 195.0
+        }
+      },
+      "registration/7": {
+        "source": "assets/protagonistas/v8-corrida/atlas/synth_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 10.312,
+        "topRangeAfter": 3.266,
+        "floorRangeAfter": 9.32,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 118.0,
+          "top": 20.5,
+          "headX": 128.125,
+          "height": 197.0
+        }
+      },
+      "walkRegistration/7": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.688,
+        "topRangeAfter": 0.688,
+        "floorRangeAfter": 1.719,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 118.0,
+          "top": 27.0,
+          "headX": 129.0,
+          "height": 197.0
+        }
+      },
+      "fallbackRunRegistration/7": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 4.469,
+        "topRangeAfter": 4.469,
+        "floorRangeAfter": 6.875,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 118.0,
+          "top": 27.0,
+          "headX": 129.0,
+          "height": 197.0
+        }
+      },
+      "idleRegistration/7": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.719,
+        "topRangeAfter": 1.719,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 118.0,
+          "top": 27.0,
+          "headX": 129.0,
+          "height": 197.0
+        }
+      }
+    },
+    "percussion": {
+      "registration/0": {
+        "source": "assets/protagonistas/v8-corrida/atlas/percussion_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 10.312,
+        "topRangeAfter": 0.65,
+        "floorRangeAfter": 9.931,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.025,
+          "top": 35.0,
+          "headX": 127.625,
+          "height": 179.0
+        }
+      },
+      "walkRegistration/0": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.375,
+        "topRangeAfter": 1.375,
+        "floorRangeAfter": 1.031,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.025,
+          "top": 45.0,
+          "headX": 128.5,
+          "height": 179.0
+        }
+      },
+      "fallbackRunRegistration/0": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 6.531,
+        "topRangeAfter": 6.531,
+        "floorRangeAfter": 6.188,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.025,
+          "top": 45.0,
+          "headX": 128.5,
+          "height": 179.0
+        }
+      },
+      "idleRegistration/0": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 91.025,
+          "top": 45.0,
+          "headX": 128.5,
+          "height": 179.0
+        }
+      },
+      "registration/1": {
+        "source": "assets/protagonistas/v8-corrida/atlas/percussion_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 11.0,
+        "topRangeAfter": 0.65,
+        "floorRangeAfter": 12.758,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 97.0,
+          "top": 34.5,
+          "headX": 126.0,
+          "height": 178.0
+        }
+      },
+      "walkRegistration/1": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.031,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 1.031,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 97.0,
+          "top": 46.0,
+          "headX": 118.5,
+          "height": 178.0
+        }
+      },
+      "fallbackRunRegistration/1": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 7.906,
+        "topRangeAfter": 7.906,
+        "floorRangeAfter": 6.531,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 97.0,
+          "top": 46.0,
+          "headX": 118.5,
+          "height": 178.0
+        }
+      },
+      "idleRegistration/1": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.062,
+        "topRangeAfter": 2.062,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 97.0,
+          "top": 46.0,
+          "headX": 118.5,
+          "height": 178.0
+        }
+      },
+      "registration/2": {
+        "source": "assets/protagonistas/v8-corrida/atlas/percussion_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 11.0,
+        "topRangeAfter": 0.65,
+        "floorRangeAfter": 12.758,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 88.5,
+          "top": 38.5,
+          "headX": 128.0,
+          "height": 179.0
+        }
+      },
+      "walkRegistration/2": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.375,
+        "topRangeAfter": 1.375,
+        "floorRangeAfter": 1.375,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 88.5,
+          "top": 45.0,
+          "headX": 127.0,
+          "height": 179.0
+        }
+      },
+      "fallbackRunRegistration/2": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 7.906,
+        "topRangeAfter": 7.906,
+        "floorRangeAfter": 4.812,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 88.5,
+          "top": 45.0,
+          "headX": 127.0,
+          "height": 179.0
+        }
+      },
+      "idleRegistration/2": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.344,
+        "topRangeAfter": 0.344,
+        "floorRangeAfter": 0.688,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 88.5,
+          "top": 45.0,
+          "headX": 127.0,
+          "height": 179.0
+        }
+      },
+      "registration/3": {
+        "source": "assets/protagonistas/v8-corrida/atlas/percussion_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 8.938,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 10.18,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 97.025,
+          "top": 36.0,
+          "headX": 129.75,
+          "height": 177.0
+        }
+      },
+      "walkRegistration/3": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.688,
+        "topRangeAfter": 0.688,
+        "floorRangeAfter": 1.375,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 97.025,
+          "top": 47.0,
+          "headX": 138.75,
+          "height": 177.0
+        }
+      },
+      "fallbackRunRegistration/3": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 8.25,
+        "topRangeAfter": 8.25,
+        "floorRangeAfter": 7.219,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 97.025,
+          "top": 47.0,
+          "headX": 138.75,
+          "height": 177.0
+        }
+      },
+      "idleRegistration/3": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.406,
+        "topRangeAfter": 2.406,
+        "floorRangeAfter": 0.688,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 97.025,
+          "top": 47.0,
+          "headX": 138.75,
+          "height": 177.0
+        }
+      },
+      "registration/4": {
+        "source": "assets/protagonistas/v8-corrida/atlas/percussion_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 8.25,
+        "topRangeAfter": 3.438,
+        "floorRangeAfter": 4.775,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 113.575,
+          "top": 22.0,
+          "headX": 126.25,
+          "height": 197.0
+        }
+      },
+      "walkRegistration/4": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.688,
+        "topRangeAfter": 0.688,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 113.575,
+          "top": 27.0,
+          "headX": 129.0,
+          "height": 197.0
+        }
+      },
+      "fallbackRunRegistration/4": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 4.469,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 113.575,
+          "top": 27.0,
+          "headX": 129.0,
+          "height": 197.0
+        }
+      },
+      "idleRegistration/4": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.031,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 113.575,
+          "top": 27.0,
+          "headX": 129.0,
+          "height": 197.0
+        }
+      },
+      "registration/5": {
+        "source": "assets/protagonistas/v8-corrida/atlas/percussion_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 10.656,
+        "topRangeAfter": 0.688,
+        "floorRangeAfter": 10.867,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 92.5,
+          "top": 20.0,
+          "headX": 126.75,
+          "height": 196.0
+        }
+      },
+      "walkRegistration/5": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.344,
+        "topRangeAfter": 0.344,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 92.5,
+          "top": 28.0,
+          "headX": 117.625,
+          "height": 196.0
+        }
+      },
+      "fallbackRunRegistration/5": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 4.469,
+        "topRangeAfter": 4.469,
+        "floorRangeAfter": 8.938,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 92.5,
+          "top": 28.0,
+          "headX": 117.625,
+          "height": 196.0
+        }
+      },
+      "idleRegistration/5": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.031,
+        "topRangeAfter": 1.031,
+        "floorRangeAfter": 1.031,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 92.5,
+          "top": 28.0,
+          "headX": 117.625,
+          "height": 196.0
+        }
+      },
+      "registration/6": {
+        "source": "assets/protagonistas/v8-corrida/atlas/percussion_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 11.0,
+        "topRangeAfter": 3.266,
+        "floorRangeAfter": 7.697,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.225,
+          "top": 20.5,
+          "headX": 125.5,
+          "height": 197.0
+        }
+      },
+      "walkRegistration/6": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.344,
+        "topRangeAfter": 0.344,
+        "floorRangeAfter": 0.344,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.225,
+          "top": 27.0,
+          "headX": 127.75,
+          "height": 197.0
+        }
+      },
+      "fallbackRunRegistration/6": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.75,
+        "topRangeAfter": 2.75,
+        "floorRangeAfter": 5.5,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.225,
+          "top": 27.0,
+          "headX": 127.75,
+          "height": 197.0
+        }
+      },
+      "idleRegistration/6": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 1.375,
+        "topRangeAfter": 1.375,
+        "floorRangeAfter": 1.031,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 114.225,
+          "top": 27.0,
+          "headX": 127.75,
+          "height": 197.0
+        }
+      },
+      "registration/7": {
+        "source": "assets/protagonistas/v8-corrida/atlas/percussion_run.png",
+        "count": 16,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "topRangeBefore": 10.312,
+        "topRangeAfter": 0.65,
+        "floorRangeAfter": 10.867,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 93.0,
+          "top": 22.0,
+          "headX": 129.0,
+          "height": 196.0
+        }
+      },
+      "walkRegistration/7": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_walk.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 0.688,
+        "topRangeAfter": 0.688,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 93.0,
+          "top": 28.0,
+          "headX": 141.125,
+          "height": 196.0
+        }
+      },
+      "fallbackRunRegistration/7": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_run.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 4.125,
+        "topRangeAfter": 4.125,
+        "floorRangeAfter": 8.594,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 93.0,
+          "top": 28.0,
+          "headX": 141.125,
+          "height": 196.0
+        }
+      },
+      "idleRegistration/7": {
+        "source": "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_idle.png",
+        "count": 8,
+        "selectedFrameMap": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "topRangeBefore": 2.062,
+        "topRangeAfter": 2.062,
+        "floorRangeAfter": 0.0,
+        "scaleRange": [
+          1,
+          1
+        ],
+        "target": {
+          "width": 93.0,
+          "top": 28.0,
+          "headX": 141.125,
+          "height": 196.0
+        }
+      }
+    }
+  },
+  "sourceSha256": {
+    "assets/protagonistas/v8-corrida/atlas/franco_run.png": "bdb5db2224b161255d7770b5e0bcdb47b182474f58166a7d42c66bacbab2cb1a",
+    "assets/protagonistas/v7-locomocao/atlas/franco_walk.png": "cb5f5f65a3cebae20495583ea43e178d8e8d6266a690b676b64b153019a351e4",
+    "assets/protagonistas/v7-locomocao/atlas/franco_run.png": "f57b6487e9607c4d072fb616ab8ab714a5590fa43f64894114355145b0c00ce5",
+    "assets/protagonistas/v5/atlas/franco_idle.png": "da7c9b109a1295ebd42ba78426805a127a7d824d33f8e1d3f0db2bb5b9c2bb1b",
+    "assets/protagonistas/v8-corrida/atlas/ryuchi_run.png": "74229297cd111180bcafc55050644a63483cbb0185a75811b29ab789e4ed418b",
+    "assets/protagonistas/v7-locomocao/atlas/ryuchi_walk.png": "add9cbe7a9658aa6d1f2d58f80286e6be447b7a7483dd0b02725affe1236083f",
+    "assets/protagonistas/v7-locomocao/atlas/ryuchi_run.png": "405754a1ef77f902ef1633566678533c21c6f123f11cedceb6685c8ef4dcedc8",
+    "assets/protagonistas/v5/atlas/ryuchi_idle.png": "4e6bb187bbd1229f29efe0e1e7f66f46c174cdd7f14192be3d83e9f34f69484f",
+    "assets/protagonistas/v8-corrida/atlas/alt_run.png": "0325b10d68a99ed96dcd905087180960f8ee0a121667a33568a3bf40f0985395",
+    "assets/variantes/ninja-arqueiro-v1/atlas/alt_walk.png": "96acfa1e97bec96aefb95cdab3103c95ceff2d86ae82331dfd15dc8693ccbc5c",
+    "assets/variantes/ninja-arqueiro-v1/atlas/alt_run.png": "a2439ae1b4af4a9e5ad9950df3d2d2f522fbe0bb3886ea0c224827bdf8097c32",
+    "assets/variantes/ninja-arqueiro-v1/atlas/alt_idle.png": "af9050d32bb0a6d3c32dcef16b08a7f5ed5f2d6bbf8c14bce1f4fa0e20c61129",
+    "assets/protagonistas/v8-corrida/atlas/katana_run.png": "7d27c052c5158f684744d77d161d37db112a3d30c95004a83d14d31f69548c42",
+    "assets/variantes/ninja-arqueiro-v1/atlas/katana_walk.png": "637568e16903ab586ef961451e482bc64f687ee5a39780f083cc8ad0bfda4526",
+    "assets/variantes/ninja-arqueiro-v1/atlas/katana_run.png": "19b72e37f317933862c3aae5a38cf687ac13228c5c606571f42062996fe789b8",
+    "assets/variantes/ninja-arqueiro-v1/atlas/katana_idle.png": "15503a6aec2d972348cfb2a953fbd92fbbda5248ab618d7e3a2cbd2909436d83",
+    "assets/protagonistas/v8-corrida/atlas/synth_run.png": "f404145c8417342a61d7bea703c4679151064a92f6ea42170b163a0a15648e96",
+    "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_walk.png": "458f9116f82922489f91b28189eae5592b73373dfc3bd37ea0c1e91a2647f7f0",
+    "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_run.png": "364fe0a60e0c047fcc00e3ec0851f530f9fa16ddf77bcb7dcba510fbc0f7b8b9",
+    "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_unmasked_idle.png": "94cf1830b01947544aee1454494044a99a5a2a0672a130edc52ff358e6bde8bf",
+    "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_walk.png": "ebc51fccbd2b211e6a877f3a9a1110e6044e1ec49b2e7abb9d79ce4ab619edda",
+    "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_run.png": "b823f86d66032fb1f8df5bbff26123c92e421ccafac6b3689484e40e6dda207d",
+    "assets/variantes/percussao-sintetizador-v1/atlas/franco_sintetizador_masked_idle.png": "51265c0d7d957f0dfdebb588fa82646f372def79cc56f37b05e181b1850652e8",
+    "assets/protagonistas/v8-corrida/atlas/percussion_run.png": "6bca5652453943d8561293a16544d7d9668be1efbfc1152c2bf584501a5bbbc1",
+    "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_walk.png": "148bf398aea93e8fa33cc7ef71a11f673b5bd3c781ffd9a175929da95a43ddb9",
+    "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_run.png": "2d610f7ce5592571b6735938dd7251eaf868a3fc469480f6edcec4913865b5cc",
+    "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_unmasked_idle.png": "075310dcf8f24e807b52d47b5a251c34ae409cd581686012d7012b9e4e9e1fce",
+    "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_walk.png": "e728527500eb9cb90d61a80d55eb93acbb2939b55cace04cf878fe5009281b01",
+    "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_run.png": "1971105d0cd83fab82512dd895c0cc07923df4fa2e5b164e1d314204f1baf966",
+    "assets/variantes/percussao-sintetizador-v1/atlas/ryuchi_percussionista_masked_idle.png": "4f9e1727c663299ef96824c5e31fb5deda875a3b7ead52a2a708678427b94377"
+  },
+  "limits": [
+    "Head/upper-body silhouettes are measurement proxies, not anatomical truth.",
+    "Visual loops at actual game scale must pass before accepting a registration."
+  ]
+}

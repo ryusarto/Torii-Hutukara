@@ -34,8 +34,20 @@ const RunStrideV1 = (() => {
     if (!G || !activeModes10()) return null;
     return {
       game:G, area:G.area,
-      members:new Map(memberPositions().map(({hero,seat,body}) => [hero,{seat,x:body.x,y:body.y}]))
+      members:new Map(memberPositions().map(({hero,seat,body}) => [hero,{seat,x:body.x,y:body.y,
+        ready:seat!==1 || (C3.coop.game===G && C3.coop.area===G.area && Input121.wasCoop)}]))
     };
+  }
+  function movementDirection(dx,dy,previous,facing) {
+    const ax=Math.abs(dx),ay=Math.abs(dy),tolerance=Math.max(ax,ay)*.08;
+    if(ax>ay+tolerance)return dx<0?'left':'right';
+    if(ay>ax+tolerance)return dy<0?'up':'down';
+    // Equal diagonal deltas differ by floating-point noise. Keep the current
+    // valid facing until one real axis dominates, including when a wall slides.
+    const agrees=dir=>(dir==='left'&&dx<0)||(dir==='right'&&dx>0)||(dir==='up'&&dy<0)||(dir==='down'&&dy>0);
+    if(agrees(previous))return previous;
+    if(agrees(facing))return facing;
+    return dy<0?'up':'down';
   }
   function advance(before) {
     resetWorld();
@@ -46,7 +58,9 @@ const RunStrideV1 = (() => {
       if (!config) continue;
       present.add(hero);
       const old = before.members.get(hero);
-      const distance = old?.seat === seat ? Math.hypot(body.x-old.x,body.y-old.y) : 0;
+      // A newly connected/loaded P2 is placed by input sync after capture. That
+      // root reposition is not a footstep, even when it is shorter than a tile.
+      const distance = old?.seat === seat && old.ready ? Math.hypot(body.x-old.x,body.y-old.y) : 0;
       let state = states.get(hero);
       if (!state || state.seat !== seat) {
         state = {seat,phase:0,lastPose:null};
@@ -56,16 +70,45 @@ const RunStrideV1 = (() => {
       state.y = body.y;
       // Ignore a warp, co-op tether snap, or a dash. None is a running step.
       state.moving = distance > .00001 && distance < 1.3;
-      const rolling = seat === 0 ? Combat10.dashTime > 0 : seat === 1 && C3.coop.dash > 0;
+      const rolling = seat === 0 ? Combat10.dashTime > 0 || Combat10.iaiTime > 0 : seat === 1 && C3.coop.dash > 0;
       if (state.moving && !rolling) {
         const dx=body.x-old.x,dy=body.y-old.y;
-        state.moveDir = Math.abs(dx)>Math.abs(dy) ? (dx<0?'left':'right') : (dy<0?'up':'down');
+        state.moveDir = movementDirection(dx,dy,state.moveDir,body.dir || G.dir);
         const running = seat===1 ? C3.coop.running : G.isRunning10;
         const cycle = running ? (config.strideDistance || 3.172) : 8 / 3.6;
         state.phase = (state.phase + distance / cycle) % 1;
+        // The opening walk and lazy run fallback must use this exact spatial
+        // phase too. Actions keep their own records and never restart a step.
+        if(seat>=0 && ProtagonistArtV5.supports(hero)){
+          const motion=ProtagonistArtV5.locomotion[seat];
+          if(motion?.hero===hero)motion.phase=state.phase;
+        }
       }
     }
     for (const hero of states.keys()) if (!present.has(hero)) states.delete(hero);
+  }
+  // The authored unmasked Ryuchi sheet retained a pale generation matte in
+  // semi-transparent edge RGB. Undo only that neutral fringe at decode time:
+  // silhouette alpha, opaque art, and all four masked rows stay byte-identical.
+  // This is deliberately not a global white-key (the cap/coat have pale details).
+  function removeRyuchiEdgeMatte(canvas, meta) {
+    if (meta.rows !== 8) return 0;
+    const q = canvas.getContext('2d'), pixels = q.getImageData(0,0,canvas.width,canvas.height);
+    const data = pixels.data, width = canvas.width, height = 4 * (canvas.height / meta.rows);
+    let changed = 0;
+    for (let y=0;y<height;y++) for (let x=0;x<width;x++) {
+      const i=(y*width+x)*4, a=data[i+3], r=data[i], g=data[i+1], b=data[i+2];
+      if (!a || a>=230 || Math.min(r,g,b)<=75 || Math.max(r,g,b)-Math.min(r,g,b)>35) continue;
+      let fringe=false;
+      for (let yy=Math.max(0,y-2);yy<Math.min(height,y+3)&&!fringe;yy++)
+        for (let xx=Math.max(0,x-2);xx<Math.min(width,x+3);xx++)
+          if (!data[(yy*width+xx)*4+3]) {fringe=true;break;}
+      if (!fringe) continue;
+      for (let c=0;c<3;c++) data[i+c]=Math.max(0,Math.min(255,Math.round((data[i+c]*255-(255-a)*255)/a)));
+      changed++;
+    }
+    q.putImageData(pixels,0,0);
+    return changed;
   }
   function image(hero) {
     if (sheets.has(hero)) return sheets.get(hero);
@@ -88,6 +131,10 @@ const RunStrideV1 = (() => {
         if (!q) { resolve(false); return; }
         q.imageSmoothingEnabled = false;
         q.drawImage(original,0,0,canvas.width,canvas.height);
+        if (hero === 'ryuchi') {
+          try {record.edgeMattePixels = removeRyuchiEdgeMatte(canvas,meta)}
+          catch {record.edgeMattePixels = 0} // Readback restrictions must not block loading.
+        }
         record.bitmap = canvas;
         resolve(true);
       };
@@ -135,7 +182,7 @@ const RunStrideV1 = (() => {
       HeroAttackBody.frame(art,pose,state.seat,attack,x,y) : {source:original,contact:false};
     const [,sx,sy]=body.source;
     const upper=archerLayer(body.contact?'contact':pose.state,sx/256,sy/256,body.source,false);
-    let lower;
+    let lower,registration;
     const row=directions.indexOf(state.moveDir);
     if(row<0)return null;
     if(running){
@@ -143,18 +190,23 @@ const RunStrideV1 = (() => {
       if(!sheet.bitmap)return null;
       const c=sheet.cell;
       lower=archerLayer('run',col,row,[sheet.bitmap,col*c,row*c,c,c],true);
+      registration=manifest.heroes.alt.registration?.[row]?.[col];
     }else{
       const walk=art.image('alt_walk'),col=Math.floor(state.phase*8);
       if(!walk?.complete || !walk.naturalWidth)return null;
       lower=archerLayer('walk',col,row,[walk,col*256,row*256,256,256],true);
+      registration=manifest.heroes.alt.walkRegistration?.[row]?.[col];
     }
     if(!lower || !upper)return null;
     const offset=body.destination;
-    return {lower,upper,dx:offset?offset[0]-Math.round(x-44):0,dy:offset?offset[1]-Math.round(y+11-77):0};
+    return {lower,upper,registration,dx:offset?offset[0]-Math.round(x-44):0,dy:offset?offset[1]-Math.round(y+11-77):0};
   }
   function drawArcher(pair,x,y,state) {
     const scale=88/256;
-    const left=Math.round(x-44),top=Math.round(y+11-77);
+    // Both authored layers receive the same root translation. Their measured
+    // waist join and the independently aimed weapon remain unchanged.
+    const offset=pair.registration?.offset||[0,0];
+    const left=Math.round(x-44+offset[0]*scale),top=Math.round(y+11-77+offset[1]*scale);
     // Register the action waist onto the pelvis of the independently moving legs.
     const dx=Math.round((pair.lower.join[0]-pair.upper.join[0])*scale);
     const dy=Math.round((pair.lower.join[1]-pair.upper.join[1])*scale);
@@ -167,6 +219,64 @@ const RunStrideV1 = (() => {
       ctx.drawImage(pair.lower.tile,left,top);
       ctx.drawImage(pair.upper.tile,left+dx+pair.dx,top+dy+pair.dy);
     }finally{ctx.restore();}
+  }
+  function placement(config,entry,x,y,size=88) {
+    const scale=Number.isFinite(entry?.scale)&&entry.scale>0?entry.scale:1;
+    const offset=entry?.offset||[0,0],base=size/config.cell,drawSize=Math.round(size*scale),pixel=drawSize/config.cell;
+    return [Math.round(x+(offset[0]||0)*base-config.pivot[0]*pixel),
+      Math.round(y+11+(offset[1]||0)*base-config.pivot[1]*pixel),drawSize,drawSize];
+  }
+  function maskedRow(hero,art,p,row) {
+    const config=manifest.heroes[hero];
+    return row+(art===MusicianArtV1&&config.rows>4&&art.variant(hero,p.musicianVariant)==='masked'?4:0);
+  }
+  function nativeMotion(p,x,y,moving,previous,state) {
+    const art=artFor(p.style),original=art.pose,draw=ctx.drawImage,config=manifest.heroes[p.style];
+    // Scope the common clock to this actor draw; other NPCs and contact/action
+    // consumers retain their established pose methods and precedence.
+    art.pose=function(actor,seat,isMoving){
+      let pose=original.call(this,actor,seat,isMoving);
+      if(actor.style!==p.style || seat!==state.seat)return pose;
+      if(!activeModes10()&&['overlay','dialogue','rhythm'].includes(mode)&&pose.state==='idle'&&state.nativePose){
+        const frozen={...state.nativePose};
+        if(art===ProtagonistArtV5){
+          const row=directions.indexOf(frozen.direction)+(G.flags.masks?4:0);
+          // The pedestal equips masks inside a dialogue callback. Keep the
+          // physical step frozen, but never retain the pre-equipment atlas row.
+          if(row!==frozen.row){
+            frozen.row=row;
+            frozen.frame=art.phaseFrame(art.sequence(p.style,frozen.state,row),state.phase);
+            const frameMap=config[frozen.state==='walk'?'walkFrameMap':'fallbackRunFrameMap']?.[row];
+            if(frameMap?.length)frozen.frame=frameMap[Math.min(frameMap.length-1,Math.floor(state.phase*frameMap.length))];
+          }
+        }
+        state.nativePose={...frozen};return frozen;
+      }
+      if(!['walk','run'].includes(pose.state)){if(activeModes10())state.nativePose=null;return pose;}
+      const direction=state.moveDir || pose.direction;
+      pose.direction=direction;
+      pose.row=directions.indexOf(direction)+(art===ProtagonistArtV5&&G.flags.masks?4:0);
+      const sequence=art===ProtagonistArtV5?art.sequence(p.style,pose.state,pose.row):null;
+      pose.frame=art===ProtagonistArtV5?art.phaseFrame(sequence,state.phase):Math.min(7,Math.floor(state.phase*8));
+      const mapRow=maskedRow(p.style,art,p,pose.row),frameMap=config[pose.state==='walk'?'walkFrameMap':'fallbackRunFrameMap']?.[mapRow];
+      if(frameMap?.length)pose.frame=frameMap[Math.min(frameMap.length-1,Math.floor(state.phase*frameMap.length))];
+      state.nativePose={...pose};
+      return pose;
+    };
+    ctx.drawImage=function(image,...args){
+      if(args.length===8)for(const [motion,field]of [['walk','walkRegistration'],['run','fallbackRunRegistration'],['idle','idleRegistration']]){
+        const key=art===MusicianArtV1?art.key(p.style,art.variant(p.style,p.musicianVariant),motion):p.style+'_'+motion;
+        if(image!==art.images[key])continue;
+        const row=maskedRow(p.style,art,p,args[1]/256),frameMap=config[motion==='walk'?'walkFrameMap':motion==='run'?'fallbackRunFrameMap':'idleFrameMap']?.[row];
+        if(frameMap?.length&&motion!=='idle')args[0]=frameMap[Math.min(frameMap.length-1,Math.floor(state.phase*frameMap.length))]*256;
+        const frame=args[0]/256,registration=config[field]?.[row]?.[frame];
+        if(registration)args.splice(4,4,...placement(config,registration,x,y));
+        break;
+      }
+      return draw.call(this,image,...args);
+    };
+    try{return previous(p,x,y,moving)}finally{art.pose=original;ctx.drawImage=draw}
+
   }
   function render(p,x,y,moving,previous) {
     const hero = p.style, config = manifest.heroes[hero];
@@ -199,7 +309,7 @@ const RunStrideV1 = (() => {
     const freeze = !active && (mode==='overlay' || mode==='dialogue' || mode==='rhythm') && state.lastPose;
     if (!freeze && (!active || !running || !moving || !state.moving)) {
       state.lastPose = null;
-      return previous(p,x,y,running && active && !state.moving ? false : moving);
+      return nativeMotion(p,x,y,running && active && !state.moving ? false : moving,previous,state);
     }
     const art = artFor(hero);
     let pose = freeze || art.pose(p,state.seat,true);
@@ -207,14 +317,22 @@ const RunStrideV1 = (() => {
       state.lastPose = null;
       return previous(p,x,y,moving);
     }
-    const sheet = image(hero);
-    if (!sheet.bitmap) return previous(p,x,y,moving);
     const masked = config.rows>4 && (art===MusicianArtV1 ? art.variant(hero,p.musicianVariant)==='masked' : G.flags.masks);
-    const direction = Math.max(0,directions.indexOf(pose.direction));
+    const directionName = freeze ? state.lastPose.direction : state.moveDir || pose.direction;
+    const direction = Math.max(0,directions.indexOf(directionName));
     const row = direction + (masked ? 4 : 0);
+    // Some authored variants have a better established gait in the canonical
+    // body atlas. Select that exact row intentionally, retaining the shared
+    // spatial phase and the unmasked V8 sheet; this is not a decode failure.
+    if(config.nativeRunRows?.includes(row)){
+      state.lastPose=null;
+      return nativeMotion(p,x,y,moving,previous,state);
+    }
+    const sheet = image(hero);
+    if (!sheet.bitmap) return nativeMotion(p,x,y,moving,previous,state);
     const frame = freeze ? state.lastPose.frame : Math.min(config.frames-1,Math.floor(state.phase*config.frames));
-    if (!freeze) state.lastPose = {state:'run',direction:pose.direction,frame};
-    const size = sheet.cell, scale = size/config.cell;
+    if (!freeze) state.lastPose = {state:'run',direction:directionName,frame};
+    const size = sheet.cell;
     ctx.save();
     try {
       ctx.imageSmoothingEnabled = false;
@@ -224,11 +342,11 @@ const RunStrideV1 = (() => {
       }
       const hit = state.seat === 1 ? C3.coop.hit : state.seat === 0 ? act.hit : 0;
       if (hit>0 && !G.options10?.reducedMotion && Math.floor(tick*24)%2===0) ctx.globalAlpha*=.48;
-      ctx.drawImage(sheet.bitmap,frame*size,row*size,size,size,
-        Math.round(x-config.pivot[0]*scale),Math.round(y+11-config.pivot[1]*scale),size,size);
+      const registration=config.registration?.[row]?.[frame];
+      ctx.drawImage(sheet.bitmap,frame*size,row*size,size,size,...placement(config,registration,x,y,size));
     } finally {ctx.restore();}
   }
-  return {manifest,image,capture,advance,render};
+  return {manifest,image,capture,advance,render,placement,snapshot:()=>[...states].map(([hero,state])=>({hero,...state}))};
 })();
 window.RunStrideV1=RunStrideV1;
 

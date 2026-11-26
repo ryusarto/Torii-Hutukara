@@ -1,0 +1,18 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-11-25",
+  "sources": {
+    "franco": "exec-0006d250-13f4-4bab-8cfd-3a141c02680c.png",
+    "ryuchi": "exec-03535f03-61ad-4cff-94d1-66e32d24cd3c.png",
+    "alt": "exec-59e26c3a-11b6-491e-80b4-e0537662cb49.png",
+    "katana": "exec-21017d74-481c-4d10-be8c-478097fd258c.png",
+    "synth": "exec-f3411324-134b-4eb6-9a7b-3aec9966d680.png",
+    "percussion": "exec-f3081e97-1810-4c80-9d02-3008f0915e52.png"
+  },
+  "reference": [
+    "assets/boss-ground-fx/v1/atlas/pulse.png",
+    "assets/boss-ground-fx/v1/atlas/scrap.png"
+  ],
+  "intent": "6 clips \u00d7 8 independently drawn temporal phases per hero; effects only; no weapon/body/closed contours",
+  "sourcePolicy": "Preserved original generated RGBA without edits; importer only crops and nearest packs"
+}

@@ -135,6 +135,15 @@ raise "Diálogos ausentes: #{DIALOGUES}" unless File.file?(DIALOGUES)
 html = File.binread(BASE).force_encoding(Encoding::UTF_8)
 runtime = File.read(RUNTIME, encoding: 'UTF-8')
 
+# Menu input must run before the legacy anonymous capture listener, while the
+# actual implementation is loaded with the additive interface modules below.
+replace_once!(html, '<script>', "<script>\n'use strict';\nwindow.addEventListener(\"keydown\",e=>window.ToriiMenuControlsV7?.handleKey(e),true);", 'entrada unificada dos menus')
+replace_once!(html, "window.addEventListener('keydown',e=>{if(mode==='title'", "window.addEventListener('keydown',e=>{if(document.querySelector('.keymap6 .listening'))return;if(mode==='title'", 'captura de remapeamento antes da navegação legada')
+# Legacy X used a free tile center instead of the movement body's collision radius.
+replace_once!(html, 'const nx=G.x+v[0]*.28,ny=G.y+v[1]*.28;if(!tileWalkable(current,nx,ny))break;G.x=nx;G.y=ny;steps++;', 'if(!window.SkillMovementV1.warpStep(G,v[0],v[1],.28))break;steps++;', 'Passo Sônico respeita colisão do corpo')
+legacy_enemy_health = "const w=e===bossActor?68:32,h=4;ctx.fillStyle='#1c1621';ctx.fillRect(ex-w/2,ey-(e===bossActor?76:48),w,h+2);ctx.fillStyle=e===bossActor?'#f5bdcb':'#df8fa7';ctx.fillRect(ex-w/2+1,ey-(e===bossActor?75:47),Math.max(0,(w-2)*e.hp/e.max),3)"
+replace_once!(html, legacy_enemy_health, '', 'vida individual acima do sprite')
+
 # The original Franco super also heals the party outside the dungeon.
 replace_once!(html, 'for(const id of partyMembers())if(G.hp[id]>0)G.hp[id]=Math.min',
   'for(const id of partyMembers())if(!PostGame.active()&&G.hp[id]>0)G.hp[id]=Math.min', 'cura de super fora da Fenda')
@@ -149,8 +158,23 @@ end
 
 follower_hit = "hitEnemy(target,allyId==='franco'?8:6,.09,.03);"
 replace_once!(html, follower_hit,
-  follower_hit + "if(typeof HeroAttackFX!=='undefined')HeroAttackFX.follower(allyId,ally,target);",
+  "HeroAttackFX.withSource(allyId,()=>hitEnemy(target,allyId==='franco'?8:6,.09,.03));if(typeof HeroAttackFX!=='undefined')HeroAttackFX.follower(allyId,ally,target);",
   'golpe automático do companheiro')
+
+# Deferred allied hits need their actual author, even after switching leaders.
+# The wrappers tag presentation only and preserve every original hit argument.
+friendly_projectile_hit = 'hitEnemy(e,p.damage,p.arrow ? .18 : .26,p.piercing ? .15 : .06)'
+replace_once!(html, friendly_projectile_hit,
+  "HeroAttackFX.withSource(p.arrow?'alt':'ryuchi',()=>#{friendly_projectile_hit})", 'origem visual dos projéteis aliados')
+archer_rain_hit = 'hitEnemy(e,18,.15,.02)'
+replace_once!(html, archer_rain_hit,
+  "HeroAttackFX.withSource('alt',()=>#{archer_rain_hit})", 'origem visual da chuva de flechas')
+katana_counter_hit = 'coneHit10(Combat10.guardDir,TUNING10.katana.counterRange,.25,TUNING10.katana.counterDamage,.65,.2)'
+replace_once!(html, katana_counter_hit,
+  "HeroAttackFX.withSource('katana',()=>#{katana_counter_hit})", 'origem visual do contracorte')
+synth_pad_hit = 'hitEnemy(e,7,.16,.04)'
+replace_once!(runtime, synth_pad_hit,
+  "HeroAttackFX.withSource('synth',()=>#{synth_pad_hit})", 'origem visual dos pads persistentes')
 
 projectile_loop = 'for(const p of projectiles){'
 original_projectile = 'const px=p.x*T-cam.x,py=p.y*T-cam.y;if(p.arrow)'
@@ -189,8 +213,8 @@ replace_once!(html, 'clamp(G.y*T-VH/2,0,a.h*T-VH);cam.x', 'ClubStage.cameraY(cla
 replace_once!(html, 'let AC=null,audioEnabled=false,', 'let AC=null,audioEnabled=false,audioMuted=readAudioMute121(),', 'áudio desligado pelo jogador')
 replace_once!(html, 'function enableAudio(){if(!AC)', 'function enableAudio(){if(audioMuted)return;if(!AC)', 'interação respeita o mudo')
 replace_once!(html, 'if(audioEnabled)audioEnabled=false;else enableAudio();openSettings10()', 'toggleAudio121();openSettings10()', 'alternar som nas opções')
-replace_once!(html, 'const nx=G.x+v[0]*.28,ny=G.y+v[1]*.28;if(!tileWalkable(current,nx,ny))break;G.x=nx;G.y=ny;steps++;',
-  'if(!moveBody10(v[0],v[1],.28,false))break;steps++;', 'colisão do Passo Sônico')
+# The approved swept SkillMovementV1 warp patch above already replaces this path.
+# It reads the promoted canBody121 collision predicate; do not patch the same site twice.
 replace_once!(html, '<b>E</b> ${near.label}', %q~<b>${controlHint121('E','AÇÃO','A / ✕')}</b> ${near.label}~, 'ação perto de um interagível')
 replace_once!(html, "'O mundo está pausado. K · '+SIGNATURE11", %q~'O mundo está pausado. '+controlHint121('K','Especial','R2')+' · '+SIGNATURE11~, 'dica de especial na pausa')
 replace_once!(html, "text.innerHTML+='<br>K · '+SIGNATURE11", %q~text.innerHTML+='<br>'+controlHint121('K','Especial','R2')+' · '+SIGNATURE11~, 'dica de especial na equipe')
@@ -400,6 +424,12 @@ protagonist_manifest['animations'] = protagonist_manifest.fetch('animations').re
 locomotion_manifest.fetch('animations').each do |a|
   protagonist_uris[a.fetch('hero') + '_' + a.fetch('state')] = "data:image/png;base64,#{encode(File.join(LOCOMOTION_ASSETS, a.fetch('atlas')))}" if a.fetch('row').zero?
 end
+ryuchi_matte_dir = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v9-matte')
+ryuchi_matte_manifest = JSON.parse(File.read(File.join(ryuchi_matte_dir, 'manifest.json')))
+ryuchi_matte_manifest.fetch('atlases').each do |record|
+  protagonist_uris[record.fetch('key')] = "data:image/png;base64,#{encode(File.join(ryuchi_matte_dir, record.fetch('atlas')))}"
+end
+protagonist_manifest['bakedEdgeMatte'] = ryuchi_matte_manifest.fetch('bakedEdgeMatte')
 polish_manifest = JSON.parse(File.read(File.join(WORLD_POLISH_ASSETS, 'manifest.json')))
 polish_files = polish_manifest.fetch('assets').values.flat_map { |a| [a.fetch('file'), a.fetch('runtime')] }
 polish_uris = polish_manifest.fetch('assets').to_h { |key, entry| [key, "data:image/png;base64,#{encode(File.join(WORLD_POLISH_ASSETS, entry.fetch('runtime')))}"] }
@@ -504,6 +534,12 @@ end
 body_paths = hero_variants.to_h { |key| [key, File.join(body_dir, 'atlas', "#{key}.png")] }
 stride_manifest_path = File.join(stride_dir, 'manifest.json')
 stride_manifest = JSON.parse(File.read(stride_manifest_path))
+stride_registration_path = File.join(REPO_ROOT, 'assets', 'protagonistas', 'v9-registro', 'registration.json')
+stride_registration = JSON.parse(File.read(stride_registration_path))
+stride_manifest['registrationVersion'] = stride_registration.fetch('version')
+stride_registration.fetch('heroes').each do |hero, registration|
+  stride_manifest.fetch('heroes').fetch(hero).merge!(registration)
+end
 archer_split_path = File.join(stride_dir, 'archer-split', 'manifest.json')
 stride_paths = %w[franco ryuchi alt katana synth percussion].to_h do |hero|
   [hero, File.join(stride_dir, 'atlas', "#{hero}_run.png")]
@@ -531,6 +567,13 @@ signature_paths = %w[franco ryuchi katana synth percussion].to_h do |hero|
 end
 bass_pulse_path = File.join(signature_dir, 'atlas', 'onda-do-baixo.png')
 hero_attack_runtime = File.read(hero_attack_path, encoding: 'UTF-8')
+hero_attack_v3_dir = File.join(REPO_ROOT, 'assets', 'hero-attack-fx', 'v3')
+hero_attack_v3_manifest_path = File.join(hero_attack_v3_dir, 'manifest.json')
+hero_attack_v3_paths = %w[franco ryuchi alt katana synth percussion].to_h do |hero|
+  [hero, File.join(hero_attack_v3_dir, 'atlas', "#{hero}.png")]
+end
+replace_once!(hero_attack_runtime, '__HERO_ATTACK_V3_ATLASES__', png_map(hero_attack_v3_paths), 'animações compactas originais dos seis personagens')
+replace_once!(hero_attack_runtime, '__HERO_ATTACK_V3_MANIFEST__', JSON.generate(JSON.parse(File.read(hero_attack_v3_manifest_path))), 'fases e transparência dos ataques')
 replace_once!(hero_attack_runtime, '__HERO_ATTACK_V2_ATLASES__', png_map(signature_paths), 'efeitos próprios dos cinco instrumentos e armas')
 { '__FRANCO_BASS_PULSE__' => bass_pulse_path, '__HERO_ATTACK_ATLAS__' => hero_attack_atlas, '__RYUCHI_SWORD_ATLAS__' => sword_atlas }.each do |token, path|
   raise "Missing #{token} in hero attack module" unless hero_attack_runtime.include?(token)
@@ -544,6 +587,60 @@ raise 'Marcador __NARRATIVA_DATA__ ausente' unless narrativa_runtime.scan('__NAR
 narrativa_runtime = narrativa_runtime.sub('__NARRATIVA_DATA__') { JSON.generate(JSON.parse(File.read(NARRATIVA_DATA, encoding: 'UTF-8'))) }
 # Fase 2: dificuldade, chefes em três fases, inimigos novos, encontros e impacto.
 FASE2_JS = %w[dificuldade_v1.js encontros_v1.js impacto_v1.js].map { |name| File.join(ROOT, name) }
+# Approved interface assets embedded in the portable build, with original game logic intact.
+UI7_JS = File.join(ROOT, 'interface_v7.js')
+UI7_CSS = File.join(ROOT, 'interface_v7.css')
+TOUCH_LAYOUT_JS = File.join(ROOT, 'touch_layout_v1.js')
+MENU_CONTROLS_JS = File.join(ROOT, 'interface_controls_v7.js')
+ENEMY_HEALTH_JS = File.join(ROOT, 'enemy_health_v7.js')
+UI7_SCREENS_JS = File.join(ROOT, 'interface_screens_v7.js')
+UI7_SCREENS_CSS = File.join(ROOT, 'interface_screens_v7.css')
+UI7_NEW_GAMES_JS = File.join(ROOT, 'ui7_new_games_v1.js')
+UI7_NEW_GAMES_CSS = File.join(ROOT, 'ui7_new_games_v1.css')
+COMBAT_READABILITY_JS = File.join(ROOT, 'combat_readability_v1.js')
+SKILL_MOVEMENT_JS = File.join(ROOT, 'skill_movement_v1.js')
+COMBAT_READABILITY_DIR = File.join(REPO_ROOT, 'assets', 'combat-readability', 'v1')
+ENEMY_VARIANT_V2_JS = File.join(ROOT, 'enemy_variant_art_v2.js')
+ENEMY_VARIANT_V2_DIR = File.join(REPO_ROOT, 'assets', 'enemies', 'variants-v2')
+ENEMY_SKILL_FX_JS = File.join(ROOT, 'enemy_skill_fx_v1.js')
+ENEMY_SKILL_FX_DIR = File.join(REPO_ROOT, 'assets', 'enemy-skill-fx', 'v2')
+GROUND_RIFT_DIR = File.join(REPO_ROOT, 'assets', 'portal-chao', 'v1')
+LUMI_JS = File.join(ROOT, 'lumi_melody.js')
+ui7_asset_dir = File.join(REPO_ROOT, 'assets', 'interface', 'v1')
+ui7_paths = Dir[File.join(ui7_asset_dir, '{dungeon,icons}', '*.png')].reject { |p| File.basename(p) == 'atlas.png' }.to_h { |p| [File.basename(p, '.png'), p] }
+ui7_paths['titleStudio'] = File.join(ui7_asset_dir, 'title_studio.png')
+ui7_runtime = File.read(UI7_JS, encoding: 'UTF-8')
+replace_once!(ui7_runtime, '__UI7_ASSETS__', png_map(ui7_paths), 'ícones de interface')
+replace_once!(ui7_runtime, '__UI7_CSS__', JSON.generate(File.read(UI7_CSS, encoding: 'UTF-8')), 'estilos de interface')
+ui7_screens_runtime = File.read(UI7_SCREENS_JS, encoding: 'UTF-8')
+replace_once!(ui7_screens_runtime, '__UI7_SCREENS_CSS__', JSON.generate(File.read(UI7_SCREENS_CSS, encoding: 'UTF-8')), 'componentes internos das telas')
+ui7_new_games_runtime = File.read(UI7_NEW_GAMES_JS, encoding: 'UTF-8')
+replace_once!(ui7_new_games_runtime, '__UI7_NEW_GAMES_CSS__', JSON.generate(File.read(UI7_NEW_GAMES_CSS, encoding: 'UTF-8')), 'interface dos novos jogos musicais')
+combat_readability_runtime = File.read(COMBAT_READABILITY_JS, encoding: 'UTF-8')
+replace_once!(combat_readability_runtime, '__COMBAT_READABILITY_ASSET__', JSON.generate("data:image/png;base64,#{encode(File.join(COMBAT_READABILITY_DIR, 'combat_readability.png'))}"), 'sprites de legibilidade do combate')
+replace_once!(combat_readability_runtime, '__GROUND_RIFT_ASSET__', JSON.generate("data:image/png;base64,#{encode(File.join(GROUND_RIFT_DIR, 'fenda_chao_proposta.png'))}"), 'fenda horizontal no piso das ruínas')
+replace_once!(combat_readability_runtime, '__COMBAT_READABILITY_MANIFEST__', JSON.generate(JSON.parse(File.read(File.join(COMBAT_READABILITY_DIR, 'manifest.json'), encoding: 'UTF-8'))), 'manifesto dos sprites de combate')
+enemy_variant_v2_paths = Dir[File.join(ENEMY_VARIANT_V2_DIR, 'atlas', '*.png')].to_h { |path| [File.basename(path, '.png'), path] }
+raise 'Expected six authored enemy variant atlases' unless enemy_variant_v2_paths.length == 6
+enemy_variant_runtime = File.read(ENEMY_VARIANT_V2_JS, encoding: 'UTF-8')
+replace_once!(enemy_variant_runtime, '__ENEMY_VARIANT_V2_ASSETS__', png_map(enemy_variant_v2_paths), 'corpos próprios dos seis inimigos adicionais')
+replace_once!(enemy_variant_runtime, '__ENEMY_VARIANT_V2_MANIFEST__', JSON.generate(JSON.parse(File.read(File.join(ENEMY_VARIANT_V2_DIR, 'manifest.json'), encoding: 'UTF-8'))), 'poses e orientações dos inimigos adicionais')
+enemy_skill_fx_paths = Dir[File.join(ENEMY_SKILL_FX_DIR, 'atlas', '*.png')].to_h { |path| [path.delete_prefix(ENEMY_SKILL_FX_DIR + '/'), path] }
+abort 'Esperados seis atlas de golpes dos encontros' unless enemy_skill_fx_paths.length == 6
+enemy_skill_fx_runtime = File.read(ENEMY_SKILL_FX_JS, encoding: 'UTF-8')
+replace_once!(enemy_skill_fx_runtime, '__ENEMY_SKILL_FX_ASSETS__', png_map(enemy_skill_fx_paths), 'efeitos próprios dos seis inimigos')
+replace_once!(enemy_skill_fx_runtime, '__ENEMY_SKILL_FX_MANIFEST__', JSON.generate(JSON.parse(File.read(File.join(ENEMY_SKILL_FX_DIR, 'manifest.json'), encoding: 'UTF-8'))), 'sequências materiais dos golpes dos encontros')
+fase2_runtimes = FASE2_JS.map do |path|
+  source = File.read(path, encoding: 'UTF-8')
+  if File.basename(path) == 'dificuldade_v1.js'
+    replace_once!(source, 'marcador(h,cam);', 'if(!window.CombatReadabilityV1?.ground(h))marcador(h,cam);', 'sprites dos perigos sem alterar sua simulação')
+  end
+  if File.basename(path) == 'encontros_v1.js'
+    replace_once!(source, 'const e=entity||{};', 'const e=entity||{};if(window.EnemyVariantArtV2?.draw(x,y,kind,e))return;', 'corpos animados antes dos proxies de encontros')
+  end
+  source
+end
+
 bridge_root = File.join(REPO_ROOT, 'assets', 'ponte-frequencias', 'runtime')
 bridge_manifest = File.join(bridge_root, 'manifest.json')
 bridge_assets = File.file?(bridge_manifest) ? JSON.parse(File.read(bridge_manifest)) : {}
@@ -570,7 +667,7 @@ canal_runtime = File.read(canal_violin, encoding: 'UTF-8')
 replace_once!(canal_runtime, '__CANAL_VIOLIN_WAV__', encode(canal_recording), 'recorte de Veracidade no Canal Suspenso')
 bridge_runtime = File.read(bridge_art, encoding: 'UTF-8')
 replace_once!(bridge_runtime, '__BRIDGE_SPRITES__', JSON.generate(bridge_assets), 'sprites da Ponte das Frequências')
-parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, stride_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), File.read(File.join(ROOT,'hero_legacy_fx.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8'), body_runtime, narrativa_runtime, File.read(File.join(ROOT, 'interface_v6.js'), encoding: 'UTF-8'), *FASE2_JS.map { |path| File.read(path, encoding: 'UTF-8') }, bridge_runtime, File.read(bridge_puzzle, encoding: 'UTF-8'), File.read(radio_tuning, encoding: 'UTF-8'), File.read(lumi_melody, encoding: 'UTF-8'), canal_runtime, File.read(plant_sequencer, encoding: 'UTF-8'), club_runtime, File.read(final_echoes, encoding: 'UTF-8')]
+parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, stride_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), File.read(File.join(ROOT,'hero_legacy_fx.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8'), body_runtime, narrativa_runtime, File.read(File.join(ROOT, 'interface_v6.js'), encoding: 'UTF-8'), *fase2_runtimes, bridge_runtime, File.read(bridge_puzzle, encoding: 'UTF-8'), File.read(radio_tuning, encoding: 'UTF-8'), File.read(LUMI_JS, encoding: 'UTF-8'), canal_runtime, File.read(plant_sequencer, encoding: 'UTF-8'), club_runtime, File.read(final_echoes, encoding: 'UTF-8'), ui7_runtime, File.read(TOUCH_LAYOUT_JS, encoding: 'UTF-8'), File.read(MENU_CONTROLS_JS, encoding: 'UTF-8'), File.read(ENEMY_HEALTH_JS, encoding: 'UTF-8'), ui7_screens_runtime, combat_readability_runtime, enemy_variant_runtime, enemy_skill_fx_runtime, File.read(SKILL_MOVEMENT_JS, encoding: 'UTF-8'), ui7_new_games_runtime]
 runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = polish_runtime = npc_gestures_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
 html.insert(position, "\n")
 until parts.empty?
@@ -589,9 +686,42 @@ html.gsub!('clamp(G.x*T-VW/2,0,a.w*T-VW)', 'clamp(coopCamera123("x")*T-VW/2,0,a.
 html.gsub!('clamp(G.y*T-VH/2,0,a.h*T-VH)', 'clamp(coopCamera123("y")*T-VH/2,0,a.h*T-VH)')
 html.gsub!("yy=bossActor?.id==='voice_boss'?", "yy=!C3.coopActive()&&bossActor?.id==='voice_boss'?")
 FileUtils.mkdir_p(OUTPUT_DIR)
-File.binwrite(OUTPUT, html)
+GC.start
+pending_output = "#{OUTPUT}.building-#{Process.pid}"
+begin
+  # APFS can clone the large portable file without allocating another copy.
+  # Patch only changed chunks; retain the atomic rename and verify every byte.
+  cloned = RUBY_PLATFORM.include?('darwin') && File.file?(OUTPUT) &&
+    system('cp', '-c', OUTPUT, pending_output, out: File::NULL, err: File::NULL)
+  if cloned
+    File.open(pending_output, 'r+b') do |pending|
+      offset = 0
+      while offset < html.bytesize
+        chunk = html.byteslice(offset, 4 * 1024 * 1024).b
+        previous = pending.read(chunk.bytesize)
+        if previous != chunk
+          pending.seek(offset)
+          pending.write(chunk)
+        end
+        offset += chunk.bytesize
+        pending.seek(offset)
+      end
+      pending.truncate(html.bytesize)
+    end
+  else
+    File.binwrite(pending_output, html)
+  end
+  abort 'Conteúdo da build temporária divergente' unless
+    Digest::SHA256.file(pending_output).hexdigest == Digest::SHA256.hexdigest(html)
+  File.rename(pending_output, OUTPUT)
+ensure
+  File.delete(pending_output) if File.exist?(pending_output)
+end
 
 sources = [PROTAGONIST_JS, File.join(PROTAGONIST_ASSETS, 'manifest.json')] + protagonist_files.map { |relative| File.join(PROTAGONIST_ASSETS, relative) } + FILES.values + [BASE, SORTE_JS, NARRATIVA_JS, NARRATIVA_DATA, RUNTIME, INPUT_RUNTIME, DIALOGUE_EDITS_JS, DIALOGUE_EDITS, PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER, DIALOGUES, NINJA_ARCHER_JS, File.join(NINJA_ARCHER_ASSETS, 'manifest.json')] + ninja_archer_files.map { |relative| File.join(NINJA_ARCHER_ASSETS, relative) }
+sources += [File.join(REPO_ROOT, 'production', 'import_hero_attack_v3.py')] + Dir[File.join(hero_attack_v3_dir, '**', '*')].select { |path| File.file?(path) }
+sources += [File.join(REPO_ROOT, 'production', 'clean_ryuchi_matte_v9.py')] + Dir[File.join(ryuchi_matte_dir, '**', '*')].select { |path| File.file?(path) }
+sources += [stride_registration_path, File.join(REPO_ROOT, 'production', 'register_locomotion_v9.py')]
 sources += [File.join(LOCOMOTION_ASSETS, 'manifest.json')] + locomotion_files.map { |relative| File.join(LOCOMOTION_ASSETS, relative) }
 sources += [NPC_GESTURES_JS, File.join(NPC_GESTURES_ASSETS, 'city_gestures.png'), File.join(NPC_GESTURES_ASSETS, 'manifest.json')]
 sources += Dir[File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2', '*.png')] + [File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2', 'manifest.json')]
@@ -611,6 +741,9 @@ sources += [File.join(ROOT, "postgame.js"), File.join(ROOT, "interface_v6.js"), 
 sources += [BOSS_GROUND_FX_JS, File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json'), File.join(BOSS_GROUND_FX_V2, 'manifest.json')] + ground_fx_paths.values
 sources += [ENVIRONMENT_DEPTH_JS, ENVIRONMENT_ATMOSPHERE_JS, CLOUD_WORLD_JS, CLOUD_STORY_JS, File.join(CLOUD_WORLD_ASSETS, 'manifest.json')] + cloud_files.values
 sources += [File.join(ENVIRONMENT_VOLUME_ASSETS, 'manifest.json')] + volume_files.values
+sources += [ENEMY_VARIANT_V2_JS, File.join(REPO_ROOT, 'production', 'import_enemy_variants_v2.py'), File.join(REPO_ROOT, 'production', 'segment_enemy_variants_v2.py')] + Dir[File.join(ENEMY_VARIANT_V2_DIR, '{atlas,source}', '**', '*'), File.join(ENEMY_VARIANT_V2_DIR, '*.json'), File.join(ENEMY_VARIANT_V2_DIR, 'README.md')].select { |path| File.file?(path) }
+sources += [ENEMY_SKILL_FX_JS, File.join(REPO_ROOT, 'production', 'import_enemy_skill_fx_v1.py'), File.join(REPO_ROOT, 'production', 'import_enemy_skill_fx_v2.py')] + Dir[File.join(ENEMY_SKILL_FX_DIR, '{atlas,source}', '**', '*'), File.join(ENEMY_SKILL_FX_DIR, '*.json')].select { |path| File.file?(path) }
+sources += FASE2_JS + [LUMI_JS, UI7_JS, UI7_CSS, TOUCH_LAYOUT_JS, MENU_CONTROLS_JS, ENEMY_HEALTH_JS, UI7_SCREENS_JS, UI7_SCREENS_CSS, UI7_NEW_GAMES_JS, UI7_NEW_GAMES_CSS, COMBAT_READABILITY_JS, SKILL_MOVEMENT_JS] + [File.join(REPO_ROOT, 'production', 'export_combat_readability_v1.py')] + Dir[File.join(COMBAT_READABILITY_DIR, '*')].select { |p| File.file?(p) } + Dir[File.join(GROUND_RIFT_DIR, '*')].select { |p| File.file?(p) } + Dir[File.join(ui7_asset_dir, '**', '*')].select { |p| File.file?(p) }
 sources += FASE2_JS + [bridge_art, bridge_puzzle, radio_tuning, lumi_melody, canal_violin, canal_recording, plant_sequencer, club_stage, final_echoes] + club_art.values + [File.join(club_art_dir, 'manifest.json')]
 if File.file?(bridge_manifest)
   sources += [bridge_manifest] + bridge_files.map { |file| File.join(bridge_root, file) }
@@ -647,7 +780,7 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    key = [signature_dir, body_dir, stride_dir, File.dirname(hero_attack_atlas), BOSS_ANIMATION_V3, BOSS_GROUND_FX_V2, File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2'), NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, LOCOMOTION_ASSETS, WORLD_POLISH_ASSETS, NPC_GESTURES_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS, CLOUD_WORLD_ASSETS, ENVIRONMENT_VOLUME_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    key = [bridge_root, club_art_dir, File.dirname(canal_recording), ENEMY_SKILL_FX_DIR, ENEMY_VARIANT_V2_DIR, ryuchi_matte_dir, hero_attack_v3_dir, signature_dir, body_dir, stride_dir, File.dirname(hero_attack_atlas), BOSS_ANIMATION_V3, BOSS_GROUND_FX_V2, File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2'), NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, LOCOMOTION_ASSETS, WORLD_POLISH_ASSETS, NPC_GESTURES_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS, CLOUD_WORLD_ASSETS, ENVIRONMENT_VOLUME_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
 
     [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end
@@ -724,3 +857,4 @@ File.write(File.join(REPO_ROOT, 'web', 'playtest', 'build.json'), JSON.pretty_ge
   'version' => VERSION.fetch('numero'),
   'manifest' => "game/builds/#{VERSION.fetch('versao')}/MANIFESTO_#{VERSION.fetch('sufixo')}.json"
 ) + "\n")
+

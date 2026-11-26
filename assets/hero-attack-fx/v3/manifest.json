@@ -1,0 +1,4497 @@
+{
+  "version": 3,
+  "origin": "Built-in image_gen, six original authored sheets; canonical boss atlas used only as style reference",
+  "sourcePolicy": "Original PNG preserved. Exact8x6 grid cropped and nearest packed. Alpha1..8 cleared on derivative to avoid sheet tint/bleed; no color repaint or invented phases.",
+  "cell": 128,
+  "columns": 8,
+  "rows": 6,
+  "frames": 8,
+  "pivot": [
+    64,
+    64
+  ],
+  "filter": "nearest",
+  "guardPixels": 8,
+  "guardAtRuntime": "at least2logical pixels at nominal32px or larger; no cell content crosses padding",
+  "phaseDriver": "Original accepted action/effect duration; render only, no timer/damage/hitbox edits",
+  "preparation": [
+    0,
+    1
+  ],
+  "contact": [
+    2,
+    3,
+    4
+  ],
+  "recovery": [
+    5,
+    6,
+    7
+  ],
+  "sheets": {
+    "franco": {
+      "atlas": "atlas/franco.png",
+      "source": "source/franco.png",
+      "sourceSha256": "7cb78c9204f88f7c19678d9f3432cd95e003140eb5b2fa3a9b5d96117d3200e1",
+      "atlasSha256": "f31d646c1fea26520afb32ff18c5d084771510883515e0ead57623bce10be270",
+      "size": [
+        1024,
+        768
+      ],
+      "rows": [
+        {
+          "state": "attack_1",
+          "row": 0,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "eaf3c5c10fee9a294622d9d74c7b63f3dd522ba527f24570bde06e8605664502",
+              "bounds": [
+                61,
+                70,
+                79,
+                82
+              ],
+              "visiblePixelsAlpha32": 125,
+              "opaquePixelsAlpha192": 75,
+              "alphaMass": 91.3921568627451,
+              "bboxEmptyFraction": 0.4213
+            },
+            {
+              "frame": 1,
+              "hash": "6b9997d357f2a321b6065f1ffe09a44cab236a7efc95f64501839fa484bb6e48",
+              "bounds": [
+                49,
+                65,
+                87,
+                87
+              ],
+              "visiblePixelsAlpha32": 416,
+              "opaquePixelsAlpha192": 277,
+              "alphaMass": 312.278431372549,
+              "bboxEmptyFraction": 0.5024
+            },
+            {
+              "frame": 2,
+              "hash": "b49c382c3a6cadabd390e7c1f67edddd616551450e2cade979e0e8c7af93cce8",
+              "bounds": [
+                40,
+                64,
+                99,
+                87
+              ],
+              "visiblePixelsAlpha32": 523,
+              "opaquePixelsAlpha192": 370,
+              "alphaMass": 407.2705882352941,
+              "bboxEmptyFraction": 0.6146
+            },
+            {
+              "frame": 3,
+              "hash": "cf63c55a803aa67f5f27369adb87c049f220c9abf5acf443d2e79efc9b540767",
+              "bounds": [
+                38,
+                59,
+                93,
+                95
+              ],
+              "visiblePixelsAlpha32": 833,
+              "opaquePixelsAlpha192": 546,
+              "alphaMass": 642.2392156862745,
+              "bboxEmptyFraction": 0.5793
+            },
+            {
+              "frame": 4,
+              "hash": "95e87d6f6939df98b832eb28064fb80f88dff09344d19de75d1d2b3fa5dbab01",
+              "bounds": [
+                38,
+                59,
+                91,
+                92
+              ],
+              "visiblePixelsAlpha32": 415,
+              "opaquePixelsAlpha192": 225,
+              "alphaMass": 286.6470588235294,
+              "bboxEmptyFraction": 0.7627
+            },
+            {
+              "frame": 5,
+              "hash": "442a0d923bf82dcd973e7cd7470ae30e6a468ddf99a0a06ee0a623a0540dd3f3",
+              "bounds": [
+                41,
+                64,
+                84,
+                87
+              ],
+              "visiblePixelsAlpha32": 209,
+              "opaquePixelsAlpha192": 99,
+              "alphaMass": 140.1921568627451,
+              "bboxEmptyFraction": 0.7887
+            },
+            {
+              "frame": 6,
+              "hash": "4d21e57886bc940f4c6492331b8609b22c8e36ce6ff263d4af2279d062971d39",
+              "bounds": [
+                53,
+                69,
+                79,
+                83
+              ],
+              "visiblePixelsAlpha32": 88,
+              "opaquePixelsAlpha192": 40,
+              "alphaMass": 58.86274509803921,
+              "bboxEmptyFraction": 0.7582
+            },
+            {
+              "frame": 7,
+              "hash": "e163c0dc23c7eee3b59551be4ca51213bf8af4b1fa4256cba387659b2c2460b1",
+              "bounds": [
+                63,
+                73,
+                74,
+                80
+              ],
+              "visiblePixelsAlpha32": 16,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 6.552941176470588,
+              "bboxEmptyFraction": 0.7922
+            }
+          ]
+        },
+        {
+          "state": "attack_2",
+          "row": 1,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "64f6a17c089a673168d8f3d84386ffb0d59615be2e8fe395cf12dd2bf6758042",
+              "bounds": [
+                54,
+                63,
+                77,
+                78
+              ],
+              "visiblePixelsAlpha32": 165,
+              "opaquePixelsAlpha192": 76,
+              "alphaMass": 107.62745098039215,
+              "bboxEmptyFraction": 0.5217
+            },
+            {
+              "frame": 1,
+              "hash": "dee1c1c3a1e211333e8bc2ead91cd2c7317bc915b062c0572ff47f1eea1ed996",
+              "bounds": [
+                38,
+                58,
+                90,
+                82
+              ],
+              "visiblePixelsAlpha32": 595,
+              "opaquePixelsAlpha192": 398,
+              "alphaMass": 459.9019607843137,
+              "bboxEmptyFraction": 0.5232
+            },
+            {
+              "frame": 2,
+              "hash": "c17a24ca76ea9a5736a7423651e6575f17c589252693bcb1d493427c1e3414b3",
+              "bounds": [
+                34,
+                57,
+                100,
+                85
+              ],
+              "visiblePixelsAlpha32": 882,
+              "opaquePixelsAlpha192": 580,
+              "alphaMass": 675.2352941176471,
+              "bboxEmptyFraction": 0.5227
+            },
+            {
+              "frame": 3,
+              "hash": "523b9f86cd711703967776aed6b9f46925ad5a8aedc7c9665b715854fb03f844",
+              "bounds": [
+                26,
+                48,
+                98,
+                87
+              ],
+              "visiblePixelsAlpha32": 1057,
+              "opaquePixelsAlpha192": 682,
+              "alphaMass": 795.7294117647059,
+              "bboxEmptyFraction": 0.6236
+            },
+            {
+              "frame": 4,
+              "hash": "e2150032ebd8da84d00e5731ac01c3ded90021beb6fce79cfb7ef0af495a6147",
+              "bounds": [
+                30,
+                52,
+                99,
+                85
+              ],
+              "visiblePixelsAlpha32": 449,
+              "opaquePixelsAlpha192": 209,
+              "alphaMass": 300.5372549019608,
+              "bboxEmptyFraction": 0.8028
+            },
+            {
+              "frame": 5,
+              "hash": "f2c255d0aa533c6f5baa056c797ff7a31e271fb1355d8ca7af8e7309c1e41e01",
+              "bounds": [
+                37,
+                53,
+                93,
+                81
+              ],
+              "visiblePixelsAlpha32": 242,
+              "opaquePixelsAlpha192": 122,
+              "alphaMass": 160.0,
+              "bboxEmptyFraction": 0.8457
+            },
+            {
+              "frame": 6,
+              "hash": "937edfae203fa49c2342345b00815e41db4438958bdec8d886fce89c74cf0d70",
+              "bounds": [
+                40,
+                59,
+                82,
+                80
+              ],
+              "visiblePixelsAlpha32": 136,
+              "opaquePixelsAlpha192": 54,
+              "alphaMass": 79.85882352941177,
+              "bboxEmptyFraction": 0.8458
+            },
+            {
+              "frame": 7,
+              "hash": "376c3bee57137422d27b717086615893c8a7ef36915d6ee6389959b808be1d6a",
+              "bounds": [
+                64,
+                69,
+                72,
+                73
+              ],
+              "visiblePixelsAlpha32": 17,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 7.247058823529412,
+              "bboxEmptyFraction": 0.4688
+            }
+          ]
+        },
+        {
+          "state": "attack_3",
+          "row": 2,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "7adb481d2fd3c3bb48e8938902481bd2836e76b90c86c1111d644d33558b1e4b",
+              "bounds": [
+                59,
+                54,
+                76,
+                73
+              ],
+              "visiblePixelsAlpha32": 212,
+              "opaquePixelsAlpha192": 112,
+              "alphaMass": 136.4392156862745,
+              "bboxEmptyFraction": 0.3437
+            },
+            {
+              "frame": 1,
+              "hash": "1e65cf6cc4ee24a65ec2064c4262e843a048f10f138fb82e6b0786f4de006bf6",
+              "bounds": [
+                45,
+                49,
+                86,
+                75
+              ],
+              "visiblePixelsAlpha32": 552,
+              "opaquePixelsAlpha192": 341,
+              "alphaMass": 409.09411764705885,
+              "bboxEmptyFraction": 0.4822
+            },
+            {
+              "frame": 2,
+              "hash": "95d9c416afab3684f66bde93549b008756f9cdbde3895c73091073cdbbfe9ae6",
+              "bounds": [
+                36,
+                46,
+                95,
+                83
+              ],
+              "visiblePixelsAlpha32": 891,
+              "opaquePixelsAlpha192": 558,
+              "alphaMass": 662.6588235294117,
+              "bboxEmptyFraction": 0.5918
+            },
+            {
+              "frame": 3,
+              "hash": "027a8c07a40ac38845b790e995e76985a3cf9de32c75fb804884cb03a52535e1",
+              "bounds": [
+                36,
+                40,
+                95,
+                84
+              ],
+              "visiblePixelsAlpha32": 1109,
+              "opaquePixelsAlpha192": 736,
+              "alphaMass": 845.2392156862745,
+              "bboxEmptyFraction": 0.5728
+            },
+            {
+              "frame": 4,
+              "hash": "6bd98c3ae97b26d09fd903f5f670b6c4b790a6a63efd97367470c2298d4d9a20",
+              "bounds": [
+                41,
+                45,
+                96,
+                82
+              ],
+              "visiblePixelsAlpha32": 490,
+              "opaquePixelsAlpha192": 237,
+              "alphaMass": 324.6313725490196,
+              "bboxEmptyFraction": 0.7592
+            },
+            {
+              "frame": 5,
+              "hash": "11f41a853340a15018b236a1cebf9d2d14d79e349d62ca77004707b57e87d3f7",
+              "bounds": [
+                43,
+                46,
+                90,
+                82
+              ],
+              "visiblePixelsAlpha32": 259,
+              "opaquePixelsAlpha192": 109,
+              "alphaMass": 165.83137254901962,
+              "bboxEmptyFraction": 0.8469
+            },
+            {
+              "frame": 6,
+              "hash": "350a3748eaf4829a70de4bb31babf33bf7872f86e8e974d30eed4a8dcb946726",
+              "bounds": [
+                53,
+                51,
+                77,
+                74
+              ],
+              "visiblePixelsAlpha32": 60,
+              "opaquePixelsAlpha192": 17,
+              "alphaMass": 32.86666666666667,
+              "bboxEmptyFraction": 0.8913
+            },
+            {
+              "frame": 7,
+              "hash": "8b3404af5e85883d5c901f9074656999885607a6f198f197c475f0e06bc4bbdb",
+              "bounds": [
+                68,
+                65,
+                74,
+                69
+              ],
+              "visiblePixelsAlpha32": 11,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 4.952941176470588,
+              "bboxEmptyFraction": 0.5417
+            }
+          ]
+        },
+        {
+          "state": "skill",
+          "row": 3,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "ac85eba1880778540e20b8d89142d3a3a12f8e6e54772c98d704c8b3b2d81d86",
+              "bounds": [
+                51,
+                60,
+                82,
+                75
+              ],
+              "visiblePixelsAlpha32": 222,
+              "opaquePixelsAlpha192": 89,
+              "alphaMass": 140.23529411764707,
+              "bboxEmptyFraction": 0.5226
+            },
+            {
+              "frame": 1,
+              "hash": "3f6707a1cd6daa5497cdc1a2d25c821c518437cc2086cf813e747dfb5917b137",
+              "bounds": [
+                37,
+                54,
+                90,
+                80
+              ],
+              "visiblePixelsAlpha32": 712,
+              "opaquePixelsAlpha192": 475,
+              "alphaMass": 545.0078431372549,
+              "bboxEmptyFraction": 0.4833
+            },
+            {
+              "frame": 2,
+              "hash": "055d5c9c61a0ab05f5bfb6b8669d1177c098b9ef9fa970af1eb90c1b58cf3c4d",
+              "bounds": [
+                27,
+                45,
+                98,
+                85
+              ],
+              "visiblePixelsAlpha32": 1088,
+              "opaquePixelsAlpha192": 697,
+              "alphaMass": 814.5529411764705,
+              "bboxEmptyFraction": 0.6169
+            },
+            {
+              "frame": 3,
+              "hash": "c1aaaaafdbc9fe67fdadbad55d96312c69f27c7a79df8b8eb83acedcd526bb60",
+              "bounds": [
+                22,
+                43,
+                101,
+                90
+              ],
+              "visiblePixelsAlpha32": 1323,
+              "opaquePixelsAlpha192": 942,
+              "alphaMass": 1059.4588235294118,
+              "bboxEmptyFraction": 0.6437
+            },
+            {
+              "frame": 4,
+              "hash": "288c7ba6b8c1f88d0037521b7e35beeb001fef7b5df43b34469dbf6d22f8494e",
+              "bounds": [
+                26,
+                41,
+                96,
+                87
+              ],
+              "visiblePixelsAlpha32": 571,
+              "opaquePixelsAlpha192": 297,
+              "alphaMass": 387.39607843137253,
+              "bboxEmptyFraction": 0.8227
+            },
+            {
+              "frame": 5,
+              "hash": "724ba41eb795ff6f04305ddf8a71bcd0d164e160e6f74644c465d35c6909ea78",
+              "bounds": [
+                37,
+                48,
+                92,
+                82
+              ],
+              "visiblePixelsAlpha32": 215,
+              "opaquePixelsAlpha192": 89,
+              "alphaMass": 137.77254901960785,
+              "bboxEmptyFraction": 0.885
+            },
+            {
+              "frame": 6,
+              "hash": "120d03fb2d6076e1d9f122ddde3bd68e6ae27d435753395f140a171a2497b47b",
+              "bounds": [
+                48,
+                62,
+                79,
+                73
+              ],
+              "visiblePixelsAlpha32": 84,
+              "opaquePixelsAlpha192": 30,
+              "alphaMass": 50.26274509803922,
+              "bboxEmptyFraction": 0.7537
+            },
+            {
+              "frame": 7,
+              "hash": "1dc1ad5c237524843ea8616eff5a2a6e72df942d8068314cb930c7a69d760d45",
+              "bounds": [
+                64,
+                68,
+                70,
+                72
+              ],
+              "visiblePixelsAlpha32": 18,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 7.184313725490196,
+              "bboxEmptyFraction": 0.25
+            }
+          ]
+        },
+        {
+          "state": "advanced",
+          "row": 4,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "f8df47feda00c19cb68d8c83c4ba2b53a7b267785b392a0dcfaeb09cef48c4e6",
+              "bounds": [
+                53,
+                53,
+                77,
+                72
+              ],
+              "visiblePixelsAlpha32": 178,
+              "opaquePixelsAlpha192": 88,
+              "alphaMass": 123.12549019607843,
+              "bboxEmptyFraction": 0.6096
+            },
+            {
+              "frame": 1,
+              "hash": "e27beb03a61bd1f13f019b86a2479aefe1ee63f866d89c2be1a4d23465666ca6",
+              "bounds": [
+                40,
+                43,
+                88,
+                72
+              ],
+              "visiblePixelsAlpha32": 445,
+              "opaquePixelsAlpha192": 246,
+              "alphaMass": 311.3333333333333,
+              "bboxEmptyFraction": 0.6803
+            },
+            {
+              "frame": 2,
+              "hash": "762fedc688e1deded703b087957e42ef6eccd97c3a283c7ae0c981ade194467f",
+              "bounds": [
+                43,
+                39,
+                92,
+                74
+              ],
+              "visiblePixelsAlpha32": 663,
+              "opaquePixelsAlpha192": 369,
+              "alphaMass": 479.15294117647056,
+              "bboxEmptyFraction": 0.6134
+            },
+            {
+              "frame": 3,
+              "hash": "caad2e31d69565d8fffcdbc88eabf52b9ee6ff4bd5256c0e10dbe1abad30319d",
+              "bounds": [
+                35,
+                38,
+                92,
+                75
+              ],
+              "visiblePixelsAlpha32": 844,
+              "opaquePixelsAlpha192": 517,
+              "alphaMass": 616.3882352941176,
+              "bboxEmptyFraction": 0.5998
+            },
+            {
+              "frame": 4,
+              "hash": "0dbd05df812f2213792bc6f083ecfff8e1f97b23bf056761db59226aa36fefe8",
+              "bounds": [
+                38,
+                46,
+                87,
+                75
+              ],
+              "visiblePixelsAlpha32": 246,
+              "opaquePixelsAlpha192": 98,
+              "alphaMass": 152.05882352941177,
+              "bboxEmptyFraction": 0.8269
+            },
+            {
+              "frame": 5,
+              "hash": "6e13d5b556a2b58c88c891e91df86234608d18639aeb67125e13f3417fd9639c",
+              "bounds": [
+                57,
+                49,
+                80,
+                73
+              ],
+              "visiblePixelsAlpha32": 98,
+              "opaquePixelsAlpha192": 46,
+              "alphaMass": 61.94117647058823,
+              "bboxEmptyFraction": 0.8225
+            },
+            {
+              "frame": 6,
+              "hash": "0910c12a531275d0f6480027824c6239d9125fb6d07aa262abca07a5df8334bb",
+              "bounds": [
+                51,
+                52,
+                74,
+                69
+              ],
+              "visiblePixelsAlpha32": 59,
+              "opaquePixelsAlpha192": 19,
+              "alphaMass": 34.0,
+              "bboxEmptyFraction": 0.8491
+            },
+            {
+              "frame": 7,
+              "hash": "0331c1ae6c5c14747293862eab9df162955f1208c66ae597aeb6d4869fb8abc3",
+              "bounds": [
+                61,
+                59,
+                66,
+                62
+              ],
+              "visiblePixelsAlpha32": 9,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 3.003921568627451,
+              "bboxEmptyFraction": 0.4
+            }
+          ]
+        },
+        {
+          "state": "signature",
+          "row": 5,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "c505591ee3a4ff89deb7a0158a7b7006a839d472fd1f7f507bfb763316dd32e2",
+              "bounds": [
+                61,
+                49,
+                77,
+                58
+              ],
+              "visiblePixelsAlpha32": 101,
+              "opaquePixelsAlpha192": 52,
+              "alphaMass": 67.04705882352941,
+              "bboxEmptyFraction": 0.2986
+            },
+            {
+              "frame": 1,
+              "hash": "2e375d8c5db2d4b1309c4e4637e9617f3d43ef522a96cb9d788a35f8626fb358",
+              "bounds": [
+                48,
+                42,
+                85,
+                60
+              ],
+              "visiblePixelsAlpha32": 294,
+              "opaquePixelsAlpha192": 180,
+              "alphaMass": 216.24313725490197,
+              "bboxEmptyFraction": 0.5586
+            },
+            {
+              "frame": 2,
+              "hash": "4e017d84c57d1301e1417a563dc6bf0853d835524e1ab798ddaddd37837e45e5",
+              "bounds": [
+                36,
+                41,
+                95,
+                62
+              ],
+              "visiblePixelsAlpha32": 471,
+              "opaquePixelsAlpha192": 303,
+              "alphaMass": 356.7372549019608,
+              "bboxEmptyFraction": 0.6199
+            },
+            {
+              "frame": 3,
+              "hash": "a08250c7b88679ec25d876eb1503f715f70202350b5b62cca59d54e2dcb9747f",
+              "bounds": [
+                37,
+                35,
+                93,
+                66
+              ],
+              "visiblePixelsAlpha32": 625,
+              "opaquePixelsAlpha192": 420,
+              "alphaMass": 481.83529411764704,
+              "bboxEmptyFraction": 0.64
+            },
+            {
+              "frame": 4,
+              "hash": "3bee4dcfe5f4ca1a388276e810fc896e830cdcf035decfbc80d74471a63cf8a6",
+              "bounds": [
+                40,
+                40,
+                92,
+                62
+              ],
+              "visiblePixelsAlpha32": 236,
+              "opaquePixelsAlpha192": 116,
+              "alphaMass": 158.54901960784315,
+              "bboxEmptyFraction": 0.7937
+            },
+            {
+              "frame": 5,
+              "hash": "de9664fab806a3278707d6d03148f3f581028cca1219aee7401b9f7a55cd7b7a",
+              "bounds": [
+                44,
+                42,
+                87,
+                59
+              ],
+              "visiblePixelsAlpha32": 123,
+              "opaquePixelsAlpha192": 59,
+              "alphaMass": 80.02745098039216,
+              "bboxEmptyFraction": 0.8317
+            },
+            {
+              "frame": 6,
+              "hash": "290a4cce313d4075024c34ee9cdc75364f8e58ce18792ff2241799943cc88a9d",
+              "bounds": [
+                60,
+                49,
+                80,
+                59
+              ],
+              "visiblePixelsAlpha32": 36,
+              "opaquePixelsAlpha192": 9,
+              "alphaMass": 20.070588235294117,
+              "bboxEmptyFraction": 0.82
+            },
+            {
+              "frame": 7,
+              "hash": "78329535218e0d01c29fd97af0e3d7d534d61dc05655195cef2d6bf6caf3dfc1",
+              "bounds": [
+                68,
+                53,
+                74,
+                57
+              ],
+              "visiblePixelsAlpha32": 16,
+              "opaquePixelsAlpha192": 1,
+              "alphaMass": 7.1647058823529415,
+              "bboxEmptyFraction": 0.3333
+            }
+          ]
+        }
+      ]
+    },
+    "ryuchi": {
+      "atlas": "atlas/ryuchi.png",
+      "source": "source/ryuchi.png",
+      "sourceSha256": "cbfe8f44a09de9640e2f507223ce615bc55def8f107981abaa7d1b6044437b8c",
+      "atlasSha256": "01c483df8e66cba3d27fca8d0f729babf417d0f8edc60aac26712020cdd6cff0",
+      "size": [
+        1024,
+        768
+      ],
+      "rows": [
+        {
+          "state": "attack_1",
+          "row": 0,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "b62c06ca18c39079371429c2bfdd8cc9a944820261c0719dc4697976bf5617e1",
+              "bounds": [
+                61,
+                62,
+                92,
+                86
+              ],
+              "visiblePixelsAlpha32": 121,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 44.1921568627451,
+              "bboxEmptyFraction": 0.8374
+            },
+            {
+              "frame": 1,
+              "hash": "b023840a089ae01aa059b026bf88c2a878522d95530f47ff2c14679a4596a4df",
+              "bounds": [
+                46,
+                57,
+                92,
+                93
+              ],
+              "visiblePixelsAlpha32": 321,
+              "opaquePixelsAlpha192": 48,
+              "alphaMass": 148.89803921568628,
+              "bboxEmptyFraction": 0.8062
+            },
+            {
+              "frame": 2,
+              "hash": "e06fc82e8e2a3c78a32e0dd8f2490f242d796716e72d4665cbce28f22adb524b",
+              "bounds": [
+                30,
+                48,
+                96,
+                95
+              ],
+              "visiblePixelsAlpha32": 638,
+              "opaquePixelsAlpha192": 177,
+              "alphaMass": 346.27450980392155,
+              "bboxEmptyFraction": 0.7943
+            },
+            {
+              "frame": 3,
+              "hash": "3b34b6a175c389bfe99bfaac1b89242a61b373b8fd1bdb47e88fd18b55606ac7",
+              "bounds": [
+                22,
+                41,
+                98,
+                105
+              ],
+              "visiblePixelsAlpha32": 1268,
+              "opaquePixelsAlpha192": 598,
+              "alphaMass": 829.2980392156862,
+              "bboxEmptyFraction": 0.7393
+            },
+            {
+              "frame": 4,
+              "hash": "9d273a0ce8186ab3e6f4501ed73041691c84cd343783510804a1cb0abb04c8df",
+              "bounds": [
+                28,
+                40,
+                101,
+                108
+              ],
+              "visiblePixelsAlpha32": 876,
+              "opaquePixelsAlpha192": 335,
+              "alphaMass": 538.4980392156863,
+              "bboxEmptyFraction": 0.8235
+            },
+            {
+              "frame": 5,
+              "hash": "0a110a037bf04ff161aa590fe1fd18dfdfe1a9b1be0038f825faf3f93798868d",
+              "bounds": [
+                46,
+                57,
+                103,
+                97
+              ],
+              "visiblePixelsAlpha32": 278,
+              "opaquePixelsAlpha192": 77,
+              "alphaMass": 147.63529411764705,
+              "bboxEmptyFraction": 0.8781
+            },
+            {
+              "frame": 6,
+              "hash": "0c57069fd4a8797721c01c3b291cff6094cfa23dd1aadf29509bfb942ad3f865",
+              "bounds": [
+                54,
+                63,
+                90,
+                92
+              ],
+              "visiblePixelsAlpha32": 83,
+              "opaquePixelsAlpha192": 9,
+              "alphaMass": 36.345098039215685,
+              "bboxEmptyFraction": 0.9205
+            },
+            {
+              "frame": 7,
+              "hash": "b14661a78020fe298e24b7eb935edc39bcd854362afd20d9882b5a0c491edfad",
+              "bounds": [
+                68,
+                81,
+                74,
+                85
+              ],
+              "visiblePixelsAlpha32": 8,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 2.2666666666666666,
+              "bboxEmptyFraction": 0.6667
+            }
+          ]
+        },
+        {
+          "state": "attack_2",
+          "row": 1,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "84b34bf0fc4bac78cac14bb6f38b457b2d3cbb592928be0d9b7882f3799bfd25",
+              "bounds": [
+                63,
+                57,
+                81,
+                72
+              ],
+              "visiblePixelsAlpha32": 56,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 17.70980392156863,
+              "bboxEmptyFraction": 0.7926
+            },
+            {
+              "frame": 1,
+              "hash": "d520eee9a82a1957652ffd3ce7c39d1dd445324aa48eb5c7e8697d9d3f708436",
+              "bounds": [
+                49,
+                47,
+                83,
+                84
+              ],
+              "visiblePixelsAlpha32": 182,
+              "opaquePixelsAlpha192": 11,
+              "alphaMass": 75.69411764705882,
+              "bboxEmptyFraction": 0.8553
+            },
+            {
+              "frame": 2,
+              "hash": "3c5228b62fd734dedaf580324aa10638cb051998e7da254fa7a37950721060dc",
+              "bounds": [
+                41,
+                47,
+                93,
+                93
+              ],
+              "visiblePixelsAlpha32": 457,
+              "opaquePixelsAlpha192": 105,
+              "alphaMass": 241.7764705882353,
+              "bboxEmptyFraction": 0.8089
+            },
+            {
+              "frame": 3,
+              "hash": "24cf17d26824e5a449815cfbf98b212e828e303711b5318059c961bf3b596f6d",
+              "bounds": [
+                38,
+                41,
+                96,
+                97
+              ],
+              "visiblePixelsAlpha32": 736,
+              "opaquePixelsAlpha192": 273,
+              "alphaMass": 444.77647058823527,
+              "bboxEmptyFraction": 0.7734
+            },
+            {
+              "frame": 4,
+              "hash": "50ba9c13ba5711267a9603da6f1648c12234624a7a291f73ec0ea660b11790b4",
+              "bounds": [
+                29,
+                46,
+                106,
+                96
+              ],
+              "visiblePixelsAlpha32": 597,
+              "opaquePixelsAlpha192": 129,
+              "alphaMass": 308.8666666666667,
+              "bboxEmptyFraction": 0.8449
+            },
+            {
+              "frame": 5,
+              "hash": "ce94e6457fae666930424e2c3b1827dfd2dca20b5a8dabbfa5527f121c741442",
+              "bounds": [
+                32,
+                58,
+                93,
+                88
+              ],
+              "visiblePixelsAlpha32": 265,
+              "opaquePixelsAlpha192": 47,
+              "alphaMass": 128.65882352941176,
+              "bboxEmptyFraction": 0.8552
+            },
+            {
+              "frame": 6,
+              "hash": "c1a468bd481c9873d72b96b0c158d3fc940173a737f9b4a1a3b9c8ca8fb31e0e",
+              "bounds": [
+                57,
+                64,
+                88,
+                85
+              ],
+              "visiblePixelsAlpha32": 73,
+              "opaquePixelsAlpha192": 1,
+              "alphaMass": 27.094117647058823,
+              "bboxEmptyFraction": 0.8879
+            },
+            {
+              "frame": 7,
+              "hash": "4bc57cc5a8599ae768e336729ab4beb98cf0ce47b4d5ca595d4aeea6093ae777",
+              "bounds": [
+                66,
+                67,
+                75,
+                80
+              ],
+              "visiblePixelsAlpha32": 7,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 2.1058823529411765,
+              "bboxEmptyFraction": 0.9402
+            }
+          ]
+        },
+        {
+          "state": "attack_3",
+          "row": 2,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "926be5ffec2b746ea1d7e6666d401c614b6d6654ef16225bafe8c978c041d6ac",
+              "bounds": [
+                60,
+                64,
+                81,
+                69
+              ],
+              "visiblePixelsAlpha32": 24,
+              "opaquePixelsAlpha192": 4,
+              "alphaMass": 11.568627450980392,
+              "bboxEmptyFraction": 0.7714
+            },
+            {
+              "frame": 1,
+              "hash": "304178d0f589da5e56c067569315284df8860a288f33cd7800ddc2942de5dac9",
+              "bounds": [
+                43,
+                59,
+                90,
+                72
+              ],
+              "visiblePixelsAlpha32": 209,
+              "opaquePixelsAlpha192": 48,
+              "alphaMass": 109.06666666666666,
+              "bboxEmptyFraction": 0.6579
+            },
+            {
+              "frame": 2,
+              "hash": "1fbca16d6c6f823522311f251517d3102a4027641d5b3e3b005ecf2003ea7d88",
+              "bounds": [
+                34,
+                54,
+                100,
+                75
+              ],
+              "visiblePixelsAlpha32": 468,
+              "opaquePixelsAlpha192": 163,
+              "alphaMass": 272.65098039215684,
+              "bboxEmptyFraction": 0.6623
+            },
+            {
+              "frame": 3,
+              "hash": "c7688460e702d7ae63dee5a022196aeea2d484b94c5e651e60966e3143109144",
+              "bounds": [
+                29,
+                50,
+                102,
+                79
+              ],
+              "visiblePixelsAlpha32": 760,
+              "opaquePixelsAlpha192": 314,
+              "alphaMass": 476.6666666666667,
+              "bboxEmptyFraction": 0.641
+            },
+            {
+              "frame": 4,
+              "hash": "4384989014325d942fbdb730b3c427a8568ebdfacc0f5cc987980e0e0f9322d7",
+              "bounds": [
+                30,
+                46,
+                95,
+                79
+              ],
+              "visiblePixelsAlpha32": 496,
+              "opaquePixelsAlpha192": 182,
+              "alphaMass": 299.05882352941177,
+              "bboxEmptyFraction": 0.7688
+            },
+            {
+              "frame": 5,
+              "hash": "e2cff9ffe94837075b32d05d67af4bdd1b444a028d0e241cee74505ce9f9501a",
+              "bounds": [
+                40,
+                47,
+                98,
+                79
+              ],
+              "visiblePixelsAlpha32": 277,
+              "opaquePixelsAlpha192": 98,
+              "alphaMass": 157.10588235294117,
+              "bboxEmptyFraction": 0.8508
+            },
+            {
+              "frame": 6,
+              "hash": "d8c31e36d8b9f251a145c245c61169c4667646ac931bf7f3adcbd02128497d0d",
+              "bounds": [
+                48,
+                56,
+                82,
+                72
+              ],
+              "visiblePixelsAlpha32": 57,
+              "opaquePixelsAlpha192": 3,
+              "alphaMass": 23.43921568627451,
+              "bboxEmptyFraction": 0.8952
+            },
+            {
+              "frame": 7,
+              "hash": "cb8e63434627e91ebf469cb7d5ab0d75cbb375ebf92e784728bbf096079d7b46",
+              "bounds": [
+                56,
+                61,
+                70,
+                72
+              ],
+              "visiblePixelsAlpha32": 6,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 2.1882352941176473,
+              "bboxEmptyFraction": 0.961
+            }
+          ]
+        },
+        {
+          "state": "skill",
+          "row": 3,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "d203e2d2f5cddd97de71bbbdfbd66f19344ac6232f5c98cf795889abd02c74d9",
+              "bounds": [
+                63,
+                57,
+                80,
+                62
+              ],
+              "visiblePixelsAlpha32": 30,
+              "opaquePixelsAlpha192": 3,
+              "alphaMass": 15.48235294117647,
+              "bboxEmptyFraction": 0.6471
+            },
+            {
+              "frame": 1,
+              "hash": "d5748056e56e95dd6c04fe172457e4714f132515f80f7b037e1c6c5f6fb0a21b",
+              "bounds": [
+                45,
+                54,
+                90,
+                63
+              ],
+              "visiblePixelsAlpha32": 158,
+              "opaquePixelsAlpha192": 43,
+              "alphaMass": 85.34901960784313,
+              "bboxEmptyFraction": 0.6099
+            },
+            {
+              "frame": 2,
+              "hash": "bc4115372bbc9380c735bce9988ad980c0dbc2d307696521d1ebfb6ab6508355",
+              "bounds": [
+                34,
+                53,
+                101,
+                66
+              ],
+              "visiblePixelsAlpha32": 325,
+              "opaquePixelsAlpha192": 148,
+              "alphaMass": 213.50196078431372,
+              "bboxEmptyFraction": 0.6269
+            },
+            {
+              "frame": 3,
+              "hash": "890ef46688e89fe39f52ec3ab366cc7c538263e809cb44f788dd84a9c75e6082",
+              "bounds": [
+                22,
+                48,
+                105,
+                69
+              ],
+              "visiblePixelsAlpha32": 574,
+              "opaquePixelsAlpha192": 287,
+              "alphaMass": 385.65098039215684,
+              "bboxEmptyFraction": 0.6707
+            },
+            {
+              "frame": 4,
+              "hash": "190e7c33d5d5bf357a90dcdd808055954bea27454756b07e1c862ca784610024",
+              "bounds": [
+                32,
+                48,
+                103,
+                71
+              ],
+              "visiblePixelsAlpha32": 399,
+              "opaquePixelsAlpha192": 149,
+              "alphaMass": 231.04313725490195,
+              "bboxEmptyFraction": 0.7557
+            },
+            {
+              "frame": 5,
+              "hash": "070dc0da866ffc9241d215d8792cbc5f2303715fc395b7abb7d41327328e247a",
+              "bounds": [
+                33,
+                49,
+                97,
+                62
+              ],
+              "visiblePixelsAlpha32": 181,
+              "opaquePixelsAlpha192": 32,
+              "alphaMass": 80.34901960784313,
+              "bboxEmptyFraction": 0.7825
+            },
+            {
+              "frame": 6,
+              "hash": "77712129bf3bd41375ba97bb3eea87e42c9d7468ef9916a6b5f08facc60ae7c5",
+              "bounds": [
+                43,
+                55,
+                82,
+                64
+              ],
+              "visiblePixelsAlpha32": 69,
+              "opaquePixelsAlpha192": 6,
+              "alphaMass": 29.03529411764706,
+              "bboxEmptyFraction": 0.8034
+            },
+            {
+              "frame": 7,
+              "hash": "543de50323c58d12f6f0b14a58acc47e24d05edb7840fd2e47f9780e8cb97ad2",
+              "bounds": [
+                55,
+                59,
+                71,
+                62
+              ],
+              "visiblePixelsAlpha32": 2,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 1.4862745098039216,
+              "bboxEmptyFraction": 0.9583
+            }
+          ]
+        },
+        {
+          "state": "advanced",
+          "row": 4,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "837973e43848b41e8f2a03c8758f75eac6bf670fb5054a8fe2f4eefcb230f74d",
+              "bounds": [
+                57,
+                48,
+                86,
+                64
+              ],
+              "visiblePixelsAlpha32": 105,
+              "opaquePixelsAlpha192": 18,
+              "alphaMass": 48.627450980392155,
+              "bboxEmptyFraction": 0.7737
+            },
+            {
+              "frame": 1,
+              "hash": "4629f83e9a13e03bad27daef7c0915ad035cfd67e32af2d9d90bd79fc80d4431",
+              "bounds": [
+                40,
+                48,
+                95,
+                64
+              ],
+              "visiblePixelsAlpha32": 260,
+              "opaquePixelsAlpha192": 69,
+              "alphaMass": 132.55686274509804,
+              "bboxEmptyFraction": 0.7045
+            },
+            {
+              "frame": 2,
+              "hash": "d3bf42a2328288c3aad6b455316ef125f49a7303345f3eee1de2cfeda0f9214f",
+              "bounds": [
+                34,
+                42,
+                93,
+                69
+              ],
+              "visiblePixelsAlpha32": 513,
+              "opaquePixelsAlpha192": 239,
+              "alphaMass": 334.1607843137255,
+              "bboxEmptyFraction": 0.678
+            },
+            {
+              "frame": 3,
+              "hash": "006888c7c3747557637f1a471bd96b6b35eea9b272e426d2a298847bd769340d",
+              "bounds": [
+                30,
+                43,
+                100,
+                73
+              ],
+              "visiblePixelsAlpha32": 723,
+              "opaquePixelsAlpha192": 295,
+              "alphaMass": 444.65098039215684,
+              "bboxEmptyFraction": 0.6557
+            },
+            {
+              "frame": 4,
+              "hash": "86659d632fb5afd5e9aff3a1ddd106b945e8fa7b5b9c025d469c8d90172e56de",
+              "bounds": [
+                28,
+                36,
+                91,
+                72
+              ],
+              "visiblePixelsAlpha32": 432,
+              "opaquePixelsAlpha192": 148,
+              "alphaMass": 255.97254901960784,
+              "bboxEmptyFraction": 0.8095
+            },
+            {
+              "frame": 5,
+              "hash": "276e8ddd37f7b466d5f0e5c78d1f452e532dbf261d9d8b4976da49347fa97c8d",
+              "bounds": [
+                35,
+                43,
+                97,
+                70
+              ],
+              "visiblePixelsAlpha32": 212,
+              "opaquePixelsAlpha192": 54,
+              "alphaMass": 106.85098039215686,
+              "bboxEmptyFraction": 0.8734
+            },
+            {
+              "frame": 6,
+              "hash": "51b2412f621298703a797842f2a433b9b84f769d077e362eb266cd27740464b0",
+              "bounds": [
+                53,
+                46,
+                83,
+                66
+              ],
+              "visiblePixelsAlpha32": 75,
+              "opaquePixelsAlpha192": 7,
+              "alphaMass": 31.435294117647057,
+              "bboxEmptyFraction": 0.875
+            },
+            {
+              "frame": 7,
+              "hash": "c54c265ffbdf29128ae598f36a848e3f97656ff3b75093398b5b875f4c306f1e",
+              "bounds": [
+                56,
+                53,
+                74,
+                62
+              ],
+              "visiblePixelsAlpha32": 2,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 1.392156862745098,
+              "bboxEmptyFraction": 0.9877
+            }
+          ]
+        },
+        {
+          "state": "signature",
+          "row": 5,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "77a931630c62417e6c41f99b8b74778649476f914df862311b532403dcbe7eae",
+              "bounds": [
+                59,
+                49,
+                80,
+                56
+              ],
+              "visiblePixelsAlpha32": 56,
+              "opaquePixelsAlpha192": 3,
+              "alphaMass": 23.48627450980392,
+              "bboxEmptyFraction": 0.619
+            },
+            {
+              "frame": 1,
+              "hash": "59118eeaa8523f3e93f2f4b7a13da77e9a9da394c58e9ef4d60875383fd9df6c",
+              "bounds": [
+                40,
+                45,
+                95,
+                57
+              ],
+              "visiblePixelsAlpha32": 175,
+              "opaquePixelsAlpha192": 29,
+              "alphaMass": 85.12156862745098,
+              "bboxEmptyFraction": 0.7348
+            },
+            {
+              "frame": 2,
+              "hash": "91457e9b1afca70c0ca16bfa6956f2b9783f20756c7c466b91baa3153cb22362",
+              "bounds": [
+                33,
+                38,
+                101,
+                64
+              ],
+              "visiblePixelsAlpha32": 281,
+              "opaquePixelsAlpha192": 57,
+              "alphaMass": 145.61176470588236,
+              "bboxEmptyFraction": 0.8411
+            },
+            {
+              "frame": 3,
+              "hash": "6619f1afeca7c424c5374041c4d65c5b979567f582a3dd6ca7512c4e6697b780",
+              "bounds": [
+                22,
+                36,
+                105,
+                69
+              ],
+              "visiblePixelsAlpha32": 802,
+              "opaquePixelsAlpha192": 271,
+              "alphaMass": 466.90980392156865,
+              "bboxEmptyFraction": 0.7072
+            },
+            {
+              "frame": 4,
+              "hash": "8adddd304165ab35eb5ecd5322236b8d45f40bbc56bc679ab4d7b08cacfcfa69",
+              "bounds": [
+                27,
+                31,
+                107,
+                75
+              ],
+              "visiblePixelsAlpha32": 613,
+              "opaquePixelsAlpha192": 180,
+              "alphaMass": 359.65098039215684,
+              "bboxEmptyFraction": 0.8259
+            },
+            {
+              "frame": 5,
+              "hash": "262802ca2d7f7dbbc5016eb8e14788c0d1aef0afafe0cd15891fe3e664c8fe71",
+              "bounds": [
+                33,
+                37,
+                106,
+                59
+              ],
+              "visiblePixelsAlpha32": 256,
+              "opaquePixelsAlpha192": 57,
+              "alphaMass": 119.87450980392157,
+              "bboxEmptyFraction": 0.8406
+            },
+            {
+              "frame": 6,
+              "hash": "e99e78466b42bc7536a4b40f87e806fcb9b890e0319db0c096645cd1cdfda963",
+              "bounds": [
+                45,
+                47,
+                93,
+                58
+              ],
+              "visiblePixelsAlpha32": 59,
+              "opaquePixelsAlpha192": 3,
+              "alphaMass": 23.49019607843137,
+              "bboxEmptyFraction": 0.8883
+            },
+            {
+              "frame": 7,
+              "hash": "bf26d709ad26fd9ed5a95f94f299ebe3348f450e2e45ba534c7c1ebf0dd63dd6",
+              "bounds": [
+                54,
+                51,
+                74,
+                58
+              ],
+              "visiblePixelsAlpha32": 16,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 5.415686274509804,
+              "bboxEmptyFraction": 0.8857
+            }
+          ]
+        }
+      ]
+    },
+    "alt": {
+      "atlas": "atlas/alt.png",
+      "source": "source/alt.png",
+      "sourceSha256": "5b9b83d48b3fb4cbb4d00909654bb57d1c9c5ae4cff8f574ad76927c3055083c",
+      "atlasSha256": "36b3b568c168aa93bbbc4285ce5c6e49cfff1c3a622ec84c3ec9be4374e6775d",
+      "size": [
+        1024,
+        768
+      ],
+      "rows": [
+        {
+          "state": "attack_1",
+          "row": 0,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "c4cefa8498cff995cadcaf6864570ef8a3ec956788d579d8505750f513929107",
+              "bounds": [
+                54,
+                64,
+                76,
+                84
+              ],
+              "visiblePixelsAlpha32": 153,
+              "opaquePixelsAlpha192": 41,
+              "alphaMass": 85.17647058823529,
+              "bboxEmptyFraction": 0.6523
+            },
+            {
+              "frame": 1,
+              "hash": "661d093b63ebdb484e91302ba7ab3c90c90afdfe6c3cbfa22633ecf624583c2f",
+              "bounds": [
+                53,
+                63,
+                87,
+                85
+              ],
+              "visiblePixelsAlpha32": 221,
+              "opaquePixelsAlpha192": 90,
+              "alphaMass": 142.45882352941177,
+              "bboxEmptyFraction": 0.7045
+            },
+            {
+              "frame": 2,
+              "hash": "7921e113169a9130ee18307af539609c653e1a68f5a2b7b7e1ca9d015082e4e1",
+              "bounds": [
+                45,
+                59,
+                95,
+                87
+              ],
+              "visiblePixelsAlpha32": 480,
+              "opaquePixelsAlpha192": 264,
+              "alphaMass": 342.0235294117647,
+              "bboxEmptyFraction": 0.6571
+            },
+            {
+              "frame": 3,
+              "hash": "ab0d0d9b022f56a6d70c7677d03d0b43ed3f559f4a408916d4886506c1a94065",
+              "bounds": [
+                40,
+                59,
+                100,
+                92
+              ],
+              "visiblePixelsAlpha32": 671,
+              "opaquePixelsAlpha192": 381,
+              "alphaMass": 489.85490196078433,
+              "bboxEmptyFraction": 0.6611
+            },
+            {
+              "frame": 4,
+              "hash": "d282d44fd8cc58094b635c0d3c530626f7cc80f05114a0b09e9b399c3fce2759",
+              "bounds": [
+                43,
+                60,
+                97,
+                88
+              ],
+              "visiblePixelsAlpha32": 285,
+              "opaquePixelsAlpha192": 83,
+              "alphaMass": 166.20392156862746,
+              "bboxEmptyFraction": 0.8115
+            },
+            {
+              "frame": 5,
+              "hash": "596e26a8a2883ec0b1a9d77af186e886a49df0fa0597dd707f06f834a3818ba8",
+              "bounds": [
+                40,
+                57,
+                93,
+                84
+              ],
+              "visiblePixelsAlpha32": 175,
+              "opaquePixelsAlpha192": 39,
+              "alphaMass": 92.13725490196079,
+              "bboxEmptyFraction": 0.8777
+            },
+            {
+              "frame": 6,
+              "hash": "c1898dedcd2d09ff0c9917b65a3d5aa9ddc09cba0334c10fbbc9541e259911d9",
+              "bounds": [
+                54,
+                67,
+                85,
+                81
+              ],
+              "visiblePixelsAlpha32": 78,
+              "opaquePixelsAlpha192": 6,
+              "alphaMass": 34.43529411764706,
+              "bboxEmptyFraction": 0.8203
+            },
+            {
+              "frame": 7,
+              "hash": "7b55a6ececf884347ab32d52ad89478f163d2125aac26934474a215105daaf2e",
+              "bounds": [
+                71,
+                71,
+                80,
+                77
+              ],
+              "visiblePixelsAlpha32": 18,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 8.392156862745098,
+              "bboxEmptyFraction": 0.6667
+            }
+          ]
+        },
+        {
+          "state": "attack_2",
+          "row": 1,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "7967c6758abee3b8d5ba2e30de48cf105f558676c4e1bd2dd71dab1620641175",
+              "bounds": [
+                52,
+                64,
+                76,
+                83
+              ],
+              "visiblePixelsAlpha32": 72,
+              "opaquePixelsAlpha192": 12,
+              "alphaMass": 39.10588235294118,
+              "bboxEmptyFraction": 0.8421
+            },
+            {
+              "frame": 1,
+              "hash": "a7c13a23108ba6580ba7cfde7937982039e697db6994224d71490d7f559511db",
+              "bounds": [
+                49,
+                62,
+                87,
+                84
+              ],
+              "visiblePixelsAlpha32": 238,
+              "opaquePixelsAlpha192": 107,
+              "alphaMass": 150.36470588235295,
+              "bboxEmptyFraction": 0.7153
+            },
+            {
+              "frame": 2,
+              "hash": "b18d62778240c36195ffef3b144a10b38602760ca71d5d7ffb3cccab838fe06a",
+              "bounds": [
+                43,
+                58,
+                93,
+                88
+              ],
+              "visiblePixelsAlpha32": 403,
+              "opaquePixelsAlpha192": 220,
+              "alphaMass": 278.15686274509807,
+              "bboxEmptyFraction": 0.7313
+            },
+            {
+              "frame": 3,
+              "hash": "53f307b262c0a25cd7d622b4cedd37325b7e95b803c70e78bf000810d4275085",
+              "bounds": [
+                38,
+                54,
+                100,
+                89
+              ],
+              "visiblePixelsAlpha32": 825,
+              "opaquePixelsAlpha192": 528,
+              "alphaMass": 623.521568627451,
+              "bboxEmptyFraction": 0.6198
+            },
+            {
+              "frame": 4,
+              "hash": "b3edab3b1bd4585e7c349439e806bc77c669ac69deb0d9933a3716b00eacda94",
+              "bounds": [
+                38,
+                54,
+                100,
+                89
+              ],
+              "visiblePixelsAlpha32": 494,
+              "opaquePixelsAlpha192": 231,
+              "alphaMass": 323.52941176470586,
+              "bboxEmptyFraction": 0.7724
+            },
+            {
+              "frame": 5,
+              "hash": "59c395ad5f7c27a0c405f43a86dbb7cdc16dced5b396403246ec96d413668148",
+              "bounds": [
+                39,
+                56,
+                94,
+                89
+              ],
+              "visiblePixelsAlpha32": 254,
+              "opaquePixelsAlpha192": 96,
+              "alphaMass": 150.9921568627451,
+              "bboxEmptyFraction": 0.8601
+            },
+            {
+              "frame": 6,
+              "hash": "372062508c9794b1e2c97cba00094ceb6ea395463ef1db978f09fc0bd9fc4f7d",
+              "bounds": [
+                51,
+                64,
+                85,
+                82
+              ],
+              "visiblePixelsAlpha32": 84,
+              "opaquePixelsAlpha192": 6,
+              "alphaMass": 36.325490196078434,
+              "bboxEmptyFraction": 0.8627
+            },
+            {
+              "frame": 7,
+              "hash": "cb974f61cff1422e8957fe0b32e71f5a9ff34445c864254de2c8f6fe46a97beb",
+              "bounds": [
+                68,
+                76,
+                79,
+                81
+              ],
+              "visiblePixelsAlpha32": 21,
+              "opaquePixelsAlpha192": 4,
+              "alphaMass": 10.60392156862745,
+              "bboxEmptyFraction": 0.6182
+            }
+          ]
+        },
+        {
+          "state": "attack_3",
+          "row": 2,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "e28ca3812121795531cb65d8ee6e68727f14376698ef52d30ba16d946c5b6c63",
+              "bounds": [
+                54,
+                67,
+                77,
+                83
+              ],
+              "visiblePixelsAlpha32": 132,
+              "opaquePixelsAlpha192": 34,
+              "alphaMass": 73.49411764705883,
+              "bboxEmptyFraction": 0.6413
+            },
+            {
+              "frame": 1,
+              "hash": "5260035415f526a7dbf1724cc45fcf5e35ba0d88c5d21715382d9f1de87f0fc3",
+              "bounds": [
+                53,
+                64,
+                87,
+                89
+              ],
+              "visiblePixelsAlpha32": 254,
+              "opaquePixelsAlpha192": 91,
+              "alphaMass": 152.26666666666668,
+              "bboxEmptyFraction": 0.7012
+            },
+            {
+              "frame": 2,
+              "hash": "2a69989f49576c5379a2414503804f71edb5565bb94634ffbd8aff3b96d40515",
+              "bounds": [
+                45,
+                59,
+                92,
+                91
+              ],
+              "visiblePixelsAlpha32": 503,
+              "opaquePixelsAlpha192": 178,
+              "alphaMass": 294.0352941176471,
+              "bboxEmptyFraction": 0.6656
+            },
+            {
+              "frame": 3,
+              "hash": "b03e1438c35ed07160413dcb366b72f49ce2650b39c55a82c5973cf051b37de2",
+              "bounds": [
+                43,
+                56,
+                98,
+                92
+              ],
+              "visiblePixelsAlpha32": 654,
+              "opaquePixelsAlpha192": 302,
+              "alphaMass": 434.1686274509804,
+              "bboxEmptyFraction": 0.6697
+            },
+            {
+              "frame": 4,
+              "hash": "29397794cb8e12914dfc3443857a72f6affd28c97bb18558b822ea647a214bf0",
+              "bounds": [
+                43,
+                57,
+                93,
+                95
+              ],
+              "visiblePixelsAlpha32": 361,
+              "opaquePixelsAlpha192": 138,
+              "alphaMass": 225.01568627450982,
+              "bboxEmptyFraction": 0.81
+            },
+            {
+              "frame": 5,
+              "hash": "4bdf91e57b460d58f8e3a92cc9f804c9021302153187f04a570876715bffbe33",
+              "bounds": [
+                45,
+                56,
+                85,
+                92
+              ],
+              "visiblePixelsAlpha32": 230,
+              "opaquePixelsAlpha192": 98,
+              "alphaMass": 140.9764705882353,
+              "bboxEmptyFraction": 0.8403
+            },
+            {
+              "frame": 6,
+              "hash": "6db47a8ccd455c92deac5fa5fb9b4e3ec064f338320a57b8351f99cba396b00b",
+              "bounds": [
+                53,
+                64,
+                83,
+                85
+              ],
+              "visiblePixelsAlpha32": 63,
+              "opaquePixelsAlpha192": 7,
+              "alphaMass": 29.192156862745097,
+              "bboxEmptyFraction": 0.9
+            },
+            {
+              "frame": 7,
+              "hash": "166b3422080041c967c91eef2f5a441da4a5ddbb88d6b42002f586ddd8ae0442",
+              "bounds": [
+                67,
+                70,
+                72,
+                74
+              ],
+              "visiblePixelsAlpha32": 3,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 1.2745098039215685,
+              "bboxEmptyFraction": 0.85
+            }
+          ]
+        },
+        {
+          "state": "skill",
+          "row": 3,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "501c5cbc198e6fd565b7c1a037bf0f972c5aaa922209aa7aa638c45f07a87d4a",
+              "bounds": [
+                56,
+                61,
+                74,
+                66
+              ],
+              "visiblePixelsAlpha32": 26,
+              "opaquePixelsAlpha192": 10,
+              "alphaMass": 16.00392156862745,
+              "bboxEmptyFraction": 0.7111
+            },
+            {
+              "frame": 1,
+              "hash": "8ac0e48a87949b8c1c56fcf05968601c12ec911497cd3b6aa29df19d15430a26",
+              "bounds": [
+                49,
+                56,
+                87,
+                68
+              ],
+              "visiblePixelsAlpha32": 180,
+              "opaquePixelsAlpha192": 72,
+              "alphaMass": 109.61176470588235,
+              "bboxEmptyFraction": 0.6053
+            },
+            {
+              "frame": 2,
+              "hash": "38f3b9f4c8b97c24038f5fb251a1ffd0cd15ff395e1699fb7c9d475260f10863",
+              "bounds": [
+                44,
+                53,
+                95,
+                69
+              ],
+              "visiblePixelsAlpha32": 274,
+              "opaquePixelsAlpha192": 161,
+              "alphaMass": 195.51372549019607,
+              "bboxEmptyFraction": 0.6642
+            },
+            {
+              "frame": 3,
+              "hash": "cc82dfc03c60d7e44332703b7dbbdf4baa0775dd88a83aa47536a9e268969bb9",
+              "bounds": [
+                37,
+                51,
+                98,
+                71
+              ],
+              "visiblePixelsAlpha32": 426,
+              "opaquePixelsAlpha192": 265,
+              "alphaMass": 317.9921568627451,
+              "bboxEmptyFraction": 0.6508
+            },
+            {
+              "frame": 4,
+              "hash": "b7d1b424b3ddb4ebe1cf44b5b48e99f9c86d8b81c22fee6992d10c239b84bb65",
+              "bounds": [
+                43,
+                53,
+                96,
+                72
+              ],
+              "visiblePixelsAlpha32": 202,
+              "opaquePixelsAlpha192": 73,
+              "alphaMass": 122.66274509803921,
+              "bboxEmptyFraction": 0.7994
+            },
+            {
+              "frame": 5,
+              "hash": "e19a319c23be94bd3c741b5ca9f2152ada950548702fcd75057d472ea3ff6cf2",
+              "bounds": [
+                45,
+                53,
+                84,
+                73
+              ],
+              "visiblePixelsAlpha32": 130,
+              "opaquePixelsAlpha192": 58,
+              "alphaMass": 83.47843137254903,
+              "bboxEmptyFraction": 0.8333
+            },
+            {
+              "frame": 6,
+              "hash": "c763edb856c444db17981250b01d6ddf026de7881835e762c5d6b7c53d5e9842",
+              "bounds": [
+                50,
+                56,
+                77,
+                64
+              ],
+              "visiblePixelsAlpha32": 21,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 8.290196078431373,
+              "bboxEmptyFraction": 0.9028
+            },
+            {
+              "frame": 7,
+              "hash": "80b70d6e7bdc2b129069a03d08a7360425bad244ec49d384792eabcd88d1ec1e",
+              "bounds": [
+                71,
+                62,
+                79,
+                66
+              ],
+              "visiblePixelsAlpha32": 8,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 2.8901960784313725,
+              "bboxEmptyFraction": 0.75
+            }
+          ]
+        },
+        {
+          "state": "advanced",
+          "row": 4,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "e0cce749688044cec7a88f269f449ef9fe560b3da03f363afc0a8edd3e339003",
+              "bounds": [
+                52,
+                36,
+                83,
+                67
+              ],
+              "visiblePixelsAlpha32": 75,
+              "opaquePixelsAlpha192": 10,
+              "alphaMass": 34.996078431372545,
+              "bboxEmptyFraction": 0.922
+            },
+            {
+              "frame": 1,
+              "hash": "018c3cc57f9d3023caf550efcd73eed226db0ca72d0f67636634d7d2787884d3",
+              "bounds": [
+                47,
+                36,
+                87,
+                67
+              ],
+              "visiblePixelsAlpha32": 186,
+              "opaquePixelsAlpha192": 78,
+              "alphaMass": 117.10980392156863,
+              "bboxEmptyFraction": 0.85
+            },
+            {
+              "frame": 2,
+              "hash": "d9f447dbd84f6dc89b98d52689c53d5870d33ed2f934698bcd07bc38191a6d12",
+              "bounds": [
+                43,
+                36,
+                88,
+                71
+              ],
+              "visiblePixelsAlpha32": 272,
+              "opaquePixelsAlpha192": 113,
+              "alphaMass": 167.3921568627451,
+              "bboxEmptyFraction": 0.8273
+            },
+            {
+              "frame": 3,
+              "hash": "55e7883ea1ffde93c77319d16a280246236c606c4378575fc5ce72a8fbbb6149",
+              "bounds": [
+                44,
+                32,
+                98,
+                74
+              ],
+              "visiblePixelsAlpha32": 441,
+              "opaquePixelsAlpha192": 228,
+              "alphaMass": 293.05882352941177,
+              "bboxEmptyFraction": 0.8056
+            },
+            {
+              "frame": 4,
+              "hash": "87634a51a4bd392fd652f98dd6b9651f799067e4fb17bba8dd9a9f11511ce67b",
+              "bounds": [
+                44,
+                33,
+                99,
+                75
+              ],
+              "visiblePixelsAlpha32": 343,
+              "opaquePixelsAlpha192": 162,
+              "alphaMass": 225.22745098039215,
+              "bboxEmptyFraction": 0.8515
+            },
+            {
+              "frame": 5,
+              "hash": "3d93fba20ab186842797cb3bb9e2ff385ce3bf304896fdf9b4724b708e9a7031",
+              "bounds": [
+                55,
+                33,
+                94,
+                70
+              ],
+              "visiblePixelsAlpha32": 181,
+              "opaquePixelsAlpha192": 72,
+              "alphaMass": 110.1921568627451,
+              "bboxEmptyFraction": 0.8746
+            },
+            {
+              "frame": 6,
+              "hash": "314d3a2c44ee9677a40ecc421bb323f672a658a99b1b746f3027cd85a7a57ab7",
+              "bounds": [
+                56,
+                37,
+                83,
+                67
+              ],
+              "visiblePixelsAlpha32": 41,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 17.99607843137255,
+              "bboxEmptyFraction": 0.9494
+            },
+            {
+              "frame": 7,
+              "hash": "90c4d3273eeeb3ecdb28e3ac774919d51cbfca8cbd60055acae02f0867f6d717",
+              "bounds": [
+                76,
+                53,
+                80,
+                57
+              ],
+              "visiblePixelsAlpha32": 8,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 2.6392156862745098,
+              "bboxEmptyFraction": 0.5
+            }
+          ]
+        },
+        {
+          "state": "signature",
+          "row": 5,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "d759350b9a33bf01bd7f863d4388d071e4783b4b8a6f6ac16ea8597015de4c26",
+              "bounds": [
+                60,
+                41,
+                78,
+                64
+              ],
+              "visiblePixelsAlpha32": 79,
+              "opaquePixelsAlpha192": 14,
+              "alphaMass": 40.32156862745098,
+              "bboxEmptyFraction": 0.8092
+            },
+            {
+              "frame": 1,
+              "hash": "0f2a6e77a0f9784d8fcd06bf074c2869af21c25b1c46ba54b3c29de5b593bbfd",
+              "bounds": [
+                60,
+                34,
+                80,
+                68
+              ],
+              "visiblePixelsAlpha32": 142,
+              "opaquePixelsAlpha192": 51,
+              "alphaMass": 87.47058823529412,
+              "bboxEmptyFraction": 0.7912
+            },
+            {
+              "frame": 2,
+              "hash": "d42bf5354ddc74ed4581e276776d3c175c5f359945572fcea5427b0d8981d332",
+              "bounds": [
+                54,
+                32,
+                89,
+                75
+              ],
+              "visiblePixelsAlpha32": 441,
+              "opaquePixelsAlpha192": 188,
+              "alphaMass": 282.5098039215686,
+              "bboxEmptyFraction": 0.707
+            },
+            {
+              "frame": 3,
+              "hash": "2e3ce58cd44b4363679f9df21f943879358524117774c0a5b007533a81c5ea77",
+              "bounds": [
+                45,
+                31,
+                89,
+                75
+              ],
+              "visiblePixelsAlpha32": 483,
+              "opaquePixelsAlpha192": 226,
+              "alphaMass": 314.75686274509803,
+              "bboxEmptyFraction": 0.7505
+            },
+            {
+              "frame": 4,
+              "hash": "a54fc39d7393f96d5fdc913e802335ef497115b8f504966c1fb069c3c353081b",
+              "bounds": [
+                45,
+                34,
+                96,
+                77
+              ],
+              "visiblePixelsAlpha32": 439,
+              "opaquePixelsAlpha192": 172,
+              "alphaMass": 265.956862745098,
+              "bboxEmptyFraction": 0.7998
+            },
+            {
+              "frame": 5,
+              "hash": "97477fb731b9da9c6e7bca7ea4d0cff1582a1ea4c3fd0d724a7510b0d41c4622",
+              "bounds": [
+                46,
+                39,
+                90,
+                75
+              ],
+              "visiblePixelsAlpha32": 170,
+              "opaquePixelsAlpha192": 63,
+              "alphaMass": 102.88235294117646,
+              "bboxEmptyFraction": 0.8927
+            },
+            {
+              "frame": 6,
+              "hash": "6482d82504c29a80765bb77e1c88a9cc65e225e190a7f31b1b8d1eee0bb7a3f9",
+              "bounds": [
+                52,
+                44,
+                82,
+                62
+              ],
+              "visiblePixelsAlpha32": 33,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 11.650980392156862,
+              "bboxEmptyFraction": 0.9389
+            },
+            {
+              "frame": 7,
+              "hash": "515c00de84952d9c184a141d0b30728df91ea8962643fde228a3a5092d3cab79",
+              "bounds": [
+                59,
+                56,
+                79,
+                63
+              ],
+              "visiblePixelsAlpha32": 8,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 3.788235294117647,
+              "bboxEmptyFraction": 0.9429
+            }
+          ]
+        }
+      ]
+    },
+    "katana": {
+      "atlas": "atlas/katana.png",
+      "source": "source/katana.png",
+      "sourceSha256": "5ccbd11e4d621a1debcbb2e48882c589a96707e197fbfaf8e82390266e4b5444",
+      "atlasSha256": "e67e1698dd106b24a9e13fb75595d1de7bd9750f5f381d7128255a11f42674dc",
+      "size": [
+        1024,
+        768
+      ],
+      "rows": [
+        {
+          "state": "attack_1",
+          "row": 0,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "819ee24d69135323d8e7005b541230a6dc6869de4957c379d0cfd11fa895775c",
+              "bounds": [
+                66,
+                72,
+                93,
+                94
+              ],
+              "visiblePixelsAlpha32": 90,
+              "opaquePixelsAlpha192": 27,
+              "alphaMass": 50.52156862745098,
+              "bboxEmptyFraction": 0.8485
+            },
+            {
+              "frame": 1,
+              "hash": "3a0c0f8112746ba1d8df76c54d62cf20c4752a840da90747f62b2b816d40664a",
+              "bounds": [
+                55,
+                68,
+                95,
+                95
+              ],
+              "visiblePixelsAlpha32": 262,
+              "opaquePixelsAlpha192": 142,
+              "alphaMass": 184.5921568627451,
+              "bboxEmptyFraction": 0.7574
+            },
+            {
+              "frame": 2,
+              "hash": "9a3f7c6e2307dd1f54568a6b99a552a37fc3f4fd1920111598e8fccfbefdd574",
+              "bounds": [
+                36,
+                59,
+                100,
+                100
+              ],
+              "visiblePixelsAlpha32": 494,
+              "opaquePixelsAlpha192": 302,
+              "alphaMass": 365.5098039215686,
+              "bboxEmptyFraction": 0.8117
+            },
+            {
+              "frame": 3,
+              "hash": "1dba01884ba7f322436c96fc9253dfdcc7f3563019bff0da8ca06d304803ad5c",
+              "bounds": [
+                31,
+                50,
+                106,
+                97
+              ],
+              "visiblePixelsAlpha32": 902,
+              "opaquePixelsAlpha192": 587,
+              "alphaMass": 687.2509803921569,
+              "bboxEmptyFraction": 0.7441
+            },
+            {
+              "frame": 4,
+              "hash": "7ab5595904d6a523fb9982051fd78bc1c8982bdd03c826350f9837cf343fb7bd",
+              "bounds": [
+                30,
+                52,
+                100,
+                97
+              ],
+              "visiblePixelsAlpha32": 1034,
+              "opaquePixelsAlpha192": 699,
+              "alphaMass": 804.3921568627451,
+              "bboxEmptyFraction": 0.6717
+            },
+            {
+              "frame": 5,
+              "hash": "bf202fc58734f8707d15417e502f67e897de4136f55cb9321d9396d2f0157105",
+              "bounds": [
+                36,
+                67,
+                98,
+                95
+              ],
+              "visiblePixelsAlpha32": 374,
+              "opaquePixelsAlpha192": 240,
+              "alphaMass": 279.10196078431375,
+              "bboxEmptyFraction": 0.7846
+            },
+            {
+              "frame": 6,
+              "hash": "a1553d73637fd7f9205dd579d6fe1f841ceb2184ef284302ba3e44a9b3963151",
+              "bounds": [
+                52,
+                76,
+                87,
+                92
+              ],
+              "visiblePixelsAlpha32": 120,
+              "opaquePixelsAlpha192": 50,
+              "alphaMass": 75.96078431372548,
+              "bboxEmptyFraction": 0.7857
+            },
+            {
+              "frame": 7,
+              "hash": "4e74170e7b93512871fad60d3e6a55a945bc5ee94e4d4cad46c46942b1c3c58b",
+              "bounds": [
+                58,
+                81,
+                63,
+                87
+              ],
+              "visiblePixelsAlpha32": 14,
+              "opaquePixelsAlpha192": 5,
+              "alphaMass": 8.678431372549019,
+              "bboxEmptyFraction": 0.5333
+            }
+          ]
+        },
+        {
+          "state": "attack_2",
+          "row": 1,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "3e5f00ff7f5af2265107ea3dee2c48212fe5b70aee49249f1b579318e509f58c",
+              "bounds": [
+                64,
+                69,
+                83,
+                83
+              ],
+              "visiblePixelsAlpha32": 56,
+              "opaquePixelsAlpha192": 14,
+              "alphaMass": 31.04705882352941,
+              "bboxEmptyFraction": 0.7895
+            },
+            {
+              "frame": 1,
+              "hash": "0cbcc530df068b5552f38e473b1e3df3fff18acf53d38ee643cdf16ac638d5fa",
+              "bounds": [
+                51,
+                61,
+                90,
+                87
+              ],
+              "visiblePixelsAlpha32": 251,
+              "opaquePixelsAlpha192": 133,
+              "alphaMass": 174.84313725490196,
+              "bboxEmptyFraction": 0.7525
+            },
+            {
+              "frame": 2,
+              "hash": "3093fb069331ea1e6fdaaaf6f86885b05f43e9fb5dcc66e2e5088e3636bc6e5d",
+              "bounds": [
+                36,
+                53,
+                94,
+                95
+              ],
+              "visiblePixelsAlpha32": 519,
+              "opaquePixelsAlpha192": 335,
+              "alphaMass": 396.4470588235294,
+              "bboxEmptyFraction": 0.7869
+            },
+            {
+              "frame": 3,
+              "hash": "fc43811e4e70405bcdebc110dec09d4909821880d233cabd0f3b089b89d36f76",
+              "bounds": [
+                28,
+                48,
+                103,
+                101
+              ],
+              "visiblePixelsAlpha32": 950,
+              "opaquePixelsAlpha192": 652,
+              "alphaMass": 748.1098039215686,
+              "bboxEmptyFraction": 0.761
+            },
+            {
+              "frame": 4,
+              "hash": "538862d28d231003cfd4a97ff3080805c354b91d39038f55e21808d64c5228c0",
+              "bounds": [
+                36,
+                52,
+                101,
+                104
+              ],
+              "visiblePixelsAlpha32": 887,
+              "opaquePixelsAlpha192": 557,
+              "alphaMass": 667.278431372549,
+              "bboxEmptyFraction": 0.7376
+            },
+            {
+              "frame": 5,
+              "hash": "3efb8df882a3fcdcb0f3304026764a01f291dca9c6c16821126eebe0acaef040",
+              "bounds": [
+                36,
+                62,
+                93,
+                94
+              ],
+              "visiblePixelsAlpha32": 326,
+              "opaquePixelsAlpha192": 177,
+              "alphaMass": 227.28627450980392,
+              "bboxEmptyFraction": 0.8213
+            },
+            {
+              "frame": 6,
+              "hash": "e06b9328883a081f5360652986e79061f0abd8e5fa0ff363f56782a6540bd55d",
+              "bounds": [
+                62,
+                76,
+                83,
+                91
+              ],
+              "visiblePixelsAlpha32": 67,
+              "opaquePixelsAlpha192": 30,
+              "alphaMass": 42.15686274509804,
+              "bboxEmptyFraction": 0.7873
+            },
+            {
+              "frame": 7,
+              "hash": "51efe89722408765315de9828a6cee4508ebde9952873063ab26648def9adc9f",
+              "bounds": [
+                58,
+                80,
+                62,
+                84
+              ],
+              "visiblePixelsAlpha32": 6,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 2.3098039215686272,
+              "bboxEmptyFraction": 0.625
+            }
+          ]
+        },
+        {
+          "state": "attack_3",
+          "row": 2,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "c297f45a023f14e1c03917c62bb5250a00f1eca8563cbd40655ea6ec64a2efa4",
+              "bounds": [
+                69,
+                63,
+                75,
+                67
+              ],
+              "visiblePixelsAlpha32": 15,
+              "opaquePixelsAlpha192": 6,
+              "alphaMass": 9.137254901960784,
+              "bboxEmptyFraction": 0.375
+            },
+            {
+              "frame": 1,
+              "hash": "904af8315c4390a2ea8d1ef101cf5af9b0c73f3050c6cc838a5847a5911c7578",
+              "bounds": [
+                54,
+                60,
+                88,
+                70
+              ],
+              "visiblePixelsAlpha32": 134,
+              "opaquePixelsAlpha192": 75,
+              "alphaMass": 93.29803921568627,
+              "bboxEmptyFraction": 0.6059
+            },
+            {
+              "frame": 2,
+              "hash": "483ea0c42ea0772cef19f228885c8fe8674ef514762d3ff605c64d227a125214",
+              "bounds": [
+                40,
+                56,
+                95,
+                72
+              ],
+              "visiblePixelsAlpha32": 301,
+              "opaquePixelsAlpha192": 152,
+              "alphaMass": 204.12549019607843,
+              "bboxEmptyFraction": 0.658
+            },
+            {
+              "frame": 3,
+              "hash": "3eee9a4e9953882ed2c3dd8b5468cfcdac29645c8f9cd438fd5666738f15eff3",
+              "bounds": [
+                30,
+                54,
+                96,
+                73
+              ],
+              "visiblePixelsAlpha32": 460,
+              "opaquePixelsAlpha192": 290,
+              "alphaMass": 341.41960784313727,
+              "bboxEmptyFraction": 0.6332
+            },
+            {
+              "frame": 4,
+              "hash": "0faf21e403858b4a3b8a0c05b05e7dceb5591528b43ed949ad95b0ef97d660ff",
+              "bounds": [
+                35,
+                54,
+                97,
+                74
+              ],
+              "visiblePixelsAlpha32": 490,
+              "opaquePixelsAlpha192": 298,
+              "alphaMass": 362.7725490196078,
+              "bboxEmptyFraction": 0.6048
+            },
+            {
+              "frame": 5,
+              "hash": "40a2a57b7bdc73f2bf3419e5e7dbb5432f0f761f7043772a2639c815b1293b9e",
+              "bounds": [
+                41,
+                52,
+                87,
+                72
+              ],
+              "visiblePixelsAlpha32": 162,
+              "opaquePixelsAlpha192": 91,
+              "alphaMass": 114.25098039215686,
+              "bboxEmptyFraction": 0.8239
+            },
+            {
+              "frame": 6,
+              "hash": "16b0901a07665dda3df023bc91b469a467d48f221368a67844e1c386b0447b35",
+              "bounds": [
+                48,
+                62,
+                82,
+                69
+              ],
+              "visiblePixelsAlpha32": 67,
+              "opaquePixelsAlpha192": 29,
+              "alphaMass": 43.30196078431373,
+              "bboxEmptyFraction": 0.7185
+            },
+            {
+              "frame": 7,
+              "hash": "2e66f8d4b7c66ad09d0dc563596a6fe5c373e24d6c3e8e0804511023bc16e19e",
+              "bounds": [
+                69,
+                61,
+                73,
+                65
+              ],
+              "visiblePixelsAlpha32": 12,
+              "opaquePixelsAlpha192": 4,
+              "alphaMass": 5.882352941176471,
+              "bboxEmptyFraction": 0.25
+            }
+          ]
+        },
+        {
+          "state": "skill",
+          "row": 3,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "6c1ee62fbb83318058de4723ac904491ddbcdfbbdd766a49387f1f337d2ea3eb",
+              "bounds": [
+                66,
+                54,
+                80,
+                60
+              ],
+              "visiblePixelsAlpha32": 43,
+              "opaquePixelsAlpha192": 21,
+              "alphaMass": 29.686274509803923,
+              "bboxEmptyFraction": 0.4881
+            },
+            {
+              "frame": 1,
+              "hash": "55f03bc33e7ff8dffbaa8147ef50ee43f2199b25b1ca468af0ebfdd81f3c85ad",
+              "bounds": [
+                35,
+                49,
+                95,
+                64
+              ],
+              "visiblePixelsAlpha32": 257,
+              "opaquePixelsAlpha192": 125,
+              "alphaMass": 173.53725490196078,
+              "bboxEmptyFraction": 0.7144
+            },
+            {
+              "frame": 2,
+              "hash": "3d9e0e5472111bec4a7917fcf03b43d443bac998b0c0b7057d5741c158e854dc",
+              "bounds": [
+                22,
+                45,
+                102,
+                67
+              ],
+              "visiblePixelsAlpha32": 588,
+              "opaquePixelsAlpha192": 358,
+              "alphaMass": 429.121568627451,
+              "bboxEmptyFraction": 0.6659
+            },
+            {
+              "frame": 3,
+              "hash": "b6a691f8363cbf0effca19e036d8b76cc5032efa8d6af38eff704823d4454aa9",
+              "bounds": [
+                12,
+                43,
+                113,
+                69
+              ],
+              "visiblePixelsAlpha32": 877,
+              "opaquePixelsAlpha192": 568,
+              "alphaMass": 666.8039215686274,
+              "bboxEmptyFraction": 0.666
+            },
+            {
+              "frame": 4,
+              "hash": "7b6c4bd3565ff2cfaceef36e33636c61d35605642a736e94e259ba33cd07053e",
+              "bounds": [
+                23,
+                36,
+                108,
+                72
+              ],
+              "visiblePixelsAlpha32": 905,
+              "opaquePixelsAlpha192": 577,
+              "alphaMass": 683.1411764705882,
+              "bboxEmptyFraction": 0.7042
+            },
+            {
+              "frame": 5,
+              "hash": "ba9c0f61f03ea5f0188dae169d4d3b499f60db71923217ae3314fd1a63d2a4f8",
+              "bounds": [
+                30,
+                42,
+                104,
+                69
+              ],
+              "visiblePixelsAlpha32": 312,
+              "opaquePixelsAlpha192": 183,
+              "alphaMass": 219.35686274509803,
+              "bboxEmptyFraction": 0.8438
+            },
+            {
+              "frame": 6,
+              "hash": "1c6e4d09e45ece75ebaa786bca24f394d486977ccefc4668e4e36dc625deab38",
+              "bounds": [
+                59,
+                49,
+                92,
+                65
+              ],
+              "visiblePixelsAlpha32": 94,
+              "opaquePixelsAlpha192": 41,
+              "alphaMass": 59.705882352941174,
+              "bboxEmptyFraction": 0.822
+            },
+            {
+              "frame": 7,
+              "hash": "1e283104c6970314af68a16b53af975df08979a392f71daafef1287970181fae",
+              "bounds": [
+                75,
+                49,
+                80,
+                53
+              ],
+              "visiblePixelsAlpha32": 16,
+              "opaquePixelsAlpha192": 1,
+              "alphaMass": 7.807843137254902,
+              "bboxEmptyFraction": 0.2
+            }
+          ]
+        },
+        {
+          "state": "advanced",
+          "row": 4,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "6740382a61575981f2349412b5001a09ad20f365991945cd3d05be87c953a302",
+              "bounds": [
+                67,
+                38,
+                77,
+                45
+              ],
+              "visiblePixelsAlpha32": 31,
+              "opaquePixelsAlpha192": 8,
+              "alphaMass": 18.780392156862746,
+              "bboxEmptyFraction": 0.5571
+            },
+            {
+              "frame": 1,
+              "hash": "935cc81acac5a8d80ad3f8ff027075bfb672d79cf338c828960e94c8b54b1a98",
+              "bounds": [
+                59,
+                32,
+                80,
+                56
+              ],
+              "visiblePixelsAlpha32": 124,
+              "opaquePixelsAlpha192": 62,
+              "alphaMass": 83.12941176470588,
+              "bboxEmptyFraction": 0.754
+            },
+            {
+              "frame": 2,
+              "hash": "c5290b0b955ffb54d61ed338552f9f20a47d7ee900eb03ad2ee22fd443d9dd8c",
+              "bounds": [
+                49,
+                27,
+                82,
+                58
+              ],
+              "visiblePixelsAlpha32": 220,
+              "opaquePixelsAlpha192": 131,
+              "alphaMass": 160.2941176470588,
+              "bboxEmptyFraction": 0.7849
+            },
+            {
+              "frame": 3,
+              "hash": "8a0f4e4f33d39a9f6f05826bddece7f42ecda2cb1eef456b25344caff68161b3",
+              "bounds": [
+                44,
+                28,
+                82,
+                59
+              ],
+              "visiblePixelsAlpha32": 322,
+              "opaquePixelsAlpha192": 189,
+              "alphaMass": 230.7450980392157,
+              "bboxEmptyFraction": 0.7267
+            },
+            {
+              "frame": 4,
+              "hash": "505381a0eb1efb67281ac8f9f9c9f1615c92e82bbd53292266155c8bd4093857",
+              "bounds": [
+                36,
+                28,
+                83,
+                59
+              ],
+              "visiblePixelsAlpha32": 290,
+              "opaquePixelsAlpha192": 165,
+              "alphaMass": 207.4392156862745,
+              "bboxEmptyFraction": 0.801
+            },
+            {
+              "frame": 5,
+              "hash": "c57cfc75fd2b59ca407557704eef3b21935ac994dde98a392d76ca0ae7216da7",
+              "bounds": [
+                52,
+                35,
+                87,
+                56
+              ],
+              "visiblePixelsAlpha32": 131,
+              "opaquePixelsAlpha192": 62,
+              "alphaMass": 86.48235294117647,
+              "bboxEmptyFraction": 0.8218
+            },
+            {
+              "frame": 6,
+              "hash": "805a1c5bafd61a7c5085c809a6c9855f5a427053384c6757c9113e51ebb6bba0",
+              "bounds": [
+                59,
+                40,
+                87,
+                54
+              ],
+              "visiblePixelsAlpha32": 60,
+              "opaquePixelsAlpha192": 31,
+              "alphaMass": 39.63529411764706,
+              "bboxEmptyFraction": 0.8469
+            },
+            {
+              "frame": 7,
+              "hash": "b71ffa2a6d92b1df0b0eb61d7a1abe7c7926d4558226403b536725e70d0883b4",
+              "bounds": [
+                70,
+                47,
+                75,
+                51
+              ],
+              "visiblePixelsAlpha32": 9,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 4.0627450980392155,
+              "bboxEmptyFraction": 0.55
+            }
+          ]
+        },
+        {
+          "state": "signature",
+          "row": 5,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "c2e0ee48f49ed190299c2715b503dc789225865ed2c1c33f7c2a7c63cdd893f2",
+              "bounds": [
+                64,
+                40,
+                78,
+                45
+              ],
+              "visiblePixelsAlpha32": 39,
+              "opaquePixelsAlpha192": 19,
+              "alphaMass": 25.49411764705882,
+              "bboxEmptyFraction": 0.4429
+            },
+            {
+              "frame": 1,
+              "hash": "9d6fc372ab6b66f86b551f9e955b90c6aa01b5c84452732463724b4b40bf737c",
+              "bounds": [
+                38,
+                36,
+                90,
+                48
+              ],
+              "visiblePixelsAlpha32": 263,
+              "opaquePixelsAlpha192": 158,
+              "alphaMass": 192.43529411764706,
+              "bboxEmptyFraction": 0.5785
+            },
+            {
+              "frame": 2,
+              "hash": "9e80a8d2003519237ff93fa32d800366304efdfae4aa197ee582f87bbaa8b474",
+              "bounds": [
+                33,
+                32,
+                103,
+                51
+              ],
+              "visiblePixelsAlpha32": 499,
+              "opaquePixelsAlpha192": 295,
+              "alphaMass": 363.3450980392157,
+              "bboxEmptyFraction": 0.6248
+            },
+            {
+              "frame": 3,
+              "hash": "fc341f8fd0338810f9f3207ca7a3ca1dadc19865ab34726ce3bbf48bb1c08ee9",
+              "bounds": [
+                28,
+                24,
+                99,
+                53
+              ],
+              "visiblePixelsAlpha32": 761,
+              "opaquePixelsAlpha192": 544,
+              "alphaMass": 609.6313725490196,
+              "bboxEmptyFraction": 0.6304
+            },
+            {
+              "frame": 4,
+              "hash": "68abd36698cac257d6c524bd3abec7184fd7ee1602f9f06fc0b044556e5a9fbe",
+              "bounds": [
+                35,
+                29,
+                100,
+                53
+              ],
+              "visiblePixelsAlpha32": 528,
+              "opaquePixelsAlpha192": 318,
+              "alphaMass": 385.17254901960786,
+              "bboxEmptyFraction": 0.6615
+            },
+            {
+              "frame": 5,
+              "hash": "9d4358839f1db5a9e9d9fd1353a20b71463366b9d3a0ac6b9f0123a0b13f6ae6",
+              "bounds": [
+                36,
+                33,
+                100,
+                53
+              ],
+              "visiblePixelsAlpha32": 248,
+              "opaquePixelsAlpha192": 143,
+              "alphaMass": 179.09803921568627,
+              "bboxEmptyFraction": 0.8063
+            },
+            {
+              "frame": 6,
+              "hash": "4c1191aafb7ccafa5d9f0f2ecc1b62cca108924c852ae24667da0431e3618f24",
+              "bounds": [
+                50,
+                38,
+                82,
+                49
+              ],
+              "visiblePixelsAlpha32": 46,
+              "opaquePixelsAlpha192": 16,
+              "alphaMass": 26.066666666666666,
+              "bboxEmptyFraction": 0.8693
+            },
+            {
+              "frame": 7,
+              "hash": "2f41dc5260175845a4abbfa967b27a8d42231914947656ca5e5b9840e0751b83",
+              "bounds": [
+                75,
+                40,
+                79,
+                43
+              ],
+              "visiblePixelsAlpha32": 5,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 1.3372549019607842,
+              "bboxEmptyFraction": 0.5833
+            }
+          ]
+        }
+      ]
+    },
+    "synth": {
+      "atlas": "atlas/synth.png",
+      "source": "source/synth.png",
+      "sourceSha256": "acb4978cd4d743af56bd4d2c162b86834f9f83ccb1f09a994a0537bd101c8d3b",
+      "atlasSha256": "8fbcc0a486bcc81c4a6211911b453af77081028b405ed902b3d7760ef4c1ab47",
+      "size": [
+        1024,
+        768
+      ],
+      "rows": [
+        {
+          "state": "attack_1",
+          "row": 0,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "c130435642461b7c494db7844675ac33ac3b5b02134bd386b662090a8e1ea78f",
+              "bounds": [
+                55,
+                61,
+                88,
+                80
+              ],
+              "visiblePixelsAlpha32": 198,
+              "opaquePixelsAlpha192": 54,
+              "alphaMass": 110.56078431372549,
+              "bboxEmptyFraction": 0.6842
+            },
+            {
+              "frame": 1,
+              "hash": "1fb11ed9de5a66fb0cd11bff0ef64e2d26e8057e646d0e3349f412faec146237",
+              "bounds": [
+                36,
+                52,
+                95,
+                84
+              ],
+              "visiblePixelsAlpha32": 716,
+              "opaquePixelsAlpha192": 307,
+              "alphaMass": 440.5607843137255,
+              "bboxEmptyFraction": 0.6208
+            },
+            {
+              "frame": 2,
+              "hash": "65d24adf969f82d5c42fdcccd30b357b6086d447ea6b769fba1cdef41ecfb0d6",
+              "bounds": [
+                32,
+                49,
+                97,
+                90
+              ],
+              "visiblePixelsAlpha32": 1381,
+              "opaquePixelsAlpha192": 649,
+              "alphaMass": 886.4313725490196,
+              "bboxEmptyFraction": 0.4818
+            },
+            {
+              "frame": 3,
+              "hash": "eff529d840a8c3f125e3bfad935104f244359ff02e517098e8d8ad26874f9254",
+              "bounds": [
+                23,
+                39,
+                102,
+                96
+              ],
+              "visiblePixelsAlpha32": 1794,
+              "opaquePixelsAlpha192": 879,
+              "alphaMass": 1205.5607843137254,
+              "bboxEmptyFraction": 0.6016
+            },
+            {
+              "frame": 4,
+              "hash": "548117d4e7007d714afe6e63269253779adbbf71648b6e857024f607996ec32a",
+              "bounds": [
+                22,
+                43,
+                96,
+                96
+              ],
+              "visiblePixelsAlpha32": 1019,
+              "opaquePixelsAlpha192": 431,
+              "alphaMass": 639.8901960784314,
+              "bboxEmptyFraction": 0.7402
+            },
+            {
+              "frame": 5,
+              "hash": "97586e03ee85e52bb18ec85305140398b2f177dcc4875accabeeb22b238b385a",
+              "bounds": [
+                27,
+                46,
+                93,
+                93
+              ],
+              "visiblePixelsAlpha32": 608,
+              "opaquePixelsAlpha192": 249,
+              "alphaMass": 363.7176470588235,
+              "bboxEmptyFraction": 0.804
+            },
+            {
+              "frame": 6,
+              "hash": "4942473307c8be7d4494bd6b6846b586c5762c1b621e0cf794dba951a27a471b",
+              "bounds": [
+                41,
+                57,
+                82,
+                82
+              ],
+              "visiblePixelsAlpha32": 174,
+              "opaquePixelsAlpha192": 31,
+              "alphaMass": 85.30588235294118,
+              "bboxEmptyFraction": 0.8302
+            },
+            {
+              "frame": 7,
+              "hash": "250b00d0c486569e990cdaf1e306b43b74f5f45043be08abd13f6bcb200db4a6",
+              "bounds": [
+                58,
+                67,
+                79,
+                76
+              ],
+              "visiblePixelsAlpha32": 11,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 4.0627450980392155,
+              "bboxEmptyFraction": 0.9418
+            }
+          ]
+        },
+        {
+          "state": "attack_2",
+          "row": 1,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "3b65a1c0b9e491dcc273cf91569feccc4dd15628c7e91093df50f4d34daa6449",
+              "bounds": [
+                62,
+                55,
+                87,
+                74
+              ],
+              "visiblePixelsAlpha32": 84,
+              "opaquePixelsAlpha192": 16,
+              "alphaMass": 41.3921568627451,
+              "bboxEmptyFraction": 0.8232
+            },
+            {
+              "frame": 1,
+              "hash": "a7427a85cfe0a83731c72a4e4f112450ffe5ad9409e46d82f32021745386141d",
+              "bounds": [
+                45,
+                51,
+                95,
+                75
+              ],
+              "visiblePixelsAlpha32": 211,
+              "opaquePixelsAlpha192": 82,
+              "alphaMass": 121.15294117647059,
+              "bboxEmptyFraction": 0.8242
+            },
+            {
+              "frame": 2,
+              "hash": "083ef5c06d2c57276b203800e9fdce47648a48c1e4b16f99482f53041e771823",
+              "bounds": [
+                32,
+                45,
+                96,
+                85
+              ],
+              "visiblePixelsAlpha32": 821,
+              "opaquePixelsAlpha192": 308,
+              "alphaMass": 464.3450980392157,
+              "bboxEmptyFraction": 0.6793
+            },
+            {
+              "frame": 3,
+              "hash": "20d8cd8e7532f5cdc0b27b75c2be5a6c9173ef75dcd9a5da511bbb584fb56c7b",
+              "bounds": [
+                19,
+                38,
+                96,
+                89
+              ],
+              "visiblePixelsAlpha32": 1539,
+              "opaquePixelsAlpha192": 648,
+              "alphaMass": 936.0901960784314,
+              "bboxEmptyFraction": 0.6081
+            },
+            {
+              "frame": 4,
+              "hash": "b37393fb7ab0a50fbe8492c03a8e370084a9b8a567cd5c44a769871b4372f442",
+              "bounds": [
+                26,
+                36,
+                94,
+                90
+              ],
+              "visiblePixelsAlpha32": 850,
+              "opaquePixelsAlpha192": 369,
+              "alphaMass": 539.2392156862745,
+              "bboxEmptyFraction": 0.7685
+            },
+            {
+              "frame": 5,
+              "hash": "54c81ce7720a885cca85498cb1b1f1b13ea236e71ba3cf0563f882e1c5eb205c",
+              "bounds": [
+                30,
+                43,
+                93,
+                83
+              ],
+              "visiblePixelsAlpha32": 350,
+              "opaquePixelsAlpha192": 142,
+              "alphaMass": 219.34901960784313,
+              "bboxEmptyFraction": 0.8611
+            },
+            {
+              "frame": 6,
+              "hash": "026ac38523b0797ac22924e18da360604f6a256313b3013b949dec316f3f29fb",
+              "bounds": [
+                36,
+                48,
+                87,
+                80
+              ],
+              "visiblePixelsAlpha32": 107,
+              "opaquePixelsAlpha192": 20,
+              "alphaMass": 52.870588235294115,
+              "bboxEmptyFraction": 0.9344
+            },
+            {
+              "frame": 7,
+              "hash": "8ada3994339bd844364ed11681cb2e199cd71d03e606f4ba43450ecdbbae3aa9",
+              "bounds": [
+                60,
+                54,
+                79,
+                77
+              ],
+              "visiblePixelsAlpha32": 9,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 3.7098039215686276,
+              "bboxEmptyFraction": 0.9794
+            }
+          ]
+        },
+        {
+          "state": "attack_3",
+          "row": 2,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "bc2b3bac20f618751fae32598aa8ba4c6248403dc17f7ce28561c79af9ab3463",
+              "bounds": [
+                65,
+                50,
+                90,
+                70
+              ],
+              "visiblePixelsAlpha32": 83,
+              "opaquePixelsAlpha192": 20,
+              "alphaMass": 43.666666666666664,
+              "bboxEmptyFraction": 0.834
+            },
+            {
+              "frame": 1,
+              "hash": "a6859e4f7ee2e6d43e114c7ab48e3323bc4eb0ad9d551fa214dcaf247e569d15",
+              "bounds": [
+                51,
+                45,
+                94,
+                77
+              ],
+              "visiblePixelsAlpha32": 214,
+              "opaquePixelsAlpha192": 91,
+              "alphaMass": 135.1450980392157,
+              "bboxEmptyFraction": 0.8445
+            },
+            {
+              "frame": 2,
+              "hash": "e7915c0095ddd73742499988e5219a94e10e0fab2700ccb4b37bc6a5ae2b9c47",
+              "bounds": [
+                34,
+                36,
+                100,
+                85
+              ],
+              "visiblePixelsAlpha32": 772,
+              "opaquePixelsAlpha192": 274,
+              "alphaMass": 445.2549019607843,
+              "bboxEmptyFraction": 0.7613
+            },
+            {
+              "frame": 3,
+              "hash": "d7bada9b1b9c6c9a08713e223a63bd661ac833a04afd466becf33b54957fc208",
+              "bounds": [
+                20,
+                35,
+                104,
+                85
+              ],
+              "visiblePixelsAlpha32": 1831,
+              "opaquePixelsAlpha192": 700,
+              "alphaMass": 1114.3098039215686,
+              "bboxEmptyFraction": 0.564
+            },
+            {
+              "frame": 4,
+              "hash": "264c48734cbe13fd9d57f90d105a3e19f7f4d679e2a2e27a37df3c642fbc75a6",
+              "bounds": [
+                21,
+                33,
+                98,
+                88
+              ],
+              "visiblePixelsAlpha32": 971,
+              "opaquePixelsAlpha192": 461,
+              "alphaMass": 653.243137254902,
+              "bboxEmptyFraction": 0.7707
+            },
+            {
+              "frame": 5,
+              "hash": "a8231126d23f5438b00e6b7a1b849ebc189628ceb88d63c0b7077649ac616a81",
+              "bounds": [
+                27,
+                36,
+                95,
+                82
+              ],
+              "visiblePixelsAlpha32": 488,
+              "opaquePixelsAlpha192": 198,
+              "alphaMass": 294.1843137254902,
+              "bboxEmptyFraction": 0.844
+            },
+            {
+              "frame": 6,
+              "hash": "a4d6db81f18315c7dbe5bbba2102b7b7f7c20f77cb0b4cc8e9a532d2799caa70",
+              "bounds": [
+                46,
+                45,
+                91,
+                72
+              ],
+              "visiblePixelsAlpha32": 153,
+              "opaquePixelsAlpha192": 58,
+              "alphaMass": 87.30980392156863,
+              "bboxEmptyFraction": 0.8741
+            },
+            {
+              "frame": 7,
+              "hash": "c71911d361303d33998b60ac07228976c641618bbe6b8fef0c6fe3813040e123",
+              "bounds": [
+                58,
+                51,
+                80,
+                70
+              ],
+              "visiblePixelsAlpha32": 27,
+              "opaquePixelsAlpha192": 1,
+              "alphaMass": 11.623529411764705,
+              "bboxEmptyFraction": 0.9354
+            }
+          ]
+        },
+        {
+          "state": "skill",
+          "row": 3,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "a9d1d1ce7952ecadb96dc6bc9e589066541fa94ade6de84c671c617ee5b5561d",
+              "bounds": [
+                59,
+                57,
+                83,
+                66
+              ],
+              "visiblePixelsAlpha32": 51,
+              "opaquePixelsAlpha192": 15,
+              "alphaMass": 29.63137254901961,
+              "bboxEmptyFraction": 0.7639
+            },
+            {
+              "frame": 1,
+              "hash": "903a7fa12012dd7f780779740432234cbb40db2fc16a9b835d541cb3f4a8c110",
+              "bounds": [
+                46,
+                49,
+                83,
+                70
+              ],
+              "visiblePixelsAlpha32": 181,
+              "opaquePixelsAlpha192": 98,
+              "alphaMass": 121.2156862745098,
+              "bboxEmptyFraction": 0.7671
+            },
+            {
+              "frame": 2,
+              "hash": "e55ccce9ad737f520bcedba9cc70de322d709a737fc36c426c346a926ee0884e",
+              "bounds": [
+                33,
+                44,
+                92,
+                79
+              ],
+              "visiblePixelsAlpha32": 681,
+              "opaquePixelsAlpha192": 347,
+              "alphaMass": 454.82745098039214,
+              "bboxEmptyFraction": 0.6702
+            },
+            {
+              "frame": 3,
+              "hash": "1c17c6ba74ceab106eda46a25c43bed98f1bebaa862d405d922bc02e24fab700",
+              "bounds": [
+                21,
+                36,
+                99,
+                85
+              ],
+              "visiblePixelsAlpha32": 1628,
+              "opaquePixelsAlpha192": 784,
+              "alphaMass": 1076.9176470588236,
+              "bboxEmptyFraction": 0.574
+            },
+            {
+              "frame": 4,
+              "hash": "c82d47340225d246ee26aa0af454f5fbf5d885d5d535f1ad8fc70d0e14f3d42c",
+              "bounds": [
+                22,
+                36,
+                97,
+                88
+              ],
+              "visiblePixelsAlpha32": 944,
+              "opaquePixelsAlpha192": 498,
+              "alphaMass": 638.1411764705882,
+              "bboxEmptyFraction": 0.7579
+            },
+            {
+              "frame": 5,
+              "hash": "ad4a5d4e5ba42c09aebd97fca431bc6e0bb45b4bb5e44f4e472ac2d37b7c2f91",
+              "bounds": [
+                29,
+                43,
+                94,
+                80
+              ],
+              "visiblePixelsAlpha32": 398,
+              "opaquePixelsAlpha192": 177,
+              "alphaMass": 240.12941176470588,
+              "bboxEmptyFraction": 0.8345
+            },
+            {
+              "frame": 6,
+              "hash": "1beb387d70936878098d69b1165160633b08a6139a515351acee207e3d585794",
+              "bounds": [
+                42,
+                55,
+                79,
+                77
+              ],
+              "visiblePixelsAlpha32": 119,
+              "opaquePixelsAlpha192": 40,
+              "alphaMass": 67.6313725490196,
+              "bboxEmptyFraction": 0.8538
+            },
+            {
+              "frame": 7,
+              "hash": "386229f4592cdcd122523923a39289083c6590f8795aecd0b37a9db3112f1cbd",
+              "bounds": [
+                58,
+                58,
+                73,
+                74
+              ],
+              "visiblePixelsAlpha32": 19,
+              "opaquePixelsAlpha192": 2,
+              "alphaMass": 9.686274509803921,
+              "bboxEmptyFraction": 0.9208
+            }
+          ]
+        },
+        {
+          "state": "advanced",
+          "row": 4,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "1198e8d5f2179d59c5aebd3f51a85b28a008ad54bbac1880bd63280b618c9da9",
+              "bounds": [
+                49,
+                53,
+                98,
+                65
+              ],
+              "visiblePixelsAlpha32": 145,
+              "opaquePixelsAlpha192": 26,
+              "alphaMass": 63.4156862745098,
+              "bboxEmptyFraction": 0.7534
+            },
+            {
+              "frame": 1,
+              "hash": "b708248f6b7d7a37f5156e99e070497f33ecb073f4f386998d8c8d7c2ba1c868",
+              "bounds": [
+                45,
+                51,
+                98,
+                67
+              ],
+              "visiblePixelsAlpha32": 221,
+              "opaquePixelsAlpha192": 56,
+              "alphaMass": 113.16470588235295,
+              "bboxEmptyFraction": 0.7394
+            },
+            {
+              "frame": 2,
+              "hash": "9cdf84b4a0da3a530040feb268f5b4ef2d9e85892eb307d2706cd7b477e14c62",
+              "bounds": [
+                35,
+                43,
+                98,
+                71
+              ],
+              "visiblePixelsAlpha32": 554,
+              "opaquePixelsAlpha192": 213,
+              "alphaMass": 322.51372549019607,
+              "bboxEmptyFraction": 0.6859
+            },
+            {
+              "frame": 3,
+              "hash": "3bc5a863edc6cbb107a98ad8b7d0b956601eb3ec2e7a550b4af876b34137a6d6",
+              "bounds": [
+                28,
+                42,
+                98,
+                77
+              ],
+              "visiblePixelsAlpha32": 911,
+              "opaquePixelsAlpha192": 368,
+              "alphaMass": 552.6078431372549,
+              "bboxEmptyFraction": 0.6282
+            },
+            {
+              "frame": 4,
+              "hash": "16782a5be674353fe8861868d8d6f73f2bb7883e0a2c1ad8048d5c70b0f2c3e3",
+              "bounds": [
+                22,
+                38,
+                97,
+                75
+              ],
+              "visiblePixelsAlpha32": 753,
+              "opaquePixelsAlpha192": 260,
+              "alphaMass": 433.8156862745098,
+              "bboxEmptyFraction": 0.7286
+            },
+            {
+              "frame": 5,
+              "hash": "32b8b865152d52adfc692286a9770b6ac5b5c7fb6c29f76962c35ae5eef22b5c",
+              "bounds": [
+                32,
+                42,
+                92,
+                77
+              ],
+              "visiblePixelsAlpha32": 376,
+              "opaquePixelsAlpha192": 128,
+              "alphaMass": 204.2627450980392,
+              "bboxEmptyFraction": 0.821
+            },
+            {
+              "frame": 6,
+              "hash": "1aa95dd7c1f673f1678a58b1a81c0030e4e96e7ef2c31473910ac8950dd7d661",
+              "bounds": [
+                42,
+                50,
+                88,
+                75
+              ],
+              "visiblePixelsAlpha32": 118,
+              "opaquePixelsAlpha192": 30,
+              "alphaMass": 63.811764705882354,
+              "bboxEmptyFraction": 0.8974
+            },
+            {
+              "frame": 7,
+              "hash": "bce597055b50090a6d5347f25eb49e925e75bc0cfe56052af432e03173498647",
+              "bounds": [
+                44,
+                54,
+                79,
+                74
+              ],
+              "visiblePixelsAlpha32": 25,
+              "opaquePixelsAlpha192": 1,
+              "alphaMass": 11.156862745098039,
+              "bboxEmptyFraction": 0.9643
+            }
+          ]
+        },
+        {
+          "state": "signature",
+          "row": 5,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "a07520d17740b4e15272445ce45076d4cc071d46fb0489979d281582c8044290",
+              "bounds": [
+                49,
+                57,
+                87,
+                64
+              ],
+              "visiblePixelsAlpha32": 108,
+              "opaquePixelsAlpha192": 26,
+              "alphaMass": 53.05882352941177,
+              "bboxEmptyFraction": 0.594
+            },
+            {
+              "frame": 1,
+              "hash": "684a620dd43ebe118a38315c29a26973a7db76a2e1149ff688e6a2a11b557a87",
+              "bounds": [
+                36,
+                53,
+                103,
+                64
+              ],
+              "visiblePixelsAlpha32": 272,
+              "opaquePixelsAlpha192": 91,
+              "alphaMass": 152.92156862745097,
+              "bboxEmptyFraction": 0.6309
+            },
+            {
+              "frame": 2,
+              "hash": "54e117ddfec9e7b20806a57e7f135e217891073719643589be733469b0c71ccc",
+              "bounds": [
+                30,
+                49,
+                105,
+                69
+              ],
+              "visiblePixelsAlpha32": 615,
+              "opaquePixelsAlpha192": 207,
+              "alphaMass": 345.2274509803922,
+              "bboxEmptyFraction": 0.59
+            },
+            {
+              "frame": 3,
+              "hash": "6d1ef1bb4d96fc6bb18cb72e2dd91de2bd14c9cebd022892f94d68197a7f5eda",
+              "bounds": [
+                26,
+                40,
+                106,
+                74
+              ],
+              "visiblePixelsAlpha32": 1062,
+              "opaquePixelsAlpha192": 446,
+              "alphaMass": 659.3529411764706,
+              "bboxEmptyFraction": 0.6096
+            },
+            {
+              "frame": 4,
+              "hash": "f120c67b0b09bd35e72058a9705d2e4d437aa1d803fe94083a6b58035e4cfc31",
+              "bounds": [
+                20,
+                44,
+                101,
+                75
+              ],
+              "visiblePixelsAlpha32": 503,
+              "opaquePixelsAlpha192": 95,
+              "alphaMass": 255.58039215686276,
+              "bboxEmptyFraction": 0.7997
+            },
+            {
+              "frame": 5,
+              "hash": "13ced7fa0c82b2356f2afe448d54aca8346906ce4cd843b3e6ea5023095d35e3",
+              "bounds": [
+                25,
+                49,
+                98,
+                72
+              ],
+              "visiblePixelsAlpha32": 334,
+              "opaquePixelsAlpha192": 74,
+              "alphaMass": 165.50980392156862,
+              "bboxEmptyFraction": 0.8011
+            },
+            {
+              "frame": 6,
+              "hash": "1f2d740f8d6149003838b83214cb770a5f3d95c503c1880cd17a7496e7292bf8",
+              "bounds": [
+                42,
+                53,
+                89,
+                69
+              ],
+              "visiblePixelsAlpha32": 90,
+              "opaquePixelsAlpha192": 17,
+              "alphaMass": 43.56078431372549,
+              "bboxEmptyFraction": 0.8803
+            },
+            {
+              "frame": 7,
+              "hash": "c5f441ba820962a4f8fa419cf2a4042bb35d54ce1cc8521f4f61746b1399421a",
+              "bounds": [
+                43,
+                56,
+                79,
+                69
+              ],
+              "visiblePixelsAlpha32": 24,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 8.345098039215687,
+              "bboxEmptyFraction": 0.9487
+            }
+          ]
+        }
+      ]
+    },
+    "percussion": {
+      "atlas": "atlas/percussion.png",
+      "source": "source/percussion.png",
+      "sourceSha256": "aae4f8f735345e73682f065304d907e2978b55481dcf9715c6eeaf6e0b3815c5",
+      "atlasSha256": "f74a8b9008142f8c1a6ac2052e11c90893685e08019a417b53ef6fa989b79396",
+      "size": [
+        1024,
+        768
+      ],
+      "rows": [
+        {
+          "state": "attack_1",
+          "row": 0,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "883142e57753df58cf966ecd623353cf88227cc683f6d5ba784babc69be35613",
+              "bounds": [
+                47,
+                68,
+                83,
+                79
+              ],
+              "visiblePixelsAlpha32": 153,
+              "opaquePixelsAlpha192": 46,
+              "alphaMass": 81.67843137254901,
+              "bboxEmptyFraction": 0.6136
+            },
+            {
+              "frame": 1,
+              "hash": "439d060fbebb32dac09abeb13df9e11c94f764ea7326fd50d4585d2c7ee14e81",
+              "bounds": [
+                38,
+                64,
+                92,
+                85
+              ],
+              "visiblePixelsAlpha32": 325,
+              "opaquePixelsAlpha192": 80,
+              "alphaMass": 169.93725490196078,
+              "bboxEmptyFraction": 0.7134
+            },
+            {
+              "frame": 2,
+              "hash": "24608aa1266407d329df588b0de69803b1dfb4abef37f5d0ca48fe14d3e94dd4",
+              "bounds": [
+                35,
+                55,
+                101,
+                87
+              ],
+              "visiblePixelsAlpha32": 739,
+              "opaquePixelsAlpha192": 375,
+              "alphaMass": 505.6078431372549,
+              "bboxEmptyFraction": 0.6501
+            },
+            {
+              "frame": 3,
+              "hash": "ca1cec23a89b869502c83f66b1c5d11590f186cb865eae2e850f40fc0ac28e27",
+              "bounds": [
+                30,
+                53,
+                98,
+                88
+              ],
+              "visiblePixelsAlpha32": 939,
+              "opaquePixelsAlpha192": 459,
+              "alphaMass": 611.121568627451,
+              "bboxEmptyFraction": 0.6055
+            },
+            {
+              "frame": 4,
+              "hash": "9c40288f0da508e4eb9332e53a6338218b8b7e36bbdcf69334a619d665aa63d4",
+              "bounds": [
+                28,
+                53,
+                105,
+                89
+              ],
+              "visiblePixelsAlpha32": 676,
+              "opaquePixelsAlpha192": 259,
+              "alphaMass": 415.27450980392155,
+              "bboxEmptyFraction": 0.7561
+            },
+            {
+              "frame": 5,
+              "hash": "7a63fb14a677cb2c08415c49001552fe59aeb5ac65e3ba5cd087ce8c103aab86",
+              "bounds": [
+                36,
+                58,
+                98,
+                85
+              ],
+              "visiblePixelsAlpha32": 325,
+              "opaquePixelsAlpha192": 140,
+              "alphaMass": 202.05490196078432,
+              "bboxEmptyFraction": 0.8059
+            },
+            {
+              "frame": 6,
+              "hash": "3b62d49a1f336cf34a05886c3c2be8d21e7769f2d587827a9f17996ed3488dbc",
+              "bounds": [
+                46,
+                65,
+                84,
+                82
+              ],
+              "visiblePixelsAlpha32": 89,
+              "opaquePixelsAlpha192": 3,
+              "alphaMass": 32.05490196078431,
+              "bboxEmptyFraction": 0.8622
+            },
+            {
+              "frame": 7,
+              "hash": "1fecf1e089c1dff7628c5cba2a81f68bc873fe5cc88d2ae14f1bae069823a88a",
+              "bounds": [
+                49,
+                64,
+                78,
+                79
+              ],
+              "visiblePixelsAlpha32": 29,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 11.584313725490196,
+              "bboxEmptyFraction": 0.9333
+            }
+          ]
+        },
+        {
+          "state": "attack_2",
+          "row": 1,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "48cd3416a2d162d64d7b79cbdb05d0a4f4ed1450809781f267b7221b5993cb30",
+              "bounds": [
+                52,
+                62,
+                79,
+                77
+              ],
+              "visiblePixelsAlpha32": 150,
+              "opaquePixelsAlpha192": 47,
+              "alphaMass": 82.05882352941177,
+              "bboxEmptyFraction": 0.6296
+            },
+            {
+              "frame": 1,
+              "hash": "5bf10069dbe342cf7f1a4adf15973943de631094faddd5a72d05b99243264892",
+              "bounds": [
+                38,
+                53,
+                93,
+                82
+              ],
+              "visiblePixelsAlpha32": 373,
+              "opaquePixelsAlpha192": 124,
+              "alphaMass": 225.0078431372549,
+              "bboxEmptyFraction": 0.7661
+            },
+            {
+              "frame": 2,
+              "hash": "35f3b9eb586a4bd5a73349d759ccec399ce4a9589372162a2cc0b89c12b058cd",
+              "bounds": [
+                24,
+                49,
+                96,
+                81
+              ],
+              "visiblePixelsAlpha32": 857,
+              "opaquePixelsAlpha192": 339,
+              "alphaMass": 516.643137254902,
+              "bboxEmptyFraction": 0.628
+            },
+            {
+              "frame": 3,
+              "hash": "f8de22bf546a287c5dbbb5934619b60812957a211f8be10e7523ad9b601a40b6",
+              "bounds": [
+                24,
+                48,
+                98,
+                84
+              ],
+              "visiblePixelsAlpha32": 848,
+              "opaquePixelsAlpha192": 398,
+              "alphaMass": 554.8901960784314,
+              "bboxEmptyFraction": 0.6817
+            },
+            {
+              "frame": 4,
+              "hash": "1ec7f4b068bd185dad9ea5f17c244bd9392ba79f420226a3150acfffb64d71d6",
+              "bounds": [
+                27,
+                44,
+                97,
+                84
+              ],
+              "visiblePixelsAlpha32": 678,
+              "opaquePixelsAlpha192": 234,
+              "alphaMass": 398.4313725490196,
+              "bboxEmptyFraction": 0.7579
+            },
+            {
+              "frame": 5,
+              "hash": "ee37d298b53c8d0c8a3cd4bd45676136e3cfd6640c9193c8dfc59605b23a4399",
+              "bounds": [
+                41,
+                53,
+                94,
+                77
+              ],
+              "visiblePixelsAlpha32": 300,
+              "opaquePixelsAlpha192": 117,
+              "alphaMass": 179.78823529411764,
+              "bboxEmptyFraction": 0.7642
+            },
+            {
+              "frame": 6,
+              "hash": "64afb6f2a5a505e2fe5cf5ced7b4e2b738f9c7688ea3600e9fd98e9b11f04a1f",
+              "bounds": [
+                47,
+                61,
+                84,
+                76
+              ],
+              "visiblePixelsAlpha32": 63,
+              "opaquePixelsAlpha192": 6,
+              "alphaMass": 28.29019607843137,
+              "bboxEmptyFraction": 0.8865
+            },
+            {
+              "frame": 7,
+              "hash": "3ac748fa512d56383887fd97644466596eac85ceccd5a0353ca094ec141d8379",
+              "bounds": [
+                51,
+                63,
+                77,
+                76
+              ],
+              "visiblePixelsAlpha32": 9,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 3.384313725490196,
+              "bboxEmptyFraction": 0.9734
+            }
+          ]
+        },
+        {
+          "state": "attack_3",
+          "row": 2,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "c33e49c64ada2962ec32e8a809df3bab2b5df2d3e4ea87d53e685c22216ac40b",
+              "bounds": [
+                41,
+                51,
+                93,
+                69
+              ],
+              "visiblePixelsAlpha32": 147,
+              "opaquePixelsAlpha192": 36,
+              "alphaMass": 79.1921568627451,
+              "bboxEmptyFraction": 0.8429
+            },
+            {
+              "frame": 1,
+              "hash": "643143e0101ffd931a2a2d0b596d180fb5dcc27a880894284c51c9fe07d550a5",
+              "bounds": [
+                38,
+                53,
+                92,
+                72
+              ],
+              "visiblePixelsAlpha32": 202,
+              "opaquePixelsAlpha192": 65,
+              "alphaMass": 109.25882352941177,
+              "bboxEmptyFraction": 0.8031
+            },
+            {
+              "frame": 2,
+              "hash": "3888e3c347c6d69f54f3bdaaed2f66314f842a7c60d1800b0e51a0c268d881d6",
+              "bounds": [
+                32,
+                49,
+                103,
+                74
+              ],
+              "visiblePixelsAlpha32": 500,
+              "opaquePixelsAlpha192": 203,
+              "alphaMass": 310.09411764705885,
+              "bboxEmptyFraction": 0.7183
+            },
+            {
+              "frame": 3,
+              "hash": "e41e1cc7e611dd638ae80577e86918281985c68c2dc872f5433f899968e20d67",
+              "bounds": [
+                27,
+                45,
+                98,
+                82
+              ],
+              "visiblePixelsAlpha32": 917,
+              "opaquePixelsAlpha192": 453,
+              "alphaMass": 615.1490196078431,
+              "bboxEmptyFraction": 0.6509
+            },
+            {
+              "frame": 4,
+              "hash": "cb67ca77ead557b29f29e53a4db31bba199541d9e54b7594918c2d71072cfd06",
+              "bounds": [
+                26,
+                43,
+                107,
+                82
+              ],
+              "visiblePixelsAlpha32": 688,
+              "opaquePixelsAlpha192": 312,
+              "alphaMass": 443.30980392156863,
+              "bboxEmptyFraction": 0.7822
+            },
+            {
+              "frame": 5,
+              "hash": "40d0753147c3d43d8744c863df7db3b6f85ceff9e58dcb985758ae764c4f5869",
+              "bounds": [
+                36,
+                48,
+                94,
+                73
+              ],
+              "visiblePixelsAlpha32": 199,
+              "opaquePixelsAlpha192": 56,
+              "alphaMass": 116.17254901960784,
+              "bboxEmptyFraction": 0.8628
+            },
+            {
+              "frame": 6,
+              "hash": "8ea727b8abdf105ea58503866ced51114cbd06f9d24c01f6c6bd1a98bc84f0bf",
+              "bounds": [
+                46,
+                58,
+                83,
+                72
+              ],
+              "visiblePixelsAlpha32": 39,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 13.91764705882353,
+              "bboxEmptyFraction": 0.9247
+            },
+            {
+              "frame": 7,
+              "hash": "658a0f8ed1858eb03496694dd66ec804ac396ab185557e24a5cf2eb6b06d22f4",
+              "bounds": [
+                51,
+                56,
+                77,
+                72
+              ],
+              "visiblePixelsAlpha32": 14,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 5.2,
+              "bboxEmptyFraction": 0.9663
+            }
+          ]
+        },
+        {
+          "state": "skill",
+          "row": 3,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "f88859a912e23f70f2d681d591625a64c6a3befedc976fafa711777bef7868e2",
+              "bounds": [
+                49,
+                57,
+                72,
+                71
+              ],
+              "visiblePixelsAlpha32": 86,
+              "opaquePixelsAlpha192": 21,
+              "alphaMass": 45.5843137254902,
+              "bboxEmptyFraction": 0.7329
+            },
+            {
+              "frame": 1,
+              "hash": "5b766ea72118cd4e7b654245a811c30e1050085be09f98446bcf13057c88d6ce",
+              "bounds": [
+                49,
+                48,
+                83,
+                74
+              ],
+              "visiblePixelsAlpha32": 226,
+              "opaquePixelsAlpha192": 82,
+              "alphaMass": 131.26666666666668,
+              "bboxEmptyFraction": 0.7443
+            },
+            {
+              "frame": 2,
+              "hash": "3efb8dc049d3a79ef2d91906ae280e5ddb4ce7f82ab49d7cd3b80953dfa1f932",
+              "bounds": [
+                42,
+                46,
+                90,
+                82
+              ],
+              "visiblePixelsAlpha32": 529,
+              "opaquePixelsAlpha192": 233,
+              "alphaMass": 335.4470588235294,
+              "bboxEmptyFraction": 0.6939
+            },
+            {
+              "frame": 3,
+              "hash": "0914ddeae1dc2bc1325103f8ad54f7bb6d77a240a78a0508eb8300610fc82aa4",
+              "bounds": [
+                35,
+                37,
+                88,
+                82
+              ],
+              "visiblePixelsAlpha32": 713,
+              "opaquePixelsAlpha192": 343,
+              "alphaMass": 470.4823529411765,
+              "bboxEmptyFraction": 0.701
+            },
+            {
+              "frame": 4,
+              "hash": "6c99f12654c814661e8b68db7cd76a1ce859877602a3bef64bcf60c6b0eb67f0",
+              "bounds": [
+                32,
+                40,
+                96,
+                84
+              ],
+              "visiblePixelsAlpha32": 435,
+              "opaquePixelsAlpha192": 74,
+              "alphaMass": 219.02745098039216,
+              "bboxEmptyFraction": 0.8455
+            },
+            {
+              "frame": 5,
+              "hash": "910db3510db4d734ca4e414ab92fda845efb288b3493aace6812e8627be9c223",
+              "bounds": [
+                41,
+                53,
+                88,
+                71
+              ],
+              "visiblePixelsAlpha32": 147,
+              "opaquePixelsAlpha192": 38,
+              "alphaMass": 78.21960784313725,
+              "bboxEmptyFraction": 0.8262
+            },
+            {
+              "frame": 6,
+              "hash": "f0787bba7edb2672d475e37ef1987b2733500180a456d5ae0580f8493fde3458",
+              "bounds": [
+                47,
+                53,
+                81,
+                67
+              ],
+              "visiblePixelsAlpha32": 42,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 17.44705882352941,
+              "bboxEmptyFraction": 0.9118
+            },
+            {
+              "frame": 7,
+              "hash": "a0d4a552e97acf8a2f2f4c00f28af860cf4d4846819cb5cf0c533773f6728d01",
+              "bounds": [
+                55,
+                56,
+                77,
+                66
+              ],
+              "visiblePixelsAlpha32": 9,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 3.6862745098039214,
+              "bboxEmptyFraction": 0.9591
+            }
+          ]
+        },
+        {
+          "state": "advanced",
+          "row": 4,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "23ce9d06af7d5e0cf0505d1ff07f1d385041b63066dbe9eaaa61e3b21e6653ea",
+              "bounds": [
+                53,
+                58,
+                77,
+                67
+              ],
+              "visiblePixelsAlpha32": 83,
+              "opaquePixelsAlpha192": 22,
+              "alphaMass": 46.94117647058823,
+              "bboxEmptyFraction": 0.6157
+            },
+            {
+              "frame": 1,
+              "hash": "a74784f97b66f3c5b802337d78bd8fe95fea5ef436c173de1d9ee88281aeeac9",
+              "bounds": [
+                43,
+                53,
+                86,
+                69
+              ],
+              "visiblePixelsAlpha32": 223,
+              "opaquePixelsAlpha192": 80,
+              "alphaMass": 129.95294117647057,
+              "bboxEmptyFraction": 0.6759
+            },
+            {
+              "frame": 2,
+              "hash": "f061c11adfd8f97cd82f28d04a81dd7f0f588615aba5cc8922e3a311b3f04783",
+              "bounds": [
+                30,
+                48,
+                96,
+                72
+              ],
+              "visiblePixelsAlpha32": 528,
+              "opaquePixelsAlpha192": 215,
+              "alphaMass": 325.73333333333335,
+              "bboxEmptyFraction": 0.6667
+            },
+            {
+              "frame": 3,
+              "hash": "3a4d4f9ec289289e74af931240acd90fb077193554495e5cc5ca4948790e2675",
+              "bounds": [
+                27,
+                41,
+                95,
+                72
+              ],
+              "visiblePixelsAlpha32": 753,
+              "opaquePixelsAlpha192": 322,
+              "alphaMass": 472.1294117647059,
+              "bboxEmptyFraction": 0.6428
+            },
+            {
+              "frame": 4,
+              "hash": "16b33731700d96dfd3178dbf624b4e12927b1ab6bf1072d07162774ba1cd05f5",
+              "bounds": [
+                27,
+                36,
+                106,
+                80
+              ],
+              "visiblePixelsAlpha32": 734,
+              "opaquePixelsAlpha192": 274,
+              "alphaMass": 429.65098039215684,
+              "bboxEmptyFraction": 0.7888
+            },
+            {
+              "frame": 5,
+              "hash": "0ea70b7f1855269faeace46c6178b31bb481ecca8ae0a3fa61e6d716810d508c",
+              "bounds": [
+                36,
+                43,
+                94,
+                74
+              ],
+              "visiblePixelsAlpha32": 252,
+              "opaquePixelsAlpha192": 90,
+              "alphaMass": 154.8549019607843,
+              "bboxEmptyFraction": 0.8598
+            },
+            {
+              "frame": 6,
+              "hash": "c39bde6abe53644d36691a541dd41e7f5dacaf0d6c754326d3b6abbf40ca6fbf",
+              "bounds": [
+                47,
+                53,
+                83,
+                67
+              ],
+              "visiblePixelsAlpha32": 62,
+              "opaquePixelsAlpha192": 3,
+              "alphaMass": 26.784313725490197,
+              "bboxEmptyFraction": 0.877
+            },
+            {
+              "frame": 7,
+              "hash": "bd729e60cbdde1daf5186801c74b95cb3ca4b1a5be144e9401340c61807dc3c2",
+              "bounds": [
+                52,
+                58,
+                77,
+                69
+              ],
+              "visiblePixelsAlpha32": 16,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 5.184313725490196,
+              "bboxEmptyFraction": 0.9418
+            }
+          ]
+        },
+        {
+          "state": "signature",
+          "row": 5,
+          "pivot": [
+            64,
+            64
+          ],
+          "frames": [
+            {
+              "frame": 0,
+              "hash": "c6b4fdc96bfcacdc0283f06f4daaf444d76b16ed208df9203d9f1f47065f9407",
+              "bounds": [
+                54,
+                46,
+                76,
+                67
+              ],
+              "visiblePixelsAlpha32": 167,
+              "opaquePixelsAlpha192": 62,
+              "alphaMass": 95.0156862745098,
+              "bboxEmptyFraction": 0.6385
+            },
+            {
+              "frame": 1,
+              "hash": "aadee4b784693d813dece9b308153faec15f222f755c52e2c30b24bbaa58ad08",
+              "bounds": [
+                51,
+                37,
+                80,
+                73
+              ],
+              "visiblePixelsAlpha32": 387,
+              "opaquePixelsAlpha192": 125,
+              "alphaMass": 211.6627450980392,
+              "bboxEmptyFraction": 0.6293
+            },
+            {
+              "frame": 2,
+              "hash": "650364c7755344b3c2567e65bc4bcb1259295fbaed8aa7296b493b4ce7961256",
+              "bounds": [
+                28,
+                33,
+                87,
+                75
+              ],
+              "visiblePixelsAlpha32": 889,
+              "opaquePixelsAlpha192": 389,
+              "alphaMass": 566.0313725490196,
+              "bboxEmptyFraction": 0.6412
+            },
+            {
+              "frame": 3,
+              "hash": "e582d322e393240fae03a3d985f0390316e2507aeb19c91e56abd1e06b78ff0a",
+              "bounds": [
+                30,
+                31,
+                88,
+                79
+              ],
+              "visiblePixelsAlpha32": 1190,
+              "opaquePixelsAlpha192": 648,
+              "alphaMass": 837.7960784313725,
+              "bboxEmptyFraction": 0.5726
+            },
+            {
+              "frame": 4,
+              "hash": "289d8b5afceed6c27d2ed2be731fe5bdde834d8395013f634059d889b9b218ef",
+              "bounds": [
+                29,
+                36,
+                100,
+                77
+              ],
+              "visiblePixelsAlpha32": 648,
+              "opaquePixelsAlpha192": 221,
+              "alphaMass": 376.08235294117645,
+              "bboxEmptyFraction": 0.7774
+            },
+            {
+              "frame": 5,
+              "hash": "39bbbe1fa191a2ce3863905053269ec40b792fc1298b3771b478df870456f09c",
+              "bounds": [
+                36,
+                42,
+                93,
+                73
+              ],
+              "visiblePixelsAlpha32": 200,
+              "opaquePixelsAlpha192": 43,
+              "alphaMass": 96.78039215686275,
+              "bboxEmptyFraction": 0.8868
+            },
+            {
+              "frame": 6,
+              "hash": "d874b6c4f8dbceef56339472cd8de151e164825dec50684120b9a52f561b5f16",
+              "bounds": [
+                46,
+                45,
+                83,
+                64
+              ],
+              "visiblePixelsAlpha32": 56,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 19.2,
+              "bboxEmptyFraction": 0.9203
+            },
+            {
+              "frame": 7,
+              "hash": "7ca79779abcee871f908e10840ea5926091d889d42cdafb6f85dd65ae85e500b",
+              "bounds": [
+                50,
+                54,
+                79,
+                59
+              ],
+              "visiblePixelsAlpha32": 17,
+              "opaquePixelsAlpha192": 0,
+              "alphaMass": 5.815686274509804,
+              "bboxEmptyFraction": 0.8828
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

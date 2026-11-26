@@ -1,0 +1,18 @@
+'use strict';
+// VM presentation contract only: this does not claim gameplay has been run.
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');const root=path.resolve(__dirname,'..');
+const manifest=JSON.parse(fs.readFileSync(path.join(root,'assets/enemies/variants-v2/manifest.json'))),assets=Object.fromEntries(Object.keys(manifest.enemies).map(k=>[k,k]));let fallback=0,draws=[];
+class Img{set src(type){this.type=type;this.complete=false;this.naturalWidth=manifest.enemies[type].atlasSize[0];this.naturalHeight=manifest.enemies[type].atlasSize[1]}}
+const C={window:{matchMedia:()=>({matches:false})},Image:Img,G:{area:'forest',options10:{}},current:{enemies:[]},mode:'action',T:24,bossActor:null,battle:null,
+ ctx:{save(){},restore(){},translate(){},scale(){},drawImage(...a){draws.push(a)},getImageData(){throw Error('Forbidden large atlas readback')}},
+ EnemyArtV1:{draw(){fallback++;return true}},update(){if(C.releaseHazard){const h=C.window.ToriiDificuldade.perigos.shift();h.time=0;C.releaseHazard=false}return'original-update'},updateEnemy(e,dt){e.wind=Math.max(0,e.wind-dt);return'original-enemy'}};
+const code=fs.readFileSync(path.join(root,'game/source/chapter-03/enemy_variant_art_v2.js'),'utf8').replace('__ENEMY_VARIANT_V2_MANIFEST__',JSON.stringify(manifest)).replace('__ENEMY_VARIANT_V2_ASSETS__',JSON.stringify(assets));vm.runInNewContext(code,C);const a=C.window.EnemyVariantArtV2,rows=[];
+for(const type of Object.keys(manifest.enemies)){
+ const e={id:'vm_'+type,type,x:5,y:5,hp:90,max:100,wind:.75,cd:2,face:0},before=JSON.stringify(e);assert(a.draw(100,150,type,e));assert.equal(fallback,rows.length+1);assert.equal(draws.length,rows.length*5);assert(!a.ownsCast(e));a.images[type].complete=true;assert(a.ownsCast(e));
+ for(const angle of[0,Math.PI/2,Math.PI,-Math.PI/2]){e.face=angle;const state=JSON.stringify(e);a.draw(100,150,type,e);assert.equal(JSON.stringify(e),state);const d=draws.at(-1);assert(d[3]===128&&d[4]===128&&d[7]<=108&&d[8]<=108);assert(a.headHeight(e)>0)}
+ e.face=0;assert.equal(a.pose(e).state,'prepare');assert.equal(C.updateEnemy(e,.75),'original-enemy');assert.equal(a.pose(e).state,'attack');e.flash=.15;assert.equal(a.pose(e).state,'hurt');a.draw(100,150,type,e);assert.equal(e.hp,90);rows.push({type,readbacks:0,entityUnchangedByRender:true,readyGate:true});
+}
+const clock=a.snapshot().clock;C.mode='overlay';C.update(.5);assert.equal(a.snapshot().clock,clock);C.G={area:'ruins',options10:{}};C.update(0);assert.equal(a.snapshot().clock,0);assert(!a.draw(0,0,'hush',{type:'hush'}));
+for(const type of['tambor_escudo','muralha_estatica']){C.mode='action';C.bossActor=null;C.battle=null;const e={id:'release_'+type,type,hp:90,wind:.1,face:0};a.reset();a.pose(e);C.updateEnemy(e,.1);e.f2aberto=1.35;assert.equal(a.pose(e).state,'attack');for(let i=0;i<4;i++)C.update(.1);assert.equal(a.pose(e).state,'open');assert.equal(e.f2aberto,1.35)}
+C.mode='action';C.bossActor={};C.battle={boss:true};const add={id:'add',type:'tambor_escudo',hp:90,wind:.1,face:0};a.reset();a.pose(add);C.updateEnemy(add,.1);assert.equal(a.pose(add).state,'idle');C.window.ToriiDificuldade={perigos:[{area:C.G.area,time:.05,dono:add}]};C.releaseHazard=true;C.update(.05);assert.equal(a.pose(add).state,'attack');
+const out=path.join(root,'qa/beta-1.17.0/enemy-variants-v2/CONTRACT.json');fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify({method:'VM stubs, not gameplay',passed:rows.length,rows,pause:true,worldReset:true},null,2));console.log(JSON.stringify({passed:rows.length,readbacks:0,unknownFallback:true}));

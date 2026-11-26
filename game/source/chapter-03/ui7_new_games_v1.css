@@ -1,0 +1,144 @@
+/* Shared with the approved 16-bit UI: wine banners, copper edging, dark wood.
+   Specificity is intentional: native minigames append their styles when opened. */
+.ui7 #overlayInner.ui7-new-game-window{width:min(620px,96vw);box-sizing:border-box;padding:20px!important;overflow:auto;scrollbar-color:#9a7052 #211c29}
+.ui7 #overlayInner .ui7-new-game{min-width:0;color:#efd5a0;font-family:var(--ui7-font-text,monospace);font-size:var(--ui7-text,14px);line-height:1.5}
+.ui7 #overlayInner .ui7-new-game *{box-sizing:border-box}
+.ui7 #overlayInner .ui7-new-game>.eyebrow{display:block;margin:0 0 12px;padding:7px 12px;border-bottom:2px solid #a57850;background:#452732;color:#dfb87b;font:700 11px/1.3 var(--ui7-font-text,monospace);letter-spacing:.08em;text-align:center}
+.ui7 #overlayInner .ui7-new-game>h2{margin:0 0 8px;color:#ffe0a3;font:700 clamp(18px,3vw,23px)/1.3 var(--ui7-font-text,monospace);text-align:center;text-wrap:balance}
+.ui7 #overlayInner .ui7-new-game>p{max-width:none;margin:8px 0 12px;font-size:var(--ui7-text,14px);line-height:1.5;text-align:left;overflow-wrap:anywhere}
+.ui7 #overlayInner .ui7-new-game button{min-height:44px;font-family:var(--ui7-font-text,monospace);font-size:12px;line-height:1.3;white-space:normal;overflow-wrap:anywhere;touch-action:manipulation}
+.ui7 #overlayInner .ui7-new-game .row,.ui7 #overlayInner .ui7-new-game .plant-actions{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap;margin-top:10px}
+.ui7 #overlayInner .ui7-new-game .row>button,.ui7 #overlayInner .ui7-new-game .plant-actions>button{flex:1 1 140px;min-width:0}
+.ui7 #overlayInner .ui7-new-game [hidden]{display:none!important}
+.ui7 #overlayInner .ui7-new-game button:disabled{cursor:default}
+/* The waveform is functional feedback, including in touch layouts. */
+.ui7 #overlayInner #radioTuner .radio-display{padding:14px;margin-top:12px;color:#8cc9c8}
+.ui7 #overlayInner #radioTuner .radio-readout{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 0 9px;font-size:12px;line-height:1.4}
+.ui7 #overlayInner #radioTuner #radioChannel{font-size:24px;color:#f1d6a2;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.ui7 #overlayInner #radioTuner #radioQuality{text-align:right;max-width:55%;color:#c7b99b}
+.ui7 #overlayInner #radioTuner #radioScope{display:block;width:100%;height:clamp(56px,13vh,96px);border:1px solid #486769;border-radius:0;background:#152a32;image-rendering:pixelated}
+.ui7 #overlayInner #radioTuner.radio-locked #radioQuality{color:#a5d8c1}
+.ui7 #overlayInner #radioTuner.radio-locked #radioScope{border-color:#a5d8c1}
+.ui7 #overlayInner #radioTuner .radio-dial{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.ui7 #overlayInner #radioTuner .radio-dial button{font-size:23px;min-height:44px}
+.ui7 #overlayInner #radioTuner .radio-dial .ui7-screen-icon{display:none!important}
+/* Stable wood deck; each beat remains the original native waveform control. */
+.ui7 #overlayInner #plantSequencer .plant-board{display:grid;gap:8px;padding:12px;border:0;background:transparent}
+.ui7 #overlayInner #plantSequencer .plant-board>.action{justify-self:stretch}
+.ui7 #overlayInner #plantSequencer .plant-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px}
+.ui7 #overlayInner #plantSequencer .plant-heading button{margin:0;min-width:0;padding:8px 12px}
+.ui7 #overlayInner #plantSequencer .plant-board>b{color:#e6c890;font-size:12px}
+.ui7 #overlayInner #plantSequencer .plant-pads{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:0;padding:0;list-style:none}
+.ui7 #overlayInner #plantSequencer .plant-quad{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ui7 #overlayInner #plantSequencer .plant-pad{display:grid;place-content:center;justify-items:center;gap:5px;min-width:0;min-height:56px;padding:7px 3px;border:2px solid #9a7052!important;border-radius:0!important;background:#242331!important;box-shadow:inset 0 0 0 1px #443642!important;color:#edce91;font:700 11px/1.25 var(--ui7-font-text,monospace)}
+.ui7 #overlayInner #plantSequencer .plant-pad>.ui7-skin,.ui7 #overlayInner #plantSequencer .plant-pad>.ui7-screen-icon{display:none!important}
+.ui7 #overlayInner #plantSequencer .plant-pad[data-empty=true]{border:1px dashed #8a715a!important;background:#231e2b!important;color:#beac91;opacity:1}
+.ui7 #overlayInner #plantSequencer .plant-pad[data-used=true]{opacity:.42}
+.ui7 #overlayInner #plantSequencer .plant-pad[data-spare=true]{border-style:dashed!important;opacity:.75}
+.ui7 #overlayInner #plantSequencer .plant-pad.plant-live{background:#344649!important;border-color:#b8e3d4!important;box-shadow:inset 0 0 0 2px #547c76!important;color:#fff0bc;opacity:1}
+.ui7 #overlayInner #plantSequencer .plant-wave{display:flex;align-items:center;justify-content:center;gap:2px;height:22px;width:100%}
+.ui7 #overlayInner #plantSequencer .plant-wave i{display:block;width:3px;height:calc(var(--level) * 2px);background:currentColor}
+.ui7 #overlayInner #plantSequencer #plantSignal{min-height:2.8em;margin:9px 0;font-size:12px;line-height:1.4;color:#e8ce9f}
+/* Lumi uses the same three instrument pads, keeping the recorded-note cue and hint. */
+.ui7 #overlayInner #lumiMelody .lumi-slots{display:flex;flex-wrap:wrap;gap:5px;margin:12px 0 8px;padding:0}
+.ui7 #overlayInner #lumiMelody .lumi-slots span{display:grid;place-items:center;flex:1 1 30px;min-width:0;min-height:36px;padding:5px 3px;border:1px solid #ad8457;background:#242331;color:#f2d49a;font:700 12px/1.3 var(--ui7-font-text,monospace)}
+.ui7 #overlayInner #lumiMelody .voice-note-grid{margin-top:12px}
+.ui7 #overlayInner #lumiMelody .voice-note.lumi-cue{outline:2px solid #c2e5d7!important;outline-offset:2px;filter:brightness(1.2)}
+.ui7 #overlayInner #lumiMelody #lumiHint{padding:8px 10px;border-left:2px solid #85b4b5;background:#242331;font-size:12px;line-height:1.7;color:#b9d7cc}
+.ui7 #overlayInner #lumiMelody #lumiProgress{margin-bottom:5px;font-size:12px;color:#edce91}
+.ui7 #overlayInner #lumiMelody #lumiAudioStatus{margin:0;font-size:11px;line-height:1.4;color:#bfb49f}
+.ui7 #overlayInner #lumiMelody #lumiAudioStatus:empty{display:none}
+/* In-world instruments keep the map visible. No replacement of native status text. */
+.ui7 #frame .ui7-new-world{box-sizing:border-box;position:absolute;z-index:7;left:50%;bottom:88px;transform:translateX(-50%);width:min(460px,calc(100% - 32px));max-width:none;margin:0;padding:10px 14px;border:2px solid #a27850;border-radius:0;box-shadow:0 0 0 2px #17131f,inset 0 0 0 1px #513735;background:#241f2bef;color:#f1d6a2;text-align:center;font:700 12px/1.45 var(--ui7-font-text,monospace);pointer-events:none;overflow-wrap:anywhere}
+.ui7 #frame .ui7-new-world[hidden]{display:none!important}
+.ui7 #frame .ui7-new-world[data-error=true]{color:#ffb79d;border-color:#d08c69}
+.ui7 #frame #canalViolinHint{margin:0 0 6px;color:inherit;font:inherit}
+.ui7 #frame #canalViolinMeter{display:block;width:100%;height:8px;border:1px solid #a27850;border-radius:0;appearance:none;background:#171923;accent-color:#8cc5bc}
+.ui7 #frame #canalViolinMeter::-webkit-progress-bar{background:#171923}
+.ui7 #frame #canalViolinMeter::-webkit-progress-value{background:#8cc5bc}
+.ui7 #frame #canalViolinMeter::-moz-progress-bar{background:#8cc5bc}
+.ui7 #frame #finalEchoes{width:min(400px,calc(100% - 32px));padding:7px}
+.ui7 #frame #finalEchoNotes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;list-style:none;margin:0;padding:0}
+.ui7 #frame #finalEchoNotes li{padding:6px 2px;border:1px solid #8d6f58;background:#292331;color:#b4a68f;font:700 10px/1.3 var(--ui7-font-text,monospace)}
+.ui7 #frame #finalEchoNotes li[data-state=next]{border:1px dashed #e9c78e;color:#ffe1a8}
+.ui7 #frame #finalEchoNotes li[data-state=filled]{border-color:#7cb4a8;color:#a9d5bd}
+.ui7 #frame #finalEchoNotes li[data-state=playing]{border-color:#d7f1db;background:#44645c;color:#fff0b9}
+.ui7 #frame #finalEchoSignal{margin:6px 0 0;padding:0;background:transparent;color:#ecd4a8;font:700 11px/1.4 var(--ui7-font-text,monospace)}
+@media(max-width:550px){
+ .ui7 #overlayInner.ui7-new-game-window{width:100%;padding:14px!important}
+ .ui7 #overlayInner .ui7-new-game>.eyebrow{font-size:10px;padding:6px;margin-bottom:9px}
+ .ui7 #overlayInner .ui7-new-game>p{font-size:13px;line-height:1.45}
+ .ui7 #overlayInner #plantSequencer .plant-board{padding:9px;gap:7px}
+ .ui7 #overlayInner #plantSequencer .plant-pads{gap:4px}
+ .ui7 #overlayInner #plantSequencer .plant-wave{gap:1px}
+ .ui7 #overlayInner #plantSequencer .plant-wave i{width:2px}
+ .ui7 #overlayInner #plantSequencer .plant-heading{font-size:11px}
+ .ui7 #overlayInner #plantSequencer .plant-heading button{font-size:10px;padding:7px 9px}
+}
+.ui7.mobile121:not(.landscape121) #frame .ui7-new-world{bottom:10px;width:calc(100% - 20px);padding:7px 9px;font-size:11px}
+.ui7.mobile121.landscape121 #frame .ui7-new-world{bottom:10px;width:min(320px,42%);padding:6px 9px;font-size:10px}
+.ui7.mobile121.landscape121 #frame #finalEchoNotes li{font-size:9px;padding:4px 1px}
+@media(min-width:620px) and (max-height:520px){
+ .ui7 #overlayInner.ui7-new-game-window{width:min(680px,95vw);padding:14px 18px!important}
+ .ui7 #overlayInner .ui7-new-game>.eyebrow{margin-bottom:6px;padding:4px 8px;font-size:10px}
+ .ui7 #overlayInner .ui7-new-game>h2{font-size:18px;margin-bottom:5px}
+ .ui7 #overlayInner .ui7-new-game>p{font-size:12px;margin:5px 0 8px}
+ .ui7 #overlayInner #radioTuner .radio-display{padding:10px;margin-top:6px}
+ .ui7 #overlayInner #radioTuner #radioScope{height:48px}
+ .ui7 #overlayInner #radioTuner #radioChannel{font-size:20px}
+ .ui7 #overlayInner #radioTuner .radio-readout{padding-bottom:4px;font-size:11px}
+ .ui7 #overlayInner #radioTuner .radio-dial,.ui7 #overlayInner .ui7-new-game .row{margin-top:7px}
+ .ui7 #overlayInner #plantSequencer .plant-board{grid-template-columns:1fr 1fr;column-gap:14px;row-gap:6px;padding:10px}
+ .ui7 #overlayInner #plantReference{grid-column:1;grid-row:1}
+ .ui7 #overlayInner #plantReferenceSteps{grid-column:1;grid-row:2}
+ .ui7 #overlayInner #plantSequencer .plant-heading{grid-column:2;grid-row:1;font-size:11px}
+ .ui7 #overlayInner #plantSequencer .plant-heading button{padding:6px;font-size:10px}
+ .ui7 #overlayInner #plantSequencer .plant-heading+.plant-pads{grid-column:2;grid-row:2}
+ .ui7 #overlayInner #plantSequencer .plant-board>b{grid-column:1/-1;font-size:11px}
+ .ui7 #overlayInner #plantSequencer .plant-board>.plant-pads:not(.plant-quad){grid-column:1/-1}
+ .ui7 #overlayInner #plantSequencer .plant-pad{min-height:44px;gap:2px;padding:4px 2px}
+ .ui7 #overlayInner #plantSequencer #plantSignal{min-height:1.4em;font-size:11px;margin:6px 0}
+ .ui7 #overlayInner #lumiMelody .lumi-slots{margin:7px 0;gap:4px}
+ .ui7 #overlayInner #lumiMelody .lumi-slots span{min-height:28px;padding:3px}
+ .ui7 #overlayInner #lumiMelody .voice-note-grid{margin-top:6px}
+ .ui7 #overlayInner #lumiMelody .voice-note{min-height:56px!important}
+}
+/* Keep the existing accessibility preference effective on every new screen. */
+.ui7.big-text #overlayInner .ui7-new-game>p{font-size:var(--ui7-text,17px)}
+.ui7.big-text #overlayInner .ui7-new-game button,.ui7.big-text #overlayInner #plantSequencer .plant-heading,.ui7.big-text #overlayInner #plantSequencer #plantSignal,.ui7.big-text #overlayInner #lumiMelody #lumiProgress{font-size:14px}
+.ui7.big-text #overlayInner #plantSequencer .plant-pad{font-size:12px}
+.ui7.big-text #overlayInner #radioTuner .radio-dial button{font-size:23px}
+.ui7.big-text #frame .ui7-new-world{font-size:14px}
+/* Wide screens use the same two-row listening desk as compact landscape. Both
+   footer actions remain visible when the native reference sequence is revealed. */
+@media(min-width:620px){
+ .ui7 #overlayInner #plantSequencer .plant-board{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:14px}
+ .ui7 #overlayInner #plantReference{grid-column:1;grid-row:1}
+ .ui7 #overlayInner #plantReferenceSteps{grid-column:1;grid-row:2}
+ .ui7 #overlayInner #plantSequencer .plant-heading{grid-column:2;grid-row:1;min-width:0}
+ .ui7 #overlayInner #plantSequencer .plant-heading+.plant-pads{grid-column:2;grid-row:2}
+ .ui7 #overlayInner #plantSequencer .plant-board>b{grid-column:1/-1}
+ .ui7 #overlayInner #plantSequencer .plant-board>.plant-pads:not(.plant-quad){grid-column:1/-1}
+}
+@media(min-width:620px) and (max-height:520px){
+ .ui7 #overlayInner.ui7-new-game-window{max-height:100%!important}
+ .ui7 #overlayInner #plantSequencer{display:flex;flex-direction:column;max-height:calc(100dvh - 52px)}
+ .ui7 #overlayInner #plantSequencer>*{flex-shrink:0}
+ .ui7 #overlayInner #plantSequencer>.plant-board{flex:0 1 auto;min-height:96px;overflow-y:auto;scrollbar-color:#a27850 #241f2b}
+ .ui7 #overlayInner #plantSequencer .plant-pad{padding:3px 2px;gap:0}
+ .ui7 #overlayInner #plantSequencer .plant-wave{height:18px}
+ .ui7 #overlayInner #plantSequencer #plantSignal{margin:4px 0}
+}
+/* The center lane remains clear of the Fita control in the default horizontal deck. */
+.ui7.mobile121.landscape121 #frame .ui7-new-world,.ui7.mobile121.landscape121 #frame #finalEchoes{width:min(260px,32%)}
+.ui7.mobile121.landscape121 #frame #finalEchoNotes li{font-size:8px;white-space:nowrap}
+/* Keep Lumi's own return/finish controls visible while its hint panel scrolls. */
+@media(min-width:620px) and (max-height:520px){
+ .ui7 #overlayInner #lumiMelody>.row:last-child{position:sticky;bottom:-12px;z-index:4;margin:6px 0 0!important;padding:0;background:#201d2a;box-shadow:0 -2px 0 #201d2a;isolation:isolate}
+}
+
+@media(min-width:620px) and (max-height:520px){
+ .ui7 #overlayInner #lumiMelody .voice-note-grid{margin:4px 0!important;padding:0!important}
+ .ui7 #overlayInner #lumiMelody .ui7-note canvas{width:48px;height:42px}
+ .ui7 #overlayInner #lumiMelody #lumiProgress{margin:0!important;font-size:11px;line-height:1.2}
+}
