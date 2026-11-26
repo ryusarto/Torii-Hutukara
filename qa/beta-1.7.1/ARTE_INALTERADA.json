@@ -1,6 +1,0 @@
-{
-  "passed": true,
-  "base": "3e7ad3f5c9ba484e9e257e016102c19d8389c235",
-  "pngs": 140,
-  "method": "Exact Git blob SHA-1 matches the existing canonical PNGs; no sprite image edits"
-}

@@ -23,7 +23,7 @@ function read(relative) {
     cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024
   }) : fs.readFileSync(path.join(root, relative), 'utf8');
 }
-const base = read('game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html');
+const base = read('game/source/base/torii-core.html');
 const runtime = read('game/source/chapter-03/chapter3_runtime.js');
 const postgame = read('game/source/chapter-03/postgame.js');
 function between(source, start, end) {

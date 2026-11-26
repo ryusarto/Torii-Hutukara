@@ -15,6 +15,15 @@ let code=source.slice(source.indexOf('function installBot(){'),source.lastIndexO
 // Mesmas regras do qa/campaign_review.cjs (o robô que zera a campanha no CI).
 const review=fs.readFileSync(path.join(root,'qa/campaign_review.cjs'),'utf8');
 for(const m of review.matchAll(/^code=code\.replace\(.*$/gm))eval(m[0]);
+// A scene interaction can start a cold-art gate inside this very frame.
+// Wait before consuming its simulation DT, then settle the draw's requests.
+// Otherwise cold and warm runs receive different updates for identical inputs.
+const simulatedFrame='tick+=DT;update(DT);if((window.__campaignPaint=(window.__campaignPaint||0)+1)%8===0)drawEnv();';
+if(!code.includes(simulatedFrame)||!code.includes('if(window.FinalAssetLoadingV1?.busy())break;frame();'))throw Error('Bot readiness boundaries changed');
+code=code.replace('function frame(){','async function frame(){');
+code=code.replace(simulatedFrame,'await window.FinalAssetLoadingV1?.ready();'+simulatedFrame+'await window.FinalAssetLoadingV1?.ready();');
+code=code.replace('run(n){events=[];','async run(n){events=[];');
+code=code.replace('if(window.FinalAssetLoadingV1?.busy())break;frame();','await window.FinalAssetLoadingV1?.ready();await frame();');
 const install=Function('return '+code)();
 async function campaign(browser,seed){
   const page=await browser.newPage({viewport:{width:1280,height:800}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -29,8 +38,8 @@ async function campaign(browser,seed){
   // Conta derrotas: o jogo chama gameOver/derrota ao zerar a equipe.
   await page.evaluate(()=>{window.__derrotas=[];for(const name of ['showDefeat']){if(typeof window[name]==='function'){const f=window[name];window[name]=function(...a){__derrotas.push({area:G.area,boss:!!(window.bossActor||current.enemies?.some(e=>e.boss))});return f.apply(this,a)}}}});
   await page.locator('#startNew').click();await page.locator('#dif_historia').click();await page.evaluate(()=>__bot.begin('already'));
-  let st;for(let n=0;n<900;n++){st=await page.evaluate(()=>__bot.run(120));if(st.done||st.stuck||st.time>1400)break}
-  const result=await page.evaluate(()=>({seed:ToriiSorte.semente(),fixa:ToriiSorte.fixa(),usos:ToriiSorte.usos(),
+  let st;for(let n=0;n<900;n++){await page.evaluate(()=>window.FinalAssetLoadingV1?.ready());st=await page.evaluate(()=>__bot.run(120));if(st.done||st.stuck||st.time>1400)break}
+  const result=await page.evaluate(()=>({build:window.TORII_PLAYTEST_BUILD||null,seed:ToriiSorte.semente(),fixa:ToriiSorte.fixa(),usos:ToriiSorte.usos(),
     save:JSON.stringify({hp:G.hp,xp:G.xp,levels:G.levels,defeated:[...G.defeated].sort(),potions:G.potions,shards:G.shards,resonance:G.resonance,area:G.area}),derrotas:window.__derrotas}));
   await page.close();return{...result,done:!!st.done,stuck:st.stuck,time:Math.round(st.time),errors};
 }
@@ -38,7 +47,7 @@ async function campaign(browser,seed){
   const browser=await chromium.launch({executablePath:process.env.CHROME_PATH});
   try{
     const a=await campaign(browser,1234),b=await campaign(browser,1234),c=await campaign(browser,99);
-    const report={build:path.basename(input),a,b,c,checks:{
+    const report={build:path.basename(input),sourceSha256:a.build?.sourceSha256||null,method:'Actual 60Hz game update and sampled rendering; each bot frame awaits final-art readiness after inputs and after drawing. Same-seed saves, RNG counts and simulated times must remain exactly equal.',a,b,c,checks:{
       sementeAplicada:a.seed===1234&&a.fixa,
       mesmaSementeMesmoJogo:a.save===b.save&&a.usos===b.usos&&a.time===b.time,
       sementeDiferenteSorteiosDiferentes:c.usos!==a.usos||c.save!==a.save,

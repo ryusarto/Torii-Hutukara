@@ -1,92 +1,55 @@
-# Plano de qualidade
+# Validação
 
-## Validação automática atual
+Os workflows [`Gameplay regression`](../.github/workflows/quality.yml) e [`Publish playtest`](../.github/workflows/playtest.yml) definem a cobertura automática de publicação.
 
-A Alpha 1.1.2 possui 65 verificações estáticas cobrindo:
+## Preparar
 
-- presença dos arquivos essenciais;
-- onze mapas do Capítulo 3;
-- referências de cenas;
-- seis faixas;
-- funções dos bosses e epílogo;
-- schema, migração e autosave;
-- seis personagens jogáveis;
-- repertório e seleção dos padrões finais;
-- frase musical final;
-- nove folhas de personagens e cinco atlas ambientais;
-- atualização do objetivo do canal;
-- apresentação de Nara;
-- transição contínua do Capítulo 2;
-- ausência de placeholders;
-- integridade estrutural do HTML;
-- hash da base 1.1.2.
-- presença dos materiais detalhados do Distrito;
-- ausência da dependência circular do Elevador do Céu;
-- golpes exclusivos de Ryuchi percussionista;
-- animação ambiente dos NPCs.
-- nível individual e experiência de reserva na equipe.
-- kit territorial próprio do Franco Sintetizador;
-- ordem correta entre apresentação e recrutamento;
-- passarela caminhável na entrada do Núcleo do Silêncio.
+```sh
+npm install --no-save --package-lock=false playwright@1.62.1
+npx playwright install chromium
+export CHROME_PATH="$(node -p "require('playwright').chromium.executablePath()")"
+ruby game/source/chapter-03/build_alpha.rb
+ruby game/source/chapter-03/validate_alpha.rb
+```
 
-## Matriz de playtest obrigatória
+Os workflows também declaram as dependências de imagem da exportação. Em Linux, a instalação do Chromium pode exigir as dependências de sistema indicadas pelo Playwright.
 
-### Jornada
+## Verificações principais
 
-- Novo jogo do Capítulo 1 ao epílogo.
-- Save da 1.1.2 migrado.
-- Preview direto do Capítulo 2.
-- Preview direto do Capítulo 3.
+```sh
+node qa/input_regression.cjs
+node qa/gameplay_regression.cjs
+node qa/narrativa_fase4.cjs
+node qa/dificuldade_unit.cjs
+```
 
-### Capítulo 3
+Depois de exportar e servir o site em `http://127.0.0.1:8771/`:
 
-- Usina primeiro.
-- Canal primeiro.
-- Interferência aberta antes dos inimigos.
-- Inimigos derrotados antes de interagir com a comporta.
-- Retorno à oficina antes e depois do resgate.
-- Volta ao clube após uma e após duas frentes.
-- Elevador antes e depois de todos os requisitos.
-- Três passagens do Mar de Nuvens em ordens diferentes.
+```sh
+node qa/final_asset_loading_v1.cjs http://127.0.0.1:8771/
+node qa/loading_input_continuity_v1.cjs http://127.0.0.1:8771/
+node qa/guidance_runtime_v1.cjs http://127.0.0.1:8771/
+node qa/guidance_campaign_v1.cjs http://127.0.0.1:8771/
+node qa/npc_scale_v1.cjs http://127.0.0.1:8771/
+node qa/render_performance_v1.cjs http://127.0.0.1:8771/
+node qa/environment_depth_noop.cjs http://127.0.0.1:8771/
+node qa/playtest_site.cjs http://127.0.0.1:8771/
+node qa/dungeon_playtest.cjs http://127.0.0.1:8771/
+node qa/interface_controls_v7_browser.cjs http://127.0.0.1:8771/
+```
 
-### Combate final
+## Critérios
 
-- Vitória e derrota contra O Metrônomo.
-- Retry curto no checkpoint.
-- Múltiplas tentativas contra O Silêncio.
-- Frase final com notas repetidas e diferentes.
-- Reload durante `endingPending`.
+- Campanha até o epílogo nas duas ordens de Usina e Canal.
+- Save, recarga, importação, recuperação de posição e checkpoints.
+- Orientação desde a primeira abertura, retorno ao título e aproximação dos chefes, com saves existentes.
+- Metrônomo visível antes da conversa, com o sprite inteiro ao alcançar o prompt em retrato e paisagem.
+- Combate, chefes, pausa, derrota, reinício e retorno ao mapa.
+- Fenda: escolha de melhorias, retomada, recursos e pontuação solo/coop.
+- Teclado, remapeamento, toque e dois controles sem confirmação dupla.
+- Arte, animações e camadas preservadas nos cenários de referência.
+- Tempos de quadro, picos, resolução e ambiente registrados nas medições de desempenho.
 
-### Apresentação
+Fixtures históricas usadas como entrada permanecem em `qa/`. Relatórios, capturas e gravações são saídas geradas e ficam nos artefatos de CI ou no arquivo local de produção.
 
-- Todos os NPCs com sprite correto.
-- Objetos sem fundo retangular.
-- Player e projéteis visíveis sobre cada piso.
-- Marcadores não apontam para objetivos concluídos.
-- Diálogos sem personagem duplicado ou ausente.
-
-## Critério para Beta
-
-Zero bloqueios de progressão, zero perda de save, zero placeholders e conclusão integral em pelo menos três computadores diferentes.
-
-
-
-## Auditoria de Beta (automática)
-
-Gere a build antes: `ruby game/source/chapter-03/build_alpha.rb`.
-
-| Teste | Comando |
-|---|---|
-| Validação estática | `ruby game/source/chapter-03/validate_alpha.rb` |
-| Controles, rolada, coop e mobile | `node qa/input_regression.cjs` |
-| Site publicado (PC, iPhone, iPad) | `ruby production/build_playtest.rb` e `node qa/playtest_site.cjs <url>` |
-| Jornada completa (Usina primeiro) | `node qa/pace_bot.cjs newGame` |
-| Jornada completa (Canal primeiro) | `ROTA=canal PERFIL=tipico node qa/pace_bot.cjs newGame` |
-| Salvar e recarregar no meio | `RECARREGAR=1 PERFIL=tipico node qa/pace_bot.cjs newGame` |
-| Combate (chefes e inimigos) | `node qa/combat_lab.cjs 8` |
-
-Use `TAG=nome` para separar relatórios de jogadas em paralelo. Os relatórios ficam em `qa/ritmo/` e `qa/combate/`.
-
-## Regressões da Beta 1.0.1
-
-`node qa/gameplay_regression.cjs` cobre liberação narrativa, ataques no Distrito, XP/save, geometria, cooldown de patrulhas, dano e aura por ator, cura e toque sobre diálogo mobile. `qa/input_regression.cjs` conserva os testes de controle e rolada. Ambos são executados nos PRs e antes da publicação. Os JSONs em `qa/beta-1.0.1/` identificam o hash testado. Veja o procedimento e os limites em `qa/beta-1.0.1/PLAYTEST.md`.
+Testes em navegador com toque ou controle emulado não substituem a validação em celulares e controles físicos. Uma medição de CPU ou uma captura de tela isolada não comprova FPS constante nem a experiência completa de jogo.

@@ -7,7 +7,7 @@ const path=require('node:path');
 const vm=require('node:vm');
 const root=path.resolve(__dirname,'..');
 const runtime=fs.readFileSync(path.join(root,'game/source/chapter-03/chapter3_runtime.js'),'utf8');
-const base=fs.readFileSync(path.join(root,'game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html'),'utf8');
+const base=fs.readFileSync(path.join(root,'game/source/base/torii-core.html'),'utf8');
 const choreography=fs.readFileSync(path.join(root,'game/source/chapter-03/boss_choreography_v2.js'),'utf8');
 const fireLine=runtime.split('\n').findIndex(line=>line.startsWith('C3.fireHazard=function(h,e)'));
 assert(fireLine>=0,'production damage function found');

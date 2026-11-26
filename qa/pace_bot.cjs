@@ -21,7 +21,7 @@ opts.dificuldade=process.env.DIFICULDADE||null;const reloadEvery=process.env.REC
 const outDir=path.join(__dirname,'ritmo');fs.mkdirSync(outDir,{recursive:true});
 
 async function main(){
-  const browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1280,height:800}});
+  const browser=await chromium.launch({executablePath:process.env.CHROME_PATH});const page=await browser.newPage({viewport:{width:1280,height:800}});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(()=>{window.__realRAF=window.requestAnimationFrame;window.requestAnimationFrame=()=>0});
   await page.goto('file://'+build,{waitUntil:'load'});
@@ -42,6 +42,7 @@ async function main(){
         if(diff.length){saveIssues.push(`[${(st0.t/60).toFixed(1)} min] ${diff.map(k=>k+': '+JSON.stringify(before[k]).slice(0,120)+' → '+JSON.stringify(after[k]).slice(0,120)).join(' | ')}`)}
         log.push(`[${(st0.t/60).toFixed(1)} min] Recarregou a página (${diff.length?'DIFERENÇAS: '+diff.join(','):'progresso idêntico'})`);
       }}
+    await page.evaluate(()=>window.FinalAssetLoadingV1?.ready());
     const st=await page.evaluate(()=>window.__bot.run(3600)); // 60 s de jogo por lote
     if(st.events.length)log.push(...st.events);
     if(st.time-lastLog>=300){lastLog=st.time;console.log(`${(st.time/60).toFixed(1)} min · ${st.area} · ${st.mode} · ${st.objective}`)}
@@ -199,7 +200,7 @@ function installBot(){
     begin(s){if(s==='chapter2')startChapterTwoPreview();else if(s==='chapter3')C3.start(true);else newGame();const dif=(window.__botOpts||{}).dificuldade;if(dif&&G){G.difficulty=dif;say('Dificuldade: '+dif)}say('Início: '+s)},
     chefes(){return window.__chefes||{}},
     run(n){events=[];let stuck=null;
-      for(let i=0;i<n;i++){frame();
+      for(let i=0;i<n;i++){if(window.FinalAssetLoadingV1?.busy())break;frame();
         const obj=(()=>{try{return objectiveData().text}catch{return '?'}})();
         if(obj!==stuckObj){stuckObj=obj;stuckSince=clock;say('Objetivo: '+obj)}
         if(clock-stuckSince>480){stuck=`objetivo parado há 8 min: "${obj}" em ${G.area} (${G.x.toFixed(1)},${G.y.toFixed(1)}) modo ${mode} · chefe ${bossActor?bossActor.id+' '+bossActor.hp+'/'+bossActor.max+' em ('+bossActor.x.toFixed(1)+','+bossActor.y.toFixed(1)+')':'nenhum'} · battle ${JSON.stringify(battle)} · inimigos vivos ${(current.enemies||[]).filter(e=>!G.defeated.includes(e.id)).map(e=>e.id).join(',')} · ativo ${G.active} (fighter ${(()=>{try{return fighterName()}catch{return '?'}})()}) · vida ${JSON.stringify(G.hp)} · formação ${JSON.stringify(G.formation)} · membros ${JSON.stringify((()=>{try{return partyMembers()}catch{return '?'}})())} · act ${JSON.stringify({cool:act.cool,dash:act.dash,invuln:act.invuln})}`;break}

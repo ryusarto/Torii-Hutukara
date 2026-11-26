@@ -107,6 +107,7 @@ function harness(options = {}) {
   };
   // Use the production native fallback while the optional contact atlas is unavailable.
   h.HeroAttackFX = {follower(){}}; h.effect10 = () => {};
+  h.FinalAssetLoadingV1 = {requireImage(){stats.loadingRequests=(stats.loadingRequests||0)+1}};
   vm.createContext(h);
   vm.runInContext(fs.readFileSync(path.join(root,'game/source/chapter-03/hero_attack_body.js'),'utf8').replace('__HERO_BODY_ATLASES__','{}').replace('__HERO_BODY_PLACEMENT__','{}'),h);
   vm.runInContext(source.replace('__MUSICIAN_ASSETS__', JSON.stringify(options.assets || assets))
@@ -232,7 +233,7 @@ for(const hero of ['synth','percussion'])for(const variant of variants)for(const
 for(const failure of ['pending','broken','absent'])check('fallback '+failure,()=>{
  const options=failure==='absent'?{assets:{}}:{[failure]:['franco_sintetizador_unmasked_attack_1']};
  const s=scene('synth','unmasked',0,options);s.start();
- if(failure==='absent'){const n=s.stats.actor;s.draw();assert.equal(s.stats.actor,n+1)}else assert.equal(s.draw().state,'idle');
+ if(failure==='absent'){const n=s.stats.actor;s.draw();assert.equal(s.stats.actor,n);assert.equal(s.stats.loadingRequests,1)}else assert.equal(s.draw().state,'idle');
  assert.equal(s.record().presentedFrame,-1);s.step(.4);assert.equal(s.record().presentedFrame,-1);return {noConsumption:true};
 });
 check('defeat and non-attack timelines unchanged',()=>{

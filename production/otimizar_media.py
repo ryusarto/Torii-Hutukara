@@ -12,7 +12,7 @@ Escreve o arquivo novo em <pasta_media>/<sha256>.webp, apaga o original
 substituído e grava {original: {file, bytes, mode, psnr}} no relatório.
 O cache (production/.media-cache/) guarda o resultado por hash do original.
 """
-import hashlib, io, json, math, os, sys
+import hashlib, io, json, math, os, subprocess, sys
 from multiprocessing import Pool
 import numpy as np
 from PIL import Image
@@ -76,6 +76,24 @@ def convert(path):
     return path, meta, best
 
 
+def write_media(destination, data, cached):
+    # APFS copy-on-write keeps verified cached bytes independent of source/cache
+    # files. Other systems retain the normal write; no hard links are created.
+    if sys.platform == 'darwin' and os.path.isfile(cached):
+        with open(cached, 'rb') as stream:
+            same = stream.read() == data
+        if same:
+            try:
+                result = subprocess.run(['/bin/cp', '-c', cached, destination],
+                                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                if result.returncode == 0:
+                    return
+            except OSError:
+                pass
+    with open(destination, 'wb') as stream:
+        stream.write(data)
+
+
 def main():
     folder, report_path = sys.argv[1], sys.argv[2]
     files = sorted(os.path.join(folder, f) for f in os.listdir(folder)
@@ -88,7 +106,10 @@ def main():
                 report[name] = {**meta, 'file': name}
                 continue
             out_name = hashlib.sha256(best).hexdigest() + '.webp'
-            open(os.path.join(folder, out_name), 'wb').write(best)
+            with open(path, 'rb') as stream:
+                source_hash = hashlib.sha256(stream.read()).hexdigest()
+            cached = os.path.join(CACHE, VERSION, source_hash) + '.webp'
+            write_media(os.path.join(folder, out_name), best, cached)
             if os.path.basename(path) != out_name:
                 os.remove(path)
             report[name] = {**meta, 'file': 'media/' + out_name}

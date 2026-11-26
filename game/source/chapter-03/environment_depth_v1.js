@@ -131,12 +131,32 @@ const EnvironmentDepthV1=(()=>{
    if((xx*11+yy*7)%13===0){segment(x+3,y+7,x+12,y+13,'#848b6b33');segment(x+12,y+13,x+18,y+20,'#848b6b33');}
   }
  };
+ const cellInRect=(x,y,left,top,width,height)=>x>=left&&y>=top&&x<left+width&&y<top+height;
+ api.floorAffects=function(p,type,xx,yy){
+  switch(p.style){
+   case 'recording':return type!=='rug'&&yy===6&&xx>=7&&xx<=18;
+   case 'home':return cellInRect(xx,yy,1,3,5,6)||cellInRect(xx,yy,18,4,5,5)||(xx===6&&yy>=3&&yy<=8);
+   case 'passage':return xx%5===0||yy===5||yy===13;
+   case 'club':return cellInRect(xx,yy,5,3,19,4)||(yy===7&&xx>=5&&xx<=23)||(xx>=10&&xx<=18&&yy>=8&&yy<=13&&(xx+yy)%2===0)||cellInRect(xx,yy,22,11,4,6);
+   case 'instruments':return cellInRect(xx,yy,4,6,6,5)||cellInRect(xx,yy,19,5,5,5)||((yy===11||yy===6)&&xx>=10&&xx<=18)||cellInRect(xx,yy,11,3,7,3);
+   case 'factory':
+    if(xx===17&&current?.blocked?.has(xx+','+yy))return false;
+    return xx%5===0||yy%6===0||((xx===8||xx===28)&&yy>=4&&yy<=20)||(yy===19&&xx>=9&&xx<=27);
+   case 'abyss':return xx%4===0||yy%4===0||(xx*11+yy*7)%13===0;
+   // The other profiles draw materials or clipped rings on every floor tile.
+   // Unknown/new styles retain their original path until explicitly audited.
+   default:return true;
+  }
+ };
  api.tile=function(type,x,y,xx,yy){
   const p=this.enabled&&this.profile();if(!p||!current||type==='void'||type==='c3_sky')return;
+  const boundary=xx===0||yy===0||xx===current.w-1||yy===current.h-1,wall=type==='wall092'||boundary;
+  // Canvas paths are not part of save()/restore(). Keep the original rectangle
+  // path even when this cell has no overlay, but avoid its empty clip/state pass.
+  if(!wall&&(!floorTypes.has(type)||!this.floorAffects(p,type,xx,yy))){ctx.beginPath();ctx.rect(x,y,T,T);return}
   ctx.save();ctx.beginPath();ctx.rect(x,y,T,T);ctx.clip();
   try{
-   const boundary=xx===0||yy===0||xx===current.w-1||yy===current.h-1;
-   if(type==='wall092'||boundary){ctx.globalAlpha*=.24;this.wallTile(p,x,y,xx,yy);}
+   if(wall){ctx.globalAlpha*=.24;this.wallTile(p,x,y,xx,yy);}
    else if(floorTypes.has(type))this.floorTile(p,type,x,y,xx,yy);
   }finally{ctx.restore()}
  };

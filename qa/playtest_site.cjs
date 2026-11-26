@@ -44,7 +44,7 @@ async function main() {
     await page.waitForLoadState('load', {timeout:120000});
     // All externally served chapter assets must have decoded, not just returned HTTP 200.
     await page.evaluate(() => C3.loadDeferredImages());
-    await page.waitForFunction(() => Object.values(C3.images).every(img => img.complete && img.naturalWidth > 0));
+    await page.waitForFunction(() => Object.keys(C3.assetData).every(id => C3.images[id].complete && C3.images[id].naturalWidth > 0));
     await page.waitForSelector('#playtestEntry', { state: 'detached', timeout: 6500 });
     if (name === 'PC') {
       await page.setViewportSize({ width: 390, height: 844 });

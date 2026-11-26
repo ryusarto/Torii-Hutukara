@@ -12,16 +12,16 @@ const assert = require('node:assert/strict');
     const errors=[];
     page.on('pageerror',err=>errors.push(err.message));
     await page.goto(process.argv[2],{waitUntil:'load',timeout:120000});
-    const result=await page.evaluate(()=>{
+    const result=await page.evaluate(async()=>{
       const fx=EnemyAttackFX, choreo=BossChoreographyV2;
       const rows=[], sheets=new Map();
       function expect(ok,msg){if(!ok)throw Error(msg);}
-      function fixture(area){
+      async function fixture(area){
         G=fresh();buildMaps();G.area=area;current=areas[area];mode='action';
         G.active='franco';G.x=15;G.y=15;G.hp.franco=G.maxhp.franco=1000;
         G.options10={...G.options10,reducedMotion:false};
         C3.hazards=[];C3.finalPending=false;hostileShots=[];bossActor=null;rings092=[];
-        EnemyArtV1.reset();choreo.reset();ToriiCombate.MODE.mode='padrao';
+        EnemyArtV1.reset();choreo.reset();ToriiCombate.MODE.mode='padrao';await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');
       }
       function sample(name,shape,palette,draw,entities){
         const sheet=fx.atlas(shape,palette);sheets.set(name,sheet);
@@ -39,10 +39,10 @@ const assert = require('node:assert/strict');
         ['c3_silence','void','silence_core',['ring','cross','fan','pulse','rain','chase','orbit']]
       ];
       for(const [id,palette,area,patterns] of bossCases)for(const kind of patterns){
-        fixture(area);
+        await fixture(area);
         const e=bossActor={id,type:'boss',x:15,y:10,hp:id==='voice_boss'&&['double_wave','volley'].includes(kind)?400:1000,
           max:1000,power:10,cd:10,stun:0,flash:0,phase:2,facing:1.57,chargeX:0,chargeY:1,patternIndex:0};
-        battle={id,boss:true};
+        battle={id,boss:true};await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');
         const step=dt=>{choreo.clock+=dt;updateEnemy(e,dt,true);};
         let release;
         if(id.startsWith('c3_')){
@@ -75,8 +75,8 @@ const assert = require('node:assert/strict');
         ['compasso','pendulum','drum'],['c3_drone','pistons','iron'],['c3_echo','fracture','radio'],
         ['espelho','mirror','ghost'],['espelho','echo','ghost']];
       for(const [type,shape,palette] of mobs){
-        fixture('forest');battle={boss:false,id:'field'};
-        const e=hydrateEnemy({id:'qa_'+type,type,x:14.6,y:15});e.cd=0;
+        await fixture('forest');battle={boss:false,id:'field'};
+        const e=hydrateEnemy({id:'qa_'+type,type,x:14.6,y:15});e.cd=0;const image=window.EnemyVariantArtV2?.supports(e)?EnemyVariantArtV2.image(type):EnemyArtV1.image(EnemyArtV1.key(type,e));await FinalAssetLoadingV1.requireImage(image,'QA enemy '+type);await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');
         const step=dt=>{EnemyArtV1.clock+=dt;updateEnemy(e,dt,false);};
         if(type==='compasso'){e.clock=.998;e.lastBeat=0;}
         if(type==='espelho'&&shape==='echo'){e.clock=1;e.hits=[.4,.8];}

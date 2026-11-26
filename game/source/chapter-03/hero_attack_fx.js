@@ -64,19 +64,7 @@ const HeroAttackFX = {
     this.v3Stamp(art.hero,clip,frame,x,y,width,height,angle,alpha);return true;
   },
   combos:{franco:[0,24,25],ryuchi:[4,26,27],katana:[12,28,29],synth:[16,30,31],percussion:[20,32,33]},
-  v2Sources:__HERO_ATTACK_V2_ATLASES__,
-  v2Images:{},capture:null,
-  bassSource:__FRANCO_BASS_PULSE__,bass:null,enemyEdges:new Map(),
-  atlasSource:__HERO_ATTACK_ATLAS__,
-  swordSource:__RYUCHI_SWORD_ATLAS__,
-  atlas:null, sword:null, events:[], game:null, area:null, clock:0,
-  prepare(){
-    if(this.atlas)return;
-    this.atlas=new Image();
-    this.atlas.src=this.atlasSource;
-    this.sword=new Image();
-    this.sword.src=this.swordSource;
-  },
+  capture:null,enemyEdges:new Map(),events:[],game:null,area:null,clock:0,
   ready(hero){return this.v3Ready(hero)},
   sync(){
     if(this.game===G && this.area===G?.area)return;
@@ -97,7 +85,7 @@ const HeroAttackFX = {
   },
   emit(row,x,y,direction,duration,scale=1,sword=false,yOffset=-15,art=null){
     if(!G || !Number.isFinite(x) || !Number.isFinite(y))return;
-    this.sync();this.prepare();
+    this.sync();
     if(art)this.ready(art.hero);
     if(this.events.length>=24)this.events.shift();
     const event={row,x,y,angle:Math.atan2(direction[1],direction[0]),start:this.clock,duration,scale,sword,yOffset,art};
@@ -146,196 +134,6 @@ const HeroAttackFX = {
     const edge=hit.edge;
     return {x:x*T-cam.x+edge.x,y:y*T-cam.y+edge.y};
   },
-  bassWave(x,y,angle,wave,phase,alpha,contact=0,note=false){
-    if(alpha<=0)return;
-    const strip=this.bass,atlas=this.v2Images.franco;
-    const hasStrip=strip?.complete && strip.naturalWidth===1024 && strip.naturalHeight===48;
-    const hasAtlas=atlas?.complete && atlas.naturalWidth===768;
-    ctx.save();
-    try{
-      ctx.translate(x,y);ctx.rotate(angle);
-      ctx.globalAlpha*=alpha;ctx.imageSmoothingEnabled=false;
-      if(contact>0){
-        ctx.beginPath();
-        for(let ray=0;ray<3;ray++){
-          const a=Math.PI+(ray-1)*.82,r=2+3*(1-contact);
-          ctx.moveTo(Math.cos(a)*r,Math.sin(a)*r);
-          ctx.lineTo(Math.cos(a)*(r+3+4*contact),Math.sin(a)*(r+3+4*contact));
-        }
-        ctx.strokeStyle='#542a20';ctx.lineWidth=3.1;ctx.stroke();
-        ctx.strokeStyle='#fff4c4';ctx.lineWidth=1.5;ctx.stroke();
-      }
-      if(note && hasAtlas){
-        ctx.drawImage(atlas,3*128+87,5*128+31,26,20,-wave*.58,-8-4*phase,9,7);
-      }
-      // A high-contrast string follows the bitmap phase. Its one-pixel dark edge
-      // stays readable against sunlit grass; it never fills the space around it.
-      const beat=Math.sin(phase*Math.PI),peak=1.0+1.6*beat;
-      ctx.lineJoin='round';ctx.lineCap='round';ctx.beginPath();
-      ctx.moveTo(-wave,0);ctx.lineTo(-wave*.68,0);ctx.lineTo(-wave*.54,-peak);
-      ctx.lineTo(-wave*.42,peak*.75);ctx.lineTo(-wave*.28,0);ctx.lineTo(0,0);
-      ctx.strokeStyle='#41251c';ctx.lineWidth=3.7;ctx.stroke();
-      ctx.strokeStyle='#ffcb74';ctx.lineWidth=2.1;ctx.stroke();
-      ctx.strokeStyle='#fff6d3';ctx.lineWidth=1;ctx.stroke();
-      const height=Math.max(13,wave*.53);
-      if(hasStrip){
-        const frame=Math.min(7,Math.floor(phase*8));
-        ctx.drawImage(strip,frame*128,0,128,48,-wave,-height/2,wave,height);
-      }else if(hasAtlas){
-        // The cropped fallback contains only vibrating cord, excluding the peg.
-        const c=Math.min(5,Math.floor(phase*6));
-        ctx.drawImage(atlas,c*128+39,51,62,26,-wave,-height/2,wave,height);
-      }else{
-        ctx.strokeStyle='#f3be65';ctx.lineWidth=1.2;
-        ctx.beginPath();ctx.moveTo(-wave,0);ctx.lineTo(-wave*.6,0);ctx.lineTo(-wave*.48,-3);
-        ctx.lineTo(-wave*.36,2);ctx.lineTo(-wave*.22,0);ctx.lineTo(0,0);ctx.stroke();
-      }
-    }finally{ctx.restore()}
-  },
-  drawBass(event,phase){
-    const reduced=!!G?.options10?.reducedMotion;
-    // Only targets that lost HP can attract the chord. An unsuccessful chord
-    // only vibrates close to the instrument. The animation never tests collision.
-    const originX=event.x*T-cam.x,originY=event.y*T-cam.y+event.yOffset;
-    const hits=event.art.hits,length=hits.length||1;
-    for(let i=0;i<length;i++){
-      const end=hits[i];
-      const bearing=end?Math.atan2(end.y-event.y,end.x-event.x):event.angle;
-      // Aim at the facing edge of the real hurt sprite rather than its feet/pivot.
-      const point=end?this.contactPoint(end,bearing+Math.PI,phase):null;
-      const dx=point?point.x-originX:Math.cos(event.angle)*39;
-      const dy=point?point.y-originY:Math.sin(event.angle)*39;
-      const distance=Math.max(.1,Math.hypot(dx,dy)),angle=Math.atan2(dy,dx);
-      const ux=dx/distance,uy=dy/distance;
-      const hand=Math.min(17,distance*.35),opacity=Math.max(.65,1-i*.045);
-      if(reduced){
-        // Two stationary cues crossfade. The first stays at the strings and the
-        // second, when present, stays at the confirmed target throughout contact.
-        const attack=end?Math.max(0,1-phase*1.7):1-phase;
-        if(i===0)this.bassWave(originX+ux*(hand+8),originY+uy*(hand+8),angle,15,.36,attack*.84);
-        const arrival=Math.min(1,Math.max(0,(phase-.32)/.33),(1-phase)/.18);
-        if(end && arrival>0)this.bassWave(originX+dx,originY+dy,angle,15,.65,arrival*opacity*.9,.72);
-        continue;
-      }
-      const delay=Math.min(.17,i*.038);
-      if(phase<delay)continue;
-      const t=Math.min(1,(phase-delay)/(1-delay));
-      const surge=Math.min(1,Math.max(0,(t-.015)/.68));
-      const travel=surge*surge*(3-2*surge);
-      const recoil=t<.22?3*Math.sin(Math.PI*t/.22):0;
-      const front=hand+(distance-hand)*travel-recoil;
-      const wave=Math.max(10,Math.min(35,front-hand+16,18+17*Math.sin(Math.PI*t)));
-      const alpha=Math.min(.97,.78+t*3,(1-t)*6)*opacity;
-      const contact=end && t>=.66?Math.max(0,1-(t-.66)/.34):0;
-      this.bassWave(originX+ux*front,originY+uy*front,angle,wave,t,alpha,contact,t>.29 && t<.79);
-    }
-    return true;
-  },
-  drawV2(event,phase){
-    const {art}=event,hero=art.hero,clip=art.clip;
-    if(art.gesture==='bass')return this.drawBass(event,phase);
-    if(!this.ready(hero))return false;
-    const image=this.v2Images[hero],reduced=!!G?.options10?.reducedMotion;
-    const t=reduced?.45:phase, eased=1-(1-t)*(1-t);
-    const gesture=art.gesture || 'strike';
-    const isImpact=gesture==='impact';
-    const forward=clip<3 || (hero==='ryuchi' && clip!==5) || (hero==='katana' && clip!==4);
-    const groundRadius=art.floorWidth || 0;
-    const ground=!!(groundRadius || art.floor);
-    let width=Math.min(ground?80:84,groundRadius || (isImpact?23:clip<3?49:clip===5?58:51)*event.scale);
-    let height=ground?width*.36:width;
-    let angle=forward?event.angle:0;
-    let reach=0,across=0;
-    const body=art.anchor;
-    const attached=body && (body===G?G.active:C3.coop.member)===hero;
-    let x=(attached?body.x:event.x)*T-cam.x, y=(attached?body.y:event.y)*T-cam.y+event.yOffset;
-    let sx=1,sy=1;
-    const direction=event.angle;
-    const dx=Math.cos(direction),dy=Math.sin(direction);
-    if(gesture==='cable'){
-      // Launch the cable from the keys towards the field and keep the torso readable.
-      angle=direction;reach=12+12*eased;width=41+.17*41*eased;height=32;
-    }else if(gesture==='blade'){
-      // Wielding hand is the rotation centre. Returning swings take the opposite arc.
-      const sign=clip===1?-1:1;
-      angle+=clip===2?0:sign*(-.85+1.40*eased);
-      reach=5+6*eased;
-    }else if(gesture==='pluck'){
-      reach=5+7*eased;across=Math.sin(t*Math.PI*3)*2*(1-t);
-      sy=.80+.20*Math.sin(t*Math.PI);
-    }else if(gesture==='thrust'){
-      reach=7+9*eased;
-    }else if(gesture==='field'){
-      const closing=clip===4;
-      sx=sy=closing?1.10-.42*eased:.70+.30*eased;
-    }else if(gesture==='pulse'){
-      sx=sy=.62+.38*eased;
-    }else if(gesture==='path' && art.end){
-      // Ryuchi changes position in the accepted action; the ink of Katana's iai
-      // follows positions sampled after actual movement in update, including walls.
-      const travel=art.live?1:eased;
-      x+=(art.end.x-event.x)*T*travel;y+=(art.end.y-event.y)*T*travel;
-    }else if(gesture==='link' && art.end){
-      const length=Math.hypot(art.end.x-event.x,art.end.y-event.y)*T;
-      if(hero==='synth'){
-        // Render along the confirmed connection, with a clear gap around the keys.
-        // The travelling end stops at the target even when it is close to the player.
-        angle=direction;const gap=Math.min(17,length*.35);
-        const front=gap+(length-gap)*eased;
-        width=Math.max(1,Math.min(64,front-gap));height=Math.min(30,Math.max(8,width*.55));
-        reach=front-width;
-      }else{
-        x+=(art.end.x-event.x)*T*eased;y+=(art.end.y-event.y)*T*eased;
-      }
-    }else if(!isImpact && forward){
-      reach=7;
-    }
-    x+=dx*reach-dy*across;y+=dy*reach+dx*across;
-    if(art.edgeHit){
-      // The upper/outward side stays visible when two fighters overlap the near shoulder.
-      const side=direction+(dy>.4?-.67:.67)*(dx>=0?-1:1);
-      const contact=this.contactPoint(art.edgeHit,side);
-      x=contact.x;y=contact.y;
-      angle=direction+(clip===1?-.70:.50);
-      width=clip===1?23:28;height=hero==='percussion'?14:12;
-    }
-    const frame=Math.min(5,Math.floor((art.startPhase||0)*6+t*(1-(art.startPhase||0))*6));
-    const directedCable=gesture==='cable' || (gesture==='link' && hero==='synth');
-    const pivot=(forward || directedCable) && !isImpact?7:64;
-    const draw=(px,py,rotation,alpha,frameIndex)=>{
-      ctx.save();
-      try{
-        ctx.globalAlpha*=alpha;
-        ctx.translate(Math.round(px),Math.round(py));ctx.rotate(rotation);ctx.scale(sx,sy);
-        ctx.imageSmoothingEnabled=false;
-        if(art.edgeHit){
-          // Two tapered slivers amplify the authored motif at native pixel size.
-          const tone=hero==='katana'?'#f1d3f7':hero==='synth'?'#9cf5d7':'#ffcd8d';
-          const bend=hero==='synth'?3:hero==='percussion'?-3:1;
-          ctx.beginPath();ctx.moveTo(-width*.40,2);ctx.lineTo(0,bend);ctx.lineTo(width*.40,-2);
-          if(clip===2){ctx.moveTo(width*.02,4);ctx.lineTo(width*.36,2)}
-          ctx.strokeStyle='#37283a';ctx.lineWidth=3.1;ctx.stroke();
-          ctx.strokeStyle=tone;ctx.lineWidth=1.45;ctx.stroke();
-        }
-        if(isImpact){
-          // A small detail from the authored contact, centred exactly on the struck target.
-          ctx.drawImage(image,frameIndex*128+44,clip*128+44,48,40,-width/2,-height/2,width,height);
-        }else if(hero==='percussion' && ground){
-          // Project the animated drum skin onto the ground without its rim/stand.
-          ctx.drawImage(image,frameIndex*128+33,clip*128+38,59,53,-width/2,-height/2,width,height);
-        }else{
-          ctx.drawImage(image,frameIndex*128,clip*128,128,128,-width*pivot/128,-height/2,width,height);
-        }
-      }finally{ctx.restore()}
-    };
-    if(hero==='katana' && gesture==='path' && !reduced && t>.35 && art.end){
-      const gap=Math.min(20,Math.hypot(art.end.x-event.x,art.end.y-event.y)*T*.5);
-      if(gap>1)draw(x-dx*gap,y-dy*gap,angle,.30*(1-t),Math.max(0,frame-2));
-    }
-    const alpha=Math.min(ground?.64:isImpact?.88:.91,(1-t)*2.8+.06);
-    draw(x,y,angle,alpha,frame);
-    return true;
-  },
   trackTravel(){
     for(const event of this.events){
       if(event.art?.live && event.art.body===G && event.art.tracking){
@@ -344,21 +142,6 @@ const HeroAttackFX = {
       }
     }
   },
-  drawCell(row,frame,x,y,angle,scale,sword=false){
-    const blade=sword && this.sword?.complete && this.sword.naturalWidth>0;
-    const image=blade?this.sword:this.atlas;
-    if(!image?.complete || !image.naturalWidth)return false;
-    const cell=blade?128:96;
-    const col=blade?Math.min(3,Math.floor(frame*.4)):Math.floor(row/24)*10+frame;
-    const sy=blade?0:row%24*cell;
-    const size=blade?83*scale:cell*scale;
-    ctx.save();
-    ctx.translate(Math.round(x),Math.round(y));ctx.rotate(angle);
-    ctx.imageSmoothingEnabled=false;
-    ctx.drawImage(image,col*cell,sy,cell,cell,-size/2,-size/2,size,size);
-    ctx.restore();
-    return true;
-  },
   draw(){
     this.sync();
     for(const event of this.events){
@@ -366,9 +149,7 @@ const HeroAttackFX = {
       if(event.art?.guard && (G.active!==event.art.guard ||
         (event.art.guard==='katana'?Combat10.guard:C3.percussionGuard)<=0))continue;
       const elapsed=Math.max(0,this.clock-event.start);
-      if(this.drawV3(event,Math.min(.99999,elapsed/event.duration)))continue;
-      const frame=G.options10?.reducedMotion?4:Math.min(9,Math.floor(elapsed/event.duration*10));
-      this.drawCell(event.row,frame,event.x*T-cam.x,event.y*T-cam.y+event.yOffset,event.angle,event.scale,event.sword);
+      this.drawV3(event,Math.min(.99999,elapsed/event.duration));
     }
   },
   drawProjectile(shot){

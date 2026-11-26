@@ -6,7 +6,7 @@ require 'json'
 
 root = File.expand_path(__dir__)
 repo_root = File.expand_path('../../..', root)
-base = File.join(repo_root, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
+base = File.join(repo_root, 'game', 'source', 'base', 'torii-core.html')
 version = JSON.parse(File.read(File.join(repo_root, 'game', 'VERSION.json')))
 alpha = File.join(repo_root, 'game', 'builds', version.fetch('versao'), "TORII_HUTUKARA_#{version.fetch('sufixo')}.html")
 runtime = File.join(root, 'chapter3_runtime.js')
@@ -148,17 +148,19 @@ check.call('epílogo', source.include?("C3.scene('C3_027'"))
 %w[district_materials sprite_maia sprite_nara sprite_ciro sprite_vega sprite_dimas sprite_resident_a sprite_resident_b sprite_canal_worker sprite_plant_operator atlas_lamps atlas_urban atlas_workshop atlas_canal atlas_lift].each do |asset|
   check.call("asset #{asset}", source.include?("#{asset}:") && built.include?("#{asset}:"))
 end
-%w[prebeta_roll prebeta_run prebeta_portraits prebeta_mask prebeta_props prebeta_clouds prebeta_cinema].each do |asset|
+%w[prebeta_mask prebeta_props prebeta_clouds prebeta_cinema].each do |asset|
   check.call("asset #{asset}", source.include?("#{asset}:") && built.include?("#{asset}:"))
 end
-%w[prebeta_run_v2 prebeta_portraits_v2 prebeta_collabs prebeta_collabs_move prebeta_dney prebeta_materials_v2].each do |asset|
+%w[prebeta_collabs prebeta_collabs_move prebeta_dney prebeta_materials_v2].each do |asset|
   check.call("asset #{asset}", source.include?("#{asset}:") && built.include?("#{asset}:"))
 end
-check.call('rosto autoral do Franco nos diálogos', source.include?('prebeta_portraits') && source.include?("who.includes('franco')"))
+check.call('retratos finais dos protagonistas', built.include?('const protagonistPortraitV5 = portraitURI10') && built.include?("'_portrait_'"))
 check.call('máscara canônica com rosto visível', source.include?('PB.drawCanonicalMask') && source.include?('Eu ainda vejo pelas lentes'))
 check.call('máscara passa a aparecer depois da aquisição', source.include?('PB.repairMaps') && source.include?('G.flags.masks=true;updateHUD()'))
-check.call('rolamento dos seis personagens', source.include?('PLAYABLE_ROLL') || source.include?('prebeta_roll'))
-check.call('corrida própria da dupla do capítulo 3', source.include?('prebeta_run') && source.include?("style==='synth'||style==='percussion'"))
+check.call('rolamento final dos seis personagens', built.include?('const ProtagonistArtV5 =') && built.include?('const NinjaArcherArtV1 =') && built.include?('const MusicianArtV1 ='))
+check.call('corrida final com registro preservado', built.include?('const RunStrideV1 =') && built.include?('nativeRunRows'))
+check.call('orientação e preview pré-luta integrados', built.include?('window.GuidanceRecoveryV1=') && built.include?("type:'c3_metronome_waiting'"))
+check.call('carregamento final protege a primeira apresentação', built.include?('window.FinalAssetLoadingV1=') && built.include?('function observeGame()'))
 check.call('nuvens volumétricas', source.include?('PB.cloudTile') && source.include?('prebeta_clouds'))
 check.call('placa e pilares detalhados', source.include?("p.type==='signpost'") && source.include?("p.type==='ruinColumn'"))
 check.call('colisões alinhadas às fachadas', source.include?('districtHouses') && source.include?('rectBlock(a,hx-3,hy-5,7,5)'))
@@ -231,8 +233,8 @@ check.call('Viajante tem rota de chefe própria, sem ator alt ampliado', built.i
 check.call('sprites de inimigos incluídos sem marcadores pendentes', built.include?('const EnemyArtV1 =') && built.scan(/__ENEMY_ART_[A-Z_]+__/).empty?)
 check.call('chefes C3 não são redesenhados após o cenário', !source.include?("if(bossActor&&['c3_metronome','c3_silence'].includes(bossActor.id))drawCreature"))
 
-expected_base_hash = File.read(File.join(repo_root, 'game', 'source', 'base', 'SHA256_TRILHAS_1_1_2.txt')).split.first
-check.call('base 1.1.2 preservada', Digest::SHA256.file(base).hexdigest == expected_base_hash)
+expected_base_hash = File.read(File.join(repo_root, 'game', 'source', 'base', 'SHA256_CORE.txt')).split.first
+check.call('integridade da base de execução', Digest::SHA256.file(base).hexdigest == expected_base_hash)
 
 musician_root = File.join(repo_root, 'assets', 'variantes', 'percussao-sintetizador-v1')
 musician_art = JSON.parse(File.read(File.join(musician_root, 'manifest.json')))

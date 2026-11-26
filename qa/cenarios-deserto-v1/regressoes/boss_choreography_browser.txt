@@ -1,9 +1,0 @@
-OK · Five 4×2 atlases decode with eight distinct nonempty transparent frames each
-OK · Danger zones render once on the ground before the boss body
-OK · Actual C3 cast/update releases all attack patterns at h.fired while wind remains positive
-OK · Viajante actual wind release and charge endpoint match the eleven collision steps
-OK · Arauto uses actual tele09 allocation/time and expanding double-wave collision bands
-OK · Pause/load/area/retry/final cancellation clears stale visual state
-OK · Cosmetic draw on/off preserves actual C3 damage/actor/hazard state
-OK · Animated canvas evidence covers real preparation, frame-4 release and recovery
-PASS · 8 boss choreography browser checks

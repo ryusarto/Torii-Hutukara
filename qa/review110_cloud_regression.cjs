@@ -6,7 +6,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const input=read('game/source/chapter-03/input_mobile_combat.js');
-const base=read('game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html');
+const base=read('game/source/base/torii-core.html');
 const cloud=read('game/source/chapter-03/cloud_world_v1.js');
 function between(text,start,end){const a=text.indexOf(start),b=text.indexOf(end,a+start.length);assert(a>=0&&b>a,'Runtime section not found: '+start);return text.slice(a,b);}
 const nativeFeel=between(input,'const CombatFeel121=','function canBody121(');

@@ -15,10 +15,10 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
   const report=await page.evaluate(async()=>{
    const art=MusicianArtV1,heroes=['synth','percussion'],variants=['unmasked','masked'],cases=[];
    function step(dt){tick+=dt;update(dt)}
-   function arena(hero,variant,seat){
-    const other=heroes.find(id=>id!==hero);G=fresh();G.active=seat===0?hero:other;G.formation=[G.active,seat===1?hero:other];G.flags.reveal=G.flags.voicesKatana=G.flags.bass=true;G.c3.started=G.c3.synthUnlocked=G.c3.percussionUnlocked=true;
+   async function arena(hero,variant,seat){
+    const other=heroes.find(id=>id!==hero);G=fresh();G.active=seat===0?hero:other;G.formation=[G.active,seat===1?hero:other];G.flags.reveal=G.flags.voicesKatana=G.flags.bass=true;G.c3.started=G.c3.synthUnlocked=G.c3.percussionUnlocked=true;G.knownMembers=C3.unlockedRoster().slice();
     for(const id of heroes)G.hp[id]=G.maxhp[id]=100;
-    current=mk('power_plant',64,64,'grass');G.area='power_plant';G.x=G.y=32.5;G.dir='right';G.aim091=[1,0];
+    current=mk('power_plant',64,64,'grass');areas.power_plant=current;G.area='power_plant';G.x=G.y=32.5;G.dir='right';G.aim091=[1,0];
     const target=hydrateEnemy({id:'hitch-target',type:'hush',x:G.x+1,y:G.y});target.hp=target.max=9999999;target.stun=target.cd=999;current.enemies.push(target);
     mode='action';menuOpen=false;battle={boss:false,id:'field'};bossActor=null;keys={};following=[];
     Object.assign(act,{cool:0,skill:0,skillX:0,duo:0,hit:0,dashCD:0,invuln:0,combo:0,comboTime:0});C3.synthWave=0;C3.synthZones=[];C3.percussionGuard=0;G.resonance=100;projectiles=[];hostileShots=[];
@@ -26,11 +26,12 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
     C3.pad.previous.clear();window.__hitchPads=seat===1?[window.__hitchPad(0),window.__hitchPad(1)]:[];C3.pad.pads=window.__hitchPads;C3.coop.member=G.formation[1];C3.coop.actor123=null;if(seat===1)C3.syncCoop(true);Input121.wasCoop=seat===1;
     Object.assign(C3.coop,{cool:0,skill:0,advanced:0,signature:0,combo:0,hit:0,dash:0,dashCD:0,invuln:0,stride:0,running:false,moving:false,dir:'right'});
     art.reset();art.setVariant(hero,variant);$('start').classList.add('hidden');$('overlay').classList.add('hidden');$('dialogue').classList.add('hidden');$('cinema').style.display='none';cam.x=G.x*T-160;cam.y=G.y*T-160;
+    await window.FinalAssetLoadingV1?.start();update(0);await window.FinalAssetLoadingV1?.ready();
    }
    for(const hero of heroes)for(const variant of variants)for(const seat of [0,1])for(const stage of [1,2,3])for(const profile of ['60hz','30hz','60ms_hitch']){
     const item={hero,variant,seat,stage,profile,frames:[],samples:[],passed:false};
     try{
-     arena(hero,variant,seat);const state='attack_'+stage;
+     await arena(hero,variant,seat);const state='attack_'+stage;
      await HeroAttackBody.sheet(hero,variant).decode();
      await Promise.all(['idle',state].map(s=>art.image(art.key(hero,variant,s)).decode()));
      const body=seat===0?act:C3.coop;

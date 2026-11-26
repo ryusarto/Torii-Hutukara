@@ -24,11 +24,11 @@ const root=path.resolve(__dirname,'..'),output=process.env.ART_QA_OUTPUT||path.j
  await page.waitForFunction(()=>typeof MusicianArtV1!=='undefined');
  async function check(name,fn){const detail=await fn();checks.push({name,passed:true,detail});console.log('OK '+name)}
  async function arena(p1='synth',p2='percussion'){
-  await page.evaluate(({p1,p2})=>{
+  await page.evaluate(async({p1,p2})=>{
    G=fresh();G.active=p1;G.formation=[p1,p2];G.flags.reveal=G.flags.voicesKatana=G.flags.bass=true;
-   G.c3.synthUnlocked=G.c3.percussionUnlocked=true;
+   G.c3.synthUnlocked=G.c3.percussionUnlocked=true;G.knownMembers=C3.unlockedRoster().slice();
    for(const id of [p1,p2])G.hp[id]=G.maxhp[id]=100;
-   current=mk('forest',40,30,'grass');G.area='forest';G.x=10.5;G.y=12.5;G.dir='right';G.aim091=[1,0];
+   current=mk('forest',40,30,'grass');areas.forest=current;G.area='forest';G.x=10.5;G.y=12.5;G.dir='right';G.aim091=[1,0];
    mode='walk';battle=null;bossActor=null;keys={};
    Object.assign(act,{cool:0,skill:0,skillX:0,duo:0,hit:0,dashCD:0,invuln:0,combo:0});
    C3.synthWave=0;C3.synthZones=[];C3.percussionGuard=0;
@@ -38,6 +38,7 @@ const root=path.resolve(__dirname,'..'),output=process.env.ART_QA_OUTPUT||path.j
    MusicianArtV1.reset();MusicianArtV1.setVariant('synth','unmasked');MusicianArtV1.setVariant('percussion','unmasked');
    $('start').classList.add('hidden');$('overlay').classList.add('hidden');
    $('dialogue').classList.add('hidden');$('cinema').style.display='none';cam.x=cam.y=0;
+   await window.FinalAssetLoadingV1?.start();update(0);await window.FinalAssetLoadingV1?.ready();
   },{p1,p2});
  }
  await check('No musician atlases decoded on title screen',async()=>{
@@ -85,8 +86,10 @@ const root=path.resolve(__dirname,'..'),output=process.env.ART_QA_OUTPUT||path.j
   }return records;
  });
  await check('Defeat completes behind the existing retry overlay and holds the ground pose',async()=>{
-  await arena();const result=await page.evaluate(()=>{
+  await arena();const result=await page.evaluate(async()=>{
    G.formation=['synth'];G.hp.synth=1;G.hp.percussion=0;C3.pad.pads=[];mode='action';act.invuln=0;
+   await window.FinalAssetLoadingV1?.ready();
+   await MusicianArtV1.image(MusicianArtV1.key('synth',MusicianArtV1.variant('synth'),'defeat')).decode();
    damageHero(999);
    const art=MusicianArtV1,defeatMode=mode,hasRetry=!!$('retryCheckpoint');
    update(.4);const middle=art.pose({style:'synth'},0,false);
@@ -114,6 +117,7 @@ const root=path.resolve(__dirname,'..'),output=process.env.ART_QA_OUTPUT||path.j
    for(const hero of ['synth','percussion'])for(const variant of ['unmasked','masked']){
     art.setVariant(hero,variant);G.active=hero;art.reset();C3.pad.pads=[];
     const image=art.image(art.key(hero,variant,'idle'));await image.decode();
+    await window.FinalAssetLoadingV1?.ready();
     const calls=[],prior=ctx.drawImage;ctx.drawImage=function(...args){calls.push(args);return prior.apply(this,args)};
     try{
      drawActor({style:hero,dir:'down'},G.x*T,G.y*T,false);const actor=calls.at(-1)?.[0]===image;

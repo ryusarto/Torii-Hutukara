@@ -1,46 +1,9 @@
-# Versionamento e releases
+# Versões
 
-## Números
+`game/VERSION.json` define o número, o estágio e o nome dos arquivos gerados. O gerador, o validador, o site e os testes usam essa fonte. `web/playtest/build.json` registra o manifesto da distribuição.
 
-O projeto usa `MAJOR.MINOR.PATCH` acompanhado do estágio:
+O número da versão não é o schema do save. Alterações devem preservar os contratos de persistência e as migrações existentes.
 
-- `Alpha 1.1.0`: conteúdo completo, ainda em estabilização.
-- incremento de patch: correção compatível, sem novo conteúdo substancial;
-- incremento minor: novo conjunto de assets, cenas ou sistemas;
-- incremento major: mudança incompatível de arquitetura ou save.
+Cada build gera HTML, manifesto e SHA-256 em `game/builds/`. Esses arquivos não são versionados; podem ser reproduzidos a partir da versão das fontes e do ambiente de build correspondente. A exportação web fica em `production/playtest-dist/`.
 
-O número da build e o schema do save não são a mesma coisa. A Beta 1.2 mantém schema 13: os campos de recrutamento e de relógio das patrulhas são aditivos e têm defaults compatíveis.
-
-## Fonte única da versão
-
-`game/VERSION.json` define número, rótulo e nome de arquivo. O gerador, o validador, o site e os testes leem dali; para lançar uma versão nova, mude só esse arquivo. A chave de save no navegador não muda entre versões.
-
-## Preservação
-
-- Builds não ficam no git. `game/builds/` é gerado por `build_alpha.rb` (localmente ou no GitHub Actions) e está no `.gitignore`.
-- Para recuperar uma versão, gere a build a partir do commit ou da tag correspondente (`alpha-x.y.z`); o resultado tem o mesmo SHA-256 do manifesto.
-- A cada publicação, o HTML portátil fica disponível por 90 dias como artefato do workflow.
-- A base 1.1.2 nunca é modificada.
-- Manifesto e SHA-256 acompanham cada HTML.
-- Uma versão só vira principal depois de validação e playtest.
-
-## Branches
-
-- `main`: estado integrado e documentado.
-- `feature/...`: funcionalidades.
-- `fix/...`: correções.
-- `art/...`: assets e integração visual.
-- `narrative/...`: roteiro e diálogos.
-- `release/...`: estabilização de uma versão candidata.
-
-## Checklist de release
-
-1. Atualizar código e dados.
-2. Gerar a build em pasta nova.
-3. Executar a validação estática.
-4. Executar playtests das rotas afetadas.
-5. Registrar resultados em `qa/`.
-6. Atualizar README, roadmap e changelog.
-7. Confirmar tamanho abaixo do limite de 100 MB por arquivo do GitHub.
-8. Criar tag somente depois da aprovação.
-
+Uma versão de lançamento deve passar por geração, validação, regressão e revisão dos fluxos alterados antes da publicação. As notas públicas resumem o resultado para jogadores e colaboradores.

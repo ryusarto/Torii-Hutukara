@@ -193,7 +193,7 @@ def validate_frame(frame, key, report):
 
 
 def pack(export_frames=True):
-    plan = json.loads((BASE / 'PLANO_E_PROMPTS.json').read_text())
+    plan = json.loads((BASE / 'PLANO_EMPACOTAMENTO.json').read_text())
     for directory in ['atlas', 'retratos', 'qa']:
         (BASE / directory).mkdir(exist_ok=True)
     manifest = {'version': plan.get('version', 3), 'date': plan.get('date', '2026-11-17'),
