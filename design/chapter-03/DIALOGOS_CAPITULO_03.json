@@ -482,22 +482,22 @@
         {
           "id": "C3_014.02",
           "speaker": "Franco",
-          "text": "A gente transforma as duas metades numa frase."
+          "text": "A gente entra junto quando a banda der o sinal."
         },
         {
           "id": "C3_014.03",
           "speaker": "Vega",
-          "text": "Qual música?"
+          "text": "E se eu errar a entrada?"
         },
         {
           "id": "C3_014.04",
           "speaker": "Ryuchi",
-          "text": "Uma que carregue tudo que trouxe a gente até aqui, sem copiar o passado."
+          "text": "A gente escuta a entrada na mesa de som. Depois sobe e toca nos instrumentos."
         },
         {
           "id": "C3_014.05",
           "speaker": "Vega",
-          "text": "Tá. Mas não vale ficar pedindo pra voltar do início."
+          "text": "Tá. A mesa acende os instrumentos na ordem. Escutem as cinco notas e façam a mesma entrada lá em cima."
         }
       ],
       "onComplete": [],
@@ -506,7 +506,7 @@
     {
       "id": "C3_015",
       "location": "clube",
-      "trigger": "frase livre executada",
+      "trigger": "entrada da banda executada",
       "condition": [],
       "lines": [
         {
@@ -517,7 +517,7 @@
         {
           "id": "C3_015.02",
           "speaker": "Ryuchi percussionista",
-          "text": "A virada não estava pronta. Eu ouvi o espaço e entrei."
+          "text": "Quando chegou a nossa vez, eu ouvi o espaço e entrei."
         },
         {
           "id": "C3_015.03",

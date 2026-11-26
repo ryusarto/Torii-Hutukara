@@ -1,0 +1,91 @@
+{
+  "area": "contratempo",
+  "reference": "assets/cenarios/deserto-v1/atlas/D06_CONTRATEMPO_PROPS.png",
+  "source": "ImageGen, folha RGBA exec-80d47729-ef12-43f7-b15d-0461c24cb545.png",
+  "brief": "Desmembrar o palco original em fundo de madeira com cortina vinho e três instrumentos na ordem do atlas: baixo amarelo, bateria ao centro e guitarra vermelha. Manter a perspectiva e o estilo pixel art do Contratempo.",
+  "export": "PNG RGBA; quatro recortes com margem transparente, escalados para uso no Canvas",
+  "integration": "game/source/chapter-03/club_stage.js",
+  "sprites": {
+    "backdrop.png": {
+      "canvas": [
+        384,
+        236
+      ],
+      "anchor": "centro inferior da moldura",
+      "draw": [
+        296,
+        120
+      ]
+    },
+    "bass.png": {
+      "canvas": [
+        34,
+        92
+      ],
+      "anchor": "pés do suporte",
+      "bounds": [
+        30,
+        55
+      ]
+    },
+    "drums.png": {
+      "canvas": [
+        104,
+        76
+      ],
+      "anchor": "base da bateria",
+      "bounds": [
+        62,
+        54
+      ]
+    },
+    "guitar.png": {
+      "canvas": [
+        34,
+        92
+      ],
+      "anchor": "pés do suporte",
+      "bounds": [
+        33,
+        54
+      ]
+    },
+    "chair_north.png": {
+      "canvas": [
+        64,
+        87
+      ],
+      "anchor": "Pés traseiros; assento voltado para o norte",
+      "bounds": [
+        31,
+        43
+      ]
+    },
+    "rack.png": {
+      "canvas": [
+        98,
+        128
+      ],
+      "anchor": "Base da estante junto à parede esquerda",
+      "bounds": [
+        78,
+        76
+      ]
+    },
+    "bar_west.png": {
+      "canvas": [
+        82,
+        245
+      ],
+      "anchor": "Extremidade sul; balcão de atendimento a oeste",
+      "bounds": [
+        66,
+        146
+      ]
+    }
+  },
+  "interior": {
+    "source": "ImageGen, folha RGBA exec-7f3e448a-18d2-4329-bb85-4138abd02253.png",
+    "brief": "Criar no estilo do atlas do Contratempo uma cadeira vista por trás e voltada ao palco, uma estante com estojos, cabos e amplificador e um balcão vertical com atendimento à esquerda."
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "stations": {
+    "tronco": {
+      "file": "stations/tronco.png",
+      "size": [
+        48,
+        56
+      ],
+      "pivot": [
+        24,
+        53
+      ]
+    },
+    "pedra": {
+      "file": "stations/pedra.png",
+      "size": [
+        48,
+        56
+      ],
+      "pivot": [
+        24,
+        53
+      ]
+    },
+    "sino": {
+      "file": "stations/sino.png",
+      "size": [
+        48,
+        56
+      ],
+      "pivot": [
+        24,
+        53
+      ]
+    },
+    "marco": {
+      "file": "stations/marco.png",
+      "size": [
+        48,
+        56
+      ],
+      "pivot": [
+        24,
+        53
+      ]
+    }
+  },
+  "bridge": {
+    "size": [
+      40,
+      136
+    ],
+    "deckRect": [
+      8,
+      8,
+      24,
+      120
+    ],
+    "stable": "bridge/montagem-04.png",
+    "montagem": [
+      "bridge/montagem-01.png",
+      "bridge/montagem-02.png",
+      "bridge/montagem-03.png",
+      "bridge/montagem-04.png"
+    ],
+    "desmonte": [
+      "bridge/desmonte-01.png",
+      "bridge/desmonte-02.png",
+      "bridge/desmonte-03.png",
+      "bridge/desmonte-04.png"
+    ]
+  }
+}

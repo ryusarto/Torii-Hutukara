@@ -62,7 +62,7 @@ let button=null;
 function ensureButton(){
   if(button||!document.getElementById('hud'))return;
   button=document.createElement('button');button.id='tapeButton';button.type='button';
-  button.title='Usar fita de cura (R)';
+  button.title=controlHint121(`Usar fita de cura (${window.ToriiInterface6?.KeyMap.label('tape')||'R'})`,'Usar fita de cura');
   button.style.cssText='position:absolute;top:54px;right:14px;z-index:6;pointer-events:auto;background:#2b1d2ee6;color:#ffd9c2;border:1px solid #e9939f;padding:4px 9px;font:11px monospace;cursor:pointer;border-radius:3px';
   button.style.minHeight='44px';
   button.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();useTape()});

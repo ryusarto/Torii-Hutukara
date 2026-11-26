@@ -143,7 +143,7 @@ check.call('migração da 1.1.2', built.include?("'torii_hutukara_piloto_v04'"))
 check.call('seis assinaturas', built.include?("synth:{name:'Camadas vivas'") && built.include?("percussion:{name:'Pulso comum'"))
 check.call('sete padrões finais', %w[ring cross fan rain chase pulse orbit].all? { |kind| source.include?(kind) })
 check.call('cinco padrões por tentativa', source.include?('Array.from({length:5}'))
-check.call('frase final', source.include?("C3.openPhrase('final')") && source.include?('C3.resolveSilence()'))
+check.call('frase final', source.include?("C3.openPhrase('final')") && built.include?('const FinalEchoes=') && built.include?('C3.resolveSilence()'))
 check.call('epílogo', source.include?("C3.scene('C3_027'"))
 %w[district_materials sprite_maia sprite_nara sprite_ciro sprite_vega sprite_dimas sprite_resident_a sprite_resident_b sprite_canal_worker sprite_plant_operator atlas_lamps atlas_urban atlas_workshop atlas_canal atlas_lift].each do |asset|
   check.call("asset #{asset}", source.include?("#{asset}:") && built.include?("#{asset}:"))

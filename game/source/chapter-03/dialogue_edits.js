@@ -72,7 +72,7 @@ if(typeof C3!=='undefined'&&typeof C3.scene==='function'){
       if(end)end();return}rememberScene(id)}
     if(id==='C3_008'&&G&&G.c3){
       if(G.c3.canalSceneSeen||seenScenes.has('C3_008')){
-        return talk([{who:'nilo',t:'O violino da Lumi separa a interferência. Toquem perto da passagem e eu marco o caminho.',__edited:true}],end);
+        return talk([{who:'nilo',t:'O violino da Lumi separa a interferência. Na minha marca, sustentem uma nota até a passarela firmar.',__edited:true}],end);
       }
       G.c3.canalSceneSeen=true;rememberScene('C3_008');
     }
@@ -89,18 +89,9 @@ if(typeof C3!=='undefined'&&typeof C3.areaStory==='function'){
   };
 }
 
-// Capítulo 2: o Belga entrega o acoplador e a Íris guia pelo rádio, então
-// os retransmissores já podem ser ativados sem a parada na Rádio 9.
-const couplerBeforeEdits=assembleCoupler;
-assembleCoupler=function(...args){
-  const r=couplerBeforeEdits.apply(this,args);
-  if(G&&G.flags.voicesCoupler&&!G.flags.voicesTech){G.flags.voicesTech=true;try{updateHUD()}catch{}}
-  return r;
-};
 const normalizeBeforeEdits=normalizeSave;
 normalizeSave=function(...args){
   const g=normalizeBeforeEdits.apply(this,args);
-  if(g&&g.flags&&g.flags.voicesCoupler)g.flags.voicesTech=true;
   if(g&&g.c3&&g.c3.canalIntro)g.c3.canalSceneSeen=true;
   return g;
 };

@@ -102,8 +102,9 @@ const CenariosV2={
       if(returnPoint)for(const g of a.gates)if(g.to==='distortion_district')[g.tx,g.ty]=returnPoint;
       if(a.id==='contratempo'){
         add('tapete_palco',14,6,196,40,{flat:true,groundMaterial:true});
-        add('club_chair',6,13,28,40);add('club_chair',8,13,28,40);add('club_stool',22,13,24,30);
-        add('projection_console',20,7,88,56);add('projector_rig',22,3,52,66);add('instrument_rack',3,8,68,64);add('acoustic_wallpanel',4,3,74,70);add('acoustic_wallpanel',24,3,74,70);
+        const desk=ClubStage.desk;
+        add('projection_console',desk.x,desk.y,desk.w,desk.h,{clubSoundDesk:true,worldGroundY:desk.y});
+        add('projector_rig',22,3,52,66);add('acoustic_wallpanel',4,3,74,70);add('acoustic_wallpanel',24,3,74,70);
       }
       if(a.id==='power_plant'){add('canal_gate_closed',17,4,36,48,{state:'plant'});add('threshold_inlay',16,17,44,22,{flat:true})}
       if(a.id==='sky_canal'){add('canal_pier_left',16,11,34,34);add('canal_pier_right',24,11,34,34);add('wind_current_marker',12,10,36,56)}

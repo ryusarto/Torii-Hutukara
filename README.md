@@ -4,7 +4,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 ## Estado atual
 
-**Beta 1.16.0.** Inclui a retomada por onda na Fenda, ajustes de combate e da interface mobile e carregamento web sob demanda. A versão fica em `game/VERSION.json`.
+**Beta 1.24.0.** Reúne os sete desafios musicais da campanha, incluindo o trecho original de *Veracidade* na melodia de Lumi. O modo toque traz dicas para os botões da tela. A versão fica em `game/VERSION.json`.
 
 - Capítulo 1: fundação da jornada, floresta, ruínas e primeiras relíquias.
 - Capítulo 2: Cidade das Vozes, novas formações e o primeiro confronto com O Silêncio.
@@ -33,7 +33,7 @@ RPG musical de ação e narrativa feito em HTML Canvas. A jornada acompanha Fran
 
 O link identifica PC ou mobile na entrada e exibe um aviso por quatro segundos. Depois, o aviso some. A interface de toque é automática em celular/tablet. Veja [publicação e testes entre aparelhos](docs/PLAYTEST_SITE.md).
 
-**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica em `game/builds/beta-1.12.0/`.
+**Versão para baixar e jogar offline:** um único HTML portátil, gerado automaticamente a cada publicação. Baixe em [Actions → Publish playtest](https://github.com/ryusarto/Torii-Hutukara/actions/workflows/playtest.yml), na execução mais recente, artefato `torii-hutukara-html-portatil`, ou gere localmente (veja *Construir a versão jogável*). O arquivo fica na pasta da versão em `game/builds/`.
 
 Controles principais:
 

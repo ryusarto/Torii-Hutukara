@@ -16,6 +16,20 @@ const CombatFeel121=Object.freeze({
   percussion:{roll:.38,distance:2.53,cooldown:.78,grace:.23,recovery:.30,move:.53}
 });
 function canPause121(){return !!G&&(activeModes10()||mode==='cloud_fall')}
+function controlHint121(keyboard,touch,gamepad=touch){
+  if(!Input121.mobile)return keyboard;
+  return document.documentElement.classList.contains('physical121')?gamepad:touch;
+}
+const helpBefore121=openHelp;
+openHelp=function(){
+  if(!Input121.mobile)return helpBefore121();
+  const movement=controlHint121('','Use o direcional à esquerda. Leve-o até a borda para correr.','Use o analógico ou o direcional. Segure L2 para correr.');
+  const interaction=controlHint121('','Perto de alguém ou de um objeto, toque em AÇÃO. Toque na fala para continuar.','Perto de alguém ou de um objeto, pressione A / ✕ para interagir ou avançar a fala.');
+  const combat=controlHint121('','Use ATACAR, ROLAR, TÉCNICA e TÉCNICA II. ESPECIAL consome ressonância.','Use X / □ para atacar, B / ○ para rolar, L1 e R1 para as técnicas e R2 para o especial.');
+  const party=controlHint121('','Use TROCAR PERSONAGEM para alternar o líder e PAUSA para abrir o menu.','Use Y / △ para alternar o líder e Start para abrir o menu.');
+  enterMenu10(pauseHeader10('Sinta o ritmo','COMO JOGAR')+`<p><b>Mova e explore.</b> ${movement} ${interaction}</p><p><b>Entre no combate.</b> ${combat}</p><p><b>Encontre sua formação.</b> ${party}</p><div class="row"><button class="action strong" id="helpBack10">VOLTAR</button></div>`,'help');
+  $('helpBack10').onclick=()=>{if(G&&menuOrigin10!=='title')openJourney10();else closeOverlay()};
+};
 function feel121(id){return CombatFeel121[id]||CombatFeel121.franco}
 function canBody121(x,y){
   if(!current||!Number.isFinite(x)||!Number.isFinite(y))return false;
@@ -453,6 +467,9 @@ function updateMobileLayout121(){
   const physical=C3.pad.pads.length>0&&!Input121.controllerVisible;
   document.documentElement.classList.toggle('physical121',mobile&&physical);
   document.documentElement.classList.toggle('hasGamepad121',mobile&&C3.pad.pads.length>0);
+  const dialogueHint=document.querySelector('#dialogue .continue');
+  if(dialogueHint)dialogueHint.textContent=controlHint121('▼ CONTINUAR · ESPAÇO / ENTER','▼ TOQUE PARA CONTINUAR','▼ CONTINUAR · A / ✕');
+  window.ToriiInterface6?.refreshHints();
   const toggle=$('showTouch121');if(toggle)toggle.textContent=Input121.controllerVisible?'OCULTAR TOQUE':'CONTROLES DE TOQUE';
   const vv=window.visualViewport,w=vv?.width||innerWidth,h=vv?.height||innerHeight;
   document.documentElement.style.setProperty('--mobile-height',h+'px');
@@ -540,11 +557,12 @@ html.mobile121,html.mobile121 body{height:100%;width:100%;overflow:hidden;oversc
 .mobile121:not(.physical121) #mobileLeft121>small{display:none}
 #mobileDeck121 .pressed{filter:brightness(1.4);transform:translateY(2px);box-shadow:inset 0 2px 6px #0007}
 .mobile121 #dialogue{position:fixed;inset:auto 8px calc(var(--touch-deck-height,224px) + 14px + env(safe-area-inset-bottom)) 8px;max-height:48%;min-height:0;overflow:auto;padding:8px;gap:8px;z-index:10020}
+.mobile121 #actionHint{display:none}
 .mobile121 .portrait{min-width:52px;width:64px;height:80px;object-fit:cover}.mobile121 .words{font-size:15px;line-height:1.35}.mobile121 .speaker{font-size:10px}.mobile121 .continue{font-size:9px}
 .mobile121 #overlay,.mobile121 #rhythm{position:fixed;inset:0;z-index:10030;padding:max(10px,env(safe-area-inset-top)) 12px max(10px,env(safe-area-inset-bottom));overflow:auto}
 .mobile121 #overlayInner,.mobile121 .rhythmBox{max-height:94%;width:100%;padding:14px!important;overflow:auto}.mobile121 .window p{font-size:14px}.mobile121 .action{min-height:44px;font-size:12px;padding:10px}
 .mobile121 #vitals092{top:41px;left:5px;width:128px;font-size:8px;padding:3px 5px}.mobile121 #vitals092 .reserve{font-size:7px}.mobile121 #vitals092 .tech-row10{display:none}
-.mobile121 .hud-top{padding:4px}.mobile121 .location{padding:4px 6px;max-width:74%;max-height:32px}.mobile121 .location h3{font-size:10px}.mobile121 .location small{font-size:7px}.mobile121 .hudbuttons{max-width:25%}.mobile121 #bMenu{font-size:9px;min-height:28px;padding:4px}
+.mobile121 .hud-top{padding:4px}.mobile121 .location{padding:4px 6px;max-width:74%;max-height:32px}.mobile121 .location h3{font-size:10px}.mobile121 .location small{font-size:7px}.mobile121 .hudbuttons{max-width:25%}.mobile121 #bMenu{font-size:9px;min-width:44px;min-height:44px;padding:4px}
 .mobile121 #actionHUD{width:39%;left:auto!important;right:4px!important;bottom:4px!important;font-size:8px}.mobile121 .action-label{padding:3px;min-width:0}.mobile121 #actionSkill,.mobile121 #actionXP,.mobile121 .action-party{display:none}.mobile121 .guidechip{font-size:8px;bottom:5px!important;max-width:60%}.mobile121 .prompt{font-size:9px;bottom:4px;padding:5px}
 .mobile121 #start h1{font-size:24px}.mobile121 #start img{height:42px}.mobile121 #start .menuButton{min-height:38px;padding:8px;font-size:12px}.mobile121 #start .sub{font-size:9px}.mobile121 #start .version{margin-top:5px;font-size:8px}.mobile121 #toast{position:fixed;left:8px;right:8px;top:8px;transform:none;font-size:11px;z-index:10040}.mobile121 #gamepadStatus{font-size:9px;bottom:3px}
 .mobile121.landscape121 #app{grid-template-columns:142px minmax(0,1fr) 184px;grid-template-rows:1fr;gap:8px}

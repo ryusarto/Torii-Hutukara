@@ -211,16 +211,16 @@ function montarBarra(){
   if(!speech||speech.querySelector('.leitura-barra'))return;
   const barra=document.createElement('div');barra.className='leitura-barra';
   barra.append(
-    botao('PULAR · P','pular','Pular a cena (as falas ficam no histórico)'),
-    botao('AUTO · O','auto','Avanço automático'),
+    botao(controlHint121('PULAR · P','PULAR'),'pular','Pular a cena (as falas ficam no histórico)'),
+    botao(controlHint121('AUTO · O','AUTO'),'auto','Avanço automático'),
     botao('','vel','Velocidade do texto'),
-    botao('HISTÓRICO · L','historico','Histórico de falas')
+    botao(controlHint121('HISTÓRICO · L','HISTÓRICO'),'historico','Histórico de falas')
   );
   speech.appendChild(barra);atualizarBarra();
 }
 function atualizarBarra(){
   for(const b of document.querySelectorAll('[data-leitura="auto"]'))b.setAttribute('aria-pressed',String(opts.auto));
-  for(const b of document.querySelectorAll('[data-leitura="vel"]'))b.textContent='TEXTO: '+speed().rotulo+' · V';
+  for(const b of document.querySelectorAll('[data-leitura="vel"]'))b.textContent='TEXTO: '+speed().rotulo+controlHint121(' · V','');
   for(const b of document.querySelectorAll('[data-leitura="barks"]'))b.setAttribute('aria-pressed',String(opts.barks));
   for(const b of document.querySelectorAll('[data-leitura="freq"]'))b.textContent='FREQUÊNCIA: '+opts.freq.toUpperCase();
 }
@@ -243,7 +243,7 @@ function abrirHistorico(){
     h=document.createElement('div');h.id='leituraHistorico';h.className='hidden';h.setAttribute('role','dialog');h.setAttribute('aria-modal','true');h.setAttribute('aria-labelledby','lhTitulo');
     const janela=document.createElement('div');janela.className='lh-janela';
     const header=document.createElement('header');const h2=document.createElement('h2');h2.id='lhTitulo';h2.textContent='HISTÓRICO DE FALAS';
-    header.append(h2,botao('FECHAR · L','fechar','Fechar o histórico'));
+    header.append(h2,botao(controlHint121('FECHAR · L','FECHAR'),'fechar','Fechar o histórico'));
     const lista=document.createElement('div');lista.className='lh-lista';lista.tabIndex=0;
     const op=document.createElement('div');op.className='lh-opcoes';
     op.append(botao('','vel','Velocidade do texto'),botao('AVANÇO AUTOMÁTICO','auto','Avanço automático'),botao('FALAS DE COMBATE','barks','Balões de fala durante o jogo'),botao('','freq','Frequência das falas de combate'));

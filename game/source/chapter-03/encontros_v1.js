@@ -47,7 +47,7 @@ const frenteC3=g=>!!(g.c3&&(g.c3.usinaDone||g.c3.canalDone));
 const EXTRAS=[
   // Capítulo 1
   ['forest','f2_forest_flautim_a',13,18,'flautim_atirador'],
-  ['forest','f2_forest_tambor_a',25,24,'tambor_escudo'],
+  ['forest','f2_forest_tambor_a',20,28,'tambor_escudo'],
   ['forest','f2_forest_flautim_b',44,25,'flautim_atirador'],
   ['forest','f2_forest_tambor_b',53,15,'tambor_escudo'],
   ['forest','f2_forest_hush',47,9,'hush'],

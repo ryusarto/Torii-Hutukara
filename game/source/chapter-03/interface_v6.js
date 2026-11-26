@@ -178,11 +178,16 @@ function refreshHints(){
   const foot=document.querySelector('.footer > div');
   if(foot){const L=id=>KeyMap.label(id),move=['up','left','down','right'].map(L).join('');foot.innerHTML=`<span>DESKTOP:</span> ${move==='WASD'?'WASD / SETAS':move} mover · ${L('interact')} interagir · ${L('attack')} atacar · ${L('skill')}/${L('skill2')} técnicas · ${L('dodge')} esquiva · ${L('super')} especial · ${L('switch')} trocar · ${L('map')} mapa · ${L('party')} equipe · ${L('journal')} diário · ${L('menu')} menu`}
   for(const span of document.querySelectorAll('#vitals092 .tech-row10 span')){const m=span.textContent.match(/^([QZXK]|\S{1,6}) ([●·].*)$/);if(!m)continue;const id=span.dataset.km6||TECH_LETTERS[m[1]];if(!id)continue;span.dataset.km6=id;const want=KeyMap.label(id)+' '+m[2];if(span.textContent!==want)span.textContent=want}
-  for(const [id,act] of [['bMap','map'],['bJournal','journal'],['bParty','party'],['bMenu','menu']]){const el=document.getElementById(id);if(!el)continue;const t=el.textContent,want=t.replace(/\[[^\]]*\]|· ESC$/,m=>m.startsWith('[')?'['+KeyMap.label(act)+']':'· '+KeyMap.label(act).toUpperCase());if(want!==t)el.textContent=want}
+  const guideLabel=G?'TRILHA '+(G.guidance===false?'OFF':'ON'):'TRILHA';
+  for(const [id,label,shortcut] of [['bMap','MAPA',`[${KeyMap.label('map')}]`],['bGuide',guideLabel,'[H]'],['bJournal','DIÁRIO',`[${KeyMap.label('journal')}]`],['bParty','EQUIPE',`[${KeyMap.label('party')}]`],['bMenu','MENU','· '+KeyMap.label('menu').toUpperCase()]]){
+    const el=document.getElementById(id),want=controlHint121(`${label} ${shortcut}`,label);
+    if(el&&want!==el.textContent)el.textContent=want;
+  }
   const L=id=>KeyMap.label(id),hint=document.getElementById('actionHint');
   if(hint){const want=`${L('attack')} · ATACAR   ${L('skill')} / ${L('skill2')} · TÉCNICAS   ${L('dodge')} · ESQUIVA   ${L('switch')} · TROCAR   ${L('super')} · ESPECIAL`;if(hint.textContent!==want)hint.textContent=want}
   const skillLine=document.getElementById('actionSkill');if(skillLine){const t=skillLine.textContent,want=t.replace(/(^|· )([ZXK])(?= )/g,(m,pre,l)=>pre+L({Z:'skill',X:'skill2',K:'super'}[l]));if(want!==t)skillLine.textContent=want}
-  const b=document.querySelector('#prompt b');if(b&&b.textContent!==KeyMap.label('interact'))b.textContent=KeyMap.label('interact');
+  const b=document.querySelector('#prompt b'),interactHint=controlHint121(KeyMap.label('interact'),'AÇÃO','A / ✕');
+  if(b&&b.textContent!==interactHint)b.textContent=interactHint;
 }
 for(const name of ['updateHUD','updateActionHUD']){if(typeof window[name]!=='function')continue;const before=window[name];window[name]=function(...a){const r=before.apply(this,a);try{refreshHints()}catch{}return r}}
 setInterval(()=>{try{refreshHints()}catch{}},400);

@@ -1,3 +1,9 @@
+## [Beta 1.24.0] — 2026-11-26
+
+- Ponte das Frequências, Rádio 9, Lumi, Canal Suspenso, Usina, Contratempo e A Última Frequência passam a fazer parte da mesma campanha.
+- Lumi usa a gravação de *Veracidade*. A sequência pode ser ouvida novamente e acompanhada visualmente, inclusive com o áudio desligado.
+- Diálogos, menus, ajuda, formação e interações usam dicas de toque ou de controle no mobile.
+
 ## [Beta 1.16.0] — 2026-11-25
 
 - A pausa congela os avisos e ataques extras dos chefes até a retomada.

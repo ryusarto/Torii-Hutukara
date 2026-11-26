@@ -11,7 +11,8 @@
 const ENCOUNTERS=[
   // Capítulo 1: encontros apenas depois da entrega do Baixo de Raiz.
   ['forest','p4_forest_path_a',9,22,'hush'],
-  ['forest','p4_forest_path_b',26,20,'whisper'],
+  // Leave the riverside instruments free of spawn points.
+  ['forest','p4_forest_path_b',20,16,'whisper'],
   ['forest','p4_forest_east',40,19,'hush'],
   ['ruins','p4_ruins_entry',10,17,'hush'],
   ['ruins','p4_ruins_mid',22,18,'compasso'],

@@ -170,6 +170,33 @@ replace_once!(html, "addCombatFX(e.x,e.y,'warning',isBoss?2.8:1.5);return;",
   "if(!#{boss_visual_guard})addCombatFX(e.x,e.y,'warning',isBoss?2.8:1.5);return;", 'círculo decorativo do Viajante')
 replace_once!(runtime, "e.facing=base.angle||0;addCombatFX(e.x,e.y,'warning',base.r||3);toast(",
   "e.facing=base.angle||0;if(!#{boss_visual_guard})addCombatFX(e.x,e.y,'warning',base.r||3);toast(", 'círculo decorativo C3')
+# The tuner owns left/right before the generic overlay focus navigator.
+replace_once!(html, "if(mode!=='overlay'||!menuPage10)return;if(['Enter',' '].includes(e.key))",
+  "if(mode!=='overlay'||!menuPage10)return;if(menuPage10==='radio9'&&Radio9.key(e))return;if(['Enter',' '].includes(e.key))", 'teclado do mostrador de sintonia')
+replace_once!(html, 'O painel aguarda o acoplador da Rádio 9. Encontre o técnico mascarado primeiro.',
+  'O painel aguarda o sinal da Rádio 9. Sintonize o mostrador junto à antena.', 'pista do retransmissor')
+replace_once!(html, "A torre vai responder.':'Procurem a fita no Mercado das Fitas.",
+  "A torre vai responder.':G.flags.voicesCoupler?'Levem o acoplador à Rádio 9, a leste do canal.':'Procurem a fita no Mercado das Fitas.", 'pista da Íris com o acoplador')
+# The city's next track enters when the three retransmitters are back.
+replace_once!(html, ".length>=2||f.voicesBoss||f.voicesDone?'sauna':'esquecer'", ".length===3||f.voicesBoss||f.voicesDone?'sauna':'esquecer'", 'trilha da rede restaurada')
+# The forest keeps water as its terrain; the animated bridge draws below the actors.
+replace_once!(html, "'forest_hush_a',21,24,'hush'", "'forest_hush_a',19,25,'hush'", 'clareira dos instrumentos')
+replace_once!(html, "if(a.id==='forest'&&G.flags.bridge&&x>=32&&x<=35&&y>=19&&y<=23)tt='woodbridge';", '', 'água da ponte')
+replace_once!(html, " drawRoute();\n // world accent lighting", " BridgePuzzle.drawGround();\n CanalViolin.draw();\n ClubStage.drawGround();\n FinalEchoes.drawGround();\n drawRoute();\n // world accent lighting", 'ponte animada abaixo dos atores')
+replace_once!(html, 'clamp(G.x*T-VW/2,0,a.w*T-VW),yy=', 'ClubStage.cameraX(CanalViolin.cameraX(clamp(G.x*T-VW/2,0,a.w*T-VW))),yy=', 'enquadramento do canal e do palco')
+replace_once!(html, 'clamp(G.y*T-VH/2,0,a.h*T-VH);cam.x', 'ClubStage.cameraY(clamp(G.y*T-VH/2,0,a.h*T-VH));cam.x', 'enquadramento do palco')
+# The explicit mute switch survives interaction shortcuts that wake AudioContext.
+replace_once!(html, 'let AC=null,audioEnabled=false,', 'let AC=null,audioEnabled=false,audioMuted=false,', 'áudio desligado pelo jogador')
+replace_once!(html, 'function enableAudio(){if(!AC)', 'function enableAudio(){if(audioMuted)return;if(!AC)', 'interação respeita o mudo')
+replace_once!(html, "if(audioEnabled)audioEnabled=false;else enableAudio();openSettings10()", "audioMuted=audioEnabled;if(audioMuted)audioEnabled=false;else enableAudio();openSettings10()", 'alternar som nas opções')
+replace_once!(html, '<b>E</b> ${near.label}', %q~<b>${controlHint121('E','AÇÃO','A / ✕')}</b> ${near.label}~, 'ação perto de um interagível')
+replace_once!(html, "'O mundo está pausado. K · '+SIGNATURE11", %q~'O mundo está pausado. '+controlHint121('K','Especial','R2')+' · '+SIGNATURE11~, 'dica de especial na pausa')
+replace_once!(html, "text.innerHTML+='<br>K · '+SIGNATURE11", %q~text.innerHTML+='<br>'+controlHint121('K','Especial','R2')+' · '+SIGNATURE11~, 'dica de especial na equipe')
+replace_once!(html, 'As teclas 1–3 seguem a ordem da formação.', %q~${controlHint121('As teclas 1–3 seguem a ordem da formação.','O botão TROCAR PERSONAGEM segue a ordem da formação.','O botão Y / △ segue a ordem da formação.')}~, 'troca de personagem na equipe')
+team_techniques = 'J ${skillNames10[id][0]} · Z ${skillNames10[id][1]} · X ${skillNames10[id][2]}'
+team_techniques_hint = %q~${controlHint121('J','Atacar:','X / □')} ${skillNames10[id][0]} · ${controlHint121('Z','Técnica:','L1')} ${skillNames10[id][1]} · ${controlHint121('X','Técnica II:','R1')} ${skillNames10[id][2]}~
+replace_once!(html, team_techniques, team_techniques_hint, 'técnicas na equipe')
+replace_once!(runtime, team_techniques, team_techniques_hint, 'técnicas na equipe do capítulo 3')
 replace_once!(html, ' drawable.sort((a,b)=>a.y-b.y);for(let d of drawable)d.draw();',
   " if(typeof EnvironmentDepthV1!=='undefined')EnvironmentDepthV1.drawGround();\n if(typeof EnvironmentAtmosphereV1!=='undefined')EnvironmentAtmosphereV1.drawGround();\n if(typeof BossChoreographyV2!=='undefined')BossChoreographyV2.drawGround();\n drawable.sort((a,b)=>a.y-b.y);for(let d of drawable)d.draw();", 'chão e áreas dos chefes abaixo dos personagens')
 replace_once!(html, 'drawable.push({x:p.x,y:p.y+.5,draw:()=>drawProp(p,cam.x,cam.y)})',
@@ -515,7 +542,33 @@ raise 'Marcador __NARRATIVA_DATA__ ausente' unless narrativa_runtime.scan('__NAR
 narrativa_runtime = narrativa_runtime.sub('__NARRATIVA_DATA__') { JSON.generate(JSON.parse(File.read(NARRATIVA_DATA, encoding: 'UTF-8'))) }
 # Fase 2: dificuldade, chefes em três fases, inimigos novos, encontros e impacto.
 FASE2_JS = %w[dificuldade_v1.js encontros_v1.js impacto_v1.js].map { |name| File.join(ROOT, name) }
-parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, stride_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), File.read(File.join(ROOT,'hero_legacy_fx.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8'), body_runtime, narrativa_runtime, File.read(File.join(ROOT, 'interface_v6.js'), encoding: 'UTF-8'), *FASE2_JS.map { |path| File.read(path, encoding: 'UTF-8') }]
+bridge_root = File.join(REPO_ROOT, 'assets', 'ponte-frequencias', 'runtime')
+bridge_manifest = File.join(bridge_root, 'manifest.json')
+bridge_assets = File.file?(bridge_manifest) ? JSON.parse(File.read(bridge_manifest)) : {}
+bridge_files = bridge_assets.empty? ? [] :
+  bridge_assets.fetch('stations').values.map { |prop| prop.fetch('file') } +
+    bridge_assets.fetch('bridge').values_at('montagem', 'desmonte').flatten
+bridge_assets['files'] = bridge_files.to_h do |file|
+  [file, "data:image/png;base64,#{encode(File.join(bridge_root, file))}"]
+end
+bridge_art = File.join(ROOT, 'bridge_art.js')
+bridge_puzzle = File.join(ROOT, 'bridge_puzzle.js')
+radio_tuning = File.join(ROOT, 'radio9_tuning.js')
+lumi_melody = File.join(ROOT, 'lumi_melody.js')
+plant_sequencer = File.join(ROOT, 'plant_sequencer.js')
+club_stage = File.join(ROOT, 'club_stage.js')
+final_echoes = File.join(ROOT, 'final_echoes.js')
+club_art_dir = File.join(ASSETS, 'runtime', 'palco-contratempo')
+club_art = %w[backdrop bass drums guitar chair_north rack bar_west].to_h { |name| [name, File.join(club_art_dir, "#{name}.png")] }
+club_runtime = File.read(club_stage, encoding: 'UTF-8')
+replace_once!(club_runtime, '__CLUB_STAGE_ASSETS__', png_map(club_art), 'instrumentos e fundo do Contratempo')
+canal_violin = File.join(ROOT, 'canal_violin.js')
+canal_recording = File.join(ASSETS, 'audio', 'violino-veracidade-canal.wav')
+canal_runtime = File.read(canal_violin, encoding: 'UTF-8')
+replace_once!(canal_runtime, '__CANAL_VIOLIN_WAV__', encode(canal_recording), 'recorte de Veracidade no Canal Suspenso')
+bridge_runtime = File.read(bridge_art, encoding: 'UTF-8')
+replace_once!(bridge_runtime, '__BRIDGE_SPRITES__', JSON.generate(bridge_assets), 'sprites da Ponte das Frequências')
+parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, stride_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), File.read(File.join(ROOT,'hero_legacy_fx.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8'), body_runtime, narrativa_runtime, File.read(File.join(ROOT, 'interface_v6.js'), encoding: 'UTF-8'), *FASE2_JS.map { |path| File.read(path, encoding: 'UTF-8') }, bridge_runtime, File.read(bridge_puzzle, encoding: 'UTF-8'), File.read(radio_tuning, encoding: 'UTF-8'), File.read(lumi_melody, encoding: 'UTF-8'), canal_runtime, File.read(plant_sequencer, encoding: 'UTF-8'), club_runtime, File.read(final_echoes, encoding: 'UTF-8')]
 runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = polish_runtime = npc_gestures_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
 html.insert(position, "\n")
 until parts.empty?
@@ -556,7 +609,10 @@ sources += [File.join(ROOT, "postgame.js"), File.join(ROOT, "interface_v6.js"), 
 sources += [BOSS_GROUND_FX_JS, File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json'), File.join(BOSS_GROUND_FX_V2, 'manifest.json')] + ground_fx_paths.values
 sources += [ENVIRONMENT_DEPTH_JS, ENVIRONMENT_ATMOSPHERE_JS, CLOUD_WORLD_JS, CLOUD_STORY_JS, File.join(CLOUD_WORLD_ASSETS, 'manifest.json')] + cloud_files.values
 sources += [File.join(ENVIRONMENT_VOLUME_ASSETS, 'manifest.json')] + volume_files.values
-sources += FASE2_JS
+sources += FASE2_JS + [bridge_art, bridge_puzzle, radio_tuning, lumi_melody, canal_violin, canal_recording, plant_sequencer, club_stage, final_echoes] + club_art.values + [File.join(club_art_dir, 'manifest.json')]
+if File.file?(bridge_manifest)
+  sources += [bridge_manifest] + bridge_files.map { |file| File.join(bridge_root, file) }
+end
 manifest = {
   game: 'TORII & HUTUKARA',
   build: VERSION.fetch('rotulo'),

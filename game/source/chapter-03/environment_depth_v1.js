@@ -112,7 +112,7 @@ const EnvironmentDepthV1=(()=>{
    zone('madeira_oficina',x,y,xx,yy,5,3,19,4);
    if(yy===7&&xx>=5&&xx<=23){rect(x,y,T,3,'#322a2a77');rect(x,y+3,T,1,'#bb8a5a77');}
    if(xx>=10&&xx<=18&&yy>=8&&yy<=13&&((xx+yy)%2===0))poly([[x+12,y+6],[x+18,y+12],[x+12,y+18],[x+6,y+12]],'#b6956522');
-   zone('tapete_palco',x,y,xx,yy,20,10,5,5,'#ac8863');
+   zone('tapete_palco',x,y,xx,yy,22,11,4,6,'#ac8863');
   }else if(style==='instruments'){
    zone('metal_industrial',x,y,xx,yy,4,6,6,5,'#b4a579');
    zone('metal_industrial',x,y,xx,yy,19,5,5,5,'#b4a579');
