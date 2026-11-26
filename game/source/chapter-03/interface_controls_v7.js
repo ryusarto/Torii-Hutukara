@@ -67,6 +67,11 @@ function handleKey(e){
  // Native tuner arrows/Escape own their input before generic menu navigation.
  if(typeof Radio9!=='undefined'&&typeof Radio9.key==='function'&&Radio9.key(e))return true;
  const root=scope();if(!root||capturingBinding()||e.ctrlKey||e.metaKey||e.altKey)return false;
+ // Reading history blocks gameplay interaction. Only explicit Enter/Space
+ // confirms its focused button; E (including remapped interaction) stays inert.
+ if(root.id==='leituraHistorico'&&e.key!=='Enter'&&e.key!==' '&&actionFor(e.key)==='confirm'){
+  e.preventDefault();e.stopImmediatePropagation();return true;
+ }
  const active=focused(),typing=active?.matches('textarea,input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="number"])');
  if(typing&&e.key!=='Escape'){e.stopImmediatePropagation();return true}
  // The recorded pitches retain their numeric shortcuts in the Lumi puzzle.

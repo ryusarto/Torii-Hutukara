@@ -38,6 +38,23 @@ async function pad(p,axes=[0,0],buttons=[],index=0){await p.evaluate(({axes,butt
  });
  await check('Second cooperative controller can select pause actions without moving actors',async()=>{await page.evaluate(()=>{const make=index=>({index,id:'Coop menu QA',connected:true,axes:[0,0],buttons:Array.from({length:18},()=>({pressed:false}))});C3.pad.pads=[make(0),make(1)];C3.syncCoop(true);openSystem()});assert(await page.evaluate(()=>C3.coopActive()));const before=await page.evaluate(()=>({x:G.x,y:G.y,p2x:C3.coop.x,p2y:C3.coop.y}));await pad(page,[0,1],[],1);assert.equal(await active(),'party10');await pad(page,[0,0],[],1);await pad(page,[0,0],[0],1);assert.equal(await page.locator('#back10,#c3PartyBack').count(),1);assert.deepEqual(await page.evaluate(()=>({x:G.x,y:G.y,p2x:C3.coop.x,p2y:C3.coop.y})),before);await page.evaluate(()=>{closeOverlay();C3.pad.pads=[]})});
  await check('P2 preserves P1 authority over narrative choices',async()=>{await page.evaluate(()=>{const make=index=>({index,id:'Coop menu QA',connected:true,axes:[0,0],buttons:Array.from({length:18},()=>({pressed:false}))});C3.pad.pads=[make(0),make(1)];C3.syncCoop(true);menuPage10=menuOrigin10=null;chooseDialogue('Escolha de P1',[{label:'Continuar',value:'only_p1',lines:[{who:'ema',t:'A escolha ficou registrada.'}]}])});await pad(page,[0,0],[0],1);assert.equal(await page.locator('#choiceGrid').count(),1);await page.keyboard.press('e');assert.equal(await page.evaluate(()=>G.choices.ema),'only_p1');await page.evaluate(()=>{Narrativa.pularCena();C3.pad.pads=[]})});
+ await check('History blocks default and remapped interaction while explicit confirmation still works',async()=>{
+  await prepare();
+  await page.evaluate(()=>{Narrativa.definir('vel','instantaneo');talk([{who:'franco',t:'History stays on this line.'},{who:'ryuchi',t:'Next line.'}]);Narrativa.abrirHistorico()});
+  for(const key of ['e','f']){
+   if(key==='f')await page.evaluate(()=>ToriiInterface6.KeyMap.set('interact','f'));
+   await page.keyboard.press(key);
+   assert.deepEqual(await page.evaluate(()=>({open:Narrativa.historicoAberto(),text:$('words').textContent})),{open:true,text:'History stays on this line.'});
+  }
+  await page.evaluate(()=>ToriiInterface6.KeyMap.set('interact','e'));
+  const before=await page.evaluate(()=>document.activeElement?.dataset.leitura);
+  await page.keyboard.press('ArrowDown');assert.notEqual(await page.evaluate(()=>document.activeElement?.dataset.leitura),before);
+  await page.locator('#leituraHistorico [data-leitura="fechar"]').focus();
+  await page.keyboard.press('Enter');assert.equal(await page.evaluate(()=>Narrativa.historicoAberto()),false);
+  await page.evaluate(()=>Narrativa.abrirHistorico());await page.locator('#leituraHistorico [data-leitura="fechar"]').focus();
+  await page.keyboard.press('Space');assert.equal(await page.evaluate(()=>Narrativa.historicoAberto()),false);
+  await page.evaluate(()=>{Narrativa.pularCena();mode='title';$('start').classList.remove('hidden');ToriiMenuControlsV7.sync()});
+ });
  const mobile=await browser.newPage({viewport:{width:390,height:844},hasTouch:true,isMobile:true});mobile.on('pageerror',e=>report.errors.push(e.message));await mobile.addInitScript(()=>{window.requestAnimationFrame=()=>0;Object.defineProperty(navigator,'getGamepads',{configurable:true,value:()=>[]})});await mobile.goto(url+(url.includes('?')?'&':'?')+'input=mobile',{waitUntil:'load',timeout:120000});assert(await mobile.evaluate(()=>Input121.mobile));await prepare(mobile);
  await check('Mobile also accepts keyboard and analog menu commands with simulation paused',async()=>{await mobile.evaluate(()=>openSystem());await mobile.keyboard.press('s');assert.equal(await mobile.evaluate(()=>document.activeElement.id),'party10');await mobile.keyboard.press('e');assert.equal(await mobile.locator('#back10,#c3PartyBack').count(),1);await mobile.keyboard.press('Escape');await pad(mobile,[0,1]);assert.equal(await mobile.evaluate(()=>document.activeElement.id),'party10');assert.equal(await mobile.evaluate(()=>mode),'overlay');assert.equal(await mobile.evaluate(()=>Input121.pointers.size),0);await mobile.screenshot({path:path.join(out,'menu_controles_mobile.png')})});
  assert.deepEqual(report.errors,[]);console.log(JSON.stringify({passed:report.checks.length,errors:report.errors}));
