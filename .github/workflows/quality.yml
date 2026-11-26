@@ -83,9 +83,11 @@ jobs:
           node qa/run_stride_browser.cjs http://127.0.0.1:8771/
           node qa/archer_strafe_browser.cjs http://127.0.0.1:8771/
           node qa/hero_attack_v3_browser.cjs http://127.0.0.1:8771/
+          node qa/hero_vfx_layers_v3_browser.cjs http://127.0.0.1:8771/
           node qa/enemy_attack_fx_browser.cjs http://127.0.0.1:8771/
           node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
           node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/
+          node qa/combat_readability_v1_browser.cjs http://127.0.0.1:8771/
           node qa/environment_world_browser.cjs http://127.0.0.1:8771/
           node qa/protagonist_art_v5.cjs http://127.0.0.1:8771/
           node qa/world_polish_v1.cjs http://127.0.0.1:8771/

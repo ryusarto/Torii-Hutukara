@@ -51,6 +51,12 @@ async function main() {
       assert.equal(await page.evaluate(() => Input121.mobile), false, 'A narrow PC window is still PC');
       await page.setViewportSize(options.viewport);
     } else if (name === 'Mobile') {
+      // V7 hides gameplay controls on the title and during dialogue. Exercise
+      // rotation after entering playable Chapter 3, not behind the title menu.
+      assert(await page.locator('#mobileStick121').isHidden());
+      await page.evaluate(() => C3.start(true));
+      await page.waitForFunction(() => G?.chapter === 3 || G?.c3?.started);
+      await page.evaluate(() => { for(let i=0;i<40&&mode==='dialogue';i++)Narrativa.pularCena();updateMobileLayout121(); });
       await page.setViewportSize({ width: 844, height: 390 });
       await page.waitForFunction(() => document.documentElement.classList.contains('landscape121'));
       await page.locator('#mobileStick121').waitFor({state:'visible',timeout:10000});
@@ -75,7 +81,7 @@ async function main() {
       for (const track of audio) { assert(track.external); assert(track.duration > 10, JSON.stringify(track)); }
       results.push({ name: 'Hosted soundtrack fetch and decode (chapter 1, chapter 3, final boss)', passed: true });
     }
-    await page.evaluate(() => C3.start(true));
+    if(name !== 'Mobile')await page.evaluate(() => C3.start(true));
     await page.waitForFunction(() => G?.chapter === 3 || G?.c3?.started);
     assert(await page.evaluate(() => !!current && document.querySelector('#game').width > 0));
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);

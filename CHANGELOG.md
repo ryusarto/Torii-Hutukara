@@ -2,6 +2,7 @@
 
 - Histórico de falas bloqueia a tecla de interação (inclusive remapeada), preservando confirmação explícita, navegação e controles dos menus. Corrigido conflito que interrompia a validação da publicação.
 - Confirmações simultâneas no coop respeitam uma ação de menu por leitura dos controles: abrir a pausa ou a explicação do calabouço exige nova confirmação antes de continuar. A regressão visual reconhece o portal de chão aprovado.
+- Publicação usa a suíte de efeitos V3 com cobertura portada de camadas, silhuetas e projéteis; estados do portal e rotação mobile durante a partida entram na validação da distribuição.
 - Base GitHub Beta1.24.1 db6297e integrada com menus/HUD16bit, diálogos, vidas individuais/boss, controles e animações aprovados localmente.
 - Novas atividades musicais e recuperação de ecos recebem a mesma identidade de interface.
 - Poder do Tambor e projétil do Flautim reforçados em área/corpo legíveis, preservando a simulação.
