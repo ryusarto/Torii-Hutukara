@@ -16,20 +16,26 @@
 // ---------- 1. Capítulo 2 → Capítulo 3 ----------
 const AUTO_SECONDS=5;
 let autoTimer=null;
-function goToChapter3(){if(autoTimer){clearInterval(autoTimer);autoTimer=null}if(G&&G.c3&&G.c3.started)return;closeOverlay();C3.start(false)}
+function scheduleFlow(fn,delay){
+ const api=window.FinalAssetLoadingV1;
+ return api?.schedule?{managed:true,id:api.schedule(fn,delay)}:{managed:false,id:setTimeout(fn,delay)};
+}
+function clearFlow(timer){if(!timer)return;if(timer.managed)window.FinalAssetLoadingV1?.clearSchedule(timer.id);else clearTimeout(timer.id)}
+function goToChapter3(){if(autoTimer){clearFlow(autoTimer);autoTimer=null}if(G&&G.c3&&G.c3.started)return;closeOverlay();C3.start(false)}
 voiceEnding=function(){
   try{C3.applyWorld()}catch{}
   openOverlay(`<div class="eyebrow">CAPÍTULO 02 · CONCLUÍDO</div><h2>A máscara abriu o Lado B</h2><p>O Silêncio recua antes de desaparecer. Ele promete voltar — e as máscaras respondem antes que alguém consiga persegui-lo.</p><p>A frequência envolve o grupo e revela uma cidade acima das nuvens.</p><div class="stat"><span>Próximo capítulo</span><b>O SOM QUE AINDA NÃO EXISTE</b></div><div class="row"><button class="action strong" id="c3Continue">ATRAVESSAR AGORA · <span id="c3Countdown">${AUTO_SECONDS}</span></button></div>`);
   const btn=document.getElementById('c3Continue');btn.onclick=goToChapter3;try{btn.focus()}catch{}
-  let left=AUTO_SECONDS;if(autoTimer)clearInterval(autoTimer);
-  autoTimer=setInterval(()=>{left--;const c=document.getElementById('c3Countdown');if(c)c.textContent=String(Math.max(0,left));if(left<=0)goToChapter3()},1000);
+  let left=AUTO_SECONDS;if(autoTimer)clearFlow(autoTimer);
+  const countdown=()=>{left--;const c=document.getElementById('c3Countdown');if(c)c.textContent=String(Math.max(0,left));if(left<=0)goToChapter3();else autoTimer=scheduleFlow(countdown,1000)};
+  autoTimer=scheduleFlow(countdown,1000);
 };
 // Se o cartão for fechado de outro jeito (Esc), a travessia acontece mesmo assim.
 const closeBeforeFlow=closeOverlay;
 closeOverlay=function(...args){
   const wasEnding=!!document.getElementById('c3Countdown');
   const r=closeBeforeFlow.apply(this,args);
-  if(wasEnding&&autoTimer&&G&&!(G.c3&&G.c3.started)){setTimeout(goToChapter3,0)}
+  if(wasEnding&&autoTimer&&G&&!(G.c3&&G.c3.started)){scheduleFlow(goToChapter3,0)}
   // 2b. Se um menu abriu por cima de uma fala, a fala volta a responder.
   const box=document.getElementById('dialogue');
   if(box&&!box.classList.contains('hidden')&&mode!=='dialogue'&&mode!=='overlay')mode='dialogue';
@@ -39,7 +45,7 @@ closeOverlay=function(...args){
 const continueBeforeFlow=continueGame;
 continueGame=function(...args){
   const r=continueBeforeFlow.apply(this,args);
-  try{if(G&&G.flags&&G.flags.voicesDone&&!(G.c3&&G.c3.started))setTimeout(()=>{if(mode==='walk')voiceEnding()},600)}catch{}
+  try{if(G&&G.flags&&G.flags.voicesDone&&!(G.c3&&G.c3.started))scheduleFlow(()=>{if(mode==='walk')voiceEnding()},600)}catch{}
   return r;
 };
 

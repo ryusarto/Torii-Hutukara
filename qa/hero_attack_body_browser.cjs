@@ -24,11 +24,12 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
     const artFor=h=>h==='synth'||h==='percussion'?MusicianArtV1:h==='alt'||h==='katana'?NinjaArcherArtV1:ProtagonistArtV5;
     const keyFor=(art,h,v,s)=>art===MusicianArtV1?art.key(h,v,s):h+'_'+s;
     let cases=0,contacts=0,canonicalFrames=0;
-    function fixture(hero,variant,dir,seat){
+    async function fixture(hero,variant,dir,seat){
+      await window.FinalAssetLoadingV1?.ready();
       const buddy=hero==='franco'?'ryuchi':'franco';
       G=fresh();G.active=seat?buddy:hero;G.formation=[G.active,seat?hero:buddy];
       G.flags.reveal=G.flags.voicesKatana=G.flags.bass=true;
-      G.flags.masks=variant==='masked';G.c3.started=G.c3.synthUnlocked=G.c3.percussionUnlocked=true;
+      G.flags.masks=variant==='masked';G.c3.started=G.c3.synthUnlocked=G.c3.percussionUnlocked=true;G.knownMembers=C3.unlockedRoster().slice();
       for(const id of G.formation){G.hp[id]=G.maxhp[id]=100;G.levels[id]=5}
       G.resonance=100;G.x=G.y=24.5;G.area='forest';G.dir=dirs[dir];G.aim091=axis[dir];
       current=mk('forest',50,50,'grass');mode='action';battle={boss:false,id:'field'};bossActor=null;
@@ -45,6 +46,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
       art.reset();if(art===MusicianArtV1)art.setVariant(hero,variant);
       cam.x=G.x*T-160;cam.y=G.y*T-160;
       for(const id of ['start','overlay','dialogue'])$(id).classList.add('hidden');
+      await window.FinalAssetLoadingV1?.ready();
     }
     function step(){tick+=dt;update(dt)}
     function activate(state,seat,art){
@@ -80,7 +82,10 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
             if(n<500||n>50000||data[3]||data[(256*256-1)*4+3]||hashes.has(hash))throw Error('Invalid/duplicate drawing '+[hero,variant,state,row]);
             hashes.add(hash);
             for(const seat of [0,1]){
-              fixture(hero,variant,row,seat);
+              await fixture(hero,variant,row,seat);
+              await art.image(keyFor(art,hero,variant,state)).decode();
+              await HeroAttackBody.sheet(hero,variant).decode();
+              await window.FinalAssetLoadingV1?.ready();
               activate(state,seat,art);
               const frames=[];
               for(let i=0;i<160;i++){
@@ -98,17 +103,17 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
                 if(frames.at(-1)===7)break;
                 step();
               }
-              if(frames.join(',')!=='0,1,2,3,impact,4,5,6,7')throw Error('Body sequence '+[hero,variant,state,dirs[row],seat,frames]);
+              if(frames.join(',')!=='0,1,2,3,impact,4,5,6,7')throw Error('Body sequence '+JSON.stringify({hero,variant,state,dir:dirs[row],seat,frames,gate:window.FinalAssetLoadingV1?.snapshot(),pose:art.pose({style:hero,dir:dirs[row]},seat,false),record:art.players[seat],formation:G.formation,coop:C3.coopMember(),imageReady:art.images[keyFor(art,hero,variant,state)]?.complete}));
               cases++;contacts++;canonicalFrames+=8;
             }
           }
         }
       }
     }
-    fixture('katana','unmasked',3,0);activate('advanced',0,NinjaArcherArtV1);
+    await fixture('katana','unmasked',3,0);activate('advanced',0,NinjaArcherArtV1);
     act.invuln=0;damageHero(4,hydrateEnemy({id:'body-parry',type:'hush',x:G.x+.65,y:G.y}));
     if(NinjaArcherArtV1.players[0]?.state!=='attack_3')throw Error('Parry failed to trigger the riposte body');
-    fixture('franco','unmasked',3,0);
+    await fixture('franco','unmasked',3,0);
     const ally=getFollower(0);const enemy=current.enemies[0];enemy.x=ally.x+.3;enemy.y=ally.y;
     companionCooldown=0;updateAction(dt);
     if(HeroAttackBody.followerCast?.hero!=='ryuchi')throw Error('Missing real follower body strike');

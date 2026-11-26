@@ -36,7 +36,11 @@ const ProtagonistArtV5 = {
       image.src = this.assets[name];
     }
     // Decode at most eight full-resolution sheets rather than all 24 on mobile.
-    while (this.recent.length > 8) { const old = this.recent.shift(); delete this.images[old]; }
+    while (this.recent.length > 8) {
+      const index = this.recent.findIndex(key => !key.endsWith('_idle'));
+      if (index < 0) break;
+      const [old] = this.recent.splice(index, 1); delete this.images[old];
+    }
     return this.images[name];
   },
   trimDetached(canvas,cell,rows,select=()=>true) {
@@ -235,19 +239,21 @@ drawActor = function(p, x, y, moving = false) {
       // established animated renderer can keep moving until this atlas arrives.
       const fallbackState = pose.state === 'run' ? 'walk' : 'run';
       const fallback = art.images[pose.hero + '_' + fallbackState];
-      if (!fallback?.complete || !fallback.naturalWidth || fallback.edgePending)
-        return protagonistActorV5(p, x, y, moving);
-      image = fallback;
-      pose.state = fallbackState;
-      const motion = art.locomotion[seat];
-      const phase = motion?.hero === pose.hero ? motion.phase :
-        ((seat === 1 ? C3.coop.stride || 0 : stride10) / (fallbackState === 'run' ? 3.172 : 8 / 3.6)) % 1;
-      pose.frame = art.phaseFrame(art.sequence(pose.hero, fallbackState, pose.row), phase);
+      if (fallback?.complete && fallback.naturalWidth && !fallback.edgePending) {
+        image = fallback;
+        pose.state = fallbackState;
+        const motion = art.locomotion[seat];
+        const phase = motion?.hero === pose.hero ? motion.phase :
+          ((seat === 1 ? C3.coop.stride || 0 : stride10) / (fallbackState === 'run' ? 3.172 : 8 / 3.6)) % 1;
+        pose.frame = art.phaseFrame(art.sequence(pose.hero, fallbackState, pose.row), phase);
+      } else { image = art.image(pose.hero + '_idle'); pose.frame = 0; }
     } else {
       image = art.image(pose.hero + '_idle'); pose.frame = 0;
     }
   }
-  if (!image?.complete || !image.naturalWidth || image.edgePending) return protagonistActorV5(p, x, y, moving);
+  if (!image?.complete || !image.naturalWidth || image.edgePending) {
+    globalThis.FinalAssetLoadingV1?.requireImage(image, pose.hero + ' · idle'); return;
+  }
   ctx.save(); ctx.imageSmoothingEnabled = false;
   ctx.fillStyle = '#10152344'; ctx.beginPath(); ctx.ellipse(x, y + 10, 12, 3, 0, 0, Math.PI * 2); ctx.fill();
   const hit = seat === 1 ? C3.coop.hit : seat === 0 ? act.hit : 0;

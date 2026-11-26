@@ -6,6 +6,9 @@
 const NpcLifeV1 = {
   game:null, area:null, states:new Map(), appearances:new Map(),
   radius:.26, roamRadius:.65, speed:.48,
+  // The collaborators use square 96px cells. Keep that aspect ratio and the
+  // existing cell-bottom foot anchor instead of compressing them to 56x70.
+  collaboratorSize:80,
   directions:['down','left','up','right'],
   registerAppearance(key, descriptor) {
     if(typeof key!=='string'||typeof descriptor?.render!=='function')throw new TypeError('NPC appearance requires a key and render function');
@@ -216,7 +219,7 @@ const NpcLifeV1 = {
     if(custom&&(!custom.ready||custom.ready(n))&&custom.render(n,x,y,p)===true)return true;
     if(typeof C3==='undefined')return false;
     const group=Math.max(0,this.directions.indexOf(p.dir)),row=this.collaboratorRow(n);
-    if(row!==null&&c3SheetSprite(C3.images.prebeta_collabs_move,group*2+p.frame,row,8,3,x,y,56,70))return true;
+    if(row!==null&&c3SheetSprite(C3.images.prebeta_collabs_move,group*2+p.frame,row,8,3,x,y,this.collaboratorSize,this.collaboratorSize))return true;
     if(n.id==='c3_vega'&&c3SheetSprite(C3.images.prebeta_dney,group,p.frame,4,3,x,y,56,70))return true;
     const image=this.ambientImage(n);
     if(image&&c3SheetSprite(C3.images[image],group*2+p.frame,0,8,1,x,y,82*(C3.images[image].naturalWidth/8)/C3.images[image].naturalHeight,82))return true;

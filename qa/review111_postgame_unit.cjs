@@ -7,7 +7,7 @@ const root=path.resolve(__dirname,'..'),noop=()=>{},copy=x=>JSON.parse(JSON.stri
 const read=f=>fs.readFileSync(path.join(root,f),'utf8');
 const campaign=JSON.parse(read('qa/beta-1.10.1/CAMPAIGN_usina_RELOAD.json')).save;
 const combatRef=process.argv.find(a=>a.startsWith('--combat-ref='))?.slice(13);
-const base=read('game/source/base/TORII_HUTUKARA_1_1_2_TRILHAS.html'),builder=combatRef?execFileSync('git',['show',combatRef+':game/source/chapter-03/build_alpha.rb'],{cwd:root,encoding:'utf8'}):read('game/source/chapter-03/build_alpha.rb'),post=read('game/source/chapter-03/postgame.js');
+const base=read('game/source/base/torii-core.html'),builder=combatRef?execFileSync('git',['show',combatRef+':game/source/chapter-03/build_alpha.rb'],{cwd:root,encoding:'utf8'}):read('game/source/chapter-03/build_alpha.rb'),post=read('game/source/chapter-03/postgame.js');
 let count=0,failed=0;
 function check(name,fn){try{fn();count++;console.log('OK · '+name)}catch(e){failed++;console.error('FAIL · '+name+' · '+e.message)}}
 function func(source,name){const start=source.indexOf('function '+name+'('),end=source.indexOf('\nfunction ',start+1);assert(start>=0&&end>start,name);return source.slice(start,end)}

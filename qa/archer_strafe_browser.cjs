@@ -17,9 +17,10 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
     if(!await RunStrideV1.image('alt').ready)throw Error('Missing running body');
     const pad=index=>({index,id:'Standard controller',connected:true,mapping:'standard',axes:[0,0],
       buttons:Array.from({length:18},()=>({pressed:false,value:0}))});
-    window.archerArena=(seat)=>{
+    window.archerArena=async(seat)=>{
+      await window.FinalAssetLoadingV1?.ready();
       G=fresh();G.active=seat?'franco':'alt';G.formation=[G.active,seat?'alt':'franco'];
-      G.flags.bass=G.flags.reveal=G.flags.voicesKatana=true;G.resonance=100;
+      G.flags.bass=G.flags.reveal=G.flags.voicesKatana=true;G.knownMembers=C3.unlockedRoster().slice();G.resonance=100;
       for(const id of G.formation){G.hp[id]=G.maxhp[id]=100;G.levels[id]=5;}
       current=mk('forest',100,100,'grass');G.area='forest';G.x=42;G.y=42;G.dir='right';G.aim091=[1,0];
       mode='action';battle={boss:false,id:'field'};bossActor=null;keys={};touchDir={};menuOpen=false;trail=[];
@@ -29,9 +30,11 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
       __pads=seat?[pad(0),pad(1)]:[];C3.pad.pads=__pads;C3.pad.previous.clear();
       if(seat){C3.coop.member='alt';C3.syncCoop(true);}
       Object.assign(C3.coop,{x:42.7,y:42.5,dir:'right',cool:0,skill:0,advanced:0,signature:0,combo:0,lastAttack:-20});
-      NinjaArcherArtV1.reset();update(0);
+      NinjaArcherArtV1.reset();await window.FinalAssetLoadingV1?.ready();update(0);
     };
-    window.bow=(seat,n)=>{
+    window.bow=async(seat,n)=>{
+      await window.FinalAssetLoadingV1?.ready();
+      await NinjaArcherArtV1.image('alt_'+['attack_1','attack_2','attack_3','skill','advanced','signature'][n]).decode();
       const body=seat?C3.coop:G;
       body.dir='right';if(!seat)G.aim091=[1,0];
       if(n<3)NinjaArcherArtV1.shots[seat]=n;
@@ -72,12 +75,12 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
   });
   let cases=0;
   for(const seat of [0,1])for(const running of [false,true])for(let n=0;n<6;n++){
-    await page.evaluate(seat=>archerArena(seat),seat);
+    await page.evaluate(async seat=>archerArena(seat),seat);
     if(!seat){await page.keyboard.down('ArrowUp');if(running)await page.keyboard.down('Shift');}
-    const r=await page.evaluate(({seat,running,n})=>{
+    const r=await page.evaluate(async ({seat,running,n})=>{
       if(seat){__pads[1].axes=[0,running?-1:-.67];__pads[1].buttons[6]={pressed:running,value:running?1:0};}
       for(let i=0;i<8;i++)update(1/60);
-      const rec=bow(seat,n),frames=[],b=seat?C3.coop:G,sy=b.y;
+      const rec=await bow(seat,n),frames=[],b=seat?C3.coop:G,sy=b.y;
       for(let i=0;i<Math.ceil(rec.duration*60)-1;i++){
         update(1/60);cam.x=b.x*T-VW/2;cam.y=b.y*T-VH/2;const seen=frameBow(seat,false,true);if(seen.length===2)frames.push(seen);
       }
@@ -93,37 +96,37 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
     cases++;
   }
   // Normal fire remains animated when the archer holds position.
-  await page.evaluate(()=>archerArena(0));
-  const stopped=await page.evaluate(()=>{const rec=bow(0,0),cols=new Set();let split=false;
+  await page.evaluate(async ()=>archerArena(0));
+  const stopped=await page.evaluate(async ()=>{const rec=await bow(0,0),cols=new Set();let split=false;
     for(let i=0;i<12;i++){update(.016);cols.add(NinjaArcherArtV1.pose({style:'alt',dir:'right'},0,false).frame);
       if(frameBow(0).length)split=true;}return {split,cols:cols.size};});
   assert(!stopped.split&&stopped.cols>1);
   for(const seat of [0,1]){
-    await page.evaluate(seat=>archerArena(seat),seat);
+    await page.evaluate(async seat=>archerArena(seat),seat);
     if(!seat)await page.keyboard.down('ArrowUp');
-    const pause=await page.evaluate(seat=>{
+    const pause=await page.evaluate(async seat=>{
       if(seat)__pads[1].axes=[0,-1];
       for(let i=0;i<6;i++)update(1/60);
-      bow(seat,5);update(1/60);const before=frameBow(seat);
+      await bow(seat,5);update(1/60);const before=frameBow(seat);
       mode='overlay';update(1/60);const frozen=frameBow(seat);mode='action';
       return {before,frozen};
     },seat);
     assert.equal(pause.before.length,2);assert.deepEqual(pause.frozen,pause.before);
     if(!seat)await page.keyboard.up('ArrowUp');
-    const released=await page.evaluate(seat=>{
+    const released=await page.evaluate(async seat=>{
       if(seat)__pads[1].axes=[0,0];
       for(let i=0;i<10;i++)update(1/60);
       return frameBow(seat);
     },seat);
     assert.deepEqual(released,[],'held shot with released movement');
-    await page.evaluate(seat=>archerArena(seat),seat);
+    await page.evaluate(async seat=>archerArena(seat),seat);
     if(!seat)await page.keyboard.down('ArrowUp');
-    const blocked=await page.evaluate(seat=>{
+    const blocked=await page.evaluate(async seat=>{
       const b=seat?C3.coop:G;
       for(let x=0;x<current.w;x++)current.blocked.add(x+','+(Math.floor(b.y)-1));
       if(seat)__pads[1].axes=[0,-1];
       for(let i=0;i<70;i++)update(1/60);
-      bow(seat,0);let start=b.y;update(1/60);
+      await bow(seat,0);let start=b.y;update(1/60);
       const wall=frameBow(seat);
       if(seat){__pads=[];C3.pad.pads=[];}else G.active='franco';
       update(1/60);
@@ -136,11 +139,11 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
     const out=process.env.ARCHER_PREVIEW_FRAMES;fs.mkdirSync(out,{recursive:true});
     let index=0;
     for(const running of [false,true]){
-      await page.evaluate(()=>{archerArena(0);G.formation=['alt'];});await page.keyboard.down('ArrowUp');if(running)await page.keyboard.down('Shift');
+      await page.evaluate(async ()=>{archerArena(0);G.formation=['alt'];});await page.keyboard.down('ArrowUp');if(running)await page.keyboard.down('Shift');
       for(let i=0;i<42;i++){
         if(i===18){await page.keyboard.up('ArrowUp');await page.keyboard.down('ArrowDown');}
-        const im=await page.evaluate(({i})=>{
-          if(act.cool<=0)bow(0,Math.floor(i/8)%3);
+        const im=await page.evaluate(async ({i})=>{
+          if(act.cool<=0)await bow(0,Math.floor(i/8)%3);
           for(let j=0;j<2;j++){tick+=1/60;update(1/60);}
           cam.x=G.x*T-VW/2;cam.y=G.y*T-VH/2;
           return frameBow(0,true).image;
@@ -149,7 +152,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
       await page.keyboard.up('ArrowDown');await page.keyboard.up('Shift');
     }
   }
-  const placement=await page.evaluate(()=>({checks:bowPlacementChecks,errors:bowPlacementErrors}));
+  const placement=await page.evaluate(async ()=>({checks:bowPlacementChecks,errors:bowPlacementErrors}));
   assert(placement.checks>100);assert.deepEqual(placement.errors,[],'Moving shot layers share the registered body origin');
   assert.deepEqual(errors,[]);console.log('PASS '+cases+' walk/run × seat × bow actions, contact and independent facing; stationary fire; '+placement.checks+' registered layer draws');
  }finally{await browser.close();}

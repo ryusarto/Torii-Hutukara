@@ -21,14 +21,15 @@ const url=/^(file|https?):/.test(build)?build:pathToFileURL(build).href;
 const N=Number(process.argv[2]||10);
 const NIVEIS=(process.argv[3]||'normal,historia').split(',');
 const FAIXA=[.2,.4];
-const out=path.join(root,'qa/dificuldade');fs.mkdirSync(out,{recursive:true});
-const estados=JSON.parse(fs.readFileSync(path.join(out,'ESTADOS_CHEFES.json'),'utf8'));
+const stateDir=path.join(root,'qa/dificuldade'),out=process.env.DIFICULDADE_OUTPUT_DIR||stateDir;fs.mkdirSync(out,{recursive:true});
+const estados=JSON.parse(fs.readFileSync(path.join(stateDir,'ESTADOS_CHEFES.json'),'utf8'));
 const CHEFES=[['boss','O Viajante'],['voice_boss','Arauto'],['c3_metronome','O Metrônomo'],['c3_silence','O Silêncio']];
 
 function instalar(){
-  const DT=1/60;let t=2e4;
+  const DT=1/60;let t=2e4,assetWaits=0;
+  async function ready(){const waiting=window.FinalAssetLoadingV1?.ready();if(window.FinalAssetLoadingV1?.busy())assetWaits++;await waiting}
   // Simula sem desenhar (o combate vive em update); DESENHAR=1 usa o laço completo.
-  const desenhar=!!window.__desenhar;const frame=()=>{t+=DT*1000;if(desenhar)loop(t);else{tick+=DT;update(DT)}};
+  const desenhar=!!window.__desenhar;const frame=async()=>{await ready();t+=DT*1000;if(desenhar)loop(t);else{tick+=DT;update(DT)}await ready()};
   const keysDir=['w','a','s','d','shift'];
   const press=d=>{for(const k of keysDir)keys[k]=d.includes(k)};
   function steer(tx,ty){
@@ -36,28 +37,35 @@ function instalar(){
     if(dx>.15)d.push('d');else if(dx<-.15)d.push('a');if(dy>.15)d.push('s');else if(dy<-.15)d.push('w');press(d);
   }
   let derrota=false;const derrotaAntes=showDefeat;showDefeat=function(...a){derrota=true;return derrotaAntes.apply(this,a)};
-  function preparar(id,registro,nivel){
+  async function preparar(id,registro,nivel){
+    await ready();assetWaits=0;
     derrota=false;try{closeOverlay()}catch{}
     if(bossActor){bossActor=null;battle=null}
     G=normalizeSave(copy(registro.estado));buildMaps();G.difficulty=nivel;
+    // This recorded formation already knows its unlocked reserves. Do not
+    // auto-recruit one halfway through a timing-isolation fixture.
+    G.knownMembers=C3.unlockedRoster().slice();
     for(const k in G.maxhp)if(G.maxhp[k])G.hp[k]=G.maxhp[k];
     G.potions=Math.max(G.potions||0,registro.estado.potions||0);
     setArea(registro.area,registro.x,registro.y,false);
+    await ready();
     for(let i=0;i<200&&mode==='dialogue';i++)advanceDialogue();try{closeOverlay()}catch{}
     mode='walk';hostileShots.length=0;projectiles.length=0;
     if(id==='boss')spawnBossFight();else if(id==='voice_boss')spawnVoiceBoss();
     else if(id==='c3_metronome')C3.spawnMetronome();else if(id==='c3_silence')C3.spawnSilence();
     for(let i=0;i<200&&mode==='dialogue';i++)advanceDialogue();
+    await ready();
     return bossActor;
   }
-  function lutar(id,registro,nivel,maxSeg){
-    const alvo=preparar(id,registro,nivel);if(!alvo)return {erro:'chefe não apareceu'};
+  async function lutar(id,registro,nivel,maxSeg){
+    const alvo=await preparar(id,registro,nivel);if(!alvo)return {erro:'chefe não apareceu'};
     let tempo=0,attackCd=0,interactCd=0,fitas=0;const equipe=()=>Object.keys(G.maxhp).filter(k=>G.maxhp[k]&&partyMembers().includes(k));
     const vida0=equipe().reduce((a,k)=>a+G.hp[k],0);
     while(tempo<maxSeg){
+      await ready();
       if(derrota)break;
       if(alvo.hp<=0||(id==='c3_silence'&&C3.finalPending))break;
-      if(mode==='dialogue'){advanceDialogue();continue}
+      if(mode==='dialogue'){advanceDialogue();await ready();continue}
       if(mode==='overlay'&&!bossActor)break;
       tempo+=DT;attackCd-=DT;interactCd-=DT;
       if(mode==='action'){
@@ -70,13 +78,13 @@ function instalar(){
           else{press([]);G.aim091=[(e.x-G.x)/d,(e.y-G.y)/d];if(attackCd<0){attackAction();attackCd=.28;if(Math.random()<.08)skillAction()}}}
         else press([]);
       }else press([]);
-      frame();
+      await frame();
     }
     press([]);
     const venceu=!derrota&&(alvo.hp<=0||(id==='c3_silence'&&!!C3.finalPending));
     const vida1=equipe().reduce((a,k)=>a+Math.max(0,G.hp[k]),0);
     const r={venceu,tempo:+tempo.toFixed(1),vidaChefe:Math.max(0,alvo.hp),max:alvo.max,fases:alvo.f2?alvo.f2.fase:(alvo.phase||1),
-      danoEquipe:Math.round(100*(1-vida1/Math.max(1,vida0))),fitas,esgotou:!venceu&&!derrota};
+      danoEquipe:Math.round(100*(1-vida1/Math.max(1,vida0))),fitas,esgotou:!venceu&&!derrota,esperasAssets:assetWaits};
     if(bossActor){bossActor=null;battle=null}C3.finalPending=false;derrota=false;try{closeOverlay()}catch{}
     return r;
   }
@@ -85,11 +93,13 @@ function instalar(){
 
 (async()=>{
   const browser=await chromium.launch({executablePath:process.env.CHROME_PATH});
-  const resultado={build:v.versao,data:new Date().toISOString(),lutasPorChefe:N,faixa:FAIXA,niveis:{}};
+  const resultado={build:v.versao,data:new Date().toISOString(),lutasPorChefe:N,faixa:FAIXA,niveis:{},method:'Actual 1/60s update and unchanged boss bot; final-art readiness awaited before inputs and before/after simulation. Loading never counts as combat time.'};
   try{
     const page=await browser.newPage({viewport:{width:1280,height:800}});const erros=[];page.on('pageerror',e=>erros.push(e.message));
     await page.addInitScript(()=>{try{localStorage.clear()}catch{};window.requestAnimationFrame=()=>0});
     await page.goto(url+(url.includes('?')?'&':'?')+'semente=2026',{waitUntil:'load',timeout:180000});
+    resultado.source=await page.evaluate(()=>window.TORII_PLAYTEST_BUILD||null);
+    if(process.env.EXPECTED_SOURCE_SHA&&resultado.source?.sourceSha256!==process.env.EXPECTED_SOURCE_SHA)throw Error('Unexpected build SHA: '+resultado.source?.sourceSha256);
     if(process.env.DESENHAR)await page.evaluate(()=>{window.__desenhar=true});
     await page.evaluate(instalar);
     // AJUSTE='{"boss":0.8}' testa outro dano por chefe sem gerar a build de novo.

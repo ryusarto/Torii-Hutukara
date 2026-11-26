@@ -20,17 +20,17 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
  await page.goto(process.argv[2]||'http://127.0.0.1:8767/',{waitUntil:'load',timeout:120000});
  await page.waitForFunction(()=>typeof ProtagonistArtV5!=='undefined');
  async function check(name,fn){const detail=await fn();checks.push({name,passed:true,detail});console.log('OK · '+name)}
- async function arena(p1='ryuchi',p2='franco') {await page.evaluate(({p1,p2})=>{
-   G=fresh();G.active=p1;G.formation=[p1,p2];G.flags.voicesAlt=G.flags.voicesKatana=G.flags.bass=true;
+ async function arena(p1='ryuchi',p2='franco') {await page.evaluate(async({p1,p2})=>{
+   G=fresh();G.active=p1;G.formation=[p1,p2];G.flags.voicesAlt=G.flags.voicesKatana=G.flags.bass=true;G.knownMembers=C3.unlockedRoster().slice();
    for(const id of [p1,p2]){G.hp[id]=G.maxhp[id]=100;G.levels[id]=5;}
-   current=mk('forest',40,30,'grass');G.area='forest';G.x=10.5;G.y=12.5;G.dir='right';G.aim091=[1,0];
+   current=areas.forest=mk('forest',40,30,'grass');G.area='forest';G.x=10.5;G.y=12.5;G.dir='right';G.aim091=[1,0];
    mode='walk';battle=null;bossActor=null;keys={};Object.assign(act,{cool:0,skill:0,skillX:0,duo:0,hit:0,dashCD:0,invuln:0,combo:0,comboTime:-10});
    resetMotion10();Input121.game=G;Input121.lastArea=G.area;C3.pad.previous.clear();window.__pads=[window.__pad(0),window.__pad(1)];C3.pad.pads=window.__pads;
    Object.assign(C3.coop,{member:p2,combo:0,lastAttack:-10,skill:0,advanced:0,signature:0,cool:0,recovery:0});C3.syncCoop(true);C3.coop.invuln=0;ProtagonistArtV5.reset();
-   $('start').classList.add('hidden');$('overlay').classList.add('hidden');$('dialogue').classList.add('hidden');$('cinema').style.display='none';$('toast').classList.add('hidden');cam.x=cam.y=0;
+   $('start').classList.add('hidden');$('overlay').classList.add('hidden');$('dialogue').classList.add('hidden');$('cinema').style.display='none';$('toast').classList.add('hidden');cam.x=cam.y=0;await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');
  },{p1,p2});}
  await check('Protagonist sheets do not load on the title screen',async()=>{
-   const count=await page.evaluate(()=>Object.keys(ProtagonistArtV5.images).length);assert.equal(count,0);return count;
+   const count=await page.evaluate(async()=>Object.keys(ProtagonistArtV5.images).length);assert.equal(count,0);return count;
  });
  await check('192 directional sequences decode with unique played cells and compatible physical/virtual closure',async()=>{
    const result=await page.evaluate(async()=>{
@@ -60,10 +60,10 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
        }else if(hashes[animation.frames-1]!==hashes[closure])throw Error('Open physical cycle: '+name);
        count++;
      }return count;
-   });assert.equal(result,192);return {sequences:result,frames:await page.evaluate(()=>ProtagonistArtV5.manifest.animations.reduce((n,a)=>n+a.frames,0))};
+   });assert.equal(result,192);return {sequences:result,frames:await page.evaluate(async()=>ProtagonistArtV5.manifest.animations.reduce((n,a)=>n+a.frames,0))};
  });
  await check('P1 and P2 attacks and rolls keep their own hero and direction',async()=>{
-   await arena();const result=await page.evaluate(()=>{
+   await arena();const result=await page.evaluate(async()=>{
      attackAction();C3.coop.cool=0;C3.coopAttack(window.__pads[1]);
      const attacks=ProtagonistArtV5.players.map(p=>({hero:p.hero,state:p.state}));
      act.dashCD=0;startRoll121();C3.coop.dashCD=0;C3.coopDodge(window.__pads[1]);
@@ -76,7 +76,7 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
    const result=[];
    for(const hero of ['franco','ryuchi'])for(const [fn,key,state]of [['skillAction','skill','skill'],['advancedSkill','skillX','advanced'],['duoAction','duo','signature']]){
      await arena(hero,hero==='franco'?'ryuchi':'franco');
-     const v=await page.evaluate(({fn,state})=>{G.resonance=100;window[fn]();const record=ProtagonistArtV5.players[0];if(!record)throw Error('Missing action record');record.elapsed=.05;window[fn]();return {hero:record.hero,state:record.state,elapsed:record.elapsed,same:record===ProtagonistArtV5.players[0]};},{fn,state});
+     const v=await page.evaluate(async({fn,state})=>{G.resonance=100;window[fn]();const record=ProtagonistArtV5.players[0];if(!record)throw Error('Missing action record');record.elapsed=.05;window[fn]();return {hero:record.hero,state:record.state,elapsed:record.elapsed,same:record===ProtagonistArtV5.players[0]};},{fn,state});
      assert.equal(v.hero,hero);assert.equal(v.state,state);assert.equal(v.same,true);assert.equal(v.elapsed,.05);result.push(v);
    }return result;
  });
@@ -84,26 +84,26 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
    const result=[];
    for(const hero of ['franco','ryuchi']){
      await arena(hero,hero==='franco'?'ryuchi':'franco');
-     result.push(await page.evaluate(()=>{
+     result.push(await page.evaluate(async()=>{
        const states=[];for(let i=0;i<3;i++){act.cool=0;act.recovery=0;attackAction();states.push(ProtagonistArtV5.players[0]?.state);}
        return states;
      }));
      for(const [fn,key,state]of [['coopSkill','skill','skill'],['coopAdvanced','advanced','advanced'],['coopSignature','signature','signature']]){
        await arena(hero==='franco'?'ryuchi':'franco',hero);
-       const v=await page.evaluate(({fn,key})=>{mode='action';G.resonance=100;C3.coop[key]=0;C3[fn](window.__pads[1]);const r=ProtagonistArtV5.players[1];C3[fn](window.__pads[1]);return {hero:r?.hero,state:r?.state,same:r===ProtagonistArtV5.players[1],p1:ProtagonistArtV5.players[0]};},{fn,key});
+       const v=await page.evaluate(async({fn,key})=>{mode='action';G.resonance=100;C3.coop[key]=0;C3[fn](window.__pads[1]);const r=ProtagonistArtV5.players[1];C3[fn](window.__pads[1]);return {hero:r?.hero,state:r?.state,same:r===ProtagonistArtV5.players[1],p1:ProtagonistArtV5.players[0]};},{fn,key});
        assert.equal(v.hero,hero);assert.equal(v.state,state);assert(v.same);assert.equal(v.p1,null);
      }
    }assert.deepEqual(result,[['attack_1','attack_2','attack_3'],['attack_1','attack_2','attack_3']]);return result;
  });
  await check('Switches, loads and area boundaries discard stale animation ownership',async()=>{
-   await arena();const v=await page.evaluate(()=>{
-     attackAction();G.active='franco';G.formation=['franco','ryuchi'];update(0);const switched=ProtagonistArtV5.players[0]===null;
-     ProtagonistArtV5.mark(0,'franco','signature',1,'up');G={...G};update(0);const loaded=ProtagonistArtV5.players.every(x=>x===null);
-     ProtagonistArtV5.mark(0,'franco','skill',1,'left');G.area='studio';update(0);return {switched,loaded,area:ProtagonistArtV5.players.every(x=>x===null)};
+   await arena();const v=await page.evaluate(async()=>{
+     attackAction();G.active='franco';G.formation=['franco','ryuchi'];await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');update(0);const switched=ProtagonistArtV5.players[0]===null;
+     ProtagonistArtV5.mark(0,'franco','signature',1,'up');G={...G};await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');update(0);const loaded=ProtagonistArtV5.players.every(x=>x===null);
+     ProtagonistArtV5.mark(0,'franco','skill',1,'left');G.area='studio';current=areas.studio;await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');update(0);return {switched,loaded,area:ProtagonistArtV5.players.every(x=>x===null)};
    });assert(v.switched&&v.loaded&&v.area);return v;
  });
  await check('Dialogue freezes action clocks and uses the matching variant portrait',async()=>{
-   await arena();const v=await page.evaluate(()=>{
+   await arena();const v=await page.evaluate(async()=>{
      ProtagonistArtV5.mark(0,'ryuchi','skill',.4,'right');const clock=ProtagonistArtV5.clock;
      talk([{who:'ryuchi',t:'Teste visual.'},{who:'franco',t:'Resposta visual.'}]);
      const ninja=$('portrait').getAttribute('src')===ProtagonistArtV5.assets.ryuchi_portrait_unmasked_speaking;
@@ -131,7 +131,7 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
    });assert(v.every(x=>x.equal&&x.visible),JSON.stringify(v));return v;
  });
  await check('Mask acquisition selects authored rows and matching portraits',async()=>{
-   await arena();const v=await page.evaluate(()=>{
+   await arena();const v=await page.evaluate(async()=>{
      const art=ProtagonistArtV5, out=[];
      for(const masks of [false,true]){G.flags.masks=masks;
        for(const hero of ['franco','ryuchi'])for(const direction of ['down','left','up','right']){
@@ -142,7 +142,7 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
    });assert(v.every(x=>x.row===['down','left','up','right'].indexOf(x.direction)+(x.masks?4:0)&&x.portrait));return v;
  });
  await check('Damage animates only actual HP loss and respects invulnerability',async()=>{
-   await arena();const v=await page.evaluate(()=>{
+   await arena();const v=await page.evaluate(async()=>{
      const art=ProtagonistArtV5;mode='action';damageHero(1);const first=art.players[0];
      const hp=G.hp[G.active];damageHero(1);
      const blocked=G.hp[G.active]===hp&&first===art.players[0];
@@ -150,7 +150,7 @@ const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:
    });assert.equal(v.state,'hurt');assert(v.blocked);assert.equal(v.coop,'hurt');return v;
  });
  await check('Full resolution sheet cache remains bounded to eight decoded images',async()=>{
-   const size=await page.evaluate(()=>{for(const hero of ['franco','ryuchi'])for(const state of [...new Set(ProtagonistArtV5.manifest.animations.map(a=>a.state))])ProtagonistArtV5.image(hero+'_'+state);return Object.keys(ProtagonistArtV5.images).length});assert.equal(size,8);return size;
+   const size=await page.evaluate(async()=>{for(const hero of ['franco','ryuchi'])for(const state of [...new Set(ProtagonistArtV5.manifest.animations.map(a=>a.state))])ProtagonistArtV5.image(hero+'_'+state);return Object.keys(ProtagonistArtV5.images).length});assert.equal(size,8);return size;
  });
  // An enlarged in-engine view for checking natural scale and grounded belt masks.
  await arena();await page.evaluate(async()=>{

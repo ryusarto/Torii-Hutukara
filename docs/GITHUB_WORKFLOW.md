@@ -1,40 +1,12 @@
-# Fluxo de atualização no GitHub
+# Fluxo de desenvolvimento
 
-O GitHub é a fonte oficial do projeto. Toda alteração aprovada deve terminar registrada no repositório. O autor tornou o projeto público em 13/11/2026 para publicar o teste pelo Pages; o site publica apenas o jogo exportado. Consulte [o fluxo de publicação](PLAYTEST_SITE.md).
+1. Crie uma branch para a alteração.
+2. Edite as fontes e mantenha a compatibilidade de saves e controles.
+3. Gere e valide a build.
+4. Execute os testes dos fluxos afetados e registre o ambiente usado.
+5. Revise o diff, os créditos, os arquivos incluídos e as notas de versão.
+6. Integre à `main` e acompanhe o resultado da publicação.
 
-## Em cada mudança
+Os workflows ficam em [`.github/workflows/`](../.github/workflows/). Código-fonte, manifestos e fixtures necessárias são versionados; builds, caches, relatórios, capturas e material de referência privado ficam fora do tree público.
 
-1. Criar uma alteração pequena e identificável.
-2. Atualizar o arquivo-fonte, nunca editar uma build histórica para substituí-la.
-3. Gerar uma nova build quando a mudança afetar o jogo.
-4. Executar a validação automática e registrar o playtest correspondente.
-5. Atualizar `CHANGELOG.md` e, quando necessário, roadmap, arquitetura ou roteiro.
-6. Conferir se nenhuma credencial, save pessoal ou arquivo temporário entrou no pacote.
-7. Criar um commit descritivo e enviar ao GitHub.
-
-## Convenção de commits
-
-- `feat:` nova funcionalidade ou conteúdo.
-- `fix:` correção de falha.
-- `art:` sprites, animações, cenário ou interface.
-- `story:` roteiro, diálogo ou missão.
-- `audio:` trilha, efeito ou integração sonora.
-- `docs:` documentação.
-- `test:` validações e relatórios de playtest.
-- `build:` geração e empacotamento de versão.
-
-## Regra de versões
-
-- Builds não são commitadas: o workflow `Publish playtest` gera, valida (falha se algo der errado) e publica a build a partir do código-fonte.
-- Cada versão recebe pasta, nome, manifesto, hash e relatório próprios.
-- Uma correção pequena incrementa o último número: 1.1.0 → 1.1.1.
-- Um conjunto novo de conteúdo incrementa o número intermediário: 1.1.x → 1.2.0.
-- Tags de lançamento devem usar o formato `alpha-1.1.0`, `beta-1.0.0` ou `v1.0.0`.
-
-## Antes de publicar
-
-- Todos os JSONs precisam ser válidos.
-- Nenhum arquivo individual pode superar o limite do GitHub.
-- O hash da build deve coincidir com o manifesto.
-- O relatório deve separar claramente validação automática de playtest manual.
-- Pendências conhecidas devem aparecer em `docs/PROJECT_STATUS.md` ou `docs/ROADMAP.md`.
+Consulte [contribuição](../CONTRIBUTING.md), [validação](QA.md), [publicação](PLAYTEST_SITE.md) e [licenças dos materiais](../LICENSE-ASSETS.md).

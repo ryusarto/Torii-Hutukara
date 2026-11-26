@@ -9,7 +9,7 @@ require 'fileutils'
 
 ROOT = File.expand_path(__dir__)
 REPO_ROOT = File.expand_path('../../..', ROOT)
-BASE = File.join(REPO_ROOT, 'game', 'source', 'base', 'TORII_HUTUKARA_1_1_2_TRILHAS.html')
+BASE = File.join(REPO_ROOT, 'game', 'source', 'base', 'torii-core.html')
 RUNTIME = File.join(ROOT, 'chapter3_runtime.js')
 INPUT_RUNTIME = File.join(ROOT, 'input_mobile_combat.js')
 PACE_METER = File.join(REPO_ROOT, 'game', 'source', 'telemetry', 'pace_meter.js')
@@ -66,7 +66,6 @@ FILES = {
   '__C3_AUDIO_4__' => File.join(ASSETS, 'audio', '04-chico-buarque.mp3'),
   '__C3_AUDIO_5__' => File.join(ASSETS, 'audio', '05-passaros-exoticos.mp3'),
   '__C3_AUDIO_6__' => File.join(ASSETS, 'audio', '06-final-boss.mp3'),
-  '__C3_ACTORS__' => File.join(RUNTIME_ASSETS, 'reference', 'FRANCO_RYUCHI_MOVIMENTO.png'),
   '__C3_PROPS__' => File.join(RUNTIME_ASSETS, 'reference', 'EDIFICIOS_PERSONAGENS.png'),
   '__C3_CAST__' => File.join(RUNTIME_ASSETS, 'reference', 'ELENCO_INIMIGOS.png'),
   '__C3_STREET__' => File.join(AUTHORING, 'RUA_DISTRITO_PROPOSTA.png'),
@@ -85,11 +84,6 @@ FILES = {
   '__C3_ATLAS_WORKSHOP__' => File.join(RUNTIME_ASSETS, 'ambiente', 'OFICINA_CIRO_PROPS_ATLAS.png'),
   '__C3_ATLAS_CANAL__' => File.join(RUNTIME_ASSETS, 'ambiente', 'CANAL_INTERFERENCIA_PROPS_ATLAS.png'),
   '__C3_ATLAS_LIFT__' => File.join(RUNTIME_ASSETS, 'ambiente', 'ELEVADOR_CEU_PROPS_ATLAS.png'),
-  '__PREBETA_ROLL__' => File.join(PREBETA, 'characters', 'PLAYABLE_ROLL_6X6.png'),
-  '__PREBETA_RUN__' => File.join(PREBETA, 'characters', 'SYNTH_PERCUSSION_RUN.png'),
-  '__PREBETA_RUN_V2__' => File.join(PREBETA, 'characters', 'SYNTH_PERCUSSION_RUN_V2_12X2.png'),
-  '__PREBETA_PORTRAITS__' => File.join(PREBETA, 'dialogue', 'PLAYABLE_PORTRAITS_MASK_CANON.png'),
-  '__PREBETA_PORTRAITS_V2__' => File.join(PREBETA, 'dialogue', 'PLAYABLE_PORTRAITS_NATURAL_V2.png'),
   '__PREBETA_MASK__' => File.join(PREBETA, 'dialogue', 'TORII_MASK_CANON_4X2.png'),
   '__PREBETA_PROPS__' => File.join(PREBETA, 'environment', 'ENVIRONMENT_PROPS_4X2.png'),
   '__PREBETA_CLOUDS__' => File.join(PREBETA, 'environment', 'VOLUMETRIC_CLOUDS_4X2.png'),
@@ -134,10 +128,12 @@ raise "Diálogos ausentes: #{DIALOGUES}" unless File.file?(DIALOGUES)
 
 html = File.binread(BASE).force_encoding(Encoding::UTF_8)
 runtime = File.read(RUNTIME, encoding: 'UTF-8')
+replace_once!(html, "const activeModes10=()=>mode==='walk'||mode==='action';",
+  "const activeModes10=()=>!window.FinalAssetLoadingV1?.busy()&&(mode==='walk'||mode==='action');", 'ações aguardam a arte da cena')
 
 # Menu input must run before the legacy anonymous capture listener, while the
 # actual implementation is loaded with the additive interface modules below.
-replace_once!(html, '<script>', "<script>\n'use strict';\nwindow.addEventListener(\"keydown\",e=>window.ToriiMenuControlsV7?.handleKey(e),true);", 'entrada unificada dos menus')
+replace_once!(html, '<script>', "<script>\n'use strict';\nwindow.addEventListener(\"keydown\",e=>{if(e.metaKey||e.ctrlKey||e.altKey){e.stopImmediatePropagation();return}if(window.FinalAssetLoadingV1?.handleKey(e))return;window.ToriiMenuControlsV7?.handleKey(e)},true);", 'entrada unificada dos menus')
 replace_once!(html, "window.addEventListener('keydown',e=>{if(mode==='title'", "window.addEventListener('keydown',e=>{if(document.querySelector('.keymap6 .listening'))return;if(mode==='title'", 'captura de remapeamento antes da navegação legada')
 # Legacy X used a free tile center instead of the movement body's collision radius.
 replace_once!(html, 'const nx=G.x+v[0]*.28,ny=G.y+v[1]*.28;if(!tileWalkable(current,nx,ny))break;G.x=nx;G.y=ny;steps++;', 'if(!window.SkillMovementV1.warpStep(G,v[0],v[1],.28))break;steps++;', 'Passo Sônico respeita colisão do corpo')
@@ -559,13 +555,6 @@ replace_once!(stride_runtime, '__ARCHER_SPLIT_MANIFEST__', JSON.generate(JSON.pa
 replace_once!(stride_runtime, '__RUN_STRIDE_MANIFEST__', JSON.generate(stride_manifest), 'fases da passada')
 hero_attack_path = File.join(ROOT, 'hero_attack_fx.js')
 enemy_attack_path = File.join(ROOT, 'enemy_attack_fx.js')
-hero_attack_atlas = File.join(REPO_ROOT, 'assets', 'hero-attack-fx', 'v1', 'hero_attacks.png')
-sword_atlas = File.join(LOCOMOTION_ASSETS, 'ryuchi-sword-swipe.png')
-signature_dir = File.join(REPO_ROOT, 'assets', 'hero-attack-fx', 'v2')
-signature_paths = %w[franco ryuchi katana synth percussion].to_h do |hero|
-  [hero, File.join(signature_dir, 'atlas', "#{hero}.png")]
-end
-bass_pulse_path = File.join(signature_dir, 'atlas', 'onda-do-baixo.png')
 hero_attack_runtime = File.read(hero_attack_path, encoding: 'UTF-8')
 hero_attack_v3_dir = File.join(REPO_ROOT, 'assets', 'hero-attack-fx', 'v3')
 hero_attack_v3_manifest_path = File.join(hero_attack_v3_dir, 'manifest.json')
@@ -574,11 +563,6 @@ hero_attack_v3_paths = %w[franco ryuchi alt katana synth percussion].to_h do |he
 end
 replace_once!(hero_attack_runtime, '__HERO_ATTACK_V3_ATLASES__', png_map(hero_attack_v3_paths), 'animações compactas originais dos seis personagens')
 replace_once!(hero_attack_runtime, '__HERO_ATTACK_V3_MANIFEST__', JSON.generate(JSON.parse(File.read(hero_attack_v3_manifest_path))), 'fases e transparência dos ataques')
-replace_once!(hero_attack_runtime, '__HERO_ATTACK_V2_ATLASES__', png_map(signature_paths), 'efeitos próprios dos cinco instrumentos e armas')
-{ '__FRANCO_BASS_PULSE__' => bass_pulse_path, '__HERO_ATTACK_ATLAS__' => hero_attack_atlas, '__RYUCHI_SWORD_ATLAS__' => sword_atlas }.each do |token, path|
-  raise "Missing #{token} in hero attack module" unless hero_attack_runtime.include?(token)
-  hero_attack_runtime.sub!(token) { JSON.generate("data:image/png;base64,#{encode(path)}") }
-end
 # Fase 4 da narrativa: leitura, narrador como cenário, falas de combate e consequências.
 NARRATIVA_JS = File.join(ROOT, 'narrativa_v1.js')
 NARRATIVA_DATA = File.join(REPO_ROOT, 'design', 'dialogo', 'NARRATIVA_FASE4.json')
@@ -668,6 +652,7 @@ replace_once!(canal_runtime, '__CANAL_VIOLIN_WAV__', encode(canal_recording), 'r
 bridge_runtime = File.read(bridge_art, encoding: 'UTF-8')
 replace_once!(bridge_runtime, '__BRIDGE_SPRITES__', JSON.generate(bridge_assets), 'sprites da Ponte das Frequências')
 parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, stride_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), File.read(File.join(ROOT,'hero_legacy_fx.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8'), body_runtime, narrativa_runtime, File.read(File.join(ROOT, 'interface_v6.js'), encoding: 'UTF-8'), *fase2_runtimes, bridge_runtime, File.read(bridge_puzzle, encoding: 'UTF-8'), File.read(radio_tuning, encoding: 'UTF-8'), File.read(LUMI_JS, encoding: 'UTF-8'), canal_runtime, File.read(plant_sequencer, encoding: 'UTF-8'), club_runtime, File.read(final_echoes, encoding: 'UTF-8'), ui7_runtime, File.read(TOUCH_LAYOUT_JS, encoding: 'UTF-8'), File.read(MENU_CONTROLS_JS, encoding: 'UTF-8'), File.read(ENEMY_HEALTH_JS, encoding: 'UTF-8'), ui7_screens_runtime, combat_readability_runtime, enemy_variant_runtime, enemy_skill_fx_runtime, File.read(SKILL_MOVEMENT_JS, encoding: 'UTF-8'), ui7_new_games_runtime]
+parts += %w[render_performance_v1.js guidance_recovery_v1.js final_asset_loading_v1.js].map { |name| File.read(File.join(ROOT, name), encoding: 'UTF-8') }
 runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = polish_runtime = npc_gestures_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
 html.insert(position, "\n")
 until parts.empty?
@@ -736,8 +721,8 @@ sources += [ENEMY_ART_JS, File.join(ENEMY_ART_ASSETS, 'manifest.json')] + enemy_
 sources += [BOSS_ANIMATION_JS, File.join(BOSS_ANIMATION_ASSETS, 'manifest.json'), File.join(BOSS_ANIMATION_V3, 'manifest.json')] + boss_animation_paths.values
 
 sources += %w[hero_legacy_fx.rb hero_legacy_fx.js].map { |name| File.join(ROOT, name) }
-sources += [bass_pulse_path] + signature_paths.values + body_paths.values + stride_paths.values + [body_placement, body_script, stride_script, stride_manifest_path, archer_split_path]
-sources += [File.join(ROOT, "postgame.js"), File.join(ROOT, "interface_v6.js"), hero_attack_path, enemy_attack_path, hero_attack_atlas, sword_atlas]
+sources += body_paths.values + stride_paths.values + [body_placement, body_script, stride_script, stride_manifest_path, archer_split_path]
+sources += [File.join(ROOT, "postgame.js"), File.join(ROOT, "interface_v6.js"), hero_attack_path, enemy_attack_path]
 sources += [BOSS_GROUND_FX_JS, File.join(BOSS_GROUND_FX_ASSETS, 'manifest.json'), File.join(BOSS_GROUND_FX_V2, 'manifest.json')] + ground_fx_paths.values
 sources += [ENVIRONMENT_DEPTH_JS, ENVIRONMENT_ATMOSPHERE_JS, CLOUD_WORLD_JS, CLOUD_STORY_JS, File.join(CLOUD_WORLD_ASSETS, 'manifest.json')] + cloud_files.values
 sources += [File.join(ENVIRONMENT_VOLUME_ASSETS, 'manifest.json')] + volume_files.values
@@ -748,6 +733,7 @@ sources += FASE2_JS + [bridge_art, bridge_puzzle, radio_tuning, lumi_melody, can
 if File.file?(bridge_manifest)
   sources += [bridge_manifest] + bridge_files.map { |file| File.join(bridge_root, file) }
 end
+sources += %w[render_performance_v1.js guidance_recovery_v1.js final_asset_loading_v1.js].map { |name| File.join(ROOT, name) }
 manifest = {
   game: 'TORII & HUTUKARA',
   build: VERSION.fetch('rotulo'),
@@ -780,7 +766,7 @@ manifest = {
     distance_teleport: false
   },
   sources: sources.uniq.to_h do |path|
-    key = [bridge_root, club_art_dir, File.dirname(canal_recording), ENEMY_SKILL_FX_DIR, ENEMY_VARIANT_V2_DIR, ryuchi_matte_dir, hero_attack_v3_dir, signature_dir, body_dir, stride_dir, File.dirname(hero_attack_atlas), BOSS_ANIMATION_V3, BOSS_GROUND_FX_V2, File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2'), NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, LOCOMOTION_ASSETS, WORLD_POLISH_ASSETS, NPC_GESTURES_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS, CLOUD_WORLD_ASSETS, ENVIRONMENT_VOLUME_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
+    key = [bridge_root, club_art_dir, File.dirname(canal_recording), ENEMY_SKILL_FX_DIR, ENEMY_VARIANT_V2_DIR, ryuchi_matte_dir, hero_attack_v3_dir, body_dir, stride_dir, BOSS_ANIMATION_V3, BOSS_GROUND_FX_V2, File.join(REPO_ROOT, 'assets', 'npcs', 'vida-v2'), NINJA_ARCHER_ASSETS, PROTAGONIST_ASSETS, LOCOMOTION_ASSETS, WORLD_POLISH_ASSETS, NPC_GESTURES_ASSETS, File.join(REPO_ROOT, 'assets', 'cenarios'), MUSICIAN_ASSETS, ENEMY_ART_ASSETS, BOSS_ANIMATION_ASSETS, BOSS_GROUND_FX_ASSETS, CLOUD_WORLD_ASSETS, ENVIRONMENT_VOLUME_ASSETS].any? { |folder| path.start_with?(folder + '/') } ? path.delete_prefix(REPO_ROOT + '/') : File.basename(path)
 
     [key, { bytes: File.size(path), sha256: Digest::SHA256.file(path).hexdigest }]
   end
@@ -844,7 +830,7 @@ File.write(File.join(OUTPUT_DIR, "LEIA-ME_#{VERSION.fetch('sufixo')}.txt"), <<~R
   - DualShock 4, DualSense e controles padronizados via Gamepad API.
   - Coop local para duas pessoas, com HP e ações independentes em câmera compartilhada.
 
-  O arquivo original TORII_HUTUKARA_1_1_2_TRILHAS.html não é alterado.
+  O arquivo original torii-core.html não é alterado.
   Esta é uma Beta: use o menu para exportar o progresso periodicamente.
 README
 

@@ -29,8 +29,9 @@ async function measure(browser,url){
   await page.locator('#startNew').tap();
   await page.locator('#dif_historia').tap();
   const enterWalk=page.waitForFunction(()=>{
-   if(mode==='dialogue')advanceDialogue();
-   return mode==='walk'&&G?.area==='studio';
+   const gate=window.FinalAssetLoadingV1;if(gate?.snapshot().error)throw Error(gate.snapshot().error);
+   if(!gate?.busy()&&mode==='dialogue')advanceDialogue();
+   return !gate?.busy()&&mode==='walk'&&G?.area==='studio';
   },null,{polling:250,timeout:25000}).then(()=>Math.round(performance.now()-started));
   const studioWalkMs=await enterWalk;
   const studioArt=page.waitForFunction(()=>{
@@ -43,7 +44,7 @@ async function measure(browser,url){
   await page.waitForTimeout(Math.max(0,windowMs-(performance.now()-started)));
   const used=transfers.filter(r=>r.at-started<=windowMs);
   const state=await page.evaluate(()=>({version:window.ToriiPlaytest?.version,sourceSha256:window.ToriiPlaytest?.sourceSha256,
-   area:G.area,mobile:Input121.mobile,c3Started:!!C3.deferredStarted,media:window.ToriiMedia?.stats()}));
+   area:G.area,mobile:Input121.mobile,c3Started:!!C3.deferredStarted,loading:window.FinalAssetLoadingV1?.busy()||false,media:window.ToriiMedia?.stats()}));
   return {url,titleMs,titleBytes,studioWalkMs,studioArtMs:await studioArt,windowMs,
    bytes:used.reduce((n,r)=>n+r.bytes,0),requests:used.length,errors,...state,
    largest:used.sort((a,b)=>b.bytes-a.bytes).slice(0,10).map(({url,bytes})=>({url,bytes}))};
@@ -63,6 +64,7 @@ async function measure(browser,url){
   assert.equal(build.area,'studio');
   assert(build.mobile);
   assert(!build.c3Started);
+  assert.equal(build.loading,false);
   assert(build.titleMs<5000);
   if(baseline)assert(build.bytes<samples[0].bytes,'A transferência inicial deve cair');
  }finally{await browser.close()}

@@ -157,7 +157,7 @@ const KeyMap={
 // Teclado: tradução na captura, antes de qualquer tratador do jogo.
 let capturing=null;
 for(const type of ['keydown','keyup'])addEventListener(type,e=>{
-  if(e.__km6)return;
+  if(e.ctrlKey||e.metaKey||e.altKey||e.__km6)return;
   if(capturing&&type==='keydown'){e.preventDefault();e.stopImmediatePropagation();const f=capturing;capturing=null;f(e);return}
   const t=e.target;if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable))return;
   const canon=KeyMap.translate(e.key);if(!canon||canon===e.key||canon===e.key.toLowerCase())return;

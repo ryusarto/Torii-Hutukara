@@ -4,30 +4,37 @@
  * Grava qa/narrativa/FASE4.json e capturas em qa/narrativa/.
  */
 'use strict';
-const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{pathToFileURL}=require('node:url');
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),{pathToFileURL,fileURLToPath}=require('node:url');
 const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
 const root=path.resolve(__dirname,'..'),v=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json')));
 const input=process.argv[2]||path.join(root,'game/builds',v.versao,'TORII_HUTUKARA_'+v.sufixo+'.html');
 const url=(/^(file|https?):/.test(input)?input:pathToFileURL(input).href);
-const out=path.join(root,'qa/narrativa');fs.mkdirSync(out,{recursive:true});
+const out=process.env.NARRATIVA_OUTPUT_DIR||path.join(root,'qa/narrativa');fs.mkdirSync(out,{recursive:true});
 const campaign=JSON.parse(fs.readFileSync(path.join(root,'qa/beta-1.10.1/CAMPAIGN_usina_RELOAD.json'))).save;
-const checks=[],errors=[];
-async function check(name,fn){const detail=await fn();checks.push({name,detail});console.log('OK · '+name)}
+const checks=[],errors=[];let buildMeta=null,page;
+async function ready(target=page){await target.evaluate(()=>window.FinalAssetLoadingV1?.ready())}
+async function check(name,fn){await ready();const detail=await fn();checks.push({name,detail});console.log('OK · '+name)}
 (async()=>{
   const browser=await chromium.launch({executablePath:process.env.CHROME_PATH});
   try{
-    const page=await browser.newPage({viewport:{width:1280,height:800}});page.on('pageerror',e=>errors.push(e.message));
+    page=await browser.newPage({viewport:{width:1280,height:800}});page.on('pageerror',e=>errors.push(e.message));
     await page.addInitScript(()=>{try{localStorage.clear();sessionStorage.clear()}catch{}});
     await page.goto(url+'?semente=7',{waitUntil:'load',timeout:180000});
+    buildMeta=await page.evaluate(()=>window.TORII_PLAYTEST_BUILD||null);
+    const portable=/^file:/.test(input)?fileURLToPath(input):input;
+    if(!buildMeta&&fs.existsSync(portable)){const hash=crypto.createHash('sha256');for await(const chunk of fs.createReadStream(portable))hash.update(chunk);buildMeta={sourceSha256:hash.digest('hex'),kind:'portable HTML SHA256'}}
+    if(process.env.EXPECTED_SOURCE_SHA&&buildMeta?.sourceSha256!==process.env.EXPECTED_SOURCE_SHA)throw Error('Unexpected build SHA: '+buildMeta?.sourceSha256);
     await page.locator('#startNew').click();
     await page.locator('#dif_historia').click();
+    await ready();
     await page.waitForFunction(()=>typeof Narrativa!=='undefined'&&document.querySelector('.leitura-barra'),null,{timeout:30000});
     // Estado limpo de caminhada a partir de um save real da campanha.
     await page.waitForTimeout(1500);
     await page.evaluate(save=>{for(let i=0;i<40&&mode==='dialogue';i++)Narrativa.pularCena();if(mode==='overlay')closeOverlay();
       G=normalizeSave(copy(save));buildMaps();setArea(G.area,G.x,G.y,false);mode='walk'},campaign);
+    await ready();
     // Cenas automáticas da área podem começar logo depois: espera o jogo assentar.
-    for(let estavel=0,i=0;estavel<4&&i<40;i++){await page.waitForTimeout(300);
+    for(let estavel=0,i=0;estavel<4&&i<40;i++){await ready();await page.waitForTimeout(300);
       const m=await page.evaluate(()=>{if(mode==='dialogue')Narrativa.pularCena();if(mode==='overlay')closeOverlay();const was=mode;mode='walk';return was});
       estavel=m==='walk'?estavel+1:0}
     const resto=await page.evaluate(()=>({mode,words:$('words').textContent}));if(resto.mode!=='walk')throw Error('estado inicial: '+JSON.stringify(resto));
@@ -128,8 +135,9 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
     });
 
     await check('Falas de combate: balão sobre quem fala, conversa entre versões e desligar funciona',async()=>{
-      const r=await page.evaluate(()=>{
+      const r=await page.evaluate(async()=>{
         G.formation=['franco','alt','synth'];G.active='franco';mode='walk';
+        await window.FinalAssetLoadingV1?.ready();
         Narrativa.definir('barks',true);
         Narrativa.forcar('inicio','synth');Narrativa.despachar();
         const um=Narrativa.barks().ativos.slice();
@@ -148,9 +156,10 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
     });
 
     await check('Falas de combate disparam pelo estado do jogo (perigo, troca de líder) sem parar o jogo',async()=>{
-      const r=await page.evaluate(()=>{
+      const r=await page.evaluate(async()=>{
         document.querySelectorAll('#barksCamada .bark').forEach(b=>b.remove());
         G.formation=['franco','ryuchi','katana'];G.active='franco';mode='walk';for(const id of G.formation){G.maxhp[id]=G.maxhp[id]||40;G.hp[id]=G.maxhp[id]}
+        await window.FinalAssetLoadingV1?.ready();
         tick+=100;Narrativa.ciclo();const c0=Narrativa.barks().contagem;
         tick+=10;G.hp.ryuchi=Math.floor(G.maxhp.ryuchi*.2);Narrativa.ciclo();Narrativa.despachar();
         const perigo=Narrativa.barks().contagem>c0;
@@ -165,17 +174,29 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
 
     for(const rota of ['usina','canal']){
       await check('Rota '+rota+' primeiro: rádio no Mar de Nuvens e ajuda na luta contra O Silêncio',async()=>{
-        const r=await page.evaluate(([save,rota])=>{
+        const r=await page.evaluate(async([save,rota])=>{
+          bossActor=null;battle=null;C3.hazards=[];hostileShots=[];projectiles=[];
           G=normalizeSave(copy(save));buildMaps();G.c3={...C3.defaults(),...G.c3,firstDestination:rota};G.choices={...(G.choices||{})};delete G.choices.f4Nuvens;delete G.choices.f4Suprimentos;
-          mode='walk';tick+=100;G.area='distortion_district';Narrativa.ciclo();
-          G.area='cloud_sea';tick+=10;Narrativa.ciclo();Narrativa.despachar();
+          mode='walk';setArea('distortion_district',31.5,28.5,false);await window.FinalAssetLoadingV1?.ready();
+          // Keep this boundary cold even when the portable's atlases are cached.
+          // A route must not be evaluated/dispatched while its final art gate is busy.
+          let coldAssetGate=null;
+          if(window.FinalAssetLoadingV1){
+            const image=new Image();image.src=ProtagonistArtV5.assets.franco_idle;const decode=image.decode.bind(image),complete=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,'complete').get;let released=false;
+            Object.defineProperty(image,'complete',{get:()=>released&&complete.call(image)});
+            image.decode=async()=>{await new Promise(resolve=>setTimeout(resolve,80));released=true;await decode()};
+            FinalAssetLoadingV1.start({force:true,extra:[{image,label:'Narrative route cold-asset fixture'}]});coldAssetGate=FinalAssetLoadingV1.busy();await FinalAssetLoadingV1.ready();
+          }
+          tick+=100;Narrativa.ciclo();
+          setArea('cloud_sea',5.5,26.5,false);await window.FinalAssetLoadingV1?.ready();tick+=10;Narrativa.ciclo();Narrativa.despachar();
           const radio=Narrativa.barks().ativos.filter(a=>a.radio).map(a=>a.texto);
           const pot0=G.potions;C3.spawnSilence();const b1={hp:bossActor.hp,max:bossActor.max??bossActor.maxhp??null};const pot1=G.potions;
           C3.spawnSilence();const pot2=G.potions;
           // Com a fila de avisos (Fase 6) o aviso pode estar na fila ou já ter passado.
-          return{radio,nuvens:G.choices.f4Nuvens,pot0,pot1,pot2,boss:b1,toast:[$('toast').textContent,...(window.ToriiInterface6?ToriiInterface6.Toasts.recent():[])].join(' | ')};
+          return{radio,nuvens:G.choices.f4Nuvens,pot0,pot1,pot2,boss:b1,coldAssetGate,toast:[$('toast').textContent,...(window.ToriiInterface6?ToriiInterface6.Toasts.recent():[])].join(' | ')};
         },[campaign,rota]);
-        assert.equal(r.nuvens,rota);assert(r.radio.length>=1,'rádio: '+JSON.stringify(r));
+        assert.equal(r.nuvens,rota,JSON.stringify(r));assert(r.radio.length>=1,'rádio: '+JSON.stringify(r));
+        if(r.coldAssetGate!==null)assert.equal(r.coldAssetGate,true);
         if(rota==='usina'){assert(r.toast.includes('USINA'));assert(r.boss.max>0&&r.boss.hp<=Math.round(r.boss.max*.88),JSON.stringify(r.boss));assert.equal(r.pot1,r.pot0)}
         else{assert(r.toast.includes('CANAL'));assert.equal(r.pot1,r.pot0+2);assert.equal(r.pot2,r.pot1,'suprimentos só uma vez')}
         return r;
@@ -202,10 +223,12 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
       const m=await browser.newPage({viewport:{width:844,height:390},isMobile:true,hasTouch:true,userAgent:'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'});
       m.on('pageerror',e=>errors.push('mobile: '+e.message));
       await m.goto(url,{waitUntil:'load',timeout:180000});await m.locator('#startNew').tap();await m.locator('#dif_historia').tap();
+      await ready(m);
       await m.waitForFunction(()=>document.querySelector('.leitura-barra')&&mode==='dialogue',null,{timeout:30000});
       const r=await m.evaluate(()=>{const d=$('dialogue').getBoundingClientRect();return[...document.querySelectorAll('.leitura-barra button')].map(b=>{const x=b.getBoundingClientRect();return{t:b.textContent,h:Math.round(x.height),dentro:x.left>=d.left-1&&x.right<=d.right+1&&x.right<=innerWidth&&x.bottom<=innerHeight}})});
       await m.screenshot({path:path.join(out,'celular-dialogo.png')});
       const words0=await m.evaluate(()=>$('words').textContent);
+      await ready(m);
       await m.locator('.leitura-barra [data-leitura="vel"]').tap();
       const words1=await m.evaluate(()=>$('words').textContent);
       await m.close();
@@ -217,7 +240,7 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
     assert.deepEqual(errors,[],errors.join('\n'));
   }catch(e){errors.push(String(e&&e.stack||e));process.exitCode=1}
   finally{
-    fs.writeFileSync(path.join(out,'FASE4.json'),JSON.stringify({build:path.basename(input),checks,errors},null,1)+'\n');
+    fs.writeFileSync(path.join(out,'FASE4.json'),JSON.stringify({build:path.basename(input),source:buildMeta,checks,errors},null,1)+'\n');
     console.log(JSON.stringify({aprovadas:checks.length,erros:errors.slice(0,3)}));
     await browser.close();
   }

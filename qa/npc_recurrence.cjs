@@ -13,7 +13,7 @@ let checked=0;
 for(const [key,row] of [['bento',0],['nilo',1]])for(const [dir,dx,dy,col]of [['down',0,1,0],['left',-1,0,2],['up',0,-1,4],['right',1,0,6]]){
  const npc={id:key,spriteKey:key,x:18,y:8},original=JSON.stringify(npc);
  for(const time of [0,.5,2,100]){calls=[];sandbox.G={x:18+dx,y:8+dy};sandbox.tick=time;sandbox.drawDetailedNPC(npc,200,100);
- assert.deepEqual(calls[0],['directions',col,row,8,3,200,100,56,70]);assert.equal(calls.length,1);assert.equal(JSON.stringify(npc),original);checked++;}
+ assert.deepEqual(calls[0],['directions',col,row,8,3,200,100,80,80]);assert.equal(calls.length,1);assert.equal(JSON.stringify(npc),original);checked++;}
 }
 // Far away, keep the authored direction. Missing directional art retains frontal fallback.
 sandbox.G={x:100,y:100};calls=[];sandbox.drawDetailedNPC({spriteKey:'nilo',x:18,y:8,dir:'up'},200,100);assert.equal(calls[0][1],4);

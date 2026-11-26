@@ -54,3 +54,24 @@ qa/beta-1.10.1/*.png
 qa/beta-1.11.0/*.png
 qa/boss-ground-fx-v1/frames/
 qa/boss-ground-fx-v1/*.png
+
+# Local environments and generated QA output.
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+qa/**/*.json
+qa/**/*.png
+qa/**/*.webp
+qa/**/*.gif
+qa/**/*.html
+qa/**/*.txt
+qa/**/*.md
+!qa/fixtures/
+!qa/fixtures/**
+!qa/beta-1.10.1/CAMPAIGN_usina_RELOAD.json
+!qa/cenarios-v2/antes/MAPAS.json
+!qa/cenarios-v2/depois/MAPAS.json
+!qa/dificuldade/ESTADOS_CHEFES.json
+qa/**/__pycache__/

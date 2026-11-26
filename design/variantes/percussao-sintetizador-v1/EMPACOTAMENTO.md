@@ -1,6 +1,6 @@
 # Empacotamento dos sprites musicais
 
-`empacotar.py` lê `PLANO_E_PROMPTS.json` e as imagens em `originais/`. Ele recorta e posiciona as poses já desenhadas; não cria poses nem interpola frames. As fontes nunca são sobrescritas.
+`empacotar.py` lê `PLANO_EMPACOTAMENTO.json` e as imagens em `originais/`. Ele recorta e posiciona as poses já desenhadas; não cria poses nem interpola frames. As fontes nunca são sobrescritas.
 
 Com Python, Pillow e NumPy disponíveis:
 
@@ -20,11 +20,10 @@ O relatório distingue contato de borda e corte real. Um contorno na linha imedi
 
 `PREVIA.html` é uma página offline gerada a partir de `previa.template.html`, com o manifesto embutido. Mostra os dois personagens com/sem máscara, controles de ação/direção/velocidade e seleção de frame.
 
-Com Node e Playwright disponíveis:
+A validação do runtime está em `qa/musician_art.cjs`, executada na raiz com Node e Playwright, apontando para a build servida:
 
 ```sh
-node verificar_previa.cjs --preview
-node verificar_previa.cjs
+node qa/musician_art.cjs http://127.0.0.1:8000/
 ```
 
-O modo completo percorre 208 combinações e confere os frames 0, 3 e 7, os oito canvases de miniatura por personagem e a ausência de requisições a quadros individuais. Salva relatório e captura em `qa/`. A execução usa Chrome instalado no macOS, quando disponível; `CHROME_PATH` permite indicar outro executável. Se o sandbox impedir a abertura do navegador, a execução precisa ser feita com a permissão correspondente; não é necessário gerar novas imagens.
+`CHROME_PATH` permite indicar o executável do navegador. Os resultados distinguem verificações estruturais e de runtime da revisão artística das sequências completas.

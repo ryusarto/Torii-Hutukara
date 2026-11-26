@@ -6,7 +6,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
-const root=path.resolve(__dirname,'..'),out=path.join(root,'qa/cenarios-deserto-v1');
+const root=path.resolve(__dirname,'..'),out=process.env.DESERT_OUTPUT_DIR||path.join(root,'qa/cenarios-deserto-v1');
 const url=process.argv[2]||process.env.TORII_URL;
 if(!url)throw Error('Pass the root-owned local build URL as argument or TORII_URL.');
 const baselineFile=path.join(root,'qa/cenarios-v2/depois/MAPAS.json');
@@ -35,7 +35,19 @@ fs.mkdirSync(out,{recursive:true});
   await page.evaluate(async()=>{
    C3.loadDeferredImages();C3.start(true);for(let i=0;mode==='dialogue'&&i<100;i++)advanceDialogue();mode='walk';transitionAlpha=0;screenShake=0;tick=4;keys={};bossActor=null;battle=null;trail=[];C3.pad.pads=[];
    $('start').classList.add('hidden');$('overlay').classList.add('hidden');$('dialogue').classList.add('hidden');$('cinema').style.display='none';$('toast').classList.add('hidden');
-   await CenariosV2.ready();await Promise.all(Object.values(C3.images).map(i=>i.decode()));
+   await CenariosV2.ready();await Promise.all(Object.keys(C3.assetData).map(async key=>{
+    const image=C3.images[key];if(!image)throw Error('Missing configured C3 image '+key);
+    // Chroma-key resources assign out.src only after their raw Image has
+    // loaded and been processed. Await that existing pipeline, not raw art.
+    if(!image.src)await new Promise((resolve,reject)=>{
+     const finish=error=>{clearTimeout(timer);image.removeEventListener('load',loaded);image.removeEventListener('error',failed);error?reject(error):resolve()};
+     const loaded=()=>finish(),failed=()=>finish(Error('C3 image failed '+key));
+     const timer=setTimeout(()=>finish(Error('C3 image pipeline timed out '+key)),45000);
+     image.addEventListener('load',loaded,{once:true});image.addEventListener('error',failed,{once:true});
+    });
+    await image.decode();if(!image.naturalWidth)throw Error('Empty configured C3 image '+key);
+   }));
+   await window.FinalAssetLoadingV1?.ready();
    for(const hero of ['franco','ryuchi'])await ProtagonistArtV5.image(hero+'_idle').decode();
    for(const hero of ['alt','katana'])await NinjaArcherArtV1.image(hero+'_idle').decode();
    if(typeof MusicianArtV1==='undefined')throw Error('Reconciled MusicianArtV1 module missing');
@@ -211,22 +223,31 @@ fs.mkdirSync(out,{recursive:true});
    });
   });
   await check('Rendering all 25 areas leaves the serialized save, props and gates unchanged',async()=>{
-   return page.evaluate(()=>{
+   return page.evaluate(async()=>{
     const immutable=()=>JSON.stringify(Object.values(areas).map(a=>({id:a.id,props:a.props,gates:a.gates}))),before=immutable(),tested=[];
     for(const a of Object.values(areas)){
      current=a;G.area=a.id;const safe=safeSpawn121(a.w/2,a.h/2);G.x=safe?.x||a.w/2;G.y=safe?.y||a.h/2;cam.x=cam.y=0;trail=[];mode='walk';transitionAlpha=0;
-     const saveBefore=JSON.stringify(G);drawEnv();if(JSON.stringify(G)!==saveBefore)throw Error('Save mutated during render '+a.id);tested.push(a.id);
+     await window.FinalAssetLoadingV1?.ready();const saveBefore=JSON.stringify(G);drawEnv();if(JSON.stringify(G)!==saveBefore)throw Error('Save mutated during render '+a.id);tested.push(a.id);
     }
     if(before!==immutable())throw Error('A prop or gate changed during render');return {areas:tested,saveUnchanged:true,propsUnchanged:true,gatesUnchanged:true};
    });
   });
   await check('C1/C2 legacy pixels match V2 and new forest and radio props render',async()=>{
    const result=await page.evaluate(()=>{
-    const tested=[],forestProps=[];let count=0,radioTuners=0,radioAntennas=0;
+    const tested=[],forestProps=[];let count=0,radioTuners=0,radioAntennas=0,planarPortals=0;
     for(const a of Object.values(areas).filter(a=>!C3.AREAS.includes(a.id))){
      current=a;G.area=a.id;cam.x=cam.y=0;const props=a.props;
      for(const p of props){if(a.id==='studio'&&['sofa','plant'].includes(p.type))continue;const cx=(p.x+.5)*T-384,cy=(p.y+.65)*T-330;
       const before=__desertQA.pixels(()=>desertPropV1(p,cx,cy)),after=__desertQA.pixels(()=>drawProp(p,cx,cy));
+      if(p.type==='silenceGate'){
+       // Approved 1.25 art moves this portal from the vertical prop pass to
+       // the ground pass. Check the replacement rather than the retired art.
+       const flags=JSON.stringify(G.flags);
+       const ground=__desertQA.pixels(()=>{if(!CombatReadabilityV1.portal(p,cx,cy))throw Error('Ground portal was not handled')});
+       if(__desertQA.nonempty(after)||!__desertQA.nonempty(ground))throw Error('Portal must render only on the ground');
+       if(JSON.stringify(G.flags)!==flags)throw Error('Ground portal changed progression');
+       planarPortals++;continue;
+      }
       if(a.id==='forest'&&p.type==='frequencyStation'){
        if(!__desertQA.nonempty(after)||__desertQA.equal(before,after))throw Error('Missing instrument art '+p.bridgeKind);
        forestProps.push(p.bridgeKind);continue;
@@ -251,10 +272,10 @@ fs.mkdirSync(out,{recursive:true});
      }
      const types=[...new Set(a.tiles.flat())];for(const type of types){const before=__desertQA.pixels(()=>cenarioTileV2(type,100,100,3,3)),after=__desertQA.pixels(()=>drawTile(type,100,100,3,3));if(!__desertQA.equal(before,after))throw Error('Legacy tile pixels changed '+a.id+'/'+type)}
      tested.push({area:a.id,props:props.length,tileTypes:types.length});
-    }return {areas:tested,propSamples:count,forestProps,radioTuners,radioAntennas};
+    }return {areas:tested,propSamples:count,forestProps,radioTuners,radioAntennas,planarPortals};
    });
    assert.deepEqual(result.forestProps.sort(),['bell','log','marker','stone']);
-   assert.equal(result.radioTuners,1);assert.equal(result.radioAntennas,1);return result;
+   assert.equal(result.radioTuners,1);assert.equal(result.radioAntennas,1);assert.equal(result.planarPortals,1);return result;
   });
   await check('All six hero renderers remain pixel-identical with desert theme enabled or disabled',async()=>{
    return page.evaluate(()=>{
@@ -268,7 +289,7 @@ fs.mkdirSync(out,{recursive:true});
    });
   });
   await check('An existing district enemy generates its real combat windup on the desert floor',async()=>{
-   return page.evaluate(()=>{
+   return page.evaluate(async()=>{
     current=areas.distortion_district;G.area=current.id;mode='walk';bossActor=null;battle=null;C3.hazards=[];G.defeated=[];
     // Real patrols are intentionally hidden until a first route is complete.
     // Prepare that legitimate preview state, then use the real lazy hydrator.
@@ -277,7 +298,7 @@ fs.mkdirSync(out,{recursive:true});
     const candidate=[[enemy.x+1,enemy.y],[enemy.x-1,enemy.y],[enemy.x,enemy.y+1],[enemy.x,enemy.y-1]].find(([x,y])=>canBody121(x,y));if(!candidate)throw Error('No body-valid approach to existing enemy');
     [G.x,G.y]=candidate;G.hp[G.active]=G.maxhp[G.active];act.invuln=10;enemy.cd=0;enemy.stun=0;enemy.wind=0;engage();if(mode!=='action')throw Error('Real engage rejected district combat');
     updateEnemy(enemy,.016,false);if(!(enemy.wind>0))throw Error('Actual enemy did not enter windup');
-    cam.x=Math.max(0,enemy.x*T-384);cam.y=Math.max(0,enemy.y*T-180);transitionAlpha=0;screenShake=0;drawEnv();drawCombatLayer();
+    await window.FinalAssetLoadingV1?.ready();cam.x=Math.max(0,enemy.x*T-384);cam.y=Math.max(0,enemy.y*T-180);transitionAlpha=0;screenShake=0;drawEnv();drawCombatLayer();
     const pixels=ctx.getImageData(0,0,768,432).data;if(!pixels.some((v,i)=>i%4===3&&v))throw Error('Empty real combat frame');
     return {enemyId:enemy.id,type:enemy.type,enemyPosition:[enemy.x,enemy.y],playerPosition:[G.x,G.y],windKind:enemy.windKind,wind:enemy.wind,mode,frameRendered:true,manuallyReviewed:false,spawnedSyntheticEnemy:false,preparedRouteState:'usinaDone=true; real enemyActors/hydrateEnemy'};
    });
