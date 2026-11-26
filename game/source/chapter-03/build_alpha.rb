@@ -797,59 +797,27 @@ File.write(File.join(OUTPUT_DIR, "LEIA-ME_#{VERSION.fetch('sufixo')}.txt"), <<~R
   TORII & HUTUKARA — #{VERSION.fetch('rotulo')}
   =================================
 
-  Build jogável completa, do Capítulo 01 ao Capítulo 03.
-  Arquivo principal: #{File.basename(OUTPUT)}
+  Abra #{File.basename(OUTPUT)} em um navegador moderno.
+  O arquivo portátil contém a campanha completa e sua mídia.
+  Para jogar no site oficial: https://toriiehutukara.com/#jogo
 
-  COMO JOGAR
-  - Abra o HTML em um navegador moderno.
-  - A jornada normal começa no estúdio.
-  - Em OUTRAS OPÇÕES há previews dos Capítulos 02 e 03 para teste.
-  - WASD/setas: mover · Shift: correr · E: interagir.
-  - J/Espaço: atacar · Z/X: técnicas · Q: dash · K: especial.
-  - 1–3: trocar o integrante ativo.
-  - Controle PlayStation: analógico/direcional mover · ✕ interagir · □ atacar · ○ esquivar.
-  - L1/R1: técnicas · R2: especial · △: trocar integrante · Options: pausa.
-  - Com dois controles, cada pessoa controla um integrante da formação em coop local.
-  - Celulares e tablets abrem com controles dedicados em retrato ou paisagem.
-  - No celular: analógico virtual com corrida na borda, multitouch e botões de combate.
-  - Círculo sempre esquiva durante a exploração; apenas Options/Start abre a pausa.
-  - O segundo jogador é puxado por rotas livres, sem teleporte por distância.
+  CONTROLES
+  - Mover: WASD ou setas; correr: Shift; interagir: E.
+  - Atacar: J ou Espaço; técnicas: Z e X; esquivar: Q; especial: K.
+  - Trocar integrante: 1, 2, 3; curar: R; pausa: Esc.
+  - Celulares usam toque. Controles compatíveis permitem coop local.
+  - Remapeamento, acessibilidade e posição dos botões ficam em Opções.
 
-  CONTEÚDO DA VERSÃO
-  - Três capítulos conectados e salvamento migrável da build 1.1.2.
-  - Seis personagens jogáveis, formação de até três.
-  - Duas ordens possíveis de recrutamento no Capítulo 03.
-  - Metrônomo, O Silêncio, retries e epílogo no estúdio.
-  - Seis faixas novas incorporadas no próprio HTML.
-  - Belga, Colli, Mazza e Dney ocupam os papéis centrais do Capítulo 03, com sprites e retratos próprios.
-  - Postes, mobiliário, oficina, canal e elevador redesenhados.
-  - Objetivos do canal e da usina reagem ao estado real da missão.
-  - Transição do Capítulo 02 ao Capítulo 03 sem voltar ao menu.
-  - Entrada do Elevador do Céu acessível depois da frase do Contratempo.
-  - Ryuchi percussionista com corrida, rolamento e golpes rítmicos próprios.
-  - Franco sintetizador com combo de oscilador, pads persistentes e filtro de corte.
-  - Recrutamentos acontecem somente depois das apresentações específicas de cada rota.
-  - Passarela de entrada do Núcleo do Silêncio reconstruída e caminhável.
-  - NPCs do Capítulo 03 com movimento ambiente e reação à aproximação.
-  - Pisos do distrito, interiores, canal e nuvens usam texturas detalhadas.
-  - Rosto do Franco refeito com referências autorais e identidade consistente nos diálogos.
-  - Máscara Torii canônica ampliada sobre testa e cabelo, mantendo a parte inferior do rosto visível.
-  - Ninja e Arqueiro com oito poses por ação, quatro direções, retratos e rolamento próprios.
-  - Ninja sem máscara; Arqueiro com a máscara presa ao cinto em todas as ações.
-  - Os demais integrantes mantêm suas animações atuais.
-  - Cenários V2: 12 atlas de produção, 126 recortes e estados, pisos sem objetos embutidos.
-  - Nuvens por vizinhança, barreiras visíveis da Usina, sinalização junto às fachadas e móveis próprios do Contratempo.
-  - Corrida fluida própria para Franco sintetizador e Ryuchi percussionista.
-  - Nuvens volumétricas em 16 bits e fundos cinematográficos próprios por região.
-  - Placas, postes e pilares substituídos por sprites detalhados.
-  - Colisões do Distrito da Distorção alinhadas às fachadas, inclusive no setor noroeste.
-  - Placas próprias para Contratempo, Oficina, Usina, Canal e Elevador.
-  - Pós-jogo com revisita e criação de uma nova frase musical.
-  - DualShock 4, DualSense e controles padronizados via Gamepad API.
-  - Coop local para duas pessoas, com HP e ações independentes em câmera compartilhada.
+  PROGRESSO
+  O save fica no navegador e no aparelho usado. Exporte uma cópia em
+  Opções antes de limpar os dados ou trocar de navegador/aparelho.
+  Os saves compatíveis das versões anteriores podem ser importados.
 
-  O arquivo original torii-core.html não é alterado.
-  Esta é uma Beta: use o menu para exportar o progresso periodicamente.
+  CRÉDITOS
+  Obra de Ryuchi e Franco, The Sir, com Belga, Colli, Mazza e Dney.
+  Código MIT; materiais artísticos possuem condições próprias.
+  Consulte https://github.com/ryusarto/Torii-Hutukara/blob/main/LICENSE-ASSETS.md
+
 README
 
 warn "Gerado: #{OUTPUT}"
