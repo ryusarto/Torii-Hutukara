@@ -1,0 +1,159 @@
+{
+  "checks": [
+    {
+      "sheet": "tambor",
+      "globalGutters": true,
+      "exterior": true,
+      "wholeFrameOwnership": true,
+      "atlasGuard": true
+    },
+    {
+      "sheet": "flautim",
+      "globalGutters": true,
+      "exterior": true,
+      "wholeFrameOwnership": true,
+      "atlasGuard": true
+    },
+    {
+      "sheet": "coro",
+      "globalGutters": true,
+      "exterior": true,
+      "wholeFrameOwnership": true,
+      "atlasGuard": true
+    },
+    {
+      "sheet": "maestro",
+      "globalGutters": true,
+      "exterior": true,
+      "wholeFrameOwnership": true,
+      "atlasGuard": true
+    },
+    {
+      "sheet": "muralha",
+      "globalGutters": true,
+      "exterior": true,
+      "wholeFrameOwnership": true,
+      "atlasGuard": true
+    },
+    {
+      "sheet": "antena",
+      "globalGutters": true,
+      "exterior": true,
+      "wholeFrameOwnership": true,
+      "atlasGuard": true
+    }
+  ],
+  "clips": {
+    "tambor": {
+      "frames": 8,
+      "alphaGuard": 8,
+      "contentBounds": [
+        18,
+        24,
+        108,
+        100
+      ],
+      "completeSourceOwnership": true
+    },
+    "flautim": {
+      "frames": 8,
+      "alphaGuard": 8,
+      "contentBounds": [
+        13,
+        47,
+        111,
+        87
+      ],
+      "completeSourceOwnership": true
+    },
+    "flautim_impact": {
+      "frames": 8,
+      "alphaGuard": 8,
+      "contentBounds": [
+        38,
+        40,
+        87,
+        82
+      ],
+      "completeSourceOwnership": true
+    },
+    "coro": {
+      "frames": 8,
+      "alphaGuard": 8,
+      "contentBounds": [
+        26,
+        19,
+        101,
+        105
+      ],
+      "completeSourceOwnership": true
+    },
+    "coro_melee": {
+      "frames": 8,
+      "alphaGuard": 8,
+      "contentBounds": [
+        22,
+        37,
+        109,
+        98
+      ],
+      "completeSourceOwnership": true
+    },
+    "maestro": {
+      "frames": 8,
+      "alphaGuard": 8,
+      "contentBounds": [
+        19,
+        23,
+        111,
+        105
+      ],
+      "completeSourceOwnership": true
+    },
+    "maestro_emerge": {
+      "frames": 8,
+      "alphaGuard": 8,
+      "contentBounds": [
+        27,
+        16,
+        105,
+        92
+      ],
+      "completeSourceOwnership": true
+    },
+    "muralha": {
+      "frames": 8,
+      "alphaGuard": 8,
+      "contentBounds": [
+        26,
+        28,
+        116,
+        92
+      ],
+      "completeSourceOwnership": true
+    },
+    "muralha_charge": {
+      "frames": 8,
+      "alphaGuard": 8,
+      "contentBounds": [
+        24,
+        29,
+        114,
+        91
+      ],
+      "completeSourceOwnership": true
+    },
+    "antena": {
+      "frames": 8,
+      "alphaGuard": 8,
+      "contentBounds": [
+        18,
+        42,
+        110,
+        83
+      ],
+      "completeSourceOwnership": true
+    }
+  },
+  "allFrameCount": 80
+}

@@ -42,11 +42,22 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
         throw Error('No accepted archer action for seat '+seat+' attack '+n);
       return rec;
     };
+    window.bowPlacementChecks=0;window.bowPlacementErrors=[];
     window.frameBow=(seat,picture=false,world=false)=>{
       const b=seat?C3.coop:G,seen=[],orig=ctx.drawImage;
       const x=b.x*T-cam.x,y=b.y*T-cam.y;
-      ctx.drawImage=function(im,...args){if(im?.dataset?.archerPose)seen.push(im.dataset.archerPose);return orig.call(this,im,...args);};
-      try{if(world)drawEnv();else drawActor({style:'alt',dir:b.dir},x,y,true);}finally{ctx.drawImage=orig;}
+      let actorPoint={x,y};const render=RunStrideV1.render;
+      RunStrideV1.render=function(p,xx,yy,...rest){const saved=actorPoint;if(p.style==='alt')actorPoint={x:xx,y:yy};try{return render.call(this,p,xx,yy,...rest)}finally{actorPoint=saved}};
+      ctx.drawImage=function(im,...args){if(im?.dataset?.archerPose){
+        const name=im.dataset.archerPose;seen.push(name);
+        const [kind,row,col]=name.split('/');
+        if(kind==='run'||kind==='walk'){
+          const config=RunStrideV1.manifest.heroes.alt,entry=config[kind==='run'?'registration':'walkRegistration']?.[+row]?.[+col];
+          if(entry){const offset=entry.offset,expected=[Math.round(actorPoint.x-44+offset[0]*88/256),Math.round(actorPoint.y+11-77+offset[1]*88/256)];
+            bowPlacementChecks++;if((args[0]!==expected[0]||args[1]!==expected[1])&&bowPlacementErrors.length<10)bowPlacementErrors.push({name,actual:args.slice(0,2),expected});}
+        }
+      }return orig.call(this,im,...args);};
+      try{if(world)drawEnv();else drawActor({style:'alt',dir:b.dir},x,y,true);}finally{ctx.drawImage=orig;RunStrideV1.render=render;}
       if(!picture)return seen;
       // Frame the subject in this review capture, suppressing party followers
       // that would otherwise cross in front of the boots. The archer and arrows
@@ -138,6 +149,8 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
       await page.keyboard.up('ArrowDown');await page.keyboard.up('Shift');
     }
   }
-  assert.deepEqual(errors,[]);console.log('PASS '+cases+' walk/run × seat × bow actions, contact and independent facing; stationary fire');
+  const placement=await page.evaluate(()=>({checks:bowPlacementChecks,errors:bowPlacementErrors}));
+  assert(placement.checks>100);assert.deepEqual(placement.errors,[],'Moving shot layers share the registered body origin');
+  assert.deepEqual(errors,[]);console.log('PASS '+cases+' walk/run × seat × bow actions, contact and independent facing; stationary fire; '+placement.checks+' registered layer draws');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

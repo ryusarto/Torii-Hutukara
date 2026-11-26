@@ -1,0 +1,36 @@
+{
+  "drawBudget": [
+    72,
+    56
+  ],
+  "frames": {
+    "3": {
+      "brightPixelCount": 37,
+      "bounds": [
+        48,
+        26,
+        59,
+        33
+      ]
+    },
+    "4": {
+      "brightPixelCount": 40,
+      "bounds": [
+        47,
+        26,
+        59,
+        33
+      ]
+    },
+    "5": {
+      "brightPixelCount": 40,
+      "bounds": [
+        48,
+        26,
+        59,
+        33
+      ]
+    }
+  },
+  "validation": "Static nearest resize only; runtime handled by coordinator"
+}

@@ -1,0 +1,657 @@
+{
+  "version": 1,
+  "source": "production/export_combat_readability_v1.py",
+  "origin": "Original T&H code-native pixel art; no external assets",
+  "atlas": "combat_readability.png",
+  "cell": 128,
+  "columns": 8,
+  "rows": 20,
+  "activeGroundRift": {
+    "path": "assets/portal-chao/v1/fenda_chao_proposta.png",
+    "origin": "Built-in imagegen, generated original for T&H on 2026-11-25; image preserved unchanged",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "footprintTiles": [
+      2,
+      1
+    ],
+    "pivot": "footprint center",
+    "states": [
+      "dormant:dim desaturated",
+      "ready:original and subtle center light",
+      "spent:dim gray"
+    ],
+    "legacyPortalRows": "deprecated, not rendered; retained for atlas row compatibility"
+  },
+  "filter": "nearest",
+  "transparent": true,
+  "clips": {
+    "pulse_mask": {
+      "row": 0,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "copper",
+      "shape": "mask",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "pulse_gear": {
+      "row": 1,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "iron",
+      "shape": "gear",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "pulse_mute": {
+      "row": 2,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "void",
+      "shape": "mute",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "line_lunge": {
+      "row": 3,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "copper",
+      "shape": "lunge",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "cross_static": {
+      "row": 4,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "static",
+      "shape": "cross",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "cone_drum": {
+      "row": 5,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "copper",
+      "shape": "drum",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "cone_iron": {
+      "row": 6,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "iron",
+      "shape": "iron_shield",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "beam_feedback": {
+      "row": 7,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "wind",
+      "shape": "beam",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "flute_bolt": {
+      "row": 8,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "lime",
+      "shape": "bolt",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "mirror_note": {
+      "row": 9,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "wind",
+      "shape": "note",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "heal_chord": {
+      "row": 10,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "heal",
+      "shape": "heal",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "summon_knot": {
+      "row": 11,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "void",
+      "shape": "knot",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "phase_shatter": {
+      "row": 12,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "copper",
+      "shape": "shatter",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "ring_echo": {
+      "row": 13,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "static",
+      "shape": "echo",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "void_crown": {
+      "row": 14,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "void",
+      "shape": "crown",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "sigil_pulse": {
+      "row": 15,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "copper",
+      "shape": "sigil_pulse",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "sigil_timbre": {
+      "row": 16,
+      "frames": 8,
+      "pivot": [
+        64,
+        64
+      ],
+      "nativeSize": [
+        64,
+        64
+      ],
+      "palette": "wind",
+      "shape": "sigil_timbre",
+      "previewFrameMs": 80,
+      "runtimePlayback": {
+        "preparation": "four equal phases of original h.max, never an independent clock",
+        "releaseFrameMs": 120,
+        "releaseDurationMs": 480,
+        "projectileLoopFrameMs": 75,
+        "reducedMotion": "fixed preparation2 / release5"
+      },
+      "preparation": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "release": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "portal_dormant": {
+      "row": 17,
+      "frames": 8,
+      "pivot": [
+        64,
+        112
+      ],
+      "nativeSize": [
+        128,
+        128
+      ],
+      "frameMs": 140,
+      "loop": true
+    },
+    "portal_ready": {
+      "row": 18,
+      "frames": 8,
+      "pivot": [
+        64,
+        112
+      ],
+      "nativeSize": [
+        128,
+        128
+      ],
+      "frameMs": 140,
+      "loop": true
+    },
+    "portal_spent": {
+      "row": 19,
+      "frames": 8,
+      "pivot": [
+        64,
+        112
+      ],
+      "nativeSize": [
+        128,
+        128
+      ],
+      "frameMs": 140,
+      "loop": true
+    }
+  },
+  "notes": [
+    "Presentation only. Simulation owns hit geometry, release, damage and cancellation.",
+    "Sprites stay inside actual geometry; prep is translucent, release uses frames4..7.",
+    "Portal uses silenceGate only; two original stone flags activate its separate sockets."
+  ]
+}

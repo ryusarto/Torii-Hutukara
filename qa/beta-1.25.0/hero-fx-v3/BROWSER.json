@@ -1,0 +1,161 @@
+{
+  "method": "Chrome headless, actual built runtime and accepted actions with controlled combat fixtures; real-map PC/mobile screenshots. No human/hardware playtest.",
+  "checks": [
+    {
+      "name": "Cold first cast uses body pose without legacy FX or input delay",
+      "details": {
+        "accepted": true,
+        "legacyDraws": 0
+      },
+      "passed": true
+    },
+    {
+      "name": "Six atlases retain PNG provenance and exact decoded exported pixels",
+      "details": [
+        {
+          "hero": "franco",
+          "maxRGB": 0,
+          "maxAlpha": 0,
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "hero": "ryuchi",
+          "maxRGB": 0,
+          "maxAlpha": 0,
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "hero": "alt",
+          "maxRGB": 0,
+          "maxAlpha": 0,
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "hero": "katana",
+          "maxRGB": 0,
+          "maxAlpha": 0,
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "hero": "synth",
+          "maxRGB": 0,
+          "maxAlpha": 0,
+          "width": 1024,
+          "height": 768
+        },
+        {
+          "hero": "percussion",
+          "maxRGB": 0,
+          "maxAlpha": 0,
+          "width": 1024,
+          "height": 768
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "All48 hero/seat/JZXK actions use V3 and rejected cooldown inputs do not restart",
+      "details": {
+        "casts": 48,
+        "temporal": 384
+      },
+      "passed": true
+    },
+    {
+      "name": "Ten actual combo chains select three rows and four directions rotate the texture",
+      "details": {
+        "combos": 10,
+        "directions": 24
+      },
+      "passed": true
+    },
+    {
+      "name": "Real hits keep compact contact, misses do not fabricate impact, projectile bodies stay on collision points",
+      "details": {
+        "contactHeroes": 5,
+        "projectilesChecked": 4
+      },
+      "passed": true
+    },
+    {
+      "name": "Legacy contour helpers do not overpaint V3 and a follower uses its own bitmap",
+      "details": {
+        "legacyStrokes": 0,
+        "follower": "ryuchi",
+        "warpRingsSuppressed": 17
+      },
+      "passed": true
+    },
+    {
+      "name": "Delayed projectiles, pad, follower, rain and counters keep explicit owners and one contact",
+      "details": {
+        "paths": [
+          {
+            "source": "alt",
+            "contacts": 1,
+            "legacyHitSuppressed": true,
+            "resourcesUnchangedByRender": true
+          },
+          {
+            "source": "synth",
+            "contacts": 1,
+            "legacyHitSuppressed": true,
+            "resourcesUnchangedByRender": true
+          },
+          {
+            "source": "ryuchi",
+            "contacts": 1,
+            "legacyHitSuppressed": true,
+            "resourcesUnchangedByRender": true
+          },
+          {
+            "source": "alt",
+            "contacts": 1,
+            "legacyHitSuppressed": true,
+            "resourcesUnchangedByRender": true
+          },
+          {
+            "source": "percussion",
+            "contacts": 1,
+            "legacyHitSuppressed": true,
+            "resourcesUnchangedByRender": true
+          },
+          {
+            "source": "katana",
+            "contacts": 1,
+            "legacyHitSuppressed": true,
+            "resourcesUnchangedByRender": true
+          }
+        ],
+        "unknownSourcePreserved": true,
+        "exceptionRestored": true,
+        "realDelayedPercussionContacts": 3
+      },
+      "passed": true
+    },
+    {
+      "name": "Pause/world switch and reduced motion preserve cosmetic clocks and fixed pose",
+      "details": {
+        "paused": true,
+        "fixedPose": true,
+        "worldCleared": true
+      },
+      "passed": true
+    },
+    {
+      "name": "Real forest and ruins show preparation/contact/recovery in PC and mobile layouts",
+      "details": {
+        "pcMapSequences": 12,
+        "phases": 3,
+        "mobileViewports": 2,
+        "mobileTouchEmulated": true
+      },
+      "passed": true
+    }
+  ],
+  "errors": []
+}

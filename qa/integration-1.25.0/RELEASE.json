@@ -1,0 +1,65 @@
+{
+  "version": "beta-1.25.0",
+  "upstream": "db6297e25a3e701276df0b1ffd04b1dafb14afce",
+  "upstreamVersion": "beta-1.24.1",
+  "portable": {
+    "file": "TORII_HUTUKARA_BETA_1_25_0.html",
+    "bytes": 496648162,
+    "sha256": "da197840cf8fe35be5034e6da819d68ea9dc0e19a1ae9426048d8a6ab6f70e82"
+  },
+  "http": {
+    "sourceSha256": "da197840cf8fe35be5034e6da819d68ea9dc0e19a1ae9426048d8a6ab6f70e82",
+    "indexSha256": "a8837d2ebe1c34e95dcce42aef82bbd216ab981c581f40e0324a8633145c61aa",
+    "gameContentRoundTrip": true,
+    "portableBuildUnchanged": true,
+    "mediaBytes": 281715919
+  },
+  "previewURL": "http://127.0.0.1:8877/?ui=da197840",
+  "remotePublished": false,
+  "userCheckoutModified": false,
+  "validation": {
+    "structuralChecks": 149,
+    "structuralSnapshot": "be9ba974 (followed only by scoped Lumi horizontal CSS)",
+    "fxVmChecks": 30,
+    "nativeSuites": 12,
+    "nativeReport": "native-flows/REPORT.json",
+    "nativeSnapshotApplicability": "Nine suites on 9aad39e9; affected presentation/controls/screens/Lumi retested on be9ba974; final da197840 changed only horizontal Lumi CSS and Lumi native keyboard/touch was rerun successfully.",
+    "newUiChecks": 42,
+    "newUiSnapshot": "be9ba974c3c206db0842cd6cde851ef2c165963c6f52143d52df7a86c19d4799",
+    "horizontalSafetyChecksIncluded": 14,
+    "finalLumiFooterStates": 3,
+    "finalLumiFooterSnapshot": "da197840",
+    "finalLumiNativeKeyboardTouch": {
+      "exitCode": 0,
+      "stdout": "qa/integration-1.25.0/native-flows/logs/final-da197840-lumi.stdout.log",
+      "stderr": "qa/integration-1.25.0/native-flows/logs/final-da197840-lumi.stderr.log"
+    },
+    "pageErrors": []
+  },
+  "recordings": {
+    "allElevenNativePatterns": "../beta-1.25.0/enemy-skill-fx-v2/build-dcaa8b63/RECORDING.json",
+    "coreAndMobileSnapshot": "9aad39e9",
+    "equivalence": "Enemy AI, damage, FX runtime/atlases and enemy renderers unchanged in subsequent platform hints and Lumi horizontal CSS patches. Actual capture identifiers retained in gallery.",
+    "method": "Original-map controlled encounters, native AI/collision; raised player HP; fixed actual-speed update(.05),20fps; not a human campaign."
+  },
+  "art": {
+    "directory": "assets/enemy-skill-fx/v2",
+    "method": "Built-in image_gen; two new source sheets,24 new frames; other four atlases byte-identical to V1",
+    "prompts": "assets/enemy-skill-fx/v2/PROMPTS.json",
+    "sourceAndProvenance": "assets/enemy-skill-fx/v2/PRODUCTION.json"
+  },
+  "sources": {
+    "production/build_playtest.rb": "792e2a095bbce230bc612b28d26970befc55c407116afe0256a03d1fd6fe918f",
+    "production/build_integration_gallery.py": "3c6f003c168f64daf6c5e75700eb8cde675f0a0b6300efce14fe3df454baefc4",
+    "game/source/chapter-03/interface_v7.js": "5cd7d317e46e9c8600eafb2b7f2efc35895a549ae22894e617a5e1465cac8faa",
+    "game/source/chapter-03/interface_screens_v7.js": "011bf3638393902c31c12d54b7e119d730f8270fffcf421f99ddb08645b329d4",
+    "game/source/chapter-03/input_mobile_combat.js": "9822cd1cb981f62ea347a209020ffc29f8537ba0254c189bb3a0ebd3b6d50e7c",
+    "game/source/chapter-03/ui7_new_games_v1.js": "b898ef64e1da390870159513d2997ec688e8dc43824ae1267f54a68dadfdce8f",
+    "game/source/chapter-03/ui7_new_games_v1.css": "8489619af10c220cb20c010ad30ab7d72db2e61bc4e910edda065e5330ad9d58",
+    "game/source/chapter-03/enemy_skill_fx_v1.js": "7d4f31197d4f3a0ce60be6456f4b06203c0d2b6f23efa137bc04ec8356f69137"
+  },
+  "limits": [
+    "Automated Chromium desktop and emulated touch/controller inputs; no physical mobile or controller hardware.",
+    "Complete campaign not played manually."
+  ]
+}

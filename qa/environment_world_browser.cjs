@@ -256,3 +256,4 @@ async function capture(name){
  });
  assert.deepEqual(report.browserErrors,[],'Browser errors');report.passed=report.checks.length;report.status='passed';console.log('PASS · '+report.passed+' environment/world browser checks');
 })().catch(e=>{report.status='failed';report.fatal=e.stack;console.error(e);process.exitCode=1;}).finally(async()=>{fs.mkdirSync(out,{recursive:true});const file=report.filter?'BROWSER_FOCO_'+report.filter.toLowerCase().replace(/[^a-z0-9]+/g,'_')+'.json':'BROWSER_RESULTADOS.json';fs.writeFileSync(path.join(out,file),JSON.stringify(report,null,2)+'\n');if(context)await context.close();if(browser)await browser.close();});
+

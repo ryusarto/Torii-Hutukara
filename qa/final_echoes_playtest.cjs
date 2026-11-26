@@ -48,7 +48,8 @@ async function testEchoes(browser,mobile){
     async function mute(){
       if(!mobile)return;
       await page.evaluate(()=>{openSystem();openSettings10()});
-      await click('#audio10');
+      // Audio mute now persists across Continue. Do not toggle it back on.
+      if(!await page.evaluate(()=>audioMuted))await click('#audio10');
       await page.evaluate(()=>closeOverlay());
       assert(await page.evaluate(()=>audioMuted&&!audioEnabled));
     }
@@ -106,6 +107,7 @@ async function testEchoes(browser,mobile){
     await page.reload({waitUntil:'domcontentloaded'});
     await page.locator('#startContinue').click();
     await page.waitForFunction(()=>FinalEchoes.active()&&FinalEchoes.progress().count===1&&!bossActor&&mode==='walk');
+    if(mobile)assert(await page.evaluate(()=>audioMuted&&!audioEnabled),'Mute preference must persist after Continue');
     await mute();
     await watchAudio();
     await answer('bass');

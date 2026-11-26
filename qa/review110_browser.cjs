@@ -50,3 +50,4 @@ function fixture(cloud=false){
  });
  await mobile.context.close();assert.deepEqual(errors,[]);const report={version:v.numero,build:runtimeBuild,url,checks,errors,method:'Actual exported/portable runtime, FileReader and isolated touch/mobile emulation. Fixtures target edge cases; not a continuous campaign or physical device.'};fs.writeFileSync(path.join(out,process.env.REPORT_NAME||'BROWSER_REVIEW.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({passed:checks.filter(c=>c.passed).length,failed:checks.filter(c=>!c.passed).length,errors}));if(checks.some(c=>!c.passed))process.exitCode=1;
 })().catch(e=>{console.error(e);process.exitCode=1}).finally(async()=>{await browser?.close()});
+

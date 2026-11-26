@@ -40,3 +40,4 @@ function install(original){
  await context.close();
 }assert.deepEqual(report.errors,[]);console.log(JSON.stringify({passed:report.checks.length,actualCombatCases:54,errors:report.errors}));
 })().catch(e=>{report.fatal=e.stack;console.error(e);process.exitCode=1}).finally(async()=>{await browser?.close();fs.writeFileSync(path.join(out,'POSTGAME_BROWSER.json'),JSON.stringify(report,null,2)+'\n')});
+

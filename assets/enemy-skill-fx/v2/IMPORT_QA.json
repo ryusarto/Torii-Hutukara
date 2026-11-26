@@ -1,0 +1,108 @@
+{
+  "checks": [
+    {
+      "sheet": "tambor",
+      "globalSourceDividersClear": true,
+      "sourceExteriorClear": true,
+      "fullCellSourceExportExact": true,
+      "wholeFrameOwnership": true,
+      "atlasGuard": 8
+    },
+    {
+      "sheet": "flautim",
+      "globalSourceDividersClear": true,
+      "sourceExteriorClear": true,
+      "fullCellSourceExportExact": true,
+      "wholeFrameOwnership": true,
+      "atlasGuard": 8
+    }
+  ],
+  "clips": {
+    "tambor": {
+      "frames": 8,
+      "contentBounds": [
+        20,
+        27,
+        110,
+        102
+      ],
+      "core": {},
+      "wholeCellPreserved": true,
+      "exportGuard": 8
+    },
+    "flautim": {
+      "frames": 8,
+      "contentBounds": [
+        15,
+        33,
+        108,
+        98
+      ],
+      "core": {
+        "3": {
+          "bounds": [
+            83,
+            62,
+            104,
+            76
+          ],
+          "pixels": 142,
+          "centroid": [
+            94.47,
+            68.51
+          ],
+          "method": "Largest 4-connected leading-half ivory cluster R>=205 G>=195 B>=145 alpha>=192; measured in final128px cell"
+        },
+        "4": {
+          "bounds": [
+            84,
+            60,
+            104,
+            75
+          ],
+          "pixels": 154,
+          "centroid": [
+            95.29,
+            67.44
+          ],
+          "method": "Largest 4-connected leading-half ivory cluster R>=205 G>=195 B>=145 alpha>=192; measured in final128px cell"
+        },
+        "5": {
+          "bounds": [
+            82,
+            61,
+            105,
+            75
+          ],
+          "pixels": 158,
+          "centroid": [
+            95.02,
+            68.02
+          ],
+          "method": "Largest 4-connected leading-half ivory cluster R>=205 G>=195 B>=145 alpha>=192; measured in final128px cell"
+        }
+      },
+      "wholeCellPreserved": true,
+      "exportGuard": 8
+    },
+    "flautim_impact": {
+      "frames": 8,
+      "contentBounds": [
+        19,
+        24,
+        107,
+        98
+      ],
+      "core": {},
+      "wholeCellPreserved": true,
+      "exportGuard": 8
+    }
+  },
+  "newFrames": 24,
+  "reusedAtlases": {
+    "coro": "8139c991a3887b39c3951885bd6d8b4b0521cc70f07d569de4bb571a6104aae0",
+    "maestro": "358faa8834f74b4271585a7d5c39c001453d51754ac7330e36d94245c932061f",
+    "muralha": "209056a6fa956a17ef68dd18dcee292c991ff7c197068b3b113221beb04be728",
+    "antena": "a5e1bcb137ddf9329fc30d08e786e011404f65cdb6bbd47e905c31f75a97f447"
+  }
+}

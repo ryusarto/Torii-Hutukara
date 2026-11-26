@@ -383,6 +383,19 @@ function mobileAction121(action){
 }
 function bindMobile121(deck){
   let pendingPause=null;
+  let menuOpeningPointer=null;
+  // Interact must begin on down for sustained notes. When it opens a panel,
+  // however, the compatibility click can land on a new button at the same
+  // coordinates after the controls disappear. Consume only that same gesture;
+  // the next physical down and keyboard/assistive clicks remain independent.
+  document.addEventListener('pointerdown',()=>{menuOpeningPointer=null},true);
+  document.addEventListener('click',e=>{
+    const p=menuOpeningPointer;if(!p||e.detail===0)return;
+    if(performance.now()>p.until){menuOpeningPointer=null;return}
+    if(Number.isFinite(e.pointerId)&&e.pointerId!==p.id)return;
+    if(Math.hypot(e.clientX-p.x,e.clientY-p.y)>8)return;
+    menuOpeningPointer=null;e.preventDefault();e.stopImmediatePropagation();
+  },true);
   deck.addEventListener('contextmenu',e=>e.preventDefault());
   deck.addEventListener('pointerdown',e=>{
     const target=e.target.closest('[data-mobile-action],#mobileStick121');if(!target)return;
@@ -395,7 +408,9 @@ function bindMobile121(deck){
       Input121.stickOrigin={x:box.left+box.width/2,y:box.top+box.height/2,radius:box.width*.32};
       Input121.pointers.set(e.pointerId,{action:'stick'});mobileStick121(e);
     }else{
-      const action=target.dataset.mobileAction;Input121.pointers.set(e.pointerId,{action,target});target.classList.add('pressed');if(action!=='pause')mobileAction121(action);mergeInput121();
+      const action=target.dataset.mobileAction;Input121.pointers.set(e.pointerId,{action,target});target.classList.add('pressed');if(action!=='pause')mobileAction121(action);
+      if(action==='interact'&&['overlay','dialogue'].includes(mode))menuOpeningPointer={id:e.pointerId,x:e.clientX,y:e.clientY,until:performance.now()+1200};
+      mergeInput121();
     }
     target.setPointerCapture?.(e.pointerId);
   },{passive:false});
@@ -697,3 +712,4 @@ init=function(){
   const version=document.querySelector('#start .version');if(version)version.textContent=BUILD_LABEL;
   applyBuildLabel();
 };
+

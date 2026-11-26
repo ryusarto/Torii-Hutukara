@@ -24,3 +24,4 @@ html.mobile121:not(.landscape121):has(#start.hidden) #playtestEntry {
 @media (prefers-reduced-motion: reduce) {
   #playtestEntry { transition: none; }
 }
+

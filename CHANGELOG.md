@@ -1,3 +1,11 @@
+## [Beta 1.25.0] — 2026-11-26
+
+- Base GitHub Beta1.24.1 db6297e integrada com menus/HUD16bit, diálogos, vidas individuais/boss, controles e animações aprovados localmente.
+- Novas atividades musicais e recuperação de ecos recebem a mesma identidade de interface.
+- Poder do Tambor e projétil do Flautim reforçados em área/corpo legíveis, preservando a simulação.
+- AÇÃO não ativa Voltar por engano ao abrir um painel pelo toque; nota sustentada do Canal preservada.
+- Pausa, equipe e Lumi usam dicas adequadas à plataforma; novos HUDs horizontais não invadem controles.
+
 ## [Beta 1.24.1] — 2026-11-26
 
 - O Passo Sônico, os empurrões e os reposicionamentos de combate respeitam a colisão do personagem. Saves antigos com posição inválida são recuperados ao carregar ou importar.
@@ -9,6 +17,39 @@
 - Ponte das Frequências, Rádio 9, Lumi, Canal Suspenso, Usina, Contratempo e A Última Frequência passam a fazer parte da mesma campanha.
 - Lumi usa a gravação de *Veracidade*. A sequência pode ser ouvida novamente e acompanhada visualmente, inclusive com o áudio desligado.
 - Diálogos, menus, ajuda, formação e interações usam dicas de toque ou de controle no mobile.
+
+## [Beta 1.17.0] — 2026-11-25
+
+- Golpes dos seis inimigos adicionais recebem dez animações materiais próprias (80 quadros), com preparação, emissão, ruptura e dissipação. Projétil, cura, invocação e investida seguem os eventos e pontos reais; clipping e transparência conservam a leitura do cenário.
+- Corrida dos protagonistas mascarados usa oito poses canônicas com apoios regulares, mantendo as 16 poses aprovadas sem máscara. Corrigidas a variante congelada ao ganhar a máscara e a passada fantasma no primeiro sync de P2.
+- Seis tipos adicionais do Médio/Difícil ganham corpos e animações próprios; os dois escudos apresentam orientação da proteção e abertura após o golpe.
+- Vida grande fixa exclusiva dos bosses, sem duplicata sobre a cabeça; comuns conservam suas vidas individuais. Layout considera botões de controle reposicionados.
+
+- Efeitos próprios dos seis personagens refeitos em 36 animações de oito fases, com maior espaço transparente e sem as camadas de contorno redundantes. Margens das 288 células verificadas contra vazamento de atlas.
+- Fase da passada unificada entre caminhada, corrida e fallback; direção acompanha o movimento após colisão e diagonais deixam de alternar por ruído numérico.
+- Registro translacional das poses remove bobeamento de montagem, conserva escala e mantém os pés acima do plano do chão. Aplicado também ao arqueiro atirando em movimento.
+- Caminhada à esquerda do Ryuchi usa as oito poses canônicas, descartando intermediários que encolhiam o personagem. A borda clara dos estados iniciais é tratada em derivados pré-processados, sem limpeza pesada durante o carregamento.
+
+- Telas de conclusão dos três capítulos e equipe recebem os componentes da interface aprovada; mapa, diário, loja, histórico, derrota e confirmações também usam as novas molduras e botões.
+- Retratos, formação, vida e técnicas reais apresentados em cartões na equipe, preservando os comandos de reservar/escalar.
+- Removido o halo claro da corrida do Ryuchi sem máscara, preservando alpha, silhueta e variantes mascaradas.
+- Portal do primeiro chefe e avisos dos padrões adicionais recebem arte em pixels, identidades por ataque e fases de preparação, impacto e dissipação. Contornos funcionais permanecem legíveis sobre vegetação.
+- Corrigido Passo Sônico do Ryuchi terminando com o corpo sobreposto a árvores/paredes; posições antigas com esse problema são recuperadas localmente sem consumir recursos.
+
+- Textos das caixas uniformizados: mesma família tipográfica, espaçamento, alinhamento e quebra de linha. Texto ampliado continua disponível; cartões de dificuldade cabem em telas estreitas.
+- Dificuldades apresentadas como Fácil, Médio e Difícil, com descrições voltadas à história, equilíbrio e desafio. As regras e chaves dos saves permanecem iguais.
+- Corrigida pose parada do Franco durante carregamento de sprites de caminhada/corrida: usa locomação já disponível ou o renderer animado original até o atlas solicitado chegar.
+
+- Correção do recorte que escondia as falas: diálogo novamente dentro da tela no PC e mobile, incluindo texto ampliado. Respostas explícitas da Anciã preservadas e escolhas/dificuldade com moldura nova.
+- Navegação dos menus por setas, comandos remapeados, analógico e D-pad; captura de teclas, sliders, editor e escolhas obrigatórias preservados.
+- Vida individual compacta acima de cada inimigo/chefe, seguindo silhueta e câmera, substituindo a barra coletiva.
+
+- Menu principal aprovado: Continuar, Novo jogo, Calabouço e Opções, com cenário e sprites nativos.
+- Pausa B lateral, deixando o mundo visível; preserva suspensão e retomada segura da Fenda.
+- Cartas do calabouço com ícones próprios para as 22 melhorias e três respiros, valores e efeitos reais.
+- Instrumentos de três notas e quatro timbres, moldura de diálogo e HUD PC com vida, ressonância e estado das técnicas.
+- Controles mobile verticais e horizontais transparentes. Posições independentes, edição por arraste/teclado, limites, cancelamento e restauração.
+- Preservado o módulo local de Lumi/Veracidade com áudio da gravação e acessibilidade.
 
 ## [Beta 1.16.0] — 2026-11-25
 
@@ -573,3 +614,4 @@ Correções preparadas no PR #8 e integradas junto às novas artes na Beta 1.2.
 
 - Última base preservada antes da integração do Capítulo 3 completo.
 - Arquivo original mantido em `game/source/base/` com hash de verificação.
+

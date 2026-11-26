@@ -34,11 +34,16 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
         }
         if(MusicianArtV1.supports(hero))MusicianArtV1.setVariant(hero,masked?'masked':'unmasked');
         if(!await RunStrideV1.image(hero).ready)throw Error('Missing run sheet '+hero);
+        if(masked&&RunStrideV1.manifest.heroes[hero].nativeRunRows?.length)await ProtagonistArtV5.image(hero+'_run').decode();
       };
       window.__runDraw=(hero,dir,seat,world=false)=>{
         const seen=[],original=ctx.drawImage,body=seat?C3.coop:G;
         const rec=RunStrideV1.image(hero);
-        ctx.drawImage=function(sheet,...args){if(sheet===rec.bitmap)seen.push([args[0]/rec.cell,args[1]/rec.cell]);return original.call(this,sheet,...args);};
+        ctx.drawImage=function(sheet,...args){
+          if(sheet===rec.bitmap)seen.push([args[0]/rec.cell,args[1]/rec.cell]);
+          else if(ProtagonistArtV5.supports(hero)&&sheet===ProtagonistArtV5.images[hero+'_run']&&RunStrideV1.manifest.heroes[hero].nativeRunRows?.includes(args[1]/256))seen.push([args[0]/256,args[1]/256]);
+          return original.call(this,sheet,...args);
+        };
         try{if(world)drawEnv();else drawActor({style:hero,dir},body.x*T-cam.x,body.y*T-cam.y,true);}
         finally{ctx.drawImage=original;}
         return seen;
@@ -47,7 +52,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
     const directions=[['down','s',0,1],['left','a',-1,0],['up','w',0,-1],['right','d',1,0]];
     const report=[];
     for(const hero of ['franco','ryuchi','alt','katana','synth','percussion']){
-      const {frames,rows,strideDistance}=await page.evaluate(hero=>RunStrideV1.manifest.heroes[hero],hero);
+      const {frames,rows,strideDistance,nativeRunRows}=await page.evaluate(hero=>RunStrideV1.manifest.heroes[hero],hero);
       assert.equal(frames,16);
       for(const masked of rows>4?[false,true]:[false])for(const seat of [0,1])for(const [index,[dir,key,dx,dy]] of directions.entries()){
         await page.evaluate(({hero,seat,masked,dx,dy})=>__runSetup(hero,seat,masked,dx,dy),{hero,seat,masked,dx,dy});
@@ -68,7 +73,8 @@ const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright');
         if(!seat){await page.keyboard.up(key);await page.keyboard.up('Shift');}
         const label=hero+'/'+seat+'/'+masked+'/'+dir;
         assert.deepEqual(r.rows,[index+(masked?4:0)],label);
-        assert.equal(r.cols.length,frames,label);assert(r.frozen,label);assert(r.distance>3,label);
+        const native=masked&&nativeRunRows?.includes(index+4);
+        assert.equal(r.cols.length,native?8:frames,label);if(native)assert(r.cols.every(c=>c%2===0),label+' canonical source columns');assert(r.frozen,label);assert(r.distance>3,label);
         report.push({hero,seat,masked,dir});
       }
     }

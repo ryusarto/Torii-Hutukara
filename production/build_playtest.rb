@@ -152,8 +152,11 @@ Dir.mktmpdir('torii-playtest-') do |temp|
 
   # Only this ignored, generated directory is replaced; no historical build changes.
   FileUtils.rm_rf(OUTPUT)
-  FileUtils.mkdir_p(OUTPUT)
-  FileUtils.cp_r(Dir.glob(File.join(temp, '*'), File::FNM_DOTMATCH).reject { |p| %w[. ..].include?(File.basename(p)) }, OUTPUT)
+  # Temporary export and output share the volume; move avoids duplicating all
+  # media on a nearly full developer disk. Recreate the empty temporary root
+  # for Ruby 2.6 mktmpdir cleanup after the move.
+  FileUtils.mv(temp, OUTPUT)
+  FileUtils.mkdir_p(temp)
   # Site editorial do álbum, isolado da build original do jogo.
   album_source = File.join(ROOT, 'web', 'album')
   if Dir.exist?(album_source)

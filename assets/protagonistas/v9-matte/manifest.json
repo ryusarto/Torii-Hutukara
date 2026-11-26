@@ -1,0 +1,250 @@
+{
+  "version": 9,
+  "purpose": "Derived exterior neutral matte RGB correction; canonical sources unchanged. No frame creation, recoloring of opaque pixels, alpha edits, or masked edits. Rejected V7 intermediate poses are handled by walkFrameMap, not erased here.",
+  "cell": [
+    256,
+    256
+  ],
+  "pivot": [
+    128,
+    224
+  ],
+  "directions": [
+    "down",
+    "left",
+    "up",
+    "right"
+  ],
+  "rows": [
+    "unmasked/down",
+    "unmasked/left",
+    "unmasked/up",
+    "unmasked/right",
+    "masked/down",
+    "masked/left",
+    "masked/up",
+    "masked/right"
+  ],
+  "algorithm": {
+    "neutralMinimum": 75,
+    "neutralRangeMaximum": 35,
+    "alphaRangeExclusive": [
+      0,
+      230
+    ],
+    "exteriorRadiusSourcePixels": 2,
+    "unmatteBackgroundRGB": [
+      255,
+      255,
+      255
+    ]
+  },
+  "bakedEdgeMatte": [
+    "ryuchi_idle",
+    "ryuchi_walk",
+    "ryuchi_run",
+    "ryuchi_roll",
+    "ryuchi_attack_1",
+    "ryuchi_attack_2",
+    "ryuchi_attack_3",
+    "ryuchi_skill",
+    "ryuchi_advanced",
+    "ryuchi_signature",
+    "ryuchi_hurt",
+    "ryuchi_defeat"
+  ],
+  "atlases": [
+    {
+      "key": "ryuchi_idle",
+      "source": "assets/protagonistas/v5/atlas/ryuchi_idle.png",
+      "atlas": "atlas/ryuchi_idle.png",
+      "sourceSha256": "4e6bb187bbd1229f29efe0e1e7f66f46c174cdd7f14192be3d83e9f34f69484f",
+      "sha256": "204d34bc94e892afd9f567950e2a6bfb1fdc6ac7b2ca826b15c1bb9e9b36c382",
+      "dimensions": [
+        2304,
+        2048
+      ],
+      "eligibleEdgePixels": 5374,
+      "changedRGBPixels": 4499,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    },
+    {
+      "key": "ryuchi_walk",
+      "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_walk.png",
+      "atlas": "atlas/ryuchi_walk.png",
+      "sourceSha256": "add9cbe7a9658aa6d1f2d58f80286e6be447b7a7483dd0b02725affe1236083f",
+      "sha256": "e88d2a6238b00628b53c31ec5a1d69d40f44b9541d1e31a198cac8b2126399a7",
+      "dimensions": [
+        4096,
+        2048
+      ],
+      "eligibleEdgePixels": 5172,
+      "changedRGBPixels": 4347,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    },
+    {
+      "key": "ryuchi_run",
+      "source": "assets/protagonistas/v7-locomocao/atlas/ryuchi_run.png",
+      "atlas": "atlas/ryuchi_run.png",
+      "sourceSha256": "405754a1ef77f902ef1633566678533c21c6f123f11cedceb6685c8ef4dcedc8",
+      "sha256": "0812b62b4a7ca48031c48a4308c3a0c79d9cf3f87704852421e3df0789ae96f9",
+      "dimensions": [
+        4096,
+        2048
+      ],
+      "eligibleEdgePixels": 8196,
+      "changedRGBPixels": 7186,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    },
+    {
+      "key": "ryuchi_roll",
+      "source": "assets/protagonistas/v5/atlas/ryuchi_roll.png",
+      "atlas": "atlas/ryuchi_roll.png",
+      "sourceSha256": "a3af6a463c5fb36f48e966ef2f9bfaa227c87f21f3b994c3d09b05e42d3c5460",
+      "sha256": "1a77a8986fa256bb7157518b8a295ea2d7e64684cc44a5852b2c266c52186045",
+      "dimensions": [
+        2304,
+        2048
+      ],
+      "eligibleEdgePixels": 3268,
+      "changedRGBPixels": 2737,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    },
+    {
+      "key": "ryuchi_attack_1",
+      "source": "assets/protagonistas/v5/atlas/ryuchi_attack_1.png",
+      "atlas": "atlas/ryuchi_attack_1.png",
+      "sourceSha256": "f9418406e2c9dd0e4f34694d16703dbd21e41da1b676c38b16d38870ae92455b",
+      "sha256": "9954bd127bbf958aa555d5a5de976774d15ab92aaa0c430ecaf44e8995e101cb",
+      "dimensions": [
+        2304,
+        2048
+      ],
+      "eligibleEdgePixels": 4637,
+      "changedRGBPixels": 4074,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    },
+    {
+      "key": "ryuchi_attack_2",
+      "source": "assets/protagonistas/v5/atlas/ryuchi_attack_2.png",
+      "atlas": "atlas/ryuchi_attack_2.png",
+      "sourceSha256": "e33aab1054812963ac8f181080a15169cea8e743631498953bc545bf1fedb97a",
+      "sha256": "acf744898adb8cae53a23307bb3174610d48578a491f79d5f2fd3912a239b3b5",
+      "dimensions": [
+        2304,
+        2048
+      ],
+      "eligibleEdgePixels": 3363,
+      "changedRGBPixels": 2848,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    },
+    {
+      "key": "ryuchi_attack_3",
+      "source": "assets/protagonistas/v5/atlas/ryuchi_attack_3.png",
+      "atlas": "atlas/ryuchi_attack_3.png",
+      "sourceSha256": "1ca8490ed44d15d85287360fcc762f02b678310f90e3cc62fc79f7f73c70bf66",
+      "sha256": "e250811c98f3cb0626c73d1ec82b06a5756dc73ad7b120c85bcd3f29a1cfb242",
+      "dimensions": [
+        2304,
+        2048
+      ],
+      "eligibleEdgePixels": 4725,
+      "changedRGBPixels": 3992,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    },
+    {
+      "key": "ryuchi_skill",
+      "source": "assets/protagonistas/v5/atlas/ryuchi_skill.png",
+      "atlas": "atlas/ryuchi_skill.png",
+      "sourceSha256": "7d9f023bf0314e934f838809b0ca8ee43892d6ce20288790f4bd0ad8ec851884",
+      "sha256": "49528c7b5e6e61943a4296b148503274d994b2b246c6ea248a906cdcf7999995",
+      "dimensions": [
+        2304,
+        2048
+      ],
+      "eligibleEdgePixels": 4348,
+      "changedRGBPixels": 3672,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    },
+    {
+      "key": "ryuchi_advanced",
+      "source": "assets/protagonistas/v5/atlas/ryuchi_advanced.png",
+      "atlas": "atlas/ryuchi_advanced.png",
+      "sourceSha256": "61b901e4db8ec8658cf68024a854496f965d3a0619acbe71785c6eb73ce9a7bd",
+      "sha256": "80b0981d1f8dd283d982b4add16c4847ba4082f09ecea3f88302d2395270a3d6",
+      "dimensions": [
+        2304,
+        2048
+      ],
+      "eligibleEdgePixels": 4418,
+      "changedRGBPixels": 3631,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    },
+    {
+      "key": "ryuchi_signature",
+      "source": "assets/protagonistas/v5/atlas/ryuchi_signature.png",
+      "atlas": "atlas/ryuchi_signature.png",
+      "sourceSha256": "7dc59d0172107dbda1bc39e699c0a5aafb49bbb98f3b70b54eb31c5652736f2d",
+      "sha256": "e16aaf15f7e19ac3c6e4ab41d162d942544e192bce84dc64fae9c803296e644a",
+      "dimensions": [
+        2304,
+        2048
+      ],
+      "eligibleEdgePixels": 4366,
+      "changedRGBPixels": 3536,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    },
+    {
+      "key": "ryuchi_hurt",
+      "source": "assets/protagonistas/v5/atlas/ryuchi_hurt.png",
+      "atlas": "atlas/ryuchi_hurt.png",
+      "sourceSha256": "c994f0a17b838139cd66fe8e1f438efa22dfd9b40d49729c090b2ac19f41b04b",
+      "sha256": "6ad8f3e359671deb8a813f42df4c0f21276d4589add5749d03c060b55e332446",
+      "dimensions": [
+        2304,
+        2048
+      ],
+      "eligibleEdgePixels": 3567,
+      "changedRGBPixels": 3006,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    },
+    {
+      "key": "ryuchi_defeat",
+      "source": "assets/protagonistas/v5/atlas/ryuchi_defeat.png",
+      "atlas": "atlas/ryuchi_defeat.png",
+      "sourceSha256": "4947214642c7e497e16bce27524e5f677a86d1346fe02196ab13d9f442074f7a",
+      "sha256": "cc9c55d727aab60e91af2b07bfe4344e34d8fadcb3008f70786cb85a0545c295",
+      "dimensions": [
+        2304,
+        2048
+      ],
+      "eligibleEdgePixels": 2876,
+      "changedRGBPixels": 2430,
+      "alphaChanges": 0,
+      "opaqueChanges": 0,
+      "maskedChanges": 0
+    }
+  ]
+}

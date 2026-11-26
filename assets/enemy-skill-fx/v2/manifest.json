@@ -1,0 +1,2595 @@
+{
+  "version": 2,
+  "cell": 128,
+  "columns": 4,
+  "pivot": [
+    64,
+    64
+  ],
+  "origin": "built-in image_gen; exact new prompts in PROMPTS.json; V1 four atlases reused byte-for-byte",
+  "cleanup": "Derived only: alpha <= 8 and RGB of fully transparent pixels zeroed. No component deletion.",
+  "segmentation": "Global 5px divider alpha > 8 checked before crops. Full source cells mapped with constant nominal scale to112x112 at[8,8]. No per-frame recentering.",
+  "clips": {
+    "tambor": {
+      "atlas": "atlas/tambor.png",
+      "frames": 8,
+      "columns": 4,
+      "cell": 128,
+      "pivot": [
+        64,
+        64
+      ],
+      "rowOffset": 0,
+      "orientation": "right",
+      "contentBounds": [
+        20,
+        27,
+        110,
+        102
+      ],
+      "phaseFrames": {
+        "gather": [
+          0,
+          1
+        ],
+        "accelerate": [
+          2
+        ],
+        "peak": [
+          3,
+          4
+        ],
+        "recover": [
+          5,
+          6,
+          7
+        ]
+      },
+      "previewFrameMs": [
+        95,
+        95,
+        75,
+        90,
+        90,
+        90,
+        110,
+        150
+      ],
+      "source": "source/tambor.png",
+      "frameData": [
+        {
+          "frame": 0,
+          "sourceCell": [
+            0,
+            0,
+            444,
+            444
+          ],
+          "sourceContent": [
+            130,
+            156,
+            238,
+            291
+          ],
+          "content": [
+            41,
+            47,
+            68,
+            81
+          ],
+          "sha256": "919cc829b96e083bbff745ce98c93028a76ef8e09d0f408978f25de1a6a802c6",
+          "alphaPixels": 495,
+          "solidPixels": 446,
+          "solidDensityWithinFrameBounds": 0.4858
+        },
+        {
+          "frame": 1,
+          "sourceCell": [
+            444,
+            0,
+            887,
+            444
+          ],
+          "sourceContent": [
+            551,
+            132,
+            753,
+            321
+          ],
+          "content": [
+            36,
+            41,
+            86,
+            89
+          ],
+          "sha256": "c690a3af209860a948d41f64541dda2527659c27ec84d809a9d8dd8ede8e1f09",
+          "alphaPixels": 1418,
+          "solidPixels": 1336,
+          "solidDensityWithinFrameBounds": 0.5567
+        },
+        {
+          "frame": 2,
+          "sourceCell": [
+            887,
+            0,
+            1330,
+            444
+          ],
+          "sourceContent": [
+            973,
+            114,
+            1231,
+            340
+          ],
+          "content": [
+            30,
+            37,
+            94,
+            94
+          ],
+          "sha256": "d15a41fa52cec440ce3de0a1adc58e1c350c24dc74594b7aa25a8d725fd0bd9a",
+          "alphaPixels": 2001,
+          "solidPixels": 1879,
+          "solidDensityWithinFrameBounds": 0.5151
+        },
+        {
+          "frame": 3,
+          "sourceCell": [
+            1330,
+            0,
+            1774,
+            444
+          ],
+          "sourceContent": [
+            1394,
+            80,
+            1707,
+            360
+          ],
+          "content": [
+            24,
+            28,
+            103,
+            99
+          ],
+          "sha256": "e9d5d286d166920b26e3fe7fd01e557c1509783b65d17befaf038713acd88eee",
+          "alphaPixels": 2899,
+          "solidPixels": 2731,
+          "solidDensityWithinFrameBounds": 0.4869
+        },
+        {
+          "frame": 4,
+          "sourceCell": [
+            0,
+            444,
+            444,
+            887
+          ],
+          "sourceContent": [
+            51,
+            518,
+            404,
+            817
+          ],
+          "content": [
+            21,
+            27,
+            110,
+            102
+          ],
+          "sha256": "d8c38a4c3acb1beb16893c56050f63e734fec9af49fa81699671d3e584df82a0",
+          "alphaPixels": 3409,
+          "solidPixels": 3220,
+          "solidDensityWithinFrameBounds": 0.4824
+        },
+        {
+          "frame": 5,
+          "sourceCell": [
+            444,
+            444,
+            887,
+            887
+          ],
+          "sourceContent": [
+            493,
+            518,
+            843,
+            797
+          ],
+          "content": [
+            20,
+            27,
+            109,
+            97
+          ],
+          "sha256": "e6fb9b737c97277817d6516c4a0cb570eee7ba57e7e25e586149d3a08f598825",
+          "alphaPixels": 2407,
+          "solidPixels": 2207,
+          "solidDensityWithinFrameBounds": 0.3543
+        },
+        {
+          "frame": 6,
+          "sourceCell": [
+            887,
+            444,
+            1330,
+            887
+          ],
+          "sourceContent": [
+            958,
+            528,
+            1254,
+            783
+          ],
+          "content": [
+            26,
+            30,
+            100,
+            94
+          ],
+          "sha256": "dc17ff3068c308f07651e74856128e9574e86a146c0e762de5132710b3447eb4",
+          "alphaPixels": 1231,
+          "solidPixels": 1101,
+          "solidDensityWithinFrameBounds": 0.2325
+        },
+        {
+          "frame": 7,
+          "sourceCell": [
+            1330,
+            444,
+            1774,
+            887
+          ],
+          "sourceContent": [
+            1404,
+            534,
+            1669,
+            775
+          ],
+          "content": [
+            27,
+            31,
+            94,
+            92
+          ],
+          "sha256": "52799d8a78af2a506a814f97b8e9cc3170ae30d2eb9dd096d6ba527471cc3be3",
+          "alphaPixels": 337,
+          "solidPixels": 274,
+          "solidDensityWithinFrameBounds": 0.067
+        }
+      ]
+    },
+    "flautim": {
+      "atlas": "atlas/flautim.png",
+      "frames": 8,
+      "columns": 4,
+      "cell": 128,
+      "pivot": [
+        64,
+        64
+      ],
+      "rowOffset": 0,
+      "orientation": "right",
+      "contentBounds": [
+        15,
+        33,
+        108,
+        98
+      ],
+      "phaseFrames": {
+        "gather": [
+          0,
+          1
+        ],
+        "accelerate": [
+          2
+        ],
+        "peak": [
+          3,
+          4
+        ],
+        "recover": [
+          5,
+          6,
+          7
+        ]
+      },
+      "previewFrameMs": [
+        95,
+        95,
+        75,
+        90,
+        90,
+        90,
+        110,
+        150
+      ],
+      "source": "source/flautim.png",
+      "frameData": [
+        {
+          "frame": 0,
+          "sourceCell": [
+            0,
+            0,
+            314,
+            314
+          ],
+          "sourceContent": [
+            105,
+            131,
+            241,
+            206
+          ],
+          "content": [
+            45,
+            55,
+            94,
+            81
+          ],
+          "sha256": "1997a2e743c212f865167e513154a4ace0d8b7cc3c55a0353fa71c0c99dfba84",
+          "alphaPixels": 674,
+          "solidPixels": 581,
+          "solidDensityWithinFrameBounds": 0.456
+        },
+        {
+          "frame": 1,
+          "sourceCell": [
+            314,
+            0,
+            627,
+            314
+          ],
+          "sourceContent": [
+            395,
+            121,
+            571,
+            217
+          ],
+          "content": [
+            37,
+            52,
+            100,
+            85
+          ],
+          "sha256": "3104e14f5fe503b7a3e8571c2134c07d5958da2058b93d691af0a6d048cd4c25",
+          "alphaPixels": 1196,
+          "solidPixels": 1053,
+          "solidDensityWithinFrameBounds": 0.5065
+        },
+        {
+          "frame": 2,
+          "sourceCell": [
+            627,
+            0,
+            940,
+            314
+          ],
+          "sourceContent": [
+            658,
+            106,
+            900,
+            227
+          ],
+          "content": [
+            19,
+            46,
+            106,
+            89
+          ],
+          "sha256": "9fe9339697f2a9cd23e2526fcc056f5325e2cd89e84f132d7591cd91f49cb795",
+          "alphaPixels": 2005,
+          "solidPixels": 1809,
+          "solidDensityWithinFrameBounds": 0.4836
+        },
+        {
+          "frame": 3,
+          "sourceCell": [
+            940,
+            0,
+            1254,
+            314
+          ],
+          "sourceContent": [
+            963,
+            99,
+            1219,
+            234
+          ],
+          "content": [
+            16,
+            43,
+            108,
+            91
+          ],
+          "sha256": "17292634bbfcc4c2a0426850dc12a9bb5e61c1f389fb0304089819a38b1a3e29",
+          "alphaPixels": 2699,
+          "solidPixels": 2438,
+          "solidDensityWithinFrameBounds": 0.5521
+        },
+        {
+          "frame": 4,
+          "sourceCell": [
+            0,
+            314,
+            314,
+            627
+          ],
+          "sourceContent": [
+            20,
+            385,
+            278,
+            568
+          ],
+          "content": [
+            15,
+            33,
+            107,
+            98
+          ],
+          "sha256": "4e87c4d211519ac7b466432ac8616e414f75dcff175caef9776a5ca1fc3c906d",
+          "alphaPixels": 3275,
+          "solidPixels": 2985,
+          "solidDensityWithinFrameBounds": 0.4992
+        },
+        {
+          "frame": 5,
+          "sourceCell": [
+            314,
+            314,
+            627,
+            627
+          ],
+          "sourceContent": [
+            335,
+            403,
+            593,
+            554
+          ],
+          "content": [
+            16,
+            40,
+            108,
+            94
+          ],
+          "sha256": "a5528fe5a46cc3ee2fb399e1ea2ae0e738a890e441c23496ac9457088d0aa351",
+          "alphaPixels": 2883,
+          "solidPixels": 2560,
+          "solidDensityWithinFrameBounds": 0.5153
+        },
+        {
+          "frame": 6,
+          "sourceCell": [
+            627,
+            314,
+            940,
+            627
+          ],
+          "sourceContent": [
+            657,
+            411,
+            907,
+            547
+          ],
+          "content": [
+            19,
+            43,
+            108,
+            91
+          ],
+          "sha256": "1c187bfa0bca80b63eacf1370eeadddebfe60b5afd4b88b1aaddef3f74fff7da",
+          "alphaPixels": 2177,
+          "solidPixels": 1907,
+          "solidDensityWithinFrameBounds": 0.4464
+        },
+        {
+          "frame": 7,
+          "sourceCell": [
+            940,
+            314,
+            1254,
+            627
+          ],
+          "sourceContent": [
+            969,
+            412,
+            1219,
+            544
+          ],
+          "content": [
+            18,
+            43,
+            108,
+            90
+          ],
+          "sha256": "189202ddb76df5c9521cf75f6844087ef767edbf437784fd98d173c06e860321",
+          "alphaPixels": 1339,
+          "solidPixels": 1063,
+          "solidDensityWithinFrameBounds": 0.2513
+        }
+      ],
+      "flightFrames": [
+        3,
+        4,
+        5
+      ],
+      "loopFlightFrames": [
+        3,
+        4,
+        5
+      ],
+      "flightCorePivots": {
+        "3": [
+          94.47,
+          68.51
+        ],
+        "4": [
+          95.29,
+          67.44
+        ],
+        "5": [
+          95.02,
+          68.02
+        ]
+      },
+      "flightCoreMeasurement": {
+        "3": {
+          "bounds": [
+            83,
+            62,
+            104,
+            76
+          ],
+          "pixels": 142,
+          "centroid": [
+            94.47,
+            68.51
+          ],
+          "method": "Largest 4-connected leading-half ivory cluster R>=205 G>=195 B>=145 alpha>=192; measured in final128px cell"
+        },
+        "4": {
+          "bounds": [
+            84,
+            60,
+            104,
+            75
+          ],
+          "pixels": 154,
+          "centroid": [
+            95.29,
+            67.44
+          ],
+          "method": "Largest 4-connected leading-half ivory cluster R>=205 G>=195 B>=145 alpha>=192; measured in final128px cell"
+        },
+        "5": {
+          "bounds": [
+            82,
+            61,
+            105,
+            75
+          ],
+          "pixels": 158,
+          "centroid": [
+            95.02,
+            68.02
+          ],
+          "method": "Largest 4-connected leading-half ivory cluster R>=205 G>=195 B>=145 alpha>=192; measured in final128px cell"
+        }
+      }
+    },
+    "flautim_impact": {
+      "atlas": "atlas/flautim.png",
+      "frames": 8,
+      "columns": 4,
+      "cell": 128,
+      "pivot": [
+        64,
+        64
+      ],
+      "rowOffset": 2,
+      "orientation": "radial",
+      "contentBounds": [
+        19,
+        24,
+        107,
+        98
+      ],
+      "phaseFrames": {
+        "gather": [
+          0,
+          1
+        ],
+        "accelerate": [
+          2
+        ],
+        "peak": [
+          3,
+          4
+        ],
+        "recover": [
+          5,
+          6,
+          7
+        ]
+      },
+      "previewFrameMs": [
+        95,
+        95,
+        75,
+        90,
+        90,
+        90,
+        110,
+        150
+      ],
+      "source": "source/flautim.png",
+      "frameData": [
+        {
+          "frame": 0,
+          "sourceCell": [
+            0,
+            627,
+            314,
+            940
+          ],
+          "sourceContent": [
+            79,
+            717,
+            240,
+            838
+          ],
+          "content": [
+            36,
+            40,
+            94,
+            84
+          ],
+          "sha256": "c7680c455e024a71e8277f4e7503ded738e038dffd4371dd33cfc3dd2b8faa7f",
+          "alphaPixels": 1557,
+          "solidPixels": 1344,
+          "solidDensityWithinFrameBounds": 0.5266
+        },
+        {
+          "frame": 1,
+          "sourceCell": [
+            314,
+            627,
+            627,
+            940
+          ],
+          "sourceContent": [
+            368,
+            703,
+            556,
+            853
+          ],
+          "content": [
+            27,
+            35,
+            95,
+            89
+          ],
+          "sha256": "9819d9e14c1e43ba10d73de3d76675ac5ced52ac164592a75808f2f6bed59622",
+          "alphaPixels": 2046,
+          "solidPixels": 1804,
+          "solidDensityWithinFrameBounds": 0.4913
+        },
+        {
+          "frame": 2,
+          "sourceCell": [
+            627,
+            627,
+            940,
+            940
+          ],
+          "sourceContent": [
+            675,
+            679,
+            886,
+            873
+          ],
+          "content": [
+            25,
+            27,
+            100,
+            96
+          ],
+          "sha256": "61a2a76a42fe8399253bfb69a9e9ad10f56af1819f41bc3709c77d9318dd965d",
+          "alphaPixels": 2619,
+          "solidPixels": 2228,
+          "solidDensityWithinFrameBounds": 0.4305
+        },
+        {
+          "frame": 3,
+          "sourceCell": [
+            940,
+            627,
+            1254,
+            940
+          ],
+          "sourceContent": [
+            974,
+            673,
+            1212,
+            873
+          ],
+          "content": [
+            20,
+            24,
+            105,
+            96
+          ],
+          "sha256": "98519c6f898e02b8bdf9cabb5f781e4f9a494469a96d7c3802ebe1d4904a29b9",
+          "alphaPixels": 2468,
+          "solidPixels": 1984,
+          "solidDensityWithinFrameBounds": 0.3242
+        },
+        {
+          "frame": 4,
+          "sourceCell": [
+            0,
+            940,
+            314,
+            1254
+          ],
+          "sourceContent": [
+            30,
+            988,
+            278,
+            1193
+          ],
+          "content": [
+            19,
+            25,
+            107,
+            98
+          ],
+          "sha256": "2f5e39310c91fa2548defdafe17562706e772c65b444c94161f73ff2b00517cf",
+          "alphaPixels": 2609,
+          "solidPixels": 2157,
+          "solidDensityWithinFrameBounds": 0.3358
+        },
+        {
+          "frame": 5,
+          "sourceCell": [
+            314,
+            940,
+            627,
+            1254
+          ],
+          "sourceContent": [
+            354,
+            1004,
+            584,
+            1180
+          ],
+          "content": [
+            23,
+            31,
+            105,
+            94
+          ],
+          "sha256": "0fd5faa42b48f2e35feb95c8c5e5daf4e463c96147fff0009aa7942898cf8738",
+          "alphaPixels": 1265,
+          "solidPixels": 925,
+          "solidDensityWithinFrameBounds": 0.1791
+        },
+        {
+          "frame": 6,
+          "sourceCell": [
+            627,
+            940,
+            940,
+            1254
+          ],
+          "sourceContent": [
+            683,
+            1016,
+            879,
+            1171
+          ],
+          "content": [
+            28,
+            35,
+            98,
+            90
+          ],
+          "sha256": "8f7cf28ce12a6b3cb08da096ed5be9cda2f940ec977d21494b1fca9d3dbcc6da",
+          "alphaPixels": 556,
+          "solidPixels": 369,
+          "solidDensityWithinFrameBounds": 0.0958
+        },
+        {
+          "frame": 7,
+          "sourceCell": [
+            940,
+            940,
+            1254,
+            1254
+          ],
+          "sourceContent": [
+            1006,
+            1035,
+            1169,
+            1147
+          ],
+          "content": [
+            32,
+            42,
+            90,
+            82
+          ],
+          "sha256": "3631f075bcb75b38b8b66bffc9d9c84ebaab13defcd676f9348e94ce19730cdd",
+          "alphaPixels": 147,
+          "solidPixels": 88,
+          "solidDensityWithinFrameBounds": 0.0379
+        }
+      ]
+    },
+    "coro": {
+      "atlas": "atlas/coro.png",
+      "frames": 8,
+      "columns": 4,
+      "cell": 128,
+      "pivot": [
+        64,
+        64
+      ],
+      "rowOffset": 0,
+      "orientation": "up",
+      "contentBounds": [
+        26,
+        19,
+        101,
+        105
+      ],
+      "phaseFrames": {
+        "gather": [
+          0,
+          1
+        ],
+        "accelerate": [
+          2
+        ],
+        "peak": [
+          3,
+          4
+        ],
+        "recover": [
+          5,
+          6,
+          7
+        ]
+      },
+      "previewFrameMs": [
+        95,
+        95,
+        75,
+        65,
+        65,
+        90,
+        110,
+        150
+      ],
+      "source": "../v1/source/coro.png",
+      "frameData": [
+        {
+          "frame": 0,
+          "sourceCell": [
+            0,
+            0,
+            314,
+            314
+          ],
+          "sourceContent": [
+            94,
+            202,
+            222,
+            271
+          ],
+          "content": [
+            42,
+            80,
+            87,
+            105
+          ],
+          "sha256": "15a8051b02cacf7e3a2c395df1dcd0c428347f28584084f8b1ae3b8939a588a3",
+          "alphaPixels": 269,
+          "solidPixels": 172
+        },
+        {
+          "frame": 1,
+          "sourceCell": [
+            314,
+            0,
+            627,
+            314
+          ],
+          "sourceContent": [
+            395,
+            142,
+            547,
+            272
+          ],
+          "content": [
+            37,
+            59,
+            91,
+            105
+          ],
+          "sha256": "8ddb2f99e6f9f5f38f4ba314c73d52ee4b9d7c6943406e35ce10d6417cdcae2d",
+          "alphaPixels": 673,
+          "solidPixels": 488
+        },
+        {
+          "frame": 2,
+          "sourceCell": [
+            627,
+            0,
+            940,
+            314
+          ],
+          "sourceContent": [
+            691,
+            70,
+            868,
+            273
+          ],
+          "content": [
+            31,
+            34,
+            94,
+            105
+          ],
+          "sha256": "d72ec049b278d9cf01353ba64a4bc4f4eb201b5b0d272fb2f8c2e672363476e5",
+          "alphaPixels": 1085,
+          "solidPixels": 804
+        },
+        {
+          "frame": 3,
+          "sourceCell": [
+            940,
+            0,
+            1254,
+            314
+          ],
+          "sourceContent": [
+            996,
+            50,
+            1202,
+            272
+          ],
+          "content": [
+            28,
+            26,
+            101,
+            105
+          ],
+          "sha256": "6324b9f03b91026d6943f4f490eee776e10c3808a38bb4f59adad1127000d118",
+          "alphaPixels": 1420,
+          "solidPixels": 1050
+        },
+        {
+          "frame": 4,
+          "sourceCell": [
+            0,
+            314,
+            314,
+            627
+          ],
+          "sourceContent": [
+            53,
+            349,
+            258,
+            580
+          ],
+          "content": [
+            27,
+            21,
+            100,
+            103
+          ],
+          "sha256": "80f42ac189062e3b43c0d44c3e28e81d3d5730fa7fb57bd3cd3d1020cc743736",
+          "alphaPixels": 1203,
+          "solidPixels": 857
+        },
+        {
+          "frame": 5,
+          "sourceCell": [
+            314,
+            314,
+            627,
+            627
+          ],
+          "sourceContent": [
+            364,
+            344,
+            566,
+            586
+          ],
+          "content": [
+            26,
+            19,
+            98,
+            105
+          ],
+          "sha256": "f15c6431e51f87977bdb4aed958bb91c82bbe2b8f253783f107ee0f5431425d0",
+          "alphaPixels": 733,
+          "solidPixels": 489
+        },
+        {
+          "frame": 6,
+          "sourceCell": [
+            627,
+            314,
+            940,
+            627
+          ],
+          "sourceContent": [
+            680,
+            346,
+            869,
+            565
+          ],
+          "content": [
+            27,
+            19,
+            95,
+            98
+          ],
+          "sha256": "d4f6c15d5cba626ad2c0e5d6c2bc317cbf2a8596bd5a693297c1ee08b8c151a9",
+          "alphaPixels": 338,
+          "solidPixels": 193
+        },
+        {
+          "frame": 7,
+          "sourceCell": [
+            940,
+            314,
+            1254,
+            627
+          ],
+          "sourceContent": [
+            1002,
+            357,
+            1147,
+            546
+          ],
+          "content": [
+            30,
+            23,
+            82,
+            91
+          ],
+          "sha256": "e4a6c76e0f49f19c5f5a7ead8f979d91162d26311a9ebec1f65f2bf1a4e3b21d",
+          "alphaPixels": 60,
+          "solidPixels": 25
+        }
+      ]
+    },
+    "coro_melee": {
+      "atlas": "atlas/coro.png",
+      "frames": 8,
+      "columns": 4,
+      "cell": 128,
+      "pivot": [
+        64,
+        64
+      ],
+      "rowOffset": 2,
+      "orientation": "right",
+      "contentBounds": [
+        22,
+        37,
+        109,
+        98
+      ],
+      "phaseFrames": {
+        "gather": [
+          0,
+          1
+        ],
+        "accelerate": [
+          2
+        ],
+        "peak": [
+          3,
+          4
+        ],
+        "recover": [
+          5,
+          6,
+          7
+        ]
+      },
+      "previewFrameMs": [
+        95,
+        95,
+        75,
+        65,
+        65,
+        90,
+        110,
+        150
+      ],
+      "source": "../v1/source/coro.png",
+      "frameData": [
+        {
+          "frame": 0,
+          "sourceCell": [
+            0,
+            627,
+            314,
+            940
+          ],
+          "sourceContent": [
+            92,
+            766,
+            200,
+            843
+          ],
+          "content": [
+            41,
+            58,
+            79,
+            85
+          ],
+          "sha256": "415bac0562cfd277d34d94a1fc51ce024ee8e4ccb65ed67aa74fffa3c5646ffb",
+          "alphaPixels": 425,
+          "solidPixels": 343
+        },
+        {
+          "frame": 1,
+          "sourceCell": [
+            314,
+            627,
+            627,
+            940
+          ],
+          "sourceContent": [
+            373,
+            741,
+            545,
+            845
+          ],
+          "content": [
+            29,
+            49,
+            91,
+            86
+          ],
+          "sha256": "a928b076e9f72a770eda0b43111d564494b27b441728b1364d802d1226195dfa",
+          "alphaPixels": 857,
+          "solidPixels": 670
+        },
+        {
+          "frame": 2,
+          "sourceCell": [
+            627,
+            627,
+            940,
+            940
+          ],
+          "sourceContent": [
+            665,
+            730,
+            870,
+            853
+          ],
+          "content": [
+            22,
+            45,
+            95,
+            89
+          ],
+          "sha256": "95a6f327158b2a90e5203e827c868bde3a1b04c9c51efc265f8c0cb224cb756b",
+          "alphaPixels": 1415,
+          "solidPixels": 1189
+        },
+        {
+          "frame": 3,
+          "sourceCell": [
+            940,
+            627,
+            1254,
+            940
+          ],
+          "sourceContent": [
+            984,
+            708,
+            1224,
+            879
+          ],
+          "content": [
+            24,
+            37,
+            109,
+            98
+          ],
+          "sha256": "1dd1070a8ea0f551e196b855946c487d2fee782394671e9b7843d3e702f8f26b",
+          "alphaPixels": 1486,
+          "solidPixels": 1177
+        },
+        {
+          "frame": 4,
+          "sourceCell": [
+            0,
+            940,
+            314,
+            1254
+          ],
+          "sourceContent": [
+            46,
+            1024,
+            281,
+            1185
+          ],
+          "content": [
+            25,
+            38,
+            108,
+            95
+          ],
+          "sha256": "b1f50c0fd33e930cb0f186692bb2fa38c71107974037ef91d419f7578945924d",
+          "alphaPixels": 1123,
+          "solidPixels": 859
+        },
+        {
+          "frame": 5,
+          "sourceCell": [
+            314,
+            940,
+            627,
+            1254
+          ],
+          "sourceContent": [
+            380,
+            1034,
+            566,
+            1168
+          ],
+          "content": [
+            32,
+            42,
+            98,
+            89
+          ],
+          "sha256": "3474cbf7aa9daa1a85574146f773520e719b782acce5d6649e17e9d16ba7fbbc",
+          "alphaPixels": 544,
+          "solidPixels": 401
+        },
+        {
+          "frame": 6,
+          "sourceCell": [
+            627,
+            940,
+            940,
+            1254
+          ],
+          "sourceContent": [
+            723,
+            1047,
+            845,
+            1160
+          ],
+          "content": [
+            43,
+            46,
+            86,
+            86
+          ],
+          "sha256": "54ba14f7c94a9e70344961961b017014c706e59eb83fb2042f06e4653024805e",
+          "alphaPixels": 156,
+          "solidPixels": 91
+        },
+        {
+          "frame": 7,
+          "sourceCell": [
+            940,
+            940,
+            1254,
+            1254
+          ],
+          "sourceContent": [
+            1043,
+            1047,
+            1148,
+            1126
+          ],
+          "content": [
+            45,
+            46,
+            82,
+            74
+          ],
+          "sha256": "bcc6d9a0b57d571f21b3eb6ae164ec5b78788de0560389056c9b4d6833af2bf7",
+          "alphaPixels": 32,
+          "solidPixels": 12
+        }
+      ]
+    },
+    "maestro": {
+      "atlas": "atlas/maestro.png",
+      "frames": 8,
+      "columns": 4,
+      "cell": 128,
+      "pivot": [
+        64,
+        64
+      ],
+      "rowOffset": 0,
+      "orientation": "up",
+      "contentBounds": [
+        19,
+        23,
+        111,
+        105
+      ],
+      "phaseFrames": {
+        "gather": [
+          0,
+          1
+        ],
+        "accelerate": [
+          2
+        ],
+        "peak": [
+          3,
+          4
+        ],
+        "recover": [
+          5,
+          6,
+          7
+        ]
+      },
+      "previewFrameMs": [
+        95,
+        95,
+        75,
+        65,
+        65,
+        90,
+        110,
+        150
+      ],
+      "source": "../v1/source/maestro.png",
+      "frameData": [
+        {
+          "frame": 0,
+          "sourceCell": [
+            0,
+            0,
+            314,
+            314
+          ],
+          "sourceContent": [
+            95,
+            114,
+            220,
+            224
+          ],
+          "content": [
+            42,
+            49,
+            86,
+            88
+          ],
+          "sha256": "70b1f9b371a199db97cef3c80866252779d9895d0b3d9c83ce140887a7cbc129",
+          "alphaPixels": 145,
+          "solidPixels": 84
+        },
+        {
+          "frame": 1,
+          "sourceCell": [
+            314,
+            0,
+            627,
+            314
+          ],
+          "sourceContent": [
+            401,
+            94,
+            559,
+            247
+          ],
+          "content": [
+            39,
+            42,
+            96,
+            96
+          ],
+          "sha256": "0232dbe7756ef31e7ff835df75968c90b6262e11dc8160db76d66faf966abf3a",
+          "alphaPixels": 751,
+          "solidPixels": 581
+        },
+        {
+          "frame": 2,
+          "sourceCell": [
+            627,
+            0,
+            940,
+            314
+          ],
+          "sourceContent": [
+            683,
+            75,
+            881,
+            259
+          ],
+          "content": [
+            28,
+            35,
+            99,
+            100
+          ],
+          "sha256": "de11a0312f0f2cd0d2965da934949ff8e5469ad97b0c71642d3370b2f21ae4f2",
+          "alphaPixels": 1430,
+          "solidPixels": 1193
+        },
+        {
+          "frame": 3,
+          "sourceCell": [
+            940,
+            0,
+            1254,
+            314
+          ],
+          "sourceContent": [
+            986,
+            64,
+            1208,
+            268
+          ],
+          "content": [
+            24,
+            31,
+            104,
+            104
+          ],
+          "sha256": "7b99044069233c1e6381015820eac5688d23271eabc0ba5bf21d296609753c96",
+          "alphaPixels": 1876,
+          "solidPixels": 1523
+        },
+        {
+          "frame": 4,
+          "sourceCell": [
+            0,
+            314,
+            314,
+            627
+          ],
+          "sourceContent": [
+            30,
+            355,
+            290,
+            584
+          ],
+          "content": [
+            19,
+            23,
+            111,
+            105
+          ],
+          "sha256": "ab2aebafb543e88f5774a0098c058e141c6465fca59af1aa8b7dcfb6a5eef038",
+          "alphaPixels": 2327,
+          "solidPixels": 1850
+        },
+        {
+          "frame": 5,
+          "sourceCell": [
+            314,
+            314,
+            627,
+            627
+          ],
+          "sourceContent": [
+            362,
+            359,
+            593,
+            562
+          ],
+          "content": [
+            25,
+            24,
+            108,
+            97
+          ],
+          "sha256": "42dcec26b54a0801f9eb2dc82c3d83bf30be9601e19bcea6136bfab1fd47366e",
+          "alphaPixels": 1575,
+          "solidPixels": 1279
+        },
+        {
+          "frame": 6,
+          "sourceCell": [
+            627,
+            314,
+            940,
+            627
+          ],
+          "sourceContent": [
+            696,
+            370,
+            882,
+            562
+          ],
+          "content": [
+            33,
+            28,
+            99,
+            97
+          ],
+          "sha256": "8bf6f15c1711ebc1018ff8b608f865ccdf0b75995c3f045a236e7e2a7b8ddb94",
+          "alphaPixels": 760,
+          "solidPixels": 578
+        },
+        {
+          "frame": 7,
+          "sourceCell": [
+            940,
+            314,
+            1254,
+            627
+          ],
+          "sourceContent": [
+            1025,
+            397,
+            1183,
+            526
+          ],
+          "content": [
+            38,
+            38,
+            95,
+            84
+          ],
+          "sha256": "09d999868e8b4b4285c62a60e50ead714d5f2350a733d846dddc472d87d0c32b",
+          "alphaPixels": 128,
+          "solidPixels": 75
+        }
+      ]
+    },
+    "maestro_emerge": {
+      "atlas": "atlas/maestro.png",
+      "frames": 8,
+      "columns": 4,
+      "cell": 128,
+      "pivot": [
+        64,
+        64
+      ],
+      "rowOffset": 2,
+      "orientation": "up",
+      "contentBounds": [
+        27,
+        16,
+        105,
+        92
+      ],
+      "phaseFrames": {
+        "gather": [
+          0,
+          1
+        ],
+        "accelerate": [
+          2
+        ],
+        "peak": [
+          3,
+          4
+        ],
+        "recover": [
+          5,
+          6,
+          7
+        ]
+      },
+      "previewFrameMs": [
+        95,
+        95,
+        75,
+        65,
+        65,
+        90,
+        110,
+        150
+      ],
+      "source": "../v1/source/maestro.png",
+      "frameData": [
+        {
+          "frame": 0,
+          "sourceCell": [
+            0,
+            627,
+            314,
+            940
+          ],
+          "sourceContent": [
+            102,
+            811,
+            208,
+            846
+          ],
+          "content": [
+            45,
+            74,
+            82,
+            86
+          ],
+          "sha256": "a8da11fde7a7900578d7e6066fc35e61b15705c0b84b7382859f1b85f102139e",
+          "alphaPixels": 200,
+          "solidPixels": 127
+        },
+        {
+          "frame": 1,
+          "sourceCell": [
+            314,
+            627,
+            627,
+            940
+          ],
+          "sourceContent": [
+            409,
+            769,
+            530,
+            849
+          ],
+          "content": [
+            42,
+            59,
+            85,
+            87
+          ],
+          "sha256": "11a3e6f15c8b24fec247ba4f4025527f8e5e35644e6d355f507e7c44f49ffdd2",
+          "alphaPixels": 415,
+          "solidPixels": 307
+        },
+        {
+          "frame": 2,
+          "sourceCell": [
+            627,
+            627,
+            940,
+            940
+          ],
+          "sourceContent": [
+            695,
+            719,
+            862,
+            853
+          ],
+          "content": [
+            32,
+            41,
+            92,
+            89
+          ],
+          "sha256": "9647211c0897a64a2fb1bb0b9accd58475f1561f5122fbcd2fa95d09b98a8c4c",
+          "alphaPixels": 893,
+          "solidPixels": 684
+        },
+        {
+          "frame": 3,
+          "sourceCell": [
+            940,
+            627,
+            1254,
+            940
+          ],
+          "sourceContent": [
+            992,
+            677,
+            1202,
+            855
+          ],
+          "content": [
+            27,
+            26,
+            101,
+            90
+          ],
+          "sha256": "d5d2303aff48210f0f70af55fd50cd5d01fafdc2560fc8c5c5e3d800ce42bb3c",
+          "alphaPixels": 1363,
+          "solidPixels": 1083
+        },
+        {
+          "frame": 4,
+          "sourceCell": [
+            0,
+            940,
+            314,
+            1254
+          ],
+          "sourceContent": [
+            57,
+            962,
+            273,
+            1176
+          ],
+          "content": [
+            28,
+            16,
+            105,
+            92
+          ],
+          "sha256": "3f3c3d4952fcfeb894f3e884d76f450a5dcd2c837d6cef820e52800e11cb9738",
+          "alphaPixels": 1375,
+          "solidPixels": 1041
+        },
+        {
+          "frame": 5,
+          "sourceCell": [
+            314,
+            940,
+            627,
+            1254
+          ],
+          "sourceContent": [
+            390,
+            992,
+            576,
+            1166
+          ],
+          "content": [
+            35,
+            27,
+            102,
+            89
+          ],
+          "sha256": "6201fabc303ee4ac804a37d146a94e3a6a66e586cff0fe10c2c2405536cb67e4",
+          "alphaPixels": 545,
+          "solidPixels": 394
+        },
+        {
+          "frame": 6,
+          "sourceCell": [
+            627,
+            940,
+            940,
+            1254
+          ],
+          "sourceContent": [
+            702,
+            1029,
+            877,
+            1162
+          ],
+          "content": [
+            35,
+            40,
+            97,
+            87
+          ],
+          "sha256": "9c85bd72743e8d87021395a1f72099b7ff536e4f3ba6423f4d10eab19b1525e5",
+          "alphaPixels": 247,
+          "solidPixels": 168
+        },
+        {
+          "frame": 7,
+          "sourceCell": [
+            940,
+            940,
+            1254,
+            1254
+          ],
+          "sourceContent": [
+            1031,
+            1047,
+            1178,
+            1149
+          ],
+          "content": [
+            40,
+            46,
+            93,
+            83
+          ],
+          "sha256": "f48d3eb76babbfd1a599c36ca7cadf2798a9348567b26a958fad4f08b6b75f5d",
+          "alphaPixels": 25,
+          "solidPixels": 14
+        }
+      ]
+    },
+    "muralha": {
+      "atlas": "atlas/muralha.png",
+      "frames": 8,
+      "columns": 4,
+      "cell": 128,
+      "pivot": [
+        64,
+        64
+      ],
+      "rowOffset": 0,
+      "orientation": "right",
+      "contentBounds": [
+        26,
+        28,
+        116,
+        92
+      ],
+      "phaseFrames": {
+        "gather": [
+          0,
+          1
+        ],
+        "accelerate": [
+          2
+        ],
+        "peak": [
+          3,
+          4
+        ],
+        "recover": [
+          5,
+          6,
+          7
+        ]
+      },
+      "previewFrameMs": [
+        95,
+        95,
+        75,
+        65,
+        65,
+        90,
+        110,
+        150
+      ],
+      "source": "../v1/source/muralha.png",
+      "frameData": [
+        {
+          "frame": 0,
+          "sourceCell": [
+            0,
+            0,
+            314,
+            314
+          ],
+          "sourceContent": [
+            117,
+            115,
+            209,
+            208
+          ],
+          "content": [
+            50,
+            49,
+            83,
+            82
+          ],
+          "sha256": "69b06f75040968a19cdec5d579be9d312496d66e2e3c35854b9f6f4f91745c23",
+          "alphaPixels": 387,
+          "solidPixels": 231
+        },
+        {
+          "frame": 1,
+          "sourceCell": [
+            314,
+            0,
+            627,
+            314
+          ],
+          "sourceContent": [
+            403,
+            104,
+            578,
+            218
+          ],
+          "content": [
+            40,
+            45,
+            102,
+            86
+          ],
+          "sha256": "b7d125767aac23b05e1af6b436a79971a78510461408a2cf297ca964ccd3735e",
+          "alphaPixels": 1042,
+          "solidPixels": 650
+        },
+        {
+          "frame": 2,
+          "sourceCell": [
+            627,
+            0,
+            940,
+            314
+          ],
+          "sourceContent": [
+            676,
+            99,
+            903,
+            226
+          ],
+          "content": [
+            26,
+            43,
+            107,
+            89
+          ],
+          "sha256": "524b7f9ae74f73bb3e30c84d9b2f7d3bee5424d78a4b19ea796697f73a9134df",
+          "alphaPixels": 1695,
+          "solidPixels": 1149
+        },
+        {
+          "frame": 3,
+          "sourceCell": [
+            940,
+            0,
+            1254,
+            314
+          ],
+          "sourceContent": [
+            991,
+            79,
+            1220,
+            229
+          ],
+          "content": [
+            26,
+            36,
+            108,
+            90
+          ],
+          "sha256": "3ccb5e0491d29b8ef23cc4fd3a6a7b6589f666817e14ce21acf91fe96d150730",
+          "alphaPixels": 2232,
+          "solidPixels": 1520
+        },
+        {
+          "frame": 4,
+          "sourceCell": [
+            0,
+            314,
+            314,
+            627
+          ],
+          "sourceContent": [
+            50,
+            369,
+            296,
+            548
+          ],
+          "content": [
+            26,
+            28,
+            114,
+            92
+          ],
+          "sha256": "06be5e2039e13ee6b0c88bbea2fd7aa382f56f7242e69b3c99ad7ec88e7fdcd0",
+          "alphaPixels": 2635,
+          "solidPixels": 1773
+        },
+        {
+          "frame": 5,
+          "sourceCell": [
+            314,
+            314,
+            627,
+            627
+          ],
+          "sourceContent": [
+            370,
+            379,
+            616,
+            549
+          ],
+          "content": [
+            28,
+            31,
+            116,
+            92
+          ],
+          "sha256": "57452d9f09707a08f8c7f9bcf73b2991e9eecb51b8fd02f7dfbcdf361b24e48c",
+          "alphaPixels": 1926,
+          "solidPixels": 1015
+        },
+        {
+          "frame": 6,
+          "sourceCell": [
+            627,
+            314,
+            940,
+            627
+          ],
+          "sourceContent": [
+            689,
+            386,
+            912,
+            541
+          ],
+          "content": [
+            30,
+            34,
+            110,
+            89
+          ],
+          "sha256": "b987e69db400fd1806b2d5739e4cdca3b352c3c3fd89b561a0aca0e6c3e0a8bc",
+          "alphaPixels": 730,
+          "solidPixels": 365
+        },
+        {
+          "frame": 7,
+          "sourceCell": [
+            940,
+            314,
+            1254,
+            627
+          ],
+          "sourceContent": [
+            1031,
+            399,
+            1211,
+            521
+          ],
+          "content": [
+            40,
+            38,
+            105,
+            82
+          ],
+          "sha256": "4cc184266514ade8faffa698ecb08ba4a18b608524d2e113155747204460a8a7",
+          "alphaPixels": 244,
+          "solidPixels": 87
+        }
+      ]
+    },
+    "muralha_charge": {
+      "atlas": "atlas/muralha.png",
+      "frames": 8,
+      "columns": 4,
+      "cell": 128,
+      "pivot": [
+        64,
+        64
+      ],
+      "rowOffset": 2,
+      "orientation": "right",
+      "contentBounds": [
+        24,
+        29,
+        114,
+        91
+      ],
+      "phaseFrames": {
+        "gather": [
+          0,
+          1
+        ],
+        "accelerate": [
+          2
+        ],
+        "peak": [
+          3,
+          4
+        ],
+        "recover": [
+          5,
+          6,
+          7
+        ]
+      },
+      "previewFrameMs": [
+        95,
+        95,
+        75,
+        65,
+        65,
+        90,
+        110,
+        150
+      ],
+      "source": "../v1/source/muralha.png",
+      "frameData": [
+        {
+          "frame": 0,
+          "sourceCell": [
+            0,
+            627,
+            314,
+            940
+          ],
+          "sourceContent": [
+            97,
+            763,
+            222,
+            803
+          ],
+          "content": [
+            43,
+            57,
+            87,
+            71
+          ],
+          "sha256": "7902da61b1d490db091633c95e1e3f4345bcdada85c2dc7b883e5c448d622d21",
+          "alphaPixels": 287,
+          "solidPixels": 188
+        },
+        {
+          "frame": 1,
+          "sourceCell": [
+            314,
+            627,
+            627,
+            940
+          ],
+          "sourceContent": [
+            372,
+            743,
+            571,
+            820
+          ],
+          "content": [
+            29,
+            50,
+            99,
+            77
+          ],
+          "sha256": "418459d7d4d2d8ca1732c988621ba52d2b6ee65757485c78dec99030756290a0",
+          "alphaPixels": 764,
+          "solidPixels": 547
+        },
+        {
+          "frame": 2,
+          "sourceCell": [
+            627,
+            627,
+            940,
+            940
+          ],
+          "sourceContent": [
+            673,
+            733,
+            905,
+            820
+          ],
+          "content": [
+            25,
+            46,
+            107,
+            77
+          ],
+          "sha256": "508013e5175de62c8deea31e43eb4941ae7dae1eaba1c1d4a10608291345e747",
+          "alphaPixels": 1232,
+          "solidPixels": 822
+        },
+        {
+          "frame": 3,
+          "sourceCell": [
+            940,
+            627,
+            1254,
+            940
+          ],
+          "sourceContent": [
+            991,
+            708,
+            1204,
+            850
+          ],
+          "content": [
+            26,
+            37,
+            102,
+            88
+          ],
+          "sha256": "8482a2442ce15775bdd47e25d4018e33a6963d34db4fbbf3eeda621448bc9e7c",
+          "alphaPixels": 1654,
+          "solidPixels": 1201
+        },
+        {
+          "frame": 4,
+          "sourceCell": [
+            0,
+            940,
+            314,
+            1254
+          ],
+          "sourceContent": [
+            70,
+            1000,
+            298,
+            1174
+          ],
+          "content": [
+            33,
+            29,
+            114,
+            91
+          ],
+          "sha256": "d42ee0598d0ee29a9db331ed277cf03c5102754032c9ec414668c46cb37f7ffd",
+          "alphaPixels": 2513,
+          "solidPixels": 1634
+        },
+        {
+          "frame": 5,
+          "sourceCell": [
+            314,
+            940,
+            627,
+            1254
+          ],
+          "sourceContent": [
+            369,
+            1029,
+            591,
+            1171
+          ],
+          "content": [
+            28,
+            40,
+            107,
+            90
+          ],
+          "sha256": "89f17e1c6f97caf5378128b933d3592307319abd5b9e3c217f0cc43d37629dfd",
+          "alphaPixels": 1380,
+          "solidPixels": 682
+        },
+        {
+          "frame": 6,
+          "sourceCell": [
+            627,
+            940,
+            940,
+            1254
+          ],
+          "sourceContent": [
+            672,
+            1022,
+            899,
+            1155
+          ],
+          "content": [
+            24,
+            37,
+            105,
+            85
+          ],
+          "sha256": "188beb7a46d61bae87e29d6440dad7505857ec47601a9b12efca839128e9cae1",
+          "alphaPixels": 549,
+          "solidPixels": 223
+        },
+        {
+          "frame": 7,
+          "sourceCell": [
+            940,
+            940,
+            1254,
+            1254
+          ],
+          "sourceContent": [
+            1008,
+            1031,
+            1173,
+            1148
+          ],
+          "content": [
+            32,
+            40,
+            91,
+            82
+          ],
+          "sha256": "105f1c64e03258ea047b5fecfe6f6be7f1e9346366a33620545dd7c7256d7fe4",
+          "alphaPixels": 150,
+          "solidPixels": 51
+        }
+      ]
+    },
+    "antena": {
+      "atlas": "atlas/antena.png",
+      "frames": 8,
+      "columns": 4,
+      "cell": 128,
+      "pivot": [
+        64,
+        64
+      ],
+      "rowOffset": 0,
+      "orientation": "right",
+      "contentBounds": [
+        18,
+        42,
+        110,
+        83
+      ],
+      "phaseFrames": {
+        "gather": [
+          0,
+          1
+        ],
+        "accelerate": [
+          2
+        ],
+        "peak": [
+          3,
+          4
+        ],
+        "recover": [
+          5,
+          6,
+          7
+        ]
+      },
+      "previewFrameMs": [
+        95,
+        95,
+        75,
+        65,
+        65,
+        90,
+        110,
+        150
+      ],
+      "source": "../v1/source/antena.png",
+      "frameData": [
+        {
+          "frame": 0,
+          "sourceCell": [
+            0,
+            0,
+            444,
+            444
+          ],
+          "sourceContent": [
+            65,
+            180,
+            239,
+            268
+          ],
+          "content": [
+            24,
+            53,
+            68,
+            76
+          ],
+          "sha256": "c6621c4ba95a8ba3478616cf167acad6b4f3fbaa775d605bdfc23bae35897869",
+          "alphaPixels": 241,
+          "solidPixels": 133
+        },
+        {
+          "frame": 1,
+          "sourceCell": [
+            444,
+            0,
+            887,
+            444
+          ],
+          "sourceContent": [
+            498,
+            164,
+            758,
+            277
+          ],
+          "content": [
+            22,
+            49,
+            87,
+            78
+          ],
+          "sha256": "8fd9cbcec59bfa3642ed886a788fd63cf570b585529fbdeb007c0fadaa6873f0",
+          "alphaPixels": 634,
+          "solidPixels": 413
+        },
+        {
+          "frame": 2,
+          "sourceCell": [
+            887,
+            0,
+            1330,
+            444
+          ],
+          "sourceContent": [
+            933,
+            159,
+            1287,
+            283
+          ],
+          "content": [
+            20,
+            48,
+            108,
+            79
+          ],
+          "sha256": "c1c0f3bc4867b29e13c250033ecbc90fb36e3dd9622857d1874e3e968101c361",
+          "alphaPixels": 1033,
+          "solidPixels": 710
+        },
+        {
+          "frame": 3,
+          "sourceCell": [
+            1330,
+            0,
+            1774,
+            444
+          ],
+          "sourceContent": [
+            1371,
+            146,
+            1735,
+            284
+          ],
+          "content": [
+            18,
+            45,
+            110,
+            80
+          ],
+          "sha256": "78b21abbf3a9fd4cd372879c38c5c9399312fffe1d7d83584c1171d97be8bbbd",
+          "alphaPixels": 1438,
+          "solidPixels": 985
+        },
+        {
+          "frame": 4,
+          "sourceCell": [
+            0,
+            444,
+            444,
+            887
+          ],
+          "sourceContent": [
+            43,
+            580,
+            397,
+            740
+          ],
+          "content": [
+            19,
+            42,
+            108,
+            83
+          ],
+          "sha256": "d22eba0c150492808da386ec10da0d48f669d33698046d1b1965f505d980129d",
+          "alphaPixels": 1330,
+          "solidPixels": 943
+        },
+        {
+          "frame": 5,
+          "sourceCell": [
+            444,
+            444,
+            887,
+            887
+          ],
+          "sourceContent": [
+            488,
+            604,
+            846,
+            732
+          ],
+          "content": [
+            19,
+            48,
+            110,
+            81
+          ],
+          "sha256": "6ffb4d9eeecdf815c74c905fff2a517dbdea92ae08143e7e8dd4c650664d00a4",
+          "alphaPixels": 797,
+          "solidPixels": 491
+        },
+        {
+          "frame": 6,
+          "sourceCell": [
+            887,
+            444,
+            1330,
+            887
+          ],
+          "sourceContent": [
+            935,
+            607,
+            1276,
+            706
+          ],
+          "content": [
+            20,
+            49,
+            102,
+            74
+          ],
+          "sha256": "b5ee6b2901ca08574f71ad851860918bb50b5fafb514a42757c5570999639eec",
+          "alphaPixels": 433,
+          "solidPixels": 258
+        },
+        {
+          "frame": 7,
+          "sourceCell": [
+            1330,
+            444,
+            1774,
+            887
+          ],
+          "sourceContent": [
+            1381,
+            612,
+            1686,
+            702
+          ],
+          "content": [
+            21,
+            50,
+            98,
+            73
+          ],
+          "sha256": "704d56bb35ba91213fd090cbdc4b88cd0b61e195cabdb0407ebe9e6a3cc19e25",
+          "alphaPixels": 172,
+          "solidPixels": 80
+        }
+      ],
+      "beamContentBounds": [
+        18,
+        42,
+        110,
+        83
+      ]
+    }
+  },
+  "sources": {
+    "tambor": {
+      "path": "source/tambor.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "734a2fab989ddb57c86850e4b192fffb3ea5fe6b92efd3019e95106e87321f38",
+      "globalGuttersAlphaGT8": 0,
+      "completeAssignedPixels": 223056,
+      "atlasSha256": "e800c1f49039962e5d9cd753514deba4003598ab3aa4214383773ab22648d300"
+    },
+    "flautim": {
+      "path": "source/flautim.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "5e465d73c8f4425563f342577b89f41e017c6f6c11267c38462ff90d33f6ddd6",
+      "globalGuttersAlphaGT8": 0,
+      "completeAssignedPixels": 230969,
+      "atlasSha256": "60be0cc6b13a11c2d43b42b6b7fcc05042cd95045a3acb6d99de88632ddda6fb"
+    },
+    "coro": {
+      "path": "../v1/source/coro.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "d17792386c92fba8cf7a445758eea8b8fd80012a22ea662cca3fb4a1e863fc03",
+      "globalGuttersAlphaGT8": 0,
+      "completeAssignedPixels": 92883,
+      "atlasSha256": "8139c991a3887b39c3951885bd6d8b4b0521cc70f07d569de4bb571a6104aae0",
+      "reusedFrom": "../v1/manifest.json"
+    },
+    "maestro": {
+      "path": "../v1/source/maestro.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "2e675de61037465c33c83b90fb497ad1d590761dcd32f44bb2f95f1d15fc0706",
+      "globalGuttersAlphaGT8": 0,
+      "completeAssignedPixels": 110272,
+      "atlasSha256": "358faa8834f74b4271585a7d5c39c001453d51754ac7330e36d94245c932061f",
+      "reusedFrom": "../v1/manifest.json"
+    },
+    "muralha": {
+      "path": "../v1/source/muralha.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "43b679900f8be5428e4556408eb55ffa535f2c65a5aa0cdbd530d36de5509432",
+      "globalGuttersAlphaGT8": 0,
+      "completeAssignedPixels": 152010,
+      "atlasSha256": "209056a6fa956a17ef68dd18dcee292c991ff7c197068b3b113221beb04be728",
+      "reusedFrom": "../v1/manifest.json"
+    },
+    "antena": {
+      "path": "../v1/source/antena.png",
+      "width": 1774,
+      "height": 887,
+      "sha256": "042784e931401986c0f6b0b25c9de36af01460ce0502335f26ab1c263e77bbf5",
+      "globalGuttersAlphaGT8": 0,
+      "completeAssignedPixels": 95062,
+      "atlasSha256": "a5e1bcb137ddf9329fc30d08e786e011404f65cdb6bbd47e905c31f75a97f447",
+      "reusedFrom": "../v1/manifest.json"
+    }
+  },
+  "validation": {
+    "sheets": 6,
+    "clips": 10,
+    "frames": 80,
+    "newSheets": 2,
+    "newClips": 3,
+    "newFrames": 24,
+    "reusedSheets": 4,
+    "reusedFrames": 56,
+    "allCellGuardAlpha0": 8,
+    "sourceGuttersValidated": true,
+    "scope": "Static source/export and phase preview validation only; runtime integration and gameplay reviewed separately."
+  }
+}

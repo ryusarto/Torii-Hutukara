@@ -1,0 +1,383 @@
+{
+  "source": "ryusarto/Torii-Hutukara/game/source/chapter-03/postgame.js",
+  "sourceBlob": "9ac1c3626627df03db5247250cbfbb492c47e47e",
+  "cell": [
+    64,
+    48
+  ],
+  "atlas": [
+    384,
+    240
+  ],
+  "sprites": [
+    {
+      "id": "drive",
+      "name": "Amplificador",
+      "text": "Dano de todos os golpes",
+      "rarity": "comum",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        0,
+        0,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "ambush",
+      "name": "Ataque de abertura",
+      "text": "Dano extra contra ecos com vida cheia",
+      "rarity": "comum",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        64,
+        0,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "finish",
+      "name": "Último acorde",
+      "text": "Dano extra contra ecos com até metade da vida",
+      "rarity": "comum",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        128,
+        0,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "guard",
+      "name": "Abafador de impacto",
+      "text": "Redução de dano para toda a equipe",
+      "rarity": "comum",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        192,
+        0,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "charge",
+      "name": "Retorno de sinal",
+      "text": "Ressonância por eliminação",
+      "rarity": "comum",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        256,
+        0,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "stagger",
+      "name": "Compasso quebrado",
+      "text": "Duração do atordoamento dos golpes",
+      "rarity": "comum",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        320,
+        0,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "tempo",
+      "name": "Metrônomo acelerado",
+      "text": "Recarga mais rápida de técnicas, esquiva e super",
+      "rarity": "comum",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        0,
+        48,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "crowd",
+      "name": "Plateia atenta",
+      "text": "Pontos por eco e por onda",
+      "rarity": "comum",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        64,
+        48,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "chain",
+      "name": "Eco em cadeia",
+      "text": "Ao eliminar, dano nos ecos a até 2 casas",
+      "rarity": "rara",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        128,
+        48,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "drum",
+      "name": "Pele de tambor",
+      "text": "Golpes anulados por onda",
+      "rarity": "rara",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        192,
+        48,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "sharp",
+      "name": "Nota aguda",
+      "text": "Chance de golpe crítico (dano dobrado)",
+      "rarity": "rara",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        256,
+        48,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "breath",
+      "name": "Fôlego final",
+      "text": "Menos dano recebido abaixo de 30% da vida",
+      "rarity": "rara",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        320,
+        48,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "counter",
+      "name": "Contra-melodia",
+      "text": "Dano extra contra ecos ressonantes",
+      "rarity": "rara",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        0,
+        96,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "encore",
+      "name": "Bis",
+      "text": "Uma vez por tentativa, quem cai volta com 30% da vida",
+      "rarity": "lendaria",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        64,
+        96,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "overdrive",
+      "name": "Distorção",
+      "text": "+35% de dano causado e +15% de dano recebido",
+      "rarity": "lendaria",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        128,
+        96,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "harmony",
+      "name": "Acorde perfeito",
+      "text": "Onda sem dano enche 40 de ressonância",
+      "rarity": "lendaria",
+      "hero": null,
+      "width": 64,
+      "height": 48,
+      "rect": [
+        192,
+        96,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "bassHold",
+      "name": "Grave que prende",
+      "text": "Golpes do Franco atordoam por mais tempo",
+      "rarity": "rara",
+      "hero": "franco",
+      "width": 64,
+      "height": 48,
+      "rect": [
+        256,
+        96,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "bladeRun",
+      "name": "Corte em sequência",
+      "text": "Dano extra dos golpes do Ryuchi",
+      "rarity": "rara",
+      "hero": "ryuchi",
+      "width": 64,
+      "height": 48,
+      "rect": [
+        320,
+        96,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "pierce",
+      "name": "Flecha que atravessa",
+      "text": "Acerto do Arqueiro fere outro eco próximo",
+      "rarity": "rara",
+      "hero": "alt",
+      "width": 64,
+      "height": 48,
+      "rect": [
+        0,
+        144,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "ink",
+      "name": "Tinta afiada",
+      "text": "Katana: dano extra em ecos atordoados",
+      "rarity": "rara",
+      "hero": "katana",
+      "width": 64,
+      "height": 48,
+      "rect": [
+        64,
+        144,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "synthWave",
+      "name": "Onda sintética",
+      "text": "Eliminações do Sintetizador dão ressonância",
+      "rarity": "rara",
+      "hero": "synth",
+      "width": 64,
+      "height": 48,
+      "rect": [
+        128,
+        144,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "warDrum",
+      "name": "Tambor de guerra",
+      "text": "Golpes da Percussão ferem ecos em volta",
+      "rarity": "rara",
+      "hero": "percussion",
+      "width": 64,
+      "height": 48,
+      "rect": [
+        192,
+        144,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "heal",
+      "name": "Recompor",
+      "rarity": "respiro",
+      "width": 64,
+      "height": 48,
+      "rect": [
+        256,
+        144,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "revive",
+      "name": "Reerguer",
+      "rarity": "respiro",
+      "width": 64,
+      "height": 48,
+      "rect": [
+        320,
+        144,
+        64,
+        48
+      ]
+    },
+    {
+      "id": "rare",
+      "name": "Sintonia rara",
+      "rarity": "respiro",
+      "width": 64,
+      "height": 48,
+      "rect": [
+        0,
+        192,
+        64,
+        48
+      ]
+    }
+  ]
+}

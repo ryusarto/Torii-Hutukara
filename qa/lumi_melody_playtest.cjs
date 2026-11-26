@@ -26,7 +26,14 @@ async function testLumi(browser, mobile) {
     await page.evaluate(() => { if (mode === 'dialogue') Narrativa.pularCena(); });
     if (mobile) await press('[data-mobile-action="pause"]');
     else await page.keyboard.press('Escape');
-    await press('#journey10');
+    if (await page.locator('#journey10').count()) await press('#journey10');
+    else {
+      // Approved pause B exposes map/journal directly, replacing the old
+      // Journey button. Exercise that button's unchanged native callback to
+      // retain this test's platform-help and Lumi assertions.
+      assert.equal(await page.locator('.ui7-pause-sidebar').count(), 1);
+      await page.evaluate(() => openJourney10());
+    }
     await press('#controls10');
     if (mobile) {
       assert.match(await text('#overlayInner'), /direcional à esquerda.*toque em AÇÃO/s);
@@ -68,11 +75,13 @@ async function testLumi(browser, mobile) {
         assert.equal(await text('#bMenu'), 'MENU');
       }
       await press('[data-mobile-action="pause"]');
-      assert.match(await text('.menu-note10'), /Especial/);
-      assert.doesNotMatch(await text('.menu-note10'), keyboardHints);
+      const pauseText = await text('.ui7-pause-sidebar');
+      assert.match(pauseText, /Continuar/);
+      assert.doesNotMatch(pauseText, keyboardHints);
       await press('#party10');
-      assert.match(await text('#overlayInner'), /TROCAR PERSONAGEM/);
+      assert.match(await text('#overlayInner'), /Escolha até três integrantes/);
       assert.doesNotMatch(await text('#overlayInner'), keyboardHints);
+      assert.equal(await page.locator('.ui7-party-skills kbd').count(), 0, 'Equipe mobile deve preservar golpes sem rótulos de tecla');
       await page.evaluate(() => closeOverlay());
       await press('[data-mobile-action="interact"]');
       assert.match(await text('#dialogue .continue'), /TOQUE PARA CONTINUAR/);
