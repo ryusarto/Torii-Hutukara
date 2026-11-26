@@ -128,8 +128,23 @@ raise "Diálogos ausentes: #{DIALOGUES}" unless File.file?(DIALOGUES)
 
 html = File.binread(BASE).force_encoding(Encoding::UTF_8)
 runtime = File.read(RUNTIME, encoding: 'UTF-8')
+replace_once!(runtime, 'window.__toriiAlphaDebug=', "if(new URLSearchParams(location.search).has('qa'))window.__toriiAlphaDebug=", 'ferramentas de teste somente por opção')
 replace_once!(html, "const activeModes10=()=>mode==='walk'||mode==='action';",
   "const activeModes10=()=>!window.FinalAssetLoadingV1?.busy()&&(mode==='walk'||mode==='action');", 'ações aguardam a arte da cena')
+
+# Report the actual browser write result without changing checkpoint selection.
+replace_once!(html, "localStorage.setItem(KEY,JSON.stringify(saved));if(!silent)toast(mode==='action'?'✦ CHECKPOINT SEGURO SALVO':'✦ PROGRESSO SALVO NO NAVEGADOR');",
+  "localStorage.setItem(KEY,JSON.stringify(saved));if(!silent)toast(mode==='action'?'✦ CHECKPOINT SEGURO SALVO':'✦ PROGRESSO SALVO NO NAVEGADOR');return true;", 'resultado da gravação do save')
+replace_once!(html, "}catch(e){if(!silent)toast('Armazenamento indisponível. Use EXPORTAR SALVAMENTO.');}}",
+  "}catch(e){if(!silent)toast('Armazenamento indisponível. Use EXPORTAR SALVAMENTO.');return false;}}", 'resultado da falha de gravação')
+
+# Expedition mitigation belongs after native invulnerability and counters.
+replace_once!(html, 'G.hp[who]=Math.max(0,G.hp[who]-damage);act.invuln=.8;',
+  'damage=PostGame.incoming(damage,who);if(!damage)return false;G.hp[who]=Math.max(0,G.hp[who]-damage);act.invuln=.8;', 'mitigação depois das defesas do jogador 1')
+replace_once!(runtime, 'G.hp[who]=Math.max(0,G.hp[who]-dmg);act.invuln=.8;',
+  'dmg=PostGame.incoming(dmg,who);if(!dmg)return false;G.hp[who]=Math.max(0,G.hp[who]-dmg);act.invuln=.8;', 'mitigação depois do contratempo')
+replace_once!(runtime, 'G.hp[id]=Math.max(0,G.hp[id]-amount);c.invuln=.8;',
+  'amount=PostGame.incoming(amount,id);if(!amount)return false;G.hp[id]=Math.max(0,G.hp[id]-amount);c.invuln=.8;', 'mitigação depois das defesas do jogador 2')
 
 # Menu input must run before the legacy anonymous capture listener, while the
 # actual implementation is loaded with the additive interface modules below.
@@ -652,7 +667,7 @@ replace_once!(canal_runtime, '__CANAL_VIOLIN_WAV__', encode(canal_recording), 'r
 bridge_runtime = File.read(bridge_art, encoding: 'UTF-8')
 replace_once!(bridge_runtime, '__BRIDGE_SPRITES__', JSON.generate(bridge_assets), 'sprites da Ponte das Frequências')
 parts = [runtime, input_runtime, edits_js, *[PACING_JS, HEALING_JS, COMBAT_JS, FLOW_JS, ACCESS_JS, PACE_METER].map { |path| File.read(path, encoding: 'UTF-8') }, ninja_archer_runtime, protagonist_runtime, cenarios_runtime, musician_runtime, enemy_art_runtime, boss_animation_runtime, ground_fx_runtime, polish_runtime, File.read(NPC_LIFE_JS, encoding: 'UTF-8'), npc_gestures_runtime, environment_depth_runtime, stride_runtime, cloud_runtime, environment_atmosphere_runtime, cloud_story_runtime, File.read(File.join(ROOT, 'postgame.js'), encoding: 'UTF-8'), File.read(File.join(ROOT,'hero_legacy_fx.js'), encoding: 'UTF-8'), hero_attack_runtime, File.read(enemy_attack_path, encoding: 'UTF-8'), body_runtime, narrativa_runtime, File.read(File.join(ROOT, 'interface_v6.js'), encoding: 'UTF-8'), *fase2_runtimes, bridge_runtime, File.read(bridge_puzzle, encoding: 'UTF-8'), File.read(radio_tuning, encoding: 'UTF-8'), File.read(LUMI_JS, encoding: 'UTF-8'), canal_runtime, File.read(plant_sequencer, encoding: 'UTF-8'), club_runtime, File.read(final_echoes, encoding: 'UTF-8'), ui7_runtime, File.read(TOUCH_LAYOUT_JS, encoding: 'UTF-8'), File.read(MENU_CONTROLS_JS, encoding: 'UTF-8'), File.read(ENEMY_HEALTH_JS, encoding: 'UTF-8'), ui7_screens_runtime, combat_readability_runtime, enemy_variant_runtime, enemy_skill_fx_runtime, File.read(SKILL_MOVEMENT_JS, encoding: 'UTF-8'), ui7_new_games_runtime]
-parts += %w[render_performance_v1.js guidance_recovery_v1.js final_asset_loading_v1.js].map { |name| File.read(File.join(ROOT, name), encoding: 'UTF-8') }
+parts += %w[render_performance_v1.js guidance_recovery_v1.js save_reliability_v1.js final_asset_loading_v1.js].map { |name| File.read(File.join(ROOT, name), encoding: 'UTF-8') }
 runtime = input_runtime = edits_js = ninja_archer_runtime = protagonist_runtime = cenarios_runtime = musician_runtime = enemy_art_runtime = boss_animation_runtime = ground_fx_runtime = polish_runtime = npc_gestures_runtime = environment_depth_runtime = cloud_runtime = environment_atmosphere_runtime = cloud_story_runtime = nil
 html.insert(position, "\n")
 until parts.empty?
@@ -666,6 +681,8 @@ GC.start
 html.gsub!('1.0 · PRÉ-ALPHA', VERSION.fetch('rotulo'))
 html.gsub!('ALPHA 1.2.0', VERSION.fetch('rotulo'))
 html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
+html.gsub!(' · PRÉ-BETA', '')
+html.gsub!(' · Pré-beta', '')
 
 html.gsub!('clamp(G.x*T-VW/2,0,a.w*T-VW)', 'clamp(coopCamera123("x")*T-VW/2,0,a.w*T-VW)')
 html.gsub!('clamp(G.y*T-VH/2,0,a.h*T-VH)', 'clamp(coopCamera123("y")*T-VH/2,0,a.h*T-VH)')
@@ -733,7 +750,7 @@ sources += FASE2_JS + [bridge_art, bridge_puzzle, radio_tuning, lumi_melody, can
 if File.file?(bridge_manifest)
   sources += [bridge_manifest] + bridge_files.map { |file| File.join(bridge_root, file) }
 end
-sources += %w[render_performance_v1.js guidance_recovery_v1.js final_asset_loading_v1.js].map { |name| File.join(ROOT, name) }
+sources += %w[render_performance_v1.js guidance_recovery_v1.js save_reliability_v1.js final_asset_loading_v1.js].map { |name| File.join(ROOT, name) }
 manifest = {
   game: 'TORII & HUTUKARA',
   build: VERSION.fetch('rotulo'),

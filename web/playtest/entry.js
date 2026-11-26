@@ -17,7 +17,7 @@
   notice.id = 'playtestEntry';
   notice.setAttribute('role', 'status');
   notice.setAttribute('aria-live', 'polite');
-  notice.textContent = `${mobile ? 'MOBILE' : 'PC'} · Beta ${build.version}`;
+  notice.textContent = `${mobile ? 'MOBILE' : 'PC'} · Versão ${build.version}`;
   document.body.appendChild(notice);
   // It appears once per page entry, never again on rotation, focus or input changes.
   setTimeout(() => {

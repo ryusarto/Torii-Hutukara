@@ -77,3 +77,6 @@ html.ui7.big-text #dialogue #words{font-size:var(--ui7-speech)!important;line-he
 .ui7 #overlayInner.ui7-difficulty{width:min(750px,100%)}
 .ui7 #overlayInner .menu-grid10,.ui7 #overlayInner .ui7-difficulty-card{min-width:0}
 .ui7 #overlayInner .ui7-difficulty-card :is(b,small){min-width:0;max-width:100%;overflow-wrap:break-word;white-space:normal}
+/* Touch menus share the same minimum target as the gameplay controls. */
+.ui7.mobile121 #overlayInner button,.ui7.mobile121 #start button,.ui7.mobile121 #dialogue .leitura-barra button,.ui7.mobile121 #leituraHistorico button{min-height:44px;min-width:44px}
+.ui7.mobile121 #overlayInner .keymap6 :is([data-key6],[data-pad6]){display:flex;align-items:center;justify-content:center;min-height:44px;box-sizing:border-box}

@@ -6,7 +6,7 @@ Os workflows [`Gameplay regression`](../.github/workflows/quality.yml) e [`Publi
 
 ```sh
 npm install --no-save --package-lock=false playwright@1.62.1
-npx playwright install chromium
+npx playwright install chromium webkit
 export CHROME_PATH="$(node -p "require('playwright').chromium.executablePath()")"
 ruby game/source/chapter-03/build_alpha.rb
 ruby game/source/chapter-03/validate_alpha.rb
@@ -26,9 +26,14 @@ node qa/dificuldade_unit.cjs
 Depois de exportar e servir o site em `http://127.0.0.1:8771/`:
 
 ```sh
+node qa/release_startup_final.cjs http://127.0.0.1:8771/
+node qa/release_mobile_final.cjs http://127.0.0.1:8771/
+node qa/release_combat_final.cjs http://127.0.0.1:8771/
+node qa/release_diagnostics_final.cjs http://127.0.0.1:8771/
 node qa/final_asset_loading_v1.cjs http://127.0.0.1:8771/
 node qa/loading_input_continuity_v1.cjs http://127.0.0.1:8771/
 node qa/guidance_runtime_v1.cjs http://127.0.0.1:8771/
+BROWSER_ENGINE=webkit node qa/guidance_runtime_v1.cjs http://127.0.0.1:8771/
 node qa/guidance_campaign_v1.cjs http://127.0.0.1:8771/
 node qa/npc_scale_v1.cjs http://127.0.0.1:8771/
 node qa/render_performance_v1.cjs http://127.0.0.1:8771/
@@ -53,3 +58,5 @@ node qa/interface_controls_v7_browser.cjs http://127.0.0.1:8771/
 Fixtures históricas usadas como entrada permanecem em `qa/`. Relatórios, capturas e gravações são saídas geradas e ficam nos artefatos de CI ou no arquivo local de produção.
 
 Testes em navegador com toque ou controle emulado não substituem a validação em celulares e controles físicos. Uma medição de CPU ou uma captura de tela isolada não comprova FPS constante nem a experiência completa de jogo.
+
+O medidor local de ritmo fica desativado por padrão. Ative com `?ritmo` ou `ToriiRitmo.enable()` para sessões de QA; ele não envia dados para servidores. As ferramentas de salto de capítulo só são expostas com `?qa`.

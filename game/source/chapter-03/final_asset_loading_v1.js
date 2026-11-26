@@ -8,29 +8,38 @@ let resources=[],extraResources=[],failed=[],ui=null;
 let inputGame=null,inputArea=null;
 let observedGame=null;
 function observeGame(){if(G&&G!==observedGame){const previous=observedGame;observedGame=G;if(previous)Narrativa.resetGame()}}
-const scheduled=new Map();let scheduleId=0;
-function scopeMatches(job){return job.game===G&&(job.area===null||job.area===G?.area)}
+const scheduled=new Map(),combatJobs=new Set();let scheduleId=0;
+function scopeMatches(job){return job.game===G&&(job.area===null||job.area===G?.area)&&(!job.combat||(G?.active===job.hero&&G.hp?.[job.hero]>0))}
+function forget(job){scheduled.delete(job.id);combatJobs.delete(job)}
+function paused(job){return loading||(job.combat&&!activeModes10())}
 function arm(job){
- if(!scopeMatches(job)){scheduled.delete(job.id);return}
+ if(!scopeMatches(job)){forget(job);return}
+ if(paused(job))return;
  job.due=performance.now()+job.remaining;
  job.timer=setTimeout(()=>{
   job.timer=null;
-  if(loading){job.remaining=Math.max(0,job.due-performance.now());return}
-  scheduled.delete(job.id);if(scopeMatches(job))job.callback();
+  if(paused(job)){job.remaining=Math.max(0,job.due-performance.now());return}
+  forget(job);if(scopeMatches(job))job.callback();
  },job.remaining);
 }
 function schedule(callback,delay=0,options={}){
- const job={id:++scheduleId,callback,game:G,area:Object.hasOwn(options,'area')?options.area:null,remaining:Math.max(0,Number(delay)||0),due:0,timer:null};
- scheduled.set(job.id,job);if(!loading)arm(job);return job.id;
+ const job={id:++scheduleId,callback,game:G,area:Object.hasOwn(options,'area')?options.area:null,combat:!!options.combat,hero:G?.active,remaining:Math.max(0,Number(delay)||0),due:0,timer:null};
+ scheduled.set(job.id,job);if(job.combat)combatJobs.add(job);if(!loading)arm(job);return job.id;
 }
-function scheduleCombat(callback,delay=0){return schedule(callback,delay,{area:G?.area})}
-function clearSchedule(id){const job=scheduled.get(id);if(job&&job.timer!==null)clearTimeout(job.timer);scheduled.delete(id)}
-function pauseScheduled(){
+function scheduleCombat(callback,delay=0){return schedule(callback,delay,{area:G?.area,combat:true})}
+function clearSchedule(id){const job=scheduled.get(id);if(!job)return;if(job.timer!==null)clearTimeout(job.timer);forget(job)}
+function pauseScheduled(combatOnly=false){
  const now=performance.now();
- for(const job of scheduled.values())if(job.timer!==null){clearTimeout(job.timer);job.timer=null;job.remaining=Math.max(0,job.due-now)}
+ for(const job of combatOnly?combatJobs:scheduled.values())if(job.timer!==null){clearTimeout(job.timer);job.timer=null;job.remaining=Math.max(0,job.due-now)}
 }
-function resumeScheduled(){
- for(const job of [...scheduled.values()].sort((a,b)=>a.remaining-b.remaining||a.id-b.id))if(job.timer===null)arm(job);
+function resumeScheduled(combatOnly=false){
+ for(const job of [...(combatOnly?combatJobs:scheduled.values())].sort((a,b)=>a.remaining-b.remaining||a.id-b.id))if(job.timer===null)arm(job);
+}
+function syncCombat(){
+ let waiting=false;
+ for(const job of combatJobs){if(!scopeMatches(job))clearSchedule(job.id);else if(job.timer===null)waiting=true}
+ if(!combatJobs.size)return;
+ if(loading||!activeModes10())pauseScheduled(true);else if(waiting)resumeScheduled(true);
 }
 const source=image=>typeof image?.src==='string'?image.src:'';
 const canvas=image=>typeof image?.getContext==='function';
@@ -152,7 +161,7 @@ function start(options={}){
  // and explicit ready() callers still receive the rejection and error state.
  pending.catch(()=>{});return pending;
 }
-function ensure(){observeGame();if(G&&current&&mode!=='title'){const next=signature();if(next&&next!==key)start()}}
+function ensure(){observeGame();if(G&&current&&mode!=='title'){const next=signature();if(next&&next!==key)start()}syncCombat()}
 function ready(){ensure();return pending}
 function retry(){
  for(const entry of failed){
@@ -175,6 +184,12 @@ function handleKey(event){
 }
 window.FinalAssetLoadingV1={start,ready,retry,requireImage,handleKey,schedule,scheduleProgress:schedule,scheduleCombat,clearSchedule,busy:()=>loading,
  snapshot:()=>({loading,error:failure,generation,area:G?.area||null,resources:resources.map(r=>r.label),failed:failed.map(r=>r.label),scheduled:scheduled.size})};
+// A manual pause or dialogue freezes accepted combat releases immediately.
+// UI/progression jobs keep their existing clocks (including the C2 card).
+for(const name of ['openOverlay','closeOverlay','talk','advanceDialogue']){
+ const previous=window[name];if(typeof previous!=='function')continue;
+ window[name]=function(...args){const result=previous.apply(this,args);syncCombat();return result};
+}
 const previousArea=setArea;setArea=function(...args){observeGame();const result=previousArea.apply(this,args);start();return result};
 const previousUpdate=update;update=function(...args){ensure();if(loading)return;return previousUpdate.apply(this,args)};
 const previousDraw=drawEnv;drawEnv=function(...args){ensure();if(loading)return;return previousDraw.apply(this,args)};

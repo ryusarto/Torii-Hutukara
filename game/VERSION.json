@@ -1,8 +1,8 @@
 {
   "sobre": "Fonte única da versão. build_alpha.rb, validate_alpha.rb, o site e os testes leem daqui. A chave de save no navegador não muda entre versões.",
-  "versao": "beta-1.26.0",
-  "numero": "1.26.0",
-  "rotulo": "BETA 1.26.0",
-  "titulo": "Beta 1.26.0",
-  "sufixo": "BETA_1_26_0"
+  "versao": "release-1.0.0",
+  "numero": "1.0.0",
+  "rotulo": "VERSÃO 1.0",
+  "titulo": "Versão 1.0",
+  "sufixo": "1_0_0"
 }

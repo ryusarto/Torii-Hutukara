@@ -499,7 +499,11 @@ function updateMobileLayout121(){
     if(panel.parentElement!==parent)parent.appendChild(panel);
   }
   const physical=C3.pad.pads.length>0&&!Input121.controllerVisible;
+  const wasPhysical=document.documentElement.classList.contains('physical121');
   document.documentElement.classList.toggle('physical121',mobile&&physical);
+  // A connected controller can hide the deck without changing canvas size.
+  // Release its old fingers before they become invisible movement/attacks.
+  if(wasPhysical!==(mobile&&physical))releaseTouch121();
   document.documentElement.classList.toggle('hasGamepad121',mobile&&C3.pad.pads.length>0);
   const dialogueHint=document.querySelector('#dialogue .continue');
   if(dialogueHint)dialogueHint.textContent=controlHint121('▼ CONTINUAR · ESPAÇO / ENTER','▼ TOQUE PARA CONTINUAR','▼ CONTINUAR · A / ✕');
@@ -666,7 +670,7 @@ C3.coopAttack=function(pad){
   c.attackHero=id;c.attackDir=[...d];c.attackUntil=tick+.24;c.recovery=f.recovery;
   c.cool=Math.max(f.recovery,id==='alt'?.38:id==='franco'?.32:.24);
   if(id==='alt'){
-    projectiles.push({x:c.x,y:c.y,vx:d[0]*12,vy:d[1]*12,time:1.1,damage:14,hit:[],arrow:true});
+    projectiles.push({x:c.x,y:c.y,vx:d[0]*12,vy:d[1]*12,time:1.1,damage:14,hit:[],arrow:true,hitsLeft:1,piercing:false});
     effect10('pulse',c.x,c.y,d,.18,.5,'#d3b680');
   }else{
     const range=id==='synth'?3.9:id==='franco'?3.0:id==='katana'?2.8:id==='ryuchi'?2.15:2.7;

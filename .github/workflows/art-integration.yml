@@ -47,4 +47,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: art-integration-qa
-          path: qa/beta-*/
+          path: |
+            qa/beta-*/
+            qa/release-*/

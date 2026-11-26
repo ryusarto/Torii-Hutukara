@@ -1,8 +1,8 @@
 /* TORII & HUTUKARA — Medidor de ritmo (Fase 1).
  * Mede, só no aparelho do jogador, quanto tempo se passa andando, lendo,
  * lutando e em menus, por área e por etapa da missão. Nada é enviado pela
- * internet. O relatório aparece com ?ritmo na URL (botão "RITMO") ou por
- * window.ToriiRitmo no console.
+ * internet. A medição é ativada com ?ritmo na URL (botão "RITMO") ou por
+ * window.ToriiRitmo.enable() no console.
  */
 (function(){
 const STORE='torii_hutukara_ritmo_v1';
@@ -10,17 +10,19 @@ const MAX_SESSIONS=6;
 const CATS=['andando','parado','dialogo','combate','menu','ritmo'];
 const LABEL={andando:'Andando',parado:'Parado (sem diálogo)',dialogo:'Lendo diálogo',combate:'Combate',menu:'Menus/mapa/diário',ritmo:'Desafio de ritmo'};
 const zero=()=>Object.fromEntries(CATS.map(c=>[c,0]));
-const read=()=>{try{return JSON.parse(localStorage.getItem(STORE))||{sessions:[]}}catch{return {sessions:[]}}};
-let db=read(),s=null,lastSave=0,lastObjCheck=-1,lastWords='',lastX=null,lastY=null,prevT=null,inAction=false,quietSince=0,stepKey=null;
+const read=()=>{try{const value=JSON.parse(localStorage.getItem(STORE));return value&&Array.isArray(value.sessions)?{sessions:value.sessions.filter(x=>x&&typeof x==='object').slice(-MAX_SESSIONS)}:{sessions:[]}}catch{return {sessions:[]}}};
+let enabled=new URLSearchParams(location.search).has('ritmo');
+let db=enabled?read():{sessions:[]},s=null,lastSave=0,lastObjCheck=-1,lastWords='',lastX=null,lastY=null,prevT=null,inAction=false,quietSince=0,stepKey=null;
 
 function newSession(label){
+  if(!enabled)return;
   s={label,startedAt:new Date().toISOString(),build:document.title,total:0,modes:zero(),areas:{},steps:[],
      dialogue:{lines:0,chars:0,speakers:{}},combat:{encounters:0,firstAt:null,longestQuiet:0,longestQuietWhere:''},
      deaths:0,areaChanges:0};
   db.sessions.push(s);if(db.sessions.length>MAX_SESSIONS)db.sessions.splice(0,db.sessions.length-MAX_SESSIONS);
   stepKey=null;quietSince=0;inAction=false;lastWords='';lastObjCheck=-1;lastX=lastY=null;persist(true);
 }
-function persist(force){const now=performance.now();if(!force&&now-lastSave<5000)return;lastSave=now;try{localStorage.setItem(STORE,JSON.stringify(db))}catch{}}
+function persist(force){if(!enabled)return;const now=performance.now();if(!force&&now-lastSave<5000)return;lastSave=now;try{localStorage.setItem(STORE,JSON.stringify(db))}catch{}}
 function category(moved){
   if(typeof mode==='undefined')return null;
   if(mode==='dialogue')return 'dialogo';
@@ -60,7 +62,7 @@ function sample(dt){
 // Uma camada: a medição acontece a cada quadro desenhado.
 const loopBeforeRitmo=loop;
 loop=function(t,...rest){
-  if(typeof t==='number'){const dt=prevT===null?0:(t-prevT)/1000;prevT=t;if(dt>0&&dt<1)sample(dt)}
+  if(enabled&&typeof t==='number'){const dt=prevT===null?0:(t-prevT)/1000;prevT=t;if(dt>0&&dt<1)sample(dt)}
   return loopBeforeRitmo(t,...rest);
 };
 const setAreaBeforeRitmo=setArea;
@@ -106,8 +108,9 @@ function summary(x=s){
   return L.join('\n');
 }
 function download(name,text,type){const b=new Blob([text],{type});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+function enable(){if(!enabled){enabled=true;db=read();prevT=null}if(!s)newSession('Medição manual');return true}
 function openPanel(){
-  persist(true);let p=document.getElementById('ritmoPanel');if(p){p.remove();return}
+  enable();persist(true);let p=document.getElementById('ritmoPanel');if(p){p.remove();return}
   p=document.createElement('div');p.id='ritmoPanel';
   p.style.cssText='position:fixed;inset:5%;z-index:99999;background:#12101cf2;border:2px solid #e6bc88;color:#ffe7c0;font:12px/1.45 monospace;padding:12px;overflow:auto;white-space:pre-wrap';
   const bar=document.createElement('div');bar.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px';
@@ -120,8 +123,8 @@ function openPanel(){
   btn('Fechar',()=>p.remove());
   const pre=document.createElement('div');pre.textContent=summary();p.append(bar,pre);document.body.appendChild(p);
 }
-window.ToriiRitmo={summary,report:()=>JSON.parse(JSON.stringify(db)),current:()=>s,newSession,open:openPanel};
-if(/[?&]ritmo\b/.test(location.search)){
+window.ToriiRitmo={enable,enabled:()=>enabled,summary,report:()=>JSON.parse(JSON.stringify(db)),current:()=>s,newSession,open:openPanel};
+if(new URLSearchParams(location.search).has('ritmo')){
   const b=document.createElement('button');b.id='ritmoButton';b.textContent='RITMO';b.title='Relatório de ritmo (playtest)';
   b.style.cssText='position:fixed;top:6px;left:50%;transform:translateX(-50%);z-index:99998;background:#2d545bd0;color:#fff;border:1px solid #9dd2c7;padding:3px 8px;font:11px monospace;cursor:pointer';
   b.onclick=openPanel;document.body.appendChild(b);

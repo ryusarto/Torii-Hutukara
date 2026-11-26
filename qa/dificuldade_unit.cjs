@@ -18,7 +18,7 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
   try{
     const page=await browser.newPage({viewport:{width:1280,height:800}});page.on('pageerror',e=>errors.push(e.message));
     await page.addInitScript(()=>{try{localStorage.clear()}catch{};window.requestAnimationFrame=()=>0});
-    await page.goto(url+(url.includes('?')?'&':'?')+'semente=11',{waitUntil:'load',timeout:180000});
+    await page.goto(url+(url.includes('?')?'&':'?')+'qa&semente=11',{waitUntil:'load',timeout:180000});
     // Utilidades dentro da página.
     await page.evaluate(async ()=>{await window.FinalAssetLoadingV1?.ready();
       window.__t=1e4;window.__frame=async(n=1)=>{await window.FinalAssetLoadingV1?.ready();for(let i=0;i<n;i++){if(window.FinalAssetLoadingV1?.busy())await FinalAssetLoadingV1.ready();window.__t+=1000/60;loop(window.__t)}};
@@ -49,6 +49,7 @@ async function check(name,fn){const detail=await fn();checks.push({name,detail})
     });
 
     await check('Inícios diretos também perguntam o nível',async()=>{
+      page.once('dialog',dialog=>{assert.match(dialog.message(),/prévia de teste do Capítulo 03/);dialog.accept()});
       const r=await page.evaluate(async ()=>{await window.FinalAssetLoadingV1?.ready();mode='title';$('start').classList.remove('hidden');openTitleOptions10();$('previewC3').click();
         const ids=[...document.querySelectorAll('#overlay button')].map(b=>b.id);$('dif_dificil').click();__skip();return {ids,nivel:G.difficulty,c3:!!G.c3?.started}});
       assert(r.ids.includes('dif_historia'));assert.equal(r.nivel,'dificil');assert(r.c3);

@@ -303,7 +303,7 @@ const PostGame={
  heroPower:{franco:1,ryuchi:1.6,alt:1.3,katana:3.5,synth:2.3,percussion:1.6},
  power(who){return this.heroPower[who]??1},
  // Quem desferiu o golpe: o líder, ou o jogador 2 durante as ações dele.
- attackerId(){return this.attacker||G.active},
+ attackerId(){const source=typeof HeroAttackFX!=='undefined'?HeroAttackFX.externalSource:null;return this.attacker||(this.names[source]?source:null)||G.active},
  incoming(amount,who){
   if(!this.active()||amount<=0)return amount;const r=this.run();
   // Pele de tambor: anula os primeiros golpes de cada onda.
@@ -556,6 +556,7 @@ const postSave=save;save=function(silent=false){
  if(silent&&PostGame.run().phase==='fight')return;
  const saved=PostGame.persist();
  if(!silent)toast(saved?PostGame.resumeText():'Use EXPORTAR SAVE para guardar a expedição.');
+ return saved;
 };
 if(typeof addEventListener==='function'){
  const persistRun=()=>{if(PostGame.active())PostGame.persist()};
@@ -587,8 +588,12 @@ C3.returnStudio=function(){return PostGame.complete()};C3.showEnding=function(){
 
 // Normalize dynamic areas before validating their existence. Do not replace the
 // current session or storage until the entire imported progress is accepted.
+let importReadSerial=0;
 importSave=function(file){
- if(!file)return;const rd=new FileReader();rd.onload=()=>{try{
+ if(!file)return;const serial=++importReadSerial,game=G,rd=new FileReader();
+ const currentRead=()=>serial===importReadSerial&&G===game;
+ const readFailed=()=>{if(currentRead())toast('NÃO FOI POSSÍVEL LER O ARQUIVO. TENTE IMPORTAR NOVAMENTE.')};
+ rd.onload=()=>{if(!currentRead())return;try{
   const raw=JSON.parse(rd.result),source=raw?.progress||raw;
   if(!source||typeof source.flags!=='object'||!source.flags||!Number.isFinite(Number(source.x))||!Number.isFinite(Number(source.y)))throw Error('Arquivo não reconhecido');
   const imported=normalizeSave(source);if(!imported||!areas[imported.area])throw Error('Versão de progresso incompatível');
@@ -596,12 +601,17 @@ importSave=function(file){
   $('start').classList.add('hidden');$('hud').style.display='block';closeOverlay();setArea(G.area,G.x,G.y,false);
   if(PostGame.active())PostGame.showResume();
   toast(persisted?'PROGRESSO IMPORTADO':'PROGRESSO IMPORTADO · EXPORTE PARA GUARDAR');
- }catch{toast('ARQUIVO DE SALVAMENTO INVÁLIDO')}};rd.readAsText(file);
+ }catch{toast('ARQUIVO DE SALVAMENTO INVÁLIDO')}};
+ rd.onerror=readFailed;
+ rd.onabort=()=>{if(currentRead())toast('IMPORTAÇÃO CANCELADA')};
+ try{rd.readAsText(file)}catch{readFailed()}
 };
 
 // Track actual HP loss (including leader swaps), not blocked/invulnerable hits.
-const postDungeonDamage=damageHero;damageHero=function(...args){const before=PostGame.active()?PostGame.damageSnapshot():null;try{args[0]=PostGame.incoming(args[0],G.active);if(!args[0])return;return postDungeonDamage(...args)}finally{if(before)PostGame.observeDamage(before)}};
-const postDungeonCoopDamage=C3.damageCoop;C3.damageCoop=function(...args){const before=PostGame.active()?PostGame.damageSnapshot():null;try{args[0]=PostGame.incoming(args[0],C3.coopMember?.());if(!args[0])return;return postDungeonCoopDamage(...args)}finally{if(before)PostGame.observeDamage(before)}};
+// Apply expedition modifiers only at accepted damage sites (builder), after
+// native dodge/parry checks. These observers keep knockout/clean-wave rules.
+const postDungeonDamage=damageHero;damageHero=function(...args){const before=PostGame.active()?PostGame.damageSnapshot():null;try{return postDungeonDamage(...args)}finally{if(before)PostGame.observeDamage(before)}};
+const postDungeonCoopDamage=C3.damageCoop;C3.damageCoop=function(...args){const before=PostGame.active()?PostGame.damageSnapshot():null;try{return postDungeonCoopDamage(...args)}finally{if(before)PostGame.observeDamage(before)}};
 if(typeof BossChoreographyV2!=='undefined'){const postDungeonGround=BossChoreographyV2.drawGround;BossChoreographyV2.drawGround=function(...args){const result=postDungeonGround.apply(this,args);PostGame.drawWarnings();return result}};
 
 if(typeof EnemyArtV1!=='undefined'){const postDungeonEnemy=EnemyArtV1.draw;EnemyArtV1.draw=function(x,y,kind,e){const result=postDungeonEnemy.call(this,x,y,kind,e);if(result&&PostGame.active()&&e?.endlessElite){const entry=this.manifest.enemies[this.key(kind,e)],top=y-(entry?.height||64)-12;PostGame.label('RESSONANTE'+(e.endlessMod?' · '+PostGame.mods[e.endlessMod].name.toUpperCase()+(e.endlessShield>0?' '+'◆'.repeat(e.endlessShield):''):''),x,top,'#f3c98a')}return result}};

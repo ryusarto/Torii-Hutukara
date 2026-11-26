@@ -64,6 +64,7 @@ async function main(){
 
 // Roda dentro da página.
 function installBot(){
+  window.ToriiRitmo?.enable?.();
   const DT=1/60;let rhythmTime=0,t=1000,clock=0,readWait=0,lastWords='',attackCd=0,stuckObj='',stuckSince=0,interactCd=0,lastPos=null,noMove=0,events=[],wander=null,doneFlag=false,canalHeld=false;
   const say=m=>events.push(`[${(clock/60).toFixed(1)} min] ${m}`);
   const held=new Set();

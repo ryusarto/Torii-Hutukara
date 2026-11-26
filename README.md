@@ -4,7 +4,7 @@ RPG musical de ação e narrativa de **Ryuchi** e **Franco, The Sir**, feito par
 
 **[Site oficial](https://toriiehutukara.com/#jogo)** · [Abrir o jogo diretamente](https://ryusarto.github.io/Torii-Hutukara/)
 
-A linha **1.26** está em desenvolvimento. A versão de cada build está em [`game/VERSION.json`](game/VERSION.json).
+**Versão 1.0** · Campanha completa, seis personagens jogáveis, sete desafios musicais e pós-jogo solo ou cooperativo. A versão das fontes está em [`game/VERSION.json`](game/VERSION.json); a distribuição mostra seu número no jogo.
 
 ## Controles
 
@@ -21,7 +21,7 @@ Celulares e tablets usam controles de toque. Controles compatíveis com a Gamepa
 
 ## Progresso
 
-O progresso fica salvo no navegador e no aparelho usado. O jogo permite exportar e importar o save em JSON. Guarde uma cópia antes de limpar os dados do navegador; não há sincronização automática entre aparelhos.
+O progresso fica salvo no navegador e no aparelho usado. O jogo permite exportar e importar o save em JSON, inclusive os saves compatíveis das versões anteriores. Guarde uma cópia antes de limpar os dados do navegador; não há sincronização automática entre aparelhos.
 
 ## Construir e testar
 
