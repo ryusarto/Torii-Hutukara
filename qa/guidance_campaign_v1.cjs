@@ -2,9 +2,9 @@
 // Controlled runtime campaign/save probes and actual Canvas calls. This is
 // not physical-device FPS or human gameplay certification.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
-const root=path.resolve(__dirname,'..'),url=process.argv[2]||'http://127.0.0.1:8894/';
-const out=process.env.GUIDANCE_CAMPAIGN_OUTPUT_DIR||path.join(root,'qa/beta-1.26.0/guidance-campaign'),report={url,method:'Chromium runtime; controlled campaign states, real save/Continue, original scene compositor and Canvas commands.',checks:[],errors:[]};
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
+const root=path.resolve(__dirname,'..'),releaseDir='qa/'+JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'),'utf8')).versao,url=process.argv[2]||'http://127.0.0.1:8894/';
+const out=process.env.GUIDANCE_CAMPAIGN_OUTPUT_DIR||path.join(root,releaseDir+'/guidance-campaign'),report={url,method:'Chromium runtime; controlled campaign states, real save/Continue, original scene compositor and Canvas commands.',checks:[],errors:[]};
 let browser,page;
 async function check(name,fn){const detail=await fn();report.checks.push({name,passed:true,detail});console.log('PASS '+name)}
 function fixture(){

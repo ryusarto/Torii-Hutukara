@@ -71,7 +71,7 @@ Dir.mktmpdir('torii-playtest-') do |temp|
     abort 'Unexpected embedded binary format' unless is_mp3
     quote + save_media.call(encoded, 'mp3') + quote
   end
-  abort 'No game media found' unless counts['png'] > 0 && counts['webp'] > 0 && counts['mp3'] > 0
+  abort 'No game media found' unless counts['png'] + counts['webp'] > 0 && counts['mp3'] > 0
   abort 'Embedded images were not fully extracted' if html.match?(%r{data:image/(png|webp);base64,})
 
   old_decoder = 'const bytes=Uint8Array.from(atob(ALBUM11[id]),c=>c.charCodeAt(0));'
@@ -119,9 +119,22 @@ Dir.mktmpdir('torii-playtest-') do |temp|
   end
   abort 'Referência a imagem removida' if renamed.keys.any? { |from| html.include?(from) }
 
+  # A build portátil já converteu PNG → WebP: o relatório também responde pelo
+  # PNG original, com o modo da conversão feita na build (testes de arte usam isso).
+  embedded_modes = manifest.fetch('webp_modes', {})
+  manifest.fetch('webp_from_png', {}).each do |png, webp|
+    served = optimized.dig(webp, 'file') || webp
+    abort "Imagem embutida ausente: #{served}" unless File.file?(File.join(temp, served))
+    optimized[png] = { 'file' => served, 'mode' => embedded_modes.fetch(png), 'embeddedInPortable' => true }
+  end
+  File.write(optimization_report, JSON.pretty_generate(optimized.sort.to_h) + "\n")
+
   # Só a mídia observada no título carrega sem uma solicitação do jogo.
   inventory = JSON.parse(File.read(File.join(SOURCE, 'media_priority.json'), encoding: 'UTF-8'))
   priority = inventory.fetch('ordem').select { |file| inventory.fetch('area')[file] == 'titulo' }
+  # A build portátil já embute WebP: a lista guarda o nome do PNG original.
+  embedded_webp = manifest.fetch('webp_from_png', {})
+  priority = priority.map { |from| embedded_webp[from] || from }
   priority = priority.map { |from| renamed.dig(from, 'file') || from }.select { |file| media.key?(file) }
   loader = File.read(File.join(SOURCE, 'loader.js'), encoding: 'UTF-8')
   abort 'Carregador sem marcador de prioridade' unless loader.scan('__MEDIA_PRIORITY__').length == 1

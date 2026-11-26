@@ -3,7 +3,7 @@
 // the same production painters. A trailing stroke exposes current-path changes.
 // Current exports exercise the installed guard; older exports inject the source.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),url=process.argv[2];if(!/^https?:/.test(url||''))throw Error('Pass the current HTTP export or approved baseline URL');
 const source=fs.readFileSync(path.join(root,'game/source/chapter-03/environment_depth_v1.js'),'utf8');
 const candidate=source.slice(source.indexOf(' const cellInRect='),source.indexOf(' api.facade='));

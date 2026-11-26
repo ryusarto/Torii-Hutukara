@@ -1,6 +1,6 @@
 # Arquitetura
 
-Torii & Hutukara usa HTML Canvas e JavaScript, com um gerador Ruby. A distribuição inclui um HTML portátil e uma exportação web com mídia em arquivos separados.
+Torii & Hutukara usa HTML Canvas e JavaScript, com um gerador Ruby. A distribuição inclui um HTML portátil, com as imagens em WebP, e uma exportação web com mídia em arquivos separados.
 
 ## Fontes
 
@@ -18,6 +18,12 @@ Torii & Hutukara usa HTML Canvas e JavaScript, com um gerador Ruby. A distribui�
 A lógica de simulação, colisão, combate e progressão é separada das camadas de apresentação. Animações, efeitos e cenários devem manter a identidade e o timing das ações. Alterações de renderização não podem modificar dano, alcance, recarga, sorte ou estado de save.
 
 O coop local compartilha a câmera, com estados e comandos independentes para os dois integrantes. Saves antigos passam pela normalização existente; IDs de personagens, áreas e missões são contratos de compatibilidade.
+
+## Camadas sobre funções centrais
+
+Cada módulo de `game/source/chapter-03/` estende o motor guardando a função anterior e substituindo-a (`const antes=update;update=function(...){antes(...); ...}`). A ordem de execução é a ordem em que os módulos entram no HTML, definida por `build_alpha.rb`. Hoje há 38 camadas em `update`, 21 em `buildMaps`, 14 em `drawActor`, 11 em `normalizeSave` e em `advanceDialogue` e 10 em `drawTile`.
+
+`validate_alpha.rb` reprova a build se alguma dessas contagens aumentar. Mudanças novas devem entrar em uma camada já existente do mesmo assunto. Ao consolidar camadas, baixe o teto correspondente no validador.
 
 ## Distribuição
 

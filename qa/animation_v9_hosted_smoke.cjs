@@ -1,7 +1,7 @@
 // Check the hosted lazy-media pipeline, separately from portable art tests.
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),out=path.join(root,'qa/beta-1.17.0/HOSTED_ANIMATION_V9.json');
 let browser;const report={checks:[],errors:[],limits:['Isolated Chromium context; hosted lazy media and movement smoke test, not a full campaign.']};
 (async()=>{

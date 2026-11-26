@@ -2,7 +2,7 @@
  * --before records the earlier build without claiming the later acceptance checks. */
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),{pathToFileURL}=require('node:url');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),v=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'))),build=path.join(root,'game/builds',v.versao,'TORII_HUTUKARA_'+v.sufixo+'.html'),url=process.argv.find(x=>/^(file:|https?:)/.test(x))||pathToFileURL(build).href;
 const baseline=process.argv.includes('--before'),label=baseline?'before':'after',out=path.join(root,'qa',v.versao,'locomotion-v9',label);fs.mkdirSync(out,{recursive:true});
 const report={baseline,sha256:crypto.createHash('sha256').update(fs.readFileSync(build)).digest('hex'),method:'Automated Chromium, actual update/drawActor and source/destination rectangles, six heroes, physical movement and controlled map. Pixel captures at native display scale; solo world crops filter follower drawing only, leaving actor physics/state unchanged. No physical controller or human playtest.',checks:[],heroes:[],errors:[]};let browser,page;

@@ -3,7 +3,7 @@
  * node qa/ninja_archer_art.cjs [hosted build URL]
  */
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json')));
 const output=path.join(root,'qa',version.versao);fs.mkdirSync(output,{recursive:true});
 (async()=>{

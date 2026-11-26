@@ -11,7 +11,7 @@
  */
 'use strict';
 const fs=require('node:fs'),path=require('node:path');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),url=process.argv[2]||'http://127.0.0.1:8771/';
 const progress=JSON.parse(fs.readFileSync(path.join(root,'qa/beta-1.10.1/CAMPAIGN_usina_RELOAD.json'))).save;
 const HEROES=['franco','ryuchi','alt','katana','synth','percussion'],SEEDS=[11,23,97,131,257,409,733,977];

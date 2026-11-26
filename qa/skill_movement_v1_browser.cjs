@@ -1,7 +1,7 @@
 /* Real runtime, real Forest collision plus isolated wall/control fixtures. */
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{pathToFileURL}=require('node:url');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),v=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'))),out=path.join(root,'qa',v.versao);
 const url=process.argv[2]||pathToFileURL(path.join(root,'game/builds',v.versao,'TORII_HUTUKARA_'+v.sufixo+'.html')).href;
 const report={checks:[],errors:[],limits:['Chromium automation with real runtime and real Forest map. Other hero and cooperative wall cases use controlled map fixtures.','No human gameplay or physical gamepad validation.']};let browser,page;

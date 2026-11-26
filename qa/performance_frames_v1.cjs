@@ -2,7 +2,7 @@
 // Native scheduler + actual game draws. Calibration prevents attributing the
 // host's refresh cap to the game; none of these numbers certify physical FPS.
 const fs=require('node:fs'),path=require('node:path');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const url=process.argv[2],out=process.env.PERF_OUT;
 if(!/^https?:/.test(url||'')||!out)throw Error('Pass HTTP export URL and PERF_OUT');
 const report={url,method:'Native requestAnimationFrame intervals with the actual game, compared with about:blank in the same browser. Draw invocations count completed game draws outside the asset gate, not GPU presentation. No hardware FPS certification.',cases:[],errors:[]};

@@ -1,7 +1,7 @@
 /* Isolated browser fixtures: actual runtime, not a physical-device playthrough. */
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {pathToFileURL}=require('node:url'),{chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),v=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'))),out=path.join(root,'qa/postgame');
 const input=process.argv[2]||path.join(root,'game/builds',v.versao,'TORII_HUTUKARA_'+v.sufixo+'.html'),url=/^(file|http)/.test(input)?input:pathToFileURL(input).href;
 let browser;const checks=[],errors=[];fs.mkdirSync(out,{recursive:true});

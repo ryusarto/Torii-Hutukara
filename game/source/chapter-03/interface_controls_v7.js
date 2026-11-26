@@ -23,14 +23,15 @@ function controls(root=scope()){
  return [...root.querySelectorAll('button,input:not([type="hidden"]),select,textarea,[data-key6],[data-pad6],a[href]')].filter(el=>visible(el)&&!el.matches(':disabled,[aria-disabled="true"]')&&(!el.hasAttribute('data-pad6')||typeof el.onclick==='function'));
 }
 function focused(){const root=scope(),active=document.activeElement;return root?.contains(active)?active:null}
-function focus(el){if(!el)return null;el.focus({preventScroll:true});el.scrollIntoView({block:'nearest',inline:'nearest'});markFocus();return el}
+// O foco automático ao abrir uma tela não rola a lista: o título continua visível. Setas e confirmação rolam até o item.
+function focus(el,scroll=true){if(!el)return null;el.focus({preventScroll:true});if(scroll)el.scrollIntoView({block:'nearest',inline:'nearest'});markFocus();return el}
 function markFocus(){for(const el of document.querySelectorAll('.ui7-menu-active'))if(el!==document.activeElement)el.classList.remove('ui7-menu-active');const el=focused();if(el)el.classList.add('ui7-menu-active')}
 function sync(){
  const root=scope(),list=controls(root);ROOT.classList.toggle('ui7-menu-controls',!!root);
  if(!root){firstControl=null;heldPads.clear();return}
  for(const el of list)if(el.hasAttribute('data-key6')||el.hasAttribute('data-pad6')){el.tabIndex=0;el.setAttribute('role','button');const id=el.dataset.key6||el.dataset.pad6,action=window.ToriiInterface6?.KeyMap.actions.find(a=>a.id===id);el.setAttribute('aria-label',(el.hasAttribute('data-key6')?'Alterar tecla de ':'Alterar botão de ')+(action?.label||id))}
  if(firstControl!==list[0]){firstControl=list[0]||null;heldPads.clear();if(typeof releaseAll121==='function')releaseAll121()}
- if(!capturingBinding()&&list.length&&!list.includes(document.activeElement))focus(list[0]);else markFocus();
+ if(!capturingBinding()&&list.length&&!list.includes(document.activeElement))focus(list[0],false);else markFocus();
 }
 function schedule(){if(queued)return;queued=true;queueMicrotask(()=>{queued=false;sync()})}
 function move(direction){const list=controls();if(!list.length)return false;let i=list.indexOf(document.activeElement);if(i<0)return !!focus(list[0]);return !!focus(list[(i+(direction<0?-1:1)+list.length)%list.length])}

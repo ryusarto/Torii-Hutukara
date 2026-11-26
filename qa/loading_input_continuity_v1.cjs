@@ -2,9 +2,9 @@
 // Native Chromium multitouch + keyboard; the shipped simulation is stepped
 // deterministically. This does not certify physical touch hardware or FPS.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
-const root=path.resolve(__dirname,'..'),url=process.argv[2]||'http://127.0.0.1:8894/';
-const output=process.env.LOADING_INPUT_OUTPUT||path.join(root,'qa/beta-1.26.0/loading-input/BROWSER.json');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
+const root=path.resolve(__dirname,'..'),releaseDir='qa/'+JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'),'utf8')).versao,url=process.argv[2]||'http://127.0.0.1:8894/';
+const output=process.env.LOADING_INPUT_OUTPUT||path.join(root,releaseDir+'/loading-input/BROWSER.json');
 const report={url,method:'Real CDP touchStart/touchEnd/touchCancel, trusted keyboard, actual update/draw callbacks; isolated temporary save.',checks:[],errors:[]};
 let browser,page,cdp,activeTouches=[];
 async function check(name,fn){try{const detail=await fn();report.checks.push({name,passed:true,detail});console.log('PASS '+name)}catch(e){report.checks.push({name,passed:false,error:e.stack});throw e}}

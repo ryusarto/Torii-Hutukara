@@ -3,7 +3,7 @@
  * Not a human campaign or physical-hardware test. */
 'use strict';
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs'),path=require('node:path'),{pathToFileURL}=require('node:url');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'))),out=path.join(root,'qa',version.versao),input=process.argv[2]||pathToFileURL(path.join(root,'game/builds',version.versao,'TORII_HUTUKARA_'+version.sufixo+'.html')).href;
 const report={method:'Actual built runtime, controlled hazard/actor fixtures, simulation-owned damage, canvas clipping and screenshots. Not human/hardware playtest.',input,checks:[],errors:[]};let browser,page;
 async function check(name,fn){const details=await fn();report.checks.push({name,passed:true,details});console.log('OK · '+name)}

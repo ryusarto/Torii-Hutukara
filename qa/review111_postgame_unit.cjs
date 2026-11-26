@@ -13,7 +13,7 @@ function check(name,fn){try{fn();count++;console.log('OK · '+name)}catch(e){fai
 function func(source,name){const start=source.indexOf('function '+name+'('),end=source.indexOf('\nfunction ',start+1);assert(start>=0&&end>start,name);return source.slice(start,end)}
 // Execute the actual small Ruby patch block in memory, not the asset builder.
 const start=builder.indexOf('combat_old ='),end=builder.indexOf('\nreplace_once!(html,',start);assert(start>=0&&end>start);
-const patched=execFileSync('/usr/bin/ruby',['-e','html=STDIN.read.force_encoding(Encoding::UTF_8)\n'+builder.slice(start,end)+'\nSTDOUT.write(html)'],{input:base,encoding:'utf8',maxBuffer:64*1024*1024});
+const patched=execFileSync(process.env.RUBY||'ruby',['-e','# encoding: utf-8\nhtml=STDIN.read.force_encoding(Encoding::UTF_8)\n'+builder.slice(start,end)+'\nSTDOUT.write(html)'],{input:base,encoding:'utf8',maxBuffer:64*1024*1024});
 for(const hero of ['franco','ryuchi'])for(const action of ['attackAction','skillAction','advancedSkill'])check(hero+' '+action+' honors the dynamic arena registration',()=>{
  const s={console,Math,Number,Set,G:copy(campaign),mode:'walk',act:{cool:0,dash:0,skill:0,skillX:0,invuln:0,combo:0},tick:10,T:24,cam:{x:0,y:0},projectiles:[],screenShake:0,bossActor:null,current:{enemies:[]},clamp:(n,a,b)=>Math.max(a,Math.min(n,b)),setTimeout:noop};
  Object.assign(s.G,{active:hero,formation:['franco','ryuchi'],area:'endless_echo',x:10,y:10,dir:'right',aim091:[1,0]});s.G.levels.franco=s.G.levels.ryuchi=5;

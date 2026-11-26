@@ -4,7 +4,7 @@
  */
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'))),out=path.join(root,'qa',version.versao),url=process.argv[2]||'http://127.0.0.1:8877/';
 const report={version:version.numero,checks:[],errors:[],method:'Chromium real keyboard + full runtime update/drawActor; requests for locomotion media are held then released. Each sample measures displacement, drawImage source cells and hashes of rendered actor pixels. Controlled map fixtures; not human fluency or physical hardware.'};let browser,releasePending=()=>{};
 function check(name,details,pass=true){assert(pass,name+' '+JSON.stringify(details));report.checks.push({name,passed:true,details});console.log('OK · '+name)}

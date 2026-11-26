@@ -2,7 +2,7 @@
 // Native enemy AI in controlled, original-map encounters. No mockup compositing.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const {spawn}=require('node:child_process'),{once}=require('node:events');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),device=process.env.FX_DEVICE||'pc';
 const version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'))).versao;
 const url=process.argv[2],buildKey=new URL(url).searchParams.get('ui')||'local',out=path.join(root,'qa',version,'enemy-skill-fx-v2','build-'+buildKey,device==='pc'?'':device);if(!/^http/.test(url||''))throw Error('Use HTTP export only');

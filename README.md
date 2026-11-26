@@ -4,7 +4,7 @@ RPG musical de ação e narrativa de **Ryuchi** e **Franco, The Sir**, feito par
 
 **[Site oficial](https://toriiehutukara.com/#jogo)** · [Abrir o jogo diretamente](https://ryusarto.github.io/Torii-Hutukara/)
 
-A linha **1.26** está em desenvolvimento. A versão de cada build está em [`game/VERSION.json`](game/VERSION.json).
+A linha **1.27** está em desenvolvimento. A versão de cada build está em [`game/VERSION.json`](game/VERSION.json).
 
 ## Controles
 
@@ -34,7 +34,7 @@ node qa/input_regression.cjs
 node qa/gameplay_regression.cjs
 ```
 
-O HTML portátil e seu manifesto são gerados em `game/builds/`, fora do versionamento. Para a versão web, instale as dependências de imagem indicadas no workflow e execute:
+O HTML portátil e seu manifesto são gerados em `game/builds/`, fora do versionamento. A geração também usa Python 3 com Pillow e NumPy para embutir as imagens em WebP (`TORII_PNG_ORIGINAL=1` mantém os PNGs). Para a versão web, instale as dependências de imagem indicadas no workflow e execute:
 
 ```sh
 ruby production/build_playtest.rb

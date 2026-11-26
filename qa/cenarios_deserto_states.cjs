@@ -2,7 +2,7 @@
  * Disposable save, simulated gamepads; no physical hardware or full campaign. */
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const output=process.env.DESERT_STATES_OUTPUT_DIR||path.join(__dirname,'cenarios-deserto-v1/estados');fs.mkdirSync(output,{recursive:true});
 (async()=>{
  const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH}),context=await browser.newContext(),page=await context.newPage();

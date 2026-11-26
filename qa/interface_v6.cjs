@@ -9,7 +9,7 @@
  */
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),url=process.argv[2]||'http://127.0.0.1:8771/',out=path.join(root,'qa/interface-v6');
 const save=JSON.parse(fs.readFileSync(path.join(root,'qa/beta-1.10.1/CAMPAIGN_usina_RELOAD.json'))).save;
 const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1';
@@ -52,7 +52,7 @@ async function check(name,fn){const detail=await fn();checks.push({name,passed:t
    assert.deepEqual(after.keys,['j'],JSON.stringify(after));assert(after.att>=1,'F deve atacar');assert(after.footer.includes('F atacar'),after.footer);
    const tech=await p.evaluate(async()=>{ToriiInterface6.KeyMap.set('dodge','v');ToriiInterface6.refreshHints();updateHUD();return [...document.querySelectorAll('#vitals092 .tech-row10 span')].map(s=>s.textContent)});
    await p.evaluate(async()=>ToriiInterface6.KeyMap.reset());assert(tech.some(t=>t.startsWith('V ')),JSON.stringify(tech));return{before,after,tech}});
-  await check('Aliado não fica em cima do líder depois de trocar de área',async()=>{const r=await p.evaluate(async()=>{const rows=[];for(const dir of ['up','down','left','right']){setArea('last_torii',13.5,13.5,false);await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');G.dir=dir;G.aim091=null;getFollower(0);tick+=.3;const f=getFollower(0);rows.push({dir,dx:+(f.x-G.x).toFixed(2),dy:+(f.y-G.y).toFixed(2)})}return rows});for(const f of r)assert(Math.abs(f.dx)>=.7||Math.abs(f.dy)>=1.5,JSON.stringify(f));return r});
+  await check('Aliado não fica em cima do líder depois de trocar de área',async()=>{const r=await p.evaluate(async()=>{const rows=[];for(const dir of ['up','down','left','right']){setArea('last_torii',13.5,13.5,false);await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');G.dir=dir;G.aim091=null;getFollower(0);tick+=.3;const f=getFollower(0);rows.push({dir,dx:+(f.x-G.x).toFixed(2),dy:+(f.y-G.y).toFixed(2)})}return rows});for(const f of r)assert(Math.abs(f.dx)>=1.1||Math.abs(f.dy)>=1.5,JSON.stringify(f));return r});
   await check('Acessibilidade: avisos em âmbar, batida tolerante e pista da batida',async()=>{
    const r=await p.evaluate(async()=>{const A=ToriiInterface6.A11y,v=JSON.parse(localStorage.getItem('torii_hutukara_interface_v6')||'{}');v.colorblind=true;v.tolerant=true;v.beatCue=true;localStorage.setItem('torii_hutukara_interface_v6',JSON.stringify(v));
     PostGame.startDungeon(9);await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');mode='action';drawEnv();const c=document.createElement('canvas').getContext('2d');c.strokeStyle='#ff798a';const amber=c.strokeStyle;mode='walk';c.strokeStyle='#ff798a';const normal=c.strokeStyle;

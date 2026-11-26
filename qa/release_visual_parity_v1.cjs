@@ -3,7 +3,7 @@
 // Fixtures control seed/time/state and await existing final artwork on both
 // sides; no pixel tolerance, masks, resizing or artwork replacement is used.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const baselineURL=process.argv[2],candidateURL=process.argv[3];
 if(!/^https?:/.test(baselineURL||'')||!/^https?:/.test(candidateURL||''))throw Error('Pass approved baseline URL and candidate URL');
 const root=path.resolve(__dirname,'..'),out=path.resolve(process.env.VISUAL_PARITY_OUT||path.join(root,'qa/performance-v1/visual-parity'));
