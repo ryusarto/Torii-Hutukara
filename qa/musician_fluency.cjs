@@ -94,12 +94,19 @@ const output=process.env.MUSICIAN_FLUENCY_OUTPUT||path.join(__dirname,release,'M
    function frame(hero,state,moving=false,seat=0){
     const performance=state==='performance',body=seat===1?C3.coop:G;
     const p={style:hero,dir:body.dir,...(performance?{musicianState:'performance',musicianNpc:true}:{})};
-    const pose=art.pose(p,performance?-1:seat,moving),calls=[],previous=ctx.drawImage;
+    let pose=art.pose(p,performance?-1:seat,moving);const calls=[],previous=ctx.drawImage;
     ctx.drawImage=function(...args){calls.push(args);return previous.apply(this,args)};
     try{
      if(performance)drawDetailedNPC({id:hero==='synth'?'c3_synth_npc':'c3_percussion_npc',dir:body.dir,musicianState:'performance'},120,120);
      else drawActor(p,body.x*T-cam.x,body.y*T-cam.y,moving);
     }finally{ctx.drawImage=previous}
+    // V9 registers the shared motion clock only while drawing this actor.
+    // Read its effective walk pose after drawActor, including the walking exit
+    // from a completed roll; action/roll sequence checks below stay unchanged.
+    if(!performance&&['walk','run'].includes(pose.state)){
+     const effective=RunStrideV1.snapshot().find(item=>item.hero===hero&&item.seat===seat)?.nativePose;
+     if(effective?.state===pose.state)pose={...effective};
+    }
     const call=calls.at(-1),image=art.images[art.key(hero,pose.variant,pose.state)];
     if(pose.state==='run'&&moving){
      const run=RunStrideV1.image(hero),cell=run.cell,row=dirs.indexOf(pose.direction)+(pose.variant==='masked'?4:0);
