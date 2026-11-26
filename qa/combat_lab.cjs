@@ -5,7 +5,7 @@
  * esperada e se posiciona antes (mede se o padrão recompensa quem aprende).
  */
 const fs=require('node:fs');const path=require('node:path');
-let chromium;try{({chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core'))}catch{({chromium}=require('playwright'))}
+let chromium;try{({chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})()))}catch{({chromium}=require('playwright'))}
 const root=path.resolve(__dirname,'..');
 const pt=JSON.parse(fs.readFileSync(path.join(root,'web/playtest/build.json'),'utf8'));
 const mp=path.join(root,pt.manifest);const build=path.join(path.dirname(mp),JSON.parse(fs.readFileSync(mp,'utf8')).output.file);

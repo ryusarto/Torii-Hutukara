@@ -2,7 +2,7 @@
  * viewport shots use drawEnv at the production 768x432 camera. No player save.
  */
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),stage=process.argv[2]||'antes';
 const output=path.join(root,process.env.TORII_CAPTURE_ROOT||'qa/cenarios-v2',stage);fs.mkdirSync(output,{recursive:true});
 (async()=>{

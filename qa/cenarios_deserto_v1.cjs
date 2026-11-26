@@ -5,7 +5,7 @@
  */
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),out=process.env.DESERT_OUTPUT_DIR||path.join(root,'qa/cenarios-deserto-v1');
 const url=process.argv[2]||process.env.TORII_URL;
 if(!url)throw Error('Pass the root-owned local build URL as argument or TORII_URL.');

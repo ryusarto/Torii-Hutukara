@@ -3,7 +3,7 @@
 // Preview mode changes only draw dimensions in the observer; release mode
 // checks the dimensions actually installed by the build.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const url=process.argv[2],preview=process.env.NPC_SCALE_PREVIEW==='1';
 if(!/^https?:/.test(url||''))throw Error('Pass an HTTP export URL');
 const out=path.resolve(process.env.NPC_SCALE_OUT||path.join(__dirname,'performance-v1','npc-scale'));

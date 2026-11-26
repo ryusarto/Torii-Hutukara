@@ -2,7 +2,7 @@
  * Controlled saves/opening shortcuts are fixtures, not full campaign playthroughs. */
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const url=process.argv[2],out=process.argv[3]||'/private/tmp/torii-ui124-qa';
 if(!url)throw Error('Pass the integrated build HTTP URL.');
 const report={url,injectedCSS:process.env.UI7_INJECT_CSS==='1',checks:[],errors:[],limits:['Native runtime with controlled puzzle states; not a complete human campaign.','Mobile viewport/touch emulation and synthetic controller input; no physical device.']};

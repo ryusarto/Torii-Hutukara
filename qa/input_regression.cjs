@@ -11,7 +11,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const crypto=require('node:crypto');
 const {pathToFileURL}=require('node:url');
-let chromium;try{({chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core'))}catch{({chromium}=require('playwright'))}
+let chromium;try{({chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})()))}catch{({chromium}=require('playwright'))}
 const root=path.resolve(__dirname,'..');
 const playtest=JSON.parse(fs.readFileSync(path.join(root,'web/playtest/build.json'),'utf8'));
 const manifestPath=path.join(root,playtest.manifest);

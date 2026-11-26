@@ -2,7 +2,7 @@
  * campaign/hardware playtest. Damage uses the real hitEnemy action. */
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),{pathToFileURL}=require('node:url');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),v=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'))),out=path.join(root,'qa',v.versao);
 const input=process.argv[2]||pathToFileURL(path.join(root,'game/builds',v.versao,'TORII_HUTUKARA_'+v.sufixo+'.html')).href;
 fs.mkdirSync(out,{recursive:true});let browser;const report={method:'Actual runtime render with controlled actor fixtures; animation loop disabled to isolate DOM/canvas geometry. Real hitEnemy for damage/death. No human/hardware playtest.',checks:[],errors:[]};

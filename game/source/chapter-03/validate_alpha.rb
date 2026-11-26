@@ -29,6 +29,16 @@ end)
 
 source = File.read(runtime, encoding: 'UTF-8') + File.read(File.join(root, 'input_mobile_combat.js'), encoding: 'UTF-8')
 built = File.read(alpha, encoding: 'UTF-8')
+stale_labels = ['PRÉ-BETA', 'Pré-beta', 'PRÉ-ALPHA', 'BETA 1.17.0', '__BUILD_LABEL__', '__BUILD_TITLE__', 'VERSÃO 1.1.2']
+built_code = built.gsub(/[A-Za-z0-9+\/=]{400,}/, '')
+stale_found = stale_labels.select { |label| built_code.gsub(%r{/\*.*?\*/}m, '').include?(label) }
+check.call('rótulos de versão visíveis vêm só de VERSION.json', stale_found.empty?, stale_found.join(', '))
+check.call("título da página é #{version.fetch('titulo')}", built_code.include?("<title>TORII & HUTUKARA — A Última Frequência · #{version.fetch('titulo')}</title>"))
+# Trava das camadas: funções centrais são reescritas por cima a cada módulo.
+# O número não pode crescer; ao consolidar uma camada, baixe o teto aqui.
+layer_ceiling = { 'update' => 38, 'buildMaps' => 21, 'drawActor' => 14, 'drawTile' => 10, 'normalizeSave' => 11, 'advanceDialogue' => 11 }
+layer_counts = layer_ceiling.keys.to_h { |name| [name, built_code.scan(/(?<![\w.$])#{name}\s*=\s*(?:function|\()/).size] }
+check.call('camadas sobre funções centrais não aumentaram', layer_counts.all? { |name, count| count <= layer_ceiling.fetch(name) }, layer_counts.map { |name, count| "#{name} #{count}/#{layer_ceiling.fetch(name)}" }.join(', '))
 ninja_art_root = File.join(repo_root, 'assets', 'variantes', 'ninja-arqueiro-v1')
 ninja_art = JSON.parse(File.read(File.join(ninja_art_root, 'manifest.json')))
 check.call('Ninja e Arqueiro: 96 sequências em quatro direções', ninja_art.fetch('animations').size == 96 && ninja_art.fetch('animations').all? { |a| a['frames'] == 9 && a['playFrames'] == 8 })

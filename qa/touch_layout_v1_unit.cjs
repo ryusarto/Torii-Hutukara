@@ -24,7 +24,7 @@ console.log('OK · corrupt data, clamps, collision detection, separate orientati
 
 // Optional actual DOM/input pass: PLAYWRIGHT_CORE=/path/to/playwright-core node qa/touch_layout_v1_unit.cjs --browser
 if(process.argv.includes('--browser'))(async()=>{
- const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core'),{pathToFileURL}=require('node:url');
+ const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})()),{pathToFileURL}=require('node:url');
  const version=JSON.parse(fs.readFileSync(path.join(__dirname,'../game/VERSION.json')));
  const artifact=path.join(__dirname,version.versao);fs.mkdirSync(artifact,{recursive:true});
  const report={timestamp:new Date().toISOString(),engine:'Chrome headless / Playwright + CDP touch',limits:['Automação em Chromium com viewport e toque emulados; não substitui teste em hardware Android/iOS.','Estado de campanha preparado numa sessão isolada; não é uma campanha completa jogada.'],checks:[],screenshots:[],errors:[]};

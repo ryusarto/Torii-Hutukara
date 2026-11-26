@@ -1,7 +1,7 @@
 'use strict';
 // Runtime on the small HTTP export only, controlled actors plus real Medium AI.
 // No human campaign or physical-device claim.
-const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');const{chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');const{chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),out=path.join(root,'qa/beta-1.17.0/enemy-variants-v2');fs.mkdirSync(out,{recursive:true});const url=process.argv[2];if(!/^http/.test(url||''))throw Error('Use the small HTTP build, never the portable HTML');
 const report={method:'Chrome headless with actual HTTP build, original Medium enemy AI/timers, controlled fixtures and map screenshots; not human/hardware playtest',checks:[],errors:[]};let browser,page;
 async function check(name,fn){const details=await fn();report.checks.push({name,passed:true,details});console.log('OK · '+name)}async function shot(name){await page.screenshot({path:path.join(out,name+'.png')})}

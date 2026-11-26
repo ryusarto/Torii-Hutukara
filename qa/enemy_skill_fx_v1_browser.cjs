@@ -2,7 +2,7 @@
 // Independent integration checks. HTTP only; no portable copies, user saves or
 // claim of human gameplay. The art director owns the visual acceptance.
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),out=path.join(root,'qa',JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'))).versao,'enemy-skill-fx-v1');
 const url=process.argv[2];if(!/^https?:/.test(url||''))throw Error('Pass the current small HTTP export URL. Portable HTML is not supported.');
 const registrationOnly=process.argv.includes('--registration-only');

@@ -229,7 +229,7 @@ replace_once!(runtime, "C3_drawEnvBase();if(!G||!C3.AREAS.includes(G.area))retur
   "C3_drawEnvBase();if(!G||!C3.AREAS.includes(G.area)||(typeof EnvironmentAtmosphereV1!=='undefined'&&EnvironmentAtmosphereV1.enabled))return;", 'atmosfera contextual substitui névoa rosa legada')
 
 html.sub!('<title>TORII & HUTUKARA — A Última Frequência · 1.1.2 · Pré-alpha</title>',
-          '<title>TORII & HUTUKARA — Alpha 1.2.0 · Pré-beta</title>')
+          '<title>TORII & HUTUKARA — A Última Frequência · Alpha 1.2.0</title>')
 
 # Nomes públicos dos colaboradores mudam sem alterar IDs persistentes de save.
 { 'BENTO' => 'BELGA', 'Bento' => 'Belga', 'NILO' => 'COLLI', 'Nilo' => 'Colli' }.each do |old, current|
@@ -663,6 +663,12 @@ end
 part = nil
 GC.start
 
+html.gsub!('__BUILD_LABEL__', VERSION.fetch('rotulo'))
+html.gsub!('__BUILD_TITLE__', VERSION.fetch('titulo'))
+# Rótulos herdados da base 1.1.2 e de passes antigos: a versão visível vem só de VERSION.json.
+html.gsub!("'VERSÃO 1.1.2 · PRÉ-ALPHA'", "'" + VERSION.fetch('rotulo') + "'")
+html.gsub!('TORII & HUTUKARA<br>1.1.2 · PRÉ-ALPHA', 'TORII & HUTUKARA<br>' + VERSION.fetch('rotulo'))
+html.gsub!("'Outras frequências','PRÉ-ALPHA 1.1'", "'Outras frequências','" + VERSION.fetch('rotulo') + "'")
 html.gsub!('1.0 · PRÉ-ALPHA', VERSION.fetch('rotulo'))
 html.gsub!('ALPHA 1.2.0', VERSION.fetch('rotulo'))
 html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
@@ -670,6 +676,46 @@ html.gsub!('Alpha 1.2.0', VERSION.fetch('titulo'))
 html.gsub!('clamp(G.x*T-VW/2,0,a.w*T-VW)', 'clamp(coopCamera123("x")*T-VW/2,0,a.w*T-VW)')
 html.gsub!('clamp(G.y*T-VH/2,0,a.h*T-VH)', 'clamp(coopCamera123("y")*T-VH/2,0,a.h*T-VH)')
 html.gsub!("yy=bossActor?.id==='voice_boss'?", "yy=!C3.coopActive()&&bossActor?.id==='voice_boss'?")
+# Versão otimizada: as imagens embutidas passam pelo mesmo conversor WebP da
+# versão web (production/otimizar_media.py, com cache por conteúdo). Fica o
+# original quando o WebP não é menor; dimensões e alfa não mudam, então os
+# módulos que leem tamanho ou pixels das folhas continuam iguais.
+# TORII_PNG_ORIGINAL=1 gera a build com os PNGs como estão.
+webp_from_png = {}
+webp_modes = {}
+unless ENV['TORII_PNG_ORIGINAL'] == '1'
+  require 'tmpdir'
+  png_uri = %r{data:image/png;base64,([A-Za-z0-9+/]+={0,2})}
+  Dir.mktmpdir('torii-webp-') do |temp|
+    folder = File.join(temp, 'media')
+    FileUtils.mkdir_p(folder)
+    png_by_payload = {}
+    html.scan(png_uri) do |(payload)|
+      key = Digest::SHA256.hexdigest(payload)
+      next if png_by_payload.key?(key)
+      bytes = Base64.strict_decode64(payload)
+      sha = Digest::SHA256.hexdigest(bytes)
+      File.binwrite(File.join(folder, "#{sha}.png"), bytes)
+      png_by_payload[key] = sha
+    end
+    report_path = File.join(temp, 'report.json')
+    system('python3', '-I', File.join(REPO_ROOT, 'production', 'otimizar_media.py'), folder, report_path, exception: true)
+    report = JSON.parse(File.read(report_path, encoding: 'UTF-8'))
+    webp_payload = {}
+    report.each do |name, data|
+      next if data['file'] == name
+      webp_payload[File.basename(name, '.png')] = Base64.strict_encode64(File.binread(File.join(temp, data.fetch('file'))))
+      webp_from_png[name] = data.fetch('file')
+      webp_modes[name] = data.fetch('mode')
+    end
+    html.gsub!(png_uri) do |uri|
+      sha = png_by_payload.fetch(Digest::SHA256.hexdigest(Regexp.last_match(1)))
+      webp_payload.key?(sha) ? "data:image/webp;base64,#{webp_payload.fetch(sha)}" : uri
+    end
+  end
+  GC.start
+end
+
 FileUtils.mkdir_p(OUTPUT_DIR)
 GC.start
 pending_output = "#{OUTPUT}.building-#{Process.pid}"
@@ -745,6 +791,9 @@ manifest = {
     bytes: File.size(OUTPUT),
     sha256: Digest::SHA256.file(OUTPUT).hexdigest
   },
+  # PNG original (nome usado em web/playtest/media_priority.json) → WebP embutido.
+  webp_from_png: webp_from_png,
+  webp_modes: webp_modes,
   chapter_3: {
     title: 'O Som que Ainda Não Existe',
     areas: 11,

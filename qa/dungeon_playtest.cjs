@@ -1,7 +1,7 @@
 /* Actual runtime simulation and touchscreen/Gamepad API fixtures; not human/hardware playtesting. */
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),out=path.join(root,'qa/dungeon-v3'),url=process.argv[2]||'http://127.0.0.1:8792/',progress=JSON.parse(fs.readFileSync(path.join(root,'qa/beta-1.10.1/CAMPAIGN_usina_RELOAD.json'))).save;
 fs.mkdirSync(out,{recursive:true});let browser;const checks=[],errors=[],bench=[];let testedBuild=null;
 function install(original){

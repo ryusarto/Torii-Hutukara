@@ -2,7 +2,7 @@
 // Accepted game actions, renderer interception, real-map screenshots. Not a
 // human campaign or physical mobile/controller validation.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{pathToFileURL}=require('node:url');
-const {chromium}=require(process.env.PLAYWRIGHT_CORE||'playwright-core');
+const {chromium}=require(process.env.PLAYWRIGHT_CORE||(()=>{try{return require.resolve('playwright-core')}catch{return 'playwright'}})());
 const root=path.resolve(__dirname,'..'),version=JSON.parse(fs.readFileSync(path.join(root,'game/VERSION.json'))),out=path.join(root,'qa',version.versao,'hero-fx-v3');fs.mkdirSync(out,{recursive:true});
 const input=process.argv[2]||pathToFileURL(path.join(root,'game/builds',version.versao,'TORII_HUTUKARA_'+version.sufixo+'.html')).href;
 const report={method:'Chrome headless, actual built runtime and accepted actions with controlled combat fixtures; real-map PC/mobile screenshots. No human/hardware playtest.',checks:[],errors:[]};let browser,page;
