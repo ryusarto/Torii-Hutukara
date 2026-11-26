@@ -66,13 +66,13 @@ fs.mkdirSync(out,{recursive:true});
     return {theme:art.manifest.theme,sheets:Object.keys(art.manifest.sheets).length,items,backgrounds,desertExtras:Object.keys(art.manifest.items).filter(k=>k.startsWith('c3_desert_'))};
    });assert.equal(r.sheets,15);assert.equal(r.items,151);assert.equal(r.desertExtras.length,25);assert.equal(r.backgrounds.length,2);return r;
   });
-  await check('All 25 maps retain tiles/gates and collision except the studio sofa and two removed district residences',async()=>{
+  await check('All 25 maps keep their gates and match baseline tiles and collision outside the approved layout updates',async()=>{
    const currentMaps=await page.evaluate(()=>JSON.parse(JSON.stringify(Object.values(areas).map(a=>({id:a.id,w:a.w,h:a.h,tiles:a.tiles,blocked:[...a.blocked].sort(),gates:a.gates.map(g=>({...g,need:undefined}))})))));
    assert.equal(currentMaps.length,25);assert.equal(baseline.length,25);
    for(const old of baseline){
     const a=currentMaps.find(m=>m.id===old.id);
     assert(a,'Missing '+old.id);assert.equal(a.w,old.w,old.id+' width');assert.equal(a.h,old.h,old.id+' height');
-    assert.deepEqual(a.tiles,old.tiles,old.id+' tiles');
+    const expectedTiles=old.tiles.map(row=>row.slice());
     const expectedBlocked=new Set(old.blocked);
     if(old.id==='studio'){
      for(let y=5;y<9;y++)for(let x=2;x<6;x++)expectedBlocked.delete(x+','+y);
@@ -87,10 +87,27 @@ fs.mkdirSync(out,{recursive:true});
      }
      assert.equal(old.blocked.length-expectedBlocked.size,62,'Exactly the removed residence collision is released');
     }
+    if(old.id==='forest'){
+     // The instrument forecourt opens a path and removes these seven tree footprints.
+     for(const [x,y] of [[27,17],[28,18],[26,24],[27,24],[28,24],[27,25]])expectedTiles[y][x]='forestpath';
+     for(const cell of ['28,17','27,24','28,24','29,24','27,25','28,25','27,26'])assert(expectedBlocked.delete(cell),'Missing historical tree cell '+cell);
+    }
+    if(old.id==='contratempo'){
+     // Stage perimeter, with the two stair tiles open at the front.
+     for(let x=7;x<=20;x++){
+      expectedBlocked.add(`${x},4`);
+      if(x!==13&&x!==14)expectedBlocked.add(`${x},9`);
+     }
+     for(let y=5;y<=8;y++)for(const x of [7,20])expectedBlocked.add(`${x},${y}`);
+     // Instruments, mixer, four chairs, instrument rack and bar counter.
+     for(const cell of ['10,6','14,6','17,6','22,7','6,14','8,14','10,15','12,15','2,8','3,8','4,8'])expectedBlocked.add(cell);
+     for(let y=11;y<=16;y++)for(const x of [24,25])expectedBlocked.add(`${x},${y}`);
+    }
+    assert.deepEqual(a.tiles,expectedTiles,old.id+' tiles');
     assert.deepEqual(a.blocked,[...expectedBlocked].sort(),old.id+' blocked');
     assert.deepEqual(a.gates,old.gates,old.id+' gates');
    }
-   return {maps:25,transitions:currentMaps.reduce((n,a)=>n+a.gates.length,0),collisionChanges:{studio:'sofa 3x6 at (2,6)',distortion_district:'62 released cells from residences (9,9)/(21,8); workshop overlap retained'},allOtherCellsUnchanged:true};
+   return {maps:25,transitions:currentMaps.reduce((n,a)=>n+a.gates.length,0),collisionChanges:{studio:'sofa 3x6 at (2,6)',distortion_district:'62 released cells; workshop overlap retained',forest:'instrument forecourt',contratempo:'stage and furnishings'},allOtherCellsUnchanged:true};
   });
   await check('Desert binding is used by the real prop renderer only in C3, including elevator states',async()=>{
    const r=await page.evaluate(()=>{
@@ -203,19 +220,41 @@ fs.mkdirSync(out,{recursive:true});
     if(before!==immutable())throw Error('A prop or gate changed during render');return {areas:tested,saveUnchanged:true,propsUnchanged:true,gatesUnchanged:true};
    });
   });
-  await check('C1/C2 prop and tile pixels match V2 except the two explicitly replaced studio furnishings',async()=>{
-   return page.evaluate(()=>{
-    const tested=[];let count=0;
+  await check('C1/C2 legacy pixels match V2 and new forest and radio props render',async()=>{
+   const result=await page.evaluate(()=>{
+    const tested=[],forestProps=[];let count=0,radioTuners=0,radioAntennas=0;
     for(const a of Object.values(areas).filter(a=>!C3.AREAS.includes(a.id))){
      current=a;G.area=a.id;cam.x=cam.y=0;const props=a.props;
      for(const p of props){if(a.id==='studio'&&['sofa','plant'].includes(p.type))continue;const cx=(p.x+.5)*T-384,cy=(p.y+.65)*T-330;
       const before=__desertQA.pixels(()=>desertPropV1(p,cx,cy)),after=__desertQA.pixels(()=>drawProp(p,cx,cy));
+      if(a.id==='forest'&&p.type==='frequencyStation'){
+       if(!__desertQA.nonempty(after)||__desertQA.equal(before,after))throw Error('Missing instrument art '+p.bridgeKind);
+       forestProps.push(p.bridgeKind);continue;
+      }
+      if(a.id==='radio9'&&p.type==='radioTuner'){
+       if(!__desertQA.nonempty(after)||__desertQA.equal(before,after))throw Error('Missing radio tuner art');
+       radioTuners++;continue;
+      }
+      if(a.id==='radio9'&&p.type==='voiceAntenna'){
+       const flags=G.flags;
+       try{
+        G.flags={radioTuned:false};
+        const oldAntenna=__desertQA.pixels(()=>desertPropV1(p,cx,cy));
+        const off=__desertQA.pixels(()=>drawProp(p,cx,cy));
+        G.flags.radioTuned=true;
+        const on=__desertQA.pixels(()=>drawProp(p,cx,cy));
+        if(!__desertQA.equal(oldAntenna,off)||__desertQA.equal(off,on))throw Error('Radio antenna must light up only when tuned');
+       }finally{G.flags=flags}
+       radioAntennas++;continue;
+      }
       if(!__desertQA.equal(before,after))throw Error('Legacy prop pixels changed '+a.id+'/'+p.type);count++;
      }
      const types=[...new Set(a.tiles.flat())];for(const type of types){const before=__desertQA.pixels(()=>cenarioTileV2(type,100,100,3,3)),after=__desertQA.pixels(()=>drawTile(type,100,100,3,3));if(!__desertQA.equal(before,after))throw Error('Legacy tile pixels changed '+a.id+'/'+type)}
      tested.push({area:a.id,props:props.length,tileTypes:types.length});
-    }return {areas:tested,propSamples:count};
+    }return {areas:tested,propSamples:count,forestProps,radioTuners,radioAntennas};
    });
+   assert.deepEqual(result.forestProps.sort(),['bell','log','marker','stone']);
+   assert.equal(result.radioTuners,1);assert.equal(result.radioAntennas,1);return result;
   });
   await check('All six hero renderers remain pixel-identical with desert theme enabled or disabled',async()=>{
    return page.evaluate(()=>{
