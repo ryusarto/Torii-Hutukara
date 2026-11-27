@@ -47,64 +47,73 @@ function rpc(name,body){
   G=fresh();buildMaps();Object.assign(G.flags,{reveal:true,voicesKatana:true,masks:true,bass:true});Object.assign(G.c3,{started:true,synthUnlocked:true,percussionUnlocked:true,metronomeDone:true,silenceDone:true,complete:true,toriiSeen:true});
   G.formation=['franco','alt','percussion'];G.active='franco';for(const id of C3.unlockedRoster())G.hp[id]=G.maxhp[id]=100;PostGame.clearCombat();setArea('last_torii',13.5,13.5,false);mode='walk';
   for(const id of ['start','dialogue'])$(id).classList.add('hidden');
-  PostGame.startDungeon(42);const r=PostGame.run();r.score=r.bankedScore=5200;r.completedWave=7;r.kills=33;PostGame.finishRun('defeat');
+  window.endRun=(score,wave,reason='defeat')=>{const r=PostGame.run();r.score=r.bankedScore=score;r.completedWave=wave;r.kills=wave*5;PostGame.finishRun(reason)};
+  PostGame.openBriefing();
  },{HOST,KEY});
 
- await check('o resultado da expedição tem o botão RANKING ONLINE e nada foi enviado sem consentimento',async()=>{
-  assert.equal(await page.isVisible('#rk1Open'),true);assert.equal(requests.length,0);
-  await page.click('#rk1Open');assert.match(await text('#overlayInner h2'),/Participar do ranking/);return await page.inputValue('#rk1Name');
+ await check('o briefing do calabouço pede o nome antes de entrar',async()=>{
+  assert.equal(await page.isVisible('#rk1Name'),true);assert.equal(await page.inputValue('#rk1Name'),'');
+  assert.equal(await page.evaluate(()=>document.activeElement.id),'rk1Name');assert.match(await text('#rk1Form'),/visível para todos/);
+  await page.click('#postBeginRun');assert.match(await text('#rk1Status'),/Escreva seu nome/);assert.equal(await page.evaluate(()=>PostGame.active()),false);
+  assert.equal(requests.length,0);return await text('#rk1Status');
  });
 
- await check('digitar o apelido não aciona atalhos do jogo (espaço, M, J, E, setas)',async()=>{
-  await page.fill('#rk1Name','');await page.click('#rk1Name');await page.keyboard.type('Ryu me je');await page.keyboard.press('ArrowLeft');await page.keyboard.type('!');
+ await check('digitar o nome não aciona atalhos do jogo (espaço, M, J, E, setas)',async()=>{
+  await page.click('#rk1Name');await page.keyboard.type('Ryu me je');await page.keyboard.press('ArrowLeft');await page.keyboard.type('!');
   const r=await page.evaluate(()=>({value:$('rk1Name').value,mode,page:menuPage10,focus:document.activeElement.id}));
   assert.deepEqual(r,{value:'Ryu me j!e',mode:'overlay',page:'postgame',focus:'rk1Name'});return r;
  });
 
- await check('apelido inválido é recusado com explicação',async()=>{
-  await page.keyboard.press('Enter');assert.match(await text('#rk1Status'),/2 a 16 caracteres/);assert.equal(await page.inputValue('#rk1Name'),'Ryu me j!e');
+ await check('nome inválido é recusado; nome válido com Enter inicia a expedição',async()=>{
+  await page.keyboard.press('Enter');assert.match(await text('#rk1Status'),/2 a 16 caracteres/);assert.equal(await page.evaluate(()=>PostGame.active()),false);
   await page.fill('#rk1Name','Ryuchi');await page.keyboard.press('Enter');
-  await until(()=>$('rk1Status')?.textContent.includes('Sua posição'));
-  return await text('#rk1Status');
+  assert.equal(await page.evaluate(()=>PostGame.active()),true);assert.equal(requests.length,0);return await page.evaluate(()=>RankingV1.player().name);
  });
 
- await check('o recorde foi enviado uma vez e aparece no ranking, com a posição destacada',async()=>{
+ await check('no fim da expedição, a pontuação é enviada e o ranking completo aparece no resultado',async()=>{
+  await page.evaluate(()=>endRun(5200,7));await until(()=>/de 3/.test($('rk1Status')?.textContent||''));
   const sent=requests.filter(r=>r.name==='enviar_recorde');assert.equal(sent.length,1);
   assert.deepEqual({mode:sent[0].body.p_mode,name:sent[0].body.p_name,score:sent[0].body.p_score,wave:sent[0].body.p_wave},{mode:'solo',name:'Ryuchi',score:5200,wave:7});
   assert.equal(sent[0].headers.apikey,KEY);
+  assert.match(await text('#overlayInner h2'),/5\.200 pontos · Ryuchi/);
   const rows=await page.$$eval('#rk1List li',li=>li.map(l=>({me:l.classList.contains('me'),text:l.textContent})));
   assert.equal(rows.length,3);assert.match(rows[1].text,/#2Ryuchi5\.200onda 7/);assert(rows[1].me&&!rows[0].me);
-  assert.match(await text('#rk1Status'),/#2 de 3/);return rows.map(r=>r.text);
+  assert.match(await text('#rk1Status'),/Ryuchi: #2 de 3/);
+  for(const id of ['postRunAgain','postRunMap','postRunClose'])assert.equal(await page.isVisible('#'+id),true);
+  return rows.map(r=>r.text);
  });
 
- await check('apelidos com HTML aparecem como texto',async()=>{
+ await check('nomes com HTML aparecem como texto',async()=>{
   assert.equal(await page.$$eval('#rk1List img',n=>n.length),0);assert.match(await text('#rk1List'),/<img src=x/);return true;
  });
- await page.screenshot({path:path.join(out,'ranking_solo.png')});
+ await page.screenshot({path:path.join(out,'ranking_resultado.png')});
 
- await check('a aba CO-OP troca a lista',async()=>{
+ await check('NOVA TENTATIVA segue com o mesmo nome; sem internet a pontuação espera e sai depois',async()=>{
+  await page.click('#postRunAgain');assert.equal(await page.evaluate(()=>PostGame.active()),true);assert.equal(await page.evaluate(()=>RankingV1.player().name),'Ryuchi');
+  offline=true;await page.evaluate(()=>endRun(6100,8,'exit'));await until(()=>/Sem conexão/.test($('rk1Status')?.textContent||''));
+  assert.equal(await page.evaluate(()=>RankingV1.pending().length),1);
+  offline=false;await page.evaluate(()=>RankingV1.sync());assert.equal(await page.evaluate(()=>RankingV1.pending().length),0);
+  assert.equal(db.find(r=>r.name==='Ryuchi').score,6100);return true;
+ });
+
+ await check('outra pessoa no mesmo aparelho entra no ranking separada',async()=>{
+  await page.evaluate(()=>{closeOverlay();PostGame.openBriefing()});assert.equal(await page.inputValue('#rk1Name'),'Ryuchi');await page.fill('#rk1Name','Belga');await page.click('#postBeginRun');
+  await page.evaluate(()=>endRun(3000,5));await until(()=>/Belga: #4 de 4/.test($('rk1Status')?.textContent||''));
+  const names=db.filter(r=>r.mode==='solo').map(r=>r.name);assert(names.includes('Ryuchi')&&names.includes('Belga'));
+  assert.notEqual(db.find(r=>r.name==='Ryuchi').id,db.find(r=>r.name==='Belga').id);return names;
+ });
+
+ await check('menu de sistema abre o ranking, com abas SOLO e CO-OP',async()=>{
+  await page.evaluate(()=>{closeOverlay();openSystem()});assert.equal(await page.isVisible('#rk1System'),true);
+  await page.click('#rk1System');await until(()=>/Belga/.test($('rk1List')?.textContent||''));
   await page.click('#rk1Tab_coop');await until(()=>/Duo/.test($('rk1List').textContent));
   assert.match(await text('#overlayInner h2'),/CO-OP/);assert.match(await text('#rk1Status'),/Conclua uma expedição/);return await text('#rk1List');
  });
 
- await check('sem internet, o novo recorde fica pendente e sai quando a conexão volta',async()=>{
-  offline=true;await page.evaluate(()=>{G.postgame.records.solo.score=6100;G.postgame.records.solo.wave=8});
-  await page.click('#rk1Tab_solo');await until(()=>/Sem conexão/.test($('rk1Status').textContent));
-  assert.deepEqual(await page.evaluate(()=>RankingV1.pending()),['solo']);
-  offline=false;await page.evaluate(()=>RankingV1.sync());assert.deepEqual(await page.evaluate(()=>RankingV1.pending()),[]);
-  assert.equal(db.find(r=>r.name==='Ryuchi').score,6100);return true;
- });
-
- await check('menu de sistema e briefing do calabouço também abrem o ranking',async()=>{
-  await page.evaluate(()=>{closeOverlay();openSystem()});assert.equal(await page.isVisible('#rk1System'),true);
-  await page.evaluate(()=>PostGame.openBriefing());assert.equal(await page.isVisible('#rk1Open'),true);
-  await page.click('#rk1Open');await until(()=>$('rk1List')&&!/Carregando/.test($('rk1List').textContent));
-  await page.click('#rk1Back');assert.equal(await page.isVisible('#postBeginRun'),true);return true;
- });
-
- await check('sair do ranking apaga os dados no servidor',async()=>{
-  await page.click('#rk1Open');await page.click('#rk1Leave');await until(()=>/não está participando/.test($('rk1Status')?.textContent||''));
-  assert(!db.some(r=>r.name==='Ryuchi'));assert.equal(await page.isVisible('#rk1JoinLater'),true);return db.length;
+ await check('TIRAR MEU NOME apaga a pessoa do ranking e deste aparelho',async()=>{
+  await page.click('#rk1Leave');await until(()=>!document.getElementById('rk1Leave')&&/Escreva seu nome/.test($('rk1Status')?.textContent||''));
+  assert(!db.some(r=>r.name==='Belga'));assert(db.some(r=>r.name==='Ryuchi'));
+  await page.click('#rk1Back');await page.evaluate(()=>PostGame.openBriefing());assert.equal(await page.inputValue('#rk1Name'),'');return db.length;
  });
 
  assert.deepEqual(errors,[]);

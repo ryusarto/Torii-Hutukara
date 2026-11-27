@@ -1,5 +1,5 @@
 'use strict';
-// Ranking online do calabouço: configuração, apelido, teto de pontos e envio dos recordes.
+// Ranking online do calabouço: configuração, nome, jogadores do aparelho, teto de pontos e fila de envio.
 // Roda o módulo isolado, sem rede: fetch é simulado.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),source=fs.readFileSync(path.join(root,'game/source/chapter-03/ranking_v1.js'),'utf8');
@@ -26,7 +26,7 @@ assert.equal(load(CFG).R.config.url,'https://abcdefgh.supabase.co');cases++;
 // Apelidos.
 {const {R}=load(CFG);for(const ok of ['Ryuchi','Franco The Sir','eco_42','A.B-c','Ação'])assert(R.validName(ok),ok);
  for(const bad of ['a','x'.repeat(17).slice(0,17)+'!','<b>oi</b>','   ','nome;drop'])assert(!R.validName(bad),bad);
- assert.equal(R.cleanName('  Muito   espaço  '),'Muito espaço');assert(R.validName(R.suggestion()));cases++}
+ assert.equal(R.cleanName('  Muito   espaço  '),'Muito espaço');cases++}
 
 // O teto do servidor fica acima de qualquer pontuação real: 18 ecos por onda (36 com divisão),
 // todos ressonantes do tipo mais valioso, multiplicador máximo, plateia no máximo, sem dano e chefe em toda onda.
@@ -44,39 +44,50 @@ assert.equal(load(CFG).R.config.url,'https://abcdefgh.supabase.co');cases++;
  const sql=fs.readFileSync(path.join(root,'production/supabase/ranking_calabouco.sql'),'utf8');assert(sql.includes('5000::bigint + 25000::bigint * (p_wave + 1) + 1000::bigint * (p_wave + 1) * (p_wave + 1)'));cases++}
 
 (async()=>{
- // Sem participação, nada é enviado.
- {const {R,ctx,calls}=load(CFG);ctx.G.postgame.records.solo={score:500,wave:3};await R.sync();assert.equal(calls.length,0);assert.equal(R.state().optIn,null);cases++}
+ const run=(score,wave=3,mode='solo',extra={})=>({score,wave,kills:9,mode,legacy:false,elapsed:60,...extra});
 
- // Participando: envia só o que é maior que o último envio, uma vez.
- {const {R,ctx,calls,store}=load(CFG,{stored:{optIn:true,name:'Ryuchi'}});ctx.G.postgame.records.solo={score:1200,wave:4};ctx.G.postgame.records.coop={score:0,wave:0};
-  await R.sync();assert.equal(calls.length,1);const c=calls[0];
+ // Sem nome escolhido, nada entra na fila nem vai para a rede.
+ {const {R,calls}=load(CFG);assert.equal(R.record(run(500)),false);await R.sync();assert.equal(calls.length,0);assert.equal(R.player(),null);cases++}
+
+ // Nome escolhido: a pontuação da expedição vai uma vez, com nome, modo e build.
+ {const {R,calls,store}=load(CFG);const p=R.choose('  Ryuchi ');assert.equal(p.name,'Ryuchi');assert.match(p.id,/^[0-9a-f-]{36}$/);
+  assert(R.record(run(1200,4)));await R.sync();assert.equal(calls.length,1);const c=calls[0];
   assert.equal(c.url,'https://abcdefgh.supabase.co/rest/v1/rpc/enviar_recorde');assert.equal(c.opt.headers.apikey,CFG.chave);assert.equal(c.opt.headers.Authorization,undefined);
-  assert.deepEqual({mode:c.body.p_mode,name:c.body.p_name,score:c.body.p_score,wave:c.body.p_wave,build:c.body.p_build},{mode:'solo',name:'Ryuchi',score:1200,wave:4,build:'Beta 1.27.0'});
-  assert.match(c.body.p_id,/^[0-9a-f-]{36}$/);await R.sync();assert.equal(calls.length,1);
-  assert.equal(JSON.parse(store.get('torii_hutukara_ranking_v1')).sent.solo,1200);
-  ctx.G.postgame.records.solo={score:1500,wave:5};ctx.G.postgame.records.coop={score:90,wave:1};await R.sync();assert.equal(calls.length,3);assert.deepEqual(calls.slice(1).map(c=>c.body.p_mode),['solo','coop']);cases++}
+  assert.deepEqual({id:c.body.p_id,mode:c.body.p_mode,name:c.body.p_name,score:c.body.p_score,wave:c.body.p_wave,build:c.body.p_build},{id:p.id,mode:'solo',name:'Ryuchi',score:1200,wave:4,build:'Beta 1.27.0'});
+  await R.sync();assert.equal(calls.length,1);const saved=JSON.parse(store.get('torii_hutukara_ranking_v1'));assert.equal(saved.current,'Ryuchi');assert.deepEqual(saved.queue,[]);
+  R.record(run(300,2,'coop'));await R.sync();assert.equal(calls.at(-1).body.p_mode,'coop');cases++}
+
+ // Cada nome usado no aparelho é uma pessoa diferente; repetir o nome (com outra caixa) reaproveita a identidade.
+ {const {R}=load(CFG);const a=R.choose('Franco'),b=R.choose('Belga'),a2=R.choose('FRANCO');assert.notEqual(a.id,b.id);assert.equal(a2.id,a.id);assert.equal(R.player().name,'FRANCO');
+  assert.equal(R.choose('!'),null);assert.equal(R.choose(''),null);assert.equal(R.player().name,'FRANCO');cases++}
+
+ // Expedições antigas (regras anteriores) e sem pontos não entram.
+ {const {R}=load(CFG);R.choose('Mazza');assert.equal(R.record(run(0)),false);assert.equal(R.record(run(100,1,'solo',{legacy:true})),false);assert.equal(R.state().queue.length,0);cases++}
 
  // Chave antiga (JWT anon) também vai no Authorization.
- {const jwt='eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYW5vbiJ9.assinatura-de-teste';const {R,ctx,calls}=load({url:CFG.url,chave:jwt},{stored:{optIn:true,name:'Franco'}});ctx.G.postgame.records.solo={score:10,wave:1};await R.sync();assert.equal(calls[0].opt.headers.Authorization,'Bearer '+jwt);cases++}
+ {const jwt='eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYW5vbiJ9.assinatura-de-teste';const {R,calls}=load({url:CFG.url,chave:jwt});R.choose('Franco');R.record(run(10,1));await R.sync();assert.equal(calls[0].opt.headers.Authorization,'Bearer '+jwt);cases++}
 
- // Falha de rede ou offline: o recorde continua pendente e sai depois.
- {const {R,ctx,calls,replies}=load(CFG,{stored:{optIn:true,name:'Belga'}});ctx.G.postgame.records.solo={score:300,wave:2};replies.push(new Error('rede'));
-  await R.sync();assert.deepEqual(Array.from(R.pending()),['solo']);await R.sync();assert.deepEqual(Array.from(R.pending()),[]);assert.equal(calls.length,2);
-  ctx.navigator.onLine=false;ctx.G.postgame.records.solo={score:400,wave:3};await R.sync();assert.equal(calls.length,2);cases++}
+ // Sem rede: fica na fila (só a maior por pessoa e modo) e sai depois.
+ {const {R,ctx,calls,replies}=load(CFG);R.choose('Belga');replies.push(new Error('rede'));R.record(run(300,2));
+  await R.sync();assert.equal(R.pending('solo').length,1);R.record(run(250,2));R.record(run(450,3));assert.equal(R.state().queue.length,1);assert.equal(R.state().queue[0].score,450);
+  await R.sync();assert.equal(R.pending().length,0);assert.equal(calls.at(-1).body.p_score,450);
+  ctx.navigator.onLine=false;R.record(run(500,3));const before=calls.length;await R.sync();assert.equal(calls.length,before);assert.equal(R.pending().length,1);cases++}
 
- // 'aguarde' não marca como enviado; 'invalido' para de insistir.
- {const {R,ctx,replies}=load(CFG,{stored:{optIn:true,name:'Colli'}});ctx.G.postgame.records.solo={score:50,wave:1};replies.push('aguarde');await R.sync();assert.equal(R.state().sent.solo,0);
-  replies.push('invalido');await R.sync();assert.equal(R.state().sent.solo,50);cases++}
+ // 'aguarde' mantém na fila; 'invalido' tira da fila.
+ {const {R,replies}=load(CFG);R.choose('Colli');R.record(run(50,1));replies.push('aguarde');await R.sync();assert.equal(R.state().queue.length,1);
+  replies.push('invalido');await R.sync();assert.equal(R.state().queue.length,0);cases++}
 
- // Mudar o apelido reenvia os recordes; sair apaga no servidor e troca o id.
- {const {R,ctx,calls}=load(CFG,{stored:{optIn:true,name:'Mazza',sent:{solo:70}}});ctx.G.postgame.records.solo={score:70,wave:1};
-  R.showBoard=()=>{};R.showConsent=()=>{};R.join('Mazza Nova');assert.equal(R.state().name,'Mazza Nova');assert.equal(R.state().sent.solo,0);await R.sync();assert.equal(calls.at(-1).body.p_name,'Mazza Nova');
-  R.join('!');assert.equal(R.state().name,'Mazza Nova');
-  const id=R.state().id;await R.leave();assert.equal(calls.at(-1).url.endsWith('/rpc/ranking_remover'),true);assert.equal(calls.at(-1).body.p_id,id);assert.equal(R.state().optIn,false);assert.notEqual(R.state().id,id);
-  const before=calls.length;await R.sync();assert.equal(calls.length,before);cases++}
+ // Tirar o nome apaga no servidor e esquece a pessoa neste aparelho.
+ {const {R,calls}=load(CFG);const p=R.choose('Dney');R.showBoard=()=>{};R.status=()=>{};await R.leave();
+  assert(calls.at(-1).url.endsWith('/rpc/ranking_remover'));assert.equal(calls.at(-1).body.p_id,p.id);assert.equal(R.player(),null);assert.equal(R.choose('Dney').id===p.id,false);cases++}
+
+ // Quem participava na versão anterior continua com a mesma identidade.
+ {const id='0b9a6f0e-6a3c-4c39-9d44-7b6f2d3e8a11';const {R,store}=load(CFG,{stored:{id,name:'Ryuchi',optIn:true,sent:{solo:70}}});assert.equal(R.player().id,id);assert.equal(JSON.parse(store.get('torii_hutukara_ranking_v1')).v,2);
+  assert.equal(load(CFG,{stored:{id,name:'Ryuchi',optIn:false}}).R.player(),null);cases++}
 
  // Dados locais corrompidos não quebram o módulo.
- {const {R}=load(CFG,{stored:{id:'<script>',name:'<b>x</b>',optIn:'sim',sent:{solo:-5,coop:'x'}}});const s=R.state();assert.match(s.id,/^[0-9a-f-]{36}$/);assert.equal(s.name,'');assert.equal(s.optIn,null);assert.deepEqual({...s.sent},{solo:0,coop:0});cases++}
+ {const {R}=load(CFG,{stored:{v:2,players:{x:{name:'<b>',id:'1'},y:null,z:{name:'Ok',id:'nao-uuid'}},current:'<b>',queue:[{id:'x'},null,{id:'0b9a6f0e-6a3c-4c39-9d44-7b6f2d3e8a11',name:'Ok',mode:'solo',score:-1,wave:1}]}});
+  const s=R.state();assert.deepEqual({...s.players},{});assert.equal(s.current,'');assert.equal(s.queue.length,0);cases++}
 
  const report={passed:cases};console.log(report);
 })().catch(e=>{console.error(e);process.exit(1)});

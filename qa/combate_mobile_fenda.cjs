@@ -61,7 +61,7 @@ const result={checks:[],errors:[],screens:[]};
    await page.locator('#postSystemDungeon').tap();
    assert.match(await page.locator('#overlayInner').innerText(),/Fitas ficam fora da Fenda/);
    assert.match(await page.locator('#overlayInner').innerText(),/onda atual recomeça/);
-   await page.locator('#postBeginRun').tap();await page.evaluate(async()=>{await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');});
+   if(await page.locator('#rk1Name').count())await page.locator('#rk1Name').fill('Teste toque');await page.locator('#postBeginRun').tap();await page.evaluate(async()=>{await FinalAssetLoadingV1.ready();if(FinalAssetLoadingV1.busy()||FinalAssetLoadingV1.snapshot().error)throw Error('Fixture final art is not ready');});
    assert(await page.evaluate(async()=>PostGame.active()));
    const before=await page.evaluate(async()=>{
     const r=PostGame.run(),leader=G.active;

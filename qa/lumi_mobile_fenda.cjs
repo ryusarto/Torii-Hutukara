@@ -92,7 +92,7 @@ const result={checks:[],errors:[],screens:[]};
    await page.locator('#postSystemDungeon').tap();
    assert.match(await page.locator('#overlayInner').innerText(),/Fitas ficam fora da Fenda/);
    assert.match(await page.locator('#overlayInner').innerText(),/onda atual recomeça/);
-   await page.locator('#postBeginRun').tap();
+   if(await page.locator('#rk1Name').count())await page.locator('#rk1Name').fill('Teste toque');await page.locator('#postBeginRun').tap();
    assert(await page.evaluate(()=>PostGame.active()));
    const before=await page.evaluate(()=>{
     const r=PostGame.run(),leader=G.active;
