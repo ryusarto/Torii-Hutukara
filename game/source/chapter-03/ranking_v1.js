@@ -38,6 +38,8 @@ const Ranking={
  limite(wave){const w=Math.max(0,Math.floor(wave))+1;return 5000+25000*w+1000*w*w},
  cleanName(s){return String(s||'').replace(/\s+/g,' ').trim()},
  validName(s){return NAME.test(this.cleanName(s))},
+ // Sugestão para quem ainda não tem nome: quem joga só com controle não consegue digitar.
+ suggestion(){return 'Ouvinte '+String(1000+Math.floor(Math.random()*9000))},
 
  // Estado local: jogadores deste aparelho (nome → identidade), quem está jogando e a fila de envios.
  load(){
@@ -110,12 +112,13 @@ const Ranking={
   const root=node('overlayInner'),start=node('postBeginRun');if(!root||!start)return;
   this.addButton(()=>PostGame.openBriefing(back));
   if(!this.enabled()||node('rk1Form'))return;this.style();
-  const name=this.lastName(),form=document.createElement('form');form.id='rk1Form';form.className='rk1-join';
+  const name=this.lastName()||this.suggestion(),form=document.createElement('form');form.id='rk1Form';form.className='rk1-join';
   form.innerHTML=`<label for="rk1Name">Seu nome no ranking</label><input id="rk1Name" class="rk1-name" maxlength="16" autocomplete="nickname" spellcheck="false" placeholder="Escreva seu nome" value="${esc(name)}"><p class="tiny">Seu nome e sua pontuação aparecem no ranking online do calabouço, visível para todos.</p><p class="rk1-status tiny" id="rk1Status"></p>`;
   start.closest('.row').before(form);
   // interface_controls_v7 já impede que teclas digitadas acionem o jogo; Enter confirma pelo formulário.
   form.onsubmit=e=>{e.preventDefault();this.begin()};start.onclick=()=>this.begin();
-  if(!name)node('rk1Name').focus();
+  // O foco fica em INICIAR (controle confirma direto); ao entrar no campo, o texto fica selecionado para trocar.
+  node('rk1Name').onfocus=e=>e.target.select();
  },
  begin(){
   const input=node('rk1Name'),raw=input?.value||'';

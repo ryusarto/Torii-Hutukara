@@ -26,7 +26,7 @@ assert.equal(load(CFG).R.config.url,'https://abcdefgh.supabase.co');cases++;
 // Apelidos.
 {const {R}=load(CFG);for(const ok of ['Ryuchi','Franco The Sir','eco_42','A.B-c','Ação'])assert(R.validName(ok),ok);
  for(const bad of ['a','x'.repeat(17).slice(0,17)+'!','<b>oi</b>','   ','nome;drop'])assert(!R.validName(bad),bad);
- assert.equal(R.cleanName('  Muito   espaço  '),'Muito espaço');cases++}
+ assert.equal(R.cleanName('  Muito   espaço  '),'Muito espaço');assert(R.validName(R.suggestion()));cases++}
 
 // O teto do servidor fica acima de qualquer pontuação real: 18 ecos por onda (36 com divisão),
 // todos ressonantes do tipo mais valioso, multiplicador máximo, plateia no máximo, sem dano e chefe em toda onda.

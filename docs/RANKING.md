@@ -4,7 +4,7 @@ O ranking mostra a maior pontuação de cada pessoa no Calabouço Infinito (Fend
 
 ## Para quem joga
 
-- Ao entrar no calabouço, o briefing pede **Seu nome no ranking**. O campo vem preenchido com o último nome usado no aparelho. Sem um nome válido (2 a 16 letras, números, espaço, ponto, hífen ou _), a expedição não começa.
+- Ao entrar no calabouço, o briefing pede **Seu nome no ranking**. O campo vem preenchido com o último nome usado no aparelho. Na primeira vez, vem com uma sugestão ("Ouvinte 1234"), para quem joga só com controle conseguir entrar; ao tocar no campo, a sugestão fica selecionada para ser trocada. Sem um nome válido (2 a 16 letras, números, espaço, ponto, hífen ou _), a expedição não começa.
 - No fim da expedição, a pontuação é enviada e a tela de resultado mostra o ranking completo do modo jogado, com a posição da pessoa destacada.
 - **NOVA TENTATIVA** recomeça direto, com o mesmo nome. Para jogar com outro nome, entre de novo pelo calabouço; o briefing sempre mostra o nome.
 - Só o nome, a pontuação e a onda saem do aparelho. Save, campanha e medidor de ritmo continuam locais.

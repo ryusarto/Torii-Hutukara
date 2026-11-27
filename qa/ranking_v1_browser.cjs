@@ -48,18 +48,19 @@ function rpc(name,body){
   G.formation=['franco','alt','percussion'];G.active='franco';for(const id of C3.unlockedRoster())G.hp[id]=G.maxhp[id]=100;PostGame.clearCombat();setArea('last_torii',13.5,13.5,false);mode='walk';
   for(const id of ['start','dialogue'])$(id).classList.add('hidden');
   window.endRun=(score,wave,reason='defeat')=>{const r=PostGame.run();r.score=r.bankedScore=score;r.completedWave=wave;r.kills=wave*5;PostGame.finishRun(reason)};
-  PostGame.openBriefing();
  },{HOST,KEY});
+ // Na exportação web a arte do Torii carrega depois; o jogador só chega ao briefing com o cenário pronto.
+ await page.evaluate(async()=>{await FinalAssetLoadingV1.ready();PostGame.openBriefing()});
 
  await check('o briefing do calabouço pede o nome antes de entrar',async()=>{
-  assert.equal(await page.isVisible('#rk1Name'),true);assert.equal(await page.inputValue('#rk1Name'),'');
-  assert.equal(await page.evaluate(()=>document.activeElement.id),'rk1Name');assert.match(await text('#rk1Form'),/visível para todos/);
-  await page.click('#postBeginRun');assert.match(await text('#rk1Status'),/Escreva seu nome/);assert.equal(await page.evaluate(()=>PostGame.active()),false);
+  assert.equal(await page.isVisible('#rk1Name'),true);assert.match(await page.inputValue('#rk1Name'),/^Ouvinte \d{4}$/);
+  assert.equal(await page.evaluate(()=>document.activeElement.id),'postBeginRun');assert.match(await text('#rk1Form'),/visível para todos/);
+  await page.fill('#rk1Name','');await page.click('#postBeginRun');assert.match(await text('#rk1Status'),/Escreva seu nome/);assert.equal(await page.evaluate(()=>PostGame.active()),false);
   assert.equal(requests.length,0);return await text('#rk1Status');
  });
 
  await check('digitar o nome não aciona atalhos do jogo (espaço, M, J, E, setas)',async()=>{
-  await page.click('#rk1Name');await page.keyboard.type('Ryu me je');await page.keyboard.press('ArrowLeft');await page.keyboard.type('!');
+  await page.click('#rk1Name');await page.keyboard.press('Backspace');await page.keyboard.type('Ryu me je');await page.keyboard.press('ArrowLeft');await page.keyboard.type('!');
   const r=await page.evaluate(()=>({value:$('rk1Name').value,mode,page:menuPage10,focus:document.activeElement.id}));
   assert.deepEqual(r,{value:'Ryu me j!e',mode:'overlay',page:'postgame',focus:'rk1Name'});return r;
  });
@@ -113,7 +114,7 @@ function rpc(name,body){
  await check('TIRAR MEU NOME apaga a pessoa do ranking e deste aparelho',async()=>{
   await page.click('#rk1Leave');await until(()=>!document.getElementById('rk1Leave')&&/Escreva seu nome/.test($('rk1Status')?.textContent||''));
   assert(!db.some(r=>r.name==='Belga'));assert(db.some(r=>r.name==='Ryuchi'));
-  await page.click('#rk1Back');await page.evaluate(()=>PostGame.openBriefing());assert.equal(await page.inputValue('#rk1Name'),'');return db.length;
+  await page.click('#rk1Back');await page.evaluate(()=>PostGame.openBriefing());assert.match(await page.inputValue('#rk1Name'),/^Ouvinte \d{4}$/);return db.length;
  });
 
  assert.deepEqual(errors,[]);
