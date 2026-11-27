@@ -89,57 +89,68 @@ jobs:
           test_server_pid=$!
           trap 'kill "$test_server_pid"' EXIT
           python3 -I qa/portable_media_parity.py
-          node qa/hero_attack_v3_browser.cjs
-          node qa/combat_readability_v1_browser.cjs
-          node qa/ryuchi_halo_v9_browser.cjs
-          CONTROLS_LIFECYCLE_OUT=qa/release-1.0.0/controls-chromium.json node qa/release_controls_lifecycle.cjs http://127.0.0.1:8771/
-          BROWSER_ENGINE=webkit CONTROLS_LIFECYCLE_OUT=qa/release-1.0.0/controls-webkit.json node qa/release_controls_lifecycle.cjs http://127.0.0.1:8771/
-          STATE_RECOVERY_OUTPUT_DIR=qa/release-1.0.0/state-chromium node qa/release_state_recovery.cjs http://127.0.0.1:8771/
-          STATE_ENGINE=webkit STATE_RECOVERY_OUTPUT_DIR=qa/release-1.0.0/state-webkit node qa/release_state_recovery.cjs http://127.0.0.1:8771/
-          node qa/release_lifecycle_v1.cjs http://127.0.0.1:8771/
-          node qa/release_startup_final.cjs http://127.0.0.1:8771/
-          node qa/release_mobile_final.cjs http://127.0.0.1:8771/
-          node qa/release_combat_final.cjs http://127.0.0.1:8771/
-          node qa/release_diagnostics_final.cjs http://127.0.0.1:8771/
-          node qa/final_asset_loading_v1.cjs http://127.0.0.1:8771/
-          node qa/loading_input_continuity_v1.cjs http://127.0.0.1:8771/
-          node qa/render_performance_v1.cjs http://127.0.0.1:8771/
-          node qa/environment_depth_noop.cjs http://127.0.0.1:8771/
-          node qa/guidance_runtime_v1.cjs http://127.0.0.1:8771/
-          BROWSER_ENGINE=webkit node qa/guidance_runtime_v1.cjs http://127.0.0.1:8771/
-          node qa/guidance_campaign_v1.cjs http://127.0.0.1:8771/
-          node qa/npc_scale_v1.cjs http://127.0.0.1:8771/
-          node qa/hero_attack_body_browser.cjs http://127.0.0.1:8771/
-          node qa/run_stride_browser.cjs http://127.0.0.1:8771/
-          node qa/archer_strafe_browser.cjs http://127.0.0.1:8771/
-          node qa/hero_attack_v3_browser.cjs http://127.0.0.1:8771/
-          node qa/hero_vfx_layers_v3_browser.cjs http://127.0.0.1:8771/
-          node qa/enemy_attack_fx_browser.cjs http://127.0.0.1:8771/
-          node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
-          node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/
-          node qa/combat_readability_v1_browser.cjs http://127.0.0.1:8771/
-          node qa/environment_world_browser.cjs http://127.0.0.1:8771/
-          node qa/protagonist_art_v5.cjs http://127.0.0.1:8771/
-          node qa/world_polish_v1.cjs http://127.0.0.1:8771/
-          node qa/npc_life_browser.cjs http://127.0.0.1:8771/
-          node qa/locomotion_browser_v6.cjs http://127.0.0.1:8771/
-          node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
-          node qa/postgame_browser.cjs http://127.0.0.1:8771/
-          node qa/dungeon_playtest.cjs http://127.0.0.1:8771/
-          node qa/combate_mobile_fenda.cjs http://127.0.0.1:8771/
-          node qa/interface_v6.cjs http://127.0.0.1:8771/
-          node qa/interface_v7_dialogue_browser.cjs http://127.0.0.1:8771/
-          node qa/interface_screens_v7_browser.cjs http://127.0.0.1:8771/
-          node qa/interface_controls_v7_browser.cjs http://127.0.0.1:8771/
-          node qa/skill_movement_v1_browser.cjs http://127.0.0.1:8771/
-          node qa/enemy_skill_fx_v1_browser.cjs http://127.0.0.1:8771/ --scoped-only
-          node qa/dungeon_equilibrio.cjs http://127.0.0.1:8771/
-          node qa/review110_browser.cjs http://127.0.0.1:8771/
-          node qa/review111_postgame_browser.cjs http://127.0.0.1:8771/
-          node qa/review111_world_browser.cjs http://127.0.0.1:8771/
-          node qa/playtest_site.cjs http://127.0.0.1:8771/
-          node qa/carregamento_site.cjs http://127.0.0.1:8771/ qa/sorte/CARREGAMENTO.json
-          RECARREGAR=120 node qa/campaign_review.cjs http://127.0.0.1:8771/
+          release_check_failures=0
+          run_release_check() {
+            if "$@"; then
+              return 0
+            else
+              release_check_status=$?
+              release_check_failures=$((release_check_failures + 1))
+              printf '::error::Release check failed (%s): %s\n' "$release_check_status" "$*"
+            fi
+          }
+          run_release_check node qa/hero_attack_v3_browser.cjs
+          run_release_check node qa/combat_readability_v1_browser.cjs
+          run_release_check node qa/ryuchi_halo_v9_browser.cjs
+          run_release_check env CONTROLS_LIFECYCLE_OUT=qa/release-1.0.0/controls-chromium.json node qa/release_controls_lifecycle.cjs http://127.0.0.1:8771/
+          run_release_check env BROWSER_ENGINE=webkit CONTROLS_LIFECYCLE_OUT=qa/release-1.0.0/controls-webkit.json node qa/release_controls_lifecycle.cjs http://127.0.0.1:8771/
+          run_release_check env STATE_RECOVERY_OUTPUT_DIR=qa/release-1.0.0/state-chromium node qa/release_state_recovery.cjs http://127.0.0.1:8771/
+          run_release_check env STATE_ENGINE=webkit STATE_RECOVERY_OUTPUT_DIR=qa/release-1.0.0/state-webkit node qa/release_state_recovery.cjs http://127.0.0.1:8771/
+          run_release_check node qa/release_lifecycle_v1.cjs http://127.0.0.1:8771/
+          run_release_check node qa/release_startup_final.cjs http://127.0.0.1:8771/
+          run_release_check node qa/release_mobile_final.cjs http://127.0.0.1:8771/
+          run_release_check node qa/release_combat_final.cjs http://127.0.0.1:8771/
+          run_release_check node qa/release_diagnostics_final.cjs http://127.0.0.1:8771/
+          run_release_check node qa/final_asset_loading_v1.cjs http://127.0.0.1:8771/
+          run_release_check node qa/loading_input_continuity_v1.cjs http://127.0.0.1:8771/
+          run_release_check node qa/render_performance_v1.cjs http://127.0.0.1:8771/
+          run_release_check node qa/environment_depth_noop.cjs http://127.0.0.1:8771/
+          run_release_check node qa/guidance_runtime_v1.cjs http://127.0.0.1:8771/
+          run_release_check env BROWSER_ENGINE=webkit node qa/guidance_runtime_v1.cjs http://127.0.0.1:8771/
+          run_release_check node qa/guidance_campaign_v1.cjs http://127.0.0.1:8771/
+          run_release_check node qa/npc_scale_v1.cjs http://127.0.0.1:8771/
+          run_release_check node qa/hero_attack_body_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/run_stride_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/archer_strafe_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/hero_attack_v3_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/hero_vfx_layers_v3_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/enemy_attack_fx_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/combat_readability_v1_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/environment_world_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/protagonist_art_v5.cjs http://127.0.0.1:8771/
+          run_release_check node qa/world_polish_v1.cjs http://127.0.0.1:8771/
+          run_release_check node qa/npc_life_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/locomotion_browser_v6.cjs http://127.0.0.1:8771/
+          run_release_check node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
+          run_release_check node qa/postgame_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/dungeon_playtest.cjs http://127.0.0.1:8771/
+          run_release_check node qa/combate_mobile_fenda.cjs http://127.0.0.1:8771/
+          run_release_check node qa/interface_v6.cjs http://127.0.0.1:8771/
+          run_release_check node qa/interface_v7_dialogue_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/interface_screens_v7_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/interface_controls_v7_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/skill_movement_v1_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/enemy_skill_fx_v1_browser.cjs http://127.0.0.1:8771/ --scoped-only
+          run_release_check node qa/dungeon_equilibrio.cjs http://127.0.0.1:8771/
+          run_release_check node qa/review110_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/review111_postgame_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/review111_world_browser.cjs http://127.0.0.1:8771/
+          run_release_check node qa/playtest_site.cjs http://127.0.0.1:8771/
+          run_release_check node qa/carregamento_site.cjs http://127.0.0.1:8771/ qa/sorte/CARREGAMENTO.json
+          run_release_check env RECARREGAR=120 node qa/campaign_review.cjs http://127.0.0.1:8771/
+          test "$release_check_failures" -eq 0
       - name: Keep reports and screenshots
         if: always()
         uses: actions/upload-artifact@v4
