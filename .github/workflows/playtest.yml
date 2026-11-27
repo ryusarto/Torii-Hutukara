@@ -78,6 +78,11 @@ jobs:
           key: media-webp-${{ hashFiles('production/otimizar_media.py') }}-${{ github.sha }}
           restore-keys: media-webp-${{ hashFiles('production/otimizar_media.py') }}-
       - name: Generate portable build
+        env:
+          # Ranking online (Supabase): Settings → Secrets and variables → Actions → Variables.
+          # A chave é a pública (anon/publishable). Sem as variáveis, vale ranking_config.json.
+          TORII_RANKING_URL: ${{ vars.TORII_RANKING_URL }}
+          TORII_RANKING_CHAVE: ${{ vars.TORII_RANKING_CHAVE }}
         run: ruby game/source/chapter-03/build_alpha.rb
       - name: Validate build (fails the deploy on any error)
         run: ruby game/source/chapter-03/validate_alpha.rb
@@ -102,6 +107,7 @@ jobs:
           node qa/input_regression.cjs
           node qa/gameplay_regression.cjs
           node qa/postgame_unit.cjs
+          node qa/ranking_v1_unit.cjs
           node qa/dungeon_balance_unit.cjs
           node qa/review110_postgame_regression.cjs
           node qa/review110_cloud_regression.cjs
@@ -157,6 +163,7 @@ jobs:
           node qa/locomotion_browser_v6.cjs http://127.0.0.1:8771/
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
           node qa/postgame_browser.cjs http://127.0.0.1:8771/
+          node qa/ranking_v1_browser.cjs http://127.0.0.1:8771/
           node qa/dungeon_playtest.cjs http://127.0.0.1:8771/
           node qa/combate_mobile_fenda.cjs http://127.0.0.1:8771/
           node qa/interface_v6.cjs http://127.0.0.1:8771/

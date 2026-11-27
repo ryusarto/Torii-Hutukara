@@ -1,0 +1,5 @@
+{
+  "sobre": "Ranking online do calabouço (Supabase). Preencha a URL do projeto (https://xxxx.supabase.co) e a chave pública (anon ou publishable). Nunca coloque aqui a chave service_role/secret. Com url ou chave vazias, o jogo mostra o ranking como indisponível. As variáveis TORII_RANKING_URL e TORII_RANKING_CHAVE substituem estes valores no build.",
+  "url": null,
+  "chave": null
+}
