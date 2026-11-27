@@ -4,13 +4,15 @@ O ranking mostra a maior pontuação de cada pessoa no Calabouço Infinito (Fend
 
 ## Para quem joga
 
-- A participação é opcional. Na primeira vez em que abre o ranking, a pessoa escolhe entre **PARTICIPAR** (com um apelido) e **SÓ VER O RANKING**.
-- Quem participa envia só o apelido e o recorde de cada modo, com a onda em que ele foi feito. Save, campanha e medidor de ritmo continuam só no aparelho.
-- O jogo envia o recorde ao fim de cada expedição, ao continuar o jogo e quando a internet volta. Sem conexão, o recorde fica pendente e o jogo continua normalmente.
-- Cada aparelho tem uma identidade própria, guardada no navegador (`torii_hutukara_ranking_v1`), separada do save. Exportar e importar o save não leva essa identidade. Um save importado só soma pontos à identidade do aparelho em que é jogado.
-- **SAIR DO RANKING** apaga do servidor as linhas daquela pessoa.
+- Ao entrar no calabouço, o briefing pede **Seu nome no ranking**. O campo vem preenchido com o último nome usado no aparelho. Na primeira vez, vem com uma sugestão ("Ouvinte 1234"), para quem joga só com controle conseguir entrar; ao tocar no campo, a sugestão fica selecionada para ser trocada. Sem um nome válido (2 a 16 letras, números, espaço, ponto, hífen ou _), a expedição não começa.
+- No fim da expedição, a pontuação é enviada e a tela de resultado mostra o ranking completo do modo jogado, com a posição da pessoa destacada.
+- **NOVA TENTATIVA** recomeça direto, com o mesmo nome. Para jogar com outro nome, entre de novo pelo calabouço; o briefing sempre mostra o nome.
+- Só o nome, a pontuação e a onda saem do aparelho. Save, campanha e medidor de ritmo continuam locais.
+- Cada nome usado no aparelho ganha uma identidade própria, guardada no navegador (`torii_hutukara_ranking_v1`, separada do save). Duas pessoas que jogam no mesmo navegador aparecem separadas. Repetir o nome reaproveita a identidade, sem diferenciar maiúsculas de minúsculas. O mesmo nome em outro aparelho é outra linha no ranking.
+- Sem conexão, a pontuação fica numa fila e sai ao continuar o jogo, quando a internet volta ou ao abrir o ranking.
+- **TIRAR MEU NOME**, na tela do ranking, apaga do servidor a última pessoa que jogou no aparelho.
 
-O botão **RANKING ONLINE** aparece no resultado da expedição, no briefing do calabouço e na tela de fim de jornada. No menu de sistema, o botão é **RANKING DO CALABOUÇO**.
+O ranking também abre pelo botão **RANKING ONLINE** no briefing e na tela de fim de jornada, e pelo **RANKING DO CALABOUÇO** no menu de sistema.
 
 ## Configurar o Supabase (uma vez)
 
