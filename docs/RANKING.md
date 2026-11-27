@@ -23,6 +23,14 @@ O botão **RANKING ONLINE** aparece no resultado da expedição, no briefing do 
    - ou nas variáveis do GitHub, em **Settings → Secrets and variables → Actions → Variables**: `TORII_RANKING_URL` e `TORII_RANKING_CHAVE`. O workflow *Publish playtest* usa essas variáveis, que têm prioridade sobre o JSON.
 5. Gere o jogo de novo. Sem URL e chave, a tela do ranking avisa que ele ainda não está disponível.
 
+## Plano gratuito do Supabase
+
+- **Espaço:** o plano gratuito tem 500 MB de banco por projeto. Cada linha do ranking ocupa poucas centenas de bytes, o que dá espaço para mais de um milhão de pessoas.
+- **Pausa por inatividade:** o Supabase pausa projetos gratuitos depois de uma semana com pouco uso e avisa por e-mail antes. O workflow *Ranking keep-alive* (`.github/workflows/ranking-keepalive.yml`) consulta o ranking duas vezes por semana para manter o projeto ativo.
+  - O GitHub desliga workflows agendados depois de 60 dias sem atividade no repositório. Se isso acontecer, ele avisa por e-mail; reative em **Actions → Ranking keep-alive → Enable workflow**.
+  - Se o projeto for pausado mesmo assim, os dados não se perdem na hora. Reative pelo painel do Supabase (**Restore project**) dentro do prazo indicado nele.
+- **Sem pausa:** o plano Pro nunca pausa o projeto.
+
 ## Segurança e moderação
 
 - A tabela `ranking_calabouco` fica fechada para a chave pública. O jogo só chama as funções `enviar_recorde`, `ranking_top`, `ranking_posicao` e `ranking_remover`, e o servidor valida modo, apelido e pontuação.
