@@ -36,8 +36,9 @@ function rpc(name,body){
  const until=fn=>page.waitForFunction(fn,null,{polling:100,timeout:15000});
 
  await check('sem configuração, o ranking aparece como indisponível e não acessa a rede',async()=>{
-  const r=await page.evaluate(()=>{G=fresh();buildMaps();Object.assign(G.c3,{started:true,complete:true});RankingV1.open(closeOverlay);return {enabled:RankingV1.enabled(),html:$('overlayInner').textContent}});
-  assert.equal(r.enabled,false);assert.match(r.html,/ainda não está disponível/);assert.equal(requests.length,0);return r.enabled;
+  const r=await page.evaluate(()=>{const built=RankingV1.config;RankingV1.config=null;G=fresh();buildMaps();Object.assign(G.c3,{started:true,complete:true});RankingV1.open(closeOverlay);return {built:built?.url||null,enabled:RankingV1.enabled(),html:$('overlayInner').textContent}});
+  const cfg=JSON.parse(fs.readFileSync(path.join(root,'game/source/chapter-03/ranking_config.json'),'utf8'));if(!process.env.TORII_RANKING_URL)assert.equal(r.built,cfg.url?cfg.url.replace(/\/+$/,''):null);
+  assert.equal(r.enabled,false);assert.match(r.html,/ainda não está disponível/);assert.equal(requests.length,0);return r.built;
  });
 
  // Daqui em diante, o servidor simulado.
