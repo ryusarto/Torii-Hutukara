@@ -55,6 +55,7 @@ jobs:
           node qa/input_regression.cjs
           node qa/gameplay_regression.cjs
           node qa/postgame_unit.cjs
+          node qa/ranking_v1_unit.cjs
           node qa/dungeon_balance_unit.cjs
           node qa/review110_postgame_regression.cjs
           node qa/review110_cloud_regression.cjs
@@ -102,6 +103,7 @@ jobs:
           node qa/locomotion_browser_v6.cjs http://127.0.0.1:8771/
           node qa/ninja_archer_art.cjs http://127.0.0.1:8771/
           node qa/postgame_browser.cjs http://127.0.0.1:8771/
+          node qa/ranking_v1_browser.cjs http://127.0.0.1:8771/
           node qa/dungeon_playtest.cjs http://127.0.0.1:8771/
           node qa/combate_mobile_fenda.cjs http://127.0.0.1:8771/
           node qa/interface_v6.cjs http://127.0.0.1:8771/

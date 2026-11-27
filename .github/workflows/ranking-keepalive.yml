@@ -1,0 +1,38 @@
+name: Ranking keep-alive
+
+# O plano gratuito do Supabase pausa projetos sem uso por uma semana.
+# Duas consultas por semana ao ranking mantêm o projeto ativo.
+# Usa a mesma URL e chave pública do jogo (ranking_config.json ou variáveis do repositório).
+
+on:
+  schedule:
+    - cron: '17 6 * * 1,4'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          sparse-checkout: game/source/chapter-03/ranking_config.json
+          sparse-checkout-cone-mode: false
+      - name: Consultar o ranking
+        env:
+          VAR_URL: ${{ vars.TORII_RANKING_URL }}
+          VAR_CHAVE: ${{ vars.TORII_RANKING_CHAVE }}
+        run: |
+          config=game/source/chapter-03/ranking_config.json
+          url="${VAR_URL:-$(jq -r '.url // empty' "$config")}"
+          chave="${VAR_CHAVE:-$(jq -r '.chave // empty' "$config")}"
+          if [ -z "$url" ] || [ -z "$chave" ]; then echo "Ranking sem configuração; nada a fazer."; exit 0; fi
+          for modo in solo coop; do
+            curl -fsS --retry 3 --retry-delay 10 -X POST "${url%/}/rest/v1/rpc/ranking_top" \
+              -H "apikey: $chave" -H "Content-Type: application/json" \
+              -d "{\"p_mode\":\"$modo\",\"p_limit\":1}"
+            echo
+          done

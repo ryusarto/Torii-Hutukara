@@ -2,6 +2,7 @@
 
 ## 1.27.0 — em desenvolvimento
 
+- Ranking online do calabouço com a maior pontuação de cada pessoa, em solo e co-op. A participação é opcional e usa um apelido. Sem internet, o recorde é enviado depois. Ele abre pelo resultado da expedição, pelo briefing do calabouço, pela tela de fim de jornada e pelo menu de sistema. Configuração do Supabase em `docs/RANKING.md`.
 - O quadro do jogo cabe na altura da janela no PC. Em notebooks (1366×768, 1280×800, 1280×720), o HUD, a fita de cura e as técnicas não ficam mais cortados embaixo.
 - Tela de créditos no menu principal.
 - A versão aparece certa no menu principal, nos menus e na aba do navegador. Antes, o menu mostrava "BETA 1.17.0" e a aba dizia "Pré-beta".

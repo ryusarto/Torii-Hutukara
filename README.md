@@ -23,6 +23,8 @@ Celulares e tablets usam controles de toque. Controles compatíveis com a Gamepa
 
 O progresso fica salvo no navegador e no aparelho usado. O jogo permite exportar e importar o save em JSON. Guarde uma cópia antes de limpar os dados do navegador; não há sincronização automática entre aparelhos.
 
+O calabouço tem um [ranking online](docs/RANKING.md) opcional com a maior pontuação de cada pessoa. Quem participa envia só o apelido e os recordes; o save não sai do aparelho.
+
 ## Construir e testar
 
 São usados Ruby, Node.js e Python 3. As versões e dependências da distribuição estão nos [workflows](.github/workflows/).
