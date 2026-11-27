@@ -124,6 +124,8 @@ jobs:
           run_release_check node qa/archer_strafe_browser.cjs http://127.0.0.1:8771/
           run_release_check node qa/hero_attack_v3_browser.cjs http://127.0.0.1:8771/
           run_release_check node qa/hero_vfx_layers_v3_browser.cjs http://127.0.0.1:8771/
+          run_release_check env FIRST_CAST_VISIBILITY_OUT=qa/release-1.0.0/first-cast-chromium node qa/first_cast_visibility_v1.cjs http://127.0.0.1:8771/
+          run_release_check env BROWSER_ENGINE=webkit FIRST_CAST_VISIBILITY_OUT=qa/release-1.0.0/first-cast-webkit node qa/first_cast_visibility_v1.cjs http://127.0.0.1:8771/
           run_release_check node qa/enemy_attack_fx_browser.cjs http://127.0.0.1:8771/
           run_release_check node qa/boss_choreography_browser.cjs http://127.0.0.1:8771/
           run_release_check node qa/boss_ground_fx_browser.cjs http://127.0.0.1:8771/

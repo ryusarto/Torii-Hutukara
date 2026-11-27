@@ -125,11 +125,12 @@ const HeroAttackFX = {
   },
   contactPoint(hit,angle,phase=1){
     const target=hit.target;
-    if(target===bossActor || current?.enemies?.includes(target)){
+    if(target && (target===bossActor || current?.enemies?.includes(target))){
       hit.lastX=target.x;hit.lastY=target.y;
     }
     const k=Math.min(1,phase/.69),settle=k*k*(3-2*k);
-    const x=hit.x+(hit.lastX-hit.x)*settle,y=hit.y+(hit.lastY-hit.y)*settle;
+    const lastX=Number.isFinite(hit.lastX)?hit.lastX:hit.x,lastY=Number.isFinite(hit.lastY)?hit.lastY:hit.y;
+    const x=hit.x+(lastX-hit.x)*settle,y=hit.y+(lastY-hit.y)*settle;
     if(!hit.edge || hit.edgeAngle!==angle){hit.edge=this.enemyEdge(target,angle);hit.edgeAngle=angle}
     const edge=hit.edge;
     return {x:x*T-cam.x+edge.x,y:y*T-cam.y+edge.y};
@@ -142,9 +143,15 @@ const HeroAttackFX = {
       }
     }
   },
-  draw(){
+  isGround(event){
+    const art=event.art;
+    if(art?.castCue)return false;
+    return art?!!(art.floor || art.floorWidth || ['field','pulse','floor'].includes(art.gesture)):event.row===36;
+  },
+  draw(pass='all'){
     this.sync();
     for(const event of this.events){
+      if((pass==='ground'&&!this.isGround(event)) || (pass==='foreground'&&this.isGround(event)))continue;
       // A successful counter consumes the stance early; the contact takes its place.
       if(event.art?.guard && (G.active!==event.art.guard ||
         (event.art.guard==='katana'?Combat10.guard:C3.percussionGuard)<=0))continue;
@@ -177,7 +184,7 @@ const HeroAttackFX = {
     let duration=action===0?Math.min(.26,Math.max(.15,body.cool||.2)):[0,.32,.36,.52][action];
     const sword=hero==='ryuchi' && action===0 && stage===0;
     const clip=action===0?stage:action+2;
-    const art=this.v3Sources[hero]?{hero,clip,gesture:'strike',anchor:action===0?actor:null}:null;
+    const art=this.v3Sources[hero]?{hero,clip,gesture:'strike',castCue:true,anchor:action===0?actor:null}:null;
     if(art){
       if(action===0)art.gesture=({franco:'pluck',ryuchi:'blade',katana:'thrust',synth:'strike',percussion:'thrust'})[hero];
       if(action>0 && ['franco','percussion'].includes(hero))art.gesture='pulse';

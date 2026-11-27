@@ -36,6 +36,9 @@ node qa/release_lifecycle_v1.cjs http://127.0.0.1:8771/
 node qa/release_startup_final.cjs http://127.0.0.1:8771/
 node qa/release_mobile_final.cjs http://127.0.0.1:8771/
 node qa/release_combat_final.cjs http://127.0.0.1:8771/
+node qa/hero_vfx_layers_v3_browser.cjs http://127.0.0.1:8771/
+node qa/first_cast_visibility_v1.cjs http://127.0.0.1:8771/
+BROWSER_ENGINE=webkit node qa/first_cast_visibility_v1.cjs http://127.0.0.1:8771/
 node qa/release_diagnostics_final.cjs http://127.0.0.1:8771/
 node qa/final_asset_loading_v1.cjs http://127.0.0.1:8771/
 node qa/loading_input_continuity_v1.cjs http://127.0.0.1:8771/
@@ -57,6 +60,7 @@ node qa/interface_controls_v7_browser.cjs http://127.0.0.1:8771/
 - Orientação desde a primeira abertura, retorno ao título e aproximação dos chefes, com saves existentes.
 - Metrônomo visível antes da conversa, com o sprite inteiro ao alcançar o prompt em retrato e paisagem.
 - Combate, chefes, pausa, derrota, reinício e retorno ao mapa.
+- Efeitos visíveis no primeiro golpe e técnica, com recursos carregados pelo fluxo normal, inclusive após eliminar o alvo; campos de chão sob os atores e sinais de lançamento, impactos e projéteis antes dos avisos inimigos.
 - Fenda: escolha de melhorias, retomada, recursos e pontuação solo/coop.
 - Teclado, remapeamento, toque e dois controles sem confirmação dupla.
 - Arte, animações e camadas preservadas nos cenários de referência.

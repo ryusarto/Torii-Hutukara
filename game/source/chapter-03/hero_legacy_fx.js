@@ -4,9 +4,9 @@
 const HeroLegacyFX = {
   actor: null,
   worldOverlay: false,
-  // All allied spell geometry is submitted before the map draws the actors.
-  // Their own transparent sprites become the mask (including both coop seats),
-  // with no offscreen textures, guessed hitboxes or per-character clipping.
+  // Floor effects stay under the actors; compact strikes and projectiles are
+  // composed after them so an opaque target cannot erase confirmed feedback.
+  // Existing enemy warnings remain above both allied passes.
   drawGround() {
     if (!G) return;
     drawMusicianFloorCues();
@@ -15,13 +15,16 @@ const HeroLegacyFX = {
     drawSignatureCues();
     drawHeroSwipe();
     drawCoopWeaponCue();
-    HeroAttackFX.draw();
-    drawAlliedProjectiles();
+    HeroAttackFX.draw('ground');
     drawVfx(0, true);
   },
   drawOverlay() {
     this.worldOverlay = true;
-    try { drawCombatLayer(); }
+    try {
+      HeroAttackFX.draw('foreground');
+      drawAlliedProjectiles();
+      drawCombatLayer();
+    }
     finally { this.worldOverlay = false; }
   },
   withActor(hero, emit) {
